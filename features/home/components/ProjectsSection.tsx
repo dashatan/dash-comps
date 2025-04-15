@@ -41,25 +41,42 @@ const projects: Project[] = [
 
 export function ProjectsSection(): React.ReactElement {
   return (
-    <section className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
-          Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section
+      id="projects"
+      className="py-12 sm:py-16 md:py-20 bg-muted px-4 sm:px-6 lg:px-8"
+    >
+      <div className="container mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+            Projects
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground">
+            Check out some of my recent work
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
+            <Card
+              key={index}
+              className="overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-lg"
+            >
+              <CardHeader className="pb-3 sm:pb-4">
+                <CardTitle className="text-xl sm:text-2xl">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base">
+                  {project.description}
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="relative h-48 w-full">
+              <CardContent className="pt-0 flex-grow">
+                <div className="relative h-40 sm:h-48 w-full rounded-md overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               </CardContent>

@@ -24,20 +24,35 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
-          Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section
+      id="services"
+      className="py-12 sm:py-16 md:py-20 bg-background px-4 sm:px-6 lg:px-8"
+    >
+      <div className="container mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+            Services
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground">
+            Specialized expertise to help bring your vision to life
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-6 rounded-lg bg-card text-card-foreground shadow-lg hover:shadow-xl transition-shadow"
+              className="p-5 sm:p-6 rounded-lg bg-card text-card-foreground shadow hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 border border-border/50 hover:border-primary/20"
             >
-              <service.icon className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-muted-foreground">{service.description}</p>
+              <div className="flex items-center justify-center sm:justify-start">
+                <service.icon className="h-10 w-10 sm:h-12 sm:w-12 text-primary mb-4" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center sm:text-left">
+                {service.title}
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground text-center sm:text-left">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>

@@ -11,7 +11,8 @@
       "Use tailwindcss for styling",
       "Use shadcn/ui for components",
       "Use nextjs for routing",
-      "use pnpm as package manager"
+      "Use pnpm as package manager",
+      "Always consider responsive design"
     ],
     "preferences": {
       "lineLimit": 200,
