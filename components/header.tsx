@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { ThemeBuilder } from '@/components/theme-builder';
 
 export function Header() {
   return (
@@ -35,7 +36,10 @@ export function Header() {
           >
             Contact
           </a>
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <ThemeBuilder />
+          </div>
         </nav>
       </div>
     </header>

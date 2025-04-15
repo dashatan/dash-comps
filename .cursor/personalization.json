@@ -1,0 +1,22 @@
+{
+  "personalization": {
+    "rules": [
+      "Keep files under 200 lines, separate concerns into multiple files when necessary",
+      "Use regular function declarations instead of arrow functions (except for inline functions)",
+      "Don't use forwardRef as it's deprecated",
+      "Follow SOLID principles: Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion",
+      "Follow clean code principles with descriptive names and proper documentation",
+      "Use TypeScript with explicit type definitions",
+      "Prefer absolute imports with @/ prefix over relative imports",
+      "Use tailwindcss for styling",
+      "Use shadcn/ui for components",
+      "Use nextjs for routing",
+      "use pnpm as package manager"
+    ],
+    "preferences": {
+      "lineLimit": 200,
+      "functionStyle": "traditional",
+      "importStyle": "absolute"
+    }
+  }
+}
