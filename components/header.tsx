@@ -1,5 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
+
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
@@ -32,6 +35,7 @@ export function Header() {
           >
             Contact
           </a>
+          <ThemeToggle />
         </nav>
       </div>
     </header>
