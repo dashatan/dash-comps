@@ -2,8 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { GithubIcon, Mail, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/lib/language-context';
 
 export function HeroSection(): React.ReactElement {
+  const { t, isLoading } = useLanguage();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section
       id="home"
@@ -11,14 +18,12 @@ export function HeroSection(): React.ReactElement {
     >
       <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-          Hi, I am <span className="text-primary">Daniel Ochi</span>
+          {t('home.hero.title', { name: 'Daniel Ochi' })}
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-          A seasoned <span className="text-primary">Frontend Developer</span>{' '}
-          transforming ideas into stunning digital experiences. Let's create
-          something amazing!
+          {t('home.hero.subtitle')}
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+        <div className="flex justify-center space-x-4">
           <Link
             href="https://github.com"
             target="_blank"

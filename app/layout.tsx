@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
+import { LanguageProvider } from '@/lib/language-context';
+import { TranslationDebugger } from '@/components/translation-debugger';
 import './globals.css';
+import './fonts.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,9 +18,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Dash-Comps | Portfolio',
+  title: 'Daniel Ochi - Frontend Developer Portfolio',
   description:
     'Software engineering and web development portfolio showcasing projects and components',
+  alternates: {
+    languages: {
+      en: '/en',
+      fa: '/fa',
+      ar: '/ar',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -31,12 +41,21 @@ export default function RootLayout({
       className="scroll-smooth overflow-x-hidden"
       suppressHydrationWarning
     >
+      <head>
+        <link rel="alternate" hrefLang="en" href="/en" />
+        <link rel="alternate" hrefLang="fa" href="/fa" />
+        <link rel="alternate" hrefLang="ar" href="/ar" />
+        <link rel="canonical" href="/" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground w-full h-full`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sahel antialiased bg-background text-foreground w-full h-full`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="flex-1">{children}</main>
+          <LanguageProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <TranslationDebugger />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

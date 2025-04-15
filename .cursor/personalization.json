@@ -2,6 +2,7 @@
   "personalization": {
     "rules": [
       "Keep files under 200 lines, separate concerns into multiple files when necessary",
+      "Always use the best practices for the project",
       "Use regular function declarations instead of arrow functions (except for inline functions)",
       "Don't use forwardRef as it's deprecated",
       "Follow SOLID principles: Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion",
@@ -12,7 +13,8 @@
       "Use shadcn/ui for components",
       "Use nextjs for routing",
       "Use pnpm as package manager",
-      "Always consider responsive design"
+      "Always consider responsive design",
+      "Always before every try, ask me to install the necessary packages"
     ],
     "preferences": {
       "lineLimit": 200,

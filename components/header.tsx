@@ -4,11 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { ThemeBuilder } from '@/components/theme-builder';
+import { LanguageToggle } from '@/components/language-toggle';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/lib/language-context';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -31,28 +34,29 @@ export function Header() {
             href="#"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Home
+            {t('common.home')}
           </a>
           <a
             href="#projects"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Projects
+            {t('common.projects')}
           </a>
           <a
             href="#components"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Components
+            {t('common.components')}
           </a>
           <a
             href="#contact"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            Contact
+            {t('common.contact')}
           </a>
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            <LanguageToggle />
             <ThemeBuilder />
           </div>
         </nav>
@@ -60,12 +64,13 @@ export function Header() {
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
+          <LanguageToggle />
           <Button
             variant="ghost"
             size="icon"
             className="h-9 w-9 text-foreground"
             onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
+            aria-label={t('accessibility.menuOpen')}
           >
             {mobileMenuOpen ? (
               <X className="h-5 w-5" />
@@ -85,28 +90,28 @@ export function Header() {
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
-              Home
+              {t('common.home')}
             </a>
             <a
               href="#projects"
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
-              Projects
+              {t('common.projects')}
             </a>
             <a
               href="#components"
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
-              Components
+              {t('common.components')}
             </a>
             <a
               href="#contact"
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
-              Contact
+              {t('common.contact')}
             </a>
             <div className="pt-2">
               <ThemeBuilder />

@@ -10,6 +10,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+        sahel: ['Sahel', 'var(--font-geist-sans)', 'sans-serif'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -66,6 +71,10 @@ export default {
       animation: {
         float: 'float 6s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out 2s infinite',
+      },
+      textDirection: {
+        ltr: 'ltr',
+        rtl: 'rtl',
       },
     },
   },

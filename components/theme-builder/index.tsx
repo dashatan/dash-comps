@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Settings, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
+import { useLanguage } from '@/lib/language-context';
 import { useThemePersistence } from '@/lib/hooks/use-theme-persistence';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ColorCategory } from '@/components/theme-builder/color-category';
@@ -24,6 +25,7 @@ export function ThemeBuilder() {
   const [colors, setColors] = useState<ColorVar[]>([]);
   const [resetKey, setResetKey] = useState(0);
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const { isLoaded, saveTheme } = useThemePersistence();
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -86,9 +88,10 @@ export function ThemeBuilder() {
         size="icon"
         className="rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
         onClick={() => setIsOpen(true)}
+        aria-label={t('themeBuilder.title')}
       >
         <Settings className="h-5 w-5" />
-        <span className="sr-only">Theme Builder</span>
+        <span className="sr-only">{t('themeBuilder.title')}</span>
       </Button>
 
       {/* Slide-in Panel */}
@@ -101,15 +104,18 @@ export function ThemeBuilder() {
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-border">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Theme Builder</h2>
+              <h2 className="text-xl font-semibold">
+                {t('themeBuilder.title')}
+              </h2>
               <Button
                 variant="ghost"
                 size="icon"
                 className="rounded-full hover:text-destructive"
                 onClick={() => setIsOpen(false)}
+                aria-label={t('common.close')}
               >
                 <X className="h-5 w-5" />
-                <span className="sr-only">Close</span>
+                <span className="sr-only">{t('common.close')}</span>
               </Button>
             </div>
           </div>
@@ -117,9 +123,15 @@ export function ThemeBuilder() {
           <div className="flex-1 p-6 overflow-y-auto">
             <Tabs defaultValue="background" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="background">Background</TabsTrigger>
-                <TabsTrigger value="primary">Primary</TabsTrigger>
-                <TabsTrigger value="utility">Utility</TabsTrigger>
+                <TabsTrigger value="background">
+                  {t('themeBuilder.background')}
+                </TabsTrigger>
+                <TabsTrigger value="primary">
+                  {t('themeBuilder.primary')}
+                </TabsTrigger>
+                <TabsTrigger value="utility">
+                  {t('themeBuilder.utility')}
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="background">
@@ -151,7 +163,7 @@ export function ThemeBuilder() {
               className="w-full"
               onClick={handleResetTheme}
             >
-              Reset to Defaults
+              {t('themeBuilder.resetDefaults')}
             </Button>
           </div>
         </div>
