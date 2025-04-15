@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+// Using type instead of interface to avoid the no-empty-interface warning
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 function Input({ className, type, ...props }: InputProps): React.ReactElement {
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/lib/language-context';
 import { validateTranslations } from '@/lib/translation-validator';
 import { Button } from '@/components/ui/button';

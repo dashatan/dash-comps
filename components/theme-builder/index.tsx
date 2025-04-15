@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { useState, useEffect, useRef } from 'react';
 import { Settings, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
@@ -21,16 +20,16 @@ import {
  * ThemeBuilder component for customizing theme colors
  */
 export function ThemeBuilder() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [colors, setColors] = useState<ColorVar[]>([]);
-  const [resetKey, setResetKey] = useState(0);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [colors, setColors] = React.useState<ColorVar[]>([]);
+  const [resetKey, setResetKey] = React.useState(0);
   const { theme } = useTheme();
   const { t } = useLanguage();
   const { isLoaded, saveTheme } = useThemePersistence();
-  const panelRef = useRef<HTMLDivElement>(null);
+  const panelRef = React.useRef<HTMLDivElement>(null);
 
   // Handle clicks outside the panel to close it
-  useEffect(() => {
+  React.useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
         panelRef.current &&
@@ -48,7 +47,7 @@ export function ThemeBuilder() {
   }, [isOpen]);
 
   // Load theme colors
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isLoaded) return;
     const themeColors = extractThemeColors();
     setColors(themeColors);
@@ -60,8 +59,8 @@ export function ThemeBuilder() {
     document.documentElement.style.setProperty(name, newValue);
 
     // Update state
-    setColors((prev) =>
-      prev.map((color) =>
+    setColors((prev: ColorVar[]) =>
+      prev.map((color: ColorVar) =>
         color.name === name ? { ...color, value: newValue } : color
       )
     );
@@ -74,7 +73,7 @@ export function ThemeBuilder() {
   // Reset theme
   function handleResetTheme() {
     resetThemeColors(colors);
-    setResetKey((prev) => prev + 1);
+    setResetKey((prev: number) => prev + 1);
   }
 
   // Categorize colors for display
