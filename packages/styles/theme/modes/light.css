@@ -1,0 +1,218 @@
+/* Light Theme Mode
+ * This file contains light theme color values
+ */
+
+.light {
+  --background: var(--color-white);
+  --foreground: var(--color-neutral-800);
+  --card: var(--color-white);
+  --card-accent: var(--color-neutral-100);
+  --card-foreground: var(--color-neutral-900);
+  --card-hover: var(--color-neutral-200);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-neutral-900);
+  --popover-hover: var(--color-neutral-100);
+  --primary: var(--color-blue-500);
+  --primary-foreground: var(--color-blue-50);
+  --primary-hover: var(--color-blue-600);
+  --secondary: var(--color-zinc-200);
+  --secondary-foreground: var(--color-neutral-900);
+  --secondary-hover: var(--color-zinc-300);
+  --muted: var(--color-neutral-100);
+  --muted-foreground: var(--color-neutral-500);
+  --muted-hover: var(--color-neutral-200);
+  --accent: var(--color-stone-200);
+  --accent-foreground: var(--color-neutral-900);
+  --accent-hover: var(--color-stone-300);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-red-50);
+  --destructive-hover: var(--color-red-600);
+  --border: var(--color-neutral-200);
+  --ring: var(--color-blue-500);
+  --hint: var(--color-gray-500);
+  --icon: var(--color-neutral-500);
+
+  /* Input Colors */
+  --input: var(--color-neutral-50);
+  --input-background: var(--color-neutral-50);
+  --input-foreground: var(--color-neutral-800);
+  --input-hover: var(--color-neutral-100);
+  --input-primary: var(--color-blue-500);
+  --input-border: var(--color-neutral-200);
+  --input-ring: var(--color-blue-500);
+  --input-accent: var(--color-neutral-200);
+  --input-accent-foreground: var(--color-neutral-900);
+  --input-accent-hover: var(--color-neutral-300);
+
+  /* Table Colors */
+  --table: var(--color-neutral-50);
+  --table-row: var(--color-slate-100);
+  --table-border: var(--color-neutral-200);
+  --table-header: var(--color-neutral-100);
+  --table-checkbox: var(--color-neutral-100);
+  --table-menu: var(--color-neutral-100);
+  --table-menu-border: var(--color-neutral-200);
+
+  /* Status Colors */
+  --success: var(--color-emerald-400);
+  --success-foreground: var(--color-emerald-50);
+  --success-hover: var(--color-emerald-500);
+  --info: var(--color-blue-400);
+  --info-foreground: var(--color-blue-50);
+  --info-hover: var(--color-blue-500);
+  --error: var(--color-rose-400);
+  --error-foreground: var(--color-rose-50);
+  --error-hover: var(--color-rose-500);
+  --warning: var(--color-amber-400);
+  --warning-foreground: var(--color-amber-50);
+  --warning-hover: var(--color-amber-500);
+  --disabled: var(--color-neutral-400);
+  --neutral: var(--color-neutral-500);
+
+  /* Status Ring Colors */
+  --ring-warning: var(--color-yellow-500);
+  --ring-error: var(--color-red-500);
+  --ring-success: var(--color-emerald-500);
+  --ring-info: var(--color-blue-500);
+  --ring-critical: var(--color-red-500);
+  --ring-neutral: var(--color-blue-500);
+  --ring-pending: var(--color-yellow-500);
+  --ring-processing: var(--color-blue-500);
+  --ring-completed: var(--color-emerald-500);
+  --ring-disabled: var(--color-neutral-400);
+
+  /* Sidebar Colors */
+  --sidebar: var(--color-white);
+  --sidebar-foreground: var(--color-neutral-700);
+  --header: var(--color-white);
+  --header-foreground: var(--color-neutral-700);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-neutral-100);
+  --sidebar-accent-foreground: var(--color-neutral-900);
+  --sidebar-active: var(--color-blue-50);
+  --sidebar-active-foreground: var(--color-blue-500);
+  --sidebar-border: var(--color-neutral-200);
+  --sidebar-ring: var(--color-blue-500);
+  --sidebar-muted: var(--color-neutral-100);
+  --sidebar-icon: var(--color-neutral-400);
+  --sidebar-input: var(--color-neutral-100);
+  --sidebar-pin: var(--color-neutral-200);
+  --sidebar-pinned: var(--color-neutral-100);
+
+  /* Chart Colors */
+  --chart-1: var(--color-cyan-400); /* Cyan */
+  --chart-2: var(--color-blue-400); /* Blue */
+  --chart-3: var(--color-indigo-400); /* Indigo */
+  --chart-4: var(--color-violet-400); /* Violet */
+  --chart-5: var(--color-fuchsia-400); /* Fuchsia */
+  --chart-6: var(--color-red-400); /* Red */
+  --chart-7: var(--color-orange-400); /* Orange */
+  --chart-8: var(--color-amber-400); /* Amber/Yellow */
+  --chart-9: var(--color-lime-400); /* Lime */
+  --chart-10: var(--color-green-400); /* Green */
+  --chart-11: var(--color-emerald-400); /* Emerald */
+  --chart-12: var(--color-teal-400); /* Teal */
+  --chart-13: var(--color-slate-400); /* Slate */
+
+  /* In-range colors of map chart */
+  --chart-range-1: var(--color-map-blue-11);
+  --chart-range-2: var(--color-map-blue-10);
+  --chart-range-3: var(--color-map-blue-9);
+  --chart-range-4: var(--color-map-blue-8);
+  --chart-range-5: var(--color-map-blue-7);
+  --chart-range-6: var(--color-map-blue-6);
+  --chart-range-7: var(--color-map-blue-5);
+
+  --chart-range-error-1: var(--color-map-brown-11);
+  --chart-range-error-2: var(--color-map-brown-10);
+  --chart-range-error-3: var(--color-map-brown-9);
+  --chart-range-error-4: var(--color-map-brown-8);
+  --chart-range-error-5: var(--color-map-brown-7);
+  --chart-range-error-6: var(--color-map-brown-6);
+  --chart-range-error-7: var(--color-map-brown-5);
+
+  --color-doughnut-1: var(--color-green-700); /* green 700 */
+  --color-doughnut-2: var(--color-green-500); /* green 500 */
+  --color-doughnut-3: var(--color-green-300); /* green 300 */
+  --color-doughnut-4: var(--color-yellow-400); /* yellow 400 */
+  --color-doughnut-5: var(--color-yellow-200); /* yellow 200 */
+  --color-doughnut-6: var(--color-red-300); /* red 300 */
+  --color-doughnut-7: var(--color-red-500); /* red 500 */
+  --color-doughnut-8: var(--color-red-700); /* red 700 */
+  --color-doughnut-9: var(--color-stone-400); /* stone 400 */
+
+  /* this colors should be in rgb or hex since echarts doesn't support oklch till the current version */
+  --chart-map: var(--color-indigo-600);
+  --chart-map-light: var(--color-indigo-400);
+
+  /* Plate colors */
+  --plate-flag: var(--color-blue-600);
+  --plate-background: var(--input);
+  --plate-foreground: var(--input-foreground);
+  --plate-accent: var(--input-accent);
+
+  /* tab */
+  --tab-background: var(--color-gray-50);
+  --tab-border: var(--color-neutral-200);
+  --tab-active-background: var(--color-neutral-200);
+  --tab-active-foreground: var(--color-neutral-900);
+  --tab-inactive-foreground: var(--color-neutral-600);
+  --tab-inactive-hover-foreground: var(--color-neutral-900);
+
+  /* Toast Colors */
+  --toast-success: var(--color-emerald-100);
+  --toast-success-foreground: var(--color-emerald-900);
+  --toast-success-border: var(--color-emerald-200);
+  --toast-error: var(--color-rose-100);
+  --toast-error-foreground: var(--color-rose-900);
+  --toast-error-border: var(--color-rose-200);
+  --toast-warning: var(--color-amber-100);
+  --toast-warning-foreground: var(--color-amber-900);
+  --toast-warning-border: var(--color-amber-200);
+  --toast-info: var(--color-sky-100);
+  --toast-info-foreground: var(--color-sky-900);
+  --toast-info-border: var(--color-sky-200);
+  --toast-disabled: var(--color-neutral-100);
+  --toast-disabled-foreground: var(--color-neutral-900);
+  --toast-disabled-border: var(--color-neutral-200);
+
+  /* Overall Item Background Colors */
+  --overall-info-1: var(--color-indigo-400);
+  --overall-info-2: var(--color-sky-400);
+  --overall-info-3: var(--color-emerald-400);
+  --overall-info-4: var(--color-rose-400);
+
+  --chart-progress: var(--color-sky-200);
+
+  /* Switch Colors */
+  --switch-background: var(--color-neutral-200);
+  --switch-foreground: var(--color-neutral-900);
+  --switch-border: var(--color-neutral-200);
+  --switch-ring: var(--color-neutral-200);
+  --switch-accent: var(--color-neutral-200);
+  --switch-accent-foreground: var(--color-neutral-900);
+
+  /* Tooltip Colors */
+  --tooltip: var(--color-gray-800);
+  --tooltip-foreground: var(--color-gray-100);
+  --tooltip-border: var(--color-gray-900);
+
+  /* banner BG Colors */
+  --banner: var(--color-white);
+  --banner-bg-opacity: 0.3;
+  --banner-foreground: var(--color-neutral-800);
+  --banner-border: var(--color-neutral-200);
+}
+
+/* dark . blue :  171717 1F2B3A 263F5C 2E527F 3566A1 3D7AC4
+
+dark . green : 171717 3C3020 614A29 876331 AC7D3A D19643
+
+min dark 2E2E2D
+
+light . blue : FFFFFF D8E4F3 B1CAE7 8BAFDC 6495D0 3D7AC4
+
+light . green : 
+
+min light E7E7E6 */

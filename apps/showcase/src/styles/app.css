@@ -1,0 +1,10 @@
+@import "@dash/styles/index.css";
+
+/* Showcase: full viewport shell (scroll lives in <main>) */
+html,
+body,
+#root {
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}

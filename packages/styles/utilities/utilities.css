@@ -1,0 +1,23 @@
+@utility dir-ltr {
+  direction: ltr;
+}
+
+@utility dir-rtl {
+  direction: rtl;
+}
+
+@utility flex-1 {
+  flex: 1 1 0;
+}
+@utility flex-full {
+  flex: 1 1 0;
+}
+
+@utility font-main {
+  font-family: var(--font-peyda);
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

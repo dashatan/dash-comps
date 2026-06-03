@@ -1,0 +1,310 @@
+/* Sirat common Leaflet map — uses theme tokens from @dash/styles */
+
+.sirat-leaflet-map .cluster-icon div {
+  font-family: var(--font-family);
+  display: flex;
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: var(--color-gray-600);
+  transition: all 0.2s ease-in-out;
+}
+
+.sirat-leaflet-map .cluster-icon div:hover {
+  width: var(--spacing-10);
+  height: var(--spacing-10);
+}
+
+.sirat-leaflet-map .cluster-icon div span {
+  font-family: var(--font-family);
+  display: flex;
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gray-50);
+  background-color: var(--color-gray-700);
+  padding-left: 1px;
+  padding-top: var(--spacing-1);
+  border-radius: 9999px;
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch.leaflet-geosearch-bar {
+  font-family: var(--font-family);
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: var(--spacing-128);
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch.leaflet-geosearch-bar form {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-card);
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch.leaflet-geosearch-bar form input {
+  color: var(--color-card-foreground);
+  background-color: transparent;
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch button.reset {
+  font-family: var(--font-family);
+  font-size: var(--text-3xl);
+  left: 0;
+  right: auto !important;
+  height: 100%;
+  width: var(--spacing-12);
+  font-weight: var(--font-weight-light);
+  color: var(--color-muted-foreground);
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch button.reset:hover {
+  color: var(--color-foreground);
+  background-color: var(--color-muted);
+}
+
+.sirat-leaflet-map .leaflet-touch .leaflet-control-geosearch.leaflet-geosearch-bar form {
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch .results {
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch .results.active {
+  border-top: 1px solid var(--color-border);
+}
+
+.sirat-leaflet-map .leaflet-control-geosearch .results > .active,
+.sirat-leaflet-map .leaflet-control-geosearch .results > :hover {
+  background-color: var(--color-muted);
+  border-color: var(--color-border);
+  color: var(--color-foreground);
+}
+
+.sirat-leaflet-map .leaflet-bar-notfound {
+  color: var(--color-muted-foreground);
+}
+
+.sirat-leaflet-map .leaflet-touch .leaflet-control-layers,
+.sirat-leaflet-map .leaflet-touch .leaflet-bar {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.sirat-leaflet-map .leaflet-bar a {
+  border-color: var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+}
+
+.sirat-leaflet-map .leaflet-div-icon {
+  position: relative;
+}
+
+.sirat-leaflet-map .origin-icon,
+.sirat-leaflet-map .destination-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: var(--color-gray-700);
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in-out;
+}
+
+.sirat-leaflet-map .origin-icon::before {
+  content: "";
+  border: 4px solid var(--color-warning);
+  border-radius: 9999px;
+  z-index: 10;
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+
+.sirat-leaflet-map .destination-icon::before {
+  content: "";
+  border: 4px solid var(--color-primary);
+  border-radius: 9999px;
+  z-index: 10;
+  width: var(--spacing-4);
+  min-width: var(--spacing-4);
+  height: var(--spacing-4);
+  min-height: var(--spacing-4);
+}
+
+.sirat-leaflet-map .sirat-map-tooltip {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  font-family: var(--font-family);
+}
+
+.sirat-leaflet-map .sirat-map-tooltip::before {
+  border-top-color: var(--color-border);
+}
+
+.sirat-leaflet-map .sirat-map-popup .leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  font-family: var(--font-family);
+  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--color-foreground) 10%, transparent);
+}
+
+.sirat-leaflet-map .sirat-map-popup .leaflet-popup-tip {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+}
+
+.sirat-leaflet-map .sirat-map-popup .leaflet-popup-content {
+  margin: 0;
+  min-width: var(--spacing-40);
+}
+
+.sirat-leaflet-map .sirat-map-overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+  min-width: var(--spacing-40);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: right;
+  direction: rtl;
+  color: var(--color-card-foreground);
+}
+
+.sirat-leaflet-map .sirat-map-overlay-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sirat-leaflet-map .sirat-map-overlay-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  line-height: 1.4;
+}
+
+.sirat-leaflet-map .sirat-map-overlay-row-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.sirat-leaflet-map .sirat-map-overlay-row-leading {
+  display: inline-flex;
+  width: var(--spacing-6);
+  align-items: center;
+  justify-content: center;
+}
+
+.sirat-leaflet-map .sirat-map-overlay-row-value {
+  flex-shrink: 0;
+}
+
+.sirat-leaflet-map .sirat-map-overlay-dot {
+  display: inline-block;
+  height: var(--spacing-2);
+  width: var(--spacing-2);
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.sirat-leaflet-map .sirat-map-overlay-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: color-mix(in srgb, var(--color-card-foreground) 70%, transparent);
+}
+
+.sirat-leaflet-map .stroke-primary {
+  stroke: var(--color-primary);
+}
+
+.sirat-leaflet-map .leaflet-routing-alternatives-container {
+  display: none;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse {
+  background: transparent !important;
+  border: none !important;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse__stack {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse__ring,
+.sirat-leaflet-map .sirat-map-selection-pulse__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 9999px;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse__ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 2px solid var(--color-primary);
+  opacity: 0.7;
+  transform-origin: center center;
+  animation: sirat-map-selection-pulse 1.8s ease-out infinite;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse__ring--delayed {
+  animation-delay: 0.6s;
+}
+
+.sirat-leaflet-map .sirat-map-selection-pulse__dot {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+@keyframes sirat-map-selection-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}

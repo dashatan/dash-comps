@@ -1,0 +1,136 @@
+.cluster-icon {
+  div {
+    font-family: var(--font-family);
+    display: flex;
+    height: var(--spacing-8);
+    width: var(--spacing-8);
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    background-color: var(--color-gray-600);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      width: var(--spacing-10);
+      height: var(--spacing-10);
+    }
+
+    span {
+      font-family: var(--font-family);
+      display: flex;
+      height: var(--spacing-8);
+      width: var(--spacing-8);
+      justify-content: center;
+      align-items: center;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-gray-50);
+      background-color: var(--color-gray-700);
+      padding-left: 1px;
+      padding-top: var(--spacing-1);
+      border-radius: 9999px;
+    }
+  }
+}
+
+.leaflet-routing-alternatives-container {
+  display: none;
+}
+
+.leaflet-control-geosearch.leaflet-geosearch-bar {
+  font-family: var(--font-family);
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: var(--spacing-128);
+}
+.leaflet-control-geosearch.leaflet-geosearch-bar form {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-card);
+  input {
+    color: var(--color-card-foreground);
+  }
+}
+.leaflet-control-geosearch button.reset {
+  font-family: var(--font-family);
+  font-size: var(--text-3xl);
+  left: 0;
+  right: auto !important;
+  height: 100%;
+  width: var(--spacing-12);
+  font-weight: var(--font-weight-light);
+  color: var(--color-icon);
+}
+
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+.leaflet-bar a {
+  border-color: var(--color-border);
+}
+
+.leaflet-div-icon {
+  position: relative;
+}
+
+.origin-icon,
+.destination-icon,
+.routing-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: var(--color-gray-700);
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in-out;
+}
+
+.origin-icon {
+  &::before {
+    content: "";
+    border: 4px solid var(--color-warning);
+    border-radius: 9999px;
+    z-index: 10;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+  }
+}
+
+.destination-icon {
+  &::before {
+    content: "";
+    border: 4px solid var(--color-primary);
+    border-radius: 9999px;
+    z-index: 10;
+    width: var(--spacing-4);
+    min-width: var(--spacing-4);
+    height: var(--spacing-4);
+    min-height: var(--spacing-4);
+  }
+}
+
+.custom-tooltip {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+
+.custom-tooltip::before {
+  border-top-color: var(--color-border);
+}

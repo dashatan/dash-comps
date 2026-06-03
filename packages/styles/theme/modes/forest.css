@@ -1,0 +1,184 @@
+/* Forest Theme Mode
+ * A natural green-based theme inspired by lush forests
+ */
+
+.forest {
+  --background: oklch(0.98 0.01 140);
+  --foreground: oklch(0.2 0.02 140);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 140);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 140);
+  --primary: oklch(0.55 0.2 140);
+  --primary-foreground: oklch(0.98 0.01 140);
+  --secondary: oklch(0.96 0.02 140);
+  --secondary-foreground: oklch(0.3 0.05 140);
+  --muted: oklch(0.96 0.02 140);
+  --muted-foreground: oklch(0.6 0.02 140);
+  --accent: oklch(0.85 0.15 120);
+  --accent-foreground: oklch(0.2 0.05 120);
+  --destructive: oklch(0.7 0.25 25);
+  --border: oklch(0.9 0.02 140);
+  --input: oklch(0.9 0.02 140);
+  --ring: oklch(0.55 0.2 140 / 30%);
+  --card-accent: oklch(0.95 0.02 140);
+
+  /* Status Colors */
+  --color-warning: oklch(0.8 0.15 85);
+  --color-error: oklch(0.7 0.25 25);
+  --color-success: oklch(0.65 0.2 140);
+  --color-info: oklch(0.6 0.2 200);
+  --color-critical: oklch(0.7 0.25 25);
+  --color-neutral: oklch(0.55 0.2 140);
+  --color-pending: oklch(0.8 0.15 85);
+  --color-processing: oklch(0.6 0.2 200);
+  --color-completed: oklch(0.65 0.2 140);
+  --color-disabled: oklch(0.3 0.05 140);
+
+  /* Status Ring Colors */
+  --ring-warning: oklch(0.8 0.15 85 / 30%);
+  --ring-error: oklch(0.7 0.25 25 / 30%);
+  --ring-success: oklch(0.65 0.2 140 / 30%);
+  --ring-info: oklch(0.6 0.2 200 / 30%);
+  --ring-critical: oklch(0.7 0.25 25 / 30%);
+  --ring-neutral: oklch(0.55 0.2 140 / 30%);
+  --ring-pending: oklch(0.8 0.15 85 / 30%);
+  --ring-processing: oklch(0.6 0.2 200 / 30%);
+  --ring-completed: oklch(0.65 0.2 140 / 30%);
+  --ring-disabled: oklch(0.3 0.05 140 / 30%);
+
+  /* Sidebar Colors */
+  --sidebar: oklch(0.98 0.01 140);
+  --sidebar-foreground: oklch(0.2 0.02 140);
+  --sidebar-primary: oklch(0.55 0.2 140);
+  --sidebar-primary-foreground: oklch(0.98 0.01 140);
+  --sidebar-accent: oklch(0.96 0.02 140);
+  --sidebar-accent-foreground: oklch(0.3 0.05 140);
+  --sidebar-border: oklch(0.9 0.02 140);
+  --sidebar-ring: oklch(0.55 0.2 140 / 30%);
+
+  /* Chart Colors */
+  --chart-1: oklch(0.55 0.2 140);
+  --chart-2: oklch(0.65 0.2 120);
+  --chart-3: oklch(0.65 0.2 160);
+  --chart-4: oklch(0.65 0.2 100);
+  --chart-5: oklch(0.65 0.2 180);
+  --chart-6: oklch(0.65 0.2 120);
+  --chart-7: oklch(0.55 0.2 140);
+  --chart-8: oklch(0.65 0.2 160);
+  --chart-9: oklch(0.65 0.2 100);
+  --chart-10: oklch(0.65 0.2 180);
+  --chart-11: oklch(0.65 0.2 120);
+  --chart-12: oklch(0.65 0.2 160);
+
+  /* this colors should be in rgb or hex since echarts doesn't support oklch till the current version */
+  --chart-map: rgb(34, 139, 34);
+  --chart-map-light: rgb(144, 238, 144);
+
+  /* Input Colors */
+  --input-background: oklch(0.98 0.01 140);
+  --input-foreground: oklch(0.2 0.02 140);
+  --input-primary: oklch(0.55 0.2 140);
+  --input-border: oklch(0.9 0.02 140);
+  --input-ring: oklch(0.55 0.2 140 / 30%);
+  --input-accent: oklch(0.85 0.15 120);
+  --input-accent-foreground: oklch(0.2 0.05 120);
+
+  /* Table Colors */
+  --table: oklch(0.98 0.01 140);
+  --table-row: oklch(0.96 0.02 140);
+  --table-border: oklch(0.9 0.02 140);
+  --table-header: oklch(0.94 0.02 140);
+  --table-checkbox: oklch(0.98 0.01 140);
+  --table-menu: oklch(0.96 0.02 140);
+  --table-menu-border: oklch(0.9 0.02 140);
+
+  /* Status Colors */
+  --success: oklch(0.65 0.2 140);
+  --info: oklch(0.6 0.2 200);
+  --error: oklch(0.7 0.25 25);
+  --warning: oklch(0.8 0.15 85);
+  --disabled: oklch(0.3 0.05 140);
+  --neutral: oklch(0.55 0.2 140);
+
+  /* Sidebar Colors */
+  --sidebar-muted: oklch(0.96 0.02 140);
+  --sidebar-icon: oklch(0.5 0.02 140);
+  --sidebar-input: oklch(0.96 0.02 140);
+  --sidebar-pin: oklch(0.5 0.02 140);
+  --sidebar-pinned: oklch(0.6 0.02 140);
+
+  /* Chart Range Colors */
+  --chart-range-1: oklch(0.95 0.05 140);
+  --chart-range-2: oklch(0.9 0.08 140);
+  --chart-range-3: oklch(0.85 0.1 140);
+  --chart-range-4: oklch(0.75 0.15 140);
+  --chart-range-5: oklch(0.65 0.18 140);
+  --chart-range-6: oklch(0.55 0.2 140);
+  --chart-range-7: oklch(0.45 0.2 140);
+
+  --chart-range-error-1: oklch(0.95 0.05 25);
+  --chart-range-error-2: oklch(0.9 0.08 25);
+  --chart-range-error-3: oklch(0.85 0.1 25);
+  --chart-range-error-4: oklch(0.75 0.15 25);
+  --chart-range-error-5: oklch(0.65 0.2 25);
+  --chart-range-error-6: oklch(0.7 0.25 25);
+  --chart-range-error-7: oklch(0.65 0.25 25);
+
+  --color-doughnut-1: oklch(0.65 0.2 140);
+  --color-doughnut-2: oklch(0.7 0.2 140);
+  --color-doughnut-3: oklch(0.75 0.15 140);
+  --color-doughnut-4: oklch(0.8 0.15 85);
+  --color-doughnut-5: oklch(0.85 0.1 85);
+  --color-doughnut-6: oklch(0.75 0.2 25);
+  --color-doughnut-7: oklch(0.7 0.25 25);
+  --color-doughnut-8: oklch(0.65 0.25 25);
+  --color-doughnut-9: oklch(0.6 0.02 140);
+
+  /* Plate colors */
+  --plate-flag: oklch(0.55 0.2 140);
+  --plate-background: oklch(0.98 0.01 140);
+  --plate-foreground: oklch(0.2 0.02 140);
+  --plate-accent: oklch(0.96 0.02 140);
+
+  /* tab */
+  --tab-background: oklch(0.96 0.02 140);
+  --tab-border: oklch(0.9 0.02 140);
+  --tab-active-background: oklch(0.85 0.15 120);
+  --tab-active-foreground: oklch(0.2 0.05 120);
+  --tab-inactive-foreground: oklch(0.6 0.02 140);
+  --tab-inactive-hover-foreground: oklch(0.3 0.05 140);
+
+  /* Toast Colors */
+  --toast-success: oklch(0.9 0.1 140);
+  --toast-success-foreground: oklch(0.3 0.15 140);
+  --toast-success-border: oklch(0.85 0.12 140);
+  --toast-error: oklch(0.9 0.1 25);
+  --toast-error-foreground: oklch(0.3 0.2 25);
+  --toast-error-border: oklch(0.85 0.15 25);
+  --toast-warning: oklch(0.9 0.1 85);
+  --toast-warning-foreground: oklch(0.3 0.15 85);
+  --toast-warning-border: oklch(0.85 0.12 85);
+  --toast-info: oklch(0.9 0.1 200);
+  --toast-info-foreground: oklch(0.3 0.15 200);
+  --toast-info-border: oklch(0.85 0.12 200);
+  --toast-disabled: oklch(0.96 0.02 140);
+  --toast-disabled-foreground: oklch(0.6 0.02 140);
+  --toast-disabled-border: oklch(0.9 0.02 140);
+
+  /* Overall Item Background Colors */
+  --overall-info-1: oklch(0.65 0.2 160);
+  --overall-info-2: oklch(0.65 0.2 140);
+  --overall-info-3: oklch(0.65 0.2 120);
+  --overall-info-4: oklch(0.7 0.2 25);
+
+  --chart-progress: oklch(0.85 0.1 140);
+
+  /* Switch Colors */
+  --switch-background: oklch(0.96 0.02 140);
+  --switch-foreground: oklch(0.2 0.02 140);
+  --switch-border: oklch(0.9 0.02 140);
+  --switch-ring: oklch(0.55 0.2 140 / 30%);
+  --switch-accent: oklch(0.85 0.15 120);
+  --switch-accent-foreground: oklch(0.2 0.05 120);
+}

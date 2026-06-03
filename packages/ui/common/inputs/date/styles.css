@@ -1,0 +1,217 @@
+.rmdp-wrapper,
+.rmdp-month-picker,
+.rmdp-year-picker {
+  background-color: var(--color-card) !important;
+}
+
+/* Header styles */
+.rmdp-header-values {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.rmdp-header-values :nth-child(2) {
+  display: none;
+}
+.rmdp-header-values span {
+  color: var(--color-foreground);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md) !important;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+.rmdp-header-values span:hover {
+  color: color-mix(in srgb, var(--color-foreground) 80%, transparent) !important;
+}
+
+/* Arrow container styles */
+.rmdp-arrow-container {
+  min-width: calc(var(--spacing-2xl) * 0.8) !important;
+  min-height: calc(var(--spacing-2xl) * 0.8) !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+.rmdp-arrow-container:hover {
+  background-color: color-mix(in srgb, var(--color-muted) 10%, transparent) !important;
+  box-shadow: none !important;
+}
+.rmdp-arrow-container .rmdp-arrow {
+  color: var(--color-input-foreground) !important;
+  border-color: var(--color-foreground) !important;
+  margin-top: calc(var(--spacing-3xs) * -1);
+  width: calc(var(--spacing-md) * 0.8) !important;
+  height: calc(var(--spacing-md) * 0.8) !important;
+}
+[dir="ltr"] .rmdp-arrow-container.rmdp-right .rmdp-arrow {
+  margin-right: calc(var(--spacing-xs) * 1.5);
+}
+[dir="rtl"] .rmdp-arrow-container.rmdp-right .rmdp-arrow {
+  margin-left: calc(var(--spacing-xs) * 1.5);
+}
+[dir="ltr"] .rmdp-arrow-container.rmdp-left .rmdp-arrow {
+  margin-left: calc(var(--spacing-xs) * 1.5);
+}
+[dir="rtl"] .rmdp-arrow-container.rmdp-left .rmdp-arrow {
+  margin-right: calc(var(--spacing-xs) * 1.5);
+}
+
+/* Week day styles */
+.rmdp-week-day {
+  font-size: var(--text-sm) !important;
+}
+.rmdp-day {
+  margin-bottom: var(--spacing-xs) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease-in-out;
+}
+.rmdp-day,
+.rmdp-week-day {
+  width: calc(var(--spacing-2xl) * 0.8) !important;
+  height: calc(var(--spacing-2xl) * 0.8) !important;
+  color: var(--color-foreground) !important;
+}
+.rmdp-day span {
+  border-radius: var(--radius-md) !important;
+  position: unset !important;
+  height: 100%;
+  transition: all 0.1s ease-in-out;
+}
+.rmdp-day.rmdp-today span,
+.rmdp-day span.rmdp-today {
+  background-color: var(--color-accent) !important;
+  color: var(--color-foreground) !important;
+  font-weight: var(--font-weight-semibold);
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.rmdp-day.rmdp-today.rmdp-range span,
+.rmdp-day.rmdp-range span.rmdp-today {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+.rmdp-day:not(.rmdp-disabled, .rmdp-day-hidden, .rmdp-selected, .rmdp-today) span:hover {
+  background-color: color-mix(in srgb, var(--color-muted) 20%, transparent) !important;
+  color: var(--color-foreground) !important;
+  border: 1px solid var(--color-muted);
+}
+.rmdp-day.rmdp-disabled {
+  opacity: 0.5 !important;
+}
+.rmdp-calendar .disabled {
+  opacity: 0.5 !important;
+}
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  font-weight: var(--font-weight-semibold);
+}
+
+.rmdp-day.rmdp-range {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
+  color: var(--color-foreground) !important;
+  box-shadow: none !important;
+  border-radius: unset !important;
+}
+
+/* RTL: start on right, end on left */
+[dir="rtl"] .rmdp-day.rmdp-range.start {
+  border-bottom-right-radius: var(--radius-md) !important;
+  border-top-right-radius: var(--radius-md) !important;
+}
+[dir="rtl"] .rmdp-day.rmdp-range.end {
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-top-left-radius: var(--radius-md) !important;
+}
+
+/* LTR: start on left, end on right */
+[dir="ltr"] .rmdp-day.rmdp-range.start {
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-top-left-radius: var(--radius-md) !important;
+}
+[dir="ltr"] .rmdp-day.rmdp-range.end {
+  border-bottom-right-radius: var(--radius-md) !important;
+  border-top-right-radius: var(--radius-md) !important;
+}
+
+.rmdp-day.rmdp-range.start span,
+.rmdp-day.rmdp-range.end span {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+
+.rmdp-day.rmdp-range span:hover {
+  border: none !important;
+}
+
+/* RTL: first-child on right, last-child on left */
+[dir="rtl"] .rmdp-week > .rmdp-day.rmdp-range:first-child {
+  border-bottom-right-radius: var(--radius-md) !important;
+  border-top-right-radius: var(--radius-md) !important;
+}
+[dir="rtl"] .rmdp-week > .rmdp-day.rmdp-range:last-child {
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-top-left-radius: var(--radius-md) !important;
+}
+
+/* LTR: first-child on left, last-child on right */
+[dir="ltr"] .rmdp-week > .rmdp-day.rmdp-range:first-child {
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-top-left-radius: var(--radius-md) !important;
+}
+[dir="ltr"] .rmdp-week > .rmdp-day.rmdp-range:last-child {
+  border-bottom-right-radius: var(--radius-md) !important;
+  border-top-right-radius: var(--radius-md) !important;
+}
+
+/* Year and Month picker styles */
+.rmdp-day-picker {
+  border-top: 1px solid var(--color-border) !important;
+}
+
+.rmdp-ym {
+  height: auto !important;
+  margin: var(--spacing-sm) 0 !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.rmdp-ym .rmdp-day {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  margin: 0 var(--spacing-sm) !important;
+}
+
+.rmdp-ym .rmdp-day span:hover {
+  background-color: color-mix(in srgb, var(--color-muted) 10%, transparent) !important;
+  border: none !important;
+}
+.rmdp-ym .rmdp-day.rmdp-selected {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
+  color: var(--color-primary-foreground) !important;
+  font-weight: var(--font-weight-semibold);
+  border: 2px solid var(--color-primary) !important;
+}
+.rmdp-ym .rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--color-foreground) !important;
+  font-weight: var(--font-weight-semibold);
+}
+
+.rmdp-ym .rmdp-day.rmdp-today:hover {
+  background-color: color-mix(in srgb, var(--color-muted) 20%, transparent) !important;
+}
+.rmdp-ym .rmdp-day.rmdp-today span,
+.rmdp-ym .rmdp-day span.rmdp-today {
+  background-color: transparent !important;
+  border: 2px solid var(--color-border) !important;
+}

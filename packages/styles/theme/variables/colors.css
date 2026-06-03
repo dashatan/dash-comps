@@ -1,0 +1,189 @@
+/* Color System
+ * This file contains all color-related variables and tokens
+ */
+
+@theme inline {
+  /* Color Aliases */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-accent: var(--card-accent);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-hover: var(--card-hover);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-hover: var(--popover-hover);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-hover: var(--muted-hover);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover: var(--accent-hover);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hint: var(--hint);
+  --color-icon: var(--icon);
+
+  /* Table Colors */
+  --color-table: var(--table);
+  --color-table-row: var(--table-row);
+  --color-table-border: var(--table-border);
+  --color-table-header: var(--table-header);
+  --color-table-checkbox: var(--table-checkbox);
+  --color-table-menu: var(--table-menu);
+  --color-table-menu-border: var(--table-menu-border);
+
+  /* Status Colors */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-hover: var(--success-hover);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-hover: var(--warning-hover);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-error-hover: var(--error-hover);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-hover: var(--info-hover);
+  --color-disabled: var(--disabled);
+  --color-neutral: var(--neutral);
+
+  /* Sidebar Colors */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-sidebar-active-foreground: var(--sidebar-active-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-icon: var(--sidebar-icon);
+  --color-sidebar-pin: var(--sidebar-pin);
+  --color-sidebar-pinned: var(--sidebar-pinned);
+
+  /* Chart Colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+  --color-chart-9: var(--chart-9);
+  --color-chart-10: var(--chart-10);
+  --color-chart-11: var(--chart-11);
+  --color-chart-12: var(--chart-12);
+  /* Map Chart Colors */
+  --color-chart-range-1: var(--chart-range-1);
+  --color-chart-range-2: var(--chart-range-2);
+  --color-chart-range-3: var(--chart-range-3);
+  --color-chart-range-4: var(--chart-range-4);
+  --color-chart-range-5: var(--chart-range-5);
+  --color-chart-range-6: var(--chart-range-6);
+  --color-chart-range-7: var(--chart-range-7);
+  --color-chart-range-error-1: var(--chart-range-error-1);
+  --color-chart-range-error-2: var(--chart-range-error-2);
+  --color-chart-range-error-3: var(--chart-range-error-3);
+  --color-chart-range-error-4: var(--chart-range-error-4);
+  --color-chart-range-error-5: var(--chart-range-error-5);
+  --color-chart-range-error-6: var(--chart-range-error-6);
+  --color-chart-range-error-7: var(--chart-range-error-7);
+  /* Map Chart Colors */
+  --color-chart-doughnut-1: var(--color-doughnut-1);
+  --color-chart-doughnut-2: var(--color-doughnut-2);
+  --color-chart-doughnut-3: var(--color-doughnut-3);
+  --color-chart-doughnut-4: var(--color-doughnut-4);
+  --color-chart-doughnut-5: var(--color-doughnut-5);
+  --color-chart-doughnut-6: var(--color-doughnut-6);
+  --color-chart-doughnut-7: var(--color-doughnut-7);
+  --color-chart-doughnut-8: var(--color-doughnut-8);
+  --color-chart-doughnut-9: var(--color-doughnut-9);
+
+  /* Input Colors */
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-input-foreground: var(--input-foreground);
+  --color-input-hover: var(--input-hover);
+  --color-input-primary: var(--input-primary);
+  --color-input-border: var(--input-border);
+  --color-input-ring: var(--input-ring);
+  --color-input-accent: var(--input-accent);
+  --color-input-accent-foreground: var(--input-accent-foreground);
+  --color-input-accent-hover: var(--input-accent-hover);
+
+  /* Constant Colors */
+
+  --color-plate-flag: var(--plate-flag);
+  --color-plate-background: var(--plate-background);
+  --color-plate-foreground: var(--plate-foreground);
+  --color-plate-accent: var(--plate-accent);
+  --color-police: oklch(0.4877 0.0998 153.01);
+  --color-taxi: oklch(0.8597 0.1731 88.61);
+  --color-navy: oklch(0.5237 0.1694 257.82);
+  --color-protocol: oklch(0.603 0.2347 27);
+  --color-army: oklch(0.8997 0.0874 76.96);
+  --color-service: oklch(0.8661 0.07 227.03);
+
+  /* tab */
+  --color-tab-background: var(--tab-background);
+  --color-tab-border: var(--tab-border);
+  --color-tab-active-background: var(--tab-active-background);
+  --color-tab-active-foreground: var(--tab-active-foreground);
+  --color-tab-inactive-foreground: var(--tab-inactive-foreground);
+  --color-tab-inactive-hover-foreground: var(--tab-inactive-hover-foreground);
+
+  /* Toast Colors */
+  --color-toast-success: var(--toast-success);
+  --color-toast-success-foreground: var(--toast-success-foreground);
+  --color-toast-success-border: var(--toast-success-border);
+  --color-toast-error: var(--toast-error);
+  --color-toast-error-foreground: var(--toast-error-foreground);
+  --color-toast-error-border: var(--toast-error-border);
+  --color-toast-warning: var(--toast-warning);
+  --color-toast-warning-foreground: var(--toast-warning-foreground);
+  --color-toast-warning-border: var(--toast-warning-border);
+  --color-toast-info: var(--toast-info);
+  --color-toast-info-foreground: var(--toast-info-foreground);
+  --color-toast-disabled: var(--toast-disabled);
+  --color-toast-disabled-foreground: var(--toast-disabled-foreground);
+
+  /* Overall Item Background Colors */
+  --color-overall-info-1: var(--overall-info-1);
+  --color-overall-info-2: var(--overall-info-2);
+  --color-overall-info-3: var(--overall-info-3);
+  --color-overall-info-4: var(--overall-info-4);
+
+  --color-chart-progress: var(--chart-progress);
+
+  /* Switch Colors */
+  --color-switch-background: var(--switch-background);
+  --color-switch-foreground: var(--switch-foreground);
+  --color-switch-border: var(--switch-border);
+  --color-switch-ring: var(--switch-ring);
+  --color-switch-accent: var(--switch-accent);
+  --color-switch-accent-foreground: var(--switch-accent-foreground);
+
+  /* Tooltip Colors */
+  --color-tooltip: var(--tooltip);
+  --color-tooltip-foreground: var(--tooltip-foreground);
+  --color-tooltip-border: var(--tooltip-border);
+
+  /* banner BG Colors */
+  --color-banner: var(--banner);
+  --color-banner-foreground: var(--banner-foreground);
+  --color-banner-border: var(--banner-border);
+}

@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@source "..";
+@source "../../apps/showcase/";
+@import "tw-animate-css";
+@import "tailwindcss-animated";
+
+@import "./base/index.css";
+@import "./typography/index.css";
+@import "./components/index.css";
+@import "./utilities/index.css";
+@import "./theme/index.css";

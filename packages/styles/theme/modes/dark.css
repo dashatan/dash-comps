@@ -1,0 +1,189 @@
+/* Dark Theme Mode
+ * This file contains dark theme color values
+ */
+
+.dark {
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-100);
+  --card: var(--color-neutral-900);
+  --card-accent: var(--color-neutral-800);
+  --card-foreground: var(--color-neutral-100);
+  --card-hover: var(--color-neutral-800);
+  --popover: var(--color-neutral-900);
+  --popover-foreground: var(--color-neutral-100);
+  --popover-hover: var(--color-neutral-800);
+  --primary: var(--color-teal-700);
+  --primary-foreground: var(--color-neutral-100);
+  --primary-hover: var(--color-teal-800);
+  --secondary: var(--color-neutral-700);
+  --secondary-foreground: var(--color-neutral-100);
+  --secondary-hover: var(--color-neutral-800);
+  --accent: var(--color-stone-700);
+  --accent-foreground: var(--color-gray-500);
+  --accent-hover: var(--color-stone-800);
+  --muted: var(--color-neutral-700);
+  --muted-foreground: var(--color-gray-200);
+  --muted-hover: var(--color-neutral-800);
+  --popover: var(--color-neutral-900);
+  --popover-foreground: var(--color-neutral-100);
+  --destructive: var(--color-red-400);
+  --destructive-hover: var(--color-red-500);
+  --border: var(--color-neutral-800);
+  --ring: var(--color-neutral-800);
+  --hint: var(--color-neutral-300);
+  --icon: var(--color-neutral-400);
+
+  /* Input Colors */
+  --input: var(--color-neutral-900);
+  --input-background: var(--color-neutral-900);
+  --input-foreground: var(--color-neutral-100);
+  --input-hover: var(--color-neutral-800);
+  --input-primary: var(--color-blue-600);
+  --input-border: var(--color-neutral-800);
+  --input-ring: var(--color-neutral-900);
+  --input-accent: var(--color-neutral-800);
+  --input-accent-foreground: var(--color-neutral-400);
+  --input-accent-hover: var(--color-neutral-700);
+
+  /* Table Colors */
+  --table: var(--color-neutral-900);
+  --table-row: color-mix(in srgb, var(--color-neutral-800) 50%, transparent);
+  --table-border: var(--color-neutral-700);
+  --table-header: var(--color-neutral-800);
+  --table-checkbox: var(--color-neutral-950);
+  --table-menu: var(--color-neutral-700);
+  --table-menu-border: var(--color-neutral-800);
+
+  /* Status Colors */
+  --success: var(--color-emerald-500);
+  --success-hover: var(--color-emerald-600);
+  --success-foreground: var(--color-emerald-200);
+  --info: var(--color-sky-500);
+  --info-hover: var(--color-sky-600);
+  --info-foreground: var(--color-sky-200);
+  --error: var(--color-red-400);
+  --error-hover: var(--color-red-500);
+  --error-foreground: var(--color-red-200);
+  --warning: var(--color-yellow-600);
+  --warning-hover: var(--color-yellow-700);
+  --warning-foreground: var(--color-yellow-200);
+  --disabled: var(--color-neutral-400);
+  --neutral: var(--color-neutral-500);
+
+  /* Sidebar Colors */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--color-neutral-400);
+  --header: var(--color-neutral-900);
+  --header-foreground: var(--color-neutral-100);
+  --sidebar-border: var(--color-neutral-800);
+  --sidebar-muted: var(--color-neutral-800);
+  --sidebar-icon: var(--color-neutral-600);
+  --sidebar-input: var(--color-neutral-800);
+  --sidebar-primary: var(--color-slate-700);
+  --sidebar-primary-foreground: var(--color-neutral-200);
+  --sidebar-accent: var(--color-neutral-900);
+  --sidebar-accent-foreground: var(--color-neutral-400);
+  --sidebar-active: var(--color-teal-800);
+  --sidebar-active-foreground: var(--color-slate-400);
+  --sidebar-pin: var(--color-neutral-400);
+  --sidebar-pinned: var(--color-neutral-600);
+
+  /* Chart Colors */
+  --chart-1: var(--color-cyan-400); /* Cyan */
+  --chart-2: var(--color-blue-400); /* Blue */
+  --chart-3: var(--color-indigo-400); /* Indigo */
+  --chart-4: var(--color-violet-400); /* Violet */
+  --chart-5: var(--color-fuchsia-400); /* Fuchsia */
+  --chart-6: var(--color-rose-400); /* Red */
+  --chart-7: var(--color-orange-400); /* Orange */
+  --chart-8: var(--color-amber-400); /* Amber/Yellow */
+  --chart-9: var(--color-lime-400); /* Lime */
+  --chart-10: var(--color-green-400); /* Green */
+  --chart-11: var(--color-emerald-400); /* Emerald */
+  --chart-12: var(--color-teal-400); /* Teal */
+  --chart-13: var(--color-slate-400); /* Slate */
+
+  /* In-range colors of map chart */
+  --chart-range-1: var(--color-map-blue-1);
+  --chart-range-2: var(--color-map-blue-2);
+  --chart-range-3: var(--color-map-blue-3);
+  --chart-range-4: var(--color-map-blue-4);
+  --chart-range-5: var(--color-map-blue-5);
+  --chart-range-6: var(--color-map-blue-6);
+  --chart-range-7: var(--color-map-blue-7);
+
+  --chart-range-error-1: var(--color-map-brown-1);
+  --chart-range-error-2: var(--color-map-brown-2);
+  --chart-range-error-3: var(--color-map-brown-3);
+  --chart-range-error-4: var(--color-map-brown-4);
+  --chart-range-error-5: var(--color-map-brown-5);
+  --chart-range-error-6: var(--color-map-brown-6);
+  --chart-range-error-7: var(--color-map-brown-7);
+
+  --color-doughnut-1: var(--color-green-700); /* green 700 */
+  --color-doughnut-2: var(--color-green-500); /* green 500 */
+  --color-doughnut-3: var(--color-green-300); /* green 300 */
+  --color-doughnut-4: var(--color-yellow-400); /* yellow 400 */
+  --color-doughnut-5: var(--color-yellow-200); /* yellow 200 */
+  --color-doughnut-6: var(--color-red-300); /* red 300 */
+  --color-doughnut-7: var(--color-red-500); /* red 500 */
+  --color-doughnut-8: var(--color-red-700); /* red 700 */
+  --color-doughnut-9: var(--color-stone-400); /* stone 400 */
+
+  /* Plate colors */
+  --plate-flag: var(--color-blue-700);
+  --plate-background: var(--color-neutral-300);
+  --plate-foreground: var(--color-neutral-800);
+  --plate-accent: var(--color-neutral-300);
+
+  /* tab */
+  --tab-background: var(--color-neutral-800);
+  --tab-border: var(--color-neutral-700);
+  --tab-active-background: var(--color-neutral-600);
+  --tab-active-foreground: var(--color-neutral-200);
+  --tab-inactive-foreground: var(--color-neutral-300);
+  --tab-inactive-hover-foreground: var(--color-neutral-200);
+
+  /* Toast Colors */
+  --toast-success: var(--color-emerald-900);
+  --toast-success-foreground: var(--color-emerald-100);
+  --toast-success-border: var(--color-emerald-200);
+  --toast-error: var(--color-red-900);
+  --toast-error-foreground: var(--color-red-100);
+  --toast-error-border: var(--color-red-200);
+  --toast-warning: var(--color-yellow-900);
+  --toast-warning-foreground: var(--color-yellow-100);
+  --toast-warning-border: var(--color-yellow-200);
+  --toast-info: var(--color-sky-900);
+  --toast-info-foreground: var(--color-sky-100);
+  --toast-info-border: var(--color-sky-200);
+  --toast-disabled: var(--color-neutral-100);
+  --toast-disabled-foreground: var(--color-neutral-900);
+  --toast-disabled-border: var(--color-neutral-200);
+
+  /* Overall Item Background Colors */
+  --overall-info-1: var(--color-indigo-400);
+  --overall-info-2: var(--color-sky-400);
+  --overall-info-3: var(--color-emerald-400);
+  --overall-info-4: var(--color-rose-400);
+
+  --chart-progress: var(--color-gray-800);
+
+  /* Switch Colors */
+  --switch-background: var(--color-neutral-700);
+  --switch-foreground: var(--color-neutral-400);
+  --switch-border: var(--color-neutral-600);
+  --switch-ring: var(--color-neutral-800);
+  --switch-accent: var(--color-neutral-700);
+  --switch-accent-foreground: var(--color-neutral-500);
+
+  /* Tooltip Colors */
+  --tooltip: var(--color-gray-800);
+  --tooltip-foreground: var(--color-gray-100);
+  --tooltip-border: var(--color-gray-900);
+
+  /* banner BG Colors */
+  --banner: var(--color-neutral-800);
+  --banner-foreground: var(--color-neutral-200);
+  --banner-border: var(--color-neutral-700);
+}

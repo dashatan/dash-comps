@@ -1,0 +1,25 @@
+@custom-variant dark (&:is(.dark *));
+@custom-variant desktop-lg (@media (min-width: 1440px));
+@custom-variant desktop (@media (min-width: 1366px));
+@custom-variant laptop (@media (minWidth: 1280px));
+@custom-variant tablet (@media (min-width: 768px));
+@custom-variant mobile (@media (min-width: 480px));
+
+@theme {
+  --container-xl: 1600px;
+  --container-lg: 1400px;
+  --container-md: 1200px;
+  --container-sm: 900px;
+  --container-xs: 600px;
+}
+
+/* GridCard / GridContainer: allow numeric col-span props (see components/common/grid) */
+@source inline("{@desktop-lg:,@laptop:,@tablet:,@mobile:,}col-span-{1..12}");
+@source inline("grid-cols-{1..12}");
+@source inline("grid-rows-{1..12}");
+@source inline("grid-rows-[repeat({1..12},minmax(auto,1fr))]");
+@source inline("{@laptop:,@desktop:,}grid-rows-[repeat({1..12},minmax(auto,1fr))]");
+@source inline("auto-rows-[minmax(auto,1fr)]");
+@source inline("row-span-{1..12}");
+@source inline("col-span-{1..12}");
+@source inline("order-{1..12}");

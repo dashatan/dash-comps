@@ -1,0 +1,260 @@
+/* Persian Date Picker Styles */
+
+.persian-date-picker {
+  --pdp-primary: hsl(var(--primary));
+  --pdp-primary-foreground: hsl(var(--primary-foreground));
+  --pdp-secondary: hsl(var(--secondary));
+  --pdp-secondary-foreground: hsl(var(--secondary-foreground));
+  --pdp-muted: hsl(var(--muted));
+  --pdp-muted-foreground: hsl(var(--muted-foreground));
+  --pdp-background: hsl(var(--background));
+  --pdp-foreground: hsl(var(--foreground));
+  --pdp-border: hsl(var(--border));
+  --pdp-input: hsl(var(--input));
+  --pdp-ring: hsl(var(--ring));
+  --pdp-radius: calc(var(--radius) - 2px);
+}
+
+.persian-date-picker * {
+  box-sizing: border-box;
+}
+
+.persian-date-picker-trigger {
+  @apply w-full cursor-pointer;
+}
+
+.persian-date-picker-trigger:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.persian-date-picker-dialog {
+  @apply bg-background border-border rounded-lg border shadow-lg;
+}
+
+.persian-date-picker-header {
+  @apply border-border flex items-center justify-between border-b p-4;
+}
+
+.persian-date-picker-calendar {
+  @apply p-4;
+}
+
+.persian-date-picker-time {
+  @apply border-border border-t p-4;
+}
+
+.persian-date-picker-presets {
+  @apply border-border border-b p-4;
+}
+
+.persian-date-picker-footer {
+  @apply border-border flex items-center justify-between border-t p-4;
+}
+
+.persian-date-picker-month-year {
+  @apply p-4;
+}
+
+/* Day styles */
+.persian-date-picker-day {
+  @apply h-10 w-10 rounded-md text-sm transition-colors;
+  @apply hover:bg-muted focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-day:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.persian-date-picker-day--selected {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.persian-date-picker-day--in-range {
+  @apply bg-primary/20;
+}
+
+.persian-date-picker-day--range-start {
+  @apply bg-primary text-primary-foreground rounded-l-md rounded-r-none;
+}
+
+.persian-date-picker-day--range-end {
+  @apply bg-primary text-primary-foreground rounded-l-none rounded-r-md;
+}
+
+.persian-date-picker-day--today {
+  @apply bg-muted font-semibold;
+}
+
+.persian-date-picker-day--other-month {
+  @apply text-muted-foreground;
+}
+
+/* Week header */
+.persian-date-picker-week-header {
+  @apply mb-2 grid grid-cols-7 gap-1;
+}
+
+.persian-date-picker-week-day {
+  @apply text-muted-foreground flex h-10 w-10 items-center justify-center text-sm font-medium;
+}
+
+/* Calendar grid */
+.persian-date-picker-days {
+  @apply grid grid-cols-7 gap-1;
+}
+
+/* Time picker */
+.persian-date-picker-time-input {
+  @apply border-input h-8 w-12 rounded-md border text-center;
+  @apply focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-time-section {
+  @apply flex items-center justify-center gap-4;
+}
+
+/* Preset buttons */
+.persian-date-picker-preset-button {
+  @apply rounded-md border px-3 py-2 text-sm transition-colors;
+  @apply hover:bg-muted focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-preset-button--active {
+  @apply bg-primary text-primary-foreground border-primary;
+}
+
+.persian-date-picker-preset-button--inactive {
+  @apply bg-background border-input hover:border-input-hover;
+}
+
+/* Action buttons */
+.persian-date-picker-action-button {
+  @apply rounded-md px-4 py-2 text-sm transition-colors;
+  @apply focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-clear-button {
+  @apply border-input bg-background hover:bg-muted border;
+}
+
+.persian-date-picker-clear-button:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.persian-date-picker-accept-button {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.persian-date-picker-cancel-button {
+  @apply border-input bg-background hover:bg-muted border;
+}
+
+/* Month/Year picker */
+.persian-date-picker-month-button {
+  @apply rounded-md border px-3 py-2 text-sm transition-colors;
+  @apply hover:bg-muted focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-month-button--selected {
+  @apply bg-primary text-primary-foreground border-primary;
+}
+
+.persian-date-picker-month-button--unselected {
+  @apply bg-background border-input hover:border-input-hover;
+}
+
+.persian-date-picker-year-button {
+  @apply rounded-md border px-3 py-2 text-sm transition-colors;
+  @apply hover:bg-muted focus:ring-ring focus:ring-2 focus:outline-none;
+}
+
+.persian-date-picker-year-button--selected {
+  @apply bg-primary text-primary-foreground border-primary;
+}
+
+.persian-date-picker-year-button--unselected {
+  @apply bg-background border-input hover:border-input-hover;
+}
+
+/* Navigation buttons */
+.persian-date-picker-nav-button {
+  @apply hover:bg-muted rounded-md p-2 transition-colors;
+}
+
+/* RTL Support */
+[dir='rtl'] .persian-date-picker {
+  @apply text-right;
+}
+
+[dir='rtl'] .persian-date-picker-header {
+  @apply flex-row-reverse;
+}
+
+[dir='rtl'] .persian-date-picker-footer {
+  @apply flex-row-reverse;
+}
+
+[dir='rtl'] .persian-date-picker-time-section {
+  @apply flex-row-reverse;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .persian-date-picker {
+    --pdp-primary: hsl(var(--primary));
+    --pdp-primary-foreground: hsl(var(--primary-foreground));
+    --pdp-secondary: hsl(var(--secondary));
+    --pdp-secondary-foreground: hsl(var(--secondary-foreground));
+    --pdp-muted: hsl(var(--muted));
+    --pdp-muted-foreground: hsl(var(--muted-foreground));
+    --pdp-background: hsl(var(--background));
+    --pdp-foreground: hsl(var(--foreground));
+    --pdp-border: hsl(var(--border));
+    --pdp-input: hsl(var(--input));
+    --pdp-ring: hsl(var(--ring));
+  }
+}
+
+/* Animation classes */
+.persian-date-picker-enter {
+  @apply scale-95 opacity-0;
+}
+
+.persian-date-picker-enter-active {
+  @apply scale-100 opacity-100 transition-all duration-200;
+}
+
+.persian-date-picker-exit {
+  @apply scale-100 opacity-100;
+}
+
+.persian-date-picker-exit-active {
+  @apply scale-95 opacity-0 transition-all duration-200;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .persian-date-picker-dialog {
+    @apply w-full max-w-sm;
+  }
+
+  .persian-date-picker-day {
+    @apply h-8 w-8 text-xs;
+  }
+
+  .persian-date-picker-week-day {
+    @apply h-8 w-8 text-xs;
+  }
+
+  .persian-date-picker-time-section {
+    @apply flex-col gap-2;
+  }
+
+  .persian-date-picker-presets {
+    @apply p-2;
+  }
+
+  .persian-date-picker-preset-button {
+    @apply px-2 py-1 text-xs;
+  }
+}

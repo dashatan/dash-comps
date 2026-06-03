@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dash/ui/*": ["packages/ui/*"],
+      "@dash/core": ["packages/core/client.ts"],
+      "@dash/core/*": ["packages/core/*"],
+      "@dash/styles/*": ["packages/styles/*"],
+      "@dash/stubs/*": ["packages/stubs/*"],
+      "@/components/*": ["packages/ui/*"],
+      "@/lib": ["packages/core/index.ts"],
+      "@/lib/*": ["packages/core/*"],
+      "@dash/features/*": ["packages/core/features/*"],
+      "@/store/*": ["packages/core/store/*"],
+      "@/store": ["packages/core/store/index.ts"],
+      "@/utils/*": ["packages/stubs/utils/*"],
+      "@/utils": ["packages/stubs/utils/index.ts"],
+      "@/*": ["apps/showcase/src/*"]
+    }
+  }
+}
