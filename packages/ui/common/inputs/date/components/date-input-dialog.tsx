@@ -5,28 +5,29 @@ import arabic_fa from "react-date-object/locales/arabic_fa";
 import gregorian_en from "react-date-object/locales/gregorian_en";
 import arabic from "react-date-object/calendars/arabic";
 import gregorian from "react-date-object/calendars/gregorian";
+import persian from "react-date-object/calendars/persian";
 
 import { clearTime, cn, isInAllowedLimitedRange, useLanguage } from "@/lib";
 import ChipSelect from "@/components/common/chips/chip-select";
 import TimePicker, { TimeObject } from "./time-picker";
-import { useDateInputContext } from "../context";
-import persian from "react-date-object/calendars/persian";
 import { Divider } from "@/components/common/divider";
+import type { DateInputViewProps } from "../types";
 
-export function DateInputDialog() {
-  const {
-    dateObjects,
-    handleDateChange,
-    handlePreset,
-    activePreset,
-    presets,
-    props,
-    t,
-    calendarKey,
-    minDate,
-    maxDate,
-  } = useDateInputContext();
-  const dialogId = props.id || "date-input";
+export function DateInputDialog({
+  inputProps,
+  dateObjects,
+  times,
+  activePreset,
+  calendarKey,
+  presets,
+  minDate,
+  maxDate,
+  setTimes,
+  handleDateChange,
+  handlePreset,
+  t,
+}: DateInputViewProps) {
+  const dialogId = inputProps.id || "date-input";
   const { language } = useLanguage();
 
   const calendar = useMemo(() => {
@@ -52,7 +53,8 @@ export function DateInputDialog() {
       isSameDate: (left: DateObject, right: DateObject) => boolean;
     }) => {
       const allowed =
-        !props.limitedRange || isInAllowedLimitedRange(date, props.limitedRange);
+        !inputProps.limitedRange ||
+        isInAllowedLimitedRange(date, inputProps.limitedRange);
       const serverToday = new DateObject({ date: clearTime(), locale, calendar });
       const isServerToday = serverToday != null && isSameDate(date, serverToday);
       const isServerMonth =
@@ -76,7 +78,7 @@ export function DateInputDialog() {
 
       return { disabled: false };
     },
-    [props.limitedRange],
+    [inputProps.limitedRange, calendar, locale],
   );
 
   return (
@@ -84,18 +86,18 @@ export function DateInputDialog() {
       <div
         className={cn(
           "flex-full flex flex-col items-center justify-center",
-          props.className?.content,
+          inputProps.className?.content,
         )}
       >
         <div id={`${dialogId}-calendar-container`} style={{ minHeight: 420 }}>
           <Calendar
             key={`${calendarKey}`}
-            range={props.range}
-            multiple={props.multiple}
-            disabled={props.disabled}
+            range={inputProps.range}
+            multiple={inputProps.multiple}
+            disabled={inputProps.disabled}
             value={
               dateObjects.length
-                ? props.range || props.multiple
+                ? inputProps.range || inputProps.multiple
                   ? (dateObjects as DateObject[])
                   : (dateObjects[0] as DateObject)
                 : null
@@ -107,7 +109,7 @@ export function DateInputDialog() {
             currentDate={
               dateObjects[0] || new DateObject({ date: clearTime(), locale, calendar })
             }
-            className={cn("shadow-none!", props.className?.calendar)}
+            className={cn("shadow-none!", inputProps.className?.calendar)}
             monthYearSeparator=","
             weekDays={[
               t("date.saturday"),
@@ -124,9 +126,23 @@ export function DateInputDialog() {
           />
         </div>
 
-        {props.withTime && !props.range && <TimeSection />}
-        {props.withTime && props.range && <RangeTimeSection />}
-        {props.withPreset && !props.limitedRange && (
+        {inputProps.withTime && !inputProps.range && (
+          <TimeSection
+            dialogId={dialogId}
+            t={t}
+            times={times}
+            setTimes={setTimes}
+          />
+        )}
+        {inputProps.withTime && inputProps.range && (
+          <RangeTimeSection
+            dialogId={dialogId}
+            t={t}
+            times={times}
+            setTimes={setTimes}
+          />
+        )}
+        {inputProps.withPreset && !inputProps.limitedRange && (
           <div
             id={`${dialogId}-presets`}
             className="flex w-95 flex-wrap justify-center gap-2 border-t p-4"
@@ -148,9 +164,12 @@ export function DateInputDialog() {
   );
 }
 
-function TimeSection() {
-  const { t, times, setTimes, props } = useDateInputContext();
-  const dialogId = props.id || "date-input";
+function TimeSection({
+  dialogId,
+  t,
+  times,
+  setTimes,
+}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & { dialogId: string }) {
   return (
     <div
       id={`${dialogId}-time-section`}
@@ -169,10 +188,12 @@ function TimeSection() {
   );
 }
 
-function RangeTimeSection() {
-  const { t, times, setTimes, props } = useDateInputContext();
-  const dialogId = props.id || "date-input";
-
+function RangeTimeSection({
+  dialogId,
+  t,
+  times,
+  setTimes,
+}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & { dialogId: string }) {
   function handleChange(
     val: {
       string: string;

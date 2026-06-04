@@ -122,7 +122,9 @@ export default function SingleSelect({
     return data.map((item, index) => {
       const template = itemTemplate ? itemTemplate(item) : undefined;
       const isActive =
-        item.value === SELECT_ALL_VALUE ? value === undefined : value === item.value;
+        item.value === SELECT_ALL_VALUE
+          ? value === undefined
+          : value === item.value;
       return (
         <ListItem
           key={item.value || index}
@@ -149,7 +151,8 @@ export default function SingleSelect({
     <div
       className={cn(
         "w-full transition-all",
-        disabled && "pointer-events-none cursor-not-allowed opacity-50 grayscale",
+        disabled &&
+          "pointer-events-none cursor-not-allowed opacity-50 grayscale",
         className?.wrapper?.container,
       )}
       style={{ width, height }}

@@ -13,6 +13,7 @@ export type HtmlTextareaProps = React.DetailedHTMLProps<
 export type TextareaInputProps = Omit<HtmlTextareaProps, "onChange"> & {
   id?: string;
   label?: string;
+  width?: number | string;
   labelClassName?: LabelContainerProps["className"];
   status?: LabelContainerProps["status"];
   message?: LabelContainerProps["message"];
@@ -37,10 +38,11 @@ export default function TextareaInput(props: TextareaInputProps) {
       message={props.message}
       status={props.status ? props.status : focused ? "primary" : undefined}
       focused={focused}
+      width={props.width}
       className={{
         wrapper: {
           body: "h-auto overflow-hidden pt-7",
-          label: "top-8",
+          label: "top-2",
         },
       }}
     >
@@ -49,7 +51,7 @@ export default function TextareaInput(props: TextareaInputProps) {
         id={id}
         ref={ref}
         className={cn(
-          "text-input-foreground min-h-28 w-full bg-transparent px-4 pb-4 text-base font-medium",
+          "min-h-28 w-full bg-transparent px-4 pb-4 text-base font-medium text-input-foreground",
           props.className,
         )}
         onChange={(e) => {

@@ -1,0 +1,14 @@
+@keyframes otp-digit-rise {
+  from {
+    transform: translateY(0.35em);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.otp-cell-rise {
+  animation: otp-digit-rise 0.14s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

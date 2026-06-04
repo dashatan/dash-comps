@@ -13,8 +13,11 @@ export default function MultiSelectTree({
   ...props
 }: MultiSelectTreeProps) {
   const externalSelected = props.selected ?? value ?? [];
-  const [selected, setSelected] = useState<(number | string)[]>(externalSelected);
-  const [opened, setOpened] = useState<(number | string)[]>(externalSelected.length ? externalSelected : [0]);
+  const [selected, setSelected] =
+    useState<(number | string)[]>(externalSelected);
+  const [opened, setOpened] = useState<(number | string)[]>(
+    externalSelected.length ? externalSelected : [0],
+  );
   const [data, setData] = useState<TreeSelectItem[] | undefined>(props.options);
   const [open, setOpen] = useState(false);
   const showChips = selected.length > 0 && props.showChips;
@@ -28,7 +31,9 @@ export default function MultiSelectTree({
       openedAll
         ? props.options?.map((x) => x.value) || []
         : openedFirstLevel
-          ? props.options?.filter((x) => x.children?.length)?.map((x) => x.value) || []
+          ? props.options
+              ?.filter((x) => x.children?.length)
+              ?.map((x) => x.value) || []
           : [],
     );
   }, [openedAll, openedFirstLevel]);
@@ -56,7 +61,10 @@ export default function MultiSelectTree({
     props.onChange && props.onChange(newSelected);
   }
 
-  function selectChildren(option: TreeSelectItem, selected: (number | string)[]) {
+  function selectChildren(
+    option: TreeSelectItem,
+    selected: (number | string)[],
+  ) {
     if (option.children?.length) {
       for (const child of option.children) {
         if (!child.children?.length) {
@@ -67,7 +75,10 @@ export default function MultiSelectTree({
     return selected;
   }
 
-  function deselectChildren(option: TreeSelectItem, selected: (number | string)[]) {
+  function deselectChildren(
+    option: TreeSelectItem,
+    selected: (number | string)[],
+  ) {
     let newSelected = [...selected];
     if (option.children?.length) {
       for (const child of option.children) {
@@ -113,7 +124,7 @@ export default function MultiSelectTree({
     >
       <ul
         className={cn(
-          "flex max-h-60 min-h-60 w-full flex-col overflow-y-auto",
+          "flex max-h-60 min-h-60 w-full flex-col",
           props.className?.dropdown?.body,
         )}
       >

@@ -1,64 +1,86 @@
-import { cn } from '@/lib'
-import { TreeSelectItem } from '../types'
-import { ChevronDown } from 'lucide-react'
+import { cn } from "@/lib";
+import { TreeSelectItem } from "../types";
+import { ChevronDown } from "lucide-react";
+import { SelectRadioIndicator } from "@/components/common/inputs/select/comps/select-radio-indicator";
+import {
+  TreeChildrenContinuation,
+  TreeRowGuidesSingle,
+} from "@/components/common/inputs/select/comps/tree-guides";
 
 export type RecursiveSelectItemSingleProps = {
-  selected: number | string | undefined
-  opened: (number | string)[]
-  onCollapse: (option: TreeSelectItem) => void
-  option: TreeSelectItem
-  onChange: (option: TreeSelectItem) => void
-  depth: number
-  last?: boolean
-  first?: boolean
-}
+  selected: number | string | undefined;
+  opened: (number | string)[];
+  onCollapse: (option: TreeSelectItem) => void;
+  option: TreeSelectItem;
+  onChange: (option: TreeSelectItem) => void;
+  depth: number;
+  last?: boolean;
+  first?: boolean;
+};
 
-export function RecursiveSelectItemSingle({ opened, selected, option, onCollapse, onChange, depth, last }: RecursiveSelectItemSingleProps) {
-  const hasChildren = !!option.children?.length
-  const active = selected === option.value
-  const open = opened.includes(option.value)
+export function RecursiveSelectItemSingle({
+  opened,
+  selected,
+  option,
+  onCollapse,
+  onChange,
+  depth,
+  last,
+}: RecursiveSelectItemSingleProps) {
+  const hasChildren = !!option.children?.length;
+  const active = selected === option.value;
+  const open = opened.includes(option.value);
 
   return (
     <li>
-      <div className={cn('relative flex cursor-pointer items-center py-2')}>
-        {depth > 1 && <div className='bg-border h-px w-5' />}
-        {depth > 1 && <div className={cn('bg-border absolute top-0 right-0 h-full w-px', { '!h-1/2': last })} />}
+      <div
+        className={cn(
+          "relative flex cursor-pointer items-center transition-all",
+        )}
+      >
+        {depth > 1 ? <TreeRowGuidesSingle last={last} /> : null}
         {hasChildren && (
           <span
-            className='flex w-8 max-w-8 min-w-8 items-center justify-center'
+            className="flex w-8 max-w-8 min-w-8 items-center justify-center rtl:rotate-180"
             onClick={(e) => {
-              e.stopPropagation()
-              onCollapse(option)
+              e.stopPropagation();
+              onCollapse(option);
             }}
           >
-            <ChevronDown className={cn('scale-75 transition-all', { 'rotate-90': !open })} />
+            <ChevronDown
+              className={cn(
+                "scale-75 transition-transform duration-200 ease-in-out",
+                open ? "rotate-0" : "-rotate-90",
+              )}
+            />
           </span>
         )}
         <div
-          className={cn('flex flex-1 items-center gap-3', { 'ps-3': depth > 1 })}
+          id="checkbox-container"
+          className={cn(
+            "flex flex-full items-center gap-2 rounded-md p-2 py-3 transition-all hover:bg-input-accent/50",
+            {
+              "ps-3": depth > 1,
+            },
+          )}
           onClick={(e) => {
-            e.stopPropagation()
-            onChange(option)
+            e.stopPropagation();
+            onChange(option);
           }}
         >
+          <SelectRadioIndicator active={active} />
           <div
             className={cn(
-              'border-table-border bg-table-checkbox relative flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border-2 transition-all',
-              {
-                'border-primary': active,
-              }
+              "flex w-full items-center justify-between text-base select-none",
             )}
           >
-            {active && <div className='bg-primary absolute h-2 w-2 rounded-full' />}
-          </div>
-          <div className={cn('flex w-full items-center justify-between text-base select-none')}>
             <span>{option.label}</span>
           </div>
         </div>
       </div>
       {hasChildren && open && (
-        <ul className={cn('relative flex flex-col ps-3.5')}>
-          {depth > 1 && !last && <div className={cn('bg-border absolute top-0 right-0 h-full w-px')} />}
+        <ul className={cn("relative flex flex-col ps-3.5")}>
+          {depth > 1 && !last ? <TreeChildrenContinuation /> : null}
           {option.children?.map((child, index, array) => {
             return (
               <RecursiveSelectItemSingle
@@ -71,10 +93,10 @@ export function RecursiveSelectItemSingle({ opened, selected, option, onCollapse
                 onChange={onChange}
                 onCollapse={onCollapse}
               />
-            )
+            );
           })}
         </ul>
       )}
     </li>
-  )
+  );
 }

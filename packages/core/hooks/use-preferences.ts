@@ -17,6 +17,8 @@ const applyFontSettings = (fontSize?: FontSize, fontFamily?: FontFamily) => {
   }
   if (fontFamily) {
     document.documentElement.setAttribute("data-font-family", fontFamily);
+  } else {
+    document.documentElement.removeAttribute("data-font-family");
   }
 };
 
@@ -80,7 +82,7 @@ export function usePreferences() {
     document.documentElement.removeAttribute("data-font-size");
     document.documentElement.removeAttribute("data-font-family");
     document.documentElement.removeAttribute("data-spacing");
-    applyFontSettings("base", "peyda");
+    applyFontSettings("base");
     applySpacingSettings("normal");
   }, [resetPreferences]);
 

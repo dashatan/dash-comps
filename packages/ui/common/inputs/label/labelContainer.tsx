@@ -4,9 +4,10 @@ import { cn } from "@/lib";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { LabelContainerProps } from "@/components/common/inputs/select/types";
+import { Info } from "lucide-react";
 
 export const labelContainerVariants = cva(
-  "relative flex h-14 w-full cursor-text items-end overflow-hidden rounded-lg border bg-input-background text-input-foreground transition-colors duration-200",
+  "relative flex h-14 w-full cursor-text items-stretch overflow-hidden rounded-lg border bg-input-background text-input-foreground transition-colors duration-200",
   {
     variants: {
       status: {
@@ -37,7 +38,7 @@ export const labelContainerVariants = cva(
 );
 
 export const labelVariants = cva(
-  "absolute min-h-5 cursor-text font-medium pointer-events-none right-4 -translate-y-4 select-none",
+  "absolute min-h-5 cursor-text font-medium pointer-events-none inset-s-4 -translate-y-4 select-none",
   {
     variants: {
       size: {
@@ -46,7 +47,7 @@ export const labelVariants = cva(
         default: "text-sm peer-focus:text-xs",
       },
       focused: {
-        true: "-translate-y-7 text-input-foreground/70",
+        true: "-translate-y-7.5",
       },
     },
     defaultVariants: {
@@ -93,10 +94,11 @@ const LabelContainer = forwardRef<HTMLDivElement, LabelContainerProps>(
       children,
       onClick,
       width,
-      loading,
       id,
-
-      ...rest
+      prefix,
+      suffix,
+      helperText,
+      required,
     },
     ref,
   ) => {
@@ -108,12 +110,11 @@ const LabelContainer = forwardRef<HTMLDivElement, LabelContainerProps>(
       <div
         id={`${idLabel}-container`}
         className={cn(
-          "bg-input text-input-foreground flex w-full flex-col gap-0.5 transition-all",
+          "flex w-full flex-col gap-0.5 bg-input text-input-foreground transition-all",
           className?.wrapper?.container,
         )}
         style={{ width }}
         ref={ref}
-        // {...rest}
       >
         <div
           id={`${idLabel}-body`}
@@ -123,32 +124,78 @@ const LabelContainer = forwardRef<HTMLDivElement, LabelContainerProps>(
             className?.wrapper?.body,
           )}
           role="group"
-          aria-labelledby={`${idLabel}-label`}
+          aria-labelledby={label ? `${idLabel}-label` : undefined}
         >
-          {children}
-          {label && (
-            <label
-              id={`${idLabel}-label`}
+          {prefix ? (
+            <div
               className={cn(
-                labelVariants({ size, focused: isFocused }),
-                "transition-all duration-300 ease-in-out",
-                className?.wrapper?.label,
+                "flex shrink-0 items-center self-stretch px-2 text-muted-foreground",
+                className?.wrapper?.prefix,
               )}
             >
-              {label}
-            </label>
-          )}
+              {prefix}
+            </div>
+          ) : null}
+
+          <div
+            className={cn(
+              "relative flex min-h-0 min-w-0 flex-1 flex-col justify-end",
+              className?.wrapper?.inner,
+            )}
+          >
+            {children}
+            {label ? (
+              <label
+                id={`${idLabel}-label`}
+                className={cn(
+                  labelVariants({ size, focused: isFocused }),
+                  "transition-all duration-300 ease-in-out",
+                  prefix && "inset-s-0",
+                  className?.wrapper?.label,
+                )}
+              >
+                {label}
+                {required ? <span>*</span> : null}
+              </label>
+            ) : null}
+          </div>
+
+          {suffix ? (
+            <div
+              className={cn(
+                "flex shrink-0 items-center self-stretch px-2",
+                className?.wrapper?.suffix,
+              )}
+            >
+              {suffix}
+            </div>
+          ) : null}
         </div>
         {showMessage !== false && !!message && (
           <span
             id={`${idLabel}-message`}
-            className={cn(messageVariants({ status }), className?.wrapper?.message)}
+            className={cn(
+              messageVariants({ status }),
+              className?.wrapper?.message,
+            )}
             role="status"
             aria-live="polite"
           >
             {message}
           </span>
         )}
+        {helperText && !showMessage ? (
+          <div
+            id={`${idLabel}-helper-text`}
+            className={cn(
+              "mt-2 flex h-5 gap-2 px-2 text-start text-xs",
+              className?.wrapper?.helperText,
+            )}
+          >
+            <Info className="size-4 text-muted-foreground" />
+            {helperText}
+          </div>
+        ) : null}
       </div>
     );
   },

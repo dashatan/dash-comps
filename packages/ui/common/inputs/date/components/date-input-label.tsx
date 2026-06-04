@@ -1,52 +1,84 @@
-import { cn, formatPersianDateTime, PERSIAN_LOCALE, Translation } from "@/lib";
+import type { ReactNode } from "react";
+import type { DateObject } from "react-multi-date-picker";
+import { cn, formatPersianDate, formatPersianTime, type Translation } from "@/lib";
 import { Calendar as LucideCalendar, X } from "lucide-react";
-import { ItemProps } from "../types";
-import { useDateInputContext } from "../context";
-import { formatPersianDate, formatPersianTime } from "@/lib";
-import Button from "@/components/common/buttons";
 import Chip from "@/components/common/chips/chip";
+import type { DateInputProps, DatePreset, ItemProps } from "../types";
+
+export type DateInputLabelProps = {
+  label: string;
+  icon?: ReactNode;
+  inputProps: DateInputProps;
+  t: Translation;
+  dateObjects: DateObject[];
+  withTime?: boolean;
+  withPreset?: boolean;
+  activePreset: string | null;
+  presets: DatePreset[];
+  handleClear: (withSubmit?: boolean) => void;
+};
 
 export function DateInputLabel({
   label,
   icon,
-}: {
-  label: string;
-  icon?: React.ReactNode;
-}) {
-  const { props } = useDateInputContext();
-
-  if (props.oneLineLabel) {
-    return <OneLineLabel label={label} />;
+  inputProps,
+  t,
+  dateObjects,
+  withTime,
+  withPreset,
+  activePreset,
+  presets,
+  handleClear,
+}: DateInputLabelProps) {
+  if (inputProps.oneLineLabel) {
+    return (
+      <OneLineLabel
+        label={label}
+        inputProps={inputProps}
+        t={t}
+        dateObjects={dateObjects}
+        withTime={withTime}
+        withPreset={withPreset}
+        activePreset={activePreset}
+        presets={presets}
+        handleClear={handleClear}
+      />
+    );
   }
 
-  return <MultiLineLabel label={label} icon={icon} />;
+  return (
+    <MultiLineLabel label={label} icon={icon} inputProps={inputProps} t={t} />
+  );
 }
 
-function OneLineLabel({ label }: { label: string }) {
-  const {
-    handleClear,
-    props,
-    t,
-    withTime,
-    dateObjects,
-    withPreset,
-    activePreset,
-    presets,
-  } = useDateInputContext();
-  const labelId = props.id || "date-input";
+type OneLineLabelProps = Omit<DateInputLabelProps, "icon">;
+
+function OneLineLabel({
+  label,
+  inputProps,
+  t,
+  dateObjects,
+  withTime,
+  withPreset,
+  activePreset,
+  presets,
+  handleClear,
+}: OneLineLabelProps) {
+  const labelId = inputProps.id || "date-input";
   const hasValue = dateObjects[0] || dateObjects[1];
   const dates = dateObjects.map((x) => formatPersianDate(x.toDate().getTime()));
   const times = dateObjects.map((x) => formatPersianTime(x.toDate().getTime(), true));
-  const preset = !!withPreset && presets.find((p) => p.key === activePreset)?.label;
+  const preset =
+    !!withPreset && presets.find((p) => p.key === activePreset)?.label;
 
-  if (props.forceLabel) {
+  if (inputProps.forceLabel) {
     return (
       <div
         id={`${labelId}-one-line`}
         onClick={() => {}}
         className={cn(
           "flex h-14 w-full cursor-pointer items-center justify-start px-4 text-sm font-medium",
-          props.className?.input,
+          inputProps.className?.input,
         )}
       >
         <span
@@ -57,9 +89,9 @@ function OneLineLabel({ label }: { label: string }) {
           {label}
         </span>
         <span className="mt-3 overflow-hidden text-ellipsis whitespace-nowrap">
-          {props.forceLabel}
+          {inputProps.forceLabel}
         </span>
-        {hasValue && !props.withoutClear ? (
+        {hasValue && !inputProps.withoutClear ? (
           <div
             id={`${labelId}-clear-button`}
             className="hover:bg-input-accent absolute left-1 rounded-full p-1 transition-all"
@@ -71,7 +103,7 @@ function OneLineLabel({ label }: { label: string }) {
             <X className="scale-75" />
           </div>
         ) : (
-          props.icon || <LucideCalendar className="ms-auto" />
+          inputProps.icon || <LucideCalendar className="ms-auto" />
         )}
       </div>
     );
@@ -83,7 +115,7 @@ function OneLineLabel({ label }: { label: string }) {
       onClick={() => {}}
       className={cn(
         "flex h-14 w-full cursor-pointer items-center justify-start px-4 text-sm font-medium",
-        props.className?.input,
+        inputProps.className?.input,
       )}
     >
       <span
@@ -104,7 +136,7 @@ function OneLineLabel({ label }: { label: string }) {
             {preset}
           </Chip>
         )}
-        {props.range ? (
+        {inputProps.range ? (
           <>
             <span>{t("common.from")}:</span>
             {withTime && <span dir="ltr">{times[0]}</span>}
@@ -121,7 +153,7 @@ function OneLineLabel({ label }: { label: string }) {
           </>
         )}
       </span>
-      {hasValue && !props.withoutClear ? (
+      {hasValue && !inputProps.withoutClear ? (
         <div
           id={`${labelId}-clear-button`}
           className="hover:bg-input-accent absolute left-1 rounded-full p-1 transition-all"
@@ -133,23 +165,34 @@ function OneLineLabel({ label }: { label: string }) {
           <X className="scale-75" />
         </div>
       ) : (
-        props.icon || <LucideCalendar className="ms-auto" />
+        inputProps.icon || <LucideCalendar className="ms-auto" />
       )}
     </div>
   );
 }
 
-function MultiLineLabel({ label, icon }: { label: string; icon?: React.ReactNode }) {
-  const { props, t } = useDateInputContext();
-  const dates = props.value?.map((x: number) => formatPersianDate(x)) || [];
-  const times = props.value?.map((x: number) => formatPersianTime(x, true)) || [];
-  if (!dates.length) return <EmptyLabel label={label} icon={icon} />;
-  return <LabelContent dates={dates} times={times} props={props} t={t} />;
+function MultiLineLabel({
+  label,
+  icon,
+  inputProps,
+  t,
+}: Pick<DateInputLabelProps, "label" | "icon" | "inputProps" | "t">) {
+  const dates = inputProps.value?.map((x) => formatPersianDate(x)) || [];
+  const times = inputProps.value?.map((x) => formatPersianTime(x, true)) || [];
+  if (!dates.length) {
+    return <EmptyLabel label={label} icon={icon} inputProps={inputProps} />;
+  }
+  return (
+    <LabelContent dates={dates} times={times} inputProps={inputProps} t={t} />
+  );
 }
 
-function EmptyLabel({ label, icon }: { label: string; icon?: React.ReactNode }) {
-  const { props } = useDateInputContext();
-  const labelId = props.id || "date-input";
+function EmptyLabel({
+  label,
+  icon,
+  inputProps,
+}: Pick<DateInputLabelProps, "label" | "icon" | "inputProps">) {
+  const labelId = inputProps.id || "date-input";
 
   return (
     <div
@@ -165,23 +208,25 @@ function EmptyLabel({ label, icon }: { label: string; icon?: React.ReactNode }) 
 function LabelContent({
   dates,
   times,
-  props,
+  inputProps,
   t,
 }: {
   dates: string[];
   times: string[];
-  props: any;
+  inputProps: DateInputProps;
   t: Translation;
 }) {
-  if (!props.range && dates[0]) {
-    return <SingleDateContent dates={dates} times={times} props={props} t={t} />;
+  if (!inputProps.range && dates[0]) {
+    return (
+      <SingleDateContent dates={dates} times={times} inputProps={inputProps} t={t} />
+    );
   }
 
-  if (props.range && !props.withTime && dates[0]) {
+  if (inputProps.range && !inputProps.withTime && dates[0]) {
     return <RangeDateContent dates={dates} t={t} />;
   }
 
-  if (props.range && props.withTime) {
+  if (inputProps.range && inputProps.withTime) {
     return <RangeDateTimeContent dates={dates} times={times} t={t} />;
   }
 
@@ -191,22 +236,22 @@ function LabelContent({
 function SingleDateContent({
   dates,
   times,
-  props,
+  inputProps,
   t,
 }: {
   dates: string[];
   times: string[];
-  props: any;
+  inputProps: DateInputProps;
   t: Translation;
 }) {
   return (
     <div
       className={cn("flex w-full items-stretch justify-between", {
-        "[&>div:first-child]:border-e": props.withTime,
+        "[&>div:first-child]:border-e": inputProps.withTime,
       })}
     >
       <Item label={t("common.date")} value={dates[0]} />
-      {props.withTime && <Item label={t("common.time")} value={times[0]} />}
+      {inputProps.withTime && <Item label={t("common.time")} value={times[0]} />}
     </div>
   );
 }

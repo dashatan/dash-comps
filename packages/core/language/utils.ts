@@ -17,6 +17,21 @@ export const isValidLanguage = (lang: string): lang is Language => {
   return SUPPORTED_LANGUAGES.includes(lang as Language)
 }
 
+const LANGUAGE_FONT_CLASS = {
+  en: 'font-en',
+  fa: 'font-fa',
+  ar: 'font-ar',
+} as const satisfies Record<Language, string>
+
 export function getFontClass(lang: Language): string {
-  return RTL_LANGUAGES.includes(lang) ? 'font-mono' : 'font-peyda'
+  return LANGUAGE_FONT_CLASS[lang]
+}
+
+export function getLanguageFontFamily(lang: Language): string {
+  const stacks = {
+    en: 'var(--font-en)',
+    fa: 'var(--font-fa)',
+    ar: 'var(--font-ar)',
+  } as const satisfies Record<Language, string>
+  return stacks[lang]
 }

@@ -1,5 +1,7 @@
 import { Alert } from "@/components/common/alert";
 
+export { ErrorHandler, type ErrorFallbackProps } from "@/components/common/errors/error-boundary";
+
 export function useDataErrorHandler<T>(props?: {
   data?: T;
   isLoading?: boolean;

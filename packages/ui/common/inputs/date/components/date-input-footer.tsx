@@ -1,11 +1,21 @@
 import { cn } from "@/lib";
 import Button from "@/components/common/buttons";
 import { ButtonProps } from "@/components/common/buttons/types";
-import { useDateInputContext } from "../context";
+import type { DateInputViewProps } from "../types";
 
-export function DateInputFooter() {
-  const { handleSubmit, handleClear, t, setOpen, props } = useDateInputContext();
-  const dialogId = props.id || "date-input";
+type DateInputFooterComponentProps = Pick<
+  DateInputViewProps,
+  "inputProps" | "t" | "handleSubmit" | "handleClear" | "setOpen"
+>;
+
+export function DateInputFooter({
+  inputProps,
+  t,
+  handleSubmit,
+  handleClear,
+  setOpen,
+}: DateInputFooterComponentProps) {
+  const dialogId = inputProps.id || "date-input";
 
   return (
     <div

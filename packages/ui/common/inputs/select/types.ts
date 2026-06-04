@@ -82,11 +82,15 @@ export interface LabelContainerProps
   width?: number | string;
   loading?: boolean;
   id?: string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  helperText?: string;
+  required?: boolean;
 }
 
 export type SelectTriggerTemplateProps = Pick<
   LabelContainerProps,
-  "message" | "status" | "label" | "className"
+  "message" | "status" | "label" | "className" | "loading"
 > &
   Pick<PopoverProps, "open" | "onOpenChange"> & {
     count?: number;
@@ -96,6 +100,8 @@ export type SelectTriggerTemplateProps = Pick<
     Icon?: ReactNode;
     iconClassName?: string;
     chipsCountLimit?: number;
+    /** Max chip rows before overflow; remaining count shown as +N badge. */
+    chipRowsCount?: number;
     value?: string;
     labelTemplate?: React.ReactNode;
     onRemove?: (option: SelectItem) => void;
@@ -121,6 +127,14 @@ export type LabelContainerClassName = {
     label?: string;
     /** Message text styling */
     message?: string;
+    /** Prefix slot styling */
+    prefix?: string;
+    /** Suffix slot styling */
+    suffix?: string;
+    /** Helper text styling */
+    helperText?: string;
+    /** Inner styling */
+    inner?: string;
   };
 
   /** Styles for the trigger button and its sub-components */
@@ -188,6 +202,8 @@ export type BaseSelectProps = {
   headerTemplate?: React.ReactNode;
   className?: LabelContainerClassName;
   scrollable?: boolean;
+  /** Enables Motion layoutScroll on the dropdown list (use with reorderable lists). */
+  layoutScroll?: boolean;
   maxHeight?: number | string;
   onSearch?: (text: string) => void;
   onClear?: () => void;
@@ -368,13 +384,16 @@ export type MultiSelectDNDProps = Omit<
   | "onSearch"
   | "searchInputPlaceholder"
   | "filter"
+  | "selected"
 > &
-  Omit<MultiSelectBaseProps, "onChange"> & {
+  SelectOptionsProps & {
     selected?: SelectItem["value"][];
+    value?: SelectItem["value"][];
     onChange?: (params: TableHeaderChangeEvent) => void;
     onRefresh?: () => void;
-    value?: any;
+    /** @deprecated Use `showChips` instead */
     whitChips?: boolean;
+    chipRowsCount?: number;
     heading?: string;
     subHeading?: string;
     reorder?: boolean;

@@ -1,12 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useMemo,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { DateObject } from "react-multi-date-picker";
 
 import { DateInputProps, DatePreset } from "./types";
@@ -16,53 +8,11 @@ import {
   limitedRangeToTimestamps,
   matchActivePreset,
   resolveCalendarLocale,
-  Translation,
   useLanguage,
 } from "@/lib";
 import { createDate, isValidTimestamp, combineDateAndTime } from "@/lib";
 import { useAppStore } from "@/store";
 import { Calendar, Locale } from "react-date-object";
-
-export type DateInputContextType = {
-  // Props
-  props: DateInputProps;
-
-  // State
-  dateObjects: DateObject[];
-  times: string[];
-  open: boolean;
-  activePreset: string | null;
-  currentDate?: DateObject;
-
-  // Actions
-  setOpen: (open: boolean) => void;
-  setTimes: (times: string[] | ((prev: string[]) => string[])) => void;
-  handleDateChange: (d: DateObject | DateObject[] | null) => void;
-  handlePreset: (key: string, months: number) => void;
-  handleClear: (withSubmit?: boolean) => void;
-  handleSubmit: () => void;
-
-  // Computed values
-  presets: DatePreset[];
-  dates: string[] | Date[];
-  dialogHeading: string;
-  withTime?: boolean;
-  withPreset?: boolean;
-
-  // Translation function
-  t: Translation;
-  calendarKey: number;
-} & Pick<DateInputProps, "minDate" | "maxDate">;
-
-export const DateInputContext = createContext<DateInputContextType | null>(null);
-
-export const useDateInputContext = () => {
-  const context = useContext(DateInputContext);
-  if (!context) {
-    throw new Error("useDateInputContext must be used within a DateInputProvider");
-  }
-  return context;
-};
 
 export type UseDateInputReturn = {
   dateObjects: DateObject[];

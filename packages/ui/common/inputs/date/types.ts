@@ -1,4 +1,5 @@
 import { LabelContainerProps } from "@/components/common/inputs/select/types";
+import type { Translation } from "@/lib";
 import { ReactNode } from "react";
 import { CalendarProps, DateObject } from "react-multi-date-picker";
 
@@ -53,32 +54,25 @@ export interface DateInputState {
   activePreset: string | null;
 }
 
-export interface DateInputLabelProps {
-  dates: string[];
-  times: string[];
-  handleClear: (withSubmit?: boolean) => void;
-  props: DateInputProps;
-  t: (key: string) => string;
-}
+export type { DateInputLabelProps } from "./components/date-input-label";
 
-export interface DateInputDialogProps {
+export type DateInputViewProps = {
+  inputProps: DateInputProps;
   dateObjects: DateObject[];
   times: string[];
+  activePreset: string | null;
+  calendarKey: number;
+  presets: DatePreset[];
+  minDate?: DateInputProps["minDate"];
+  maxDate?: DateInputProps["maxDate"];
+  setOpen: (open: boolean) => void;
   setTimes: (times: string[] | ((prev: string[]) => string[])) => void;
   handleDateChange: (d: DateObject | DateObject[] | null) => void;
   handlePreset: (key: string, months: number) => void;
-  activePreset: string | null;
-  presets: DatePreset[];
-  props: DateInputProps;
-  t: (key: string) => string;
-}
-
-export interface DateInputFooterProps {
-  handleSubmit: () => void;
-  handleCancellation: () => void;
   handleClear: (withSubmit?: boolean) => void;
-  t: (key: string) => string;
-}
+  handleSubmit: () => void;
+  t: Translation;
+};
 
 export interface TimeSectionProps {
   label: string;

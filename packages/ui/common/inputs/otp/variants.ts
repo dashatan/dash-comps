@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
 
 export const otpInputVariants = cva(
-  "shrink-0 rounded-sm border text-center font-semibold transition-all outline-none focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+  "shrink-0 rounded-sm border transition-all outline-none focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   {
     variants: {
       size: {
-        sm: "size-9 text-base",
-        md: "size-11 text-lg",
-        lg: "size-14 text-xl",
+        sm: "size-9",
+        md: "size-11",
+        lg: "size-14",
       },
       status: {
         default: "border-border text-foreground focus-visible:ring-primary",

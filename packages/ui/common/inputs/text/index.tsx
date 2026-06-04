@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, forwardRef, RefObject } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  forwardRef,
+  RefObject,
+} from "react";
 import LabelContainer from "../label/labelContainer";
 import BasicTextInput from "./basic";
 import { cn } from "@/lib";
@@ -8,13 +15,14 @@ import {
   LabelContainerClassName,
   LabelContainerProps,
 } from "@/components/common/inputs/select/types";
+import { Loader2 } from "lucide-react";
 
 /**
  * Props for the TextInput component
  */
 export type TextInputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
-  "onChange" | "size"
+  "onChange" | "size" | "prefix"
 > & {
   /** Unique identifier for the input */
   id?: string;
@@ -28,6 +36,8 @@ export type TextInputProps = Omit<
   message?: React.ReactNode | string;
   /** Element to display after the input */
   suffix?: React.ReactNode;
+  /** Element to display before the input */
+  prefix?: React.ReactNode;
   /** Whether to show the message */
   showMessage?: boolean;
   /** Callback when input value changes */
@@ -57,6 +67,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       status,
       message,
       suffix,
+      prefix,
       onChange,
       value,
       className,
@@ -148,7 +159,8 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       const input = ref.current;
       if (input) {
         const isAutoFilled =
-          window.getComputedStyle(input).backgroundColor !== "rgba(0, 0, 0, 0)" ||
+          window.getComputedStyle(input).backgroundColor !==
+            "rgba(0, 0, 0, 0)" ||
           input.matches(":-webkit-autofill") ||
           input.matches(":-webkit-autofill:focus");
 
@@ -157,7 +169,8 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     }, []);
 
     // Generate unique ID if not provided
-    const inputId = id || `text-input-${Math.random().toString(36).substr(2, 9)}`;
+    const inputId =
+      id || `text-input-${Math.random().toString(36).substr(2, 9)}`;
 
     let hasValue = focused || isAutoFilled || !!internalValue;
     if (isAutoFilled && !internalValue && !focused) hasValue = false;
@@ -169,30 +182,42 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         onClick={() => ref.current?.focus()}
         message={message}
         status={status ?? (focused ? "primary" : undefined)}
-        className={labelClassName}
+        className={{
+          wrapper: {
+            container: cn(labelClassName?.wrapper?.container, ""),
+            ...labelClassName?.wrapper,
+          },
+          ...labelClassName,
+        }}
         showMessage={showMessage}
         width={width}
+        helperText={helperText}
+        prefix={prefix}
+        suffix={
+          isLoading ? <Loader2 className="size-4 animate-spin" /> : suffix
+        }
+        required={required}
       >
         <BasicTextInput
           {...props}
           id={inputId}
           ref={ref}
           value={internalValue}
+          placeholder={!label ? props.placeholder : undefined}
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          isLoading={isLoading}
           required={required}
-          helperText={helperText}
           wrapperClassName={wrapperClassName}
           className={cn(
             "h-full px-4 py-0 pt-4",
+            suffix && "pe-0",
+            prefix && "ps-0",
             "transition-all duration-200",
             "disabled:cursor-not-allowed disabled:opacity-50",
             className,
           )}
         />
-        {suffix && <div className="h-full">{suffix}</div>}
       </LabelContainer>
     );
   },

@@ -260,7 +260,9 @@
     "goodStatus": "وضعیت خوب",
     "alertStatus": "وضعیت هشدار",
     "criticalStatus": "وضعیت بحرانی",
-    "directAccess": "دسترسی مستقیم"
+    "directAccess": "دسترسی مستقیم",
+    "fromWeight": "از وزن",
+    "toWeight": "تا وزن"
   },
 
   "date": {

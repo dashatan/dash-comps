@@ -37,11 +37,11 @@ export function ListItem({
     <li
       ref={ref}
       className={cn(
-        "text-foreground w-full cursor-pointer list-none rounded-md p-3 text-sm font-medium transition-all",
+        "w-full cursor-pointer list-none rounded-md p-3 text-sm font-medium text-foreground transition-all",
         {
           "bg-input-accent": active,
           "bg-input hover:bg-input-accent/50": !active,
-          "bg-disabled pointer-events-none": disabled,
+          "pointer-events-none opacity-50": disabled,
         },
         className,
       )}

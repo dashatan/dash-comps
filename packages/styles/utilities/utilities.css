@@ -14,7 +14,7 @@
 }
 
 @utility font-main {
-  font-family: var(--font-peyda);
+  font-family: var(--font-family);
 }
 
 @utility hide-scrollbar {

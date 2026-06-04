@@ -62,7 +62,9 @@ const BasicTextInput = forwardRef<HTMLInputElement, BasicTextInputProps>(
           disabled={disabled || isLoading}
           required={required}
           aria-invalid={!!error}
-          aria-describedby={error || helperText ? `${props.id}-description` : undefined}
+          aria-describedby={
+            error || helperText ? `${props.id}-description` : undefined
+          }
           className={cn(
             // Base styles
             "h-full w-full px-3 py-2",
@@ -80,14 +82,14 @@ const BasicTextInput = forwardRef<HTMLInputElement, BasicTextInputProps>(
         {/* Loading indicator */}
         {isLoading && (
           <div className="absolute top-1/2 right-3 -translate-y-1/2">
-            <div className="border-primary h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
+            <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
           </div>
         )}
         {/* Helper text and error message */}
         {(error || helperText) && (
           <div
             id={`${props.id}-description`}
-            className="text-muted-foreground mt-1 text-xs"
+            className="mt-1 text-xs text-muted-foreground"
           >
             {error || helperText}
           </div>

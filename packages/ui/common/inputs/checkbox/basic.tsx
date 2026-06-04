@@ -55,13 +55,17 @@ const CheckboxIcon = ({
 }) => {
   if (loading) {
     return (
-      <Loader2 className={cn(checkboxIconVariants({ state: "loading" }), className)} />
+      <Loader2
+        className={cn(checkboxIconVariants({ state: "loading" }), className)}
+      />
     );
   }
 
   if (halfChecked) {
     return (
-      <Minus className={cn(checkboxIconVariants({ state: "checked" }), className)} />
+      <Minus
+        className={cn(checkboxIconVariants({ state: "checked" }), className)}
+      />
     );
   }
 
@@ -98,12 +102,14 @@ const CheckboxBasic = forwardRef<HTMLDivElement, BasicCheckboxProps>(
       minWidth,
       checkboxClassName,
       boxed = false,
+      severity = "default",
       ...props
     },
     ref,
   ) => {
     const [checked, setChecked] = useState(initialChecked);
-    const checkboxId = id || `checkbox-${Math.random().toString(36).substring(2, 9)}`;
+    const checkboxId =
+      id || `checkbox-${Math.random().toString(36).substring(2, 9)}`;
 
     useEffect(() => {
       setChecked(initialChecked);
@@ -138,11 +144,11 @@ const CheckboxBasic = forwardRef<HTMLDivElement, BasicCheckboxProps>(
       <div
         className={cn(
           "group flex w-fit cursor-pointer items-center gap-2 rounded-lg bg-transparent whitespace-nowrap",
-          className,
           {
-            "hover:bg-input rounded-lg border p-1 pe-2": boxed,
-            "bg-primary/10 border-primary": checked && boxed,
+            "rounded-lg border p-1 pe-2 hover:bg-input": boxed,
+            "border-primary bg-primary/10": checked && boxed,
           },
+          className,
         )}
         onClick={(e) => {
           e.stopPropagation();
@@ -160,7 +166,10 @@ const CheckboxBasic = forwardRef<HTMLDivElement, BasicCheckboxProps>(
           tabIndex={disabled ? -1 : 0}
           id={checkboxId}
           data-state={state}
-          className={cn(checkboxVariants({ state }), checkboxClassName)}
+          className={cn(
+            checkboxVariants({ state, severity }),
+            checkboxClassName,
+          )}
           {...props}
         >
           <CheckboxIcon
@@ -174,12 +183,14 @@ const CheckboxBasic = forwardRef<HTMLDivElement, BasicCheckboxProps>(
         {label && (
           <label
             htmlFor={`${checkboxId}-input`}
-            className="text-foreground group-hover:text-foreground/80 cursor-pointer text-sm transition-colors duration-200 select-none"
+            className="cursor-pointer text-sm text-foreground transition-colors duration-200 select-none group-hover:text-foreground/80"
           >
             {label}
           </label>
         )}
-        {description && <span className="text-foreground/60 text-xs">{description}</span>}
+        {description && (
+          <span className="text-xs text-foreground/60">{description}</span>
+        )}
       </div>
     );
   },

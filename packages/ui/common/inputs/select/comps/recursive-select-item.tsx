@@ -3,6 +3,10 @@ import { TreeSelectItem } from "../types";
 import { flattenData } from "../utils";
 import { ChevronDown } from "lucide-react";
 import { Checkbox } from "@/components/common/inputs/checkbox";
+import {
+  TreeChildrenContinuation,
+  TreeRowGuidesMulti,
+} from "@/components/common/inputs/select/comps/tree-guides";
 
 export type RecursiveSelectItemProps = {
   selected: (number | string)[];
@@ -32,7 +36,9 @@ export function RecursiveSelectItem({
   const someChildrenChecked = allChildren
     .filter((x) => x.last)
     .some((x) => selected.includes(x.value));
-  let active = hasChildren ? allChildrenChecked : selected.includes(option.value);
+  let active = hasChildren
+    ? allChildrenChecked
+    : selected.includes(option.value);
   let halfChecked = hasChildren && someChildrenChecked && !allChildrenChecked;
   const open = opened.includes(option.value);
 
@@ -48,20 +54,10 @@ export function RecursiveSelectItem({
           hasChildren ? onClick(option) : onChange(option, !active);
         }}
       >
-        {depth > 1 && (
-          <div>
-            <div className={cn("bg-border h-px w-6", { "ms-6 w-6": depth > 2 })} />
-            <div
-              className={cn("bg-border absolute top-0 right-0 h-full w-px", {
-                "h-1/2!": last,
-                "right-6": depth > 2,
-              })}
-            />
-          </div>
-        )}
+        {depth > 1 ? <TreeRowGuidesMulti depth={depth} last={last} /> : null}
         {hasChildren && (
           <span
-            className="w-8 max-w-8 min-w-8"
+            className="flex w-8 max-w-8 min-w-8 items-center justify-center rtl:rotate-180"
             onClick={(e) => {
               if (!hasChildren) return;
               e.stopPropagation();
@@ -69,18 +65,21 @@ export function RecursiveSelectItem({
             }}
           >
             <ChevronDown
-              className={cn("scale-75 transition-all", { "rotate-90": !open })}
+              className={cn(
+                "scale-75 transition-transform duration-200 ease-in-out",
+                open ? "rotate-0" : "-rotate-90",
+              )}
             />
           </span>
         )}
         <div
           id="checkbox-container"
-          className="hover:bg-input-accent/50 flex w-full items-center rounded-md p-2 transition-all"
+          className="flex w-full items-center rounded-md p-2 transition-all hover:bg-input-accent/50"
         >
           <div
             onClick={(e) => e.stopPropagation()}
             className={cn("", {
-              "ps-3": depth > 1,
+              "ps-0": depth > 1,
             })}
           >
             <Checkbox.Basic
@@ -102,9 +101,7 @@ export function RecursiveSelectItem({
       </div>
       {hasChildren && open && (
         <ul className={cn("relative flex flex-col ps-3.5")}>
-          {depth > 1 && !last && (
-            <div className={cn("bg-border absolute top-0 right-0 h-full w-px")} />
-          )}
+          {depth > 1 && !last ? <TreeChildrenContinuation /> : null}
           {option.children?.map((child, index, a) => {
             return (
               <RecursiveSelectItem

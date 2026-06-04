@@ -27,7 +27,7 @@ const PasswordInput = forwardRef<
           size={props.size}
         />
       }
-      className="dir-ltr px-4 py-0 pt-0.5"
+      // className="px-4 py-0 pt-0.5 dir-ltr"
       ref={ref}
     />
   );

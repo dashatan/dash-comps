@@ -1,89 +1,120 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import SelectContainer from '../select/container'
-import { SelectContainerProps, SelectItem } from '../select/types'
-import ChipSelect from '@/components/common/chips/chip-select'
-import PrefixedTextInput from '@/components/common/inputs/text/prefixed'
-import { ArrowLeft } from 'lucide-react'
+import { useState } from "react";
+import SelectContainer from "@/components/common/inputs/select/container";
+import { WeightPresets } from "@/components/common/inputs/weight/presets";
+import type {
+  WeightInputProps,
+  WeightPreset,
+  WeightRange,
+} from "@/components/common/inputs/weight/types";
+import {
+  cloneRange,
+  formatWeightLabel,
+  isSameRange,
+} from "@/components/common/inputs/weight/utils";
+import TextInput from "@/components/common/inputs/text";
+import { useLanguage } from "@dash/core";
 
-type Option = Omit<SelectItem, 'value'> & { value: { from?: number; to?: number } }
+export type { WeightInputProps, WeightPreset, WeightRange } from "@/components/common/inputs/weight/types";
 
-export type WeightInputProps = Omit<SelectContainerProps, 'value'> & {
-  options?: Option[]
-  value?: { from?: number; to?: number }
-  onChange?: (value?: { from?: number; to?: number }) => void
-  className?: {
-    panelBody?: string
-    panelFooter?: string
-    item?: string
-  }
+function formatFieldValue(n: number | undefined) {
+  return n === undefined ? "" : String(n);
 }
 
-export default function WeightInput({ options, onChange, value, ...props }: WeightInputProps) {
-  const [open, setOpen] = useState(false)
-  const label =
-    (value?.from ? 'از ' + value.from : '') + (value?.to ? 'تا ' + value?.to : '') + 'کیلوگرم'
+export default function WeightInput({
+  presets,
+  onChange,
+  value,
+  unit: unitProp,
+  ...props
+}: WeightInputProps) {
+  const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+  const unit = unitProp ?? "kg";
+  const fieldKey = `${value?.from ?? ""}-${value?.to ?? ""}`;
 
-  function handleChange(option: Option) {
-    onChange && onChange({ from: option.value.from, to: option.value.to })
+  const displayLabel = formatWeightLabel(
+    value,
+    unit,
+    t("common.from"),
+    t("common.to"),
+  );
+
+  function commitRange(next?: WeightRange) {
+    onChange?.(next);
+  }
+
+  function handlePresetSelect(preset: WeightPreset) {
+    const next = cloneRange(preset.value);
+
+    if (isSameRange(value, next)) {
+      commitRange(undefined);
+      return;
+    }
+
+    commitRange(next);
   }
 
   function handleClear() {
-    onChange && onChange()
+    commitRange(undefined);
   }
+
+  function handleRangeChange(next: WeightRange) {
+    commitRange(cloneRange(next));
+  }
+
   return (
     <SelectContainer
       onClear={handleClear}
       {...props}
-      value={label}
+      value={displayLabel}
       open={open}
-      onOpenChange={(e) => setOpen(e)}
+      onOpenChange={setOpen}
     >
       <div>
-        <div className='flex flex-wrap items-start justify-start gap-2 p-2'>
-          {options?.map((option) => {
-            return (
-              <ChipSelect
-                key={option.label}
-                active={value?.from === option.value.from && value?.to === option.value.to}
-                onSelect={() => handleChange(option)}
-                text={option.label}
-                val={option.value}
-                className='text-xs'
-              />
-            )
-          })}
-        </div>
+        {presets && presets.length > 0 ? (
+          <WeightPresets
+            presets={presets}
+            selected={value}
+            onSelect={handlePresetSelect}
+          />
+        ) : null}
 
-        <div className='flex items-end justify-between border-t border-gray-200 p-4'>
-          <PrefixedTextInput
-            label='از وزن'
-            prefix='کیلوگرم'
-            type='number'
+        <div className="flex items-end justify-between gap-4 border-t p-4">
+          <TextInput
+            key={`weight-from-${fieldKey}`}
+            label={t("common.fromWeight")}
+            prefix={unit}
+            type="number"
             min={0}
-            value={value?.from}
+            value={formatFieldValue(value?.from)}
             onChange={(v) => {
-              const num = parseFloat(v as string)
-              onChange && onChange({ from: num, to: value?.to })
+              const num = parseFloat(v);
+              handleRangeChange({
+                from: Number.isNaN(num) ? undefined : num,
+                to: value?.to,
+              });
             }}
           />
-          <div className='flex h-10 w-14 items-center justify-center'>
-            <ArrowLeft className='w-4 text-gray-400' />
-          </div>
-          <PrefixedTextInput
-            label='تا وزن'
-            prefix='کیلوگرم'
-            type='number'
-            min={value?.from || 0}
-            value={value?.to}
+
+          <TextInput
+            key={`weight-to-${fieldKey}`}
+            label={t("common.toWeight")}
+            prefix={unit}
+            type="number"
+            min={value?.from ?? 0}
+            value={formatFieldValue(value?.to)}
             onChange={(v) => {
-              const num = parseFloat(v as string)
-              onChange && onChange({ from: value?.from, to: num })
+              const num = parseFloat(v);
+              handleRangeChange({
+                from: value?.from,
+                to: Number.isNaN(num) ? undefined : num,
+              });
             }}
           />
         </div>
       </div>
     </SelectContainer>
-  )
+  );
 }

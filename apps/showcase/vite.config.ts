@@ -17,6 +17,7 @@ const coreAlias = (prefix: string) => [
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
+    dedupe: ["react", "react-dom"],
     alias: [
       { find: "next/link", replacement: path.join(stubsPkg, "next/link.tsx") },
       { find: "next/navigation", replacement: path.join(stubsPkg, "next/navigation.ts") },

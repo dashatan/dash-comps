@@ -9,12 +9,21 @@ import {
 } from "@/components/common/overlay/popover";
 import SelectTriggerTemplate from "./comps/trigger";
 import SelectBoxFilter from "./comps/filter";
-import { useRef, forwardRef, useCallback, useState } from "react";
+import {
+  useRef,
+  forwardRef,
+  useCallback,
+  useState,
+  useLayoutEffect,
+} from "react";
+import { motion } from "framer-motion";
 import { SelectContainerProps } from "@/components/common/inputs/select/types";
 
 const SelectContent = forwardRef<
   HTMLDivElement,
-  SelectContainerProps & { triggerRef: React.RefObject<HTMLButtonElement | null> }
+  SelectContainerProps & {
+    triggerRef: React.RefObject<HTMLButtonElement | null>;
+  }
 >(
   (
     {
@@ -32,19 +41,49 @@ const SelectContent = forwardRef<
       loading,
       onOpenChange,
       children,
-      scrollable,
+      layoutScroll,
       maxHeight,
+      width,
+      open,
       triggerRef,
     },
     ref,
   ) => {
     const [searchText, setSearchText] = useState("");
+    const [dropdownWidth, setDropdownWidth] = useState<number | string>();
 
-    const getContentWidth = useCallback(() => {
-      if (fitContent) return;
+    const resolveDropdownWidth = useCallback(() => {
+      if (fitContent) return undefined;
       if (contentWidth) return contentWidth;
-      return triggerRef.current?.offsetWidth;
-    }, [contentWidth, fitContent, triggerRef]);
+
+      const measured = triggerRef.current?.offsetWidth;
+      if (measured && measured > 0) return measured;
+
+      if (width !== undefined) return width;
+
+      return undefined;
+    }, [contentWidth, fitContent, triggerRef, width]);
+
+    useLayoutEffect(() => {
+      if (!open || fitContent) return;
+      const next = resolveDropdownWidth();
+      if (next !== undefined) setDropdownWidth(next);
+    }, [open, fitContent, resolveDropdownWidth]);
+
+    useLayoutEffect(() => {
+      const el = triggerRef.current;
+      if (!el || fitContent) return;
+
+      const update = () => {
+        const next = resolveDropdownWidth();
+        if (next !== undefined) setDropdownWidth(next);
+      };
+
+      update();
+      const observer = new ResizeObserver(update);
+      observer.observe(el);
+      return () => observer.disconnect();
+    }, [fitContent, resolveDropdownWidth, triggerRef, width, contentWidth]);
 
     return (
       <PopoverContent
@@ -54,14 +93,18 @@ const SelectContent = forwardRef<
         side="bottom"
         avoidCollisions
         collisionPadding={8}
-        className={cn("shadow", className?.dropdown?.container, {
+        className={cn("shadow select-none", className?.dropdown?.container, {
           "absolute top-16": fixedContent,
         })}
-        style={{ width: getContentWidth() }}
+        style={{ width: dropdownWidth }}
         align={align || "start"}
         forceMount={forceMount}
       >
-        <div className="bg-input border-input rounded-md border">
+        <div
+          className={cn("rounded-md border border-input-border bg-input", {
+            "w-full min-w-full": !fitContent && dropdownWidth !== undefined,
+          })}
+        >
           {headerTemplate}
           {filter && onSearch && (
             <SelectBoxFilter
@@ -77,17 +120,28 @@ const SelectContent = forwardRef<
               searchText={searchText}
             />
           )}
-          <ul
-            id={`${label}-scrollable-list`}
-            className={cn(
-              "flex flex-col gap-2 overflow-x-hidden overflow-y-hidden p-2 shadow-sm",
-              { "overflow-y-auto [scrollbar-gutter:stable]": scrollable },
-              className?.dropdown?.body,
-            )}
-            style={{ maxHeight: scrollable ? maxHeight || "300px" : undefined }}
-          >
-            {children}
-          </ul>
+          {layoutScroll ? (
+            <motion.ul
+              layoutScroll
+              id={`${label}-scrollable-list`}
+              className={cn(
+                "flex max-h-60 flex-col gap-0.5 overflow-x-hidden overflow-y-auto p-2 shadow-sm select-none",
+                className?.dropdown?.body,
+              )}
+            >
+              {children}
+            </motion.ul>
+          ) : (
+            <ul
+              id={`${label}-scrollable-list`}
+              className={cn(
+                "flex max-h-60 flex-col gap-2 overflow-x-hidden overflow-y-auto p-2 shadow-sm select-none",
+                className?.dropdown?.body,
+              )}
+            >
+              {children}
+            </ul>
+          )}
         </div>
       </PopoverContent>
     );
@@ -107,7 +161,11 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectContainerProps>(
     }
 
     return (
-      <PopoverTrigger ref={ref} className={props.className?.trigger?.container} asChild>
+      <PopoverTrigger
+        ref={ref}
+        className={cn("select-none", props.className?.trigger?.container)}
+        asChild
+      >
         <div style={{ width: props.width || "100%", height: props.height }}>
           {props.labelTemplate || labelElement?.(props.value) || (
             <SelectTriggerTemplate {...props} onClear={onClear} />
@@ -124,19 +182,32 @@ export default function SelectContainer({
   onClear,
   onOpenChange,
   onSearch,
+  open: openProp,
   ...props
 }: SelectContainerProps) {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const { fitContent, filter, ...rest } = props;
+  const isOpenControlled = openProp !== undefined;
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const open = isOpenControlled ? openProp : uncontrolledOpen;
+
+  const handleOpenChange = useCallback(
+    (next: boolean) => {
+      if (!isOpenControlled) setUncontrolledOpen(next);
+      onOpenChange?.(next);
+    },
+    [isOpenControlled, onOpenChange],
+  );
 
   const body = (
-    <Popover open={props.open} onOpenChange={onOpenChange}>
+    <Popover open={open} onOpenChange={handleOpenChange}>
       <SelectTrigger {...rest} ref={triggerRef} onClear={onClear} />
       <SelectContent
         {...rest}
+        open={open}
         filter={filter}
         onSearch={onSearch}
-        onOpenChange={onOpenChange}
+        onOpenChange={handleOpenChange}
         triggerRef={triggerRef}
         fitContent={fitContent}
       />

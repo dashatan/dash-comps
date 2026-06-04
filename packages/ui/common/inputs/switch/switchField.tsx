@@ -1,12 +1,18 @@
 "use client";
 import LabelContainer from "@/components/common/inputs/label/labelContainer";
 import { LabelContainerProps } from "@/components/common/inputs/select/types";
-import Switch from "@/components/common/inputs/switch/switch2";
+import Switch from "@dash/ui/common/inputs/switch/switch";
 import { cn } from "@/lib";
 import { useEffect, useState } from "react";
 
 export type SwitchFieldProps = {
-  severity?: "primary" | "secondary" | "success" | "warning" | "danger" | "info";
+  severity?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning"
+    | "danger"
+    | "info";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   active?: boolean;
   value?: boolean;
@@ -57,7 +63,10 @@ export default function SwitchField({
           container: "flex flex-row",
           ...labelContainerProps?.className?.trigger,
         },
-        wrapper: { body: "cursor-pointer", ...labelContainerProps?.className?.wrapper },
+        wrapper: {
+          body: "cursor-pointer",
+          ...labelContainerProps?.className?.wrapper,
+        },
         ...labelContainerProps?.className,
       }}
       showMessage={!!message}

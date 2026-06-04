@@ -33,14 +33,18 @@ type PageTransitionProps = HTMLMotionProps<"div"> & {
   children: ReactNode;
 };
 
-export function PageTransition({ children, className, ...props }: PageTransitionProps) {
+export function PageTransition({
+  children,
+  className,
+  ...props
+}: PageTransitionProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-      className={cn("w-full min-w-0 max-w-full", className)}
+      className={cn("w-full max-w-full min-w-0", className)}
       {...props}
     >
       {children}
@@ -62,7 +66,7 @@ export function FadeIn({ children, className, delay = 0 }: FadeInProps) {
       whileInView="visible"
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={cn("w-full min-w-0 max-w-full", className)}
+      className={cn("w-full max-w-full min-w-0", className)}
     >
       {children}
     </motion.div>
@@ -94,7 +98,11 @@ type AnimatedItemProps = {
 
 export function AnimatedItem({ children, className }: AnimatedItemProps) {
   return (
-    <motion.div variants={fadeUp} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className={className}>
+    <motion.div
+      variants={fadeUp}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
       {children}
     </motion.div>
   );
@@ -106,12 +114,49 @@ type HoverScaleProps = {
   scale?: number;
 };
 
-export function HoverScale({ children, className, scale = 1.02 }: HoverScaleProps) {
+export function HoverScale({
+  children,
+  className,
+  scale = 1.02,
+}: HoverScaleProps) {
   return (
     <motion.div
       whileHover={{ scale, y: -2 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export type AnimatedTextProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function AnimatedText({ children, className }: AnimatedTextProps) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export type HoverShadowProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function HoverShadow({ children, className }: HoverShadowProps) {
+  return (
+    <motion.div
+      whileHover={{ boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)" }}
       className={className}
     >
       {children}

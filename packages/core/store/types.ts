@@ -49,7 +49,6 @@ export const defaultPreferences: Preferences = {
   profileImages: {},
   menuSettings: { visibleMenus: [], defaultExpanded: true },
   fontSize: "base",
-  fontFamily: "peyda",
   spacing: "normal",
   dateFormat: {
     monthFormat: "digit",

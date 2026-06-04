@@ -9,9 +9,21 @@ export const checkboxVariants = cva(
         unchecked: "border-border",
         disabled: "border-border bg-muted cursor-default",
       },
+      severity: {
+        primary: "border-primary",
+        secondary: "border-secondary",
+        success: "border-success",
+        warning: "border-warning",
+        danger: "border-danger",
+        info: "border-info",
+        input: "border-input",
+        muted: "border-muted",
+        default: "border-border",
+      },
     },
     defaultVariants: {
       state: "unchecked",
+      severity: "default",
     },
   },
 );
@@ -21,11 +33,23 @@ export const checkboxIconVariants = cva("h-4 w-4 transition-all duration-100", {
     state: {
       checked: "scale-110",
       unchecked: "scale-0",
-      disabled: "text-muted-foreground",
+      disabled: "text-muted-foreground cursor-default",
       loading: "animate-spin",
+    },
+    severity: {
+      primary: "text-primary",
+      secondary: "text-secondary",
+      success: "text-success",
+      warning: "text-warning",
+      danger: "text-danger",
+      info: "text-info",
+      input: "text-input",
+      muted: "text-muted",
+      default: "text-foreground",
     },
   },
   defaultVariants: {
     state: "unchecked",
+    severity: "default",
   },
 });

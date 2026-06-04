@@ -38,6 +38,8 @@ export interface OTPInputProps {
   autoFocus?: boolean
   /** Whether to allow paste functionality */
   allowPaste?: boolean
+  /** Total duration of the paste fill animation (ms) */
+  pasteDurationMs?: number
   /** Whether to allow only numeric input */
   numericOnly?: boolean
   /** Whether the input is in a loading state */

@@ -1,14 +1,17 @@
-'use client'
+"use client";
 
-import { useEffect, useRef, useState } from 'react'
-import { cn } from '@/lib'
-import { OTPInputProps } from './types'
-import { otpInputVariants } from './variants'
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib";
+import { OtpCell } from "@/components/common/inputs/otp/otp-cell";
+import { DEFAULT_PASTE_DURATION_MS } from "@/components/common/inputs/otp/paste-wave";
+import { useOtpPasteWave } from "@/components/common/inputs/otp/use-otp-paste-wave";
+import { OTPInputProps } from "./types";
+import "./otp.css";
 
 export default function OTPInput({
   id,
   length = 6,
-  value = '',
+  value = "",
   onChange,
   disabled = false,
   required = false,
@@ -16,183 +19,188 @@ export default function OTPInput({
   status,
   message,
   className,
-  autoFocus = true,
+  autoFocus = false,
   allowPaste = true,
+  pasteDurationMs = DEFAULT_PASTE_DURATION_MS,
   numericOnly = true,
   isLoading = false,
   size = "md",
   width,
 }: OTPInputProps) {
-  const [otp, setOtp] = useState<string[]>(value.split('').slice(0, length))
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([])
-  const [isFocused, setIsFocused] = useState<boolean>(false)
+  const [otp, setOtp] = useState<string[]>(value.split("").slice(0, length));
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const {
+    isPastingRef,
+    isPasting,
+    pasteCharCount,
+    waveFront,
+    risingCell,
+    applyPastedValue,
+    cancelPasteAnimation,
+    resetPasteVisuals,
+  } = useOtpPasteWave({
+    length,
+    pasteDurationMs,
+    numericOnly,
+    onChange,
+    setOtp,
+    inputRefs,
+  });
 
   useEffect(() => {
-    if (value) {
-      setOtp(value.split('').slice(0, length))
+    if (isPastingRef.current) return;
+    setOtp(value.split("").slice(0, length));
+    resetPasteVisuals();
+  }, [value, length, resetPasteVisuals]);
+
+  const handleChange = (index: number, nextValue: string) => {
+    if (numericOnly && !/^\d*$/.test(nextValue)) return;
+
+    if (nextValue.length > 1) {
+      if (!allowPaste) return;
+      applyPastedValue(nextValue);
+      return;
     }
-  }, [value, length])
 
-  const handleChange = (index: number, value: string) => {
-    if (numericOnly && !/^\d*$/.test(value)) return
+    cancelPasteAnimation();
 
-    const newOtp = [...otp]
-    newOtp[index] = value.slice(-1)
-    setOtp(newOtp)
+    const newOtp = [...otp];
+    newOtp[index] = nextValue.slice(-1);
+    setOtp(newOtp);
+    onChange?.(newOtp.join(""));
 
-    const otpValue = newOtp.join('')
-    onChange?.(otpValue)
-
-    // Move to next input if current input is filled, regardless of whether the value changed
-    if (value && index < length - 1) {
-      const nextInput = inputRefs.current[index + 1]
-      if (nextInput) {
-        nextInput.focus()
-        nextInput.select()
-      }
+    if (nextValue && index < length - 1) {
+      const nextInput = inputRefs.current[index + 1];
+      nextInput?.focus();
+      nextInput?.select();
     }
-  }
+  };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace') {
+  const handleKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
+    if (e.key === "Backspace") {
+      cancelPasteAnimation();
+
       if (!otp[index] && index > 0) {
-        // If current input is empty and backspace is pressed, move to previous input
-        const prevInput = inputRefs.current[index - 1]
-        if (prevInput) {
-          prevInput.focus()
-          prevInput.select()
-        }
-      } else {
-        // Clear current input and stay on it
-        const newOtp = [...otp]
-        newOtp[index] = ''
-        setOtp(newOtp)
-        onChange?.(newOtp.join(''))
+        inputRefs.current[index - 1]?.focus();
+        inputRefs.current[index - 1]?.select();
+        return;
       }
-    } else if (e.key === 'ArrowLeft' && index > 0) {
-      // Move to previous input on left arrow
-      const prevInput = inputRefs.current[index - 1]
-      if (prevInput) {
-        prevInput.focus()
-        prevInput.select()
-      }
-    } else if (e.key === 'ArrowRight' && index < length - 1) {
-      // Move to next input on right arrow
-      const nextInput = inputRefs.current[index + 1]
-      if (nextInput) {
-        nextInput.focus()
-        nextInput.select()
-      }
-    }
-  }
 
-  const handleFocus = (index: number) => {
-    setIsFocused(true)
-    const input = inputRefs.current[index]
-    if (input) {
-      input.select()
+      const newOtp = [...otp];
+      newOtp[index] = "";
+      setOtp(newOtp);
+      onChange?.(newOtp.join(""));
+      return;
     }
-  }
 
-  const handleBlur = () => {
-    setIsFocused(false)
-  }
-
-  const handleClick = (index: number) => {
-    const input = inputRefs.current[index]
-    if (input) {
-      input.focus()
-      input.select()
+    if (e.key === "ArrowLeft" && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+      inputRefs.current[index - 1]?.select();
+    } else if (e.key === "ArrowRight" && index < length - 1) {
+      inputRefs.current[index + 1]?.focus();
+      inputRefs.current[index + 1]?.select();
     }
-  }
+  };
+
+  const handleBeforeInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const nativeEvent = e.nativeEvent as InputEvent;
+    if (nativeEvent.inputType === "insertFromPaste" && !allowPaste) {
+      e.preventDefault();
+    }
+  };
 
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
-    if (!allowPaste) return
-
-    e.preventDefault()
-    const pastedData = e.clipboardData.getData('text').slice(0, length)
-    if (numericOnly && !/^\d*$/.test(pastedData)) return
-
-    const newOtp = pastedData.split('').slice(0, length)
-    setOtp(newOtp)
-    onChange?.(newOtp.join(''))
-
-    // Focus the next empty input after paste
-    const nextEmptyIndex = newOtp.findIndex((val) => !val)
-    if (nextEmptyIndex !== -1) {
-      const nextInput = inputRefs.current[nextEmptyIndex]
-      if (nextInput) {
-        nextInput.focus()
-        nextInput.select()
-      }
-    }
-  }
+    e.preventDefault();
+    if (!allowPaste) return;
+    applyPastedValue(e.clipboardData.getData("text"));
+  };
 
   const rowWidth =
-    width === undefined ? undefined : typeof width === "number" ? `${width}px` : width;
+    width === undefined
+      ? undefined
+      : typeof width === "number"
+        ? `${width}px`
+        : width;
+
+  const cellStatus = status ?? "default";
 
   return (
     <div
-      className={cn("flex w-fit max-w-full flex-col gap-2", className?.container)}
+      className={cn(
+        "flex w-fit max-w-full flex-col gap-2",
+        className?.container,
+      )}
       style={rowWidth ? { width: rowWidth } : undefined}
     >
       {label ? (
-        <label htmlFor={id ?? label} className={cn("text-sm font-medium", className?.label)}>
+        <label
+          htmlFor={id ?? label}
+          className={cn("text-sm font-medium", className?.label)}
+        >
           {label}
         </label>
       ) : null}
       <div
         className={cn(
-          "dir-ltr flex w-fit max-w-full flex-wrap items-center gap-2",
+          "relative flex w-fit max-w-full flex-wrap items-center gap-2 dir-ltr",
           disabled && "cursor-not-allowed opacity-50",
           isLoading && "animate-pulse",
+          isPasting && "pointer-events-none",
           className?.cells,
         )}
       >
         {Array.from({ length }, (_, index) => (
-          <input
+          <OtpCell
             key={index}
-            id={`${id}-${index}`}
-            ref={(el) => {
-              inputRefs.current[index] = el
-            }}
-            type='text'
-            inputMode={numericOnly ? 'numeric' : 'text'}
-            pattern={numericOnly ? '[0-9]*' : undefined}
-            maxLength={1}
-            value={otp[index] || ''}
-            onInput={(e) => handleChange(index, (e.target as HTMLInputElement).value)}
-            onKeyDown={(e) => handleKeyDown(index, e)}
-            onFocus={() => handleFocus(index)}
-            onBlur={handleBlur}
-            onClick={() => handleClick(index)}
-            onPaste={handlePaste}
+            index={index}
+            id={id}
+            value={otp[index] || ""}
+            size={size ?? "md"}
+            status={cellStatus}
+            waveFront={waveFront}
+            pasteCharCount={pasteCharCount}
+            isPasting={isPasting}
+            isRising={risingCell === index}
+            numericOnly={numericOnly}
             disabled={disabled || isLoading}
             required={required}
             autoFocus={autoFocus && index === 0}
-            className={cn(
-              otpInputVariants({
-                size,
-                status: status ?? "default",
-              }),
-              className?.input,
-            )}
+            inputClassName={className?.input}
+            inputRef={(el) => {
+              inputRefs.current[index] = el;
+            }}
+            onBeforeInput={handleBeforeInput}
+            onInput={(e) =>
+              handleChange(index, (e.target as HTMLInputElement).value)
+            }
+            onKeyDown={(e) => handleKeyDown(index, e)}
+            onFocus={() => inputRefs.current[index]?.select()}
+            onBlur={() => {}}
+            onClick={() => {
+              inputRefs.current[index]?.focus();
+              inputRefs.current[index]?.select();
+            }}
+            onPaste={handlePaste}
           />
         ))}
       </div>
-      {message && (
+      {message ? (
         <p
-          className={cn('text-sm', {
-            'text-error': status === 'error',
-            'text-warning': status === 'warning',
-            'text-success': status === 'success',
-            'text-primary': status === 'primary',
-            'text-secondary': status === 'secondary',
+          className={cn("text-sm", {
+            "text-error": status === "error",
+            "text-warning": status === "warning",
+            "text-success": status === "success",
+            "text-primary": status === "primary",
+            "text-secondary": status === "secondary",
           })}
         >
           {message}
         </p>
-      )}
+      ) : null}
     </div>
-  )
+  );
 }
