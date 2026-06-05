@@ -1,17 +1,17 @@
-'use server'
+"use server";
 
-import { Language, LanguageProvider, SupportedLanguages } from './'
-import fa from '@/lib/language/locales/fa.json'
-import en from '@/lib/language/locales/en.json'
-import ar from '@/lib/language/locales/ar.json'
-import { TranslationType } from '@/lib/language/locales'
+import { Language, LanguageProvider, translations } from "./";
 
-export async function ServerLanguageProvider({ children, language }: { children: React.ReactNode; language: Language }) {
-  const translations = { fa, en, ar } as unknown as Record<SupportedLanguages, TranslationType>
-
+export async function ServerLanguageProvider({
+  children,
+  language,
+}: {
+  children: React.ReactNode;
+  language: Language;
+}) {
   return (
     <LanguageProvider defaultLanguage={language} translations={translations}>
       {children}
     </LanguageProvider>
-  )
+  );
 }

@@ -100,13 +100,13 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
           onChange={(e) => e && handleRows(e as number)}
           scrollable
           options={[
-            { label: t("table.item", { count: "5" }), value: 5, title: "5" },
-            { label: t("table.item", { count: "10" }), value: 10, title: "10" },
-            { label: t("table.item", { count: "15" }), value: 15, title: "15" },
-            { label: t("table.item", { count: "20" }), value: 20, title: "20" },
-            { label: t("table.item", { count: "50" }), value: 50, title: "50" },
-            { label: t("table.item", { count: "100" }), value: 100, title: "100" },
-            { label: t("table.item", { count: "1000" }), value: 1000, title: "1000" },
+            { label: t("table.item", { count: 5 }), value: 5, title: "5" },
+            { label: t("table.item", { count: 10 }), value: 10, title: "10" },
+            { label: t("table.item", { count: 15 }), value: 15, title: "15" },
+            { label: t("table.item", { count: 20 }), value: 20, title: "20" },
+            { label: t("table.item", { count: 50 }), value: 50, title: "50" },
+            { label: t("table.item", { count: 100 }), value: 100, title: "100" },
+            { label: t("table.item", { count: 1000 }), value: 1000, title: "1000" },
           ]}
         />
         <Select.MultiOrderable

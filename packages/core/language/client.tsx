@@ -8,8 +8,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { TranslationType } from "@/lib/language/locales";
-import { TranslationKeys } from "@/lib/language/locales";
+import { TranslationType, TranslationKeys } from "./locales";
 import Cookies from "js-cookie";
 import {
   COOKIE_EXPIRY_DAYS,
@@ -18,13 +17,19 @@ import {
   isValidLanguage,
   Language,
   SupportedLanguages,
-} from "./";
+} from "./utils";
 import { getNestedValue } from "../utils/cn";
+import {
+  formatTranslation,
+  type TranslationParams,
+} from "./plural";
 
 export type Translation = (
   key: TranslationKeys,
-  params?: Record<string, string>,
+  params?: TranslationParams,
 ) => string;
+
+export type { TranslationParams } from "./plural";
 
 export interface LanguageContextType {
   language: Language;
@@ -38,7 +43,9 @@ export interface LanguageProviderProps {
   translations: Record<SupportedLanguages, TranslationType>;
 }
 
-export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 function toTranslationString(raw: unknown): string {
   if (raw === undefined || raw === null) return "";
@@ -60,17 +67,11 @@ export function LanguageProvider({
   );
 
   const t = useCallback(
-    (key: TranslationKeys, params?: Record<string, string>): string => {
+    (key: TranslationKeys, params?: TranslationParams): string => {
       const value = toTranslationString(getNestedValue(translation, key));
-
-      if (!params) return value;
-
-      return Object.entries(params).reduce<string>(
-        (acc, [paramKey, paramValue]) => acc.replace(`{{${paramKey}}}`, paramValue),
-        value,
-      );
+      return formatTranslation(value, language, params);
     },
-    [translation],
+    [language, translation],
   );
 
   const handleSetLanguage = useCallback((newLanguage: Language) => {
@@ -90,7 +91,8 @@ export function LanguageProvider({
       document.title = translations[language].app.name;
     }
     const lang = Cookies.get("language") as Language;
-    if (lang && lang !== language && isValidLanguage(lang)) handleSetLanguage(lang);
+    if (lang && lang !== language && isValidLanguage(lang))
+      handleSetLanguage(lang);
   }, [language, handleSetLanguage]);
 
   const contextValue: LanguageContextType = {
@@ -99,7 +101,9 @@ export function LanguageProvider({
     t,
   };
   return (
-    <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>
+    <LanguageContext.Provider value={contextValue}>
+      {children}
+    </LanguageContext.Provider>
   );
 }
 

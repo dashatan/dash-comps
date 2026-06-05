@@ -1,6 +1,17 @@
-import fa from '@/lib/language/locales/fa.json'
-import { NestedKeyOf, TranslationsTypeOf } from '@/lib/types'
+import fa from "@/lib/language/locales/fa.json";
+import en from "@/lib/language/locales/en.json";
+import ar from "@/lib/language/locales/ar.json";
+import { LeafKeyOf, NestedTypeOf } from "../types";
+import type { SupportedLanguages } from "../utils";
 
-export type TranslationType = TranslationsTypeOf<typeof fa>
-export type TranslationKeys = NestedKeyOf<typeof fa>
-export type LanguageKey = keyof typeof fa
+const baseLocale = en;
+
+export type LocaleSchema = NestedTypeOf<typeof baseLocale>;
+export type TranslationType = LocaleSchema;
+export type TranslationKeys = LeafKeyOf<typeof baseLocale>;
+
+export const translations = {
+  fa,
+  en,
+  ar,
+} satisfies Record<SupportedLanguages, LocaleSchema>;

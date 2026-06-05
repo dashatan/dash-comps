@@ -2,6 +2,7 @@
 // Next.js server entry: use `./server-entry` instead.
 export { cn, getNestedValue, nestedSearch, createUUID } from "./utils/cn";
 export * from "./language/client";
+export * from "./language/types";
 export * from "./language/utils";
 export * from "./language/locales/index";
 export * from "./constants";

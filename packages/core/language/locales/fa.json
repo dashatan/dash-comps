@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "",
-    "subTitle": ""
+    "name": "dash-comps",
+    "description": "کامپوننت‌های داش"
   },
   "common": {
     "province": "استان",
@@ -205,7 +205,7 @@
     "changeSearch": "تغییر جستجو",
     "filter": "فیلتر",
     "sum": "مجموع",
-    "selectedCount": "{{count}} مورد انتخاب شده",
+    "selectedCount": "one={{count}} مورد انتخاب شده|other={{count}} مورد انتخاب شده",
     "activityIndexRange": "بازه شاخص فعالیت:",
     "refreshPage": "تازه‌سازی صفحه",
     "entireCountry": "کل کشور",
@@ -264,7 +264,6 @@
     "fromWeight": "از وزن",
     "toWeight": "تا وزن"
   },
-
   "date": {
     "month": {
       "farvardin": "فروردین",
@@ -291,7 +290,6 @@
   "header": {
     "searchPlaceHolder": "جستجو در امکانات..."
   },
-
   "errors": {
     "403": "کاربر گرامی! شما به این صفحه دسترسی ندارید.",
     "404": "متاسفانه صفحه‌ی مورد نظر یافت نشد.",
@@ -355,7 +353,7 @@
     "noRow": "سطری یافت نشد",
     "bulkActions": "اقدام گروهی",
     "tableSettings": "تنظیمات جدول",
-    "item": "{{count}} مورد",
+    "item": "one={{count}} مورد|other={{count}} مورد",
     "rowCount": "تعداد ردیف",
     "tableOrder": "ترتیب و نمایش ستون ها"
   },
@@ -367,7 +365,7 @@
     "downloadSample": "دریافت نمونه",
     "description": "برای بارگذاری ضمائم، آن‌ها را در رایانه خود انتخاب نموده سپس کشیده و این‌جا رها کنید. یا بر روی پوشه بالا کلیک کنید. نوع فایل‌های مجاز:",
     "download": "(دریافت)",
-    "update": "به روز رسانی اطلاعات کاربران موجود ({{count}} مورد)"
+    "update": "one=به‌روزرسانی {{count}} کاربر موجود|other=به‌روزرسانی {{count}} کاربر موجود"
   },
   "form": {
     "clearAll": "پاک کردن تاریخچه",

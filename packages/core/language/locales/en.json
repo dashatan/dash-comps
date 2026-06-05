@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "",
-    "subTitle": ""
+    "name": "dash-comps",
+    "description": "dash-comps"
   },
   "common": {
     "province": "Province",
@@ -205,7 +205,7 @@
     "changeSearch": "Change search",
     "filter": "Filter",
     "sum": "Total",
-    "selectedCount": "{{count}} items selected",
+    "selectedCount": "one={{count}} item selected|other={{count}} items selected",
     "activityIndexRange": "Activity index range:",
     "refreshPage": "Refresh page",
     "entireCountry": "Entire country",
@@ -353,7 +353,7 @@
     "noRow": "No rows found",
     "bulkActions": "Bulk actions",
     "tableSettings": "Table settings",
-    "item": "{{count}} items",
+    "item": "one={{count}} item|other={{count}} items",
     "rowCount": "Row count",
     "tableOrder": "Column order and visibility"
   },
@@ -365,7 +365,7 @@
     "downloadSample": "Download sample",
     "description": "To upload attachments, select them on your computer and drag them here, or click the folder above. Allowed file types:",
     "download": "(Download)",
-    "update": "Update existing users ({{count}} items)"
+    "update": "one=Update {{count}} existing user|other=Update {{count}} existing users"
   },
   "form": {
     "clearAll": "Clear history",
