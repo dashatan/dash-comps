@@ -1558,67 +1558,132 @@
     "cards": {
       "compound": {
         "title": "Full card",
-        "description": "Header, description, content, and footer composed together.",
+        "description": "Compound slots with badge, title, description, content, and actions.",
+        "badge": "Featured",
         "cardTitle": "Project overview",
         "cardDescription": "Track progress across your active dashboards.",
         "cardContent": "Cards adapt to light and dark themes using semantic tokens from your design system.",
         "viewDetails": "View details",
         "dismiss": "Dismiss"
       },
-      "headerAction": {
-        "title": "Header action",
-        "description": "CardAction slots into the header grid beside the title.",
-        "cardTitle": "Notifications",
-        "cardDescription": "Manage alerts and delivery preferences.",
-        "cardContent": "Use CardAction for overflow menus, settings, or dismiss controls.",
-        "menuLabel": "Open menu"
-      },
-      "variants": {
-        "title": "Variants",
-        "description": "Surface styles from default filled to transparent ghost.",
+      "severities": {
+        "title": "Severities",
+        "description": "Semantic color roles paired with soft surfaces.",
         "default": "Default",
+        "defaultDescription": "Neutral card surface for general content.",
+        "primary": "Primary",
+        "primaryDescription": "Highlight important or featured content.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Secondary emphasis without primary weight.",
+        "success": "Success",
+        "successDescription": "Positive outcomes and confirmations.",
+        "warning": "Warning",
+        "warningDescription": "Cautionary information and alerts.",
+        "danger": "Danger",
+        "dangerDescription": "Errors, failures, and destructive context.",
+        "info": "Info",
+        "infoDescription": "Informational and neutral notices.",
+        "muted": "Muted",
+        "mutedDescription": "De-emphasized supporting content."
+      },
+      "appearances": {
+        "title": "Appearances",
+        "description": "Soft tint, outline, solid fill, or ghost transparent.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with a subtle border.",
         "outline": "Outline",
+        "outlineDescription": "Transparent fill with a colored border.",
+        "solid": "Solid",
+        "solidDescription": "Filled surface with contrasting foreground.",
         "ghost": "Ghost",
-        "sampleContent": "Variant preview with shared content."
+        "ghostDescription": "No border or shadow — content only."
       },
       "sizes": {
         "title": "Sizes",
-        "description": "Padding scales with sm, default, and lg.",
-        "sm": "Small",
-        "default": "Default",
-        "lg": "Large",
+        "description": "Section padding and vertical rhythm scale together.",
         "sampleTitle": "Card size",
-        "sampleContent": "Outer padding adjusts while inner slots keep consistent spacing."
+        "sampleContent": "Header, content, and footer padding follow the root size."
       },
-      "compositions": {
-        "title": "Compositions",
-        "description": "Mix and match slots for simpler layouts.",
-        "contentOnly": "Content only",
-        "contentOnlyBody": "A minimal card with just CardContent — useful for stats or short messages.",
-        "headerContent": "Header and content",
-        "headerContentTitle": "Weekly summary",
-        "headerContentDescription": "Key metrics from the last seven days.",
-        "headerContentBody": "Revenue up 12% compared to the previous week.",
-        "titleOnly": "Title only",
-        "titleOnlyLabel": "Quick stat"
+      "media": {
+        "title": "Media",
+        "description": "Card.Media supports aspect ratios and object fit.",
+        "square": "Square",
+        "video": "Video",
+        "wide": "Wide",
+        "imageAlt": "Card cover image",
+        "cardTitle": "Design workspace",
+        "cardDescription": "Preview media slots above card content.",
+        "action": "Open gallery"
       },
-      "bordered": {
-        "title": "Bordered sections",
-        "description": "Add border-b on CardHeader and border-t on CardFooter to divide regions.",
+      "orientation": {
+        "title": "Horizontal layout",
+        "description": "Side-by-side media and content on wider viewports.",
+        "imageAlt": "Team collaboration",
+        "cardTitle": "Team collaboration",
+        "cardDescription": "Media aligns to the start edge in horizontal mode.",
+        "cardContent": "Use orientation=\"horizontal\" for profile, product, or article previews.",
+        "action": "View team"
+      },
+      "headerAction": {
+        "title": "Header action",
+        "description": "Card.Action slots into the header grid beside the title.",
+        "cardTitle": "Notifications",
+        "cardDescription": "Manage alerts and delivery preferences.",
+        "cardContent": "Use Card.Action for overflow menus, settings, or dismiss controls.",
+        "menuLabel": "Open menu"
+      },
+      "divided": {
+        "title": "Divided sections",
+        "description": "The divided prop adds borders between header, content, and footer.",
         "cardTitle": "Billing details",
         "cardDescription": "Invoice #1042 · Due Apr 15",
         "cardContent": "Total due: $248.00",
         "save": "Save changes",
         "cancel": "Cancel"
       },
+      "roundedShadow": {
+        "title": "Rounded and shadow",
+        "description": "Corner radius and elevation are independent props.",
+        "rounded": {
+          "none": "Rounded none",
+          "md": "Rounded md",
+          "xl": "Rounded xl",
+          "2xl": "Rounded 2xl"
+        },
+        "shadow": {
+          "none": "Shadow none",
+          "sm": "Shadow sm",
+          "md": "Shadow md",
+          "lg": "Shadow lg"
+        }
+      },
       "interactive": {
         "title": "Interactive",
-        "description": "Cards can act as clickable surfaces with hover and focus styles.",
-        "cardTitle": "Select a plan",
-        "cardDescription": "Pro tier · $29 / month",
-        "cardContent": "Click to select this option. Selected state is tracked locally.",
+        "description": "Built-in keyboard support, hover, focus, and selected states.",
         "selected": "Selected",
-        "select": "Select plan"
+        "select": "Select plan",
+        "basic": {
+          "title": "Basic",
+          "description": "Essential features for small teams.",
+          "price": "$9 / mo"
+        },
+        "pro": {
+          "title": "Pro",
+          "description": "Advanced analytics and integrations.",
+          "price": "$29 / mo"
+        }
+      },
+      "compositions": {
+        "title": "Compositions",
+        "description": "Mix and match slots for simpler layouts.",
+        "contentOnly": "Content only",
+        "contentOnlyBody": "A minimal ghost card with just Card.Content.",
+        "headerContent": "Header and content",
+        "headerContentTitle": "Weekly summary",
+        "headerContentDescription": "Key metrics from the last seven days.",
+        "headerContentBody": "Revenue up 12% compared to the previous week.",
+        "mediaOnly": "Media only",
+        "mediaAlt": "Analytics preview"
       }
     },
     "carousel": {

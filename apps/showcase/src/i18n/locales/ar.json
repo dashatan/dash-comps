@@ -1558,67 +1558,132 @@
     "cards": {
       "compound": {
         "title": "بطاقة كاملة",
-        "description": "رأس ووصف ومحتوى وتذييل مُكوّنة معًا.",
+        "description": "فتحات مركّبة مع شارة وعنوان ووصف ومحتوى وإجراءات.",
+        "badge": "مميز",
         "cardTitle": "نظرة عامة على المشروع",
         "cardDescription": "تتبّع التقدّم في لوحات المعلومات النشطة.",
         "cardContent": "تتكيّف البطاقات مع السمات الفاتحة والداكنة باستخدام الرموز الدلالية من نظام التصميم.",
         "viewDetails": "عرض التفاصيل",
         "dismiss": "إغلاق"
       },
-      "headerAction": {
-        "title": "إجراء في الرأس",
-        "description": "CardAction يُدرج في شبكة الرأس بجانب العنوان.",
-        "cardTitle": "الإشعارات",
-        "cardDescription": "إدارة التنبيهات وتفضيلات التسليم.",
-        "cardContent": "استخدم CardAction لقوائم الفائض أو الإعدادات أو أزرار الإغلاق.",
-        "menuLabel": "فتح القائمة"
-      },
-      "variants": {
-        "title": "الأنواع",
-        "description": "أنماط السطح من الممتلئ الافتراضي إلى الشفاف.",
+      "severities": {
+        "title": "درجات الدلالة",
+        "description": "أدوار لونية دلالية مع أسطح ناعمة.",
         "default": "افتراضي",
+        "defaultDescription": "سطح بطاقة محايد للمحتوى العام.",
+        "primary": "أساسي",
+        "primaryDescription": "إبراز المحتوى المهم أو المميز.",
+        "secondary": "ثانوي",
+        "secondaryDescription": "ت emphasis ثانوي دون وزن أساسي.",
+        "success": "نجاح",
+        "successDescription": "نتائج إيجابية وتأكيدات.",
+        "warning": "تحذير",
+        "warningDescription": "معلومات تحذيرية وتنبيهات.",
+        "danger": "خطر",
+        "dangerDescription": "أخطاء وإخفاقات وسياق destructive.",
+        "info": "معلومات",
+        "infoDescription": "إشعارات معلوماتية ومحايدة.",
+        "muted": "باهت",
+        "mutedDescription": "محتوى داعم مخفّض الت emphasis."
+      },
+      "appearances": {
+        "title": "المظاهر",
+        "description": "تلوين ناعم، حدود، تعبئة صلبة، أو شفاف.",
+        "soft": "ناعم",
+        "softDescription": "خلفية ملونة مع حدود خفيفة.",
         "outline": "محدّد",
+        "outlineDescription": "تعبئة شفافة مع حدود ملونة.",
+        "solid": "صلب",
+        "solidDescription": "سطح معبّأ مع نص متباين.",
         "ghost": "شفاف",
-        "sampleContent": "معاينة النوع بمحتوى مشترك."
+        "ghostDescription": "بدون حدود أو ظل — المحتوى فقط."
       },
       "sizes": {
         "title": "الأحجام",
-        "description": "الحشو يتدرّج بين sm و default و lg.",
-        "sm": "صغير",
-        "default": "افتراضي",
-        "lg": "كبير",
+        "description": "حشو الأقسام والإيقاع العمودي يتدرّجان معًا.",
         "sampleTitle": "حجم البطاقة",
-        "sampleContent": "الحشو الخارجي يتغيّر بينما تحافظ الفتحات الداخلية على تباعد ثابت."
+        "sampleContent": "حشو الرأس والمحتوى والتذييل يتبع حجم الجذر."
       },
-      "compositions": {
-        "title": "التكوينات",
-        "description": "امزج الفتحات لتخطيطات أبسط.",
-        "contentOnly": "محتوى فقط",
-        "contentOnlyBody": "بطاقة بسيطة بـ CardContent فقط — مفيدة للإحصائيات أو الرسائل القصيرة.",
-        "headerContent": "رأس ومحتوى",
-        "headerContentTitle": "ملخص أسبوعي",
-        "headerContentDescription": "المقاييس الرئيسية من آخر سبعة أيام.",
-        "headerContentBody": "الإيرادات ارتفعت 12٪ مقارنة بالأسبوع السابق.",
-        "titleOnly": "عنوان فقط",
-        "titleOnlyLabel": "إحصاء سريع"
+      "media": {
+        "title": "الوسائط",
+        "description": "Card.Media يدعم نسب العرض وملاءمة الكائن.",
+        "square": "مربّع",
+        "video": "فيديو",
+        "wide": "عريض",
+        "imageAlt": "صورة غلاف البطاقة",
+        "cardTitle": "مساحة تصميم",
+        "cardDescription": "معاينة فتحات الوسائط فوق محتوى البطاقة.",
+        "action": "فتح المعرض"
       },
-      "bordered": {
-        "title": "أقسام بحدود",
-        "description": "أضف border-b على CardHeader و border-t على CardFooter لفصل المناطق.",
+      "orientation": {
+        "title": "تخطيط أفقي",
+        "description": "وسائط ومحتوى جنبًا إلى جنب على الشاشات الأوسع.",
+        "imageAlt": "تعاون الفريق",
+        "cardTitle": "تعاون الفريق",
+        "cardDescription": "تتم محاذاة الوسائط إلى الحافة البداية في الوضع الأفقي.",
+        "cardContent": "استخدم orientation=\"horizontal\" لمعاينات الملف الشخصي أو المنتج أو المقال.",
+        "action": "عرض الفريق"
+      },
+      "headerAction": {
+        "title": "إجراء في الرأس",
+        "description": "Card.Action يُدرج في شبكة الرأس بجانب العنوان.",
+        "cardTitle": "الإشعارات",
+        "cardDescription": "إدارة التنبيهات وتفضيلات التسليم.",
+        "cardContent": "استخدم Card.Action لقوائم الفائض أو الإعدادات أو أزرار الإغلاق.",
+        "menuLabel": "فتح القائمة"
+      },
+      "divided": {
+        "title": "أقسام مقسّمة",
+        "description": "خاصية divided تضيف حدودًا بين الرأس والمحتوى والتذييل.",
         "cardTitle": "تفاصيل الفوترة",
         "cardDescription": "فاتورة #1042 · الاستحقاق 15 أبريل",
         "cardContent": "المبلغ المستحق: 248.00$",
         "save": "حفظ التغييرات",
         "cancel": "إلغاء"
       },
+      "roundedShadow": {
+        "title": "التقويس والظل",
+        "description": "نصف قطر الزوايا والارتفاع خصائص مستقلة.",
+        "rounded": {
+          "none": "بدون تقويس",
+          "md": "تقويس md",
+          "xl": "تقويس xl",
+          "2xl": "تقويس 2xl"
+        },
+        "shadow": {
+          "none": "بدون ظل",
+          "sm": "ظل sm",
+          "md": "ظل md",
+          "lg": "ظل lg"
+        }
+      },
       "interactive": {
         "title": "تفاعلي",
-        "description": "يمكن للبطاقات أن تعمل كسطح قابل للنقر مع أنماط hover و focus.",
-        "cardTitle": "اختر خطة",
-        "cardDescription": "المستوى Pro · 29$ / شهر",
-        "cardContent": "انقر لاختيار هذا الخيار. حالة الاختيار تُتتبّع محليًا.",
+        "description": "دعم لوحة المفاتيح وحالات hover و focus و selected مدمجة.",
         "selected": "مُحدّد",
-        "select": "اختر الخطة"
+        "select": "اختر الخطة",
+        "basic": {
+          "title": "أساسي",
+          "description": "ميزات أساسية للفرق الصغيرة.",
+          "price": "9$ / شهر"
+        },
+        "pro": {
+          "title": "Pro",
+          "description": "تحليلات وتكاملات متقدمة.",
+          "price": "29$ / شهر"
+        }
+      },
+      "compositions": {
+        "title": "التكوينات",
+        "description": "امزج الفتحات لتخطيطات أبسط.",
+        "contentOnly": "محتوى فقط",
+        "contentOnlyBody": "بطاقة شبح بسيطة بـ Card.Content فقط.",
+        "headerContent": "رأس ومحتوى",
+        "headerContentTitle": "ملخص أسبوعي",
+        "headerContentDescription": "المقاييس الرئيسية من آخر سبعة أيام.",
+        "headerContentBody": "الإيرادات ارتفعت 12٪ مقارنة بالأسبوع السابق.",
+        "mediaOnly": "وسائط فقط",
+        "mediaAlt": "معاينة التحليلات"
       }
     },
     "carousel": {

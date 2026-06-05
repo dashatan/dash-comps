@@ -1558,67 +1558,132 @@
     "cards": {
       "compound": {
         "title": "کارت کامل",
-        "description": "سرصفحه، توضیح، محتوا و پاورقی کنار هم.",
+        "description": "اسلات ترکیبی با نشان، عنوان، توضیح، محتوا و عملیات.",
+        "badge": "ویژه",
         "cardTitle": "نمای کلی پروژه",
         "cardDescription": "پیشرفت داشبوردهای فعال خود را پیگیری کنید.",
         "cardContent": "کارت‌ها با استفاده از توکن‌های معنادار سیستم طراحی شما با تم روشن و تاریک سازگار می‌شوند.",
         "viewDetails": "مشاهده جزئیات",
         "dismiss": "بستن"
       },
-      "headerAction": {
-        "title": "عملیات سرصفحه",
-        "description": "CardAction در شبکه سرصفحه کنار عنوان قرار می‌گیرد.",
-        "cardTitle": "اعلان‌ها",
-        "cardDescription": "مدیریت هشدارها و ترجیحات ارسال.",
-        "cardContent": "از CardAction برای منوی بیشتر، تنظیمات یا بستن استفاده کنید.",
-        "menuLabel": "باز کردن منو"
-      },
-      "variants": {
-        "title": "گونه‌ها",
-        "description": "سبک‌های سطح از پیش‌فرض پر تا شبح شفاف.",
+      "severities": {
+        "title": "شدت‌ها",
+        "description": "نقش‌های رنگ معنادار همراه با سطوح نرم.",
         "default": "پیش‌فرض",
+        "defaultDescription": "سطح کارت خنثی برای محتوای عمومی.",
+        "primary": "اصلی",
+        "primaryDescription": "برجسته‌سازی محتوای مهم یا ویژه.",
+        "secondary": "ثانویه",
+        "secondaryDescription": "تأکید ثانویه بدون وزن اصلی.",
+        "success": "موفقیت",
+        "successDescription": "نتایج مثبت و تأییدها.",
+        "warning": "هشدار",
+        "warningDescription": "اطلاعات احتیاطی و هشدارها.",
+        "danger": "خطر",
+        "dangerDescription": "خطاها، شکست‌ها و زمینه مخرب.",
+        "info": "اطلاعات",
+        "infoDescription": "اطلاعیه‌های خنثی و اطلاعاتی.",
+        "muted": "کمرنگ",
+        "mutedDescription": "محتوای پشتیبان با تأکید کمتر."
+      },
+      "appearances": {
+        "title": "ظاهرها",
+        "description": "رنگ ملایم، حاشیه، پرکننده یکدست یا شبح شفاف.",
+        "soft": "نرم",
+        "softDescription": "پس‌زمینه رنگی با حاشیه ظریف.",
         "outline": "حاشیه‌دار",
+        "outlineDescription": "پرکننده شفاف با حاشیه رنگی.",
+        "solid": "یکدست",
+        "solidDescription": "سطح پر شده با متن متضاد.",
         "ghost": "شبح",
-        "sampleContent": "پیش‌نمایش گونه با محتوای مشترک."
+        "ghostDescription": "بدون حاشیه یا سایه — فقط محتوا."
       },
       "sizes": {
         "title": "اندازه‌ها",
-        "description": "padding با sm، default و lg مقیاس می‌شود.",
-        "sm": "کوچک",
-        "default": "پیش‌فرض",
-        "lg": "بزرگ",
+        "description": "padding بخش‌ها و ریتم عمودی با هم مقیاس می‌شوند.",
         "sampleTitle": "اندازه کارت",
-        "sampleContent": "padding بیرونی تغییر می‌کند در حالی که اسلات‌های داخلی فاصله‌گذاری ثابت دارند."
+        "sampleContent": "padding سرصفحه، محتوا و پاورقی از اندازه root پیروی می‌کند."
       },
-      "compositions": {
-        "title": "ترکیب‌ها",
-        "description": "اسلات‌ها را برای چیدمان‌های ساده‌تر ترکیب کنید.",
-        "contentOnly": "فقط محتوا",
-        "contentOnlyBody": "کارت مینیمال فقط با CardContent — برای آمار یا پیام‌های کوتاه.",
-        "headerContent": "سرصفحه و محتوا",
-        "headerContentTitle": "خلاصه هفتگی",
-        "headerContentDescription": "شاخص‌های کلیدی هفت روز گذشته.",
-        "headerContentBody": "درآمد ۱۲٪ نسبت به هفته قبل افزایش یافت.",
-        "titleOnly": "فقط عنوان",
-        "titleOnlyLabel": "آمار سریع"
+      "media": {
+        "title": "رسانه",
+        "description": "Card.Media از نسبت تصویر و object fit پشتیبانی می‌کند.",
+        "square": "مربعی",
+        "video": "ویدیویی",
+        "wide": "عریض",
+        "imageAlt": "تصویر جلد کارت",
+        "cardTitle": "فضای طراحی",
+        "cardDescription": "پیش‌نمایش اسلات رسانه بالای محتوای کارت.",
+        "action": "باز کردن گالری"
       },
-      "bordered": {
-        "title": "بخش‌های با حاشیه",
-        "description": "border-b روی CardHeader و border-t روی CardFooter برای جدا کردن ناحیه‌ها.",
+      "orientation": {
+        "title": "چیدمان افقی",
+        "description": "رسانه و محتوا در viewportهای عریض‌تر کنار هم.",
+        "imageAlt": "همکاری تیم",
+        "cardTitle": "همکاری تیم",
+        "cardDescription": "رسانه در حالت افقی به لبه شروع تراز می‌شود.",
+        "cardContent": "از orientation=\"horizontal\" برای پیش‌نمایش پروفایل، محصول یا مقاله استفاده کنید.",
+        "action": "مشاهده تیم"
+      },
+      "headerAction": {
+        "title": "عملیات سرصفحه",
+        "description": "Card.Action در شبکه سرصفحه کنار عنوان قرار می‌گیرد.",
+        "cardTitle": "اعلان‌ها",
+        "cardDescription": "مدیریت هشدارها و ترجیحات ارسال.",
+        "cardContent": "از Card.Action برای منوی بیشتر، تنظیمات یا بستن استفاده کنید.",
+        "menuLabel": "باز کردن منو"
+      },
+      "divided": {
+        "title": "بخش‌های جدا",
+        "description": "prop مربوط به divided بین سرصفحه، محتوا و پاورقی حاشیه اضافه می‌کند.",
         "cardTitle": "جزئیات صورتحساب",
         "cardDescription": "فاکتور #1042 · سررسید ۱۵ آوریل",
         "cardContent": "مبلغ قابل پرداخت: ۲۴۸.۰۰ دلار",
         "save": "ذخیره تغییرات",
         "cancel": "لغو"
       },
+      "roundedShadow": {
+        "title": "گردی و سایه",
+        "description": "شعاع گوشه و ارتفاع props مستقل هستند.",
+        "rounded": {
+          "none": "بدون گردی",
+          "md": "گردی md",
+          "xl": "گردی xl",
+          "2xl": "گردی 2xl"
+        },
+        "shadow": {
+          "none": "بدون سایه",
+          "sm": "سایه sm",
+          "md": "سایه md",
+          "lg": "سایه lg"
+        }
+      },
       "interactive": {
         "title": "تعاملی",
-        "description": "کارت‌ها می‌توانند سطح قابل کلیک با استایل hover و focus باشند.",
-        "cardTitle": "انتخاب طرح",
-        "cardDescription": "سطح Pro · ۲۹ دلار / ماه",
-        "cardContent": "برای انتخاب این گزینه کلیک کنید. وضعیت انتخاب به‌صورت محلی ردیابی می‌شود.",
+        "description": "پشتیبانی داخلی از کیبورد، hover، focus و selected.",
         "selected": "انتخاب‌شده",
-        "select": "انتخاب طرح"
+        "select": "انتخاب طرح",
+        "basic": {
+          "title": "پایه",
+          "description": "ویژگی‌های ضروری برای تیم‌های کوچک.",
+          "price": "۹ دلار / ماه"
+        },
+        "pro": {
+          "title": "حرفه‌ای",
+          "description": "تحلیل‌ها و یکپارچه‌سازی‌های پیشرفته.",
+          "price": "۲۹ دلار / ماه"
+        }
+      },
+      "compositions": {
+        "title": "ترکیب‌ها",
+        "description": "اسلات‌ها را برای چیدمان‌های ساده‌تر ترکیب کنید.",
+        "contentOnly": "فقط محتوا",
+        "contentOnlyBody": "کارت شبح ساده فقط با Card.Content.",
+        "headerContent": "سرصفحه و محتوا",
+        "headerContentTitle": "خلاصه هفتگی",
+        "headerContentDescription": "شاخص‌های کلیدی هفت روز گذشته.",
+        "headerContentBody": "درآمد ۱۲٪ نسبت به هفته قبل افزایش یافت.",
+        "mediaOnly": "فقط رسانه",
+        "mediaAlt": "پیش‌نمایش تحلیل"
       }
     },
     "carousel": {

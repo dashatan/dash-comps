@@ -1,19 +1,15 @@
 import { useState, type ReactNode } from "react";
 import { MoreHorizontal } from "lucide-react";
-import { cn } from "@/lib";
 import { Button } from "@/components/common/buttons";
+import { Card } from "@/components/common/card";
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/common/card";
-import {
+  showcaseCardAppearances,
+  showcaseCardImages,
+  showcaseCardMediaAspects,
+  showcaseCardRounded,
+  showcaseCardSeverities,
+  showcaseCardShadows,
   showcaseCardSizes,
-  showcaseCardVariants,
 } from "@/features/catalog/data/card-samples";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
@@ -33,7 +29,7 @@ function LabeledCard({
   className?: string;
 }) {
   return (
-    <div className={cn("flex w-full min-w-0 flex-col gap-2", className)}>
+    <div className={`flex w-full min-w-0 flex-col gap-2 ${className ?? ""}`}>
       <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
@@ -44,7 +40,7 @@ function LabeledCard({
 
 export function CardsPage() {
   const p = useShowcasePage("cards");
-  const [selected, setSelected] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   return (
     <CatalogPageShell slug="cards">
@@ -53,73 +49,62 @@ export function CardsPage() {
         description={p("compound.description")}
         layout="stack"
       >
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>{p("compound.cardTitle")}</CardTitle>
-            <CardDescription>{p("compound.cardDescription")}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">
-              {p("compound.cardContent")}
-            </p>
-          </CardContent>
-          <CardFooter className="gap-2">
-            <Button size="sm">{p("compound.viewDetails")}</Button>
-            <Button variant="outlined" size="sm">
-              {p("compound.dismiss")}
-            </Button>
-          </CardFooter>
+        <Card className="" severity="primary" shadow="md">
+          <Card.Header>
+            <Card.Title>{p("compound.cardTitle")}</Card.Title>
+            <Card.Description>{p("compound.cardDescription")}</Card.Description>
+          </Card.Header>
+          <Card.Content>
+            <Card.Badge className="mb-3">{p("compound.badge")}</Card.Badge>
+            <p className="text-sm">{p("compound.cardContent")}</p>
+          </Card.Content>
+          <Card.Footer>
+            <Card.Actions>
+              <Button size="sm">{p("compound.viewDetails")}</Button>
+              <Button size="sm" variant="outlined">
+                {p("compound.dismiss")}
+              </Button>
+            </Card.Actions>
+          </Card.Footer>
         </Card>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title={p("headerAction.title")}
-        description={p("headerAction.description")}
+        title={p("severities.title")}
+        description={p("severities.description")}
         layout="stack"
       >
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>{p("headerAction.cardTitle")}</CardTitle>
-            <CardDescription>
-              {p("headerAction.cardDescription")}
-            </CardDescription>
-            <CardAction>
-              <Button
-                variant="icon"
-                severity="muted"
-                size={32}
-                aria-label={p("headerAction.menuLabel")}
-              >
-                <MoreHorizontal className="size-4" />
-              </Button>
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">
-              {p("headerAction.cardContent")}
-            </p>
-          </CardContent>
-        </Card>
+        <CardStack>
+          {showcaseCardSeverities.map((severity) => (
+            <Card key={severity} severity={severity} appearance="soft">
+              <Card.Header>
+                <Card.Title>{p(`severities.${severity}`)}</Card.Title>
+                <Card.Description>
+                  {p(`severities.${severity}Description`)}
+                </Card.Description>
+              </Card.Header>
+            </Card>
+          ))}
+        </CardStack>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title={p("variants.title")}
-        description={p("variants.description")}
+        title={p("appearances.title")}
+        description={p("appearances.description")}
+        layout="stack"
       >
-        {showcaseCardVariants.map((variant) => (
-          <LabeledCard key={variant} label={p(`variants.${variant}`)}>
-            <Card variant={variant} className="w-full">
-              <CardContent>
-                <p className="text-sm font-medium">
-                  {p(`variants.${variant}`)}
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {p("variants.sampleContent")}
-                </p>
-              </CardContent>
+        <CardStack>
+          {showcaseCardAppearances.map((appearance) => (
+            <Card key={appearance} severity="primary" appearance={appearance}>
+              <Card.Header>
+                <Card.Title>{p(`appearances.${appearance}`)}</Card.Title>
+                <Card.Description>
+                  {p(`appearances.${appearance}Description`)}
+                </Card.Description>
+              </Card.Header>
             </Card>
-          </LabeledCard>
-        ))}
+          ))}
+        </CardStack>
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -129,16 +114,16 @@ export function CardsPage() {
       >
         <CardStack>
           {showcaseCardSizes.map((size) => (
-            <LabeledCard key={size} label={p(`sizes.${size}`)} className="">
-              <Card size={size} className="w-full">
-                <CardHeader className="px-0">
-                  <CardTitle>{p("sizes.sampleTitle")}</CardTitle>
-                </CardHeader>
-                <CardContent className="px-0">
+            <LabeledCard key={size} label={size}>
+              <Card size={size}>
+                <Card.Header>
+                  <Card.Title>{p("sizes.sampleTitle")}</Card.Title>
+                </Card.Header>
+                <Card.Content>
                   <p className="text-sm text-muted-foreground">
                     {p("sizes.sampleContent")}
                   </p>
-                </CardContent>
+                </Card.Content>
               </Card>
             </LabeledCard>
           ))}
@@ -146,109 +131,234 @@ export function CardsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title={p("compositions.title")}
-        description={p("compositions.description")}
+        title={p("media.title")}
+        description={p("media.description")}
+        layout="stack"
       >
-        <LabeledCard label={p("compositions.contentOnly")}>
-          <Card className="w-full">
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                {p("compositions.contentOnlyBody")}
-              </p>
-            </CardContent>
-          </Card>
-        </LabeledCard>
-
-        <LabeledCard label={p("compositions.headerContent")}>
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>{p("compositions.headerContentTitle")}</CardTitle>
-              <CardDescription>
-                {p("compositions.headerContentDescription")}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                {p("compositions.headerContentBody")}
-              </p>
-            </CardContent>
-          </Card>
-        </LabeledCard>
-
-        <LabeledCard label={p("compositions.titleOnly")}>
-          <Card variant="outline" className="w-full">
-            <CardHeader>
-              <CardTitle>{p("compositions.titleOnlyLabel")}</CardTitle>
-            </CardHeader>
-          </Card>
-        </LabeledCard>
+        <CardStack>
+          {showcaseCardMediaAspects.map((aspect) => (
+            <LabeledCard key={aspect} label={p(`media.${aspect}`)}>
+              <Card className="overflow-hidden">
+                <Card.Media
+                  src={showcaseCardImages.workspace}
+                  alt={p("media.imageAlt")}
+                  aspect={aspect}
+                />
+                <Card.Header>
+                  <Card.Title>{p("media.cardTitle")}</Card.Title>
+                  <Card.Description>
+                    {p("media.cardDescription")}
+                  </Card.Description>
+                </Card.Header>
+                <Card.Footer>
+                  <Button size="sm" variant="outlined">
+                    {p("media.action")}
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </LabeledCard>
+          ))}
+        </CardStack>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title={p("bordered.title")}
-        description={p("bordered.description")}
+        title={p("orientation.title")}
+        description={p("orientation.description")}
         layout="stack"
       >
-        <Card className="w-full">
-          <CardHeader className="border-b">
-            <CardTitle>{p("bordered.cardTitle")}</CardTitle>
-            <CardDescription>{p("bordered.cardDescription")}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm font-medium">{p("bordered.cardContent")}</p>
-          </CardContent>
-          <CardFooter className="gap-2 border-t">
-            <Button size="sm">{p("bordered.save")}</Button>
-            <Button variant="outlined" size="sm">
-              {p("bordered.cancel")}
-            </Button>
-          </CardFooter>
+        <Card
+          orientation="horizontal"
+          className="overflow-hidden"
+          severity="secondary"
+          appearance="soft"
+        >
+          <Card.Media
+            src={showcaseCardImages.team}
+            alt={p("orientation.imageAlt")}
+            aspect="square"
+            position="start"
+          />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <Card.Header>
+              <Card.Title>{p("orientation.cardTitle")}</Card.Title>
+              <Card.Description>
+                {p("orientation.cardDescription")}
+              </Card.Description>
+            </Card.Header>
+            <Card.Content>
+              <p className="text-sm text-muted-foreground">
+                {p("orientation.cardContent")}
+              </p>
+            </Card.Content>
+            <Card.Footer>
+              <Button size="sm">{p("orientation.action")}</Button>
+            </Card.Footer>
+          </div>
         </Card>
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("headerAction.title")}
+        description={p("headerAction.description")}
+        layout="stack"
+      >
+        <Card className="" divided>
+          <Card.Header>
+            <Card.Title>{p("headerAction.cardTitle")}</Card.Title>
+            <Card.Description>
+              {p("headerAction.cardDescription")}
+            </Card.Description>
+            <Card.Action>
+              <Button
+                variant="icon"
+                severity="muted"
+                size={32}
+                aria-label={p("headerAction.menuLabel")}
+              >
+                <MoreHorizontal className="size-4" />
+              </Button>
+            </Card.Action>
+          </Card.Header>
+          <Card.Content>
+            <p className="text-sm text-muted-foreground">
+              {p("headerAction.cardContent")}
+            </p>
+          </Card.Content>
+        </Card>
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("divided.title")}
+        description={p("divided.description")}
+        layout="stack"
+      >
+        <Card className="" divided severity="default">
+          <Card.Header>
+            <Card.Title>{p("divided.cardTitle")}</Card.Title>
+            <Card.Description>{p("divided.cardDescription")}</Card.Description>
+          </Card.Header>
+          <Card.Content>
+            <p className="text-sm font-medium">{p("divided.cardContent")}</p>
+          </Card.Content>
+          <Card.Footer>
+            <Card.Actions>
+              <Button size="sm">{p("divided.save")}</Button>
+              <Button size="sm" variant="outlined">
+                {p("divided.cancel")}
+              </Button>
+            </Card.Actions>
+          </Card.Footer>
+        </Card>
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("roundedShadow.title")}
+        description={p("roundedShadow.description")}
+      >
+        {showcaseCardRounded.map((rounded) => (
+          <LabeledCard
+            key={rounded}
+            label={p(`roundedShadow.rounded.${rounded}`)}
+          >
+            <Card rounded={rounded} shadow="md" className="w-44">
+              <Card.Content>
+                <p className="text-sm font-medium">{rounded}</p>
+              </Card.Content>
+            </Card>
+          </LabeledCard>
+        ))}
+        {showcaseCardShadows.map((shadow) => (
+          <LabeledCard key={shadow} label={p(`roundedShadow.shadow.${shadow}`)}>
+            <Card shadow={shadow} className="w-44">
+              <Card.Content>
+                <p className="text-sm font-medium">{shadow}</p>
+              </Card.Content>
+            </Card>
+          </LabeledCard>
+        ))}
       </ShowcaseSection>
 
       <ShowcaseSection
         title={p("interactive.title")}
         description={p("interactive.description")}
-        layout="stack"
       >
-        <Card
-          role="button"
-          tabIndex={0}
-          aria-pressed={selected}
-          onClick={() => setSelected((value) => !value)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              setSelected((value) => !value);
+        {(["basic", "pro"] as const).map((plan) => (
+          <Card
+            key={plan}
+            className="w-full"
+            severity="primary"
+            appearance={selectedPlan === plan ? "solid" : "outline"}
+            interactive
+            selected={selectedPlan === plan}
+            onClick={() =>
+              setSelectedPlan((current) => (current === plan ? null : plan))
             }
-          }}
-          className={cn(
-            "w-full cursor-pointer transition-colors outline-none",
-            "hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-            selected && "border-primary ring-1 ring-primary/20",
-          )}
-        >
-          <CardHeader>
-            <CardTitle>{p("interactive.cardTitle")}</CardTitle>
-            <CardDescription>
-              {p("interactive.cardDescription")}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">
-              {p("interactive.cardContent")}
-            </p>
-          </CardContent>
-          <CardFooter>
-            <Button
-              size="sm"
-              variant={selected ? "contained" : "outlined"}
-              className="pointer-events-none"
-            >
-              {selected ? p("interactive.selected") : p("interactive.select")}
-            </Button>
-          </CardFooter>
-        </Card>
+          >
+            <Card.Header>
+              <Card.Title>{p(`interactive.${plan}.title`)}</Card.Title>
+              <Card.Description>
+                {p(`interactive.${plan}.description`)}
+              </Card.Description>
+            </Card.Header>
+            <Card.Content>
+              <p className="text-2xl font-bold">
+                {p(`interactive.${plan}.price`)}
+              </p>
+            </Card.Content>
+            <Card.Footer>
+              <Button
+                size="sm"
+                variant={selectedPlan === plan ? "contained" : "outlined"}
+                className="pointer-events-none"
+              >
+                {selectedPlan === plan
+                  ? p("interactive.selected")
+                  : p("interactive.select")}
+              </Button>
+            </Card.Footer>
+          </Card>
+        ))}
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("compositions.title")}
+        description={p("compositions.description")}
+      >
+        <LabeledCard label={p("compositions.contentOnly")}>
+          <Card appearance="ghost" shadow="none" className="w-full">
+            <Card.Content>
+              <p className="text-sm text-muted-foreground">
+                {p("compositions.contentOnlyBody")}
+              </p>
+            </Card.Content>
+          </Card>
+        </LabeledCard>
+
+        <LabeledCard label={p("compositions.headerContent")}>
+          <Card className="w-full" severity="success" appearance="soft">
+            <Card.Header>
+              <Card.Title>{p("compositions.headerContentTitle")}</Card.Title>
+              <Card.Description>
+                {p("compositions.headerContentDescription")}
+              </Card.Description>
+            </Card.Header>
+            <Card.Content>
+              <p className="text-sm text-muted-foreground">
+                {p("compositions.headerContentBody")}
+              </p>
+            </Card.Content>
+          </Card>
+        </LabeledCard>
+
+        <LabeledCard label={p("compositions.mediaOnly")}>
+          <Card className="w-full gap-0 overflow-hidden p-0">
+            <Card.Media
+              src={showcaseCardImages.analytics}
+              alt={p("compositions.mediaAlt")}
+              aspect="video"
+            />
+          </Card>
+        </LabeledCard>
       </ShowcaseSection>
     </CatalogPageShell>
   );
