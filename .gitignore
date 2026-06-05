@@ -3,3 +3,5 @@ dist
 apps/showcase/dist
 *.local
 .DS_Store
+
+.vercel

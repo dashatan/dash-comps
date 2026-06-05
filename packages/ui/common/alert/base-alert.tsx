@@ -19,12 +19,14 @@ export default function BaseAlert({
   return (
     <div
       className={cn(
-        "text-icon flex size-full flex-1 flex-col items-center justify-center gap-2 text-lg font-semibold",
+        "flex size-full flex-full flex-col items-center justify-center gap-2 text-lg font-semibold text-icon",
         className,
       )}
     >
       {icon && <div className={animation}>{icon}</div>}
-      {message && <span className={animation}>{message}</span>}
+      {message && (
+        <span className={cn(animation, "text-center")}>{message}</span>
+      )}
       {children}
     </div>
   );
