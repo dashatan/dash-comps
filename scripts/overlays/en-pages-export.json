@@ -1,0 +1,1254 @@
+{
+  "grid": {
+    "responsiveSpans": {
+      "span2": "Span 2",
+      "title": "Responsive spans"
+    },
+    "threeColumns": {
+      "title": "3 columns"
+    },
+    "3Columns": {
+      "title": "3 columns"
+    }
+  },
+  "hover-card": {
+    "alignedStart": {
+      "description": "Aligned to start edge of trigger.",
+      "infoPreview": "Info preview",
+      "title": "Aligned start"
+    },
+    "triggerContent": {
+      "description": "Rich preview on pointer hover.",
+      "hoverCardTitle": "Hover card",
+      "hoverMe": "Hover me",
+      "title": "Trigger + content"
+    }
+  },
+  "inputs": {
+    "buttons": {
+      "copySample": "Copy {sample}"
+    },
+    "checkboxBasic": {
+      "description": "Icon checkbox with indeterminate, loading, boxed layout, and form attrs.",
+      "labels": {
+        "boxed": "Boxed",
+        "controlled": "Controlled",
+        "disabled": "Disabled",
+        "disabledChecked": "Disabled checked",
+        "indeterminate": "Indeterminate",
+        "loading": "Loading",
+        "states": "States",
+        "boxedDescriptionWidth": "boxed · description · width"
+      },
+      "rows": {
+        "boxedDescriptionWidth": "boxed · description · width",
+        "states": "States"
+      },
+      "title": "Checkbox.Basic"
+    },
+    "checkboxCard": {
+      "description": "Card layout with title, subTitle, and custom className slots.",
+      "subtitles": {
+        "billedAnnually": "Billed annually",
+        "unavailable": "Unavailable"
+      },
+      "title": "Checkbox.Card",
+      "titles": {
+        "disabled": "Disabled",
+        "premiumPlan": "Premium plan"
+      }
+    },
+    "checkboxLabeled": {
+      "description": "Label position left | right and container class names.",
+      "descriptions": {
+        "supportingText": "Supporting text"
+      },
+      "labels": {
+        "labelLeft": "Label left",
+        "labelRight": "Label right (default)",
+        "labelRightDefault": "Label right (default)"
+      },
+      "title": "Checkbox.Labeled"
+    },
+    "dateInput": {
+      "description": "Persian calendar dialog: single, range, time, presets, and limits.",
+      "labels": {
+        "disabled": "Disabled",
+        "presets": "Presets",
+        "range": "Range",
+        "requiredError": "Required · error",
+        "singleDate": "Single date",
+        "withTime": "With time"
+      },
+      "messages": {
+        "dateRequired": "Date is required"
+      },
+      "presets": {
+        "oneMonth": "1 month",
+        "threeMonths": "3 months"
+      },
+      "title": "DateInput"
+    },
+    "demo": {
+      "cities": {
+        "capital": "Capital",
+        "isfahan": "Isfahan",
+        "kerman": "Kerman",
+        "khorasan": "Khorasan",
+        "khuzestan": "Khuzestan",
+        "kohgiluyeh": "Kohgiluyeh and Buyer Ahmad",
+        "kurdistan": "Kurdistan",
+        "lorestan": "Lorestan",
+        "markazi": "Markazi",
+        "mashhad": "Mashhad",
+        "rasht": "Rasht",
+        "shiraz": "Shiraz",
+        "tabriz": "Tabriz",
+        "tehran": "Tehran"
+      },
+      "fruits": {
+        "apple": "Apple",
+        "banana": "Banana",
+        "fruits": "Fruits",
+        "vegetables": "Vegetables"
+      },
+      "vegetables": {
+        "carrot": "Carrot",
+        "potato": "Potato"
+      }
+    },
+    "descriptions": {
+      "extraDescription": "Extra description text"
+    },
+    "helperTexts": {
+      "neverShareEmail": "We never share your email."
+    },
+    "labels": {
+      "categories": "Categories",
+      "category": "Category",
+      "cities": "Cities",
+      "city": "City",
+      "description": "Description",
+      "disabled": "Disabled",
+      "dollar": "Dollar",
+      "error": "Error",
+      "errorState": "Error state",
+      "euro": "Euro",
+      "fullWidth": "Full width",
+      "helperText": "Helper text",
+      "invalid": "Invalid",
+      "loading": "Loading",
+      "mobile": "Mobile",
+      "notifications": "Notifications",
+      "orderedCities": "Ordered cities",
+      "password": "Password",
+      "pound": "Pound",
+      "priceRange": "Price range",
+      "quantity": "Quantity",
+      "readOnly": "Read only",
+      "required": "Required",
+      "success": "Success",
+      "suffixSlot": "suffix slot",
+      "unclearable": "Unclearable",
+      "username": "Username",
+      "visibleByDefault": "Visible by default",
+      "warning": "Warning",
+      "weight": "Weight",
+      "withDefaultValueTitle": "With defaultValueTitle",
+      "withMessage": "With message",
+      "withPrefix": "With prefix",
+      "withSteppers": "With steppers",
+      "withSuffix": "With suffix"
+    },
+    "list": {
+      "description": "Virtualized selectable list (used inside selects; standalone demo).",
+      "title": "List"
+    },
+    "messages": {
+      "checkFormat": "Check format",
+      "enabled": "Enabled",
+      "invalidRange": "Invalid range",
+      "looksGood": "Looks good!",
+      "requiredField": "Required field",
+      "strongPassword": "Strong password",
+      "tooShort": "Too short",
+      "validMobile": "Enter a valid mobile number"
+    },
+    "numberInput": {
+      "description": "Numeric field with optional stepper buttons and prefix.",
+      "suffix": {
+        "kg": "kg"
+      },
+      "title": "NumberInput"
+    },
+    "numberRangeInput": {
+      "description": "From / to numeric range with optional min, max, and custom labels.",
+      "fromLabel": "Min",
+      "title": "NumberRangeInput",
+      "toLabel": "Max"
+    },
+    "options": {
+      "optionA": "Option A",
+      "optionB": "Option B",
+      "optionC": "Option C"
+    },
+    "otpInput": {
+      "description": "Fixed-size cells — size: sm | md | lg, width constrains the row (default md).",
+      "labels": {
+        "alphanumericPaste": "copy · alphanumeric paste",
+        "disabled": "Disabled",
+        "fourDigits": "4 digits",
+        "loading": "Loading",
+        "pasteDisabled": "paste disabled",
+        "pasteFocus": "just focus on any otp cell and paste, you can use ctrl+v or cmd+v",
+        "verificationCode": "Verification code (md, width 280)"
+      },
+      "rows": {
+        "copyPaste": "copy · paste",
+        "lengthNumericOnly": "length · numericOnly",
+        "size": "size",
+        "statusSm": "status (sm)"
+      },
+      "title": "OTPInput"
+    },
+    "passwordInput": {
+      "description": "TextInput with visibility toggle (passShow initial state).",
+      "title": "PasswordInput"
+    },
+    "phoneInput": {
+      "description": "Iranian mobile format (09xxxxxxxxx) with icon prefix.",
+      "title": "PhoneInput"
+    },
+    "pickCity": "Pick a city",
+    "priority": {
+      "heading": "Priority",
+      "subHeading": "Drag to reorder"
+    },
+    "propsCheckbox": {
+      "title": "Props reference — Checkbox · Switch · OTP · Radio"
+    },
+    "propsDateInput": {
+      "title": "Props reference — DateInput"
+    },
+    "propsSelect": {
+      "title": "Props reference — Select (shared)"
+    },
+    "propsTextInput": {
+      "title": "Props reference — TextInput"
+    },
+    "radioInput": {
+      "description": "Option groups: direction, size, showCircle, width.",
+      "rows": {
+        "direction": "direction",
+        "icon": "icon",
+        "size": "size"
+      },
+      "title": "RadioInput"
+    },
+    "rows": {
+      "defaultControlled": "Default & controlled",
+      "prefixSuffixHelper": "prefix . suffix . helperText",
+      "states": "States",
+      "statusMessage": "status & message"
+    },
+    "selectMulti": {
+      "description": "Multiple selection with chips and filter.",
+      "title": "Select.Multi",
+      "labels": {
+        "cities": "Cities"
+      }
+    },
+    "selectMultiOrderable": {
+      "description": "Drag-and-drop reorder multi-select (showChips, selected).",
+      "title": "Select.MultiOrderable"
+    },
+    "selectMultiTree": {
+      "description": "Tree with multiple selection.",
+      "title": "Select.MultiTree"
+    },
+    "selectSingle": {
+      "description": "Single value dropdown with search, loading, and virtualized list.",
+      "title": "Select.Single",
+      "labels": {
+        "city": "City",
+        "loading": "Loading",
+        "disabled": "Disabled",
+        "unclearable": "Unclearable",
+        "withDefaultvaluetitle": "With defaultValueTitle"
+      }
+    },
+    "selectSingleTree": {
+      "description": "Hierarchical single select (openedAll expands nodes).",
+      "title": "Select.SingleTree"
+    },
+    "switch": {
+      "description": "severity and size scale the track and thumb colors.",
+      "rows": {
+        "controlled": "Controlled",
+        "severityActive": "severity (active)",
+        "size": "size"
+      },
+      "title": "Switch",
+      "labels": {
+        "controlled": "Controlled",
+        "severityActive": "severity (active)",
+        "size": "size"
+      }
+    },
+    "switchField": {
+      "description": "Switch inside LabelContainer; use value for controlled state.",
+      "title": "SwitchField"
+    },
+    "textareaInput": {
+      "description": "Multi-line field with floating label container.",
+      "title": "TextareaInput"
+    },
+    "textInput": {
+      "description": "Floating label text field with status, prefix, sizes, and native input attributes.",
+      "title": "TextInput"
+    },
+    "values": {
+      "cannotEdit": "Cannot edit",
+      "hello": "Hello",
+      "lockedContent": "Locked content",
+      "notes": "Notes…",
+      "readOnly": "Read only"
+    },
+    "weightInput": {
+      "description": "Range chips plus custom from/to fields inside select panel.",
+      "presets": {
+        "fiftyPlus": "50+ kg",
+        "tenFifty": "10–50 kg",
+        "zeroTen": "0–10 kg"
+      },
+      "title": "WeightInput"
+    },
+    "textinput": {
+      "title": "TextInput",
+      "description": "Floating label text field with status, prefix, sizes, and native input attributes.",
+      "labels": {
+        "defaultControlled": "Default & controlled",
+        "username": "Username",
+        "statusMessage": "status & message",
+        "success": "Success",
+        "error": "Error",
+        "warning": "Warning",
+        "states": "States",
+        "loading": "Loading",
+        "disabled": "Disabled",
+        "readOnly": "Read only",
+        "required": "Required",
+        "prefixSuffixHelpertext": "prefix . suffix . helperText",
+        "withPrefix": "With prefix",
+        "withSuffix": "With suffix",
+        "helperText": "Helper text"
+      },
+      "message": "Looks good!",
+      "message1": "Required field",
+      "message2": "Check format"
+    },
+    "passwordinput": {
+      "title": "PasswordInput",
+      "description": "TextInput with visibility toggle (passShow initial state).",
+      "labels": {
+        "password": "Password",
+        "visibleByDefault": "Visible by default"
+      },
+      "message": "Strong password"
+    },
+    "phoneinput": {
+      "title": "PhoneInput",
+      "description": "Iranian mobile format (09xxxxxxxxx) with icon prefix.",
+      "labels": {
+        "mobile": "Mobile",
+        "invalid": "Invalid"
+      },
+      "message": "Enter a valid mobile number"
+    },
+    "textareainput": {
+      "title": "TextareaInput",
+      "description": "Multi-line field with floating label container.",
+      "labels": {
+        "states": "States",
+        "description": "Description",
+        "errorState": "Error state",
+        "disabled": "Disabled",
+        "fullWidth": "Full width"
+      },
+      "message": "Too short"
+    },
+    "numberinput": {
+      "title": "NumberInput",
+      "description": "Numeric field with optional stepper buttons and prefix.",
+      "labels": {
+        "quantity": "Quantity",
+        "withSteppers": "With steppers",
+        "suffixSlot": "suffix slot",
+        "disabled": "Disabled"
+      }
+    },
+    "numberrangeinput": {
+      "title": "NumberRangeInput",
+      "description": "From / to numeric range with optional min, max, and custom labels.",
+      "labels": {
+        "priceRange": "Price range",
+        "error": "Error"
+      },
+      "message": "Invalid range"
+    },
+    "switchfield": {
+      "title": "SwitchField",
+      "description": "Switch inside LabelContainer; use value for controlled state.",
+      "labels": {
+        "notifications": "Notifications",
+        "withMessage": "With message"
+      },
+      "message": "Enabled"
+    },
+    "radioinput": {
+      "title": "RadioInput",
+      "description": "Option groups: direction, size, showCircle, width.",
+      "labels": {
+        "direction": "direction",
+        "size": "size",
+        "icon": "icon"
+      }
+    },
+    "otpinput": {
+      "title": "OTPInput",
+      "description": "Fixed-size cells — size: sm | md | lg, width constrains the row (default md).",
+      "labels": {
+        "verificationCodeMdWidth280": "Verification code (md, width 280)",
+        "size": "size",
+        "lengthNumericonly": "length · numericOnly",
+        "4Digits": "4 digits",
+        "copyPaste": "copy · paste",
+        "justFocusOnAnyOtpCellAndPasteYouCanUseCtrlVOrCmdV": "just focus on any otp cell and paste, you can use ctrl+v or cmd+v",
+        "pasteDisabled": "paste disabled",
+        "copyAlphanumericPaste": "copy · alphanumeric paste",
+        "statusSm": "status (sm)",
+        "loading": "Loading",
+        "disabled": "Disabled"
+      }
+    },
+    "selectSingletree": {
+      "title": "Select.SingleTree",
+      "description": "Hierarchical single select (openedAll expands nodes).",
+      "labels": {
+        "category": "Category"
+      }
+    },
+    "selectMultitree": {
+      "title": "Select.MultiTree",
+      "description": "Tree with multiple selection.",
+      "labels": {
+        "categories": "Categories"
+      }
+    },
+    "selectMultiorderable": {
+      "title": "Select.MultiOrderable",
+      "description": "Drag-and-drop reorder multi-select (showChips, selected).",
+      "labels": {
+        "orderedCities": "Ordered cities"
+      }
+    },
+    "dateinput": {
+      "title": "DateInput",
+      "description": "Persian calendar dialog: single, range, time, presets, and limits.",
+      "labels": {
+        "singleDate": "Single date",
+        "range": "Range",
+        "withTime": "With time",
+        "presets": "Presets",
+        "disabled": "Disabled",
+        "requiredError": "Required · error"
+      }
+    },
+    "weightinput": {
+      "title": "WeightInput",
+      "description": "Range chips plus custom from/to fields inside select panel.",
+      "labels": {
+        "weight": "Weight"
+      }
+    },
+    "propsReferenceTextinput": {
+      "title": "Props reference — TextInput"
+    },
+    "propsReferenceSelectShared": {
+      "title": "Props reference — Select (shared)"
+    },
+    "propsReferenceDateinput": {
+      "title": "Props reference — DateInput"
+    },
+    "propsReferenceCheckboxSwitchOtpRadio": {
+      "title": "Props reference — Checkbox · Switch · OTP · Radio"
+    }
+  },
+  "license-plate": {
+    "carPlate": {
+      "description": "PlateInput variant=&quot;car&quot;.",
+      "title": "Car plate"
+    },
+    "motorcycle": {
+      "title": "Motorcycle"
+    },
+    "simpleText": {
+      "title": "Simple text"
+    }
+  },
+  "list": {
+    "cardsList": {
+      "title": "Cards list"
+    },
+    "chipsList": {
+      "tagA": "Tag A",
+      "tagB": "Tag B",
+      "tagC": "Tag C",
+      "title": "Chips list"
+    },
+    "linesList": {
+      "title": "Lines list"
+    },
+    "sample": {
+      "active": "Active",
+      "dash": "—",
+      "notes": "Notes",
+      "region": "Region",
+      "status": "Status",
+      "tehran": "Tehran"
+    }
+  },
+  "loading": {
+    "defaultSpinner": {
+      "title": "Default spinner"
+    },
+    "sizes": {
+      "title": "Sizes"
+    }
+  },
+  "location-picker": {
+    "description": {
+      "importFrom": "Import from",
+      "mapBlocks": "building blocks.",
+      "requiresBackend": ". It requires backend device/location resources and dashboard menu stubs. See the Map page for"
+    },
+    "locationPicker": {
+      "title": "Location picker"
+    }
+  },
+  "map": {
+    "leafletMap": {
+      "title": "Leaflet map"
+    },
+    "tallerViewport": {
+      "title": "Taller viewport"
+    }
+  },
+  "overlay": {
+    "dialog": {
+      "close": "Close",
+      "confirmAction": "Confirm action",
+      "description": "Dialog from @/components/common/overlay/dialog.",
+      "openDialog": "Open dialog",
+      "title": "Dialog"
+    },
+    "popover": {
+      "button": "Popover",
+      "content": "Popover content",
+      "description": "Anchored floating panel.",
+      "title": "Popover"
+    },
+    "sheet": {
+      "description": "Sheet slides in from the edge.",
+      "openSheet": "Open sheet",
+      "sidePanel": "Side panel",
+      "title": "Sheet"
+    }
+  },
+  "pagination": {
+    "currentPage": {
+      "info": "Page {page} of {total}",
+      "title": "Current page"
+    },
+    "pageLinks": {
+      "title": "Page links"
+    }
+  },
+  "paginator": {
+    "controlled": {
+      "title": "Controlled"
+    },
+    "firstPage": {
+      "title": "First page"
+    }
+  },
+  "persian-date-picker": {
+    "singleDate": {
+      "title": "Single date"
+    },
+    "withTime": {
+      "title": "With time"
+    }
+  },
+  "shapes": {
+    "indicator": {
+      "title": "Indicator"
+    },
+    "square": {
+      "title": "Square"
+    }
+  },
+  "skeleton": {
+    "cardBlock": {
+      "title": "Card block"
+    },
+    "textPlaceholders": {
+      "title": "Text placeholders"
+    }
+  },
+  "slider": {
+    "range": {
+      "title": "Range"
+    },
+    "singleValue": {
+      "title": "Single value"
+    }
+  },
+  "sonner": {
+    "toastVariants": {
+      "buttons": {
+        "error": "Error",
+        "info": "Info",
+        "success": "Success",
+        "warning": "Warning"
+      },
+      "title": "Toast variants",
+      "toasts": {
+        "checkInput": "Check your input",
+        "headsUp": "Heads up",
+        "savedSuccessfully": "Saved successfully",
+        "somethingWrong": "Something went wrong"
+      }
+    },
+    "withDescription": {
+      "button": "Success + description",
+      "description": "Changes will appear after refresh.",
+      "title": "With description",
+      "toastTitle": "Profile updated"
+    }
+  },
+  "steps": {
+    "midProgress": {
+      "steps": {
+        "done": "Done",
+        "review": "Review",
+        "start": "Start"
+      },
+      "title": "Mid progress"
+    },
+    "step1Active": {
+      "steps": {
+        "details": {
+          "subtitle": "Basic information",
+          "title": "Details"
+        },
+        "done": {
+          "subtitle": "Finish",
+          "title": "Done"
+        },
+        "review": {
+          "subtitle": "Check entries",
+          "title": "Review"
+        }
+      },
+      "title": "Step 1 active"
+    }
+  },
+  "table": {
+    "compoundTable": {
+      "description": {
+        "dataTable": "The data table lives in",
+        "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources."
+      },
+      "title": "Compound table"
+    }
+  },
+  "tabs": {
+    "keepMounted": {
+      "draft": {
+        "content": "Draft content preserves state when switching tabs.",
+        "header": "Draft"
+      },
+      "published": {
+        "content": "Published items appear here.",
+        "header": "Published"
+      },
+      "title": "Keep mounted"
+    },
+    "tabbedContent": {
+      "analytics": {
+        "content": "Analytics panel with charts and trend data.",
+        "header": "Analytics"
+      },
+      "overview": {
+        "content": "Overview panel with summary metrics and quick actions.",
+        "header": "Overview"
+      },
+      "settings": {
+        "content": "Settings panel for configuration and preferences.",
+        "header": "Settings"
+      },
+      "title": "Tabbed content"
+    }
+  },
+  "timeline": {
+    "eventList": {
+      "events": {
+        "delivered": "Delivered",
+        "orderPlaced": "Order placed",
+        "shipped": "Shipped"
+      },
+      "title": "Event list"
+    }
+  },
+  "tracker": {
+    "compoundTracker": {
+      "description": {
+        "dependsOnData": "(map routes, event cards, clustering). It depends on live tracking data. Explore Map and Charts pages for standalone pieces from",
+        "vehicleTracker": "Vehicle tracker UI is in"
+      },
+      "title": "Tracker compound"
+    },
+    "trackerCompound": {
+      "title": "Tracker compound"
+    }
+  },
+  "typography": {
+    "headings": {
+      "h1": "Heading 1",
+      "h2": "Heading 2",
+      "h3": "Heading 3",
+      "h4": "Heading 4",
+      "title": "Headings"
+    },
+    "paragraph": {
+      "body": "Body text — default paragraph style from the typography module.",
+      "muted": "Muted paragraph with className override.",
+      "title": "Paragraph"
+    }
+  },
+  "buttons": {
+    "variantsSeverities": {
+      "title": "Variants × severities",
+      "description": "variant: contained | outlined | text — default is contained."
+    },
+    "sizes": {
+      "title": "Sizes",
+      "description": "size: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" — default \"md\"."
+    },
+    "fixedNumericSize": {
+      "title": "Fixed numeric size",
+      "description": "size as number sets width/height in px (icon-style control)."
+    },
+    "rounded": {
+      "title": "Rounded (radius)",
+      "description": "rounded: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\" — default \"md\".",
+      "allValues": "All values — contained / primary / md",
+      "rowLabel": "rounded=\"{{rounded}}\"",
+      "withIcon": "With icon",
+      "byVariant": "By variant (rounded=\"lg\")",
+      "pillButtons": "Pill buttons (rounded=\"full\")",
+      "primaryPill": "Primary pill",
+      "add": "Add",
+      "more": "More",
+      "circleIcon": "Circle — icon variant (numeric size)",
+      "circleIconButton": "Circle — icon-button variant",
+      "sizesWithFull": "Sizes with rounded=\"full\"",
+      "severitiesWithSm": "Severities with rounded=\"sm\""
+    },
+    "iconVariant": {
+      "title": "Icon variant",
+      "description": "variant=\"icon\" — use children or the icon prop."
+    },
+    "iconButtonVariant": {
+      "title": "Icon button variant",
+      "description": "variant=\"icon-button\" — square icon-only actions (common with severity=\"input\")."
+    },
+    "labelProp": {
+      "title": "label prop",
+      "description": "Use label instead of children when you want a dedicated label slot.",
+      "saveDraft": "Save draft",
+      "cancel": "Cancel",
+      "withIcon": "With icon",
+      "labels": {
+        "saveDraft": "Save draft",
+        "cancel": "Cancel",
+        "withIcon": "With icon"
+      }
+    },
+    "icons": {
+      "title": "Icons",
+      "description": "leftIcon, rightIcon, or icon (replaces main content when set).",
+      "addItem": "Add item",
+      "delete": "Delete",
+      "export": "Export",
+      "bothSides": "Both sides"
+    },
+    "fullWidth": {
+      "title": "fullWidth",
+      "description": "fullWidth stretches the button to the container width.",
+      "primary": "Full width primary",
+      "outlined": "Full width outlined"
+    },
+    "loading": {
+      "title": "Loading",
+      "description": "isLoading shows a spinner and disables interaction.",
+      "loading": "Loading",
+      "saving": "Saving",
+      "savingEllipsis": "Saving…",
+      "clickToLoad": "Click to load"
+    },
+    "disabled": {
+      "title": "Disabled",
+      "description": "disabled prevents clicks; pairs with isLoading.",
+      "disabled": "Disabled",
+      "disabledOutlined": "Disabled outlined"
+    },
+    "tooltip": {
+      "title": "Tooltip",
+      "description": "tooltip wraps the button in a HoverCard; configure with tooltipOptions.",
+      "hoverMe": "Hover me",
+      "defaultTooltip": "Default tooltip on top",
+      "rightTooltip": "Right tooltip",
+      "opensRight": "Opens on the right",
+      "delayedTooltip": "Delayed tooltip",
+      "slowerOpenClose": "Slower open/close"
+    },
+    "onClick": {
+      "title": "onClick",
+      "description": "Standard button click handler.",
+      "clickedTimes": "Clicked {{count}} times"
+    },
+    "asChild": {
+      "title": "asChild",
+      "description": "Merges styles onto a single child element (e.g. link styled as a button).",
+      "anchorAsButton": "Anchor as button"
+    },
+    "type": {
+      "title": "type",
+      "description": "type: \"button\" | \"submit\" | \"reset\" — default \"button\".",
+      "submit": "Submit",
+      "reset": "Reset"
+    },
+    "classNameStyle": {
+      "title": "className & style",
+      "description": "Extra Tailwind classes and inline styles merge with variants.",
+      "shadowViaClassName": "Shadow via className",
+      "minWidth200px": "minWidth 200px"
+    },
+    "propsReference": {
+      "title": "Props reference",
+      "description": "All ButtonProps from @/components/common/buttons.",
+      "content": "variant?: \"contained\" | \"outlined\" | \"text\" | \"icon\" | \"icon-button\"\nseverity?: \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"input\" | \"muted\"\nsize?: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | number\nrounded?: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\"\nfullWidth?: boolean\nicon?: ReactNode\nlabel?: string\nisLoading?: boolean\nleftIcon?: ReactNode\nrightIcon?: ReactNode\nchildren?: ReactNode\ndisabled?: boolean\ntype?: \"button\" | \"submit\" | \"reset\"\nonClick?: (e) => void\nclassName?: string\nstyle?: CSSProperties\ntooltip?: string\ntooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }\nasChild?: boolean\nid?: string"
+    },
+    "roundedRadius": {
+      "title": "Rounded (radius)",
+      "labels": {
+        "allValuesContainedPrimaryMd": "All values — contained / primary / md",
+        "circleIconVariantNumericSize": "Circle — icon variant (numeric size)",
+        "circleIconButtonVariant": "Circle — icon-button variant"
+      },
+      "rowLabelTemplate": "rounded=\"${rounded}\""
+    },
+    "fullwidth": {
+      "title": "fullWidth",
+      "description": "fullWidth stretches the button to the container width."
+    },
+    "onclick": {
+      "title": "onClick",
+      "description": "Standard button click handler."
+    },
+    "aschild": {
+      "title": "asChild",
+      "description": "Merges styles onto a single child element (e.g. link styled as a button)."
+    },
+    "classnameStyle": {
+      "title": "className & style",
+      "description": "Extra Tailwind classes and inline styles merge with variants."
+    }
+  },
+  "accordion": {
+    "singleCollapsible": {
+      "title": "Single collapsible",
+      "whatIsLibrary": {
+        "trigger": "What is this component library?",
+        "content": "A collection of production-ready React components built with Tailwind CSS v4, Radix UI, and motion-first interactions."
+      },
+      "darkMode": {
+        "trigger": "Does it support dark mode?",
+        "content": "Yes. Toggle between light and dark themes using the header control. Theme preference is persisted in local storage."
+      },
+      "staticSite": {
+        "trigger": "Can I use it in a static site?",
+        "content": "Absolutely. This showcase is built with Vite and exports to static HTML, CSS, and JS."
+      }
+    },
+    "multipleOpen": {
+      "title": "Multiple open",
+      "designTokens": {
+        "trigger": "Design tokens",
+        "content": "Semantic colors, spacing, and typography variables."
+      },
+      "accessibility": {
+        "trigger": "Accessibility",
+        "content": "Built on Radix primitives with keyboard navigation."
+      }
+    }
+  },
+  "alerts": {
+    "builtInAlerts": {
+      "title": "Built-in alerts",
+      "description": "Preset states used across data views — each shown in a compact panel, not full width.",
+      "labels": {
+        "emptyDefault": "Empty (default)",
+        "emptyCustom": "Empty (custom)",
+        "loadingDefault": "Loading (default)",
+        "loadingCustom": "Loading (custom)",
+        "errorDefault": "Error (default)",
+        "errorCustom": "Error (custom)",
+        "forbidden": "Forbidden"
+      },
+      "message": "No orders match your filters.",
+      "message1": "Fetching shipments…",
+      "message2": "Could not sync inventory. Try again later.",
+      "emptyDefault": "Empty (default)",
+      "emptyCustom": "Empty (custom)",
+      "loadingDefault": "Loading (default)",
+      "loadingCustom": "Loading (custom)",
+      "errorDefault": "Error (default)",
+      "errorCustom": "Error (custom)",
+      "forbidden": "Forbidden",
+      "emptyCustomMessage": "No orders match your filters.",
+      "loadingCustomMessage": "Fetching shipments…",
+      "errorCustomMessage": "Could not sync inventory. Try again later."
+    },
+    "baseAlertAnimations": {
+      "title": "Base alert — animations",
+      "description": "Same message and icon; only the entrance animation changes.",
+      "message": "Your package is on the way."
+    },
+    "baseAlertIconsSituations": {
+      "title": "Base alert — icons & situations",
+      "description": "Custom icons and copy for common empty, error, and info states.",
+      "labels": {
+        "offline": "Offline",
+        "serviceDown": "Service down",
+        "emptyInbox": "Empty inbox",
+        "noDocuments": "No documents",
+        "sessionExpired": "Session expired",
+        "maintenance": "Maintenance",
+        "notificationsOff": "Notifications off",
+        "allCaughtUp": "All caught up",
+        "emptyWarehouse": "Empty warehouse",
+        "accessBlocked": "Access blocked"
+      },
+      "message": "You are offline. Check your connection.",
+      "message1": "Service temporarily unavailable.",
+      "message2": "Your inbox is empty.",
+      "message3": "No documents uploaded yet.",
+      "message4": "Session expired. Sign in again.",
+      "message5": "Scheduled maintenance in progress.",
+      "message6": "Notifications are disabled.",
+      "message7": "You are all caught up!",
+      "message8": "No stock in this warehouse.",
+      "message9": "This area requires admin access."
+    },
+    "baseAnimations": {
+      "title": "Base alert — animations",
+      "description": "Same message and icon; only the entrance animation changes.",
+      "packageMessage": "Your package is on the way."
+    },
+    "iconsSituations": {
+      "title": "Base alert — icons & situations",
+      "description": "Custom icons and copy for common empty, error, and info states.",
+      "offline": "Offline",
+      "serviceDown": "Service down",
+      "emptyInbox": "Empty inbox",
+      "noDocuments": "No documents",
+      "sessionExpired": "Session expired",
+      "maintenance": "Maintenance",
+      "notificationsOff": "Notifications off",
+      "allCaughtUp": "All caught up",
+      "emptyWarehouse": "Empty warehouse",
+      "accessBlocked": "Access blocked",
+      "offlineMessage": "You are offline. Check your connection.",
+      "serviceDownMessage": "Service temporarily unavailable.",
+      "emptyInboxMessage": "Your inbox is empty.",
+      "noDocumentsMessage": "No documents uploaded yet.",
+      "sessionExpiredMessage": "Session expired. Sign in again.",
+      "maintenanceMessage": "Scheduled maintenance in progress.",
+      "notificationsOffMessage": "Notifications are disabled.",
+      "allCaughtUpMessage": "You are all caught up!",
+      "emptyWarehouseMessage": "No stock in this warehouse.",
+      "accessBlockedMessage": "This area requires admin access."
+    },
+    "animations": {
+      "jumpIn": "Jump in (default)",
+      "shake": "Shake",
+      "bounceIn": "Bounce in",
+      "flipUp": "Flip up",
+      "none": "None"
+    }
+  },
+  "auth": {
+    "authLayout": {
+      "title": "Auth layout",
+      "signIn": "Sign in",
+      "description": "AuthLayout from @/components/layout/auth"
+    }
+  },
+  "avatar": {
+    "sizes": {
+      "title": "Sizes",
+      "description": "UserAvatar from @/components/common/avatar."
+    },
+    "fallbackInitials": {
+      "title": "Fallback initials"
+    }
+  },
+  "badges": {
+    "severitiesFilled": {
+      "title": "Severities (filled)"
+    },
+    "severitiesOutline": {
+      "title": "Severities (outline)"
+    },
+    "sizesWide": {
+      "title": "Sizes (wide)"
+    },
+    "variants": {
+      "title": "Variants",
+      "labels": {
+        "wideDefault": "Wide (default)",
+        "circleDotIndicators": "Circle (dot indicators)",
+        "square": "Square"
+      },
+      "wideDefault": "Wide (default)",
+      "circleDot": "Circle (dot indicators)",
+      "square": "Square",
+      "outline": "Outline",
+      "ghost": "Ghost"
+    },
+    "modifiers": {
+      "title": "Modifiers",
+      "labels": {
+        "withShadow": "With shadow",
+        "withRingHoverToSee": "With ring (hover to see)",
+        "highlight": "Highlight",
+        "disabled": "Disabled"
+      },
+      "withShadow": "With shadow",
+      "withRing": "With ring (hover to see)",
+      "highlight": "Highlight",
+      "disabled": "Disabled",
+      "highlighted": "Highlighted",
+      "outlineHighlight": "Outline + highlight"
+    },
+    "combinations": {
+      "title": "Combinations",
+      "largeOutline": "Large outline",
+      "smallSquare": "Small square",
+      "highlight2xl": "2XL highlight"
+    }
+  },
+  "banner": {
+    "withImage": {
+      "title": "With image",
+      "description": "Banner from @/components/common/banner.",
+      "heading": "Welcome banner",
+      "subheading": "Promotional surface with background image."
+    },
+    "contentOnly": {
+      "title": "Content only",
+      "content": "No image — gradient / solid background via className."
+    }
+  },
+  "cards": {
+    "defaultCard": {
+      "title": "Default card",
+      "cardTitle": "Project overview",
+      "cardDescription": "Track progress across your active dashboards.",
+      "cardContent": "Cards adapt to light and dark themes using semantic tokens from your design system.",
+      "viewDetails": "View details",
+      "dismiss": "Dismiss"
+    },
+    "variants": {
+      "title": "Variants",
+      "default": "Default",
+      "outline": "Outline",
+      "ghost": "Ghost"
+    }
+  },
+  "carousel": {
+    "slides": {
+      "title": "Slides",
+      "slide": "Slides"
+    }
+  },
+  "charts": {
+    "bar": {
+      "title": "Bar"
+    },
+    "pie": {
+      "title": "Pie"
+    },
+    "doughnut": {
+      "title": "Doughnut",
+      "done": "Done",
+      "pending": "Pending"
+    }
+  },
+  "chips": {
+    "basicChips": {
+      "title": "Basic chips",
+      "labels": {
+        "default": "Default",
+        "active": "Active",
+        "muted": "Muted"
+      }
+    },
+    "removableTags": {
+      "title": "Removable tags"
+    },
+    "customContent": {
+      "title": "Custom content",
+      "custom": "Custom",
+      "slotContent": " · slot content"
+    },
+    "basic": {
+      "title": "Basic chips",
+      "default": "Default",
+      "active": "Active",
+      "muted": "Muted"
+    }
+  },
+  "collapsible": {
+    "expandableBlock": {
+      "title": "Expandable block",
+      "trigger": "Details",
+      "content": "Hidden content revealed when the trigger is activated."
+    }
+  },
+  "context-menu": {
+    "rightClickMenu": {
+      "title": "Right-click menu",
+      "trigger": "Right-click here",
+      "copy": "Copy",
+      "paste": "Paste",
+      "delete": "Delete"
+    }
+  },
+  "dashboard": {
+    "dashboardLayout": {
+      "title": "Dashboard layout",
+      "descriptionPrefix": "You are viewing this page inside the live dashboard shell from ",
+      "descriptionMiddle": " (collapsible sidebar, header, breadcrumbs). Toggle the sidebar icon or resize below md to open the mobile sheet menu.",
+      "descriptionSuffix": "@/components/layout/dashboard"
+    }
+  },
+  "divider": {
+    "horizontal": {
+      "title": "Horizontal",
+      "sectionAbove": "Section above",
+      "sectionBelow": "Section below"
+    },
+    "vertical": {
+      "title": "Vertical",
+      "left": "Left",
+      "right": "Right"
+    },
+    "customMargin": {
+      "title": "Custom margin"
+    }
+  },
+  "errors": {
+    "usedataerrorhandlerLoading": {
+      "title": "useDataErrorHandler — loading"
+    },
+    "empty": {
+      "title": "Empty"
+    },
+    "error": {
+      "title": "Error",
+      "networkFailed": "Network request failed"
+    },
+    "forbidden": {
+      "title": "Forbidden"
+    },
+    "successState": {
+      "title": "Success state",
+      "dataLoaded": "Data loaded successfully."
+    },
+    "alertErrorPrimitive": {
+      "title": "Alert.Error (primitive)",
+      "message": "Standalone error alert from the alert module."
+    },
+    "loading": {
+      "title": "useDataErrorHandler — loading"
+    },
+    "alertError": {
+      "title": "Alert.Error (primitive)",
+      "message": "Standalone error alert from the alert module."
+    }
+  },
+  "fadeable": {
+    "visibilityToggle": {
+      "title": "Visibility toggle",
+      "hide": "Hide",
+      "show": "Show",
+      "content": "Content fades in and out"
+    }
+  },
+  "file-uploader": {
+    "dropZone": {
+      "title": "Drop zone"
+    }
+  },
+  "flex": {
+    "row": {
+      "title": "Row",
+      "one": "One",
+      "two": "Two",
+      "three": "Three"
+    },
+    "column": {
+      "title": "Column",
+      "a": "Space between",
+      "b": "Space between"
+    },
+    "spaceBetween": {
+      "title": "Space between",
+      "start": "Start",
+      "end": "End"
+    }
+  },
+  "form": {
+    "reactHookFormInputs": {
+      "title": "react-hook-form + inputs",
+      "description": "Same primitives used by @/components/compound/form FormField.",
+      "labels": {
+        "title": "Title",
+        "iAgree": "I agree"
+      }
+    },
+    "reactHookForm": {
+      "title": "react-hook-form + inputs",
+      "description": "Same primitives used by @/components/compound/form FormField.",
+      "titleLabel": "Title",
+      "agreeLabel": "I agree",
+      "titleRequired": "Title is required",
+      "submit": "Submit",
+      "submittedToast": "Submitted: {{title}}"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "inputs": {
+    "checkboxBasic": {
+      "title": "چک‌باکس.پایه",
+      "labels": { "boxedDescriptionWidth": "جعبه‌ای · توضیح · عرض" },
+      "rows": { "boxedDescriptionWidth": "جعبه‌ای · توضیح · عرض" }
+    },
+    "checkboxCard": { "title": "چک‌باکس.کارت" },
+    "checkboxLabeled": { "title": "چک‌باکس.برچسب‌دار" },
+    "dateInput": { "title": "ورودی تاریخ" },
+    "list": { "title": "فهرست" },
+    "numberInput": { "title": "ورودی عددی" },
+    "numberRangeInput": { "title": "ورودی بازه عددی" },
+    "otpInput": {
+      "title": "ورودی OTP",
+      "rows": {
+        "lengthNumericOnly": "طول · فقط عددی",
+        "size": "اندازه",
+        "statusSm": "وضعیت (sm)"
+      }
+    },
+    "passwordInput": { "title": "ورودی رمز عبور" },
+    "phoneInput": { "title": "ورودی موبایل" },
+    "radioInput": {
+      "title": "ورودی رادیویی",
+      "rows": { "direction": "جهت", "icon": "آیکن", "size": "اندازه" }
+    },
+    "selectMulti": { "title": "انتخاب.چندگانه" },
+    "selectMultiOrderable": { "title": "انتخاب.چندگانه.قابل‌مرتب‌سازی" },
+    "selectMultiTree": { "title": "انتخاب.درخت.چندگانه" },
+    "selectSingle": { "title": "انتخاب.تک" },
+    "selectSingleTree": { "title": "انتخاب.درخت.تک" },
+    "switch": {
+      "title": "سوییچ",
+      "rows": { "size": "اندازه" },
+      "labels": { "size": "اندازه" }
+    },
+    "switchField": { "title": "فیلد سوییچ" },
+    "textareaInput": { "title": "ورودی چندخطی" },
+    "textInput": { "title": "ورودی متنی" },
+    "weightInput": { "title": "ورودی وزن" },
+    "textinput": { "title": "ورودی متنی" },
+    "passwordinput": { "title": "ورودی رمز عبور" },
+    "phoneinput": { "title": "ورودی موبایل" },
+    "textareainput": { "title": "ورودی چندخطی" },
+    "numberinput": { "title": "ورودی عددی" },
+    "numberrangeinput": { "title": "ورودی بازه عددی" },
+    "switchfield": { "title": "فیلد سوییچ" },
+    "radioinput": {
+      "title": "ورودی رادیویی",
+      "labels": { "direction": "جهت", "size": "اندازه", "icon": "آیکن" }
+    },
+    "otpinput": {
+      "title": "ورودی OTP",
+      "labels": {
+        "size": "اندازه",
+        "lengthNumericonly": "طول · فقط عددی",
+        "statusSm": "وضعیت (sm)"
+      }
+    },
+    "selectSingletree": { "title": "انتخاب.درخت.تک" },
+    "selectMultitree": { "title": "انتخاب.درخت.چندگانه" },
+    "selectMultiorderable": { "title": "انتخاب.چندگانه.قابل‌مرتب‌سازی" },
+    "dateinput": { "title": "ورودی تاریخ" },
+    "weightinput": { "title": "ورودی وزن" }
+  },
+  "buttons": {
+    "rounded": { "rowLabel": "rounded=\"{{rounded}}\"" },
+    "fullWidth": { "title": "عرض کامل (fullWidth)" },
+    "onClick": { "title": "رویداد کلیک (onClick)" },
+    "asChild": { "title": "فرزند مستقیم (asChild)" },
+    "type": { "title": "نوع (type)" },
+    "classNameStyle": { "minWidth200px": "حداقل عرض ۲۰۰px" },
+    "fullwidth": { "title": "عرض کامل (fullWidth)" },
+    "onclick": { "title": "رویداد کلیک (onClick)" },
+    "aschild": { "title": "فرزند مستقیم (asChild)" },
+    "roundedRadius": { "rowLabelTemplate": "rounded=\"{{rounded}}\"" }
+  },
+  "dashboard": {
+    "dashboardLayout": {
+      "descriptionSuffix": "@/components/layout/dashboard"
+    }
+  }
+}

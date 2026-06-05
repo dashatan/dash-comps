@@ -1,0 +1,170 @@
+{
+  "chips": {
+    "basicChips": {
+      "title": "چیپ‌های پایه",
+      "labels": {
+        "default": "پیش‌فرض",
+        "active": "فعال",
+        "muted": "کمرنگ"
+      }
+    },
+    "removableTags": {
+      "title": "برچسب‌های قابل حذف"
+    },
+    "customContent": {
+      "title": "محتوای سفارشی",
+      "custom": "سفارشی",
+      "slotContent": " · محتوای slot"
+    },
+    "basic": {
+      "title": "چیپ‌های پایه",
+      "default": "پیش‌فرض",
+      "active": "فعال",
+      "muted": "کمرنگ"
+    }
+  },
+  "collapsible": {
+    "expandableBlock": {
+      "title": "بلوک قابل گسترش",
+      "trigger": "جزئیات",
+      "content": "محتوای پنهان با فعال‌سازی تریگر نمایش داده می‌شود."
+    }
+  },
+  "context-menu": {
+    "rightClickMenu": {
+      "title": "منوی کلیک راست",
+      "trigger": "اینجا کلیک راست کنید",
+      "copy": "کپی",
+      "paste": "چسباندن",
+      "delete": "حذف"
+    }
+  },
+  "dashboard": {
+    "dashboardLayout": {
+      "title": "چیدمان داشبورد",
+      "descriptionPrefix": "شما این صفحه را درون پوسته زنده داشبورد از ",
+      "descriptionMiddle": " (سایدبار تاشو، سرصفحه، مسیر راهنما) مشاهده می‌کنید. آیکون سایدبار را بزنید یا عرض را زیر md کاهش دهید تا منوی شیت موبایل باز شود.",
+      "descriptionSuffix": "@/components/layout/dashboard"
+    }
+  },
+  "divider": {
+    "horizontal": {
+      "title": "افقی",
+      "sectionAbove": "بخش بالا",
+      "sectionBelow": "بخش پایین"
+    },
+    "vertical": {
+      "title": "عمودی",
+      "left": "چپ",
+      "right": "راست"
+    },
+    "customMargin": {
+      "title": "حاشیه سفارشی"
+    }
+  },
+  "errors": {
+    "usedataerrorhandlerLoading": {
+      "title": "useDataErrorHandler — بارگذاری"
+    },
+    "empty": {
+      "title": "خالی"
+    },
+    "error": {
+      "title": "خطا",
+      "networkFailed": "درخواست شبکه ناموفق بود"
+    },
+    "forbidden": {
+      "title": "دسترسی ممنوع"
+    },
+    "successState": {
+      "title": "حالت موفقیت",
+      "dataLoaded": "داده‌ها با موفقیت بارگذاری شد."
+    },
+    "alertErrorPrimitive": {
+      "title": "Alert.Error (اولیه)",
+      "message": "هشدار خطای مستقل از ماژول alert."
+    },
+    "loading": {
+      "title": "useDataErrorHandler — بارگذاری"
+    },
+    "alertError": {
+      "title": "Alert.Error (اولیه)",
+      "message": "هشدار خطای مستقل از ماژول alert."
+    }
+  },
+  "fadeable": {
+    "visibilityToggle": {
+      "title": "تغییر نمایش",
+      "hide": "پنهان",
+      "show": "نمایش",
+      "content": "محتوا با محو شدن ظاهر و ناپدید می‌شود"
+    }
+  },
+  "flex": {
+    "row": {
+      "title": "ردیف",
+      "one": "یک",
+      "two": "دو",
+      "three": "سه"
+    },
+    "column": {
+      "title": "ستون",
+      "a": "فاصله بین",
+      "b": "فاصله بین"
+    },
+    "spaceBetween": {
+      "title": "فاصله بین",
+      "start": "شروع",
+      "end": "پایان"
+    }
+  },
+  "file-uploader": {
+    "dropZone": {
+      "title": "ناحیه رها کردن"
+    }
+  },
+  "form": {
+    "reactHookFormInputs": {
+      "title": "react-hook-form + ورودی‌ها",
+      "description": "همان اجزای پایه‌ای که FormField در @/components/compound/form استفاده می‌کند.",
+      "labels": {
+        "title": "عنوان",
+        "iAgree": "موافقم"
+      }
+    },
+    "reactHookForm": {
+      "title": "react-hook-form + ورودی‌ها",
+      "description": "همان اجزای پایه‌ای که FormField در @/components/compound/form استفاده می‌کند.",
+      "titleLabel": "عنوان",
+      "agreeLabel": "موافقم",
+      "titleRequired": "عنوان الزامی است",
+      "submit": "ارسال",
+      "submittedToast": "ارسال شد: {{title}}"
+    }
+  },
+  "grid": {
+    "responsiveSpans": {
+      "span2": "گسترش ۲",
+      "title": "گسترش‌های واکنش‌گرا"
+    },
+    "threeColumns": {
+      "title": "۳ ستون"
+    },
+    "3Columns": {
+      "title": "۳ ستون"
+    }
+  },
+  "hover-card": {
+    "alignedStart": {
+      "description": "در لبه آغاز تریگر تراز شده است.",
+      "infoPreview": "پیش‌نمایش اطلاعات",
+      "title": "تراز با آغاز"
+    },
+    "triggerContent": {
+      "description": "پیش‌نمایش غنی با هاور اشاره‌گر.",
+      "hoverCardTitle": "کارت شناور",
+      "hoverMe": "روی من هاور کنید",
+      "title": "تریگر + محتوا"
+    }
+  }
+}

@@ -1,12 +1,11 @@
-import { useShowcaseI18n } from "@/i18n";
+import { useShowcaseShell } from "@/features/catalog/i18n";
 import type { CatalogSlug } from "@/features/catalog/registry";
 
 export function useCategoryMeta(slug: CatalogSlug) {
-  const { t } = useShowcaseI18n();
-  const category = t.categories[slug];
+  const { catalog, categoryTitle, categoryDescription } = useShowcaseShell();
   return {
-    title: category.title,
-    description: category.description,
-    componentLabel: t.catalog.componentLabel,
+    title: categoryTitle(slug),
+    description: categoryDescription(slug),
+    componentLabel: catalog.componentLabel,
   };
 }

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import Badge from "@/components/common/badge";
 import type { BadgeProps } from "@/components/common/badge";
 
@@ -40,10 +41,11 @@ function ShowcaseRow({
 }
 
 export function BadgesPage() {
+  const p = useShowcasePage("badges");
+
   return (
     <CatalogPageShell slug="badges">
-      {/* 1. Severities — filled (default) */}
-      <ShowcaseSection title="Severities (filled)">
+      <ShowcaseSection title={p("severitiesFilled.title")}>
         {SEVERITIES.map((severity) => (
           <Badge key={severity} severity={severity}>
             {severity}
@@ -51,8 +53,7 @@ export function BadgesPage() {
         ))}
       </ShowcaseSection>
 
-      {/* 2. Outline — all severities */}
-      <ShowcaseSection title="Severities (outline)" delay={0.05}>
+      <ShowcaseSection title={p("severitiesOutline.title")} delay={0.05}>
         {SEVERITIES.map((severity) => (
           <Badge key={severity} severity={severity} appearance="outline">
             {severity}
@@ -60,8 +61,7 @@ export function BadgesPage() {
         ))}
       </ShowcaseSection>
 
-      {/* 3. Sizes — wide variant (default) */}
-      <ShowcaseSection title="Sizes (wide)" delay={0.1}>
+      <ShowcaseSection title={p("sizesWide.title")} delay={0.1}>
         {SIZES.map((size) => (
           <Badge key={size} size={size}>
             {size}
@@ -69,53 +69,51 @@ export function BadgesPage() {
         ))}
       </ShowcaseSection>
 
-      {/* 4. Variants */}
-      <ShowcaseSection title="Variants" delay={0.15}>
-        <ShowcaseRow label="Wide (default)">
+      <ShowcaseSection title={p("variants.title")} delay={0.15}>
+        <ShowcaseRow label={p("variants.wideDefault")}>
           {SIZES.map((size) => (
             <Badge key={size} variant="wide" size={size}>
               {size}
             </Badge>
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="Circle (dot indicators)">
+        <ShowcaseRow label={p("variants.circleDot")}>
           {SIZES.map((size) => (
             <Badge key={size} variant="circle" size={size} severity="primary" />
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="Square">
-          <Badge variant="square">Square</Badge>
+        <ShowcaseRow label={p("variants.square")}>
+          <Badge variant="square">{p("variants.square")}</Badge>
           <Badge variant="square" severity="success" appearance="outline">
-            Outline
+            {p("variants.outline")}
           </Badge>
         </ShowcaseRow>
       </ShowcaseSection>
 
-      {/* 5. Interactive / decorative modifiers */}
-      <ShowcaseSection title="Modifiers" delay={0.2} layout="stack">
-        <ShowcaseRow label="With shadow">
+      <ShowcaseSection title={p("modifiers.title")} delay={0.2} layout="stack">
+        <ShowcaseRow label={p("modifiers.withShadow")}>
           {SEVERITIES.map((severity) => (
             <Badge key={severity} severity={severity} withShadow>
               {severity}
             </Badge>
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="With ring (hover to see)">
+        <ShowcaseRow label={p("modifiers.withRing")}>
           {SEVERITIES.map((severity) => (
             <Badge key={severity} severity={severity} withRing>
               {severity}
             </Badge>
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="Highlight">
+        <ShowcaseRow label={p("modifiers.highlight")}>
           <Badge highlight severity="primary">
-            Highlighted
+            {p("modifiers.highlighted")}
           </Badge>
           <Badge highlight severity="danger" appearance="outline">
-            Outline + highlight
+            {p("modifiers.outlineHighlight")}
           </Badge>
         </ShowcaseRow>
-        <ShowcaseRow label="Disabled">
+        <ShowcaseRow label={p("modifiers.disabled")}>
           {SEVERITIES.map((severity) => (
             <Badge key={severity} severity={severity} disabled>
               {severity}
@@ -124,16 +122,15 @@ export function BadgesPage() {
         </ShowcaseRow>
       </ShowcaseSection>
 
-      {/* 6. Combined examples */}
-      <ShowcaseSection title="Combinations" delay={0.25}>
+      <ShowcaseSection title={p("combinations.title")} delay={0.25}>
         <Badge severity="success" size="lg" appearance="outline" withRing>
-          Large outline
+          {p("combinations.largeOutline")}
         </Badge>
         <Badge severity="warning" size="sm" variant="square" withShadow>
-          Small square
+          {p("combinations.smallSquare")}
         </Badge>
         <Badge severity="danger" size="2xl" highlight>
-          2XL highlight
+          {p("combinations.highlight2xl")}
         </Badge>
       </ShowcaseSection>
     </CatalogPageShell>

@@ -15,49 +15,51 @@ import {
   SheetTrigger,
 } from "@/components/common/overlay/sheet";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/common/overlay/popover";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 
 export function OverlayPage() {
+  const p = useShowcasePage("overlay");
   const [open, setOpen] = useState(false);
 
   return (
     <CatalogPageShell slug="overlay">
-      <ShowcaseSection title="Dialog">
+      <ShowcaseSection title={p("dialog.title")}>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button>Open dialog</Button>
+            <Button>{p("dialog.openDialog")}</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Confirm action</DialogTitle>
+              <DialogTitle>{p("dialog.confirmAction")}</DialogTitle>
             </DialogHeader>
-            <p className="text-muted-foreground text-sm">Dialog from @/components/common/overlay/dialog.</p>
-            <Button onClick={() => setOpen(false)}>Close</Button>
+            <p className="text-muted-foreground text-sm">{p("dialog.description")}</p>
+            <Button onClick={() => setOpen(false)}>{p("dialog.close")}</Button>
           </DialogContent>
         </Dialog>
       </ShowcaseSection>
-      <ShowcaseSection title="Sheet" delay={0.05}>
+      <ShowcaseSection title={p("sheet.title")} delay={0.05}>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outlined">Open sheet</Button>
+            <Button variant="outlined">{p("sheet.openSheet")}</Button>
           </SheetTrigger>
           <SheetContent side="right">
             <SheetHeader>
-              <SheetTitle>Side panel</SheetTitle>
+              <SheetTitle>{p("sheet.sidePanel")}</SheetTitle>
             </SheetHeader>
-            <p className="text-muted-foreground text-sm">Sheet slides in from the edge.</p>
+            <p className="text-muted-foreground text-sm">{p("sheet.description")}</p>
           </SheetContent>
         </Sheet>
       </ShowcaseSection>
-      <ShowcaseSection title="Popover" delay={0.1}>
+      <ShowcaseSection title={p("popover.title")} delay={0.1}>
         <Popover>
           <PopoverTrigger asChild>
-            <Button severity="secondary">Popover</Button>
+            <Button severity="secondary">{p("popover.button")}</Button>
           </PopoverTrigger>
           <PopoverContent className="w-56">
-            <p className="text-sm font-medium">Popover content</p>
-            <p className="text-muted-foreground text-xs">Anchored floating panel.</p>
+            <p className="text-sm font-medium">{p("popover.content")}</p>
+            <p className="text-muted-foreground text-xs">{p("popover.description")}</p>
           </PopoverContent>
         </Popover>
       </ShowcaseSection>

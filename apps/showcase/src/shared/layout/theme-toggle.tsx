@@ -3,8 +3,10 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/common/buttons";
+import { useLanguage } from "@/lib/language/client";
 
 export function ThemeToggle() {
+  const { t } = useLanguage();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -22,7 +24,7 @@ export function ThemeToggle() {
       size={32}
       className="relative overflow-hidden rounded-full hover:text-primary"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Toggle theme"
+      aria-label={t("common.toggleTheme")}
     >
       <motion.span
         key={isDark ? "moon" : "sun"}

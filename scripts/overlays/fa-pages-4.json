@@ -1,0 +1,255 @@
+{
+  "license-plate": {
+    "carPlate": {
+      "description": "PlateInput با variant=&quot;car&quot;.",
+      "title": "پلاک خودرو"
+    },
+    "motorcycle": {
+      "title": "موتورسیکلت"
+    },
+    "simpleText": {
+      "title": "متن ساده"
+    }
+  },
+  "list": {
+    "cardsList": {
+      "title": "فهرست کارت‌ها"
+    },
+    "chipsList": {
+      "tagA": "برچسب الف",
+      "tagB": "برچسب ب",
+      "tagC": "برچسب ج",
+      "title": "فهرست چیپ‌ها"
+    },
+    "linesList": {
+      "title": "فهرست خطی"
+    },
+    "sample": {
+      "active": "فعال",
+      "dash": "—",
+      "notes": "یادداشت‌ها",
+      "region": "منطقه",
+      "status": "وضعیت",
+      "tehran": "تهران"
+    }
+  },
+  "loading": {
+    "defaultSpinner": {
+      "title": "اسپینر پیش‌فرض"
+    },
+    "sizes": {
+      "title": "اندازه‌ها"
+    }
+  },
+  "location-picker": {
+    "description": {
+      "importFrom": "واردات از",
+      "mapBlocks": "را در صفحهٔ نقشه ببینید.",
+      "requiresBackend": ". به منابع دستگاه/مکان سمت سرور و استاب‌های منوی داشبورد نیاز دارد. بلوک‌های سازندهٔ"
+    },
+    "locationPicker": {
+      "title": "انتخاب مکان"
+    }
+  },
+  "map": {
+    "leafletMap": {
+      "title": "نقشهٔ Leaflet"
+    },
+    "tallerViewport": {
+      "title": "نمای بزرگ‌تر"
+    }
+  },
+  "overlay": {
+    "dialog": {
+      "close": "بستن",
+      "confirmAction": "تأیید عملیات",
+      "description": "دیالوگ از @/components/common/overlay/dialog.",
+      "openDialog": "باز کردن دیالوگ",
+      "title": "دیالوگ"
+    },
+    "popover": {
+      "button": "پاپ‌اور",
+      "content": "محتوای پاپ‌اور",
+      "description": "پنل شناور لنگرخورده.",
+      "title": "پاپ‌اور"
+    },
+    "sheet": {
+      "description": "شیت از لبه وارد می‌شود.",
+      "openSheet": "باز کردن شیت",
+      "sidePanel": "پنل کناری",
+      "title": "شیت"
+    }
+  },
+  "pagination": {
+    "currentPage": {
+      "info": "صفحهٔ {page} از {total}",
+      "title": "صفحهٔ فعلی"
+    },
+    "pageLinks": {
+      "title": "پیوندهای صفحه"
+    }
+  },
+  "paginator": {
+    "controlled": {
+      "title": "کنترل‌شده"
+    },
+    "firstPage": {
+      "title": "صفحهٔ اول"
+    }
+  },
+  "persian-date-picker": {
+    "singleDate": {
+      "title": "تاریخ تکی"
+    },
+    "withTime": {
+      "title": "همراه با زمان"
+    }
+  },
+  "shapes": {
+    "indicator": {
+      "title": "نشانگر"
+    },
+    "square": {
+      "title": "مربع"
+    }
+  },
+  "skeleton": {
+    "cardBlock": {
+      "title": "بلوک کارت"
+    },
+    "textPlaceholders": {
+      "title": "جای‌نگهدارهای متن"
+    }
+  },
+  "slider": {
+    "range": {
+      "title": "بازه"
+    },
+    "singleValue": {
+      "title": "مقدار تکی"
+    }
+  },
+  "sonner": {
+    "toastVariants": {
+      "buttons": {
+        "error": "خطا",
+        "info": "اطلاعات",
+        "success": "موفقیت",
+        "warning": "هشدار"
+      },
+      "title": "انواع اعلان",
+      "toasts": {
+        "checkInput": "ورودی خود را بررسی کنید",
+        "headsUp": "توجه",
+        "savedSuccessfully": "با موفقیت ذخیره شد",
+        "somethingWrong": "مشکلی پیش آمد"
+      }
+    },
+    "withDescription": {
+      "button": "موفقیت + توضیحات",
+      "description": "تغییرات پس از بارگذاری مجدد نمایش داده می‌شوند.",
+      "title": "همراه با توضیحات",
+      "toastTitle": "پروفایل به‌روزرسانی شد"
+    }
+  },
+  "steps": {
+    "midProgress": {
+      "steps": {
+        "done": "پایان",
+        "review": "بازبینی",
+        "start": "شروع"
+      },
+      "title": "پیشرفت میانی"
+    },
+    "step1Active": {
+      "steps": {
+        "details": {
+          "subtitle": "اطلاعات پایه",
+          "title": "جزئیات"
+        },
+        "done": {
+          "subtitle": "پایان",
+          "title": "انجام شد"
+        },
+        "review": {
+          "subtitle": "بررسی ورودی‌ها",
+          "title": "بازبینی"
+        }
+      },
+      "title": "گام ۱ فعال"
+    }
+  },
+  "table": {
+    "compoundTable": {
+      "description": {
+        "dataTable": "جدول داده در",
+        "expectsConfig": "قرار دارد و به پیکربندی ستون‌ها، فیلترها و هوک‌های API در سطح برنامه نیاز دارد. برای اجزای مرتبط به صفحات فهرست، صفحه‌بندی و ورودی‌ها مراجعه کنید؛ جدول کامل را در برنامهٔ خود با منابع دادهٔ واقعی پیاده‌سازی کنید."
+      },
+      "title": "جدول ترکیبی"
+    }
+  },
+  "tabs": {
+    "keepMounted": {
+      "draft": {
+        "content": "محتوای پیش‌نویس هنگام جابه‌جایی بین تب‌ها وضعیت خود را حفظ می‌کند.",
+        "header": "پیش‌نویس"
+      },
+      "published": {
+        "content": "موارد منتشرشده اینجا نمایش داده می‌شوند.",
+        "header": "منتشرشده"
+      },
+      "title": "حفظ در DOM"
+    },
+    "tabbedContent": {
+      "analytics": {
+        "content": "پنل تحلیل با نمودارها و داده‌های روند.",
+        "header": "تحلیل"
+      },
+      "overview": {
+        "content": "پنل نمای کلی با شاخص‌های خلاصه و اقدامات سریع.",
+        "header": "نمای کلی"
+      },
+      "settings": {
+        "content": "پنل تنظیمات برای پیکربندی و ترجیحات.",
+        "header": "تنظیمات"
+      },
+      "title": "محتوای تب‌دار"
+    }
+  },
+  "timeline": {
+    "eventList": {
+      "events": {
+        "delivered": "تحویل شد",
+        "orderPlaced": "سفارش ثبت شد",
+        "shipped": "ارسال شد"
+      },
+      "title": "فهرست رویدادها"
+    }
+  },
+  "tracker": {
+    "compoundTracker": {
+      "description": {
+        "dependsOnData": "قرار دارد. به داده‌های ردیابی زنده وابسته است. برای اجزای مستقل از صفحات نقشه و نمودارها به",
+        "vehicleTracker": "رابط ردیابی وسیله (مسیرهای نقشه، کارت‌های رویداد، خوشه‌بندی) در"
+      },
+      "title": "ردیاب ترکیبی"
+    },
+    "trackerCompound": {
+      "title": "ردیاب ترکیبی"
+    }
+  },
+  "typography": {
+    "headings": {
+      "h1": "سرتیتر ۱",
+      "h2": "سرتیتر ۲",
+      "h3": "سرتیتر ۳",
+      "h4": "سرتیتر ۴",
+      "title": "سرتیترها"
+    },
+    "paragraph": {
+      "body": "متن بدنه — سبک پاراگراف پیش‌فرض از ماژول تایپوگرافی.",
+      "muted": "پاراگراف کم‌رنگ با بازنویسی className.",
+      "title": "پاراگراف"
+    }
+  }
+}

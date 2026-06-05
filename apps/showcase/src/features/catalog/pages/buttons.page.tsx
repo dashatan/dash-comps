@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { Button } from "@/components/common/buttons";
 import type {
   ButtonRounded,
@@ -78,12 +79,14 @@ function RoundedRow({
   variant = "contained",
   severity = "primary",
   size,
+  withIconLabel,
 }: {
   label: string;
   rounded: ButtonRounded;
   variant?: ButtonVariant;
   severity?: ButtonSeverity;
   size?: (typeof SIZES)[number] | number;
+  withIconLabel: string;
 }) {
   return (
     <ShowcaseRow label={label}>
@@ -102,21 +105,22 @@ function RoundedRow({
         size={size}
         leftIcon={<Plus className="size-4" />}
       >
-        With icon
+        {withIconLabel}
       </Button>
     </ShowcaseRow>
   );
 }
 
 export function ButtonsPage() {
+  const p = useShowcasePage("buttons");
   const [loading, setLoading] = useState(false);
   const [clickCount, setClickCount] = useState(0);
 
   return (
     <CatalogPageShell slug="buttons">
       <ShowcaseSection
-        title="Variants × severities"
-        description="variant: contained | outlined | text — default is contained."
+        title={p("variantsSeverities.title")}
+        description={p("variantsSeverities.description")}
         layout="stack"
       >
         <div className="flex flex-col gap-6">
@@ -127,8 +131,8 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Sizes"
-        description='size: "xs" | "sm" | "md" | "lg" | "xl" — default "md".'
+        title={p("sizes.title")}
+        description={p("sizes.description")}
         delay={0.03}
       >
         {SIZES.map((size) => (
@@ -139,8 +143,8 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Fixed numeric size"
-        description="size as number sets width/height in px (icon-style control)."
+        title={p("fixedNumericSize.title")}
+        description={p("fixedNumericSize.description")}
         delay={0.06}
       >
         <Button variant="icon" severity="info" size={32}>
@@ -155,12 +159,12 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Rounded (radius)"
-        description='rounded: "sm" | "md" | "lg" | "full" | "circle" — default "md".'
+        title={p("rounded.title")}
+        description={p("rounded.description")}
         delay={0.09}
         layout="stack"
       >
-        <ShowcaseRow label="All values — contained / primary / md">
+        <ShowcaseRow label={p("rounded.allValues")}>
           {ROUNDED.map((rounded) => (
             <Button key={rounded} rounded={rounded} severity="secondary">
               {rounded}
@@ -171,12 +175,13 @@ export function ButtonsPage() {
         {ROUNDED.map((rounded) => (
           <RoundedRow
             key={rounded}
-            label={`rounded="${rounded}"`}
+            label={p("rounded.rowLabel", { rounded })}
             rounded={rounded}
+            withIconLabel={p("rounded.withIcon")}
           />
         ))}
 
-        <ShowcaseRow label='By variant (rounded="lg")'>
+        <ShowcaseRow label={p("rounded.byVariant")}>
           <Button rounded="lg" variant="contained">
             contained
           </Button>
@@ -188,9 +193,9 @@ export function ButtonsPage() {
           </Button>
         </ShowcaseRow>
 
-        <ShowcaseRow label='Pill buttons (rounded="full")'>
+        <ShowcaseRow label={p("rounded.pillButtons")}>
           <Button rounded="full" severity="primary">
-            Primary pill
+            {p("rounded.primaryPill")}
           </Button>
           <Button
             rounded="full"
@@ -198,7 +203,7 @@ export function ButtonsPage() {
             severity="success"
             leftIcon={<Plus className="size-4" />}
           >
-            Add
+            {p("rounded.add")}
           </Button>
           <Button
             rounded="full"
@@ -206,11 +211,11 @@ export function ButtonsPage() {
             severity="info"
             rightIcon={<ChevronDown className="size-4" />}
           >
-            More
+            {p("rounded.more")}
           </Button>
         </ShowcaseRow>
 
-        <ShowcaseRow label="Circle — icon variant (numeric size)">
+        <ShowcaseRow label={p("rounded.circleIcon")}>
           {([32, 40, 48] as const).map((px) => (
             <Button
               key={px}
@@ -224,7 +229,7 @@ export function ButtonsPage() {
           ))}
         </ShowcaseRow>
 
-        <ShowcaseRow label="Circle — icon-button variant">
+        <ShowcaseRow label={p("rounded.circleIconButton")}>
           {SIZES.map((size) => (
             <Button
               key={size}
@@ -238,7 +243,7 @@ export function ButtonsPage() {
           ))}
         </ShowcaseRow>
 
-        <ShowcaseRow label='Sizes with rounded="full"'>
+        <ShowcaseRow label={p("rounded.sizesWithFull")}>
           {SIZES.map((size) => (
             <Button key={size} rounded="full" size={size} severity="warning">
               {size}
@@ -246,7 +251,7 @@ export function ButtonsPage() {
           ))}
         </ShowcaseRow>
 
-        <ShowcaseRow label='Severities with rounded="sm"'>
+        <ShowcaseRow label={p("rounded.severitiesWithSm")}>
           {SEVERITIES.map((severity) => (
             <Button key={severity} rounded="sm" severity={severity}>
               {severity}
@@ -256,8 +261,8 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Icon variant"
-        description='variant="icon" — use children or the icon prop.'
+        title={p("iconVariant.title")}
+        description={p("iconVariant.description")}
         delay={0.12}
       >
         <Button variant="icon" severity="info" size={40}>
@@ -275,8 +280,8 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Icon button variant"
-        description='variant="icon-button" — square icon-only actions (common with severity="input").'
+        title={p("iconButtonVariant.title")}
+        description={p("iconButtonVariant.description")}
         delay={0.15}
       >
         {SIZES.map((size) => (
@@ -293,56 +298,56 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="label prop"
-        description="Use label instead of children when you want a dedicated label slot."
+        title={p("labelProp.title")}
+        description={p("labelProp.description")}
         delay={0.18}
       >
-        <Button label="Save draft" severity="primary" />
-        <Button label="Cancel" variant="outlined" severity="secondary" />
-        <Button label="With icon" leftIcon={<Plus className="size-4" />} />
+        <Button label={p("labelProp.saveDraft")} severity="primary" />
+        <Button label={p("labelProp.cancel")} variant="outlined" severity="secondary" />
+        <Button label={p("labelProp.withIcon")} leftIcon={<Plus className="size-4" />} />
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Icons"
-        description="leftIcon, rightIcon, or icon (replaces main content when set)."
+        title={p("icons.title")}
+        description={p("icons.description")}
         delay={0.21}
       >
-        <Button leftIcon={<Plus className="size-4" />}>Add item</Button>
+        <Button leftIcon={<Plus className="size-4" />}>{p("icons.addItem")}</Button>
         <Button severity="danger" leftIcon={<Trash2 className="size-4" />}>
-          Delete
+          {p("icons.delete")}
         </Button>
         <Button variant="outlined" rightIcon={<Download className="size-4" />}>
-          Export
+          {p("icons.export")}
         </Button>
         <Button
           leftIcon={<Plus className="size-4" />}
           rightIcon={<ChevronDown className="size-4" />}
           variant="outlined"
         >
-          Both sides
+          {p("icons.bothSides")}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="fullWidth"
-        description="fullWidth stretches the button to the container width."
+        title={p("fullWidth.title")}
+        description={p("fullWidth.description")}
         delay={0.24}
         layout="stack"
       >
-        <Button fullWidth>Full width primary</Button>
+        <Button fullWidth>{p("fullWidth.primary")}</Button>
         <Button fullWidth variant="outlined" severity="secondary">
-          Full width outlined
+          {p("fullWidth.outlined")}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Loading"
-        description="isLoading shows a spinner and disables interaction."
+        title={p("loading.title")}
+        description={p("loading.description")}
         delay={0.27}
       >
-        <Button isLoading>Loading</Button>
+        <Button isLoading>{p("loading.loading")}</Button>
         <Button isLoading severity="success" variant="outlined">
-          Saving
+          {p("loading.saving")}
         </Button>
         <Button
           isLoading={loading}
@@ -351,18 +356,18 @@ export function ButtonsPage() {
             window.setTimeout(() => setLoading(false), 1500);
           }}
         >
-          {loading ? "Saving…" : "Click to load"}
+          {loading ? p("loading.savingEllipsis") : p("loading.clickToLoad")}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Disabled"
-        description="disabled prevents clicks; pairs with isLoading."
+        title={p("disabled.title")}
+        description={p("disabled.description")}
         delay={0.3}
       >
-        <Button disabled>Disabled</Button>
+        <Button disabled>{p("disabled.disabled")}</Button>
         <Button disabled variant="outlined" severity="danger">
-          Disabled outlined
+          {p("disabled.disabledOutlined")}
         </Button>
         <Button disabled variant="icon-button" severity="input" size="md">
           <Settings className="size-5" />
@@ -370,53 +375,53 @@ export function ButtonsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Tooltip"
-        description="tooltip wraps the button in a HoverCard; configure with tooltipOptions."
+        title={p("tooltip.title")}
+        description={p("tooltip.description")}
         delay={0.33}
       >
-        <Button tooltip="Default tooltip on top">Hover me</Button>
+        <Button tooltip={p("tooltip.defaultTooltip")}>{p("tooltip.hoverMe")}</Button>
         <Button
-          tooltip="Opens on the right"
+          tooltip={p("tooltip.opensRight")}
           tooltipOptions={{ side: "right", align: "center", sideOffset: 8 }}
           variant="outlined"
         >
-          Right tooltip
+          {p("tooltip.rightTooltip")}
         </Button>
         <Button
-          tooltip="Slower open/close"
+          tooltip={p("tooltip.slowerOpenClose")}
           tooltipOptions={{ openDelay: 300, closeDelay: 200 }}
           severity="info"
         >
-          Delayed tooltip
+          {p("tooltip.delayedTooltip")}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="onClick"
-        description="Standard button click handler."
+        title={p("onClick.title")}
+        description={p("onClick.description")}
         delay={0.36}
       >
         <Button
           onClick={() => setClickCount((c) => c + 1)}
           rightIcon={<Plus className="size-4" />}
         >
-          Clicked {clickCount} times
+          {p("onClick.clickedTimes", { count: clickCount })}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="asChild"
-        description="Merges styles onto a single child element (e.g. link styled as a button)."
+        title={p("asChild.title")}
+        description={p("asChild.description")}
         delay={0.39}
       >
         <Button asChild variant="outlined" severity="primary">
-          <a href="#buttons-as-child">Anchor as button</a>
+          <a href="#buttons-as-child">{p("asChild.anchorAsButton")}</a>
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="type"
-        description='type: "button" | "submit" | "reset" — default "button".'
+        title={p("type.title")}
+        description={p("type.description")}
         delay={0.42}
         layout="stack"
       >
@@ -427,52 +432,33 @@ export function ButtonsPage() {
             setClickCount((c) => c + 1);
           }}
         >
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{p("type.submit")}</Button>
           <Button type="reset" variant="outlined" severity="secondary">
-            Reset
+            {p("type.reset")}
           </Button>
         </form>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="className & style"
-        description="Extra Tailwind classes and inline styles merge with variants."
+        title={p("classNameStyle.title")}
+        description={p("classNameStyle.description")}
         delay={0.45}
       >
-        <Button className="shadow-lg">Shadow via className</Button>
+        <Button className="shadow-lg">{p("classNameStyle.shadowViaClassName")}</Button>
         <Button style={{ minWidth: 200 }} variant="outlined">
-          minWidth 200px
+          {p("classNameStyle.minWidth200px")}
         </Button>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Props reference"
-        description="All ButtonProps from @/components/common/buttons."
+        title={p("propsReference.title")}
+        description={p("propsReference.description")}
         delay={0.48}
         layout="stack"
       >
         <div className="border-border bg-muted/30 overflow-x-auto rounded-xl border p-4 font-mono text-xs leading-relaxed">
           <pre className="text-muted-foreground whitespace-pre-wrap">
-            {`variant?: "contained" | "outlined" | "text" | "icon" | "icon-button"
-severity?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "input" | "muted"
-size?: "xs" | "sm" | "md" | "lg" | "xl" | number
-rounded?: "sm" | "md" | "lg" | "full" | "circle"
-fullWidth?: boolean
-icon?: ReactNode
-label?: string
-isLoading?: boolean
-leftIcon?: ReactNode
-rightIcon?: ReactNode
-children?: ReactNode
-disabled?: boolean
-type?: "button" | "submit" | "reset"
-onClick?: (e) => void
-className?: string
-style?: CSSProperties
-tooltip?: string
-tooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }
-asChild?: boolean
-id?: string`}
+            {p("propsReference.content")}
           </pre>
         </div>
       </ShowcaseSection>

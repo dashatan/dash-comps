@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib";
+import { useShowcaseShell } from "@/features/catalog/i18n";
 
 const contentLayoutClasses = {
   /** Default: demos in a wrapping row (buttons, badges, …) */
@@ -56,10 +57,12 @@ type ComponentPageHeaderProps = {
   label?: string;
 };
 
-export function ComponentPageHeader({ title, description, label = "Component" }: ComponentPageHeaderProps) {
+export function ComponentPageHeader({ title, description, label }: ComponentPageHeaderProps) {
+  const { catalog } = useShowcaseShell();
+  const resolvedLabel = label ?? catalog.componentLabel;
   return (
     <header className="mb-8 w-full min-w-0">
-      <p className="text-primary text-sm font-medium tracking-wide uppercase">{label}</p>
+      <p className="text-primary text-sm font-medium tracking-wide uppercase">{resolvedLabel}</p>
       <h2 className="mt-1 text-3xl font-bold tracking-tight">{title}</h2>
       <p className="text-muted-foreground mt-2 text-base">{description}</p>
     </header>

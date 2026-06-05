@@ -1,39 +1,42 @@
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 import TabbedContent from "@/components/common/tabs";
 
 export function TabsPage() {
+  const p = useShowcasePage("tabs");
+
   return (
     <CatalogPageShell slug="tabs">
-      <ShowcaseSection title="Tabbed content">
+      <ShowcaseSection title={p("tabbedContent.title")}>
         <div className="w-full">
           <TabbedContent
             defaultActiveTab={0}
             tabs={[
               {
                 name: "overview",
-                header: "Overview",
+                header: p("tabbedContent.overview.header"),
                 content: (
                   <div className="text-muted-foreground p-4 text-sm">
-                    Overview panel with summary metrics and quick actions.
+                    {p("tabbedContent.overview.content")}
                   </div>
                 ),
               },
               {
                 name: "analytics",
-                header: "Analytics",
+                header: p("tabbedContent.analytics.header"),
                 content: (
                   <div className="text-muted-foreground p-4 text-sm">
-                    Analytics panel with charts and trend data.
+                    {p("tabbedContent.analytics.content")}
                   </div>
                 ),
               },
               {
                 name: "settings",
-                header: "Settings",
+                header: p("tabbedContent.settings.header"),
                 content: (
                   <div className="text-muted-foreground p-4 text-sm">
-                    Settings panel for configuration and preferences.
+                    {p("tabbedContent.settings.content")}
                   </div>
                 ),
               },
@@ -42,7 +45,7 @@ export function TabsPage() {
         </div>
       </ShowcaseSection>
 
-      <ShowcaseSection title="Keep mounted" delay={0.05}>
+      <ShowcaseSection title={p("keepMounted.title")} delay={0.05}>
         <div className="w-full">
           <TabbedContent
             keepMounted
@@ -50,13 +53,17 @@ export function TabsPage() {
             tabs={[
               {
                 name: "draft",
-                header: "Draft",
-                content: <div className="p-4 text-sm">Draft content preserves state when switching tabs.</div>,
+                header: p("keepMounted.draft.header"),
+                content: (
+                  <div className="p-4 text-sm">{p("keepMounted.draft.content")}</div>
+                ),
               },
               {
                 name: "published",
-                header: "Published",
-                content: <div className="p-4 text-sm">Published items appear here.</div>,
+                header: p("keepMounted.published.header"),
+                content: (
+                  <div className="p-4 text-sm">{p("keepMounted.published.content")}</div>
+                ),
               },
             ]}
           />

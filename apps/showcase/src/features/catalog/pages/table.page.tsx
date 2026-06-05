@@ -1,15 +1,20 @@
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 
 export function TablePage() {
+  const p = useShowcasePage("table");
+
   return (
     <CatalogPageShell slug="table">
-      <ShowcaseSection title="Compound table" className="flex-col items-start">
+      <ShowcaseSection
+        title={p("compoundTable.title")}
+        className="flex-col items-start"
+      >
         <p className="text-muted-foreground max-w-2xl text-sm">
-          The data table lives in{" "}
-          <code className="text-foreground">@/components/compound/table</code> and expects app-level
-          column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related
-          primitives; wire the full table in your app with real data sources.
+          {p("compoundTable.description.dataTable")}{" "}
+          <code className="text-foreground">@/components/compound/table</code>{" "}
+          {p("compoundTable.description.expectsConfig")}
         </p>
       </ShowcaseSection>
     </CatalogPageShell>

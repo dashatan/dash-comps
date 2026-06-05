@@ -1,0 +1,1453 @@
+{
+  "appName": "مكونات داش",
+  "title": "العرض",
+  "nav": {
+    "home": "الرئيسية",
+    "allComponents": "كل المكونات",
+    "categories": "الفئات",
+    "common": "أساسي",
+    "compound": "مركّب"
+  },
+  "home": {
+    "badge": "مكتبة مكونات متحركة",
+    "title": "ابنِ واجهات مع",
+    "titleHighlight": "حركة ودقة",
+    "description": "استكشف مكونات جاهزة للإنتاج. كل تفاعل متحرك وتدعم السمات الفاتحة والداكنة.",
+    "browse": "تصفح المكونات",
+    "startButtons": "ابدأ بالأزرار"
+  },
+  "catalog": {
+    "indexTitle": "فهرس المكونات",
+    "indexDescription": "تصفح كل فئات نظام التصميم.",
+    "componentLabel": "مكون",
+    "groupComponents": "مكونات"
+  },
+  "sidebar": {
+    "collapse": "طي الشريط الجانبي",
+    "expand": "توسيع الشريط الجانبي"
+  },
+  "categories": {
+    "accordion": {
+      "title": "أكورديون",
+      "description": "أقسام قابلة للطي."
+    },
+    "alerts": {
+      "title": "تنبيهات",
+      "description": "فارغ وتحميل وخطأ وصلاحيات."
+    },
+    "auth": {
+      "title": "تخطيط auth",
+      "description": "صفحة المصادقة."
+    },
+    "avatar": {
+      "title": "صورة رمزية",
+      "description": "صور المستخدمين."
+    },
+    "badges": {
+      "title": "شارات",
+      "description": "مؤشرات الحالة بالألوان والأحجام."
+    },
+    "banner": {
+      "title": "لافتة",
+      "description": "لافتات إعلامية."
+    },
+    "buttons": {
+      "title": "أزرار",
+      "description": "إجراءات وأيقونات وحالات التحميل."
+    },
+    "cards": {
+      "title": "بطاقات",
+      "description": "أسطح مع رؤوس ومحتوى."
+    },
+    "carousel": {
+      "title": "عرض دوار",
+      "description": "معرض شرائح."
+    },
+    "charts": {
+      "title": "رسوم بيانية",
+      "description": "أعمدة وخطوط ودائرية."
+    },
+    "chips": {
+      "title": "شرائح",
+      "description": "وسوم وفلاتر."
+    },
+    "collapsible": {
+      "title": "قابل للطي",
+      "description": "إظهار وإخفاء المحتوى."
+    },
+    "context-menu": {
+      "title": "قائمة سياق",
+      "description": "قائمة النقر الأيمن."
+    },
+    "dashboard": {
+      "title": "تخطيط لوحة",
+      "description": "قشرة مع شريط جانبي."
+    },
+    "divider": {
+      "title": "فاصل",
+      "description": "فواصل بصرية."
+    },
+    "errors": {
+      "title": "أخطاء",
+      "description": "عرض حالات الخطأ."
+    },
+    "fadeable": {
+      "title": "تلاشي",
+      "description": "ظهور واختفاء."
+    },
+    "flex": {
+      "title": "فليكس",
+      "description": "تخطيط مرن."
+    },
+    "file-uploader": {
+      "title": "رفع ملف",
+      "description": "سحب وإفلات."
+    },
+    "form": {
+      "title": "نموذج",
+      "description": "تخطيط النماذج."
+    },
+    "grid": {
+      "title": "شبكة",
+      "description": "تخطيط شبكي."
+    },
+    "hover-card": {
+      "title": "بطاقة تحويم",
+      "description": "محتوى عند التحويم."
+    },
+    "inputs": {
+      "title": "مدخلات",
+      "description": "نص ومربعات ومحولات واختيار."
+    },
+    "list": {
+      "title": "قائمة",
+      "description": "قوائم وشبكات."
+    },
+    "loading": {
+      "title": "تحميل",
+      "description": "مؤشرات التحميل."
+    },
+    "license-plate": {
+      "title": "لوحة",
+      "description": "إدخال لوحة إيرانية."
+    },
+    "location-picker": {
+      "title": "اختيار موقع",
+      "description": "اختيار على الخريطة."
+    },
+    "map": {
+      "title": "خريطة",
+      "description": "خرائط تفاعلية."
+    },
+    "overlay": {
+      "title": "طبقة",
+      "description": "حوار وورقة ونافذة."
+    },
+    "pagination": {
+      "title": "ترقيم",
+      "description": "تنقل الصفحات."
+    },
+    "paginator": {
+      "title": "مرقّم",
+      "description": "واجهة ترقيم مدمجة."
+    },
+    "persian-date-picker": {
+      "title": "تقويم فارسي",
+      "description": "اختيار تاريخ جلالي."
+    },
+    "shapes": {
+      "title": "أشكال",
+      "description": "مؤشرات وزخرفة."
+    },
+    "skeleton": {
+      "title": "هيكل",
+      "description": "عناصر تحميل."
+    },
+    "slider": {
+      "title": "منزلق",
+      "description": "منزلق واحد أو نطاق."
+    },
+    "sonner": {
+      "title": "إشعارات",
+      "description": "إشعارات منبثقة."
+    },
+    "steps": {
+      "title": "خطوات",
+      "description": "مؤشر التقدم."
+    },
+    "table": {
+      "title": "جدول",
+      "description": "جداول بيانات."
+    },
+    "tabs": {
+      "title": "تبويبات",
+      "description": "محتوى بتبويبات ومؤشرات."
+    },
+    "timeline": {
+      "title": "جدول زمني",
+      "description": "أحداث زمنية."
+    },
+    "tracker": {
+      "title": "تتبع",
+      "description": "خريطة وأحداث."
+    },
+    "typography": {
+      "title": "طباعة",
+      "description": "أنماط النص."
+    }
+  },
+  "pages": {
+    "grid": {
+      "responsiveSpans": {
+        "span2": "امتداد 2",
+        "title": "امتدادات متجاوبة"
+      },
+      "threeColumns": {
+        "title": "3 أعمدة"
+      },
+      "3Columns": {
+        "title": "3 أعمدة"
+      }
+    },
+    "hover-card": {
+      "alignedStart": {
+        "description": "محاذاة لحافة بداية المُشغّل.",
+        "infoPreview": "معاينة المعلومات",
+        "title": "محاذاة البداية"
+      },
+      "triggerContent": {
+        "description": "معاينة غنية عند تمرير المؤشر.",
+        "hoverCardTitle": "بطاقة التحويم",
+        "hoverMe": "مرّر فوقي",
+        "title": "المُشغّل + المحتوى"
+      }
+    },
+    "inputs": {
+      "buttons": {
+        "copySample": "نسخ {sample}"
+      },
+      "checkboxBasic": {
+        "description": "مربع اختيار بأيقونة مع حالة غير محددة، وتحميل، وتخطيط مربّع، وسمات النموذج.",
+        "labels": {
+          "boxed": "مربّع",
+          "controlled": "مُتحكّم",
+          "disabled": "معطّل",
+          "disabledChecked": "معطّل · محدّد",
+          "indeterminate": "غير محدّد",
+          "loading": "جارٍ التحميل",
+          "states": "الحالات",
+          "boxedDescriptionWidth": "مُboxed · وصف · عرض"
+        },
+        "rows": {
+          "boxedDescriptionWidth": "مُboxed · وصف · عرض",
+          "states": "الحالات"
+        },
+        "title": "Checkbox — أساسي"
+      },
+      "checkboxCard": {
+        "description": "تخطيط بطاقة مع title وsubTitle وفتحات className مخصّصة.",
+        "subtitles": {
+          "billedAnnually": "فوترة سنوية",
+          "unavailable": "غير متاح"
+        },
+        "title": "Checkbox — بطاقة",
+        "titles": {
+          "disabled": "معطّل",
+          "premiumPlan": "الخطة المميزة"
+        }
+      },
+      "checkboxLabeled": {
+        "description": "موضع التسمية يسار | يمين وأسماء فئات الحاوية.",
+        "descriptions": {
+          "supportingText": "نص مساعد"
+        },
+        "labels": {
+          "labelLeft": "تسمية يسار",
+          "labelRight": "تسمية يمين (افتراضي)",
+          "labelRightDefault": "تسمية يمين (افتراضي)"
+        },
+        "title": "Checkbox — مع تسمية"
+      },
+      "dateInput": {
+        "description": "حوار التقويم الفارسي: تاريخ واحد، نطاق، وقت، إعدادات مسبقة، وحدود.",
+        "labels": {
+          "disabled": "معطّل",
+          "presets": "إعدادات مسبقة",
+          "range": "نطاق",
+          "requiredError": "مطلوب · خطأ",
+          "singleDate": "تاريخ واحد",
+          "withTime": "مع الوقت"
+        },
+        "messages": {
+          "dateRequired": "التاريخ مطلوب"
+        },
+        "presets": {
+          "oneMonth": "شهر واحد",
+          "threeMonths": "٣ أشهر"
+        },
+        "title": "إدخال التاريخ"
+      },
+      "demo": {
+        "cities": {
+          "capital": "العاصمة",
+          "isfahan": "أصفهان",
+          "kerman": "كرمان",
+          "khorasan": "خراسان",
+          "khuzestan": "خوزستان",
+          "kohgiluyeh": "كهگيلويه وبويرأحمد",
+          "kurdistan": "كردستان",
+          "lorestan": "لرستان",
+          "markazi": "مركزي",
+          "mashhad": "مشهد",
+          "rasht": "رشت",
+          "shiraz": "شيراز",
+          "tabriz": "تبريز",
+          "tehran": "طهران"
+        },
+        "fruits": {
+          "apple": "تفاح",
+          "banana": "موز",
+          "fruits": "فواكه",
+          "vegetables": "خضروات"
+        },
+        "vegetables": {
+          "carrot": "جزر",
+          "potato": "بطاطس"
+        }
+      },
+      "descriptions": {
+        "extraDescription": "نص وصف إضافي"
+      },
+      "helperTexts": {
+        "neverShareEmail": "لن نشارك بريدك الإلكتروني أبداً."
+      },
+      "labels": {
+        "categories": "الفئات",
+        "category": "الفئة",
+        "cities": "المدن",
+        "city": "المدينة",
+        "description": "الوصف",
+        "disabled": "معطّل",
+        "dollar": "دولار",
+        "error": "خطأ",
+        "errorState": "حالة خطأ",
+        "euro": "يورو",
+        "fullWidth": "عرض كامل",
+        "helperText": "نص مساعد",
+        "invalid": "غير صالح",
+        "loading": "جارٍ التحميل",
+        "mobile": "الجوال",
+        "notifications": "الإشعارات",
+        "orderedCities": "مدن مرتّبة",
+        "password": "كلمة المرور",
+        "pound": "جنيه",
+        "priceRange": "نطاق السعر",
+        "quantity": "الكمية",
+        "readOnly": "للقراءة فقط",
+        "required": "مطلوب",
+        "success": "نجاح",
+        "suffixSlot": "فتحة suffix",
+        "unclearable": "غير قابل للمسح",
+        "username": "اسم المستخدم",
+        "visibleByDefault": "مرئي افتراضياً",
+        "warning": "تحذير",
+        "weight": "الوزن",
+        "withDefaultValueTitle": "مع defaultValueTitle",
+        "withMessage": "مع رسالة",
+        "withPrefix": "مع بادئة",
+        "withSteppers": "مع أزرار التدرّج",
+        "withSuffix": "مع لاحقة"
+      },
+      "list": {
+        "description": "قائمة اختيار افتراضية (تُستخدم داخل القوائم المنسدلة؛ عرض مستقل).",
+        "title": "قائمة"
+      },
+      "messages": {
+        "checkFormat": "تحقّق من التنسيق",
+        "enabled": "مفعّل",
+        "invalidRange": "نطاق غير صالح",
+        "looksGood": "يبدو جيداً!",
+        "requiredField": "حقل مطلوب",
+        "strongPassword": "كلمة مرور قوية",
+        "tooShort": "قصير جداً",
+        "validMobile": "أدخل رقم جوال صالحاً"
+      },
+      "numberInput": {
+        "description": "حقل رقمي مع أزرار تدرّج اختيارية وبادئة.",
+        "suffix": {
+          "kg": "kg"
+        },
+        "title": "إدخال رقمي"
+      },
+      "numberRangeInput": {
+        "description": "نطاق رقمي من/إلى مع min وmax وتسميات مخصّصة اختيارية.",
+        "fromLabel": "الحد الأدنى",
+        "title": "إدخال نطاق رقمي",
+        "toLabel": "الحد الأقصى"
+      },
+      "options": {
+        "optionA": "الخيار أ",
+        "optionB": "الخيار ب",
+        "optionC": "الخيار ج"
+      },
+      "otpInput": {
+        "description": "خلايا بحجم ثابت — size: sm | md | lg، width يحدّ عرض الصف (الافتراضي md).",
+        "labels": {
+          "alphanumericPaste": "نسخ · لصق أبجدي رقمي",
+          "disabled": "معطّل",
+          "fourDigits": "٤ أرقام",
+          "loading": "جارٍ التحميل",
+          "pasteDisabled": "اللصق معطّل",
+          "pasteFocus": "ركّز على أي خلية OTP والصق، يمكنك استخدام ctrl+v أو cmd+v",
+          "verificationCode": "رمز التحقق (md، عرض 280)"
+        },
+        "rows": {
+          "copyPaste": "نسخ · لصق",
+          "lengthNumericOnly": "الطول · أرقام فقط",
+          "size": "الحجم",
+          "statusSm": "الحالة (sm)"
+        },
+        "title": "إدخال OTP"
+      },
+      "passwordInput": {
+        "description": "TextInput مع تبديل إظهار/إخفاء (الحالة الأولية passShow).",
+        "title": "إدخال كلمة المرور"
+      },
+      "phoneInput": {
+        "description": "تنسيق الجوال الإيراني (09xxxxxxxxx) مع بادئة أيقونة.",
+        "title": "إدخال الجوال"
+      },
+      "pickCity": "اختر مدينة",
+      "priority": {
+        "heading": "الأولوية",
+        "subHeading": "اسحب لإعادة الترتيب"
+      },
+      "propsCheckbox": {
+        "title": "مرجع الخصائص — Checkbox · Switch · OTP · Radio"
+      },
+      "propsDateInput": {
+        "title": "مرجع الخصائص — DateInput"
+      },
+      "propsSelect": {
+        "title": "مرجع الخصائص — Select (مشترك)"
+      },
+      "propsTextInput": {
+        "title": "مرجع الخصائص — TextInput"
+      },
+      "radioInput": {
+        "description": "مجموعات خيارات: direction وsize وshowCircle وwidth.",
+        "rows": {
+          "direction": "الاتجاه",
+          "icon": "الأيقونة",
+          "size": "الحجم"
+        },
+        "title": "إدخال اختيار واحد"
+      },
+      "rows": {
+        "defaultControlled": "افتراضي ومُتحكّم",
+        "prefixSuffixHelper": "prefix · suffix · helperText",
+        "states": "الحالات",
+        "statusMessage": "status وmessage"
+      },
+      "selectMulti": {
+        "description": "اختيار متعدد مع شرائح وفلتر.",
+        "title": "Select — متعدد",
+        "labels": {
+          "cities": "المدن"
+        }
+      },
+      "selectMultiOrderable": {
+        "description": "اختيار متعدد بإعادة ترتيب بالسحب والإفلات (showChips، selected).",
+        "title": "Select — متعدد قابل للترتيب"
+      },
+      "selectMultiTree": {
+        "description": "شجرة مع اختيار متعدد.",
+        "title": "Select — شجرة متعددة"
+      },
+      "selectSingle": {
+        "description": "قائمة منسدلة بقيمة واحدة مع بحث وتحميل وقائمة افتراضية.",
+        "title": "Select — مفرد",
+        "labels": {
+          "city": "المدينة",
+          "loading": "جارٍ التحميل",
+          "disabled": "معطّل",
+          "unclearable": "غير قابل للمسح",
+          "withDefaultvaluetitle": "مع defaultValueTitle"
+        }
+      },
+      "selectSingleTree": {
+        "description": "اختيار واحد هرمي (openedAll يوسّع العقد).",
+        "title": "Select — شجرة مفردة"
+      },
+      "switch": {
+        "description": "severity وsize يحدّدان ألوان المسار والزر.",
+        "rows": {
+          "controlled": "مُتحكّم",
+          "severityActive": "severity (نشط)",
+          "size": "الحجم"
+        },
+        "title": "مفتاح تبديل",
+        "labels": {
+          "controlled": "مُتحكّم",
+          "severityActive": "severity (نشط)",
+          "size": "الحجم"
+        }
+      },
+      "switchField": {
+        "description": "Switch داخل LabelContainer؛ استخدم value للحالة المُتحكّم بها.",
+        "title": "حقل مفتاح التبديل"
+      },
+      "textareaInput": {
+        "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
+        "title": "إدخال نص متعدد الأسطر"
+      },
+      "textInput": {
+        "description": "حقل نصي بتسمية عائمة مع حالة وبادئة وأحجام وسمات input الأصلية.",
+        "title": "إدخال نص"
+      },
+      "values": {
+        "cannotEdit": "غير قابل للتعديل",
+        "hello": "مرحباً",
+        "lockedContent": "محتوى مقفل",
+        "notes": "ملاحظات…",
+        "readOnly": "للقراءة فقط"
+      },
+      "weightInput": {
+        "description": "شرائح نطاق مع حقول مخصّصة من/إلى داخل لوحة الاختيار.",
+        "presets": {
+          "fiftyPlus": "50+ kg",
+          "tenFifty": "10–50 kg",
+          "zeroTen": "0–10 kg"
+        },
+        "title": "إدخال الوزن"
+      },
+      "textinput": {
+        "title": "إدخال نص",
+        "description": "حقل نصي بتسمية عائمة مع حالة وبادئة وأحجام وسمات input الأصلية.",
+        "labels": {
+          "defaultControlled": "افتراضي ومُتحكّم",
+          "username": "اسم المستخدم",
+          "statusMessage": "status وmessage",
+          "success": "نجاح",
+          "error": "خطأ",
+          "warning": "تحذير",
+          "states": "الحالات",
+          "loading": "جارٍ التحميل",
+          "disabled": "معطّل",
+          "readOnly": "للقراءة فقط",
+          "required": "مطلوب",
+          "prefixSuffixHelpertext": "prefix · suffix · helperText",
+          "withPrefix": "مع بادئة",
+          "withSuffix": "مع لاحقة",
+          "helperText": "نص مساعد"
+        },
+        "message": "يبدو جيداً!",
+        "message1": "حقل مطلوب",
+        "message2": "تحقّق من التنسيق"
+      },
+      "passwordinput": {
+        "title": "إدخال كلمة المرور",
+        "description": "TextInput مع تبديل إظهار/إخفاء (الحالة الأولية passShow).",
+        "labels": {
+          "password": "كلمة المرور",
+          "visibleByDefault": "مرئي افتراضياً"
+        },
+        "message": "كلمة مرور قوية"
+      },
+      "phoneinput": {
+        "title": "إدخال الجوال",
+        "description": "تنسيق الجوال الإيراني (09xxxxxxxxx) مع بادئة أيقونة.",
+        "labels": {
+          "mobile": "الجوال",
+          "invalid": "غير صالح"
+        },
+        "message": "أدخل رقم جوال صالحاً"
+      },
+      "textareainput": {
+        "title": "إدخال نص متعدد الأسطر",
+        "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
+        "labels": {
+          "states": "الحالات",
+          "description": "الوصف",
+          "errorState": "حالة خطأ",
+          "disabled": "معطّل",
+          "fullWidth": "عرض كامل"
+        },
+        "message": "قصير جداً"
+      },
+      "numberinput": {
+        "title": "إدخال رقمي",
+        "description": "حقل رقمي مع أزرار تدرّج اختيارية وبادئة.",
+        "labels": {
+          "quantity": "الكمية",
+          "withSteppers": "مع أزرار التدرّج",
+          "suffixSlot": "فتحة suffix",
+          "disabled": "معطّل"
+        }
+      },
+      "numberrangeinput": {
+        "title": "إدخال نطاق رقمي",
+        "description": "نطاق رقمي من/إلى مع min وmax وتسميات مخصّصة اختيارية.",
+        "labels": {
+          "priceRange": "نطاق السعر",
+          "error": "خطأ"
+        },
+        "message": "نطاق غير صالح"
+      },
+      "switchfield": {
+        "title": "حقل مفتاح التبديل",
+        "description": "Switch داخل LabelContainer؛ استخدم value للحالة المُتحكّم بها.",
+        "labels": {
+          "notifications": "الإشعارات",
+          "withMessage": "مع رسالة"
+        },
+        "message": "مفعّل"
+      },
+      "radioinput": {
+        "title": "إدخال اختيار واحد",
+        "description": "مجموعات خيارات: direction وsize وshowCircle وwidth.",
+        "labels": {
+          "direction": "الاتجاه",
+          "size": "الحجم",
+          "icon": "الأيقونة"
+        }
+      },
+      "otpinput": {
+        "title": "إدخال OTP",
+        "description": "خلايا بحجم ثابت — size: sm | md | lg، width يحدّ عرض الصف (الافتراضي md).",
+        "labels": {
+          "verificationCodeMdWidth280": "رمز التحقق (md، عرض 280)",
+          "size": "الحجم",
+          "lengthNumericonly": "الطول · أرقام فقط",
+          "4Digits": "٤ أرقام",
+          "copyPaste": "نسخ · لصق",
+          "justFocusOnAnyOtpCellAndPasteYouCanUseCtrlVOrCmdV": "ركّز على أي خلية OTP والصق، يمكنك استخدام ctrl+v أو cmd+v",
+          "pasteDisabled": "اللصق معطّل",
+          "copyAlphanumericPaste": "نسخ · لصق أبجدي رقمي",
+          "statusSm": "الحالة (sm)",
+          "loading": "جارٍ التحميل",
+          "disabled": "معطّل"
+        }
+      },
+      "selectSingletree": {
+        "title": "Select — شجرة مفردة",
+        "description": "اختيار واحد هرمي (openedAll يوسّع العقد).",
+        "labels": {
+          "category": "الفئة"
+        }
+      },
+      "selectMultitree": {
+        "title": "Select — شجرة متعددة",
+        "description": "شجرة مع اختيار متعدد.",
+        "labels": {
+          "categories": "الفئات"
+        }
+      },
+      "selectMultiorderable": {
+        "title": "Select — متعدد قابل للترتيب",
+        "description": "اختيار متعدد بإعادة ترتيب بالسحب والإفلات (showChips، selected).",
+        "labels": {
+          "orderedCities": "مدن مرتّبة"
+        }
+      },
+      "dateinput": {
+        "title": "إدخال التاريخ",
+        "description": "حوار التقويم الفارسي: تاريخ واحد، نطاق، وقت، إعدادات مسبقة، وحدود.",
+        "labels": {
+          "singleDate": "تاريخ واحد",
+          "range": "نطاق",
+          "withTime": "مع الوقت",
+          "presets": "إعدادات مسبقة",
+          "disabled": "معطّل",
+          "requiredError": "مطلوب · خطأ"
+        }
+      },
+      "weightinput": {
+        "title": "إدخال الوزن",
+        "description": "شرائح نطاق مع حقول مخصّصة من/إلى داخل لوحة الاختيار.",
+        "labels": {
+          "weight": "الوزن"
+        }
+      },
+      "propsReferenceTextinput": {
+        "title": "مرجع الخصائص — TextInput"
+      },
+      "propsReferenceSelectShared": {
+        "title": "مرجع الخصائص — Select (مشترك)"
+      },
+      "propsReferenceDateinput": {
+        "title": "مرجع الخصائص — DateInput"
+      },
+      "propsReferenceCheckboxSwitchOtpRadio": {
+        "title": "مرجع الخصائص — Checkbox · Switch · OTP · Radio"
+      }
+    },
+    "license-plate": {
+      "carPlate": {
+        "description": "PlateInput مع variant=&quot;car&quot;.",
+        "title": "لوحة سيارة"
+      },
+      "motorcycle": {
+        "title": "دراجة نارية"
+      },
+      "simpleText": {
+        "title": "نص بسيط"
+      }
+    },
+    "list": {
+      "cardsList": {
+        "title": "قائمة بطاقات"
+      },
+      "chipsList": {
+        "tagA": "وسم أ",
+        "tagB": "وسم ب",
+        "tagC": "وسم ج",
+        "title": "قائمة شرائح"
+      },
+      "linesList": {
+        "title": "قائمة خطية"
+      },
+      "sample": {
+        "active": "نشط",
+        "dash": "—",
+        "notes": "ملاحظات",
+        "region": "المنطقة",
+        "status": "الحالة",
+        "tehran": "طهران"
+      }
+    },
+    "loading": {
+      "defaultSpinner": {
+        "title": "مؤشر التحميل الافتراضي"
+      },
+      "sizes": {
+        "title": "الأحجام"
+      }
+    },
+    "location-picker": {
+      "description": {
+        "importFrom": "يُستورد من",
+        "mapBlocks": "الأساسية.",
+        "requiresBackend": ". يتطلب موارد الجهاز/الموقع في الخادم وعناصر قائمة لوحة التحكم. راجع صفحة الخريطة للاطلاع على كتل"
+      },
+      "locationPicker": {
+        "title": "اختيار موقع"
+      }
+    },
+    "map": {
+      "leafletMap": {
+        "title": "خريطة Leaflet"
+      },
+      "tallerViewport": {
+        "title": "نافذة عرض أطول"
+      }
+    },
+    "overlay": {
+      "dialog": {
+        "close": "إغلاق",
+        "confirmAction": "تأكيد الإجراء",
+        "description": "حوار من @/components/common/overlay/dialog.",
+        "openDialog": "فتح الحوار",
+        "title": "حوار"
+      },
+      "popover": {
+        "button": "نافذة منبثقة",
+        "content": "محتوى النافذة المنبثقة",
+        "description": "لوحة عائمة مثبتة.",
+        "title": "نافذة منبثقة"
+      },
+      "sheet": {
+        "description": "تنزلق الورقة من الحافة.",
+        "openSheet": "فتح الورقة",
+        "sidePanel": "لوحة جانبية",
+        "title": "ورقة"
+      }
+    },
+    "pagination": {
+      "currentPage": {
+        "info": "صفحة {page} من {total}",
+        "title": "الصفحة الحالية"
+      },
+      "pageLinks": {
+        "title": "روابط الصفحات"
+      }
+    },
+    "paginator": {
+      "controlled": {
+        "title": "مُتحكَّم به"
+      },
+      "firstPage": {
+        "title": "الصفحة الأولى"
+      }
+    },
+    "persian-date-picker": {
+      "singleDate": {
+        "title": "تاريخ واحد"
+      },
+      "withTime": {
+        "title": "مع الوقت"
+      }
+    },
+    "shapes": {
+      "indicator": {
+        "title": "مؤشر"
+      },
+      "square": {
+        "title": "مربع"
+      }
+    },
+    "skeleton": {
+      "cardBlock": {
+        "title": "كتلة بطاقة"
+      },
+      "textPlaceholders": {
+        "title": "عناصر نائبة للنص"
+      }
+    },
+    "slider": {
+      "range": {
+        "title": "نطاق"
+      },
+      "singleValue": {
+        "title": "قيمة واحدة"
+      }
+    },
+    "sonner": {
+      "toastVariants": {
+        "buttons": {
+          "error": "خطأ",
+          "info": "معلومات",
+          "success": "نجاح",
+          "warning": "تحذير"
+        },
+        "title": "أنواع الإشعارات",
+        "toasts": {
+          "checkInput": "تحقق من مدخلاتك",
+          "headsUp": "تنبيه",
+          "savedSuccessfully": "تم الحفظ بنجاح",
+          "somethingWrong": "حدث خطأ ما"
+        }
+      },
+      "withDescription": {
+        "button": "نجاح + وصف",
+        "description": "ستظهر التغييرات بعد التحديث.",
+        "title": "مع وصف",
+        "toastTitle": "تم تحديث الملف الشخصي"
+      }
+    },
+    "steps": {
+      "midProgress": {
+        "steps": {
+          "done": "انتهى",
+          "review": "مراجعة",
+          "start": "بداية"
+        },
+        "title": "تقدم منتصف المسار"
+      },
+      "step1Active": {
+        "steps": {
+          "details": {
+            "subtitle": "معلومات أساسية",
+            "title": "التفاصيل"
+          },
+          "done": {
+            "subtitle": "إنهاء",
+            "title": "تم"
+          },
+          "review": {
+            "subtitle": "تحقق من الإدخالات",
+            "title": "مراجعة"
+          }
+        },
+        "title": "الخطوة 1 نشطة"
+      }
+    },
+    "table": {
+      "compoundTable": {
+        "description": {
+          "dataTable": "جدول البيانات موجود في",
+          "expectsConfig": "ويتطلب إعدادات الأعمدة والفلاتر وخطافات API على مستوى التطبيق. استخدم صفحات القائمة والترقيم والمدخلات للمكونات الأساسية ذات الصلة؛ واربط الجدول الكامل في تطبيقك بمصادر بيانات حقيقية."
+        },
+        "title": "جدول مركّب"
+      }
+    },
+    "tabs": {
+      "keepMounted": {
+        "draft": {
+          "content": "يحافظ محتوى المسودة على حالته عند التبديل بين التبويبات.",
+          "header": "مسودة"
+        },
+        "published": {
+          "content": "تظهر العناصر المنشورة هنا.",
+          "header": "منشور"
+        },
+        "title": "يبقى مثبتاً"
+      },
+      "tabbedContent": {
+        "analytics": {
+          "content": "لوحة تحليلات مع رسوم بيانية وبيانات الاتجاهات.",
+          "header": "تحليلات"
+        },
+        "overview": {
+          "content": "لوحة نظرة عامة مع مقاييس ملخصة وإجراءات سريعة.",
+          "header": "نظرة عامة"
+        },
+        "settings": {
+          "content": "لوحة إعدادات للتكوين والتفضيلات.",
+          "header": "إعدادات"
+        },
+        "title": "محتوى بتبويبات"
+      }
+    },
+    "timeline": {
+      "eventList": {
+        "events": {
+          "delivered": "تم التسليم",
+          "orderPlaced": "تم تقديم الطلب",
+          "shipped": "تم الشحن"
+        },
+        "title": "قائمة الأحداث"
+      }
+    },
+    "tracker": {
+      "compoundTracker": {
+        "description": {
+          "dependsOnData": "(مسارات الخريطة، بطاقات الأحداث، التجميع). تعتمد على بيانات التتبع المباشرة. استكشف صفحات الخريطة والرسوم البيانية للحصول على عناصر مستقلة من",
+          "vehicleTracker": "واجهة تتبع المركبات في"
+        },
+        "title": "متتبع مركّب"
+      },
+      "trackerCompound": {
+        "title": "متتبع مركّب"
+      }
+    },
+    "typography": {
+      "headings": {
+        "h1": "عنوان 1",
+        "h2": "عنوان 2",
+        "h3": "عنوان 3",
+        "h4": "عنوان 4",
+        "title": "العناوين"
+      },
+      "paragraph": {
+        "body": "نص أساسي — أسلوب الفقرة الافتراضي من وحدة الطباعة.",
+        "muted": "فقرة باهتة مع تجاوز className.",
+        "title": "فقرة"
+      }
+    },
+    "buttons": {
+      "variantsSeverities": {
+        "title": "الأنواع × الدرجات",
+        "description": "variant: contained | outlined | text — الافتراضي contained."
+      },
+      "sizes": {
+        "title": "الأحجام",
+        "description": "size: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" — الافتراضي \"md\"."
+      },
+      "fixedNumericSize": {
+        "title": "حجم رقمي ثابت",
+        "description": "size كرقم يحدّد العرض/الارتفاع بالبكسل (عنصر تحكم بأسلوب الأيقونة)."
+      },
+      "rounded": {
+        "title": "التدوير (نصف القطر)",
+        "description": "rounded: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\" — الافتراضي \"md\".",
+        "allValues": "جميع القيم — contained / primary / md",
+        "rowLabel": "rounded=\"{{rounded}}\"",
+        "withIcon": "مع أيقونة",
+        "byVariant": "حسب النوع (rounded=\"lg\")",
+        "pillButtons": "أزرار حبة (rounded=\"full\")",
+        "primaryPill": "حبة أساسية",
+        "add": "إضافة",
+        "more": "المزيد",
+        "circleIcon": "دائرة — نوع أيقونة (حجم رقمي)",
+        "circleIconButton": "دائرة — نوع زر أيقونة",
+        "sizesWithFull": "الأحجام مع rounded=\"full\"",
+        "severitiesWithSm": "الدرجات مع rounded=\"sm\""
+      },
+      "iconVariant": {
+        "title": "نوع الأيقونة",
+        "description": "variant=\"icon\" — استخدم children أو خاصية icon."
+      },
+      "iconButtonVariant": {
+        "title": "نوع زر الأيقونة",
+        "description": "variant=\"icon-button\" — إجراءات مربعة بالأيقونة فقط (شائع مع severity=\"input\")."
+      },
+      "labelProp": {
+        "title": "خاصية label",
+        "description": "استخدم label بدل children عندما تريد خانة تسمية مخصصة.",
+        "saveDraft": "حفظ المسودة",
+        "cancel": "إلغاء",
+        "withIcon": "مع أيقونة",
+        "labels": {
+          "saveDraft": "حفظ المسودة",
+          "cancel": "إلغاء",
+          "withIcon": "مع أيقونة"
+        }
+      },
+      "icons": {
+        "title": "الأيقونات",
+        "description": "leftIcon أو rightIcon أو icon (يستبدل المحتوى الرئيسي عند التعيين).",
+        "addItem": "إضافة عنصر",
+        "delete": "حذف",
+        "export": "تصدير",
+        "bothSides": "على الجانبين"
+      },
+      "fullWidth": {
+        "title": "العرض الكامل (fullWidth)",
+        "description": "fullWidth يمدّ الزر لعرض الحاوية.",
+        "primary": "أساسي بعرض كامل",
+        "outlined": "محدّد بعرض كامل"
+      },
+      "loading": {
+        "title": "جارٍ التحميل",
+        "description": "isLoading يعرض مؤشرًا دوّارًا ويعطّل التفاعل.",
+        "loading": "جارٍ التحميل",
+        "saving": "جارٍ الحفظ",
+        "savingEllipsis": "جارٍ الحفظ…",
+        "clickToLoad": "انقر للتحميل"
+      },
+      "disabled": {
+        "title": "معطّل",
+        "description": "disabled يمنع النقر؛ يُستخدم مع isLoading.",
+        "disabled": "معطّل",
+        "disabledOutlined": "محدّد معطّل"
+      },
+      "tooltip": {
+        "title": "تلميح",
+        "description": "tooltip يلف الزر في HoverCard؛ يُضبط عبر tooltipOptions.",
+        "hoverMe": "مرّر فوقي",
+        "defaultTooltip": "تلميح افتراضي في الأعلى",
+        "rightTooltip": "تلميح على اليمين",
+        "opensRight": "يُفتح على اليمين",
+        "delayedTooltip": "تلميح مؤجّل",
+        "slowerOpenClose": "فتح/إغلاق أبطأ"
+      },
+      "onClick": {
+        "title": "حدث النقر (onClick)",
+        "description": "معالج النقر القياسي للزر.",
+        "clickedTimes": "تم النقر {{count}} مرة"
+      },
+      "asChild": {
+        "title": "عنصر فرعي (asChild)",
+        "description": "يدمج الأنماط في عنصر فرعي واحد (مثل رابط بمظهر زر).",
+        "anchorAsButton": "رابط بمظهر زر"
+      },
+      "type": {
+        "title": "النوع (type)",
+        "description": "type: \"button\" | \"submit\" | \"reset\" — الافتراضي \"button\".",
+        "submit": "إرسال",
+        "reset": "إعادة تعيين"
+      },
+      "classNameStyle": {
+        "title": "className و style",
+        "description": "فئات Tailwind الإضافية والأنماط المضمّنة تندمج مع الأنواع.",
+        "shadowViaClassName": "ظل عبر className",
+        "minWidth200px": "الحد الأدنى للعرض 200px"
+      },
+      "propsReference": {
+        "title": "مرجع الخصائص",
+        "description": "جميع ButtonProps من @/components/common/buttons.",
+        "content": "variant?: \"contained\" | \"outlined\" | \"text\" | \"icon\" | \"icon-button\"\nseverity?: \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"input\" | \"muted\"\nsize?: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | number\nrounded?: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\"\nfullWidth?: boolean\nicon?: ReactNode\nlabel?: string\nisLoading?: boolean\nleftIcon?: ReactNode\nrightIcon?: ReactNode\nchildren?: ReactNode\ndisabled?: boolean\ntype?: \"button\" | \"submit\" | \"reset\"\nonClick?: (e) => void\nclassName?: string\nstyle?: CSSProperties\ntooltip?: string\ntooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }\nasChild?: boolean\nid?: string"
+      },
+      "roundedRadius": {
+        "title": "التدوير (نصف القطر)",
+        "labels": {
+          "allValuesContainedPrimaryMd": "جميع القيم — contained / primary / md",
+          "circleIconVariantNumericSize": "دائرة — نوع أيقونة (حجم رقمي)",
+          "circleIconButtonVariant": "دائرة — نوع زر أيقونة"
+        },
+        "rowLabelTemplate": "rounded=\"{{rounded}}\""
+      },
+      "fullwidth": {
+        "title": "العرض الكامل (fullWidth)",
+        "description": "fullWidth يمدّ الزر لعرض الحاوية."
+      },
+      "onclick": {
+        "title": "حدث النقر (onClick)",
+        "description": "معالج النقر القياسي للزر."
+      },
+      "aschild": {
+        "title": "عنصر فرعي (asChild)",
+        "description": "يدمج الأنماط في عنصر فرعي واحد (مثل رابط بمظهر زر)."
+      },
+      "classnameStyle": {
+        "title": "className و style",
+        "description": "فئات Tailwind الإضافية والأنماط المضمّنة تندمج مع الأنواع."
+      }
+    },
+    "accordion": {
+      "singleCollapsible": {
+        "title": "قابل للطي — عنصر واحد",
+        "whatIsLibrary": {
+          "trigger": "ما هي مكتبة المكونات هذه؟",
+          "content": "مجموعة من مكونات React الجاهزة للإنتاج، مبنية باستخدام Tailwind CSS v4 وRadix UI وتفاعلات تركز على الحركة."
+        },
+        "darkMode": {
+          "trigger": "هل تدعم الوضع الداكن؟",
+          "content": "نعم. يمكنك التبديل بين السمات الفاتحة والداكنة باستخدام عنصر التحكم في الرأس. يتم حفظ تفضيل السمة في local storage."
+        },
+        "staticSite": {
+          "trigger": "هل يمكنني استخدامها في موقع ثابت؟",
+          "content": "بالتأكيد. تم بناء هذا العرض التوضيحي باستخدام Vite ويُصدَّر إلى HTML وCSS وJS ثابت."
+        }
+      },
+      "multipleOpen": {
+        "title": "فتح متعدد",
+        "designTokens": {
+          "trigger": "رموز التصميم",
+          "content": "ألوان دلالية، وتباعد، ومتغيرات طباعة."
+        },
+        "accessibility": {
+          "trigger": "إمكانية الوصول",
+          "content": "مبنية على عناصر Radix مع التنقل بلوحة المفاتيح."
+        }
+      }
+    },
+    "alerts": {
+      "builtInAlerts": {
+        "title": "تنبيهات مدمجة",
+        "description": "حالات محددة مسبقًا تُستخدم في عروض البيانات — يُعرض كل منها في لوحة مدمجة وليس بعرض كامل.",
+        "labels": {
+          "emptyDefault": "فارغ (افتراضي)",
+          "emptyCustom": "فارغ (مخصص)",
+          "loadingDefault": "جارٍ التحميل (افتراضي)",
+          "loadingCustom": "جارٍ التحميل (مخصص)",
+          "errorDefault": "خطأ (افتراضي)",
+          "errorCustom": "خطأ (مخصص)",
+          "forbidden": "محظور"
+        },
+        "message": "لا توجد طلبات تطابق عوامل التصفية.",
+        "message1": "جارٍ جلب الشحنات…",
+        "message2": "تعذّرت مزامنة المخزون. حاول مرة أخرى لاحقًا.",
+        "emptyDefault": "فارغ (افتراضي)",
+        "emptyCustom": "فارغ (مخصص)",
+        "loadingDefault": "جارٍ التحميل (افتراضي)",
+        "loadingCustom": "جارٍ التحميل (مخصص)",
+        "errorDefault": "خطأ (افتراضي)",
+        "errorCustom": "خطأ (مخصص)",
+        "forbidden": "محظور",
+        "emptyCustomMessage": "لا توجد طلبات تطابق عوامل التصفية.",
+        "loadingCustomMessage": "جارٍ جلب الشحنات…",
+        "errorCustomMessage": "تعذّرت مزامنة المخزون. حاول مرة أخرى لاحقًا."
+      },
+      "baseAlertAnimations": {
+        "title": "تنبيه أساسي — الحركات",
+        "description": "نفس الرسالة والأيقونة؛ يتغيّر فقط حركة الدخول.",
+        "message": "طردك في الطريق."
+      },
+      "baseAlertIconsSituations": {
+        "title": "تنبيه أساسي — الأيقونات والحالات",
+        "description": "أيقونات ونصوص مخصصة لحالات الفراغ والخطأ والمعلومات الشائعة.",
+        "labels": {
+          "offline": "غير متصل",
+          "serviceDown": "الخدمة متوقفة",
+          "emptyInbox": "صندوق الوارد فارغ",
+          "noDocuments": "لا توجد مستندات",
+          "sessionExpired": "انتهت الجلسة",
+          "maintenance": "صيانة",
+          "notificationsOff": "الإشعارات متوقفة",
+          "allCaughtUp": "أنت على اطلاع بكل شيء",
+          "emptyWarehouse": "المستودع فارغ",
+          "accessBlocked": "الوصول محظور"
+        },
+        "message": "أنت غير متصل. تحقق من اتصالك.",
+        "message1": "الخدمة غير متاحة مؤقتًا.",
+        "message2": "صندوق الوارد فارغ.",
+        "message3": "لم تُحمَّل أي مستندات بعد.",
+        "message4": "انتهت الجلسة. سجّل الدخول مرة أخرى.",
+        "message5": "صيانة مجدولة قيد التنفيذ.",
+        "message6": "الإشعارات معطّلة.",
+        "message7": "أنت على اطلاع بكل شيء!",
+        "message8": "لا يوجد مخزون في هذا المستودع.",
+        "message9": "هذه المنطقة تتطلب صلاحيات المسؤول."
+      },
+      "baseAnimations": {
+        "title": "تنبيه أساسي — الحركات",
+        "description": "نفس الرسالة والأيقونة؛ يتغيّر فقط حركة الدخول.",
+        "packageMessage": "طردك في الطريق."
+      },
+      "iconsSituations": {
+        "title": "تنبيه أساسي — الأيقونات والحالات",
+        "description": "أيقونات ونصوص مخصصة لحالات الفراغ والخطأ والمعلومات الشائعة.",
+        "offline": "غير متصل",
+        "serviceDown": "الخدمة متوقفة",
+        "emptyInbox": "صندوق الوارد فارغ",
+        "noDocuments": "لا توجد مستندات",
+        "sessionExpired": "انتهت الجلسة",
+        "maintenance": "صيانة",
+        "notificationsOff": "الإشعارات متوقفة",
+        "allCaughtUp": "أنت على اطلاع بكل شيء",
+        "emptyWarehouse": "المستودع فارغ",
+        "accessBlocked": "الوصول محظور",
+        "offlineMessage": "أنت غير متصل. تحقق من اتصالك.",
+        "serviceDownMessage": "الخدمة غير متاحة مؤقتًا.",
+        "emptyInboxMessage": "صندوق الوارد فارغ.",
+        "noDocumentsMessage": "لم تُحمَّل أي مستندات بعد.",
+        "sessionExpiredMessage": "انتهت الجلسة. سجّل الدخول مرة أخرى.",
+        "maintenanceMessage": "صيانة مجدولة قيد التنفيذ.",
+        "notificationsOffMessage": "الإشعارات معطّلة.",
+        "allCaughtUpMessage": "أنت على اطلاع بكل شيء!",
+        "emptyWarehouseMessage": "لا يوجد مخزون في هذا المستودع.",
+        "accessBlockedMessage": "هذه المنطقة تتطلب صلاحيات المسؤول."
+      },
+      "animations": {
+        "jumpIn": "قفزة للداخل (افتراضي)",
+        "shake": "اهتزاز",
+        "bounceIn": "ارتداد للداخل",
+        "flipUp": "قلب للأعلى",
+        "none": "بدون حركة"
+      }
+    },
+    "auth": {
+      "authLayout": {
+        "title": "تخطيط المصادقة",
+        "signIn": "تسجيل الدخول",
+        "description": "AuthLayout من @/components/layout/auth"
+      }
+    },
+    "avatar": {
+      "sizes": {
+        "title": "الأحجام",
+        "description": "UserAvatar من @/components/common/avatar."
+      },
+      "fallbackInitials": {
+        "title": "الأحرف الأولى البديلة"
+      }
+    },
+    "badges": {
+      "severitiesFilled": {
+        "title": "الدرجات (ممتلئ)"
+      },
+      "severitiesOutline": {
+        "title": "الدرجات (محدّد)"
+      },
+      "sizesWide": {
+        "title": "الأحجام (عريض)"
+      },
+      "variants": {
+        "title": "الأنواع",
+        "labels": {
+          "wideDefault": "عريض (افتراضي)",
+          "circleDotIndicators": "دائرة (مؤشرات نقطية)",
+          "square": "مربع"
+        },
+        "wideDefault": "عريض (افتراضي)",
+        "circleDot": "دائرة (مؤشرات نقطية)",
+        "square": "مربع",
+        "outline": "محدّد",
+        "ghost": "شفاف"
+      },
+      "modifiers": {
+        "title": "المعدّلات",
+        "labels": {
+          "withShadow": "مع ظل",
+          "withRingHoverToSee": "مع حلقة (مرّر للمعاينة)",
+          "highlight": "تمييز",
+          "disabled": "معطّل"
+        },
+        "withShadow": "مع ظل",
+        "withRing": "مع حلقة (مرّر للمعاينة)",
+        "highlight": "تمييز",
+        "disabled": "معطّل",
+        "highlighted": "مُميَّز",
+        "outlineHighlight": "محدّد + تمييز"
+      },
+      "combinations": {
+        "title": "التركيبات",
+        "largeOutline": "محدّد كبير",
+        "smallSquare": "مربع صغير",
+        "highlight2xl": "تمييز 2XL"
+      }
+    },
+    "banner": {
+      "withImage": {
+        "title": "مع صورة",
+        "description": "Banner من @/components/common/banner.",
+        "heading": "لافتة ترحيب",
+        "subheading": "سطح ترويجي مع صورة خلفية."
+      },
+      "contentOnly": {
+        "title": "محتوى فقط",
+        "content": "بدون صورة — خلفية متدرجة / بلون واحد عبر className."
+      }
+    },
+    "cards": {
+      "defaultCard": {
+        "title": "بطاقة افتراضية",
+        "cardTitle": "نظرة عامة على المشروع",
+        "cardDescription": "تتبّع التقدّم في لوحات المعلومات النشطة.",
+        "cardContent": "تتكيّف البطاقات مع السمات الفاتحة والداكنة باستخدام الرموز الدلالية من نظام التصميم.",
+        "viewDetails": "عرض التفاصيل",
+        "dismiss": "إغلاق"
+      },
+      "variants": {
+        "title": "الأنواع",
+        "default": "افتراضي",
+        "outline": "محدّد",
+        "ghost": "شفاف"
+      }
+    },
+    "carousel": {
+      "slides": {
+        "title": "الشرائح",
+        "slide": "الشرائح"
+      }
+    },
+    "charts": {
+      "bar": {
+        "title": "أعمدة"
+      },
+      "pie": {
+        "title": "دائري"
+      },
+      "doughnut": {
+        "title": "حلقي",
+        "done": "مكتمل",
+        "pending": "قيد الانتظار"
+      }
+    },
+    "chips": {
+      "basicChips": {
+        "title": "شرائح أساسية",
+        "labels": {
+          "default": "افتراضي",
+          "active": "نشط",
+          "muted": "باهت"
+        }
+      },
+      "removableTags": {
+        "title": "علامات قابلة للإزالة"
+      },
+      "customContent": {
+        "title": "محتوى مخصص",
+        "custom": "مخصص",
+        "slotContent": " · محتوى slot"
+      },
+      "basic": {
+        "title": "شرائح أساسية",
+        "default": "افتراضي",
+        "active": "نشط",
+        "muted": "باهت"
+      }
+    },
+    "collapsible": {
+      "expandableBlock": {
+        "title": "كتلة قابلة للتوسيع",
+        "trigger": "التفاصيل",
+        "content": "يظهر المحتوى المخفي عند تفعيل المُشغّل."
+      }
+    },
+    "context-menu": {
+      "rightClickMenu": {
+        "title": "قائمة النقر بالزر الأيمن",
+        "trigger": "انقر بالزر الأيمن هنا",
+        "copy": "نسخ",
+        "paste": "لصق",
+        "delete": "حذف"
+      }
+    },
+    "dashboard": {
+      "dashboardLayout": {
+        "title": "تخطيط لوحة التحكم",
+        "descriptionPrefix": "أنت تعرض هذه الصفحة داخل غلاف لوحة التحكم النشط من ",
+        "descriptionMiddle": " (شريط جانبي قابل للطي، رأس الصفحة، مسار التنقل). انقر أيقونة الشريط الجانبي أو صغّر العرض إلى أقل من md لفتح قائمة الجوال.",
+        "descriptionSuffix": "@/components/layout/dashboard"
+      }
+    },
+    "divider": {
+      "horizontal": {
+        "title": "أفقي",
+        "sectionAbove": "القسم أعلاه",
+        "sectionBelow": "القسم أدناه"
+      },
+      "vertical": {
+        "title": "عمودي",
+        "left": "يسار",
+        "right": "يمين"
+      },
+      "customMargin": {
+        "title": "هامش مخصص"
+      }
+    },
+    "errors": {
+      "usedataerrorhandlerLoading": {
+        "title": "useDataErrorHandler — جارٍ التحميل"
+      },
+      "empty": {
+        "title": "فارغ"
+      },
+      "error": {
+        "title": "خطأ",
+        "networkFailed": "فشل طلب الشبكة"
+      },
+      "forbidden": {
+        "title": "ممنوع"
+      },
+      "successState": {
+        "title": "حالة النجاح",
+        "dataLoaded": "تم تحميل البيانات بنجاح."
+      },
+      "alertErrorPrimitive": {
+        "title": "Alert.Error (بدائي)",
+        "message": "تنبيه خطأ مستقل من وحدة التنبيه."
+      },
+      "loading": {
+        "title": "useDataErrorHandler — جارٍ التحميل"
+      },
+      "alertError": {
+        "title": "Alert.Error (بدائي)",
+        "message": "تنبيه خطأ مستقل من وحدة التنبيه."
+      }
+    },
+    "fadeable": {
+      "visibilityToggle": {
+        "title": "تبديل الظهور",
+        "hide": "إخفاء",
+        "show": "إظهار",
+        "content": "يظهر المحتوى ويختفي بتلاشٍ"
+      }
+    },
+    "file-uploader": {
+      "dropZone": {
+        "title": "منطقة الإفلات"
+      }
+    },
+    "flex": {
+      "row": {
+        "title": "صف",
+        "one": "واحد",
+        "two": "اثنان",
+        "three": "ثلاثة"
+      },
+      "column": {
+        "title": "عمود",
+        "a": "مسافة بين",
+        "b": "مسافة بين"
+      },
+      "spaceBetween": {
+        "title": "مسافة بين",
+        "start": "البداية",
+        "end": "النهاية"
+      }
+    },
+    "form": {
+      "reactHookFormInputs": {
+        "title": "react-hook-form + حقول الإدخال",
+        "description": "نفس العناصر الأساسية التي يستخدمها FormField في @/components/compound/form.",
+        "labels": {
+          "title": "العنوان",
+          "iAgree": "أوافق"
+        }
+      },
+      "reactHookForm": {
+        "title": "react-hook-form + حقول الإدخال",
+        "description": "نفس العناصر الأساسية التي يستخدمها FormField في @/components/compound/form.",
+        "titleLabel": "العنوان",
+        "agreeLabel": "أوافق",
+        "titleRequired": "العنوان مطلوب",
+        "submit": "إرسال",
+        "submittedToast": "تم الإرسال: {{title}}"
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import {
   Card,
   CardContent,
@@ -11,40 +12,37 @@ import {
 import { Button } from "@/components/common/buttons";
 
 export function CardsPage() {
+  const p = useShowcasePage("cards");
+
   return (
     <CatalogPageShell slug="cards">
-      <ShowcaseSection title="Default card">
+      <ShowcaseSection title={p("defaultCard.title")}>
         <Card className="w-full ">
           <CardHeader>
-            <CardTitle>Project overview</CardTitle>
-            <CardDescription>
-              Track progress across your active dashboards.
-            </CardDescription>
+            <CardTitle>{p("defaultCard.cardTitle")}</CardTitle>
+            <CardDescription>{p("defaultCard.cardDescription")}</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground text-sm">
-              Cards adapt to light and dark themes using semantic tokens from
-              your design system.
-            </p>
+            <p className="text-muted-foreground text-sm">{p("defaultCard.cardContent")}</p>
           </CardContent>
           <CardFooter className="gap-2">
-            <Button size="sm">View details</Button>
+            <Button size="sm">{p("defaultCard.viewDetails")}</Button>
             <Button variant="outlined" size="sm">
-              Dismiss
+              {p("defaultCard.dismiss")}
             </Button>
           </CardFooter>
         </Card>
       </ShowcaseSection>
 
-      <ShowcaseSection title="Variants" delay={0.05}>
+      <ShowcaseSection title={p("variants.title")} delay={0.05}>
         <Card variant="default" className="w-48 p-4">
-          <p className="text-sm font-medium">Default</p>
+          <p className="text-sm font-medium">{p("variants.default")}</p>
         </Card>
         <Card variant="outline" className="w-48 p-4">
-          <p className="text-sm font-medium">Outline</p>
+          <p className="text-sm font-medium">{p("variants.outline")}</p>
         </Card>
         <Card variant="ghost" className="w-48 p-4">
-          <p className="text-sm font-medium">Ghost</p>
+          <p className="text-sm font-medium">{p("variants.ghost")}</p>
         </Card>
       </ShowcaseSection>
     </CatalogPageShell>

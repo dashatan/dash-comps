@@ -1,0 +1,373 @@
+{
+  "accordion": {
+    "singleCollapsible": {
+      "title": "تاشوی تک‌بخشی",
+      "whatIsLibrary": {
+        "trigger": "این کتابخانه کامپوننت چیست؟",
+        "content": "مجموعه‌ای از کامپوننت‌های آماده تولید React ساخته‌شده با Tailwind CSS v4، Radix UI و تعاملات اولویت‌دار با حرکت."
+      },
+      "darkMode": {
+        "trigger": "آیا حالت تاریک را پشتیبانی می‌کند؟",
+        "content": "بله. با کنترل هدر بین تم روشن و تاریک جابه‌جا شوید. ترجیح تم در local storage ذخیره می‌شود."
+      },
+      "staticSite": {
+        "trigger": "آیا می‌توانم در یک سایت استاتیک از آن استفاده کنم؟",
+        "content": "قطعاً. این نمایشگاه با Vite ساخته شده و به HTML، CSS و JS استاتیک صادر می‌شود."
+      }
+    },
+    "multipleOpen": {
+      "title": "باز بودن همزمان چند بخش",
+      "designTokens": {
+        "trigger": "توکن‌های طراحی",
+        "content": "رنگ‌ها، فاصله‌ها و متغیرهای تایپوگرافی معنادار."
+      },
+      "accessibility": {
+        "trigger": "دسترس‌پذیری",
+        "content": "بر پایه اجزای Radix با ناوبری صفحه‌کلید ساخته شده است."
+      }
+    }
+  },
+  "alerts": {
+    "builtInAlerts": {
+      "title": "هشدارهای داخلی",
+      "description": "حالت‌های از پیش‌تعریف‌شده در نماهای داده — هر کدام در پنل فشرده نمایش داده می‌شوند، نه تمام‌عرض.",
+      "labels": {
+        "emptyDefault": "خالی (پیش‌فرض)",
+        "emptyCustom": "خالی (سفارشی)",
+        "loadingDefault": "بارگذاری (پیش‌فرض)",
+        "loadingCustom": "بارگذاری (سفارشی)",
+        "errorDefault": "خطا (پیش‌فرض)",
+        "errorCustom": "خطا (سفارشی)",
+        "forbidden": "ممنوع"
+      },
+      "message": "هیچ سفارشی با فیلترهای شما مطابقت ندارد.",
+      "message1": "در حال دریافت محموله‌ها…",
+      "message2": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید.",
+      "emptyDefault": "خالی (پیش‌فرض)",
+      "emptyCustom": "خالی (سفارشی)",
+      "loadingDefault": "بارگذاری (پیش‌فرض)",
+      "loadingCustom": "بارگذاری (سفارشی)",
+      "errorDefault": "خطا (پیش‌فرض)",
+      "errorCustom": "خطا (سفارشی)",
+      "forbidden": "ممنوع",
+      "emptyCustomMessage": "هیچ سفارشی با فیلترهای شما مطابقت ندارد.",
+      "loadingCustomMessage": "در حال دریافت محموله‌ها…",
+      "errorCustomMessage": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید."
+    },
+    "baseAlertAnimations": {
+      "title": "هشدار پایه — انیمیشن‌ها",
+      "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
+      "message": "بسته شما در راه است."
+    },
+    "baseAlertIconsSituations": {
+      "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
+      "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
+      "labels": {
+        "offline": "آفلاین",
+        "serviceDown": "سرویس از دسترس خارج",
+        "emptyInbox": "صندوق ورودی خالی",
+        "noDocuments": "بدون سند",
+        "sessionExpired": "نشست منقضی شده",
+        "maintenance": "تعمیر و نگهداری",
+        "notificationsOff": "اعلان‌ها خاموش",
+        "allCaughtUp": "همه چیز به‌روز است",
+        "emptyWarehouse": "انبار خالی",
+        "accessBlocked": "دسترسی مسدود"
+      },
+      "message": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
+      "message1": "سرویس به‌طور موقت در دسترس نیست.",
+      "message2": "صندوق ورودی شما خالی است.",
+      "message3": "هنوز سندی بارگذاری نشده است.",
+      "message4": "نشست منقضی شده است. دوباره وارد شوید.",
+      "message5": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
+      "message6": "اعلان‌ها غیرفعال هستند.",
+      "message7": "همه چیز به‌روز است!",
+      "message8": "موجودی در این انبار وجود ندارد.",
+      "message9": "این بخش نیاز به دسترسی مدیر دارد."
+    },
+    "baseAnimations": {
+      "title": "هشدار پایه — انیمیشن‌ها",
+      "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
+      "packageMessage": "بسته شما در راه است."
+    },
+    "iconsSituations": {
+      "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
+      "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
+      "offline": "آفلاین",
+      "serviceDown": "سرویس از دسترس خارج",
+      "emptyInbox": "صندوق ورودی خالی",
+      "noDocuments": "بدون سند",
+      "sessionExpired": "نشست منقضی شده",
+      "maintenance": "تعمیر و نگهداری",
+      "notificationsOff": "اعلان‌ها خاموش",
+      "allCaughtUp": "همه چیز به‌روز است",
+      "emptyWarehouse": "انبار خالی",
+      "accessBlocked": "دسترسی مسدود",
+      "offlineMessage": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
+      "serviceDownMessage": "سرویس به‌طور موقت در دسترس نیست.",
+      "emptyInboxMessage": "صندوق ورودی شما خالی است.",
+      "noDocumentsMessage": "هنوز سندی بارگذاری نشده است.",
+      "sessionExpiredMessage": "نشست منقضی شده است. دوباره وارد شوید.",
+      "maintenanceMessage": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
+      "notificationsOffMessage": "اعلان‌ها غیرفعال هستند.",
+      "allCaughtUpMessage": "همه چیز به‌روز است!",
+      "emptyWarehouseMessage": "موجودی در این انبار وجود ندارد.",
+      "accessBlockedMessage": "این بخش نیاز به دسترسی مدیر دارد."
+    },
+    "animations": {
+      "jumpIn": "پرش به داخل (پیش‌فرض)",
+      "shake": "لرزش",
+      "bounceIn": "پرش ورودی",
+      "flipUp": "چرخش به بالا",
+      "none": "بدون انیمیشن"
+    }
+  },
+  "auth": {
+    "authLayout": {
+      "title": "چیدمان احراز هویت",
+      "signIn": "ورود",
+      "description": "AuthLayout از @/components/layout/auth"
+    }
+  },
+  "avatar": {
+    "sizes": {
+      "title": "اندازه‌ها",
+      "description": "UserAvatar از @/components/common/avatar."
+    },
+    "fallbackInitials": {
+      "title": "حروف اول جایگزین"
+    }
+  },
+  "badges": {
+    "severitiesFilled": {
+      "title": "شدت‌ها (پر)"
+    },
+    "severitiesOutline": {
+      "title": "شدت‌ها (حاشیه‌دار)"
+    },
+    "sizesWide": {
+      "title": "اندازه‌ها (عریض)"
+    },
+    "variants": {
+      "title": "گونه‌ها",
+      "labels": {
+        "wideDefault": "عریض (پیش‌فرض)",
+        "circleDotIndicators": "دایره (نشانگر نقطه‌ای)",
+        "square": "مربع"
+      },
+      "wideDefault": "عریض (پیش‌فرض)",
+      "circleDot": "دایره (نشانگر نقطه‌ای)",
+      "square": "مربع",
+      "outline": "حاشیه‌دار",
+      "ghost": "شبح"
+    },
+    "modifiers": {
+      "title": "اصلاح‌گرها",
+      "labels": {
+        "withShadow": "با سایه",
+        "withRingHoverToSee": "با حلقه (برای دیدن هاور کنید)",
+        "highlight": "برجسته",
+        "disabled": "غیرفعال"
+      },
+      "withShadow": "با سایه",
+      "withRing": "با حلقه (برای دیدن هاور کنید)",
+      "highlight": "برجسته",
+      "disabled": "غیرفعال",
+      "highlighted": "برجسته‌شده",
+      "outlineHighlight": "حاشیه‌دار + برجسته"
+    },
+    "combinations": {
+      "title": "ترکیب‌ها",
+      "largeOutline": "حاشیه‌دار بزرگ",
+      "smallSquare": "مربع کوچک",
+      "highlight2xl": "برجسته ۲XL"
+    }
+  },
+  "banner": {
+    "withImage": {
+      "title": "با تصویر",
+      "description": "Banner از @/components/common/banner.",
+      "heading": "بنر خوش‌آمدگویی",
+      "subheading": "سطح تبلیغاتی با تصویر پس‌زمینه."
+    },
+    "contentOnly": {
+      "title": "فقط محتوا",
+      "content": "بدون تصویر — پس‌زمینه گرادیان / یکدست از طریق className."
+    }
+  },
+  "buttons": {
+    "variantsSeverities": {
+      "title": "گونه‌ها × شدت‌ها",
+      "description": "variant: contained | outlined | text — پیش‌فرض contained است."
+    },
+    "sizes": {
+      "title": "اندازه‌ها",
+      "description": "size: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" — پیش‌فرض \"md\"."
+    },
+    "fixedNumericSize": {
+      "title": "اندازه عددی ثابت",
+      "description": "size به‌صورت عدد عرض/ارتفاع را بر حسب px تنظیم می‌کند (کنترل شبیه آیکن)."
+    },
+    "rounded": {
+      "title": "گردی (شعاع)",
+      "description": "rounded: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\" — پیش‌فرض \"md\".",
+      "allValues": "همه مقادیر — contained / primary / md",
+      "rowLabel": "rounded=\"{{rounded}}\"",
+      "withIcon": "با آیکن",
+      "byVariant": "بر اساس گونه (rounded=\"lg\")",
+      "pillButtons": "دکمه‌های قرصی (rounded=\"full\")",
+      "primaryPill": "قرصی اصلی",
+      "add": "افزودن",
+      "more": "بیشتر",
+      "circleIcon": "دایره — گونه آیکن (اندازه عددی)",
+      "circleIconButton": "دایره — گونه دکمه آیکن",
+      "sizesWithFull": "اندازه‌ها با rounded=\"full\"",
+      "severitiesWithSm": "شدت‌ها با rounded=\"sm\""
+    },
+    "iconVariant": {
+      "title": "گونه آیکن",
+      "description": "variant=\"icon\" — از children یا prop آیکن استفاده کنید."
+    },
+    "iconButtonVariant": {
+      "title": "گونه دکمه آیکن",
+      "description": "variant=\"icon-button\" — عملیات مربعی فقط با آیکن (معمولاً با severity=\"input\")."
+    },
+    "labelProp": {
+      "title": "prop برچسب",
+      "description": "وقتی جایگاه اختصاصی برچسب می‌خواهید، به‌جای children از label استفاده کنید.",
+      "saveDraft": "ذخیره پیش‌نویس",
+      "cancel": "لغو",
+      "withIcon": "با آیکن",
+      "labels": {
+        "saveDraft": "ذخیره پیش‌نویس",
+        "cancel": "لغو",
+        "withIcon": "با آیکن"
+      }
+    },
+    "icons": {
+      "title": "آیکن‌ها",
+      "description": "leftIcon، rightIcon یا icon (وقتی تنظیم شود جایگزین محتوای اصلی می‌شود).",
+      "addItem": "افزودن مورد",
+      "delete": "حذف",
+      "export": "خروجی",
+      "bothSides": "هر دو طرف"
+    },
+    "fullWidth": {
+      "title": "fullWidth",
+      "description": "fullWidth دکمه را به عرض ظرف می‌کشد.",
+      "primary": "اصلی تمام‌عرض",
+      "outlined": "حاشیه‌دار تمام‌عرض"
+    },
+    "loading": {
+      "title": "بارگذاری",
+      "description": "isLoading اسپینر نمایش می‌دهد و تعامل را غیرفعال می‌کند.",
+      "loading": "در حال بارگذاری",
+      "saving": "در حال ذخیره",
+      "savingEllipsis": "در حال ذخیره…",
+      "clickToLoad": "برای بارگذاری کلیک کنید"
+    },
+    "disabled": {
+      "title": "غیرفعال",
+      "description": "disabled از کلیک جلوگیری می‌کند؛ با isLoading جفت می‌شود.",
+      "disabled": "غیرفعال",
+      "disabledOutlined": "حاشیه‌دار غیرفعال"
+    },
+    "tooltip": {
+      "title": "راهنمای ابزار",
+      "description": "tooltip دکمه را در HoverCard می‌پیچد؛ با tooltipOptions پیکربندی کنید.",
+      "hoverMe": "روی من هاور کنید",
+      "defaultTooltip": "راهنمای پیش‌فرض در بالا",
+      "rightTooltip": "راهنمای سمت راست",
+      "opensRight": "در سمت راست باز می‌شود",
+      "delayedTooltip": "راهنمای با تأخیر",
+      "slowerOpenClose": "باز/بسته شدن آهسته‌تر"
+    },
+    "onClick": {
+      "title": "onClick",
+      "description": "مدیریت‌کننده استاندارد کلیک دکمه.",
+      "clickedTimes": "{{count}} بار کلیک شد"
+    },
+    "asChild": {
+      "title": "asChild",
+      "description": "استایل‌ها را روی یک عنصر فرزند ادغام می‌کند (مثلاً لینک با ظاهر دکمه).",
+      "anchorAsButton": "لنگر به‌صورت دکمه"
+    },
+    "type": {
+      "title": "type",
+      "description": "type: \"button\" | \"submit\" | \"reset\" — پیش‌فرض \"button\".",
+      "submit": "ارسال",
+      "reset": "بازنشانی"
+    },
+    "classNameStyle": {
+      "title": "className و style",
+      "description": "کلاس‌های اضافی Tailwind و استایل‌های درون‌خطی با گونه‌ها ادغام می‌شوند.",
+      "shadowViaClassName": "سایه از طریق className",
+      "minWidth200px": "minWidth 200px"
+    },
+    "propsReference": {
+      "title": "مرجع props",
+      "description": "همه ButtonProps از @/components/common/buttons.",
+      "content": "variant?: \"contained\" | \"outlined\" | \"text\" | \"icon\" | \"icon-button\"\nseverity?: \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"input\" | \"muted\"\nsize?: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | number\nrounded?: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\"\nfullWidth?: boolean\nicon?: ReactNode\nlabel?: string\nisLoading?: boolean\nleftIcon?: ReactNode\nrightIcon?: ReactNode\nchildren?: ReactNode\ndisabled?: boolean\ntype?: \"button\" | \"submit\" | \"reset\"\nonClick?: (e) => void\nclassName?: string\nstyle?: CSSProperties\ntooltip?: string\ntooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }\nasChild?: boolean\nid?: string"
+    },
+    "roundedRadius": {
+      "title": "گردی (شعاع)",
+      "labels": {
+        "allValuesContainedPrimaryMd": "همه مقادیر — contained / primary / md",
+        "circleIconVariantNumericSize": "دایره — گونه آیکن (اندازه عددی)",
+        "circleIconButtonVariant": "دایره — گونه دکمه آیکن"
+      },
+      "rowLabelTemplate": "rounded=\"${rounded}\""
+    },
+    "fullwidth": {
+      "title": "fullWidth",
+      "description": "fullWidth دکمه را به عرض ظرف می‌کشد."
+    },
+    "onclick": {
+      "title": "onClick",
+      "description": "مدیریت‌کننده استاندارد کلیک دکمه."
+    },
+    "aschild": {
+      "title": "asChild",
+      "description": "استایل‌ها را روی یک عنصر فرزند ادغام می‌کند (مثلاً لینک با ظاهر دکمه)."
+    },
+    "classnameStyle": {
+      "title": "className و style",
+      "description": "کلاس‌های اضافی Tailwind و استایل‌های درون‌خطی با گونه‌ها ادغام می‌شوند."
+    }
+  },
+  "cards": {
+    "defaultCard": {
+      "title": "کارت پیش‌فرض",
+      "cardTitle": "نمای کلی پروژه",
+      "cardDescription": "پیشرفت داشبوردهای فعال خود را پیگیری کنید.",
+      "cardContent": "کارت‌ها با استفاده از توکن‌های معنادار سیستم طراحی شما با تم روشن و تاریک سازگار می‌شوند.",
+      "viewDetails": "مشاهده جزئیات",
+      "dismiss": "بستن"
+    },
+    "variants": {
+      "title": "گونه‌ها",
+      "default": "پیش‌فرض",
+      "outline": "حاشیه‌دار",
+      "ghost": "شبح"
+    }
+  },
+  "carousel": {
+    "slides": {
+      "title": "اسلایدها",
+      "slide": "اسلایدها"
+    }
+  },
+  "charts": {
+    "bar": {
+      "title": "میله‌ای"
+    },
+    "pie": {
+      "title": "دایره‌ای"
+    },
+    "doughnut": {
+      "title": "حلقه‌ای",
+      "done": "انجام‌شده",
+      "pending": "در انتظار"
+    }
+  }
+}

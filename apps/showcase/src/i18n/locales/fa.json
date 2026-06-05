@@ -1,0 +1,1453 @@
+{
+  "appName": "داش کامپوننت",
+  "title": "نمایشگاه",
+  "nav": {
+    "home": "خانه",
+    "allComponents": "همه کامپوننت‌ها",
+    "categories": "دسته‌بندی‌ها",
+    "common": "پایه",
+    "compound": "ترکیبی"
+  },
+  "home": {
+    "badge": "کتابخانه کامپوننت متحرک",
+    "title": "رابط کاربری بسازید با",
+    "titleHighlight": "حرکت و دقت",
+    "description": "کامپوننت‌های آماده تولید را کاوش کنید. هر تعامل متحرک است و پوسته‌ها از حالت روشن و تاریک پشتیبانی می‌کنند.",
+    "browse": "مرور کامپوننت‌ها",
+    "startButtons": "شروع با دکمه‌ها"
+  },
+  "catalog": {
+    "indexTitle": "فهرست کامپوننت‌ها",
+    "indexDescription": "همه دسته‌های طراحی سیستم را مرور کنید.",
+    "componentLabel": "کامپوننت",
+    "groupComponents": "کامپوننت"
+  },
+  "sidebar": {
+    "collapse": "جمع کردن نوار کناری",
+    "expand": "باز کردن نوار کناری"
+  },
+  "categories": {
+    "accordion": {
+      "title": "آکاردئون",
+      "description": "بخش‌های تاشو با انیمیشن."
+    },
+    "alerts": {
+      "title": "هشدارها",
+      "description": "خالی، بارگذاری، خطا و دسترسی."
+    },
+    "auth": {
+      "title": "چیدمان ورود",
+      "description": "صفحه احراز هویت."
+    },
+    "avatar": {
+      "title": "آواتار",
+      "description": "تصویر کاربر با حروف جایگزین."
+    },
+    "badges": {
+      "title": "نشان‌ها",
+      "description": "نمایش وضعیت با رنگ و اندازه."
+    },
+    "banner": {
+      "title": "بنر",
+      "description": "بنر اطلاع‌رسانی و تبلیغ."
+    },
+    "buttons": {
+      "title": "دکمه‌ها",
+      "description": "عملیات، آیکن، بارگذاری و شدت رنگ."
+    },
+    "cards": {
+      "title": "کارت‌ها",
+      "description": "سطح‌ها با سرصفحه و محتوا."
+    },
+    "carousel": {
+      "title": "کاروسل",
+      "description": "گالری محتوای اسلایدی."
+    },
+    "charts": {
+      "title": "نمودارها",
+      "description": "میله‌ای، خطی، دایره‌ای و ناحیه."
+    },
+    "chips": {
+      "title": "چیپ‌ها",
+      "description": "برچسب، فیلتر و حذف."
+    },
+    "collapsible": {
+      "title": "تاشو",
+      "description": "نمایش و پنهان‌سازی محتوا."
+    },
+    "context-menu": {
+      "title": "منوی زمینه",
+      "description": "منوی کلیک راست."
+    },
+    "dashboard": {
+      "title": "چیدمان داشبورد",
+      "description": "پوسته با سایدبار."
+    },
+    "divider": {
+      "title": "جداکننده",
+      "description": "خط جداکننده محتوا."
+    },
+    "errors": {
+      "title": "خطاها",
+      "description": "نمایش حالت خطا."
+    },
+    "fadeable": {
+      "title": "محو شونده",
+      "description": "ظاهر و محو شدن."
+    },
+    "flex": {
+      "title": "فلکس",
+      "description": "چیدمان انعطاف‌پذیر."
+    },
+    "file-uploader": {
+      "title": "آپلود فایل",
+      "description": "کشیدن و رها کردن فایل."
+    },
+    "form": {
+      "title": "فرم",
+      "description": "چیدمان فرم و فیلدها."
+    },
+    "grid": {
+      "title": "گرید",
+      "description": "چیدمان شبکه‌ای."
+    },
+    "hover-card": {
+      "title": "کارت شناور",
+      "description": "محتوای غنی روی هاور."
+    },
+    "inputs": {
+      "title": "ورودی‌ها",
+      "description": "متن، چک‌باکس، سوییچ، انتخاب و بیشتر."
+    },
+    "list": {
+      "title": "فهرست",
+      "description": "فهرست، گرید و کارت."
+    },
+    "loading": {
+      "title": "بارگذاری",
+      "description": "اسپینر و نشانگر بارگذاری."
+    },
+    "license-plate": {
+      "title": "پلاک",
+      "description": "ورودی پلاک ایران."
+    },
+    "location-picker": {
+      "title": "انتخاب مکان",
+      "description": "انتخاب روی نقشه."
+    },
+    "map": {
+      "title": "نقشه",
+      "description": "نقشه تعاملی."
+    },
+    "overlay": {
+      "title": "روکش",
+      "description": "دیالوگ، شیت و پاپ‌اور."
+    },
+    "pagination": {
+      "title": "صفحه‌بندی",
+      "description": "کنترل صفحات."
+    },
+    "paginator": {
+      "title": "صفحه‌بند",
+      "description": "رابط فشرده صفحه‌بندی."
+    },
+    "persian-date-picker": {
+      "title": "تقویم شمسی",
+      "description": "انتخاب تاریخ جلالی."
+    },
+    "shapes": {
+      "title": "اشکال",
+      "description": "نشانگرها و اشکال تزئینی."
+    },
+    "skeleton": {
+      "title": "اسکلت",
+      "description": "جایگزین بارگذاری."
+    },
+    "slider": {
+      "title": "اسلایدر",
+      "description": "تک و بازه‌ای."
+    },
+    "sonner": {
+      "title": "اعلان",
+      "description": "اعلان‌های توست."
+    },
+    "steps": {
+      "title": "مراحل",
+      "description": "نوار پیشرفت مرحله‌ای."
+    },
+    "table": {
+      "title": "جدول",
+      "description": "جدول داده با فیلتر."
+    },
+    "tabs": {
+      "title": "تب‌ها",
+      "description": "محتوای تب‌دار با نشانگر متحرک."
+    },
+    "timeline": {
+      "title": "خط زمان",
+      "description": "رویدادها در خط زمان."
+    },
+    "tracker": {
+      "title": "ردیاب",
+      "description": "نقشه و رویداد ردیابی."
+    },
+    "typography": {
+      "title": "تایپوگرافی",
+      "description": "متن و مارکی."
+    }
+  },
+  "pages": {
+    "grid": {
+      "responsiveSpans": {
+        "span2": "گسترش ۲",
+        "title": "گسترش‌های واکنش‌گرا"
+      },
+      "threeColumns": {
+        "title": "۳ ستون"
+      },
+      "3Columns": {
+        "title": "۳ ستون"
+      }
+    },
+    "hover-card": {
+      "alignedStart": {
+        "description": "در لبه آغاز تریگر تراز شده است.",
+        "infoPreview": "پیش‌نمایش اطلاعات",
+        "title": "تراز با آغاز"
+      },
+      "triggerContent": {
+        "description": "پیش‌نمایش غنی با هاور اشاره‌گر.",
+        "hoverCardTitle": "کارت شناور",
+        "hoverMe": "روی من هاور کنید",
+        "title": "تریگر + محتوا"
+      }
+    },
+    "inputs": {
+      "buttons": {
+        "copySample": "کپی {sample}"
+      },
+      "checkboxBasic": {
+        "description": "چک‌باکس آیکن‌دار با حالت نامشخص، بارگذاری، چیدمان جعبه‌ای و ویژگی‌های فرم.",
+        "labels": {
+          "boxed": "جعبه‌ای",
+          "controlled": "کنترل‌شده",
+          "disabled": "غیرفعال",
+          "disabledChecked": "غیرفعال · انتخاب‌شده",
+          "indeterminate": "نامشخص",
+          "loading": "بارگذاری",
+          "states": "حالت‌ها",
+          "boxedDescriptionWidth": "جعبه‌ای · توضیح · عرض"
+        },
+        "rows": {
+          "boxedDescriptionWidth": "جعبه‌ای · توضیح · عرض",
+          "states": "حالت‌ها"
+        },
+        "title": "چک‌باکس.پایه"
+      },
+      "checkboxCard": {
+        "description": "چیدمان کارتی با title، subTitle و جایگاه‌های className سفارشی.",
+        "subtitles": {
+          "billedAnnually": "صورتحساب سالانه",
+          "unavailable": "در دسترس نیست"
+        },
+        "title": "چک‌باکس.کارت",
+        "titles": {
+          "disabled": "غیرفعال",
+          "premiumPlan": "طرح ویژه"
+        }
+      },
+      "checkboxLabeled": {
+        "description": "موقعیت برچسب چپ | راست و نام کلاس‌های ظرف.",
+        "descriptions": {
+          "supportingText": "متن پشتیبان"
+        },
+        "labels": {
+          "labelLeft": "برچسب چپ",
+          "labelRight": "برچسب راست (پیش‌فرض)",
+          "labelRightDefault": "برچسب راست (پیش‌فرض)"
+        },
+        "title": "چک‌باکس.برچسب‌دار"
+      },
+      "dateInput": {
+        "description": "دیالوگ تقویم شمسی: تک‌تاریخ، بازه، زمان، پیش‌تنظیم‌ها و محدودیت‌ها.",
+        "labels": {
+          "disabled": "غیرفعال",
+          "presets": "پیش‌تنظیم‌ها",
+          "range": "بازه",
+          "requiredError": "الزامی · خطا",
+          "singleDate": "تک‌تاریخ",
+          "withTime": "با زمان"
+        },
+        "messages": {
+          "dateRequired": "تاریخ الزامی است"
+        },
+        "presets": {
+          "oneMonth": "۱ ماه",
+          "threeMonths": "۳ ماه"
+        },
+        "title": "ورودی تاریخ"
+      },
+      "demo": {
+        "cities": {
+          "capital": "مرکز",
+          "isfahan": "اصفهان",
+          "kerman": "کرمان",
+          "khorasan": "خراسان",
+          "khuzestan": "خوزستان",
+          "kohgiluyeh": "کهگیلویه و بویراحمد",
+          "kurdistan": "کردستان",
+          "lorestan": "لرستان",
+          "markazi": "مرکزی",
+          "mashhad": "مشهد",
+          "rasht": "رشت",
+          "shiraz": "شیراز",
+          "tabriz": "تبریز",
+          "tehran": "تهران"
+        },
+        "fruits": {
+          "apple": "سیب",
+          "banana": "موز",
+          "fruits": "میوه‌ها",
+          "vegetables": "سبزیجات"
+        },
+        "vegetables": {
+          "carrot": "هویج",
+          "potato": "سیب‌زمینی"
+        }
+      },
+      "descriptions": {
+        "extraDescription": "متن توضیح اضافی"
+      },
+      "helperTexts": {
+        "neverShareEmail": "ایمیل شما را هرگز به اشتراک نمی‌گذاریم."
+      },
+      "labels": {
+        "categories": "دسته‌بندی‌ها",
+        "category": "دسته‌بندی",
+        "cities": "شهرها",
+        "city": "شهر",
+        "description": "توضیحات",
+        "disabled": "غیرفعال",
+        "dollar": "دلار",
+        "error": "خطا",
+        "errorState": "حالت خطا",
+        "euro": "یورو",
+        "fullWidth": "تمام‌عرض",
+        "helperText": "متن راهنما",
+        "invalid": "نامعتبر",
+        "loading": "بارگذاری",
+        "mobile": "موبایل",
+        "notifications": "اعلان‌ها",
+        "orderedCities": "شهرهای مرتب‌شده",
+        "password": "رمز عبور",
+        "pound": "پوند",
+        "priceRange": "بازه قیمت",
+        "quantity": "تعداد",
+        "readOnly": "فقط خواندنی",
+        "required": "الزامی",
+        "success": "موفق",
+        "suffixSlot": "جایگاه suffix",
+        "unclearable": "غیرقابل پاک‌سازی",
+        "username": "نام کاربری",
+        "visibleByDefault": "پیش‌فرض قابل مشاهده",
+        "warning": "هشدار",
+        "weight": "وزن",
+        "withDefaultValueTitle": "با defaultValueTitle",
+        "withMessage": "با پیام",
+        "withPrefix": "با پیشوند",
+        "withSteppers": "با دکمه‌های گام",
+        "withSuffix": "با پسوند"
+      },
+      "list": {
+        "description": "فهرست انتخابی مجازی‌شده (درون selectها استفاده می‌شود؛ دمو مستقل).",
+        "title": "فهرست"
+      },
+      "messages": {
+        "checkFormat": "قالب را بررسی کنید",
+        "enabled": "فعال",
+        "invalidRange": "بازه نامعتبر",
+        "looksGood": "خوب به نظر می‌رسد!",
+        "requiredField": "فیلد الزامی",
+        "strongPassword": "رمز عبور قوی",
+        "tooShort": "خیلی کوتاه",
+        "validMobile": "شماره موبایل معتبر وارد کنید"
+      },
+      "numberInput": {
+        "description": "فیلد عددی با دکمه‌های گام اختیاری و پیشوند.",
+        "suffix": {
+          "kg": "kg"
+        },
+        "title": "ورودی عددی"
+      },
+      "numberRangeInput": {
+        "description": "بازه عددی از/تا با min، max و برچسب‌های سفارشی اختیاری.",
+        "fromLabel": "حداقل",
+        "title": "ورودی بازه عددی",
+        "toLabel": "حداکثر"
+      },
+      "options": {
+        "optionA": "گزینه الف",
+        "optionB": "گزینه ب",
+        "optionC": "گزینه ج"
+      },
+      "otpInput": {
+        "description": "سلول‌های با اندازه ثابت — size: sm | md | lg، width عرض ردیف را محدود می‌کند (پیش‌فرض md).",
+        "labels": {
+          "alphanumericPaste": "کپی · چسباندن الفبایی-عددی",
+          "disabled": "غیرفعال",
+          "fourDigits": "۴ رقم",
+          "loading": "بارگذاری",
+          "pasteDisabled": "چسباندن غیرفعال",
+          "pasteFocus": "روی هر سلول OTP فوکوس کنید و بچسبانید؛ می‌توانید از ctrl+v یا cmd+v استفاده کنید",
+          "verificationCode": "کد تأیید (md، عرض ۲۸۰)"
+        },
+        "rows": {
+          "copyPaste": "کپی · چسباندن",
+          "lengthNumericOnly": "طول · فقط عددی",
+          "size": "اندازه",
+          "statusSm": "وضعیت (sm)"
+        },
+        "title": "ورودی OTP"
+      },
+      "passwordInput": {
+        "description": "TextInput با تعویض نمایش (حالت اولیه passShow).",
+        "title": "ورودی رمز عبور"
+      },
+      "phoneInput": {
+        "description": "قالب موبایل ایران (09xxxxxxxxx) با پیشوند آیکن.",
+        "title": "ورودی موبایل"
+      },
+      "pickCity": "شهری انتخاب کنید",
+      "priority": {
+        "heading": "اولویت",
+        "subHeading": "برای مرتب‌سازی بکشید"
+      },
+      "propsCheckbox": {
+        "title": "مرجع props — Checkbox · Switch · OTP · Radio"
+      },
+      "propsDateInput": {
+        "title": "مرجع props — DateInput"
+      },
+      "propsSelect": {
+        "title": "مرجع props — Select (مشترک)"
+      },
+      "propsTextInput": {
+        "title": "مرجع props — TextInput"
+      },
+      "radioInput": {
+        "description": "گروه‌های گزینه: direction، size، showCircle، width.",
+        "rows": {
+          "direction": "جهت",
+          "icon": "آیکن",
+          "size": "اندازه"
+        },
+        "title": "ورودی رادیویی"
+      },
+      "rows": {
+        "defaultControlled": "پیش‌فرض و کنترل‌شده",
+        "prefixSuffixHelper": "prefix · suffix · helperText",
+        "states": "حالت‌ها",
+        "statusMessage": "status و message"
+      },
+      "selectMulti": {
+        "description": "انتخاب چندگانه با چیپ و فیلتر.",
+        "title": "انتخاب.چندگانه",
+        "labels": {
+          "cities": "شهرها"
+        }
+      },
+      "selectMultiOrderable": {
+        "description": "چندانتخابی با مرتب‌سازی کشیدن و رها کردن (showChips، selected).",
+        "title": "انتخاب.چندگانه.قابل‌مرتب‌سازی"
+      },
+      "selectMultiTree": {
+        "description": "درخت با انتخاب چندگانه.",
+        "title": "انتخاب.درخت.چندگانه"
+      },
+      "selectSingle": {
+        "description": "منوی کشویی تک‌مقداری با جستجو، بارگذاری و فهرست مجازی‌شده.",
+        "title": "انتخاب.تک",
+        "labels": {
+          "city": "شهر",
+          "loading": "بارگذاری",
+          "disabled": "غیرفعال",
+          "unclearable": "غیرقابل پاک‌سازی",
+          "withDefaultvaluetitle": "با defaultValueTitle"
+        }
+      },
+      "selectSingleTree": {
+        "description": "انتخاب تک‌مقداری سلسله‌مراتبی (openedAll گره‌ها را باز می‌کند).",
+        "title": "انتخاب.درخت.تک"
+      },
+      "switch": {
+        "description": "severity و size رنگ‌های track و thumb را مقیاس می‌دهند.",
+        "rows": {
+          "controlled": "کنترل‌شده",
+          "severityActive": "severity (فعال)",
+          "size": "اندازه"
+        },
+        "title": "سوییچ",
+        "labels": {
+          "controlled": "کنترل‌شده",
+          "severityActive": "severity (فعال)",
+          "size": "اندازه"
+        }
+      },
+      "switchField": {
+        "description": "Switch داخل LabelContainer؛ برای حالت کنترل‌شده از value استفاده کنید.",
+        "title": "فیلد سوییچ"
+      },
+      "textareaInput": {
+        "description": "فیلد چندخطی با ظرف برچسب شناور.",
+        "title": "ورودی چندخطی"
+      },
+      "textInput": {
+        "description": "فیلد متنی با برچسب شناور، وضعیت، پیشوند، اندازه‌ها و ویژگی‌های بومی input.",
+        "title": "ورودی متنی"
+      },
+      "values": {
+        "cannotEdit": "قابل ویرایش نیست",
+        "hello": "سلام",
+        "lockedContent": "محتوای قفل‌شده",
+        "notes": "یادداشت‌ها…",
+        "readOnly": "فقط خواندنی"
+      },
+      "weightInput": {
+        "description": "چیپ‌های بازه به‌علاوه فیلدهای سفارشی از/تا درون پنل select.",
+        "presets": {
+          "fiftyPlus": "۵۰+ kg",
+          "tenFifty": "۱۰–۵۰ kg",
+          "zeroTen": "۰–۱۰ kg"
+        },
+        "title": "ورودی وزن"
+      },
+      "textinput": {
+        "title": "ورودی متنی",
+        "description": "فیلد متنی با برچسب شناور، وضعیت، پیشوند، اندازه‌ها و ویژگی‌های بومی input.",
+        "labels": {
+          "defaultControlled": "پیش‌فرض و کنترل‌شده",
+          "username": "نام کاربری",
+          "statusMessage": "status و message",
+          "success": "موفق",
+          "error": "خطا",
+          "warning": "هشدار",
+          "states": "حالت‌ها",
+          "loading": "بارگذاری",
+          "disabled": "غیرفعال",
+          "readOnly": "فقط خواندنی",
+          "required": "الزامی",
+          "prefixSuffixHelpertext": "prefix · suffix · helperText",
+          "withPrefix": "با پیشوند",
+          "withSuffix": "با پسوند",
+          "helperText": "متن راهنما"
+        },
+        "message": "خوب به نظر می‌رسد!",
+        "message1": "فیلد الزامی",
+        "message2": "قالب را بررسی کنید"
+      },
+      "passwordinput": {
+        "title": "ورودی رمز عبور",
+        "description": "TextInput با تعویض نمایش (حالت اولیه passShow).",
+        "labels": {
+          "password": "رمز عبور",
+          "visibleByDefault": "پیش‌فرض قابل مشاهده"
+        },
+        "message": "رمز عبور قوی"
+      },
+      "phoneinput": {
+        "title": "ورودی موبایل",
+        "description": "قالب موبایل ایران (09xxxxxxxxx) با پیشوند آیکن.",
+        "labels": {
+          "mobile": "موبایل",
+          "invalid": "نامعتبر"
+        },
+        "message": "شماره موبایل معتبر وارد کنید"
+      },
+      "textareainput": {
+        "title": "ورودی چندخطی",
+        "description": "فیلد چندخطی با ظرف برچسب شناور.",
+        "labels": {
+          "states": "حالت‌ها",
+          "description": "توضیحات",
+          "errorState": "حالت خطا",
+          "disabled": "غیرفعال",
+          "fullWidth": "تمام‌عرض"
+        },
+        "message": "خیلی کوتاه"
+      },
+      "numberinput": {
+        "title": "ورودی عددی",
+        "description": "فیلد عددی با دکمه‌های گام اختیاری و پیشوند.",
+        "labels": {
+          "quantity": "تعداد",
+          "withSteppers": "با دکمه‌های گام",
+          "suffixSlot": "جایگاه suffix",
+          "disabled": "غیرفعال"
+        }
+      },
+      "numberrangeinput": {
+        "title": "ورودی بازه عددی",
+        "description": "بازه عددی از/تا با min، max و برچسب‌های سفارشی اختیاری.",
+        "labels": {
+          "priceRange": "بازه قیمت",
+          "error": "خطا"
+        },
+        "message": "بازه نامعتبر"
+      },
+      "switchfield": {
+        "title": "فیلد سوییچ",
+        "description": "Switch داخل LabelContainer؛ برای حالت کنترل‌شده از value استفاده کنید.",
+        "labels": {
+          "notifications": "اعلان‌ها",
+          "withMessage": "با پیام"
+        },
+        "message": "فعال"
+      },
+      "radioinput": {
+        "title": "ورودی رادیویی",
+        "description": "گروه‌های گزینه: direction، size، showCircle، width.",
+        "labels": {
+          "direction": "جهت",
+          "size": "اندازه",
+          "icon": "آیکن"
+        }
+      },
+      "otpinput": {
+        "title": "ورودی OTP",
+        "description": "سلول‌های با اندازه ثابت — size: sm | md | lg، width عرض ردیف را محدود می‌کند (پیش‌فرض md).",
+        "labels": {
+          "verificationCodeMdWidth280": "کد تأیید (md، عرض ۲۸۰)",
+          "size": "اندازه",
+          "lengthNumericonly": "طول · فقط عددی",
+          "4Digits": "۴ رقم",
+          "copyPaste": "کپی · چسباندن",
+          "justFocusOnAnyOtpCellAndPasteYouCanUseCtrlVOrCmdV": "روی هر سلول OTP فوکوس کنید و بچسبانید؛ می‌توانید از ctrl+v یا cmd+v استفاده کنید",
+          "pasteDisabled": "چسباندن غیرفعال",
+          "copyAlphanumericPaste": "کپی · چسباندن الفبایی-عددی",
+          "statusSm": "وضعیت (sm)",
+          "loading": "بارگذاری",
+          "disabled": "غیرفعال"
+        }
+      },
+      "selectSingletree": {
+        "title": "انتخاب.درخت.تک",
+        "description": "انتخاب تک‌مقداری سلسله‌مراتبی (openedAll گره‌ها را باز می‌کند).",
+        "labels": {
+          "category": "دسته‌بندی"
+        }
+      },
+      "selectMultitree": {
+        "title": "انتخاب.درخت.چندگانه",
+        "description": "درخت با انتخاب چندگانه.",
+        "labels": {
+          "categories": "دسته‌بندی‌ها"
+        }
+      },
+      "selectMultiorderable": {
+        "title": "انتخاب.چندگانه.قابل‌مرتب‌سازی",
+        "description": "چندانتخابی با مرتب‌سازی کشیدن و رها کردن (showChips، selected).",
+        "labels": {
+          "orderedCities": "شهرهای مرتب‌شده"
+        }
+      },
+      "dateinput": {
+        "title": "ورودی تاریخ",
+        "description": "دیالوگ تقویم شمسی: تک‌تاریخ، بازه، زمان، پیش‌تنظیم‌ها و محدودیت‌ها.",
+        "labels": {
+          "singleDate": "تک‌تاریخ",
+          "range": "بازه",
+          "withTime": "با زمان",
+          "presets": "پیش‌تنظیم‌ها",
+          "disabled": "غیرفعال",
+          "requiredError": "الزامی · خطا"
+        }
+      },
+      "weightinput": {
+        "title": "ورودی وزن",
+        "description": "چیپ‌های بازه به‌علاوه فیلدهای سفارشی از/تا درون پنل select.",
+        "labels": {
+          "weight": "وزن"
+        }
+      },
+      "propsReferenceTextinput": {
+        "title": "مرجع props — TextInput"
+      },
+      "propsReferenceSelectShared": {
+        "title": "مرجع props — Select (مشترک)"
+      },
+      "propsReferenceDateinput": {
+        "title": "مرجع props — DateInput"
+      },
+      "propsReferenceCheckboxSwitchOtpRadio": {
+        "title": "مرجع props — Checkbox · Switch · OTP · Radio"
+      }
+    },
+    "license-plate": {
+      "carPlate": {
+        "description": "PlateInput با variant=&quot;car&quot;.",
+        "title": "پلاک خودرو"
+      },
+      "motorcycle": {
+        "title": "موتورسیکلت"
+      },
+      "simpleText": {
+        "title": "متن ساده"
+      }
+    },
+    "list": {
+      "cardsList": {
+        "title": "فهرست کارت‌ها"
+      },
+      "chipsList": {
+        "tagA": "برچسب الف",
+        "tagB": "برچسب ب",
+        "tagC": "برچسب ج",
+        "title": "فهرست چیپ‌ها"
+      },
+      "linesList": {
+        "title": "فهرست خطی"
+      },
+      "sample": {
+        "active": "فعال",
+        "dash": "—",
+        "notes": "یادداشت‌ها",
+        "region": "منطقه",
+        "status": "وضعیت",
+        "tehran": "تهران"
+      }
+    },
+    "loading": {
+      "defaultSpinner": {
+        "title": "اسپینر پیش‌فرض"
+      },
+      "sizes": {
+        "title": "اندازه‌ها"
+      }
+    },
+    "location-picker": {
+      "description": {
+        "importFrom": "واردات از",
+        "mapBlocks": "را در صفحهٔ نقشه ببینید.",
+        "requiresBackend": ". به منابع دستگاه/مکان سمت سرور و استاب‌های منوی داشبورد نیاز دارد. بلوک‌های سازندهٔ"
+      },
+      "locationPicker": {
+        "title": "انتخاب مکان"
+      }
+    },
+    "map": {
+      "leafletMap": {
+        "title": "نقشهٔ Leaflet"
+      },
+      "tallerViewport": {
+        "title": "نمای بزرگ‌تر"
+      }
+    },
+    "overlay": {
+      "dialog": {
+        "close": "بستن",
+        "confirmAction": "تأیید عملیات",
+        "description": "دیالوگ از @/components/common/overlay/dialog.",
+        "openDialog": "باز کردن دیالوگ",
+        "title": "دیالوگ"
+      },
+      "popover": {
+        "button": "پاپ‌اور",
+        "content": "محتوای پاپ‌اور",
+        "description": "پنل شناور لنگرخورده.",
+        "title": "پاپ‌اور"
+      },
+      "sheet": {
+        "description": "شیت از لبه وارد می‌شود.",
+        "openSheet": "باز کردن شیت",
+        "sidePanel": "پنل کناری",
+        "title": "شیت"
+      }
+    },
+    "pagination": {
+      "currentPage": {
+        "info": "صفحهٔ {page} از {total}",
+        "title": "صفحهٔ فعلی"
+      },
+      "pageLinks": {
+        "title": "پیوندهای صفحه"
+      }
+    },
+    "paginator": {
+      "controlled": {
+        "title": "کنترل‌شده"
+      },
+      "firstPage": {
+        "title": "صفحهٔ اول"
+      }
+    },
+    "persian-date-picker": {
+      "singleDate": {
+        "title": "تاریخ تکی"
+      },
+      "withTime": {
+        "title": "همراه با زمان"
+      }
+    },
+    "shapes": {
+      "indicator": {
+        "title": "نشانگر"
+      },
+      "square": {
+        "title": "مربع"
+      }
+    },
+    "skeleton": {
+      "cardBlock": {
+        "title": "بلوک کارت"
+      },
+      "textPlaceholders": {
+        "title": "جای‌نگهدارهای متن"
+      }
+    },
+    "slider": {
+      "range": {
+        "title": "بازه"
+      },
+      "singleValue": {
+        "title": "مقدار تکی"
+      }
+    },
+    "sonner": {
+      "toastVariants": {
+        "buttons": {
+          "error": "خطا",
+          "info": "اطلاعات",
+          "success": "موفقیت",
+          "warning": "هشدار"
+        },
+        "title": "انواع اعلان",
+        "toasts": {
+          "checkInput": "ورودی خود را بررسی کنید",
+          "headsUp": "توجه",
+          "savedSuccessfully": "با موفقیت ذخیره شد",
+          "somethingWrong": "مشکلی پیش آمد"
+        }
+      },
+      "withDescription": {
+        "button": "موفقیت + توضیحات",
+        "description": "تغییرات پس از بارگذاری مجدد نمایش داده می‌شوند.",
+        "title": "همراه با توضیحات",
+        "toastTitle": "پروفایل به‌روزرسانی شد"
+      }
+    },
+    "steps": {
+      "midProgress": {
+        "steps": {
+          "done": "پایان",
+          "review": "بازبینی",
+          "start": "شروع"
+        },
+        "title": "پیشرفت میانی"
+      },
+      "step1Active": {
+        "steps": {
+          "details": {
+            "subtitle": "اطلاعات پایه",
+            "title": "جزئیات"
+          },
+          "done": {
+            "subtitle": "پایان",
+            "title": "انجام شد"
+          },
+          "review": {
+            "subtitle": "بررسی ورودی‌ها",
+            "title": "بازبینی"
+          }
+        },
+        "title": "گام ۱ فعال"
+      }
+    },
+    "table": {
+      "compoundTable": {
+        "description": {
+          "dataTable": "جدول داده در",
+          "expectsConfig": "قرار دارد و به پیکربندی ستون‌ها، فیلترها و هوک‌های API در سطح برنامه نیاز دارد. برای اجزای مرتبط به صفحات فهرست، صفحه‌بندی و ورودی‌ها مراجعه کنید؛ جدول کامل را در برنامهٔ خود با منابع دادهٔ واقعی پیاده‌سازی کنید."
+        },
+        "title": "جدول ترکیبی"
+      }
+    },
+    "tabs": {
+      "keepMounted": {
+        "draft": {
+          "content": "محتوای پیش‌نویس هنگام جابه‌جایی بین تب‌ها وضعیت خود را حفظ می‌کند.",
+          "header": "پیش‌نویس"
+        },
+        "published": {
+          "content": "موارد منتشرشده اینجا نمایش داده می‌شوند.",
+          "header": "منتشرشده"
+        },
+        "title": "حفظ در DOM"
+      },
+      "tabbedContent": {
+        "analytics": {
+          "content": "پنل تحلیل با نمودارها و داده‌های روند.",
+          "header": "تحلیل"
+        },
+        "overview": {
+          "content": "پنل نمای کلی با شاخص‌های خلاصه و اقدامات سریع.",
+          "header": "نمای کلی"
+        },
+        "settings": {
+          "content": "پنل تنظیمات برای پیکربندی و ترجیحات.",
+          "header": "تنظیمات"
+        },
+        "title": "محتوای تب‌دار"
+      }
+    },
+    "timeline": {
+      "eventList": {
+        "events": {
+          "delivered": "تحویل شد",
+          "orderPlaced": "سفارش ثبت شد",
+          "shipped": "ارسال شد"
+        },
+        "title": "فهرست رویدادها"
+      }
+    },
+    "tracker": {
+      "compoundTracker": {
+        "description": {
+          "dependsOnData": "قرار دارد. به داده‌های ردیابی زنده وابسته است. برای اجزای مستقل از صفحات نقشه و نمودارها به",
+          "vehicleTracker": "رابط ردیابی وسیله (مسیرهای نقشه، کارت‌های رویداد، خوشه‌بندی) در"
+        },
+        "title": "ردیاب ترکیبی"
+      },
+      "trackerCompound": {
+        "title": "ردیاب ترکیبی"
+      }
+    },
+    "typography": {
+      "headings": {
+        "h1": "سرتیتر ۱",
+        "h2": "سرتیتر ۲",
+        "h3": "سرتیتر ۳",
+        "h4": "سرتیتر ۴",
+        "title": "سرتیترها"
+      },
+      "paragraph": {
+        "body": "متن بدنه — سبک پاراگراف پیش‌فرض از ماژول تایپوگرافی.",
+        "muted": "پاراگراف کم‌رنگ با بازنویسی className.",
+        "title": "پاراگراف"
+      }
+    },
+    "buttons": {
+      "variantsSeverities": {
+        "title": "گونه‌ها × شدت‌ها",
+        "description": "variant: contained | outlined | text — پیش‌فرض contained است."
+      },
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "size: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" — پیش‌فرض \"md\"."
+      },
+      "fixedNumericSize": {
+        "title": "اندازه عددی ثابت",
+        "description": "size به‌صورت عدد عرض/ارتفاع را بر حسب px تنظیم می‌کند (کنترل شبیه آیکن)."
+      },
+      "rounded": {
+        "title": "گردی (شعاع)",
+        "description": "rounded: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\" — پیش‌فرض \"md\".",
+        "allValues": "همه مقادیر — contained / primary / md",
+        "rowLabel": "rounded=\"{{rounded}}\"",
+        "withIcon": "با آیکن",
+        "byVariant": "بر اساس گونه (rounded=\"lg\")",
+        "pillButtons": "دکمه‌های قرصی (rounded=\"full\")",
+        "primaryPill": "قرصی اصلی",
+        "add": "افزودن",
+        "more": "بیشتر",
+        "circleIcon": "دایره — گونه آیکن (اندازه عددی)",
+        "circleIconButton": "دایره — گونه دکمه آیکن",
+        "sizesWithFull": "اندازه‌ها با rounded=\"full\"",
+        "severitiesWithSm": "شدت‌ها با rounded=\"sm\""
+      },
+      "iconVariant": {
+        "title": "گونه آیکن",
+        "description": "variant=\"icon\" — از children یا prop آیکن استفاده کنید."
+      },
+      "iconButtonVariant": {
+        "title": "گونه دکمه آیکن",
+        "description": "variant=\"icon-button\" — عملیات مربعی فقط با آیکن (معمولاً با severity=\"input\")."
+      },
+      "labelProp": {
+        "title": "prop برچسب",
+        "description": "وقتی جایگاه اختصاصی برچسب می‌خواهید، به‌جای children از label استفاده کنید.",
+        "saveDraft": "ذخیره پیش‌نویس",
+        "cancel": "لغو",
+        "withIcon": "با آیکن",
+        "labels": {
+          "saveDraft": "ذخیره پیش‌نویس",
+          "cancel": "لغو",
+          "withIcon": "با آیکن"
+        }
+      },
+      "icons": {
+        "title": "آیکن‌ها",
+        "description": "leftIcon، rightIcon یا icon (وقتی تنظیم شود جایگزین محتوای اصلی می‌شود).",
+        "addItem": "افزودن مورد",
+        "delete": "حذف",
+        "export": "خروجی",
+        "bothSides": "هر دو طرف"
+      },
+      "fullWidth": {
+        "title": "عرض کامل (fullWidth)",
+        "description": "fullWidth دکمه را به عرض ظرف می‌کشد.",
+        "primary": "اصلی تمام‌عرض",
+        "outlined": "حاشیه‌دار تمام‌عرض"
+      },
+      "loading": {
+        "title": "بارگذاری",
+        "description": "isLoading اسپینر نمایش می‌دهد و تعامل را غیرفعال می‌کند.",
+        "loading": "در حال بارگذاری",
+        "saving": "در حال ذخیره",
+        "savingEllipsis": "در حال ذخیره…",
+        "clickToLoad": "برای بارگذاری کلیک کنید"
+      },
+      "disabled": {
+        "title": "غیرفعال",
+        "description": "disabled از کلیک جلوگیری می‌کند؛ با isLoading جفت می‌شود.",
+        "disabled": "غیرفعال",
+        "disabledOutlined": "حاشیه‌دار غیرفعال"
+      },
+      "tooltip": {
+        "title": "راهنمای ابزار",
+        "description": "tooltip دکمه را در HoverCard می‌پیچد؛ با tooltipOptions پیکربندی کنید.",
+        "hoverMe": "روی من هاور کنید",
+        "defaultTooltip": "راهنمای پیش‌فرض در بالا",
+        "rightTooltip": "راهنمای سمت راست",
+        "opensRight": "در سمت راست باز می‌شود",
+        "delayedTooltip": "راهنمای با تأخیر",
+        "slowerOpenClose": "باز/بسته شدن آهسته‌تر"
+      },
+      "onClick": {
+        "title": "رویداد کلیک (onClick)",
+        "description": "مدیریت‌کننده استاندارد کلیک دکمه.",
+        "clickedTimes": "{{count}} بار کلیک شد"
+      },
+      "asChild": {
+        "title": "فرزند مستقیم (asChild)",
+        "description": "استایل‌ها را روی یک عنصر فرزند ادغام می‌کند (مثلاً لینک با ظاهر دکمه).",
+        "anchorAsButton": "لنگر به‌صورت دکمه"
+      },
+      "type": {
+        "title": "نوع (type)",
+        "description": "type: \"button\" | \"submit\" | \"reset\" — پیش‌فرض \"button\".",
+        "submit": "ارسال",
+        "reset": "بازنشانی"
+      },
+      "classNameStyle": {
+        "title": "className و style",
+        "description": "کلاس‌های اضافی Tailwind و استایل‌های درون‌خطی با گونه‌ها ادغام می‌شوند.",
+        "shadowViaClassName": "سایه از طریق className",
+        "minWidth200px": "حداقل عرض ۲۰۰px"
+      },
+      "propsReference": {
+        "title": "مرجع props",
+        "description": "همه ButtonProps از @/components/common/buttons.",
+        "content": "variant?: \"contained\" | \"outlined\" | \"text\" | \"icon\" | \"icon-button\"\nseverity?: \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"input\" | \"muted\"\nsize?: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | number\nrounded?: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\"\nfullWidth?: boolean\nicon?: ReactNode\nlabel?: string\nisLoading?: boolean\nleftIcon?: ReactNode\nrightIcon?: ReactNode\nchildren?: ReactNode\ndisabled?: boolean\ntype?: \"button\" | \"submit\" | \"reset\"\nonClick?: (e) => void\nclassName?: string\nstyle?: CSSProperties\ntooltip?: string\ntooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }\nasChild?: boolean\nid?: string"
+      },
+      "roundedRadius": {
+        "title": "گردی (شعاع)",
+        "labels": {
+          "allValuesContainedPrimaryMd": "همه مقادیر — contained / primary / md",
+          "circleIconVariantNumericSize": "دایره — گونه آیکن (اندازه عددی)",
+          "circleIconButtonVariant": "دایره — گونه دکمه آیکن"
+        },
+        "rowLabelTemplate": "rounded=\"{{rounded}}\""
+      },
+      "fullwidth": {
+        "title": "عرض کامل (fullWidth)",
+        "description": "fullWidth دکمه را به عرض ظرف می‌کشد."
+      },
+      "onclick": {
+        "title": "رویداد کلیک (onClick)",
+        "description": "مدیریت‌کننده استاندارد کلیک دکمه."
+      },
+      "aschild": {
+        "title": "فرزند مستقیم (asChild)",
+        "description": "استایل‌ها را روی یک عنصر فرزند ادغام می‌کند (مثلاً لینک با ظاهر دکمه)."
+      },
+      "classnameStyle": {
+        "title": "className و style",
+        "description": "کلاس‌های اضافی Tailwind و استایل‌های درون‌خطی با گونه‌ها ادغام می‌شوند."
+      }
+    },
+    "accordion": {
+      "singleCollapsible": {
+        "title": "تاشوی تک‌بخشی",
+        "whatIsLibrary": {
+          "trigger": "این کتابخانه کامپوننت چیست؟",
+          "content": "مجموعه‌ای از کامپوننت‌های آماده تولید React ساخته‌شده با Tailwind CSS v4، Radix UI و تعاملات اولویت‌دار با حرکت."
+        },
+        "darkMode": {
+          "trigger": "آیا حالت تاریک را پشتیبانی می‌کند؟",
+          "content": "بله. با کنترل هدر بین تم روشن و تاریک جابه‌جا شوید. ترجیح تم در local storage ذخیره می‌شود."
+        },
+        "staticSite": {
+          "trigger": "آیا می‌توانم در یک سایت استاتیک از آن استفاده کنم؟",
+          "content": "قطعاً. این نمایشگاه با Vite ساخته شده و به HTML، CSS و JS استاتیک صادر می‌شود."
+        }
+      },
+      "multipleOpen": {
+        "title": "باز بودن همزمان چند بخش",
+        "designTokens": {
+          "trigger": "توکن‌های طراحی",
+          "content": "رنگ‌ها، فاصله‌ها و متغیرهای تایپوگرافی معنادار."
+        },
+        "accessibility": {
+          "trigger": "دسترس‌پذیری",
+          "content": "بر پایه اجزای Radix با ناوبری صفحه‌کلید ساخته شده است."
+        }
+      }
+    },
+    "alerts": {
+      "builtInAlerts": {
+        "title": "هشدارهای داخلی",
+        "description": "حالت‌های از پیش‌تعریف‌شده در نماهای داده — هر کدام در پنل فشرده نمایش داده می‌شوند، نه تمام‌عرض.",
+        "labels": {
+          "emptyDefault": "خالی (پیش‌فرض)",
+          "emptyCustom": "خالی (سفارشی)",
+          "loadingDefault": "بارگذاری (پیش‌فرض)",
+          "loadingCustom": "بارگذاری (سفارشی)",
+          "errorDefault": "خطا (پیش‌فرض)",
+          "errorCustom": "خطا (سفارشی)",
+          "forbidden": "ممنوع"
+        },
+        "message": "هیچ سفارشی با فیلترهای شما مطابقت ندارد.",
+        "message1": "در حال دریافت محموله‌ها…",
+        "message2": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید.",
+        "emptyDefault": "خالی (پیش‌فرض)",
+        "emptyCustom": "خالی (سفارشی)",
+        "loadingDefault": "بارگذاری (پیش‌فرض)",
+        "loadingCustom": "بارگذاری (سفارشی)",
+        "errorDefault": "خطا (پیش‌فرض)",
+        "errorCustom": "خطا (سفارشی)",
+        "forbidden": "ممنوع",
+        "emptyCustomMessage": "هیچ سفارشی با فیلترهای شما مطابقت ندارد.",
+        "loadingCustomMessage": "در حال دریافت محموله‌ها…",
+        "errorCustomMessage": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید."
+      },
+      "baseAlertAnimations": {
+        "title": "هشدار پایه — انیمیشن‌ها",
+        "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
+        "message": "بسته شما در راه است."
+      },
+      "baseAlertIconsSituations": {
+        "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
+        "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
+        "labels": {
+          "offline": "آفلاین",
+          "serviceDown": "سرویس از دسترس خارج",
+          "emptyInbox": "صندوق ورودی خالی",
+          "noDocuments": "بدون سند",
+          "sessionExpired": "نشست منقضی شده",
+          "maintenance": "تعمیر و نگهداری",
+          "notificationsOff": "اعلان‌ها خاموش",
+          "allCaughtUp": "همه چیز به‌روز است",
+          "emptyWarehouse": "انبار خالی",
+          "accessBlocked": "دسترسی مسدود"
+        },
+        "message": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
+        "message1": "سرویس به‌طور موقت در دسترس نیست.",
+        "message2": "صندوق ورودی شما خالی است.",
+        "message3": "هنوز سندی بارگذاری نشده است.",
+        "message4": "نشست منقضی شده است. دوباره وارد شوید.",
+        "message5": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
+        "message6": "اعلان‌ها غیرفعال هستند.",
+        "message7": "همه چیز به‌روز است!",
+        "message8": "موجودی در این انبار وجود ندارد.",
+        "message9": "این بخش نیاز به دسترسی مدیر دارد."
+      },
+      "baseAnimations": {
+        "title": "هشدار پایه — انیمیشن‌ها",
+        "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
+        "packageMessage": "بسته شما در راه است."
+      },
+      "iconsSituations": {
+        "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
+        "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
+        "offline": "آفلاین",
+        "serviceDown": "سرویس از دسترس خارج",
+        "emptyInbox": "صندوق ورودی خالی",
+        "noDocuments": "بدون سند",
+        "sessionExpired": "نشست منقضی شده",
+        "maintenance": "تعمیر و نگهداری",
+        "notificationsOff": "اعلان‌ها خاموش",
+        "allCaughtUp": "همه چیز به‌روز است",
+        "emptyWarehouse": "انبار خالی",
+        "accessBlocked": "دسترسی مسدود",
+        "offlineMessage": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
+        "serviceDownMessage": "سرویس به‌طور موقت در دسترس نیست.",
+        "emptyInboxMessage": "صندوق ورودی شما خالی است.",
+        "noDocumentsMessage": "هنوز سندی بارگذاری نشده است.",
+        "sessionExpiredMessage": "نشست منقضی شده است. دوباره وارد شوید.",
+        "maintenanceMessage": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
+        "notificationsOffMessage": "اعلان‌ها غیرفعال هستند.",
+        "allCaughtUpMessage": "همه چیز به‌روز است!",
+        "emptyWarehouseMessage": "موجودی در این انبار وجود ندارد.",
+        "accessBlockedMessage": "این بخش نیاز به دسترسی مدیر دارد."
+      },
+      "animations": {
+        "jumpIn": "پرش به داخل (پیش‌فرض)",
+        "shake": "لرزش",
+        "bounceIn": "پرش ورودی",
+        "flipUp": "چرخش به بالا",
+        "none": "بدون انیمیشن"
+      }
+    },
+    "auth": {
+      "authLayout": {
+        "title": "چیدمان احراز هویت",
+        "signIn": "ورود",
+        "description": "AuthLayout از @/components/layout/auth"
+      }
+    },
+    "avatar": {
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "UserAvatar از @/components/common/avatar."
+      },
+      "fallbackInitials": {
+        "title": "حروف اول جایگزین"
+      }
+    },
+    "badges": {
+      "severitiesFilled": {
+        "title": "شدت‌ها (پر)"
+      },
+      "severitiesOutline": {
+        "title": "شدت‌ها (حاشیه‌دار)"
+      },
+      "sizesWide": {
+        "title": "اندازه‌ها (عریض)"
+      },
+      "variants": {
+        "title": "گونه‌ها",
+        "labels": {
+          "wideDefault": "عریض (پیش‌فرض)",
+          "circleDotIndicators": "دایره (نشانگر نقطه‌ای)",
+          "square": "مربع"
+        },
+        "wideDefault": "عریض (پیش‌فرض)",
+        "circleDot": "دایره (نشانگر نقطه‌ای)",
+        "square": "مربع",
+        "outline": "حاشیه‌دار",
+        "ghost": "شبح"
+      },
+      "modifiers": {
+        "title": "اصلاح‌گرها",
+        "labels": {
+          "withShadow": "با سایه",
+          "withRingHoverToSee": "با حلقه (برای دیدن هاور کنید)",
+          "highlight": "برجسته",
+          "disabled": "غیرفعال"
+        },
+        "withShadow": "با سایه",
+        "withRing": "با حلقه (برای دیدن هاور کنید)",
+        "highlight": "برجسته",
+        "disabled": "غیرفعال",
+        "highlighted": "برجسته‌شده",
+        "outlineHighlight": "حاشیه‌دار + برجسته"
+      },
+      "combinations": {
+        "title": "ترکیب‌ها",
+        "largeOutline": "حاشیه‌دار بزرگ",
+        "smallSquare": "مربع کوچک",
+        "highlight2xl": "برجسته ۲XL"
+      }
+    },
+    "banner": {
+      "withImage": {
+        "title": "با تصویر",
+        "description": "Banner از @/components/common/banner.",
+        "heading": "بنر خوش‌آمدگویی",
+        "subheading": "سطح تبلیغاتی با تصویر پس‌زمینه."
+      },
+      "contentOnly": {
+        "title": "فقط محتوا",
+        "content": "بدون تصویر — پس‌زمینه گرادیان / یکدست از طریق className."
+      }
+    },
+    "cards": {
+      "defaultCard": {
+        "title": "کارت پیش‌فرض",
+        "cardTitle": "نمای کلی پروژه",
+        "cardDescription": "پیشرفت داشبوردهای فعال خود را پیگیری کنید.",
+        "cardContent": "کارت‌ها با استفاده از توکن‌های معنادار سیستم طراحی شما با تم روشن و تاریک سازگار می‌شوند.",
+        "viewDetails": "مشاهده جزئیات",
+        "dismiss": "بستن"
+      },
+      "variants": {
+        "title": "گونه‌ها",
+        "default": "پیش‌فرض",
+        "outline": "حاشیه‌دار",
+        "ghost": "شبح"
+      }
+    },
+    "carousel": {
+      "slides": {
+        "title": "اسلایدها",
+        "slide": "اسلایدها"
+      }
+    },
+    "charts": {
+      "bar": {
+        "title": "میله‌ای"
+      },
+      "pie": {
+        "title": "دایره‌ای"
+      },
+      "doughnut": {
+        "title": "حلقه‌ای",
+        "done": "انجام‌شده",
+        "pending": "در انتظار"
+      }
+    },
+    "chips": {
+      "basicChips": {
+        "title": "چیپ‌های پایه",
+        "labels": {
+          "default": "پیش‌فرض",
+          "active": "فعال",
+          "muted": "کمرنگ"
+        }
+      },
+      "removableTags": {
+        "title": "برچسب‌های قابل حذف"
+      },
+      "customContent": {
+        "title": "محتوای سفارشی",
+        "custom": "سفارشی",
+        "slotContent": " · محتوای slot"
+      },
+      "basic": {
+        "title": "چیپ‌های پایه",
+        "default": "پیش‌فرض",
+        "active": "فعال",
+        "muted": "کمرنگ"
+      }
+    },
+    "collapsible": {
+      "expandableBlock": {
+        "title": "بلوک قابل گسترش",
+        "trigger": "جزئیات",
+        "content": "محتوای پنهان با فعال‌سازی تریگر نمایش داده می‌شود."
+      }
+    },
+    "context-menu": {
+      "rightClickMenu": {
+        "title": "منوی کلیک راست",
+        "trigger": "اینجا کلیک راست کنید",
+        "copy": "کپی",
+        "paste": "چسباندن",
+        "delete": "حذف"
+      }
+    },
+    "dashboard": {
+      "dashboardLayout": {
+        "title": "چیدمان داشبورد",
+        "descriptionPrefix": "شما این صفحه را درون پوسته زنده داشبورد از ",
+        "descriptionMiddle": " (سایدبار تاشو، سرصفحه، مسیر راهنما) مشاهده می‌کنید. آیکون سایدبار را بزنید یا عرض را زیر md کاهش دهید تا منوی شیت موبایل باز شود.",
+        "descriptionSuffix": "@/components/layout/dashboard"
+      }
+    },
+    "divider": {
+      "horizontal": {
+        "title": "افقی",
+        "sectionAbove": "بخش بالا",
+        "sectionBelow": "بخش پایین"
+      },
+      "vertical": {
+        "title": "عمودی",
+        "left": "چپ",
+        "right": "راست"
+      },
+      "customMargin": {
+        "title": "حاشیه سفارشی"
+      }
+    },
+    "errors": {
+      "usedataerrorhandlerLoading": {
+        "title": "useDataErrorHandler — بارگذاری"
+      },
+      "empty": {
+        "title": "خالی"
+      },
+      "error": {
+        "title": "خطا",
+        "networkFailed": "درخواست شبکه ناموفق بود"
+      },
+      "forbidden": {
+        "title": "دسترسی ممنوع"
+      },
+      "successState": {
+        "title": "حالت موفقیت",
+        "dataLoaded": "داده‌ها با موفقیت بارگذاری شد."
+      },
+      "alertErrorPrimitive": {
+        "title": "Alert.Error (اولیه)",
+        "message": "هشدار خطای مستقل از ماژول alert."
+      },
+      "loading": {
+        "title": "useDataErrorHandler — بارگذاری"
+      },
+      "alertError": {
+        "title": "Alert.Error (اولیه)",
+        "message": "هشدار خطای مستقل از ماژول alert."
+      }
+    },
+    "fadeable": {
+      "visibilityToggle": {
+        "title": "تغییر نمایش",
+        "hide": "پنهان",
+        "show": "نمایش",
+        "content": "محتوا با محو شدن ظاهر و ناپدید می‌شود"
+      }
+    },
+    "file-uploader": {
+      "dropZone": {
+        "title": "ناحیه رها کردن"
+      }
+    },
+    "flex": {
+      "row": {
+        "title": "ردیف",
+        "one": "یک",
+        "two": "دو",
+        "three": "سه"
+      },
+      "column": {
+        "title": "ستون",
+        "a": "فاصله بین",
+        "b": "فاصله بین"
+      },
+      "spaceBetween": {
+        "title": "فاصله بین",
+        "start": "شروع",
+        "end": "پایان"
+      }
+    },
+    "form": {
+      "reactHookFormInputs": {
+        "title": "react-hook-form + ورودی‌ها",
+        "description": "همان اجزای پایه‌ای که FormField در @/components/compound/form استفاده می‌کند.",
+        "labels": {
+          "title": "عنوان",
+          "iAgree": "موافقم"
+        }
+      },
+      "reactHookForm": {
+        "title": "react-hook-form + ورودی‌ها",
+        "description": "همان اجزای پایه‌ای که FormField در @/components/compound/form استفاده می‌کند.",
+        "titleLabel": "عنوان",
+        "agreeLabel": "موافقم",
+        "titleRequired": "عنوان الزامی است",
+        "submit": "ارسال",
+        "submittedToast": "ارسال شد: {{title}}"
+      }
+    }
+  }
+}

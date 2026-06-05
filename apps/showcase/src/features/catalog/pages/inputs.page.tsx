@@ -8,6 +8,7 @@ import {
   PoundSterling,
 } from "lucide-react";
 import { Button } from "@/components/common/buttons";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { DeferredMount } from "@/features/catalog/ui/deferred-mount";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
@@ -33,59 +34,6 @@ import type {
 import { cn } from "@dash/core/utils";
 
 const DEMO_WIDTH = 320;
-
-const FLAT_OPTIONS: SelectItem[] = [
-  { label: "Tehran", value: "tehran", description: "Capital" },
-  { label: "Isfahan", value: "isfahan" },
-  { label: "Shiraz", value: "shiraz" },
-  { label: "Tabriz", value: "tabriz", disabled: true },
-  { label: "Mashhad", value: "mashhad", icon: <AtSign className="size-4" /> },
-  { label: "Rasht", value: "rasht" },
-  { label: "Kerman", value: "kerman" },
-  { label: "Khorasan", value: "khorasan" },
-  { label: "Khuzestan", value: "khuzestan" },
-  { label: "Kohgiluyeh and Buyer Ahmad", value: "kohgiluyeh and buyer ahmad" },
-  { label: "Kurdistan", value: "kurdistan" },
-  { label: "Lorestan", value: "lorestan" },
-  { label: "Markazi", value: "markazi" },
-];
-
-const TREE_OPTIONS: TreeSelectItem[] = [
-  {
-    label: "Fruits",
-    value: "fruits",
-    children: [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-  },
-  {
-    label: "Vegetables",
-    value: "vegetables",
-    children: [
-      { label: "Carrot", value: "carrot" },
-      { label: "Potato", value: "potato" },
-    ],
-  },
-];
-
-const WEIGHT_PRESETS = [
-  { label: "0–10 kg", value: { from: 0, to: 10 } },
-  { label: "10–50 kg", value: { from: 10, to: 50 } },
-  { label: "50+ kg", value: { from: 50, to: 100 } },
-] as const;
-
-const RADIO_OPTIONS = [
-  { name: "a", label: "Option A" },
-  { name: "b", label: "Option B" },
-  { name: "c", label: "Option C" },
-] as const;
-
-const RADIO_OPTIONS_WITH_ICON = [
-  { name: "a", label: "Dollar", icon: <DollarSign className="size-4" /> },
-  { name: "b", label: "Euro", icon: <Euro className="size-4" /> },
-  { name: "c", label: "Pound", icon: <PoundSterling className="size-4" /> },
-] as const;
 
 const SWITCH_SEVERITIES = [
   "primary",
@@ -124,9 +72,11 @@ async function copyOtpSample(text: string) {
 function OtpPasteDemo({
   sample,
   children,
+  copyLabel,
 }: {
   sample: string;
   children: ReactNode;
+  copyLabel: string;
 }) {
   return (
     <div className="flex flex-wrap items-end gap-3">
@@ -135,11 +85,10 @@ function OtpPasteDemo({
         type="button"
         variant="outlined"
         size="md"
-        // icon={<Copy className="size-4" />}
         onClick={() => void copyOtpSample(sample)}
       >
         <Copy className="size-4" />
-        Copy {sample}
+        {copyLabel}
       </Button>
     </div>
   );
@@ -182,10 +131,73 @@ function PropsPre({ children }: { children: string }) {
 }
 
 export function InputsPage() {
-  const [text, setText] = useState("Hello");
+  const p = useShowcasePage("inputs");
+
+  const flatOptions: SelectItem[] = [
+    {
+      label: p("demo.cities.tehran"),
+      value: "tehran",
+      description: p("demo.cities.capital"),
+    },
+    { label: p("demo.cities.isfahan"), value: "isfahan" },
+    { label: p("demo.cities.shiraz"), value: "shiraz" },
+    { label: p("demo.cities.tabriz"), value: "tabriz", disabled: true },
+    {
+      label: p("demo.cities.mashhad"),
+      value: "mashhad",
+      icon: <AtSign className="size-4" />,
+    },
+    { label: p("demo.cities.rasht"), value: "rasht" },
+    { label: p("demo.cities.kerman"), value: "kerman" },
+    { label: p("demo.cities.khorasan"), value: "khorasan" },
+    { label: p("demo.cities.khuzestan"), value: "khuzestan" },
+    { label: p("demo.cities.kohgiluyeh"), value: "kohgiluyeh and buyer ahmad" },
+    { label: p("demo.cities.kurdistan"), value: "kurdistan" },
+    { label: p("demo.cities.lorestan"), value: "lorestan" },
+    { label: p("demo.cities.markazi"), value: "markazi" },
+  ];
+
+  const treeOptions: TreeSelectItem[] = [
+    {
+      label: p("demo.fruits.fruits"),
+      value: "fruits",
+      children: [
+        { label: p("demo.fruits.apple"), value: "apple" },
+        { label: p("demo.fruits.banana"), value: "banana" },
+      ],
+    },
+    {
+      label: p("demo.fruits.vegetables"),
+      value: "vegetables",
+      children: [
+        { label: p("demo.vegetables.carrot"), value: "carrot" },
+        { label: p("demo.vegetables.potato"), value: "potato" },
+      ],
+    },
+  ];
+
+  const weightPresets = [
+    { label: p("weightInput.presets.zeroTen"), value: { from: 0, to: 10 } },
+    { label: p("weightInput.presets.tenFifty"), value: { from: 10, to: 50 } },
+    { label: p("weightInput.presets.fiftyPlus"), value: { from: 50, to: 100 } },
+  ] as const;
+
+  const radioOptions = [
+    { name: "a", label: p("options.optionA") },
+    { name: "b", label: p("options.optionB") },
+    { name: "c", label: p("options.optionC") },
+  ] as const;
+
+  const radioOptionsWithIcon = [
+    { name: "a", label: p("labels.dollar"), icon: <DollarSign className="size-4" /> },
+    { name: "b", label: p("labels.euro"), icon: <Euro className="size-4" /> },
+    { name: "c", label: p("labels.pound"), icon: <PoundSterling className="size-4" /> },
+  ] as const;
+
+  const [text, setText] = useState(p("values.hello"));
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("09121234567");
-  const [textarea, setTextarea] = useState("Notes…");
+  const [textarea, setTextarea] = useState(p("values.notes"));
   const [checked, setChecked] = useState(true);
   const [cardChecked, setCardChecked] = useState(false);
   const [switchOn, setSwitchOn] = useState(true);
@@ -197,7 +209,6 @@ export function InputsPage() {
   const [otp, setOtp] = useState("");
   const [otpPaste, setOtpPaste] = useState("");
   const [otpTextPaste, setOtpTextPaste] = useState("ABC12");
-  const [radio, setRadio] = useState<string | number>("a");
   const [single, setSingle] = useState<string | number | undefined>("tehran");
   const [multi, setMulti] = useState<(string | number)[]>(["tehran"]);
   const [singleTree, setSingleTree] = useState<string | number | undefined>(
@@ -216,72 +227,71 @@ export function InputsPage() {
 
   return (
     <CatalogPageShell slug="inputs">
-      {/* Text */}
       <ShowcaseSection
-        title="TextInput"
-        description="Floating label text field with status, prefix, sizes, and native input attributes."
+        title={p("textInput.title")}
+        description={p("textInput.description")}
         layout="stack"
         contentClassName="gap-6"
       >
-        <ShowcaseRow label="Default & controlled">
+        <ShowcaseRow label={p("rows.defaultControlled")}>
           <TextInput
-            label="Username"
+            label={p("labels.username")}
             value={text}
             onChange={setText}
             width={DEMO_WIDTH}
           />
         </ShowcaseRow>
-        <ShowcaseRow label="status & message">
+        <ShowcaseRow label={p("rows.statusMessage")}>
           <TextInput
-            label="Success"
+            label={p("labels.success")}
             status="success"
-            message="Looks good!"
+            message={p("messages.looksGood")}
             width={DEMO_WIDTH}
           />
           <TextInput
-            label="Error"
+            label={p("labels.error")}
             status="error"
-            message="Required field"
+            message={p("messages.requiredField")}
             width={DEMO_WIDTH}
           />
           <TextInput
-            label="Warning"
+            label={p("labels.warning")}
             status="warning"
-            message="Check format"
+            message={p("messages.checkFormat")}
             width={DEMO_WIDTH}
           />
         </ShowcaseRow>
 
-        <ShowcaseRow label="States">
-          <TextInput label="Loading" isLoading width={DEMO_WIDTH} />
+        <ShowcaseRow label={p("rows.states")}>
+          <TextInput label={p("labels.loading")} isLoading width={DEMO_WIDTH} />
           <TextInput
-            label="Disabled"
+            label={p("labels.disabled")}
             disabled
-            value="Cannot edit"
+            value={p("values.cannotEdit")}
             width={DEMO_WIDTH}
           />
           <TextInput
-            label="Read only"
+            label={p("labels.readOnly")}
             readOnly
-            value="Read only"
+            value={p("values.readOnly")}
             width={DEMO_WIDTH}
           />
-          <TextInput label="Required" required width={DEMO_WIDTH} />
+          <TextInput label={p("labels.required")} required width={DEMO_WIDTH} />
         </ShowcaseRow>
-        <ShowcaseRow label="prefix . suffix . helperText">
+        <ShowcaseRow label={p("rows.prefixSuffixHelper")}>
           <TextInput
-            label="With prefix"
+            label={p("labels.withPrefix")}
             prefix={<Search className="size-6 text-muted-foreground" />}
             width={DEMO_WIDTH}
           />
           <TextInput
-            label="With suffix"
+            label={p("labels.withSuffix")}
             suffix={<Search className="mx-2 size-6 text-muted-foreground" />}
             width={DEMO_WIDTH}
           />
           <TextInput
-            label="Helper text"
-            helperText="We never share your email."
+            label={p("labels.helperText")}
+            helperText={p("helperTexts.neverShareEmail")}
             showMessage={false}
             width={DEMO_WIDTH}
           />
@@ -289,95 +299,94 @@ export function InputsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="PasswordInput"
-        description="TextInput with visibility toggle (passShow initial state)."
+        title={p("passwordInput.title")}
+        description={p("passwordInput.description")}
         layout="stack"
       >
         <PasswordInput
-          label="Password"
+          label={p("labels.password")}
           value={password}
           onChange={setPassword}
           passShow={false}
           width={DEMO_WIDTH}
         />
         <PasswordInput
-          label="Visible by default"
+          label={p("labels.visibleByDefault")}
           passShow
           status="success"
-          message="Strong password"
+          message={p("messages.strongPassword")}
           width={DEMO_WIDTH}
         />
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="PhoneInput"
-        description="Iranian mobile format (09xxxxxxxxx) with icon prefix."
+        title={p("phoneInput.title")}
+        description={p("phoneInput.description")}
         layout="stack"
       >
         <PhoneInput
-          label="Mobile"
+          label={p("labels.mobile")}
           value={phone}
           onChange={setPhone}
           width={DEMO_WIDTH}
         />
         <PhoneInput
-          label="Invalid"
+          label={p("labels.invalid")}
           value="123"
           status="error"
-          message="Enter a valid mobile number"
+          message={p("messages.validMobile")}
           width={DEMO_WIDTH}
         />
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="TextareaInput"
-        description="Multi-line field with floating label container."
+        title={p("textareaInput.title")}
+        description={p("textareaInput.description")}
         layout="stack"
       >
-        <ShowcaseRow label="States">
+        <ShowcaseRow label={p("rows.states")}>
           <TextareaInput
-            label="Description"
+            label={p("labels.description")}
             value={textarea}
             onChange={setTextarea}
             rows={4}
             width={DEMO_WIDTH}
           />
           <TextareaInput
-            label="Error state"
+            label={p("labels.errorState")}
             status="error"
-            message="Too short"
+            message={p("messages.tooShort")}
             rows={3}
             width={DEMO_WIDTH}
           />
           <TextareaInput
-            label="Disabled"
+            label={p("labels.disabled")}
             disabled
-            value="Locked content"
+            value={p("values.lockedContent")}
             rows={2}
             width={DEMO_WIDTH}
           />
         </ShowcaseRow>
-        <ShowcaseRow label="Full width">
-          <TextareaInput label="Full width" />
+        <ShowcaseRow label={p("labels.fullWidth")}>
+          <TextareaInput label={p("labels.fullWidth")} />
         </ShowcaseRow>
       </ShowcaseSection>
 
-      {/* Number */}
       <ShowcaseSection
-        title="NumberInput"
-        description="Numeric field with optional stepper buttons and prefix."
+        title={p("numberInput.title")}
+        description={p("numberInput.description")}
         layout="stack"
         contentClassName="gap-6"
       >
         <NumberInput
-          label="Quantity"
+          label={p("labels.quantity")}
           value={number}
           onChange={(v) => v !== undefined && setNumber(v)}
           step={1}
           width={DEMO_WIDTH}
         />
         <NumberInput
-          label="With steppers"
+          label={p("labels.withSteppers")}
           value={number}
           onChange={(v) => v !== undefined && setNumber(v)}
           buttonsVisible
@@ -387,115 +396,127 @@ export function InputsPage() {
           width={DEMO_WIDTH}
         />
         <NumberInput
-          label="suffix slot"
+          label={p("labels.suffixSlot")}
           suffix={
-            <span className="px-2 text-xs text-muted-foreground">kg</span>
+            <span className="px-2 text-xs text-muted-foreground">
+              {p("numberInput.suffix.kg")}
+            </span>
           }
           width={DEMO_WIDTH}
         />
-        <NumberInput label="Disabled" disabled value={10} width={DEMO_WIDTH} />
+        <NumberInput
+          label={p("labels.disabled")}
+          disabled
+          value={10}
+          width={DEMO_WIDTH}
+        />
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="NumberRangeInput"
-        description="From / to numeric range with optional min, max, and custom labels."
+        title={p("numberRangeInput.title")}
+        description={p("numberRangeInput.description")}
         layout="stack"
       >
         <NumberRangeInput
-          label="Price range"
+          label={p("labels.priceRange")}
           value={range}
           onChange={setRange}
           min={0}
           max={1000}
-          fromLabel="Min"
-          toLabel="Max"
+          fromLabel={p("numberRangeInput.fromLabel")}
+          toLabel={p("numberRangeInput.toLabel")}
           width={DEMO_WIDTH}
         />
         <NumberRangeInput
-          label="Error"
+          label={p("labels.error")}
           status="error"
-          message="Invalid range"
+          message={p("messages.invalidRange")}
           width={DEMO_WIDTH}
         />
       </ShowcaseSection>
 
-      {/* Checkbox */}
       <ShowcaseSection
-        title="Checkbox.Basic"
-        description="Icon checkbox with indeterminate, loading, boxed layout, and form attrs."
+        title={p("checkboxBasic.title")}
+        description={p("checkboxBasic.description")}
         layout="stack"
         contentClassName="gap-6"
       >
-        <ShowcaseRow label="States">
+        <ShowcaseRow label={p("checkboxBasic.rows.states")}>
           <Checkbox.Basic
             checked={checked}
             onChange={setChecked}
-            label="Controlled"
+            label={p("checkboxBasic.labels.controlled")}
           />
-          <Checkbox.Basic halfChecked label="Indeterminate" />
-          <Checkbox.Basic loading label="Loading" />
-          <Checkbox.Basic disabled label="Disabled" />
-          <Checkbox.Basic checked disabled label="Disabled checked" />
+          <Checkbox.Basic
+            halfChecked
+            label={p("checkboxBasic.labels.indeterminate")}
+          />
+          <Checkbox.Basic loading label={p("checkboxBasic.labels.loading")} />
+          <Checkbox.Basic disabled label={p("checkboxBasic.labels.disabled")} />
+          <Checkbox.Basic
+            checked
+            disabled
+            label={p("checkboxBasic.labels.disabledChecked")}
+          />
         </ShowcaseRow>
-        <ShowcaseRow label="boxed · description · width">
+        <ShowcaseRow label={p("checkboxBasic.rows.boxedDescriptionWidth")}>
           <Checkbox.Basic
             boxed
             checked
-            label="Boxed"
-            description="Extra description text"
+            label={p("checkboxBasic.labels.boxed")}
+            description={p("descriptions.extraDescription")}
             width={280}
           />
         </ShowcaseRow>
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Checkbox.Labeled"
-        description="Label position left | right and container class names."
+        title={p("checkboxLabeled.title")}
+        description={p("checkboxLabeled.description")}
       >
-        <Checkbox.Labeled label="Label right (default)" checked />
+        <Checkbox.Labeled label={p("checkboxLabeled.labels.labelRight")} checked />
         <Checkbox.Labeled
-          label="Label left"
+          label={p("checkboxLabeled.labels.labelLeft")}
           labelPosition="left"
-          description="Supporting text"
+          description={p("checkboxLabeled.descriptions.supportingText")}
         />
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="Checkbox.Card"
-        description="Card layout with title, subTitle, and custom className slots."
+        title={p("checkboxCard.title")}
+        description={p("checkboxCard.description")}
         layout="stack"
       >
         <Checkbox.Card
-          title="Premium plan"
-          subTitle="Billed annually"
+          title={p("checkboxCard.titles.premiumPlan")}
+          subTitle={p("checkboxCard.subtitles.billedAnnually")}
           checked={cardChecked}
           onChange={setCardChecked}
           width={DEMO_WIDTH}
         />
         <Checkbox.Card
-          title="Disabled"
-          subTitle="Unavailable"
+          title={p("checkboxCard.titles.disabled")}
+          subTitle={p("checkboxCard.subtitles.unavailable")}
           disabled
           width={DEMO_WIDTH}
         />
       </ShowcaseSection>
 
-      {/* Switch */}
       <ShowcaseSection
-        title="Switch"
-        description="severity and size scale the track and thumb colors."
+        title={p("switch.title")}
+        description={p("switch.description")}
         layout="stack"
         contentClassName="gap-6"
       >
-        <ShowcaseRow label="Controlled">
+        <ShowcaseRow label={p("switch.rows.controlled")}>
           <Switch active={switchOn} onChange={setSwitchOn} id="demo-switch" />
         </ShowcaseRow>
-        <ShowcaseRow label="severity (active)">
+        <ShowcaseRow label={p("switch.rows.severityActive")}>
           {SWITCH_SEVERITIES.map((severity) => (
             <Switch key={severity} severity={severity} active />
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="size">
+        <ShowcaseRow label={p("switch.rows.size")}>
           {SWITCH_SIZES.map((size) => (
             <Switch key={size} size={size} active />
           ))}
@@ -503,64 +524,63 @@ export function InputsPage() {
       </ShowcaseSection>
 
       <ShowcaseSection
-        title="SwitchField"
-        description="Switch inside LabelContainer; use value for controlled state."
+        title={p("switchField.title")}
+        description={p("switchField.description")}
         layout="stack"
         contentClassName="gap-4"
       >
         <SwitchField
-          label="Notifications"
+          label={p("labels.notifications")}
           value={switchField}
           onChange={setSwitchField}
           width={DEMO_WIDTH}
         />
         <SwitchField
-          label="With message"
+          label={p("labels.withMessage")}
           value={true}
           status="success"
-          message="Enabled"
+          message={p("messages.enabled")}
           width={DEMO_WIDTH}
         />
       </ShowcaseSection>
 
-      {/* Radio & OTP */}
       <ShowcaseSection
-        title="RadioInput"
-        description="Option groups: direction, size, showCircle, width."
+        title={p("radioInput.title")}
+        description={p("radioInput.description")}
         layout="stack"
         contentClassName="gap-6"
       >
-        <ShowcaseRow label="direction">
+        <ShowcaseRow label={p("radioInput.rows.direction")}>
           <RadioInput
-            options={RADIO_OPTIONS}
+            options={radioOptions}
             defaultValue="a"
             direction="vertical"
             width={DEMO_WIDTH}
           />
           <RadioInput
-            options={RADIO_OPTIONS}
+            options={radioOptions}
             defaultValue="a"
             direction="horizontal"
             width={DEMO_WIDTH}
           />
         </ShowcaseRow>
 
-        <ShowcaseRow label="size">
+        <ShowcaseRow label={p("radioInput.rows.size")}>
           {[...RADIO_SIZES].reverse().map((size) => (
             <RadioInput
               key={size}
               size={size}
               defaultValue="a"
-              options={RADIO_OPTIONS}
+              options={radioOptions}
               width={DEMO_WIDTH}
               direction="vertical"
             />
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="icon">
+        <ShowcaseRow label={p("radioInput.rows.icon")}>
           <RadioInput
             defaultValue="a"
-            options={RADIO_OPTIONS_WITH_ICON}
+            options={radioOptionsWithIcon}
             width={DEMO_WIDTH}
             direction="horizontal"
             size="lg"
@@ -568,21 +588,20 @@ export function InputsPage() {
         </ShowcaseRow>
       </ShowcaseSection>
 
-      {/* OTP */}
       <ShowcaseSection
-        title="OTPInput"
-        description="Fixed-size cells — size: sm | md | lg, width constrains the row (default md)."
+        title={p("otpInput.title")}
+        description={p("otpInput.description")}
         layout="stack"
         contentClassName="gap-6"
       >
         <OTPInput
-          label="Verification code (md, width 280)"
+          label={p("otpInput.labels.verificationCode")}
           value={otp}
           onChange={setOtp}
           length={6}
           width={280}
         />
-        <ShowcaseRow label="size">
+        <ShowcaseRow label={p("otpInput.rows.size")}>
           {OTP_SIZES.map((size) => (
             <OTPInput
               key={size}
@@ -594,9 +613,9 @@ export function InputsPage() {
             />
           ))}
         </ShowcaseRow>
-        <ShowcaseRow label="length · numericOnly">
+        <ShowcaseRow label={p("otpInput.rows.lengthNumericOnly")}>
           <OTPInput
-            label="4 digits"
+            label={p("otpInput.labels.fourDigits")}
             length={4}
             size="sm"
             numericOnly
@@ -605,10 +624,13 @@ export function InputsPage() {
             onChange={() => {}}
           />
         </ShowcaseRow>
-        <ShowcaseRow label="copy · paste" direction="vertical">
-          <OtpPasteDemo sample={OTP_PASTE_SAMPLES.numeric}>
+        <ShowcaseRow label={p("otpInput.rows.copyPaste")} direction="vertical">
+          <OtpPasteDemo
+            sample={OTP_PASTE_SAMPLES.numeric}
+            copyLabel={p("buttons.copySample", { sample: OTP_PASTE_SAMPLES.numeric })}
+          >
             <OTPInput
-              label="just focus on any otp cell and paste, you can use ctrl+v or cmd+v"
+              label={p("otpInput.labels.pasteFocus")}
               length={6}
               numericOnly
               value={otpPaste}
@@ -617,9 +639,14 @@ export function InputsPage() {
               width={280}
             />
           </OtpPasteDemo>
-          <OtpPasteDemo sample={OTP_PASTE_SAMPLES.numericBlocked}>
+          <OtpPasteDemo
+            sample={OTP_PASTE_SAMPLES.numericBlocked}
+            copyLabel={p("buttons.copySample", {
+              sample: OTP_PASTE_SAMPLES.numericBlocked,
+            })}
+          >
             <OTPInput
-              label="paste disabled"
+              label={p("otpInput.labels.pasteDisabled")}
               length={6}
               allowPaste={false}
               numericOnly
@@ -629,9 +656,14 @@ export function InputsPage() {
               width={280}
             />
           </OtpPasteDemo>
-          <OtpPasteDemo sample={OTP_PASTE_SAMPLES.alphanumeric}>
+          <OtpPasteDemo
+            sample={OTP_PASTE_SAMPLES.alphanumeric}
+            copyLabel={p("buttons.copySample", {
+              sample: OTP_PASTE_SAMPLES.alphanumeric,
+            })}
+          >
             <OTPInput
-              label="copy · alphanumeric paste"
+              label={p("otpInput.labels.alphanumericPaste")}
               length={6}
               numericOnly={false}
               value={otpTextPaste}
@@ -641,7 +673,7 @@ export function InputsPage() {
             />
           </OtpPasteDemo>
         </ShowcaseRow>
-        <ShowcaseRow label="status (sm)">
+        <ShowcaseRow label={p("otpInput.rows.statusSm")}>
           {OTP_STATUSES.map((status) => (
             <OTPInput
               key={status}
@@ -655,7 +687,7 @@ export function InputsPage() {
           ))}
         </ShowcaseRow>
         <OTPInput
-          label="Loading"
+          label={p("otpInput.labels.loading")}
           isLoading
           length={6}
           width={DEMO_WIDTH}
@@ -663,66 +695,64 @@ export function InputsPage() {
           autoFocus={false}
         />
         <OTPInput
-          label="Disabled"
+          label={p("otpInput.labels.disabled")}
           disabled
           length={6}
           size="lg"
-          // width={DEMO_WIDTH}
           value="123456"
         />
       </ShowcaseSection>
 
       <DeferredMount minHeight={480}>
-        {/* Select — deferred: Radix popovers + virtualized lists */}
         <ShowcaseSection
-          title="Select.Single"
-          description="Single value dropdown with search, loading, and virtualized list."
+          title={p("selectSingle.title")}
+          description={p("selectSingle.description")}
           layout="stack"
           contentClassName="gap-4"
         >
           <Select.Single
-            label="City"
-            options={FLAT_OPTIONS}
+            label={p("labels.city")}
+            options={flatOptions}
             value={single}
             onChange={setSingle}
             filter
             width={DEMO_WIDTH}
           />
           <Select.Single
-            label="Loading"
-            options={FLAT_OPTIONS}
+            label={p("labels.loading")}
+            options={flatOptions}
             loading
             width={DEMO_WIDTH}
           />
           <Select.Single
-            label="Disabled"
-            options={FLAT_OPTIONS}
+            label={p("labels.disabled")}
+            options={flatOptions}
             disabled
             width={DEMO_WIDTH}
           />
           <Select.Single
-            label="Unclearable"
-            options={FLAT_OPTIONS}
+            label={p("labels.unclearable")}
+            options={flatOptions}
             value="tehran"
             unClearable
             width={DEMO_WIDTH}
           />
           <Select.Single
-            label="With defaultValueTitle"
-            options={FLAT_OPTIONS}
-            defaultValueTitle="Pick a city"
+            label={p("labels.withDefaultValueTitle")}
+            options={flatOptions}
+            defaultValueTitle={p("pickCity")}
             width={DEMO_WIDTH}
           />
         </ShowcaseSection>
 
         <ShowcaseSection
-          title="Select.Multi"
-          description="Multiple selection with chips and filter."
+          title={p("selectMulti.title")}
+          description={p("selectMulti.description")}
           layout="stack"
         >
           <Select.Multi
-            label="Cities"
-            options={FLAT_OPTIONS}
+            label={p("labels.cities")}
+            options={flatOptions}
             value={multi}
             onChange={setMulti}
             filter
@@ -732,13 +762,13 @@ export function InputsPage() {
         </ShowcaseSection>
 
         <ShowcaseSection
-          title="Select.SingleTree"
-          description="Hierarchical single select (openedAll expands nodes)."
+          title={p("selectSingleTree.title")}
+          description={p("selectSingleTree.description")}
           layout="stack"
         >
           <Select.SingleTree
-            label="Category"
-            options={TREE_OPTIONS}
+            label={p("labels.category")}
+            options={treeOptions}
             value={singleTree}
             onChange={setSingleTree}
             openedAll
@@ -748,13 +778,13 @@ export function InputsPage() {
         </ShowcaseSection>
 
         <ShowcaseSection
-          title="Select.MultiTree"
-          description="Tree with multiple selection."
+          title={p("selectMultiTree.title")}
+          description={p("selectMultiTree.description")}
           layout="stack"
         >
           <Select.MultiTree
-            label="Categories"
-            options={TREE_OPTIONS}
+            label={p("labels.categories")}
+            options={treeOptions}
             value={multiTree}
             onChange={setMultiTree}
             openedAll
@@ -764,13 +794,13 @@ export function InputsPage() {
         </ShowcaseSection>
 
         <ShowcaseSection
-          title="Select.MultiOrderable"
-          description="Drag-and-drop reorder multi-select (showChips, selected)."
+          title={p("selectMultiOrderable.title")}
+          description={p("selectMultiOrderable.description")}
           layout="stack"
         >
           <Select.MultiOrderable
-            label="Ordered cities"
-            options={FLAT_OPTIONS}
+            label={p("labels.orderedCities")}
+            options={flatOptions}
             labelType="count"
             selected={orderable}
             onChange={({ selected }) =>
@@ -778,67 +808,69 @@ export function InputsPage() {
             }
             showChips
             chipRowsCount={1}
-            heading="Priority"
-            subHeading="Drag to reorder"
+            heading={p("priority.heading")}
+            subHeading={p("priority.subHeading")}
             width={DEMO_WIDTH}
           />
         </ShowcaseSection>
 
-        {/* Date */}
         <ShowcaseSection
-          title="DateInput"
-          description="Persian calendar dialog: single, range, time, presets, and limits."
+          title={p("dateInput.title")}
+          description={p("dateInput.description")}
           layout="stack"
           contentClassName="gap-4"
         >
           <DateInput
-            label="Single date"
+            label={p("dateInput.labels.singleDate")}
             value={dateSingle}
             onChange={setDateSingle}
             width={DEMO_WIDTH}
           />
           <DateInput
-            label="Range"
+            label={p("dateInput.labels.range")}
             range
             value={dateRange}
             onChange={setDateRange}
             width={DEMO_WIDTH}
           />
           <DateInput
-            label="With time"
+            label={p("dateInput.labels.withTime")}
             withTime
             value={dateTime}
             onChange={setDateTime}
             width={DEMO_WIDTH}
           />
           <DateInput
-            label="Presets"
+            label={p("dateInput.labels.presets")}
             withPreset
             presets={[
-              { key: "1m", label: "1 month", months: 1 },
-              { key: "3m", label: "3 months", months: 3 },
+              { key: "1m", label: p("dateInput.presets.oneMonth"), months: 1 },
+              { key: "3m", label: p("dateInput.presets.threeMonths"), months: 3 },
             ]}
             width={DEMO_WIDTH}
           />
-          <DateInput label="Disabled" disabled width={DEMO_WIDTH} />
           <DateInput
-            label="Required · error"
+            label={p("dateInput.labels.disabled")}
+            disabled
+            width={DEMO_WIDTH}
+          />
+          <DateInput
+            label={p("dateInput.labels.requiredError")}
             required
-            error="Date is required"
+            error={p("dateInput.messages.dateRequired")}
             status="error"
             width={DEMO_WIDTH}
           />
         </ShowcaseSection>
 
-        {/* Weight & List */}
         <ShowcaseSection
-          title="WeightInput"
-          description="Range chips plus custom from/to fields inside select panel."
+          title={p("weightInput.title")}
+          description={p("weightInput.description")}
           layout="stack"
         >
           <WeightInput
-            label="Weight"
-            presets={[...WEIGHT_PRESETS]}
+            label={p("labels.weight")}
+            presets={[...weightPresets]}
             value={weight}
             onChange={setWeight}
             width={DEMO_WIDTH}
@@ -846,12 +878,12 @@ export function InputsPage() {
         </ShowcaseSection>
 
         <ShowcaseSection
-          title="List"
-          description="Virtualized selectable list (used inside selects; standalone demo)."
+          title={p("list.title")}
+          description={p("list.description")}
           layout="stack"
         >
           <List
-            data={FLAT_OPTIONS}
+            data={flatOptions}
             value={listValue}
             onChange={(item) => setListValue(item.value as string | number)}
             className="max-h-48 overflow-hidden rounded-lg border border-border"
@@ -860,8 +892,7 @@ export function InputsPage() {
         </ShowcaseSection>
       </DeferredMount>
 
-      {/* Props reference */}
-      <ShowcaseSection title="Props reference — TextInput" layout="stack">
+      <ShowcaseSection title={p("propsTextInput.title")} layout="stack">
         <PropsPre>
           {`id?, label?, labelClassName?, status?, message?, prefix?, showMessage?
 onChange?(string), isLoading?, required?, helperText?, wrapperClassName?
@@ -870,7 +901,7 @@ placeholder?, type?, maxLength?, value?, name?, autoComplete?, …HTML input att
         </PropsPre>
       </ShowcaseSection>
 
-      <ShowcaseSection title="Props reference — Select (shared)" layout="stack">
+      <ShowcaseSection title={p("propsSelect.title")} layout="stack">
         <PropsPre>
           {`options?, filter?, loading?, disabled?, label?, message?, status?
 width?, height?, contentWidth?, count?, searchInputPlaceholder?, onSearch?
@@ -880,7 +911,7 @@ className?: LabelContainerClassName (trigger, wrapper, dropdown, …)`}
         </PropsPre>
       </ShowcaseSection>
 
-      <ShowcaseSection title="Props reference — DateInput" layout="stack">
+      <ShowcaseSection title={p("propsDateInput.title")} layout="stack">
         <PropsPre>
           {`label?, value?: number[], onChange?(number[]), disabled?, withTime?
 withPreset?, autoClose?, withoutClear?, oneLineLabel?, range?, multiple?
@@ -890,10 +921,7 @@ limitedRange?, minDate?, maxDate?`}
         </PropsPre>
       </ShowcaseSection>
 
-      <ShowcaseSection
-        title="Props reference — Checkbox · Switch · OTP · Radio"
-        layout="stack"
-      >
+      <ShowcaseSection title={p("propsCheckbox.title")} layout="stack">
         <PropsPre>
           {`Checkbox.Basic: checked?, halfChecked?, onChange?, disabled?, loading?
 id?, name?, value?, label?, description?, boxed?, width?, minWidth?, …

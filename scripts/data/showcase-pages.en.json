@@ -1,0 +1,556 @@
+{
+  "grid": {
+    "responsiveSpans": {
+      "span2": "Span 2",
+      "title": "Responsive spans"
+    },
+    "threeColumns": {
+      "title": "3 columns"
+    }
+  },
+  "hover-card": {
+    "alignedStart": {
+      "description": "Aligned to start edge of trigger.",
+      "infoPreview": "Info preview",
+      "title": "Aligned start"
+    },
+    "triggerContent": {
+      "description": "Rich preview on pointer hover.",
+      "hoverCardTitle": "Hover card",
+      "hoverMe": "Hover me",
+      "title": "Trigger + content"
+    }
+  },
+  "inputs": {
+    "buttons": {
+      "copySample": "Copy {sample}"
+    },
+    "checkboxBasic": {
+      "description": "Icon checkbox with indeterminate, loading, boxed layout, and form attrs.",
+      "labels": {
+        "boxed": "Boxed",
+        "controlled": "Controlled",
+        "disabled": "Disabled",
+        "disabledChecked": "Disabled checked",
+        "indeterminate": "Indeterminate",
+        "loading": "Loading"
+      },
+      "rows": {
+        "boxedDescriptionWidth": "boxed · description · width",
+        "states": "States"
+      },
+      "title": "Checkbox.Basic"
+    },
+    "checkboxCard": {
+      "description": "Card layout with title, subTitle, and custom className slots.",
+      "subtitles": {
+        "billedAnnually": "Billed annually",
+        "unavailable": "Unavailable"
+      },
+      "titles": {
+        "disabled": "Disabled",
+        "premiumPlan": "Premium plan"
+      },
+      "title": "Checkbox.Card"
+    },
+    "checkboxLabeled": {
+      "description": "Label position left | right and container class names.",
+      "descriptions": {
+        "supportingText": "Supporting text"
+      },
+      "labels": {
+        "labelLeft": "Label left",
+        "labelRight": "Label right (default)"
+      },
+      "title": "Checkbox.Labeled"
+    },
+    "dateInput": {
+      "description": "Persian calendar dialog: single, range, time, presets, and limits.",
+      "labels": {
+        "disabled": "Disabled",
+        "presets": "Presets",
+        "range": "Range",
+        "requiredError": "Required · error",
+        "singleDate": "Single date",
+        "withTime": "With time"
+      },
+      "messages": {
+        "dateRequired": "Date is required"
+      },
+      "presets": {
+        "oneMonth": "1 month",
+        "threeMonths": "3 months"
+      },
+      "title": "DateInput"
+    },
+    "demo": {
+      "cities": {
+        "capital": "Capital",
+        "isfahan": "Isfahan",
+        "kerman": "Kerman",
+        "khorasan": "Khorasan",
+        "khuzestan": "Khuzestan",
+        "kohgiluyeh": "Kohgiluyeh and Buyer Ahmad",
+        "kurdistan": "Kurdistan",
+        "lorestan": "Lorestan",
+        "markazi": "Markazi",
+        "mashhad": "Mashhad",
+        "rasht": "Rasht",
+        "shiraz": "Shiraz",
+        "tabriz": "Tabriz",
+        "tehran": "Tehran"
+      },
+      "fruits": {
+        "apple": "Apple",
+        "banana": "Banana",
+        "fruits": "Fruits",
+        "vegetables": "Vegetables"
+      },
+      "vegetables": {
+        "carrot": "Carrot",
+        "potato": "Potato"
+      }
+    },
+    "descriptions": {
+      "extraDescription": "Extra description text"
+    },
+    "helperTexts": {
+      "neverShareEmail": "We never share your email."
+    },
+    "labels": {
+      "categories": "Categories",
+      "category": "Category",
+      "cities": "Cities",
+      "city": "City",
+      "description": "Description",
+      "disabled": "Disabled",
+      "dollar": "Dollar",
+      "error": "Error",
+      "errorState": "Error state",
+      "euro": "Euro",
+      "fullWidth": "Full width",
+      "helperText": "Helper text",
+      "invalid": "Invalid",
+      "loading": "Loading",
+      "mobile": "Mobile",
+      "notifications": "Notifications",
+      "orderedCities": "Ordered cities",
+      "password": "Password",
+      "pound": "Pound",
+      "priceRange": "Price range",
+      "quantity": "Quantity",
+      "readOnly": "Read only",
+      "required": "Required",
+      "success": "Success",
+      "suffixSlot": "suffix slot",
+      "unclearable": "Unclearable",
+      "username": "Username",
+      "visibleByDefault": "Visible by default",
+      "warning": "Warning",
+      "weight": "Weight",
+      "withDefaultValueTitle": "With defaultValueTitle",
+      "withMessage": "With message",
+      "withPrefix": "With prefix",
+      "withSteppers": "With steppers",
+      "withSuffix": "With suffix"
+    },
+    "list": {
+      "description": "Virtualized selectable list (used inside selects; standalone demo).",
+      "title": "List"
+    },
+    "messages": {
+      "checkFormat": "Check format",
+      "enabled": "Enabled",
+      "invalidRange": "Invalid range",
+      "looksGood": "Looks good!",
+      "requiredField": "Required field",
+      "strongPassword": "Strong password",
+      "tooShort": "Too short",
+      "validMobile": "Enter a valid mobile number"
+    },
+    "numberInput": {
+      "description": "Numeric field with optional stepper buttons and prefix.",
+      "suffix": {
+        "kg": "kg"
+      },
+      "title": "NumberInput"
+    },
+    "numberRangeInput": {
+      "description": "From / to numeric range with optional min, max, and custom labels.",
+      "fromLabel": "Min",
+      "toLabel": "Max",
+      "title": "NumberRangeInput"
+    },
+    "options": {
+      "optionA": "Option A",
+      "optionB": "Option B",
+      "optionC": "Option C"
+    },
+    "otpInput": {
+      "description": "Fixed-size cells — size: sm | md | lg, width constrains the row (default md).",
+      "labels": {
+        "alphanumericPaste": "copy · alphanumeric paste",
+        "disabled": "Disabled",
+        "fourDigits": "4 digits",
+        "loading": "Loading",
+        "pasteDisabled": "paste disabled",
+        "pasteFocus": "just focus on any otp cell and paste, you can use ctrl+v or cmd+v",
+        "verificationCode": "Verification code (md, width 280)"
+      },
+      "rows": {
+        "copyPaste": "copy · paste",
+        "lengthNumericOnly": "length · numericOnly",
+        "size": "size",
+        "statusSm": "status (sm)"
+      },
+      "title": "OTPInput"
+    },
+    "passwordInput": {
+      "description": "TextInput with visibility toggle (passShow initial state).",
+      "title": "PasswordInput"
+    },
+    "phoneInput": {
+      "description": "Iranian mobile format (09xxxxxxxxx) with icon prefix.",
+      "title": "PhoneInput"
+    },
+    "pickCity": "Pick a city",
+    "priority": {
+      "heading": "Priority",
+      "subHeading": "Drag to reorder"
+    },
+    "propsCheckbox": {
+      "title": "Props reference — Checkbox · Switch · OTP · Radio"
+    },
+    "propsDateInput": {
+      "title": "Props reference — DateInput"
+    },
+    "propsSelect": {
+      "title": "Props reference — Select (shared)"
+    },
+    "propsTextInput": {
+      "title": "Props reference — TextInput"
+    },
+    "radioInput": {
+      "description": "Option groups: direction, size, showCircle, width.",
+      "rows": {
+        "direction": "direction",
+        "icon": "icon",
+        "size": "size"
+      },
+      "title": "RadioInput"
+    },
+    "rows": {
+      "defaultControlled": "Default & controlled",
+      "prefixSuffixHelper": "prefix . suffix . helperText",
+      "states": "States",
+      "statusMessage": "status & message"
+    },
+    "selectMulti": {
+      "description": "Multiple selection with chips and filter.",
+      "title": "Select.Multi"
+    },
+    "selectMultiOrderable": {
+      "description": "Drag-and-drop reorder multi-select (showChips, selected).",
+      "title": "Select.MultiOrderable"
+    },
+    "selectMultiTree": {
+      "description": "Tree with multiple selection.",
+      "title": "Select.MultiTree"
+    },
+    "selectSingle": {
+      "description": "Single value dropdown with search, loading, and virtualized list.",
+      "title": "Select.Single"
+    },
+    "selectSingleTree": {
+      "description": "Hierarchical single select (openedAll expands nodes).",
+      "title": "Select.SingleTree"
+    },
+    "switch": {
+      "description": "severity and size scale the track and thumb colors.",
+      "rows": {
+        "controlled": "Controlled",
+        "severityActive": "severity (active)",
+        "size": "size"
+      },
+      "title": "Switch"
+    },
+    "switchField": {
+      "description": "Switch inside LabelContainer; use value for controlled state.",
+      "title": "SwitchField"
+    },
+    "textInput": {
+      "description": "Floating label text field with status, prefix, sizes, and native input attributes.",
+      "title": "TextInput"
+    },
+    "textareaInput": {
+      "description": "Multi-line field with floating label container.",
+      "title": "TextareaInput"
+    },
+    "values": {
+      "cannotEdit": "Cannot edit",
+      "hello": "Hello",
+      "lockedContent": "Locked content",
+      "notes": "Notes…",
+      "readOnly": "Read only"
+    },
+    "weightInput": {
+      "description": "Range chips plus custom from/to fields inside select panel.",
+      "presets": {
+        "fiftyPlus": "50+ kg",
+        "tenFifty": "10–50 kg",
+        "zeroTen": "0–10 kg"
+      },
+      "title": "WeightInput"
+    }
+  },
+  "license-plate": {
+    "carPlate": {
+      "description": "PlateInput variant=\"car\".",
+      "title": "Car plate"
+    },
+    "motorcycle": {
+      "title": "Motorcycle"
+    },
+    "simpleText": {
+      "title": "Simple text"
+    }
+  },
+  "list": {
+    "cardsList": {
+      "title": "Cards list"
+    },
+    "chipsList": {
+      "tagA": "Tag A",
+      "tagB": "Tag B",
+      "tagC": "Tag C",
+      "title": "Chips list"
+    },
+    "linesList": {
+      "title": "Lines list"
+    },
+    "sample": {
+      "active": "Active",
+      "dash": "—",
+      "notes": "Notes",
+      "region": "Region",
+      "status": "Status",
+      "tehran": "Tehran"
+    }
+  },
+  "loading": {
+    "defaultSpinner": {
+      "title": "Default spinner"
+    },
+    "sizes": {
+      "title": "Sizes"
+    }
+  },
+  "location-picker": {
+    "description": {
+      "importFrom": "Import from",
+      "mapBlocks": "building blocks.",
+      "requiresBackend": ". It requires backend device/location resources and dashboard menu stubs. See the Map page for"
+    },
+    "locationPicker": {
+      "title": "Location picker"
+    }
+  },
+  "map": {
+    "leafletMap": {
+      "title": "Leaflet map"
+    },
+    "tallerViewport": {
+      "title": "Taller viewport"
+    }
+  },
+  "overlay": {
+    "dialog": {
+      "close": "Close",
+      "confirmAction": "Confirm action",
+      "description": "Dialog from @/components/common/overlay/dialog.",
+      "openDialog": "Open dialog",
+      "title": "Dialog"
+    },
+    "popover": {
+      "button": "Popover",
+      "content": "Popover content",
+      "description": "Anchored floating panel.",
+      "title": "Popover"
+    },
+    "sheet": {
+      "description": "Sheet slides in from the edge.",
+      "openSheet": "Open sheet",
+      "sidePanel": "Side panel",
+      "title": "Sheet"
+    }
+  },
+  "pagination": {
+    "currentPage": {
+      "info": "Page {page} of {total}",
+      "title": "Current page"
+    },
+    "pageLinks": {
+      "title": "Page links"
+    }
+  },
+  "paginator": {
+    "controlled": {
+      "title": "Controlled"
+    },
+    "firstPage": {
+      "title": "First page"
+    }
+  },
+  "persian-date-picker": {
+    "singleDate": {
+      "title": "Single date"
+    },
+    "withTime": {
+      "title": "With time"
+    }
+  },
+  "shapes": {
+    "indicator": {
+      "title": "Indicator"
+    },
+    "square": {
+      "title": "Square"
+    }
+  },
+  "skeleton": {
+    "cardBlock": {
+      "title": "Card block"
+    },
+    "textPlaceholders": {
+      "title": "Text placeholders"
+    }
+  },
+  "slider": {
+    "range": {
+      "title": "Range"
+    },
+    "singleValue": {
+      "title": "Single value"
+    }
+  },
+  "sonner": {
+    "toastVariants": {
+      "buttons": {
+        "error": "Error",
+        "info": "Info",
+        "success": "Success",
+        "warning": "Warning"
+      },
+      "title": "Toast variants",
+      "toasts": {
+        "checkInput": "Check your input",
+        "headsUp": "Heads up",
+        "savedSuccessfully": "Saved successfully",
+        "somethingWrong": "Something went wrong"
+      }
+    },
+    "withDescription": {
+      "button": "Success + description",
+      "description": "Changes will appear after refresh.",
+      "title": "With description",
+      "toastTitle": "Profile updated"
+    }
+  },
+  "steps": {
+    "midProgress": {
+      "steps": {
+        "done": "Done",
+        "review": "Review",
+        "start": "Start"
+      },
+      "title": "Mid progress"
+    },
+    "step1Active": {
+      "steps": {
+        "details": {
+          "subtitle": "Basic information",
+          "title": "Details"
+        },
+        "done": {
+          "subtitle": "Finish",
+          "title": "Done"
+        },
+        "review": {
+          "subtitle": "Check entries",
+          "title": "Review"
+        }
+      },
+      "title": "Step 1 active"
+    }
+  },
+  "table": {
+    "compoundTable": {
+      "description": {
+        "dataTable": "The data table lives in",
+        "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources."
+      },
+      "title": "Compound table"
+    }
+  },
+  "tabs": {
+    "keepMounted": {
+      "draft": {
+        "content": "Draft content preserves state when switching tabs.",
+        "header": "Draft"
+      },
+      "published": {
+        "content": "Published items appear here.",
+        "header": "Published"
+      },
+      "title": "Keep mounted"
+    },
+    "tabbedContent": {
+      "analytics": {
+        "content": "Analytics panel with charts and trend data.",
+        "header": "Analytics"
+      },
+      "overview": {
+        "content": "Overview panel with summary metrics and quick actions.",
+        "header": "Overview"
+      },
+      "settings": {
+        "content": "Settings panel for configuration and preferences.",
+        "header": "Settings"
+      },
+      "title": "Tabbed content"
+    }
+  },
+  "timeline": {
+    "eventList": {
+      "events": {
+        "delivered": "Delivered",
+        "orderPlaced": "Order placed",
+        "shipped": "Shipped"
+      },
+      "title": "Event list"
+    }
+  },
+  "tracker": {
+    "compoundTracker": {
+      "description": {
+        "dependsOnData": "(map routes, event cards, clustering). It depends on live tracking data. Explore Map and Charts pages for standalone pieces from",
+        "vehicleTracker": "Vehicle tracker UI is in"
+      },
+      "title": "Tracker compound"
+    }
+  },
+  "typography": {
+    "headings": {
+      "h1": "Heading 1",
+      "h2": "Heading 2",
+      "h3": "Heading 3",
+      "h4": "Heading 4",
+      "title": "Headings"
+    },
+    "paragraph": {
+      "body": "Body text — default paragraph style from the typography module.",
+      "muted": "Muted paragraph with className override.",
+      "title": "Paragraph"
+    }
+  }
+}

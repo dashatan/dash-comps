@@ -1,0 +1,112 @@
+{
+  "buttons": {
+    "variantsSeverities": {
+      "title": "Variants × severities",
+      "description": "variant: contained | outlined | text — default is contained."
+    },
+    "sizes": {
+      "title": "Sizes",
+      "description": "size: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" — default \"md\"."
+    },
+    "fixedNumericSize": {
+      "title": "Fixed numeric size",
+      "description": "size as number sets width/height in px (icon-style control)."
+    },
+    "rounded": {
+      "title": "Rounded (radius)",
+      "description": "rounded: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\" — default \"md\".",
+      "allValues": "All values — contained / primary / md",
+      "rowLabel": "rounded=\"{{rounded}}\"",
+      "withIcon": "With icon",
+      "byVariant": "By variant (rounded=\"lg\")",
+      "pillButtons": "Pill buttons (rounded=\"full\")",
+      "primaryPill": "Primary pill",
+      "add": "Add",
+      "more": "More",
+      "circleIcon": "Circle — icon variant (numeric size)",
+      "circleIconButton": "Circle — icon-button variant",
+      "sizesWithFull": "Sizes with rounded=\"full\"",
+      "severitiesWithSm": "Severities with rounded=\"sm\""
+    },
+    "iconVariant": {
+      "title": "Icon variant",
+      "description": "variant=\"icon\" — use children or the icon prop."
+    },
+    "iconButtonVariant": {
+      "title": "Icon button variant",
+      "description": "variant=\"icon-button\" — square icon-only actions (common with severity=\"input\")."
+    },
+    "labelProp": {
+      "title": "label prop",
+      "description": "Use label instead of children when you want a dedicated label slot.",
+      "saveDraft": "Save draft",
+      "cancel": "Cancel",
+      "withIcon": "With icon"
+    },
+    "icons": {
+      "title": "Icons",
+      "description": "leftIcon, rightIcon, or icon (replaces main content when set).",
+      "addItem": "Add item",
+      "delete": "Delete",
+      "export": "Export",
+      "bothSides": "Both sides"
+    },
+    "fullWidth": {
+      "title": "fullWidth",
+      "description": "fullWidth stretches the button to the container width.",
+      "primary": "Full width primary",
+      "outlined": "Full width outlined"
+    },
+    "loading": {
+      "title": "Loading",
+      "description": "isLoading shows a spinner and disables interaction.",
+      "loading": "Loading",
+      "saving": "Saving",
+      "savingEllipsis": "Saving…",
+      "clickToLoad": "Click to load"
+    },
+    "disabled": {
+      "title": "Disabled",
+      "description": "disabled prevents clicks; pairs with isLoading.",
+      "disabled": "Disabled",
+      "disabledOutlined": "Disabled outlined"
+    },
+    "tooltip": {
+      "title": "Tooltip",
+      "description": "tooltip wraps the button in a HoverCard; configure with tooltipOptions.",
+      "hoverMe": "Hover me",
+      "defaultTooltip": "Default tooltip on top",
+      "rightTooltip": "Right tooltip",
+      "opensRight": "Opens on the right",
+      "delayedTooltip": "Delayed tooltip",
+      "slowerOpenClose": "Slower open/close"
+    },
+    "onClick": {
+      "title": "onClick",
+      "description": "Standard button click handler.",
+      "clickedTimes": "Clicked {{count}} times"
+    },
+    "asChild": {
+      "title": "asChild",
+      "description": "Merges styles onto a single child element (e.g. link styled as a button).",
+      "anchorAsButton": "Anchor as button"
+    },
+    "type": {
+      "title": "type",
+      "description": "type: \"button\" | \"submit\" | \"reset\" — default \"button\".",
+      "submit": "Submit",
+      "reset": "Reset"
+    },
+    "classNameStyle": {
+      "title": "className & style",
+      "description": "Extra Tailwind classes and inline styles merge with variants.",
+      "shadowViaClassName": "Shadow via className",
+      "minWidth200px": "minWidth 200px"
+    },
+    "propsReference": {
+      "title": "Props reference",
+      "description": "All ButtonProps from @/components/common/buttons.",
+      "content": "variant?: \"contained\" | \"outlined\" | \"text\" | \"icon\" | \"icon-button\"\nseverity?: \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"input\" | \"muted\"\nsize?: \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | number\nrounded?: \"sm\" | \"md\" | \"lg\" | \"full\" | \"circle\"\nfullWidth?: boolean\nicon?: ReactNode\nlabel?: string\nisLoading?: boolean\nleftIcon?: ReactNode\nrightIcon?: ReactNode\nchildren?: ReactNode\ndisabled?: boolean\ntype?: \"button\" | \"submit\" | \"reset\"\nonClick?: (e) => void\nclassName?: string\nstyle?: CSSProperties\ntooltip?: string\ntooltipOptions?: { openDelay?, closeDelay?, side?, align?, className?, sideOffset? }\nasChild?: boolean\nid?: string"
+    }
+  }
+}

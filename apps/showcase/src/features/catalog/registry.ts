@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import type { ShowcaseMessages } from "@/i18n/locales/en";
 import {
   MousePointerClick,
   BadgeCheck,
@@ -45,7 +44,54 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 
-export type CatalogSlug = keyof ShowcaseMessages["categories"];
+export const CATALOG_SLUGS = [
+  "accordion",
+  "alerts",
+  "avatar",
+  "badges",
+  "banner",
+  "buttons",
+  "cards",
+  "carousel",
+  "charts",
+  "chips",
+  "collapsible",
+  "context-menu",
+  "divider",
+  "errors",
+  "fadeable",
+  "flex",
+  "grid",
+  "hover-card",
+  "inputs",
+  "list",
+  "loading",
+  "map",
+  "overlay",
+  "pagination",
+  "paginator",
+  "shapes",
+  "skeleton",
+  "slider",
+  "sonner",
+  "steps",
+  "tabs",
+  "timeline",
+  "typography",
+  "auth",
+  "dashboard",
+  "file-uploader",
+  "form",
+  "license-plate",
+  "location-picker",
+  "persian-date-picker",
+  "table",
+  "tracker",
+] as const;
+
+export type CatalogSlug = (typeof CATALOG_SLUGS)[number];
+
+export type CatalogGroup = "common" | "compound";
 
 export type CatalogCategory = {
   slug: CatalogSlug;
@@ -53,19 +99,22 @@ export type CatalogCategory = {
   count: number;
 };
 
-export const catalogCategories: CatalogCategory[] = [
-  { slug: "buttons", icon: MousePointerClick, count: 8 },
-  { slug: "badges", icon: BadgeCheck, count: 6 },
-  { slug: "alerts", icon: Bell, count: 5 },
-  { slug: "cards", icon: CreditCard, count: 4 },
-  { slug: "inputs", icon: TextCursorInput, count: 22 },
-  { slug: "tabs", icon: Layers, count: 3 },
+export type CatalogCategoryGroup = {
+  group: CatalogGroup;
+  items: CatalogCategory[];
+};
+
+const commonCatalogCategories: CatalogCategory[] = [
   { slug: "accordion", icon: ToggleLeft, count: 3 },
-  { slug: "chips", icon: Sparkles, count: 4 },
+  { slug: "alerts", icon: Bell, count: 5 },
   { slug: "avatar", icon: UserCircle, count: 3 },
+  { slug: "badges", icon: BadgeCheck, count: 6 },
   { slug: "banner", icon: Flag, count: 2 },
+  { slug: "buttons", icon: MousePointerClick, count: 8 },
+  { slug: "cards", icon: CreditCard, count: 4 },
   { slug: "carousel", icon: GalleryHorizontal, count: 2 },
   { slug: "charts", icon: BarChart3, count: 4 },
+  { slug: "chips", icon: Sparkles, count: 4 },
   { slug: "collapsible", icon: ChevronsUpDown, count: 2 },
   { slug: "context-menu", icon: Menu, count: 2 },
   { slug: "divider", icon: SeparatorHorizontal, count: 3 },
@@ -74,6 +123,7 @@ export const catalogCategories: CatalogCategory[] = [
   { slug: "flex", icon: LayoutGrid, count: 2 },
   { slug: "grid", icon: Grid3x3, count: 2 },
   { slug: "hover-card", icon: SquareMousePointer, count: 2 },
+  { slug: "inputs", icon: TextCursorInput, count: 22 },
   { slug: "list", icon: List, count: 3 },
   { slug: "loading", icon: Loader2, count: 2 },
   { slug: "map", icon: Map, count: 1 },
@@ -85,15 +135,28 @@ export const catalogCategories: CatalogCategory[] = [
   { slug: "slider", icon: SlidersHorizontal, count: 2 },
   { slug: "sonner", icon: BellRing, count: 4 },
   { slug: "steps", icon: ListOrdered, count: 2 },
+  { slug: "tabs", icon: Layers, count: 3 },
   { slug: "timeline", icon: GitBranch, count: 2 },
   { slug: "typography", icon: Type, count: 2 },
+];
+
+const compoundCatalogCategories: CatalogCategory[] = [
+  { slug: "auth", icon: LogIn, count: 1 },
+  { slug: "dashboard", icon: LayoutDashboard, count: 1 },
   { slug: "file-uploader", icon: Upload, count: 2 },
   { slug: "form", icon: FileInput, count: 2 },
   { slug: "license-plate", icon: Car, count: 3 },
+  { slug: "location-picker", icon: MapPin, count: 1 },
   { slug: "persian-date-picker", icon: Calendar, count: 2 },
   { slug: "table", icon: Table2, count: 1 },
-  { slug: "location-picker", icon: MapPin, count: 1 },
   { slug: "tracker", icon: Route, count: 1 },
-  { slug: "auth", icon: LogIn, count: 1 },
-  { slug: "dashboard", icon: LayoutDashboard, count: 1 },
 ];
+
+export const catalogCategoryGroups: CatalogCategoryGroup[] = [
+  { group: "common", items: commonCatalogCategories },
+  { group: "compound", items: compoundCatalogCategories },
+];
+
+export const catalogCategories: CatalogCategory[] = catalogCategoryGroups.flatMap(
+  ({ items }) => items,
+);

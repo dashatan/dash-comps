@@ -1,17 +1,20 @@
 import IndicatorShape from "@/components/common/shapes/indicator";
 import Square from "@/components/common/shapes/square";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 
 export function ShapesPage() {
+  const p = useShowcasePage("shapes");
+
   return (
     <CatalogPageShell slug="shapes">
-      <ShowcaseSection title="Indicator">
+      <ShowcaseSection title={p("indicator.title")}>
         <IndicatorShape className="bg-success" />
         <IndicatorShape className="bg-warning" />
         <IndicatorShape className="bg-error" />
       </ShowcaseSection>
-      <ShowcaseSection title="Square" delay={0.05}>
+      <ShowcaseSection title={p("square.title")} delay={0.05}>
         <Square className="bg-primary size-4" />
         <Square className="bg-secondary size-6 rounded-sm" />
         <Square className="bg-muted-foreground size-8 rounded-md" />

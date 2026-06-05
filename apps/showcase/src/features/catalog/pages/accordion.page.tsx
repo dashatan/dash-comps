@@ -1,5 +1,6 @@
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import {
   Accordion,
   AccordionContent,
@@ -8,42 +9,46 @@ import {
 } from "@/components/common/accordion";
 
 export function AccordionPage() {
+  const p = useShowcasePage("accordion");
+
   return (
     <CatalogPageShell slug="accordion">
-      <ShowcaseSection title="Single collapsible">
+      <ShowcaseSection title={p("singleCollapsible.title")}>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>What is this component library?</AccordionTrigger>
+            <AccordionTrigger>{p("singleCollapsible.whatIsLibrary.trigger")}</AccordionTrigger>
             <AccordionContent className="p-4">
-              A collection of production-ready React components built with Tailwind CSS v4, Radix UI,
-              and motion-first interactions.
+              {p("singleCollapsible.whatIsLibrary.content")}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Does it support dark mode?</AccordionTrigger>
+            <AccordionTrigger>{p("singleCollapsible.darkMode.trigger")}</AccordionTrigger>
             <AccordionContent className="p-4">
-              Yes. Toggle between light and dark themes using the header control. Theme preference is
-              persisted in local storage.
+              {p("singleCollapsible.darkMode.content")}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>Can I use it in a static site?</AccordionTrigger>
+            <AccordionTrigger>{p("singleCollapsible.staticSite.trigger")}</AccordionTrigger>
             <AccordionContent className="p-4">
-              Absolutely. This showcase is built with Vite and exports to static HTML, CSS, and JS.
+              {p("singleCollapsible.staticSite.content")}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </ShowcaseSection>
 
-      <ShowcaseSection title="Multiple open" delay={0.05}>
+      <ShowcaseSection title={p("multipleOpen.title")} delay={0.05}>
         <Accordion type="multiple" className="w-full">
           <AccordionItem value="a">
-            <AccordionTrigger>Design tokens</AccordionTrigger>
-            <AccordionContent className="p-4">Semantic colors, spacing, and typography variables.</AccordionContent>
+            <AccordionTrigger>{p("multipleOpen.designTokens.trigger")}</AccordionTrigger>
+            <AccordionContent className="p-4">
+              {p("multipleOpen.designTokens.content")}
+            </AccordionContent>
           </AccordionItem>
           <AccordionItem value="b">
-            <AccordionTrigger>Accessibility</AccordionTrigger>
-            <AccordionContent className="p-4">Built on Radix primitives with keyboard navigation.</AccordionContent>
+            <AccordionTrigger>{p("multipleOpen.accessibility.trigger")}</AccordionTrigger>
+            <AccordionContent className="p-4">
+              {p("multipleOpen.accessibility.content")}
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       </ShowcaseSection>

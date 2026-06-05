@@ -5,6 +5,7 @@ import TextInput from "@/components/common/inputs/text";
 import { toast } from "@/components/common/sonner";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 
 type DemoFormValues = {
   title: string;
@@ -12,6 +13,7 @@ type DemoFormValues = {
 };
 
 export function FormPage() {
+  const p = useShowcasePage("form");
   const form = useForm<DemoFormValues>({
     defaultValues: { title: "", accept: false },
   });
@@ -19,21 +21,23 @@ export function FormPage() {
   return (
     <CatalogPageShell slug="form">
       <ShowcaseSection
-        title="react-hook-form + inputs"
-        description="Same primitives used by @/components/compound/form FormField."
+        title={p("reactHookForm.title")}
+        description={p("reactHookForm.description")}
         className="w-full max-w-md flex-col items-stretch"
       >
         <form
           className="flex w-full flex-col gap-4"
-          onSubmit={form.handleSubmit((values) => toast.success(`Submitted: ${values.title}`))}
+          onSubmit={form.handleSubmit((values) =>
+            toast.success(p("reactHookForm.submittedToast", { title: values.title })),
+          )}
         >
           <Controller
             control={form.control}
             name="title"
-            rules={{ required: "Title is required" }}
+            rules={{ required: p("reactHookForm.titleRequired") }}
             render={({ field, fieldState }) => (
               <TextInput
-                label="Title"
+                label={p("reactHookForm.titleLabel")}
                 value={field.value}
                 onChange={field.onChange}
                 status={fieldState.error ? "error" : undefined}
@@ -46,13 +50,13 @@ export function FormPage() {
             name="accept"
             render={({ field }) => (
               <Checkbox.Basic
-                label="I agree"
+                label={p("reactHookForm.agreeLabel")}
                 checked={field.value}
                 onChange={field.onChange}
               />
             )}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{p("reactHookForm.submit")}</Button>
         </form>
       </ShowcaseSection>
     </CatalogPageShell>

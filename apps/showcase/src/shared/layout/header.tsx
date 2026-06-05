@@ -4,7 +4,7 @@ import { cn } from "@/lib";
 import { HEADER_HEIGHT } from "@/components/layout/dashboard/types";
 import LanguageSelect from "@/components/layout/dashboard/header/language-select";
 import { ThemeToggle } from "@/shared/layout/theme-toggle";
-import { useShowcaseI18n } from "@/i18n";
+import { useShowcaseShell } from "@/features/catalog/i18n";
 import { catalogCategories } from "@/features/catalog/registry";
 import Button from "@/components/common/buttons";
 import {
@@ -17,18 +17,18 @@ import { ShowcaseSidebar } from "@/shared/layout/sidebar";
 import { SIDEBAR_WIDTH } from "@/components/layout/dashboard/types";
 
 export function ShowcaseHeader() {
-  const { t } = useShowcaseI18n();
+  const { title: showcaseTitle, nav, catalog, categoryTitle } = useShowcaseShell();
   const location = useLocation();
   const slug = location.pathname.split("/").pop();
   const category = catalogCategories.find((c) => c.slug === slug);
   const title =
     location.pathname === "/"
-      ? t.nav.home
+      ? nav.home
       : location.pathname === "/components"
-        ? t.catalog.indexTitle
+        ? catalog.indexTitle
         : category
-          ? t.categories[category.slug].title
-          : t.showcase;
+          ? categoryTitle(category.slug)
+          : showcaseTitle;
 
   return (
     <header
@@ -45,7 +45,7 @@ export function ShowcaseHeader() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-sidebar w-[min(100%,320px)] p-0">
-            <SheetTitle className="sr-only">{t.nav.categories}</SheetTitle>
+            <SheetTitle className="sr-only">{nav.categories}</SheetTitle>
             <div style={{ width: SIDEBAR_WIDTH }} className="h-full">
               <ShowcaseSidebar forceExpanded />
             </div>
@@ -53,7 +53,7 @@ export function ShowcaseHeader() {
         </Sheet>
         <nav className="text-muted-foreground hidden items-center gap-2 text-sm sm:flex">
           <Link to="/" className="hover:text-foreground transition-colors">
-            {t.nav.home}
+            {nav.home}
           </Link>
           {location.pathname !== "/" ? (
             <>

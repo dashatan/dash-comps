@@ -1,0 +1,462 @@
+{
+  "inputs": {
+    "buttons": {
+      "copySample": "کپی {sample}"
+    },
+    "checkboxBasic": {
+      "description": "چک‌باکس آیکن‌دار با حالت نامشخص، بارگذاری، چیدمان جعبه‌ای و ویژگی‌های فرم.",
+      "labels": {
+        "boxed": "جعبه‌ای",
+        "controlled": "کنترل‌شده",
+        "disabled": "غیرفعال",
+        "disabledChecked": "غیرفعال · انتخاب‌شده",
+        "indeterminate": "نامشخص",
+        "loading": "بارگذاری",
+        "states": "حالت‌ها",
+        "boxedDescriptionWidth": "boxed · description · width"
+      },
+      "rows": {
+        "boxedDescriptionWidth": "boxed · description · width",
+        "states": "حالت‌ها"
+      },
+      "title": "Checkbox.Basic"
+    },
+    "checkboxCard": {
+      "description": "چیدمان کارتی با title، subTitle و جایگاه‌های className سفارشی.",
+      "subtitles": {
+        "billedAnnually": "صورتحساب سالانه",
+        "unavailable": "در دسترس نیست"
+      },
+      "title": "Checkbox.Card",
+      "titles": {
+        "disabled": "غیرفعال",
+        "premiumPlan": "طرح ویژه"
+      }
+    },
+    "checkboxLabeled": {
+      "description": "موقعیت برچسب چپ | راست و نام کلاس‌های ظرف.",
+      "descriptions": {
+        "supportingText": "متن پشتیبان"
+      },
+      "labels": {
+        "labelLeft": "برچسب چپ",
+        "labelRight": "برچسب راست (پیش‌فرض)",
+        "labelRightDefault": "برچسب راست (پیش‌فرض)"
+      },
+      "title": "Checkbox.Labeled"
+    },
+    "dateInput": {
+      "description": "دیالوگ تقویم شمسی: تک‌تاریخ، بازه، زمان، پیش‌تنظیم‌ها و محدودیت‌ها.",
+      "labels": {
+        "disabled": "غیرفعال",
+        "presets": "پیش‌تنظیم‌ها",
+        "range": "بازه",
+        "requiredError": "الزامی · خطا",
+        "singleDate": "تک‌تاریخ",
+        "withTime": "با زمان"
+      },
+      "messages": {
+        "dateRequired": "تاریخ الزامی است"
+      },
+      "presets": {
+        "oneMonth": "۱ ماه",
+        "threeMonths": "۳ ماه"
+      },
+      "title": "DateInput"
+    },
+    "demo": {
+      "cities": {
+        "capital": "مرکز",
+        "isfahan": "اصفهان",
+        "kerman": "کرمان",
+        "khorasan": "خراسان",
+        "khuzestan": "خوزستان",
+        "kohgiluyeh": "کهگیلویه و بویراحمد",
+        "kurdistan": "کردستان",
+        "lorestan": "لرستان",
+        "markazi": "مرکزی",
+        "mashhad": "مشهد",
+        "rasht": "رشت",
+        "shiraz": "شیراز",
+        "tabriz": "تبریز",
+        "tehran": "تهران"
+      },
+      "fruits": {
+        "apple": "سیب",
+        "banana": "موز",
+        "fruits": "میوه‌ها",
+        "vegetables": "سبزیجات"
+      },
+      "vegetables": {
+        "carrot": "هویج",
+        "potato": "سیب‌زمینی"
+      }
+    },
+    "descriptions": {
+      "extraDescription": "متن توضیح اضافی"
+    },
+    "helperTexts": {
+      "neverShareEmail": "ایمیل شما را هرگز به اشتراک نمی‌گذاریم."
+    },
+    "labels": {
+      "categories": "دسته‌بندی‌ها",
+      "category": "دسته‌بندی",
+      "cities": "شهرها",
+      "city": "شهر",
+      "description": "توضیحات",
+      "disabled": "غیرفعال",
+      "dollar": "دلار",
+      "error": "خطا",
+      "errorState": "حالت خطا",
+      "euro": "یورو",
+      "fullWidth": "تمام‌عرض",
+      "helperText": "متن راهنما",
+      "invalid": "نامعتبر",
+      "loading": "بارگذاری",
+      "mobile": "موبایل",
+      "notifications": "اعلان‌ها",
+      "orderedCities": "شهرهای مرتب‌شده",
+      "password": "رمز عبور",
+      "pound": "پوند",
+      "priceRange": "بازه قیمت",
+      "quantity": "تعداد",
+      "readOnly": "فقط خواندنی",
+      "required": "الزامی",
+      "success": "موفق",
+      "suffixSlot": "جایگاه suffix",
+      "unclearable": "غیرقابل پاک‌سازی",
+      "username": "نام کاربری",
+      "visibleByDefault": "پیش‌فرض قابل مشاهده",
+      "warning": "هشدار",
+      "weight": "وزن",
+      "withDefaultValueTitle": "با defaultValueTitle",
+      "withMessage": "با پیام",
+      "withPrefix": "با پیشوند",
+      "withSteppers": "با دکمه‌های گام",
+      "withSuffix": "با پسوند"
+    },
+    "list": {
+      "description": "فهرست انتخابی مجازی‌شده (درون selectها استفاده می‌شود؛ دمو مستقل).",
+      "title": "List"
+    },
+    "messages": {
+      "checkFormat": "قالب را بررسی کنید",
+      "enabled": "فعال",
+      "invalidRange": "بازه نامعتبر",
+      "looksGood": "خوب به نظر می‌رسد!",
+      "requiredField": "فیلد الزامی",
+      "strongPassword": "رمز عبور قوی",
+      "tooShort": "خیلی کوتاه",
+      "validMobile": "شماره موبایل معتبر وارد کنید"
+    },
+    "numberInput": {
+      "description": "فیلد عددی با دکمه‌های گام اختیاری و پیشوند.",
+      "suffix": {
+        "kg": "kg"
+      },
+      "title": "NumberInput"
+    },
+    "numberRangeInput": {
+      "description": "بازه عددی از/تا با min، max و برچسب‌های سفارشی اختیاری.",
+      "fromLabel": "حداقل",
+      "title": "NumberRangeInput",
+      "toLabel": "حداکثر"
+    },
+    "options": {
+      "optionA": "گزینه الف",
+      "optionB": "گزینه ب",
+      "optionC": "گزینه ج"
+    },
+    "otpInput": {
+      "description": "سلول‌های با اندازه ثابت — size: sm | md | lg، width عرض ردیف را محدود می‌کند (پیش‌فرض md).",
+      "labels": {
+        "alphanumericPaste": "کپی · چسباندن الفبایی-عددی",
+        "disabled": "غیرفعال",
+        "fourDigits": "۴ رقم",
+        "loading": "بارگذاری",
+        "pasteDisabled": "چسباندن غیرفعال",
+        "pasteFocus": "روی هر سلول OTP فوکوس کنید و بچسبانید؛ می‌توانید از ctrl+v یا cmd+v استفاده کنید",
+        "verificationCode": "کد تأیید (md، عرض ۲۸۰)"
+      },
+      "rows": {
+        "copyPaste": "کپی · چسباندن",
+        "lengthNumericOnly": "length · numericOnly",
+        "size": "size",
+        "statusSm": "status (sm)"
+      },
+      "title": "OTPInput"
+    },
+    "passwordInput": {
+      "description": "TextInput با تعویض نمایش (حالت اولیه passShow).",
+      "title": "PasswordInput"
+    },
+    "phoneInput": {
+      "description": "قالب موبایل ایران (09xxxxxxxxx) با پیشوند آیکن.",
+      "title": "PhoneInput"
+    },
+    "pickCity": "شهری انتخاب کنید",
+    "priority": {
+      "heading": "اولویت",
+      "subHeading": "برای مرتب‌سازی بکشید"
+    },
+    "propsCheckbox": {
+      "title": "مرجع props — Checkbox · Switch · OTP · Radio"
+    },
+    "propsDateInput": {
+      "title": "مرجع props — DateInput"
+    },
+    "propsSelect": {
+      "title": "مرجع props — Select (مشترک)"
+    },
+    "propsTextInput": {
+      "title": "مرجع props — TextInput"
+    },
+    "radioInput": {
+      "description": "گروه‌های گزینه: direction، size، showCircle، width.",
+      "rows": {
+        "direction": "direction",
+        "icon": "icon",
+        "size": "size"
+      },
+      "title": "RadioInput"
+    },
+    "rows": {
+      "defaultControlled": "پیش‌فرض و کنترل‌شده",
+      "prefixSuffixHelper": "prefix · suffix · helperText",
+      "states": "حالت‌ها",
+      "statusMessage": "status و message"
+    },
+    "selectMulti": {
+      "description": "انتخاب چندگانه با چیپ و فیلتر.",
+      "title": "Select.Multi",
+      "labels": {
+        "cities": "شهرها"
+      }
+    },
+    "selectMultiOrderable": {
+      "description": "چندانتخابی با مرتب‌سازی کشیدن و رها کردن (showChips، selected).",
+      "title": "Select.MultiOrderable"
+    },
+    "selectMultiTree": {
+      "description": "درخت با انتخاب چندگانه.",
+      "title": "Select.MultiTree"
+    },
+    "selectSingle": {
+      "description": "منوی کشویی تک‌مقداری با جستجو، بارگذاری و فهرست مجازی‌شده.",
+      "title": "Select.Single",
+      "labels": {
+        "city": "شهر",
+        "loading": "بارگذاری",
+        "disabled": "غیرفعال",
+        "unclearable": "غیرقابل پاک‌سازی",
+        "withDefaultvaluetitle": "با defaultValueTitle"
+      }
+    },
+    "selectSingleTree": {
+      "description": "انتخاب تک‌مقداری سلسله‌مراتبی (openedAll گره‌ها را باز می‌کند).",
+      "title": "Select.SingleTree"
+    },
+    "switch": {
+      "description": "severity و size رنگ‌های track و thumb را مقیاس می‌دهند.",
+      "rows": {
+        "controlled": "کنترل‌شده",
+        "severityActive": "severity (فعال)",
+        "size": "size"
+      },
+      "title": "Switch",
+      "labels": {
+        "controlled": "کنترل‌شده",
+        "severityActive": "severity (فعال)",
+        "size": "size"
+      }
+    },
+    "switchField": {
+      "description": "Switch داخل LabelContainer؛ برای حالت کنترل‌شده از value استفاده کنید.",
+      "title": "SwitchField"
+    },
+    "textareaInput": {
+      "description": "فیلد چندخطی با ظرف برچسب شناور.",
+      "title": "TextareaInput"
+    },
+    "textInput": {
+      "description": "فیلد متنی با برچسب شناور، وضعیت، پیشوند، اندازه‌ها و ویژگی‌های بومی input.",
+      "title": "TextInput"
+    },
+    "values": {
+      "cannotEdit": "قابل ویرایش نیست",
+      "hello": "سلام",
+      "lockedContent": "محتوای قفل‌شده",
+      "notes": "یادداشت‌ها…",
+      "readOnly": "فقط خواندنی"
+    },
+    "weightInput": {
+      "description": "چیپ‌های بازه به‌علاوه فیلدهای سفارشی از/تا درون پنل select.",
+      "presets": {
+        "fiftyPlus": "۵۰+ kg",
+        "tenFifty": "۱۰–۵۰ kg",
+        "zeroTen": "۰–۱۰ kg"
+      },
+      "title": "WeightInput"
+    },
+    "textinput": {
+      "title": "TextInput",
+      "description": "فیلد متنی با برچسب شناور، وضعیت، پیشوند، اندازه‌ها و ویژگی‌های بومی input.",
+      "labels": {
+        "defaultControlled": "پیش‌فرض و کنترل‌شده",
+        "username": "نام کاربری",
+        "statusMessage": "status و message",
+        "success": "موفق",
+        "error": "خطا",
+        "warning": "هشدار",
+        "states": "حالت‌ها",
+        "loading": "بارگذاری",
+        "disabled": "غیرفعال",
+        "readOnly": "فقط خواندنی",
+        "required": "الزامی",
+        "prefixSuffixHelpertext": "prefix · suffix · helperText",
+        "withPrefix": "با پیشوند",
+        "withSuffix": "با پسوند",
+        "helperText": "متن راهنما"
+      },
+      "message": "خوب به نظر می‌رسد!",
+      "message1": "فیلد الزامی",
+      "message2": "قالب را بررسی کنید"
+    },
+    "passwordinput": {
+      "title": "PasswordInput",
+      "description": "TextInput با تعویض نمایش (حالت اولیه passShow).",
+      "labels": {
+        "password": "رمز عبور",
+        "visibleByDefault": "پیش‌فرض قابل مشاهده"
+      },
+      "message": "رمز عبور قوی"
+    },
+    "phoneinput": {
+      "title": "PhoneInput",
+      "description": "قالب موبایل ایران (09xxxxxxxxx) با پیشوند آیکن.",
+      "labels": {
+        "mobile": "موبایل",
+        "invalid": "نامعتبر"
+      },
+      "message": "شماره موبایل معتبر وارد کنید"
+    },
+    "textareainput": {
+      "title": "TextareaInput",
+      "description": "فیلد چندخطی با ظرف برچسب شناور.",
+      "labels": {
+        "states": "حالت‌ها",
+        "description": "توضیحات",
+        "errorState": "حالت خطا",
+        "disabled": "غیرفعال",
+        "fullWidth": "تمام‌عرض"
+      },
+      "message": "خیلی کوتاه"
+    },
+    "numberinput": {
+      "title": "NumberInput",
+      "description": "فیلد عددی با دکمه‌های گام اختیاری و پیشوند.",
+      "labels": {
+        "quantity": "تعداد",
+        "withSteppers": "با دکمه‌های گام",
+        "suffixSlot": "جایگاه suffix",
+        "disabled": "غیرفعال"
+      }
+    },
+    "numberrangeinput": {
+      "title": "NumberRangeInput",
+      "description": "بازه عددی از/تا با min، max و برچسب‌های سفارشی اختیاری.",
+      "labels": {
+        "priceRange": "بازه قیمت",
+        "error": "خطا"
+      },
+      "message": "بازه نامعتبر"
+    },
+    "switchfield": {
+      "title": "SwitchField",
+      "description": "Switch داخل LabelContainer؛ برای حالت کنترل‌شده از value استفاده کنید.",
+      "labels": {
+        "notifications": "اعلان‌ها",
+        "withMessage": "با پیام"
+      },
+      "message": "فعال"
+    },
+    "radioinput": {
+      "title": "RadioInput",
+      "description": "گروه‌های گزینه: direction، size، showCircle، width.",
+      "labels": {
+        "direction": "direction",
+        "size": "size",
+        "icon": "icon"
+      }
+    },
+    "otpinput": {
+      "title": "OTPInput",
+      "description": "سلول‌های با اندازه ثابت — size: sm | md | lg، width عرض ردیف را محدود می‌کند (پیش‌فرض md).",
+      "labels": {
+        "verificationCodeMdWidth280": "کد تأیید (md، عرض ۲۸۰)",
+        "size": "size",
+        "lengthNumericonly": "length · numericOnly",
+        "4Digits": "۴ رقم",
+        "copyPaste": "کپی · چسباندن",
+        "justFocusOnAnyOtpCellAndPasteYouCanUseCtrlVOrCmdV": "روی هر سلول OTP فوکوس کنید و بچسبانید؛ می‌توانید از ctrl+v یا cmd+v استفاده کنید",
+        "pasteDisabled": "چسباندن غیرفعال",
+        "copyAlphanumericPaste": "کپی · چسباندن الفبایی-عددی",
+        "statusSm": "status (sm)",
+        "loading": "بارگذاری",
+        "disabled": "غیرفعال"
+      }
+    },
+    "selectSingletree": {
+      "title": "Select.SingleTree",
+      "description": "انتخاب تک‌مقداری سلسله‌مراتبی (openedAll گره‌ها را باز می‌کند).",
+      "labels": {
+        "category": "دسته‌بندی"
+      }
+    },
+    "selectMultitree": {
+      "title": "Select.MultiTree",
+      "description": "درخت با انتخاب چندگانه.",
+      "labels": {
+        "categories": "دسته‌بندی‌ها"
+      }
+    },
+    "selectMultiorderable": {
+      "title": "Select.MultiOrderable",
+      "description": "چندانتخابی با مرتب‌سازی کشیدن و رها کردن (showChips، selected).",
+      "labels": {
+        "orderedCities": "شهرهای مرتب‌شده"
+      }
+    },
+    "dateinput": {
+      "title": "DateInput",
+      "description": "دیالوگ تقویم شمسی: تک‌تاریخ، بازه، زمان، پیش‌تنظیم‌ها و محدودیت‌ها.",
+      "labels": {
+        "singleDate": "تک‌تاریخ",
+        "range": "بازه",
+        "withTime": "با زمان",
+        "presets": "پیش‌تنظیم‌ها",
+        "disabled": "غیرفعال",
+        "requiredError": "الزامی · خطا"
+      }
+    },
+    "weightinput": {
+      "title": "WeightInput",
+      "description": "چیپ‌های بازه به‌علاوه فیلدهای سفارشی از/تا درون پنل select.",
+      "labels": {
+        "weight": "وزن"
+      }
+    },
+    "propsReferenceTextinput": {
+      "title": "مرجع props — TextInput"
+    },
+    "propsReferenceSelectShared": {
+      "title": "مرجع props — Select (مشترک)"
+    },
+    "propsReferenceDateinput": {
+      "title": "مرجع props — DateInput"
+    },
+    "propsReferenceCheckboxSwitchOtpRadio": {
+      "title": "مرجع props — Checkbox · Switch · OTP · Radio"
+    }
+  }
+}

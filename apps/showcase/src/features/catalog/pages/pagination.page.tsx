@@ -7,17 +7,19 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/common/pagination";
+import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 
 const TOTAL = 5;
 
 export function PaginationPage() {
+  const p = useShowcasePage("pagination");
   const [page, setPage] = useState(1);
 
   return (
     <CatalogPageShell slug="pagination">
-      <ShowcaseSection title="Page links">
+      <ShowcaseSection title={p("pageLinks.title")}>
         <Pagination>
           <PaginationContent>
             <PaginationItem>
@@ -25,7 +27,7 @@ export function PaginationPage() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  setPage((p) => Math.max(1, p - 1));
+                  setPage((prev) => Math.max(1, prev - 1));
                 }}
               />
             </PaginationItem>
@@ -48,15 +50,17 @@ export function PaginationPage() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  setPage((p) => Math.min(TOTAL, p + 1));
+                  setPage((prev) => Math.min(TOTAL, prev + 1));
                 }}
               />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
       </ShowcaseSection>
-      <ShowcaseSection title="Current page" delay={0.05}>
-        <p className="text-muted-foreground text-sm">Page {page} of {TOTAL}</p>
+      <ShowcaseSection title={p("currentPage.title")} delay={0.05}>
+        <p className="text-muted-foreground text-sm">
+          {p("currentPage.info", { page, total: TOTAL })}
+        </p>
       </ShowcaseSection>
     </CatalogPageShell>
   );

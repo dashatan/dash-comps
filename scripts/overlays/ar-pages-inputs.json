@@ -1,0 +1,462 @@
+{
+  "inputs": {
+    "buttons": {
+      "copySample": "نسخ {sample}"
+    },
+    "checkboxBasic": {
+      "description": "مربع اختيار بأيقونة مع حالة غير محددة، وتحميل، وتخطيط مربّع، وسمات النموذج.",
+      "labels": {
+        "boxed": "مربّع",
+        "controlled": "مُتحكّم",
+        "disabled": "معطّل",
+        "disabledChecked": "معطّل · محدّد",
+        "indeterminate": "غير محدّد",
+        "loading": "جارٍ التحميل",
+        "states": "الحالات",
+        "boxedDescriptionWidth": "boxed · description · width"
+      },
+      "rows": {
+        "boxedDescriptionWidth": "boxed · description · width",
+        "states": "الحالات"
+      },
+      "title": "Checkbox.Basic"
+    },
+    "checkboxCard": {
+      "description": "تخطيط بطاقة مع title وsubTitle وفتحات className مخصّصة.",
+      "subtitles": {
+        "billedAnnually": "فوترة سنوية",
+        "unavailable": "غير متاح"
+      },
+      "title": "Checkbox.Card",
+      "titles": {
+        "disabled": "معطّل",
+        "premiumPlan": "الخطة المميزة"
+      }
+    },
+    "checkboxLabeled": {
+      "description": "موضع التسمية يسار | يمين وأسماء فئات الحاوية.",
+      "descriptions": {
+        "supportingText": "نص مساعد"
+      },
+      "labels": {
+        "labelLeft": "تسمية يسار",
+        "labelRight": "تسمية يمين (افتراضي)",
+        "labelRightDefault": "تسمية يمين (افتراضي)"
+      },
+      "title": "Checkbox.Labeled"
+    },
+    "dateInput": {
+      "description": "حوار التقويم الفارسي: تاريخ واحد، نطاق، وقت، إعدادات مسبقة، وحدود.",
+      "labels": {
+        "disabled": "معطّل",
+        "presets": "إعدادات مسبقة",
+        "range": "نطاق",
+        "requiredError": "مطلوب · خطأ",
+        "singleDate": "تاريخ واحد",
+        "withTime": "مع الوقت"
+      },
+      "messages": {
+        "dateRequired": "التاريخ مطلوب"
+      },
+      "presets": {
+        "oneMonth": "شهر واحد",
+        "threeMonths": "٣ أشهر"
+      },
+      "title": "DateInput"
+    },
+    "demo": {
+      "cities": {
+        "capital": "العاصمة",
+        "isfahan": "أصفهان",
+        "kerman": "كرمان",
+        "khorasan": "خراسان",
+        "khuzestan": "خوزستان",
+        "kohgiluyeh": "كهگيلويه وبويرأحمد",
+        "kurdistan": "كردستان",
+        "lorestan": "لرستان",
+        "markazi": "مركزي",
+        "mashhad": "مشهد",
+        "rasht": "رشت",
+        "shiraz": "شيراز",
+        "tabriz": "تبريز",
+        "tehran": "طهران"
+      },
+      "fruits": {
+        "apple": "تفاح",
+        "banana": "موز",
+        "fruits": "فواكه",
+        "vegetables": "خضروات"
+      },
+      "vegetables": {
+        "carrot": "جزر",
+        "potato": "بطاطس"
+      }
+    },
+    "descriptions": {
+      "extraDescription": "نص وصف إضافي"
+    },
+    "helperTexts": {
+      "neverShareEmail": "لن نشارك بريدك الإلكتروني أبداً."
+    },
+    "labels": {
+      "categories": "الفئات",
+      "category": "الفئة",
+      "cities": "المدن",
+      "city": "المدينة",
+      "description": "الوصف",
+      "disabled": "معطّل",
+      "dollar": "دولار",
+      "error": "خطأ",
+      "errorState": "حالة خطأ",
+      "euro": "يورو",
+      "fullWidth": "عرض كامل",
+      "helperText": "نص مساعد",
+      "invalid": "غير صالح",
+      "loading": "جارٍ التحميل",
+      "mobile": "الجوال",
+      "notifications": "الإشعارات",
+      "orderedCities": "مدن مرتّبة",
+      "password": "كلمة المرور",
+      "pound": "جنيه",
+      "priceRange": "نطاق السعر",
+      "quantity": "الكمية",
+      "readOnly": "للقراءة فقط",
+      "required": "مطلوب",
+      "success": "نجاح",
+      "suffixSlot": "فتحة suffix",
+      "unclearable": "غير قابل للمسح",
+      "username": "اسم المستخدم",
+      "visibleByDefault": "مرئي افتراضياً",
+      "warning": "تحذير",
+      "weight": "الوزن",
+      "withDefaultValueTitle": "مع defaultValueTitle",
+      "withMessage": "مع رسالة",
+      "withPrefix": "مع بادئة",
+      "withSteppers": "مع أزرار التدرّج",
+      "withSuffix": "مع لاحقة"
+    },
+    "list": {
+      "description": "قائمة اختيار افتراضية (تُستخدم داخل القوائم المنسدلة؛ عرض مستقل).",
+      "title": "List"
+    },
+    "messages": {
+      "checkFormat": "تحقّق من التنسيق",
+      "enabled": "مفعّل",
+      "invalidRange": "نطاق غير صالح",
+      "looksGood": "يبدو جيداً!",
+      "requiredField": "حقل مطلوب",
+      "strongPassword": "كلمة مرور قوية",
+      "tooShort": "قصير جداً",
+      "validMobile": "أدخل رقم جوال صالحاً"
+    },
+    "numberInput": {
+      "description": "حقل رقمي مع أزرار تدرّج اختيارية وبادئة.",
+      "suffix": {
+        "kg": "kg"
+      },
+      "title": "NumberInput"
+    },
+    "numberRangeInput": {
+      "description": "نطاق رقمي من/إلى مع min وmax وتسميات مخصّصة اختيارية.",
+      "fromLabel": "الحد الأدنى",
+      "title": "NumberRangeInput",
+      "toLabel": "الحد الأقصى"
+    },
+    "options": {
+      "optionA": "الخيار أ",
+      "optionB": "الخيار ب",
+      "optionC": "الخيار ج"
+    },
+    "otpInput": {
+      "description": "خلايا بحجم ثابت — size: sm | md | lg، width يحدّ عرض الصف (الافتراضي md).",
+      "labels": {
+        "alphanumericPaste": "نسخ · لصق أبجدي رقمي",
+        "disabled": "معطّل",
+        "fourDigits": "٤ أرقام",
+        "loading": "جارٍ التحميل",
+        "pasteDisabled": "اللصق معطّل",
+        "pasteFocus": "ركّز على أي خلية OTP والصق، يمكنك استخدام ctrl+v أو cmd+v",
+        "verificationCode": "رمز التحقق (md، عرض 280)"
+      },
+      "rows": {
+        "copyPaste": "نسخ · لصق",
+        "lengthNumericOnly": "length · numericOnly",
+        "size": "size",
+        "statusSm": "status (sm)"
+      },
+      "title": "OTPInput"
+    },
+    "passwordInput": {
+      "description": "TextInput مع تبديل إظهار/إخفاء (الحالة الأولية passShow).",
+      "title": "PasswordInput"
+    },
+    "phoneInput": {
+      "description": "تنسيق الجوال الإيراني (09xxxxxxxxx) مع بادئة أيقونة.",
+      "title": "PhoneInput"
+    },
+    "pickCity": "اختر مدينة",
+    "priority": {
+      "heading": "الأولوية",
+      "subHeading": "اسحب لإعادة الترتيب"
+    },
+    "propsCheckbox": {
+      "title": "مرجع الخصائص — Checkbox · Switch · OTP · Radio"
+    },
+    "propsDateInput": {
+      "title": "مرجع الخصائص — DateInput"
+    },
+    "propsSelect": {
+      "title": "مرجع الخصائص — Select (مشترك)"
+    },
+    "propsTextInput": {
+      "title": "مرجع الخصائص — TextInput"
+    },
+    "radioInput": {
+      "description": "مجموعات خيارات: direction وsize وshowCircle وwidth.",
+      "rows": {
+        "direction": "direction",
+        "icon": "icon",
+        "size": "size"
+      },
+      "title": "RadioInput"
+    },
+    "rows": {
+      "defaultControlled": "افتراضي ومُتحكّم",
+      "prefixSuffixHelper": "prefix · suffix · helperText",
+      "states": "الحالات",
+      "statusMessage": "status وmessage"
+    },
+    "selectMulti": {
+      "description": "اختيار متعدد مع شرائح وفلتر.",
+      "title": "Select.Multi",
+      "labels": {
+        "cities": "المدن"
+      }
+    },
+    "selectMultiOrderable": {
+      "description": "اختيار متعدد بإعادة ترتيب بالسحب والإفلات (showChips، selected).",
+      "title": "Select.MultiOrderable"
+    },
+    "selectMultiTree": {
+      "description": "شجرة مع اختيار متعدد.",
+      "title": "Select.MultiTree"
+    },
+    "selectSingle": {
+      "description": "قائمة منسدلة بقيمة واحدة مع بحث وتحميل وقائمة افتراضية.",
+      "title": "Select.Single",
+      "labels": {
+        "city": "المدينة",
+        "loading": "جارٍ التحميل",
+        "disabled": "معطّل",
+        "unclearable": "غير قابل للمسح",
+        "withDefaultvaluetitle": "مع defaultValueTitle"
+      }
+    },
+    "selectSingleTree": {
+      "description": "اختيار واحد هرمي (openedAll يوسّع العقد).",
+      "title": "Select.SingleTree"
+    },
+    "switch": {
+      "description": "severity وsize يحدّدان ألوان المسار والزر.",
+      "rows": {
+        "controlled": "مُتحكّم",
+        "severityActive": "severity (نشط)",
+        "size": "size"
+      },
+      "title": "Switch",
+      "labels": {
+        "controlled": "مُتحكّم",
+        "severityActive": "severity (نشط)",
+        "size": "size"
+      }
+    },
+    "switchField": {
+      "description": "Switch داخل LabelContainer؛ استخدم value للحالة المُتحكّم بها.",
+      "title": "SwitchField"
+    },
+    "textareaInput": {
+      "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
+      "title": "TextareaInput"
+    },
+    "textInput": {
+      "description": "حقل نصي بتسمية عائمة مع حالة وبادئة وأحجام وسمات input الأصلية.",
+      "title": "TextInput"
+    },
+    "values": {
+      "cannotEdit": "غير قابل للتعديل",
+      "hello": "مرحباً",
+      "lockedContent": "محتوى مقفل",
+      "notes": "ملاحظات…",
+      "readOnly": "للقراءة فقط"
+    },
+    "weightInput": {
+      "description": "شرائح نطاق مع حقول مخصّصة من/إلى داخل لوحة الاختيار.",
+      "presets": {
+        "fiftyPlus": "50+ kg",
+        "tenFifty": "10–50 kg",
+        "zeroTen": "0–10 kg"
+      },
+      "title": "WeightInput"
+    },
+    "textinput": {
+      "title": "TextInput",
+      "description": "حقل نصي بتسمية عائمة مع حالة وبادئة وأحجام وسمات input الأصلية.",
+      "labels": {
+        "defaultControlled": "افتراضي ومُتحكّم",
+        "username": "اسم المستخدم",
+        "statusMessage": "status وmessage",
+        "success": "نجاح",
+        "error": "خطأ",
+        "warning": "تحذير",
+        "states": "الحالات",
+        "loading": "جارٍ التحميل",
+        "disabled": "معطّل",
+        "readOnly": "للقراءة فقط",
+        "required": "مطلوب",
+        "prefixSuffixHelpertext": "prefix · suffix · helperText",
+        "withPrefix": "مع بادئة",
+        "withSuffix": "مع لاحقة",
+        "helperText": "نص مساعد"
+      },
+      "message": "يبدو جيداً!",
+      "message1": "حقل مطلوب",
+      "message2": "تحقّق من التنسيق"
+    },
+    "passwordinput": {
+      "title": "PasswordInput",
+      "description": "TextInput مع تبديل إظهار/إخفاء (الحالة الأولية passShow).",
+      "labels": {
+        "password": "كلمة المرور",
+        "visibleByDefault": "مرئي افتراضياً"
+      },
+      "message": "كلمة مرور قوية"
+    },
+    "phoneinput": {
+      "title": "PhoneInput",
+      "description": "تنسيق الجوال الإيراني (09xxxxxxxxx) مع بادئة أيقونة.",
+      "labels": {
+        "mobile": "الجوال",
+        "invalid": "غير صالح"
+      },
+      "message": "أدخل رقم جوال صالحاً"
+    },
+    "textareainput": {
+      "title": "TextareaInput",
+      "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
+      "labels": {
+        "states": "الحالات",
+        "description": "الوصف",
+        "errorState": "حالة خطأ",
+        "disabled": "معطّل",
+        "fullWidth": "عرض كامل"
+      },
+      "message": "قصير جداً"
+    },
+    "numberinput": {
+      "title": "NumberInput",
+      "description": "حقل رقمي مع أزرار تدرّج اختيارية وبادئة.",
+      "labels": {
+        "quantity": "الكمية",
+        "withSteppers": "مع أزرار التدرّج",
+        "suffixSlot": "فتحة suffix",
+        "disabled": "معطّل"
+      }
+    },
+    "numberrangeinput": {
+      "title": "NumberRangeInput",
+      "description": "نطاق رقمي من/إلى مع min وmax وتسميات مخصّصة اختيارية.",
+      "labels": {
+        "priceRange": "نطاق السعر",
+        "error": "خطأ"
+      },
+      "message": "نطاق غير صالح"
+    },
+    "switchfield": {
+      "title": "SwitchField",
+      "description": "Switch داخل LabelContainer؛ استخدم value للحالة المُتحكّم بها.",
+      "labels": {
+        "notifications": "الإشعارات",
+        "withMessage": "مع رسالة"
+      },
+      "message": "مفعّل"
+    },
+    "radioinput": {
+      "title": "RadioInput",
+      "description": "مجموعات خيارات: direction وsize وshowCircle وwidth.",
+      "labels": {
+        "direction": "direction",
+        "size": "size",
+        "icon": "icon"
+      }
+    },
+    "otpinput": {
+      "title": "OTPInput",
+      "description": "خلايا بحجم ثابت — size: sm | md | lg، width يحدّ عرض الصف (الافتراضي md).",
+      "labels": {
+        "verificationCodeMdWidth280": "رمز التحقق (md، عرض 280)",
+        "size": "size",
+        "lengthNumericonly": "length · numericOnly",
+        "4Digits": "٤ أرقام",
+        "copyPaste": "نسخ · لصق",
+        "justFocusOnAnyOtpCellAndPasteYouCanUseCtrlVOrCmdV": "ركّز على أي خلية OTP والصق، يمكنك استخدام ctrl+v أو cmd+v",
+        "pasteDisabled": "اللصق معطّل",
+        "copyAlphanumericPaste": "نسخ · لصق أبجدي رقمي",
+        "statusSm": "status (sm)",
+        "loading": "جارٍ التحميل",
+        "disabled": "معطّل"
+      }
+    },
+    "selectSingletree": {
+      "title": "Select.SingleTree",
+      "description": "اختيار واحد هرمي (openedAll يوسّع العقد).",
+      "labels": {
+        "category": "الفئة"
+      }
+    },
+    "selectMultitree": {
+      "title": "Select.MultiTree",
+      "description": "شجرة مع اختيار متعدد.",
+      "labels": {
+        "categories": "الفئات"
+      }
+    },
+    "selectMultiorderable": {
+      "title": "Select.MultiOrderable",
+      "description": "اختيار متعدد بإعادة ترتيب بالسحب والإفلات (showChips، selected).",
+      "labels": {
+        "orderedCities": "مدن مرتّبة"
+      }
+    },
+    "dateinput": {
+      "title": "DateInput",
+      "description": "حوار التقويم الفارسي: تاريخ واحد، نطاق، وقت، إعدادات مسبقة، وحدود.",
+      "labels": {
+        "singleDate": "تاريخ واحد",
+        "range": "نطاق",
+        "withTime": "مع الوقت",
+        "presets": "إعدادات مسبقة",
+        "disabled": "معطّل",
+        "requiredError": "مطلوب · خطأ"
+      }
+    },
+    "weightinput": {
+      "title": "WeightInput",
+      "description": "شرائح نطاق مع حقول مخصّصة من/إلى داخل لوحة الاختيار.",
+      "labels": {
+        "weight": "الوزن"
+      }
+    },
+    "propsReferenceTextinput": {
+      "title": "مرجع الخصائص — TextInput"
+    },
+    "propsReferenceSelectShared": {
+      "title": "مرجع الخصائص — Select (مشترك)"
+    },
+    "propsReferenceDateinput": {
+      "title": "مرجع الخصائص — DateInput"
+    },
+    "propsReferenceCheckboxSwitchOtpRadio": {
+      "title": "مرجع الخصائص — Checkbox · Switch · OTP · Radio"
+    }
+  }
+}

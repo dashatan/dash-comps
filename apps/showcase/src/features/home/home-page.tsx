@@ -9,10 +9,10 @@ import {
 } from "@/shared/motion/primitives";
 import { catalogCategories } from "@/features/catalog/registry";
 import { Button } from "@/components/common/buttons";
-import { useShowcaseI18n } from "@/i18n";
+import { useShowcaseShell } from "@/features/catalog/i18n";
 
 export function HomePage() {
-  const { t } = useShowcaseI18n();
+  const { home, categoryTitle, categoryDescription } = useShowcaseShell();
 
   return (
     <PageTransition>
@@ -31,17 +31,15 @@ export function HomePage() {
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
             <Sparkles className="size-3.5" />
-            {t.home.badge}
+            {home.badge}
           </div>
 
           <h1 className="flex gap-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            {t.home.title}
-            <span className="block text-primary">{t.home.titleHighlight}</span>
+            {home.title}
+            <span className="block text-primary">{home.titleHighlight}</span>
           </h1>
 
-          <p className="mt-4 text-lg text-muted-foreground">
-            {t.home.description}
-          </p>
+          <p className="mt-4 text-lg text-muted-foreground">{home.description}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/components">
@@ -50,12 +48,12 @@ export function HomePage() {
                 size="lg"
                 rightIcon={<ArrowRight className="size-4" />}
               >
-                {t.home.browse}
+                {home.browse}
               </Button>
             </Link>
             <Link to="/components/buttons">
               <Button variant="outlined" size="lg">
-                {t.home.startButtons}
+                {home.startButtons}
               </Button>
             </Link>
           </div>
@@ -68,11 +66,9 @@ export function HomePage() {
             <HoverShadow className="block rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm transition-colors hover:border-primary/40">
               <Link to={`/components/${category.slug}`}>
                 <category.icon className="mb-3 size-5 text-primary" />
-                <h3 className="font-semibold">
-                  {t.categories[category.slug].title}
-                </h3>
+                <h3 className="font-semibold">{categoryTitle(category.slug)}</h3>
                 <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-                  {t.categories[category.slug].description}
+                  {categoryDescription(category.slug)}
                 </p>
               </Link>
             </HoverShadow>

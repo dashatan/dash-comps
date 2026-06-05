@@ -3,15 +3,18 @@ import PieChart from "@/components/common/charts/pie";
 import DoughnutChart from "@/components/common/charts/doughnut";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { useShowcasePage } from "@/features/catalog/i18n";
 
 const labels = ["Jan", "Feb", "Mar", "Apr"];
 const seriesA = [12, 20, 15, 28];
 const seriesB = [8, 14, 22, 18];
 
 export function ChartsPage() {
+  const p = useShowcasePage("charts");
+
   return (
     <CatalogPageShell slug="charts">
-      <ShowcaseSection title="Bar" className="w-full">
+      <ShowcaseSection title={p("bar.title")} className="w-full">
         <div className="h-64 w-full min-w-[280px]">
           <BarChart
             series={[
@@ -22,7 +25,7 @@ export function ChartsPage() {
           />
         </div>
       </ShowcaseSection>
-      <ShowcaseSection title="Pie" delay={0.05}>
+      <ShowcaseSection title={p("pie.title")} delay={0.05}>
         <div className="h-56 w-72">
           <PieChart
             data={[
@@ -33,12 +36,12 @@ export function ChartsPage() {
           />
         </div>
       </ShowcaseSection>
-      <ShowcaseSection title="Doughnut" delay={0.1}>
+      <ShowcaseSection title={p("doughnut.title")} delay={0.1}>
         <div className="h-56 w-72">
           <DoughnutChart
             data={[
-              { name: "Done", value: 70 },
-              { name: "Pending", value: 30 },
+              { name: p("doughnut.done"), value: 70 },
+              { name: p("doughnut.pending"), value: 30 },
             ]}
           />
         </div>
