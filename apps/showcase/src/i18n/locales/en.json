@@ -1556,19 +1556,69 @@
       }
     },
     "cards": {
-      "defaultCard": {
-        "title": "Default card",
+      "compound": {
+        "title": "Full card",
+        "description": "Header, description, content, and footer composed together.",
         "cardTitle": "Project overview",
         "cardDescription": "Track progress across your active dashboards.",
         "cardContent": "Cards adapt to light and dark themes using semantic tokens from your design system.",
         "viewDetails": "View details",
         "dismiss": "Dismiss"
       },
+      "headerAction": {
+        "title": "Header action",
+        "description": "CardAction slots into the header grid beside the title.",
+        "cardTitle": "Notifications",
+        "cardDescription": "Manage alerts and delivery preferences.",
+        "cardContent": "Use CardAction for overflow menus, settings, or dismiss controls.",
+        "menuLabel": "Open menu"
+      },
       "variants": {
         "title": "Variants",
+        "description": "Surface styles from default filled to transparent ghost.",
         "default": "Default",
         "outline": "Outline",
-        "ghost": "Ghost"
+        "ghost": "Ghost",
+        "sampleContent": "Variant preview with shared content."
+      },
+      "sizes": {
+        "title": "Sizes",
+        "description": "Padding scales with sm, default, and lg.",
+        "sm": "Small",
+        "default": "Default",
+        "lg": "Large",
+        "sampleTitle": "Card size",
+        "sampleContent": "Outer padding adjusts while inner slots keep consistent spacing."
+      },
+      "compositions": {
+        "title": "Compositions",
+        "description": "Mix and match slots for simpler layouts.",
+        "contentOnly": "Content only",
+        "contentOnlyBody": "A minimal card with just CardContent — useful for stats or short messages.",
+        "headerContent": "Header and content",
+        "headerContentTitle": "Weekly summary",
+        "headerContentDescription": "Key metrics from the last seven days.",
+        "headerContentBody": "Revenue up 12% compared to the previous week.",
+        "titleOnly": "Title only",
+        "titleOnlyLabel": "Quick stat"
+      },
+      "bordered": {
+        "title": "Bordered sections",
+        "description": "Add border-b on CardHeader and border-t on CardFooter to divide regions.",
+        "cardTitle": "Billing details",
+        "cardDescription": "Invoice #1042 · Due Apr 15",
+        "cardContent": "Total due: $248.00",
+        "save": "Save changes",
+        "cancel": "Cancel"
+      },
+      "interactive": {
+        "title": "Interactive",
+        "description": "Cards can act as clickable surfaces with hover and focus styles.",
+        "cardTitle": "Select a plan",
+        "cardDescription": "Pro tier · $29 / month",
+        "cardContent": "Click to select this option. Selected state is tracked locally.",
+        "selected": "Selected",
+        "select": "Select plan"
       }
     },
     "carousel": {

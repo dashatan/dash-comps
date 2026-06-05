@@ -1556,19 +1556,69 @@
       }
     },
     "cards": {
-      "defaultCard": {
-        "title": "بطاقة افتراضية",
+      "compound": {
+        "title": "بطاقة كاملة",
+        "description": "رأس ووصف ومحتوى وتذييل مُكوّنة معًا.",
         "cardTitle": "نظرة عامة على المشروع",
         "cardDescription": "تتبّع التقدّم في لوحات المعلومات النشطة.",
         "cardContent": "تتكيّف البطاقات مع السمات الفاتحة والداكنة باستخدام الرموز الدلالية من نظام التصميم.",
         "viewDetails": "عرض التفاصيل",
         "dismiss": "إغلاق"
       },
+      "headerAction": {
+        "title": "إجراء في الرأس",
+        "description": "CardAction يُدرج في شبكة الرأس بجانب العنوان.",
+        "cardTitle": "الإشعارات",
+        "cardDescription": "إدارة التنبيهات وتفضيلات التسليم.",
+        "cardContent": "استخدم CardAction لقوائم الفائض أو الإعدادات أو أزرار الإغلاق.",
+        "menuLabel": "فتح القائمة"
+      },
       "variants": {
         "title": "الأنواع",
+        "description": "أنماط السطح من الممتلئ الافتراضي إلى الشفاف.",
         "default": "افتراضي",
         "outline": "محدّد",
-        "ghost": "شفاف"
+        "ghost": "شفاف",
+        "sampleContent": "معاينة النوع بمحتوى مشترك."
+      },
+      "sizes": {
+        "title": "الأحجام",
+        "description": "الحشو يتدرّج بين sm و default و lg.",
+        "sm": "صغير",
+        "default": "افتراضي",
+        "lg": "كبير",
+        "sampleTitle": "حجم البطاقة",
+        "sampleContent": "الحشو الخارجي يتغيّر بينما تحافظ الفتحات الداخلية على تباعد ثابت."
+      },
+      "compositions": {
+        "title": "التكوينات",
+        "description": "امزج الفتحات لتخطيطات أبسط.",
+        "contentOnly": "محتوى فقط",
+        "contentOnlyBody": "بطاقة بسيطة بـ CardContent فقط — مفيدة للإحصائيات أو الرسائل القصيرة.",
+        "headerContent": "رأس ومحتوى",
+        "headerContentTitle": "ملخص أسبوعي",
+        "headerContentDescription": "المقاييس الرئيسية من آخر سبعة أيام.",
+        "headerContentBody": "الإيرادات ارتفعت 12٪ مقارنة بالأسبوع السابق.",
+        "titleOnly": "عنوان فقط",
+        "titleOnlyLabel": "إحصاء سريع"
+      },
+      "bordered": {
+        "title": "أقسام بحدود",
+        "description": "أضف border-b على CardHeader و border-t على CardFooter لفصل المناطق.",
+        "cardTitle": "تفاصيل الفوترة",
+        "cardDescription": "فاتورة #1042 · الاستحقاق 15 أبريل",
+        "cardContent": "المبلغ المستحق: 248.00$",
+        "save": "حفظ التغييرات",
+        "cancel": "إلغاء"
+      },
+      "interactive": {
+        "title": "تفاعلي",
+        "description": "يمكن للبطاقات أن تعمل كسطح قابل للنقر مع أنماط hover و focus.",
+        "cardTitle": "اختر خطة",
+        "cardDescription": "المستوى Pro · 29$ / شهر",
+        "cardContent": "انقر لاختيار هذا الخيار. حالة الاختيار تُتتبّع محليًا.",
+        "selected": "مُحدّد",
+        "select": "اختر الخطة"
       }
     },
     "carousel": {

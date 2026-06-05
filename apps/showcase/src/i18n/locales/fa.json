@@ -1556,19 +1556,69 @@
       }
     },
     "cards": {
-      "defaultCard": {
-        "title": "کارت پیش‌فرض",
+      "compound": {
+        "title": "کارت کامل",
+        "description": "سرصفحه، توضیح، محتوا و پاورقی کنار هم.",
         "cardTitle": "نمای کلی پروژه",
         "cardDescription": "پیشرفت داشبوردهای فعال خود را پیگیری کنید.",
         "cardContent": "کارت‌ها با استفاده از توکن‌های معنادار سیستم طراحی شما با تم روشن و تاریک سازگار می‌شوند.",
         "viewDetails": "مشاهده جزئیات",
         "dismiss": "بستن"
       },
+      "headerAction": {
+        "title": "عملیات سرصفحه",
+        "description": "CardAction در شبکه سرصفحه کنار عنوان قرار می‌گیرد.",
+        "cardTitle": "اعلان‌ها",
+        "cardDescription": "مدیریت هشدارها و ترجیحات ارسال.",
+        "cardContent": "از CardAction برای منوی بیشتر، تنظیمات یا بستن استفاده کنید.",
+        "menuLabel": "باز کردن منو"
+      },
       "variants": {
         "title": "گونه‌ها",
+        "description": "سبک‌های سطح از پیش‌فرض پر تا شبح شفاف.",
         "default": "پیش‌فرض",
         "outline": "حاشیه‌دار",
-        "ghost": "شبح"
+        "ghost": "شبح",
+        "sampleContent": "پیش‌نمایش گونه با محتوای مشترک."
+      },
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "padding با sm، default و lg مقیاس می‌شود.",
+        "sm": "کوچک",
+        "default": "پیش‌فرض",
+        "lg": "بزرگ",
+        "sampleTitle": "اندازه کارت",
+        "sampleContent": "padding بیرونی تغییر می‌کند در حالی که اسلات‌های داخلی فاصله‌گذاری ثابت دارند."
+      },
+      "compositions": {
+        "title": "ترکیب‌ها",
+        "description": "اسلات‌ها را برای چیدمان‌های ساده‌تر ترکیب کنید.",
+        "contentOnly": "فقط محتوا",
+        "contentOnlyBody": "کارت مینیمال فقط با CardContent — برای آمار یا پیام‌های کوتاه.",
+        "headerContent": "سرصفحه و محتوا",
+        "headerContentTitle": "خلاصه هفتگی",
+        "headerContentDescription": "شاخص‌های کلیدی هفت روز گذشته.",
+        "headerContentBody": "درآمد ۱۲٪ نسبت به هفته قبل افزایش یافت.",
+        "titleOnly": "فقط عنوان",
+        "titleOnlyLabel": "آمار سریع"
+      },
+      "bordered": {
+        "title": "بخش‌های با حاشیه",
+        "description": "border-b روی CardHeader و border-t روی CardFooter برای جدا کردن ناحیه‌ها.",
+        "cardTitle": "جزئیات صورتحساب",
+        "cardDescription": "فاکتور #1042 · سررسید ۱۵ آوریل",
+        "cardContent": "مبلغ قابل پرداخت: ۲۴۸.۰۰ دلار",
+        "save": "ذخیره تغییرات",
+        "cancel": "لغو"
+      },
+      "interactive": {
+        "title": "تعاملی",
+        "description": "کارت‌ها می‌توانند سطح قابل کلیک با استایل hover و focus باشند.",
+        "cardTitle": "انتخاب طرح",
+        "cardDescription": "سطح Pro · ۲۹ دلار / ماه",
+        "cardContent": "برای انتخاب این گزینه کلیک کنید. وضعیت انتخاب به‌صورت محلی ردیابی می‌شود.",
+        "selected": "انتخاب‌شده",
+        "select": "انتخاب طرح"
       }
     },
     "carousel": {
