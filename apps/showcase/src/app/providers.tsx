@@ -15,7 +15,7 @@ export function AppProviders({ children }: AppProvidersProps) {
       defaultTheme="dark"
       storageKey="dash-comps-theme"
       enableSystem={true}
-      themes={["light", "dark"]}
+      themes={["light", "dark", "ocean"]}
       disableTransitionOnChange={false}
     >
       <LanguageProvider
