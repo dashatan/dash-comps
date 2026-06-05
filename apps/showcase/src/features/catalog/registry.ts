@@ -109,7 +109,7 @@ const commonCatalogCategories: CatalogCategory[] = [
   { slug: "alerts", icon: Bell, count: 5 },
   { slug: "avatar", icon: UserCircle, count: 3 },
   { slug: "badges", icon: BadgeCheck, count: 6 },
-  { slug: "banner", icon: Flag, count: 2 },
+  { slug: "banner", icon: Flag, count: 14 },
   { slug: "buttons", icon: MousePointerClick, count: 8 },
   { slug: "cards", icon: CreditCard, count: 4 },
   { slug: "carousel", icon: GalleryHorizontal, count: 2 },

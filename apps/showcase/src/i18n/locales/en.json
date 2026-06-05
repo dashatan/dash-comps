@@ -49,7 +49,7 @@
     },
     "banner": {
       "title": "Banner",
-      "description": "Promotional and informational banners."
+      "description": "CVA variants, media overlays, and compound banner content."
     },
     "buttons": {
       "title": "Buttons",
@@ -1443,15 +1443,116 @@
       }
     },
     "banner": {
-      "withImage": {
-        "title": "With image",
-        "description": "Banner from @/components/common/banner.",
-        "heading": "Welcome banner",
-        "subheading": "Promotional surface with background image."
+      "compound": {
+        "title": "Compound content",
+        "description": "Banner.Badge, Title, Description, and Actions compose the surface.",
+        "badge": "New",
+        "heading": "Ship dashboards faster",
+        "subheading": "Production-ready components with tokens, motion, and dark mode built in.",
+        "primaryAction": "Get started",
+        "secondaryAction": "View docs"
       },
-      "contentOnly": {
-        "title": "Content only",
-        "content": "No image — gradient / solid background via className."
+      "severities": {
+        "title": "Severities",
+        "description": "Semantic tone variants with the soft appearance.",
+        "default": "Default",
+        "defaultDescription": "Neutral surface using banner tokens.",
+        "primary": "Primary",
+        "primaryDescription": "Highlight product launches and key updates.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Secondary announcements and supporting context.",
+        "success": "Success",
+        "successDescription": "Confirm completed actions or positive outcomes.",
+        "warning": "Warning",
+        "warningDescription": "Draw attention to time-sensitive items.",
+        "danger": "Danger",
+        "dangerDescription": "Surface errors, blocks, or destructive context.",
+        "info": "Info",
+        "infoDescription": "Share neutral tips and informational copy."
+      },
+      "appearances": {
+        "title": "Appearances",
+        "description": "Soft, outline, and solid fills for the same severity.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with a subtle border.",
+        "outline": "Outline",
+        "outlineDescription": "Transparent fill with a semantic border.",
+        "solid": "Solid",
+        "solidDescription": "Full semantic background and foreground colors."
+      },
+      "sizes": {
+        "title": "Sizes",
+        "description": "Height and padding presets from sm through hero.",
+        "heading": "Analytics overview",
+        "subheading": "Banner size token: {{size}}."
+      },
+      "layouts": {
+        "title": "Layouts",
+        "description": "Start-aligned, centered, and row layouts.",
+        "start": "Start",
+        "startDescription": "Default top-start content alignment.",
+        "center": "Center",
+        "centerDescription": "Centered content for hero-style messaging.",
+        "row": "Row",
+        "rowDescription": "Content and actions split across a responsive row.",
+        "action": "View details"
+      },
+      "imageModes": {
+        "title": "Image modes",
+        "description": "Decor, gradient fade, cover, and contain background treatments.",
+        "decor": "Decor",
+        "gradient": "Gradient",
+        "cover": "Cover",
+        "contain": "Contain",
+        "heading": "Visual storytelling",
+        "subheading": "Image mode: {{mode}}."
+      },
+      "imageAlign": {
+        "title": "Image alignment",
+        "description": "Horizontal decor placement for imageMode=\"decor\".",
+        "start": "Start",
+        "end": "End",
+        "heading": "Workspace preview",
+        "subheading": "Decor aligned to {{align}}."
+      },
+      "imageBlend": {
+        "title": "Image blend",
+        "description": "Blend modes applied to the decor layer.",
+        "heading": "Analytics pulse",
+        "subheading": "Blend mode: {{blend}}."
+      },
+      "imageOpacity": {
+        "title": "Image opacity",
+        "description": "Decor intensity presets: subtle, default, and strong.",
+        "heading": "Team collaboration",
+        "subheading": "Opacity preset: {{opacity}}."
+      },
+      "hero": {
+        "title": "Hero",
+        "description": "Large hero banner with cover image and centered layout.",
+        "heading": "Build once, compose everywhere",
+        "subheading": "Reusable layout primitives and compound components for data-heavy apps.",
+        "action": "Browse components"
+      },
+      "dismissible": {
+        "title": "Dismissible",
+        "description": "Close button with onDismiss callback.",
+        "heading": "Policy update",
+        "subheading": "Review the updated terms before your next deployment.",
+        "dismissed": "Banner dismissed. Refresh the page to see it again."
+      },
+      "interactive": {
+        "title": "Interactive",
+        "description": "Clickable banner with hover shadow and keyboard support.",
+        "heading": "Open release notes",
+        "subheading": "Click anywhere on the banner to simulate navigation.",
+        "clicks": "Clicked {{count}} times"
+      },
+      "legacyImage": {
+        "title": "Legacy image prop",
+        "description": "The deprecated image={{ src }} shape still resolves correctly.",
+        "heading": "Backward compatible",
+        "subheading": "Prefer src for new code; image remains supported."
       }
     },
     "cards": {

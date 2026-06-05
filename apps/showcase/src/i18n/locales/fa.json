@@ -49,7 +49,7 @@
     },
     "banner": {
       "title": "بنر",
-      "description": "بنر اطلاع‌رسانی و تبلیغ."
+      "description": "variantهای CVA، overlay رسانه و محتوای compound."
     },
     "buttons": {
       "title": "دکمه‌ها",
@@ -1443,15 +1443,116 @@
       }
     },
     "banner": {
-      "withImage": {
-        "title": "با تصویر",
-        "description": "Banner از @/components/common/banner.",
-        "heading": "بنر خوش‌آمدگویی",
-        "subheading": "سطح تبلیغاتی با تصویر پس‌زمینه."
+      "compound": {
+        "title": "محتوای compound",
+        "description": "Banner.Badge، Title، Description و Actions سطح را می‌سازند.",
+        "badge": "جدید",
+        "heading": "داشبوردها را سریع‌تر بسازید",
+        "subheading": "کامپوننت‌های آماده تولید با توکن، motion و حالت تاریک.",
+        "primaryAction": "شروع کنید",
+        "secondaryAction": "مشاهده مستندات"
       },
-      "contentOnly": {
-        "title": "فقط محتوا",
-        "content": "بدون تصویر — پس‌زمینه گرادیان / یکدست از طریق className."
+      "severities": {
+        "title": "شدت‌ها",
+        "description": "variantهای tone معنادار با appearance soft.",
+        "default": "پیش‌فرض",
+        "defaultDescription": "سطح خنثی با توکن‌های banner.",
+        "primary": "Primary",
+        "primaryDescription": "برجسته‌سازی راه‌اندازی محصول و به‌روزرسانی‌های کلیدی.",
+        "secondary": "Secondary",
+        "secondaryDescription": "اعلان‌های ثانویه و زمینه پشتیبان.",
+        "success": "Success",
+        "successDescription": "تأیید عملیات انجام‌شده یا نتایج مثبت.",
+        "warning": "Warning",
+        "warningDescription": "جلب توجه به موارد حساس به زمان.",
+        "danger": "Danger",
+        "dangerDescription": "نمایش خطا، مسدودیت یا زمینه destructive.",
+        "info": "Info",
+        "infoDescription": "اشتراک نکات خنثی و متن اطلاعاتی."
+      },
+      "appearances": {
+        "title": "ظاهرها",
+        "description": "پر کردن soft، outline و solid برای یک severity.",
+        "soft": "Soft",
+        "softDescription": "پس‌زمینه رنگی با border ظریف.",
+        "outline": "Outline",
+        "outlineDescription": "پرشدگی شفاف با border معنادار.",
+        "solid": "Solid",
+        "solidDescription": "پس‌زمینه و رنگ foreground معنادار کامل."
+      },
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "preset ارتفاع و padding از sm تا hero.",
+        "heading": "نمای کلی analytics",
+        "subheading": "توکن اندازه banner: {{size}}."
+      },
+      "layouts": {
+        "title": "چیدمان‌ها",
+        "description": "تراز start، center و row.",
+        "start": "Start",
+        "startDescription": "تراز پیش‌فرض محتوا از بالا-شروع.",
+        "center": "Center",
+        "centerDescription": "محتوای وسط‌چین برای پیام hero.",
+        "row": "Row",
+        "rowDescription": "محتوا و actionها در یک row واکنش‌گرا.",
+        "action": "مشاهده جزئیات"
+      },
+      "imageModes": {
+        "title": "حالت‌های تصویر",
+        "description": "پردازش پس‌زمینه decor، gradient، cover و contain.",
+        "decor": "Decor",
+        "gradient": "Gradient",
+        "cover": "Cover",
+        "contain": "Contain",
+        "heading": "روایت بصری",
+        "subheading": "حالت تصویر: {{mode}}."
+      },
+      "imageAlign": {
+        "title": "تراز تصویر",
+        "description": "جایگذاری افقی decor برای imageMode=\"decor\".",
+        "start": "Start",
+        "end": "End",
+        "heading": "پیش‌نمایش workspace",
+        "subheading": "Decor تراز شده به {{align}}."
+      },
+      "imageBlend": {
+        "title": "blend تصویر",
+        "description": "حالت‌های blend روی لایه decor.",
+        "heading": "ضربان analytics",
+        "subheading": "حالت blend: {{blend}}."
+      },
+      "imageOpacity": {
+        "title": "شفافیت تصویر",
+        "description": "preset شدت decor: subtle، default و strong.",
+        "heading": "همکاری تیمی",
+        "subheading": "preset شفافیت: {{opacity}}."
+      },
+      "hero": {
+        "title": "Hero",
+        "description": "بنر hero بزرگ با تصویر cover و چیدمان center.",
+        "heading": "یک‌بار بسازید، همه‌جا ترکیب کنید",
+        "subheading": "اجزای چیدمان قابل استفاده مجدد و کامپوننت‌های compound برای اپ‌های داده‌محور.",
+        "action": "مرور کامپوننت‌ها"
+      },
+      "dismissible": {
+        "title": "قابل بستن",
+        "description": "دکمه بستن با callback onDismiss.",
+        "heading": "به‌روزرسانی سیاست",
+        "subheading": "قبل از deploy بعدی شرایط به‌روزشده را مرور کنید.",
+        "dismissed": "بنر بسته شد. برای مشاهده دوباره صفحه را refresh کنید."
+      },
+      "interactive": {
+        "title": "تعاملی",
+        "description": "بنر قابل کلیک با shadow در hover و پشتیبانی صفحه‌کلید.",
+        "heading": "باز کردن یادداشت‌های انتشار",
+        "subheading": "هر جای بنر را کلیک کنید تا ناوبری شبیه‌سازی شود.",
+        "clicks": "{{count}} بار کلیک شد"
+      },
+      "legacyImage": {
+        "title": "prop قدیمی image",
+        "description": "فرم deprecated image={{ src }} همچنان درست resolve می‌شود.",
+        "heading": "سازگار با گذشته",
+        "subheading": "برای کد جدید src را ترجیح دهید؛ image پشتیبانی می‌شود."
       }
     },
     "cards": {

@@ -49,7 +49,7 @@
     },
     "banner": {
       "title": "لافتة",
-      "description": "لافتات إعلامية."
+      "description": "variants CVA وoverlay وسائط ومحتوى مركب."
     },
     "buttons": {
       "title": "أزرار",
@@ -1443,15 +1443,116 @@
       }
     },
     "banner": {
-      "withImage": {
-        "title": "مع صورة",
-        "description": "Banner من @/components/common/banner.",
-        "heading": "لافتة ترحيب",
-        "subheading": "سطح ترويجي مع صورة خلفية."
+      "compound": {
+        "title": "محتوى مركّب",
+        "description": "Banner.Badge وTitle وDescription وActions يشكّلون السطح.",
+        "badge": "جديد",
+        "heading": "أطلق لوحات التحكم أسرع",
+        "subheading": "مكونات جاهزة للإنتاج مع tokens وحركة ووضع داكن.",
+        "primaryAction": "ابدأ",
+        "secondaryAction": "عرض الوثائق"
       },
-      "contentOnly": {
-        "title": "محتوى فقط",
-        "content": "بدون صورة — خلفية متدرجة / بلون واحد عبر className."
+      "severities": {
+        "title": "الشدات",
+        "description": "variants نغمة دلالية مع appearance soft.",
+        "default": "افتراضي",
+        "defaultDescription": "سطح محايد باستخدام tokens اللافتة.",
+        "primary": "Primary",
+        "primaryDescription": "إبراز إطلاق المنتج والتحديثات الرئيسية.",
+        "secondary": "Secondary",
+        "secondaryDescription": "إعلانات ثانوية وسياق داعم.",
+        "success": "Success",
+        "successDescription": "تأكيد الإجراءات المكتملة أو النتائج الإيجابية.",
+        "warning": "Warning",
+        "warningDescription": "لفت الانتباه للعناصر الحساسة للوقت.",
+        "danger": "Danger",
+        "dangerDescription": "عرض الأخطاء أو الحظر أو سياق destructive.",
+        "info": "Info",
+        "infoDescription": "مشاركة نصائح محايدة ونص إعلامي."
+      },
+      "appearances": {
+        "title": "المظهر",
+        "description": "تعبئة soft وoutline وsolid لنفس severity.",
+        "soft": "Soft",
+        "softDescription": "خلفية ملونة مع حد خفيف.",
+        "outline": "Outline",
+        "outlineDescription": "تعبئة شفافة مع حد دلالي.",
+        "solid": "Solid",
+        "solidDescription": "ألوان خلفية وforeground دلالية كاملة."
+      },
+      "sizes": {
+        "title": "الأحجام",
+        "description": "presets للارتفاع والحشو من sm إلى hero.",
+        "heading": "نظرة عامة على التحليلات",
+        "subheading": "رمز حجم اللافتة: {{size}}."
+      },
+      "layouts": {
+        "title": "التخطيطات",
+        "description": "محاذاة start وcenter وrow.",
+        "start": "Start",
+        "startDescription": "محاذاة المحتوى الافتراضية أعلى-البداية.",
+        "center": "Center",
+        "centerDescription": "محتوى متمركز لرسائل hero.",
+        "row": "Row",
+        "rowDescription": "المحتوى والإجراءات في صف متجاوب.",
+        "action": "عرض التفاصيل"
+      },
+      "imageModes": {
+        "title": "أوضاع الصورة",
+        "description": "معالجة خلفية decor وgradient وcover وcontain.",
+        "decor": "Decor",
+        "gradient": "Gradient",
+        "cover": "Cover",
+        "contain": "Contain",
+        "heading": "سرد بصري",
+        "subheading": "وضع الصورة: {{mode}}."
+      },
+      "imageAlign": {
+        "title": "محاذاة الصورة",
+        "description": "موضع decor أفقي لـ imageMode=\"decor\".",
+        "start": "Start",
+        "end": "End",
+        "heading": "معاينة workspace",
+        "subheading": "Decor محاذى إلى {{align}}."
+      },
+      "imageBlend": {
+        "title": "مزج الصورة",
+        "description": "أوضاع blend مطبّقة على طبقة decor.",
+        "heading": "نبض التحليلات",
+        "subheading": "وضع blend: {{blend}}."
+      },
+      "imageOpacity": {
+        "title": "شفافية الصورة",
+        "description": "presets شدة decor: subtle وdefault وstrong.",
+        "heading": "تعاون الفريق",
+        "subheading": "preset الشفافية: {{opacity}}."
+      },
+      "hero": {
+        "title": "Hero",
+        "description": "لافتة hero كبيرة مع صورة cover وتخطيط center.",
+        "heading": "ابنِ مرة واحدة، ركّب في كل مكان",
+        "subheading": "بدائيات تخطيط قابلة لإعادة الاستخدام ومكونات مركبة للتطبيقات الغنية بالبيانات.",
+        "action": "تصفح المكونات"
+      },
+      "dismissible": {
+        "title": "قابل للإغلاق",
+        "description": "زر إغلاق مع callback onDismiss.",
+        "heading": "تحديث السياسة",
+        "subheading": "راجع الشروط المحدّثة قبل النشر التالي.",
+        "dismissed": "تم إغلاق اللافتة. حدّث الصفحة لرؤيتها مجدداً."
+      },
+      "interactive": {
+        "title": "تفاعلي",
+        "description": "لافتة قابلة للنقر مع ظل hover ودعم لوحة المفاتيح.",
+        "heading": "فتح ملاحظات الإصدار",
+        "subheading": "انقر في أي مكان على اللافتة لمحاكاة التنقل.",
+        "clicks": "نُقر {{count}} مرات"
+      },
+      "legacyImage": {
+        "title": "prop image القديم",
+        "description": "الشكل deprecated image={{ src }} ما زال يُ resolved بشكل صحيح.",
+        "heading": "متوافق مع الإصدارات السابقة",
+        "subheading": "فضّل src للكود الجديد؛ image ما زال مدعوماً."
       }
     },
     "cards": {
