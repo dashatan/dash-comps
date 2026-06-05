@@ -29,7 +29,7 @@ export function FloatLabel({
         )}
       >
         {labelType === "count" && Array.isArray(value)
-          ? t("common.selectedCount", { count: `${value.length}` })
+          ? t("common.selectedCount", { count: value.length })
           : value}
       </span>
       <div className="flex items-center gap-2">

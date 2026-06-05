@@ -7,8 +7,9 @@
     "dev": "pnpm --filter @dash/showcase dev",
     "build": "pnpm --filter @dash/showcase build",
     "preview": "pnpm --filter @dash/showcase preview",
-    "typecheck": "pnpm --filter @dash/showcase typecheck",
-    "sync:locales": "node scripts/sync-locales.mjs"
+    "typecheck": "node scripts/validate-locales.mjs && pnpm --filter @dash/showcase typecheck",
+    "sync:locales": "node scripts/sync-locales.mjs",
+    "validate:locales": "node scripts/validate-locales.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

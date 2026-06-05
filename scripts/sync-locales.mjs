@@ -14,6 +14,17 @@ const KEY_ALIASES = {
   "app.subTitle": "app.description",
 };
 
+function sortKeysDeep(value) {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) {
+    return value;
+  }
+  return Object.fromEntries(
+    Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .map((key) => [key, sortKeysDeep(value[key])]),
+  );
+}
+
 function getByPath(obj, dotPath) {
   return dotPath.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
 }
@@ -64,17 +75,39 @@ function buildSynced(base, source, fallback) {
       typeof srcVal === "string" ? srcVal : typeof baseVal === "string" ? baseVal : fallback;
     setByPath(out, dotPath, val);
   }
-  return out;
+  return sortKeysDeep(out);
 }
 
+function validateAgainstBase(base, locale, lang) {
+  const basePaths = new Set(collectPaths(base));
+  const localePaths = collectPaths(locale);
+  const missing = [...basePaths].filter((p) => !localePaths.includes(p));
+  const extra = localePaths.filter((p) => !basePaths.has(p));
+
+  if (missing.length || extra.length) {
+    console.error(`\n[${lang}] locale mismatch vs en:`);
+    if (missing.length) console.error("  missing:", missing);
+    if (extra.length) console.error("  extra:", extra);
+    return false;
+  }
+  return true;
+}
+
+const enSorted = buildSynced(en, en, "");
 const faSynced = buildSynced(en, fa, "");
 const arSynced = buildSynced(en, ar, "");
 
-const arReused = collectPaths(en).filter((p) => resolveSourceValue(ar, p) !== undefined).length;
+let valid = validateAgainstBase(enSorted, faSynced, "fa");
+valid = validateAgainstBase(enSorted, arSynced, "ar") && valid;
 
+if (!valid) process.exit(1);
+
+fs.writeFileSync(path.join(dir, "en.json"), `${JSON.stringify(enSorted, null, 2)}\n`, "utf8");
 fs.writeFileSync(path.join(dir, "fa.json"), `${JSON.stringify(faSynced, null, 2)}\n`, "utf8");
 fs.writeFileSync(path.join(dir, "ar.json"), `${JSON.stringify(arSynced, null, 2)}\n`, "utf8");
 
-console.log(`Synced ${collectPaths(en).length} keys`);
+const arReused = collectPaths(en).filter((p) => resolveSourceValue(ar, p) !== undefined).length;
+
+console.log(`Synced ${collectPaths(en).length} keys (alphabetically sorted)`);
 console.log(`fa: preserved translations where paths matched`);
 console.log(`ar: reused ${arReused} strings from old ar.json, rest filled from en`);

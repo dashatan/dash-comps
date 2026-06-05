@@ -32,7 +32,7 @@ export function CountType({
           {label}
         </span>
         <span className="overflow-hidden text-base text-ellipsis whitespace-nowrap">
-          {count ? t("common.selectedCount", { count: `${count}` }) : ""}
+          {count ? t("common.selectedCount", { count }) : ""}
         </span>
       </div>
       <div className="flex items-center gap-2">

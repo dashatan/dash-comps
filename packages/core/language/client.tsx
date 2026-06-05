@@ -8,70 +8,123 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { TranslationType, TranslationKeys } from "./locales";
+import type { TranslationType } from "./locales/schema";
+import { FALLBACK_LOCALE, localeLoaders } from "./locales/registry";
 import Cookies from "js-cookie";
 import {
   COOKIE_EXPIRY_DAYS,
   DEFAULT_LANGUAGE,
   getDocumentDirection,
-  isValidLanguage,
   Language,
   SupportedLanguages,
 } from "./utils";
-import { getNestedValue } from "../utils/cn";
-import {
-  formatTranslation,
-  type TranslationParams,
-} from "./plural";
-
-export type Translation = (
-  key: TranslationKeys,
-  params?: TranslationParams,
-) => string;
+import { resolveInitialLanguage } from "./detect";
+import { createTranslator, type Translation } from "./translator";
 
 export type { TranslationParams } from "./plural";
+export type { Translation } from "./translator";
+export { createTranslator } from "./translator";
 
 export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: Translation;
+  isLocaleReady: boolean;
 }
 
-export interface LanguageProviderProps {
+type LanguageProviderBaseProps = {
   children: React.ReactNode;
   defaultLanguage?: Language;
+};
+
+type LanguageProviderSyncProps = LanguageProviderBaseProps & {
   translations: Record<SupportedLanguages, TranslationType>;
-}
+  fallbackLocale?: never;
+  localeLoaders?: never;
+};
+
+type LanguageProviderLazyProps = LanguageProviderBaseProps & {
+  fallbackLocale?: TranslationType;
+  localeLoaders?: Record<Language, () => Promise<TranslationType>>;
+  translations?: never;
+};
+
+export type LanguageProviderProps =
+  | LanguageProviderSyncProps
+  | LanguageProviderLazyProps;
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
-function toTranslationString(raw: unknown): string {
-  if (raw === undefined || raw === null) return "";
-  if (typeof raw === "string") return raw;
-  if (typeof raw === "number" || typeof raw === "boolean") return String(raw);
-  return "";
-}
+const defaultLocaleLoaders = localeLoaders;
 
-export function LanguageProvider({
-  children,
-  defaultLanguage = DEFAULT_LANGUAGE,
-  translations,
-}: LanguageProviderProps) {
-  const [language, setLanguage] = useState<Language>(defaultLanguage);
-  const [isClient, setIsClient] = useState(() => typeof window !== "undefined");
-  const translation = useMemo<TranslationType>(
-    () => translations[language],
-    [language, translations],
+export function LanguageProvider(props: LanguageProviderProps) {
+  const {
+    children,
+    defaultLanguage = DEFAULT_LANGUAGE,
+  } = props;
+
+  const isLazy = !("translations" in props && props.translations);
+
+  const [language, setLanguage] = useState<Language>(() =>
+    resolveInitialLanguage(defaultLanguage),
   );
+  const [loadedLocales, setLoadedLocales] = useState<
+    Partial<Record<Language, TranslationType>>
+  >(() =>
+    isLazy ? { en: props.fallbackLocale ?? FALLBACK_LOCALE } : {},
+  );
+  const [isLocaleReady, setIsLocaleReady] = useState(!isLazy);
 
-  const t = useCallback(
-    (key: TranslationKeys, params?: TranslationParams): string => {
-      const value = toTranslationString(getNestedValue(translation, key));
-      return formatTranslation(value, language, params);
-    },
-    [language, translation],
+  const fallbackLocale = isLazy
+    ? (props.fallbackLocale ?? FALLBACK_LOCALE)
+    : (props.translations.en ?? FALLBACK_LOCALE);
+
+  const loaders = isLazy
+    ? (props.localeLoaders ?? defaultLocaleLoaders)
+    : null;
+
+  const syncTranslations = !isLazy ? props.translations : undefined;
+
+  useEffect(() => {
+    if (!isLazy) return;
+    const activeLoaders = loaders ?? defaultLocaleLoaders;
+
+    let cancelled = false;
+
+    async function load() {
+      setIsLocaleReady(false);
+      try {
+        const [active, fallback] = await Promise.all([
+          activeLoaders[language](),
+          language === "en" ? Promise.resolve(fallbackLocale) : activeLoaders.en(),
+        ]);
+        if (cancelled) return;
+        setLoadedLocales((prev) => ({
+          ...prev,
+          en: fallback,
+          [language]: active,
+        }));
+      } finally {
+        if (!cancelled) setIsLocaleReady(true);
+      }
+    }
+
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [isLazy, loaders, language, fallbackLocale]);
+
+  const activeDictionary = useMemo(() => {
+    if (syncTranslations) return syncTranslations[language];
+    return loadedLocales[language] ?? fallbackLocale;
+  }, [syncTranslations, language, loadedLocales, fallbackLocale]);
+
+  const t = useMemo(
+    () => createTranslator(language, activeDictionary, fallbackLocale),
+    [language, activeDictionary, fallbackLocale],
   );
 
   const handleSetLanguage = useCallback((newLanguage: Language) => {
@@ -84,22 +137,25 @@ export function LanguageProvider({
   }, []);
 
   useEffect(() => {
-    !isClient && setIsClient(true);
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = language;
-      document.documentElement.dir = getDocumentDirection(language);
-      document.title = translations[language].app.name;
-    }
-    const lang = Cookies.get("language") as Language;
-    if (lang && lang !== language && isValidLanguage(lang))
-      handleSetLanguage(lang);
-  }, [language, handleSetLanguage]);
+    if (typeof document === "undefined") return;
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = getDocumentDirection(language);
+
+    const titleSource = syncTranslations?.[language] ?? loadedLocales[language];
+    document.title =
+      titleSource?.app.name ||
+      fallbackLocale.app.name ||
+      FALLBACK_LOCALE.app.name;
+  }, [language, syncTranslations, loadedLocales, fallbackLocale]);
 
   const contextValue: LanguageContextType = {
     language,
     setLanguage: handleSetLanguage,
     t,
+    isLocaleReady,
   };
+
   return (
     <LanguageContext.Provider value={contextValue}>
       {children}

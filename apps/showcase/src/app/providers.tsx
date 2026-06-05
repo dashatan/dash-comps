@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/lib/language/client";
-import { translations } from "@/lib/language/locales";
+import { FALLBACK_LOCALE, localeLoaders } from "@/lib/language/locales";
 import { ErrorHandler } from "@/components/common/errors";
 import type { ReactNode } from "react";
 
@@ -18,7 +18,10 @@ export function AppProviders({ children }: AppProvidersProps) {
       themes={["light", "dark"]}
       disableTransitionOnChange={false}
     >
-      <LanguageProvider defaultLanguage="en" translations={translations}>
+      <LanguageProvider
+        fallbackLocale={FALLBACK_LOCALE}
+        localeLoaders={localeLoaders}
+      >
         <ErrorHandler>{children}</ErrorHandler>
       </LanguageProvider>
     </ThemeProvider>
