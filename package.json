@@ -1,7 +1,8 @@
 {
   "name": "dash-comps",
   "private": true,
-  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.9",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @dash/showcase dev",
