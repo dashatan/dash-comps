@@ -41,7 +41,7 @@
     },
     "avatar": {
       "title": "آواتار",
-      "description": "تصویر کاربر با حروف جایگزین."
+      "description": "عکس، حروف اول، وضعیت، گروه و variantهای CVA."
     },
     "badges": {
       "title": "نشان‌ها",
@@ -1078,6 +1078,7 @@
     "accordion": {
       "singleCollapsible": {
         "title": "تاشوی تک‌بخشی",
+        "description": "فقط یک بخش همزمان باز است. برای بستن، روی تریگر فعال دوباره کلیک کنید.",
         "whatIsLibrary": {
           "trigger": "این کتابخانه کامپوننت چیست؟",
           "content": "مجموعه‌ای از کامپوننت‌های آماده تولید React ساخته‌شده با Tailwind CSS v4، Radix UI و تعاملات اولویت‌دار با حرکت."
@@ -1093,6 +1094,7 @@
       },
       "multipleOpen": {
         "title": "باز بودن همزمان چند بخش",
+        "description": "چند بخش را همزمان باز کنید — هر پنل مستقل جابه‌جا می‌شود.",
         "designTokens": {
           "trigger": "توکن‌های طراحی",
           "content": "رنگ‌ها، فاصله‌ها و متغیرهای تایپوگرافی معنادار."
@@ -1100,7 +1102,108 @@
         "accessibility": {
           "trigger": "دسترس‌پذیری",
           "content": "بر پایه اجزای Radix با ناوبری صفحه‌کلید ساخته شده است."
+        },
+        "composition": {
+          "trigger": "ترکیب‌پذیری",
+          "content": "ریشه، آیتم، تریگر و محتوا اجزای جداگانه‌ای هستند که می‌توانید استایل و چیدمان دهید."
         }
+      },
+      "singleExclusive": {
+        "title": "انحصاری تک‌بخشی",
+        "description": "بدون collapsible، بخش باز تا انتخاب بخش دیگر باز می‌ماند.",
+        "account": {
+          "trigger": "تنظیمات حساب",
+          "content": "پروفایل، ایمیل و نام نمایشی را به‌روزرسانی کنید."
+        },
+        "billing": {
+          "trigger": "صورتحساب",
+          "content": "روش‌های پرداخت را مدیریت و فاکتورها را دانلود کنید."
+        },
+        "notifications": {
+          "trigger": "اعلان‌ها",
+          "content": "انتخاب کنید کدام هشدارها را از طریق ایمیل یا push دریافت کنید."
+        }
+      },
+      "defaultOpen": {
+        "title": "باز پیش‌فرض",
+        "description": "با defaultValue یک بخش را در اولین رندر باز کنید.",
+        "shipping": {
+          "trigger": "سیاست ارسال",
+          "content": "سفارش‌ها ظرف ۲ روز کاری با پست استاندارد ارسال می‌شوند."
+        },
+        "returns": {
+          "trigger": "مرجوعی و بازپرداخت",
+          "content": "این بخش از ابتدا باز است. مرجوعی تا ۳۰ روز پذیرفته می‌شود."
+        },
+        "support": {
+          "trigger": "ساعات پشتیبانی",
+          "content": "چت زنده روزهای کاری ۹:۰۰ تا ۱۷:۰۰ در دسترس است."
+        }
+      },
+      "defaultOpenMultiple": {
+        "title": "باز پیش‌فرض (چندتایی)",
+        "description": "وقتی type برابر multiple است، آرایه‌ای به defaultValue بدهید.",
+        "tokens": {
+          "trigger": "توکن‌های طراحی",
+          "content": "رنگ‌ها، فاصله‌ها و مقیاس تایپوگرافی از تم شما."
+        },
+        "a11y": {
+          "trigger": "دسترس‌پذیری",
+          "content": "فوکوس صفحه‌کلید بین تریگرها حرکت می‌کند؛ پنل‌ها aria-expanded دارند."
+        },
+        "motion": {
+          "trigger": "حرکت",
+          "content": "ارتفاع محتوا با keyframeهای accordion-up و accordion-down انیمیت می‌شود."
+        }
+      },
+      "controlled": {
+        "title": "کنترل‌شده",
+        "description": "وضعیت باز بودن را با value و onValueChange از بیرون آکاردئون مدیریت کنید.",
+        "openFirst": "باز کردن پروفایل",
+        "openSecond": "باز کردن امنیت",
+        "collapseAll": "بستن همه",
+        "current": "باز: {{value}}",
+        "none": "هیچ‌کدام",
+        "profile": {
+          "trigger": "پروفایل",
+          "content": "نام، آواتار و بیوگرافی عمومی را ویرایش کنید."
+        },
+        "security": {
+          "trigger": "امنیت",
+          "content": "رمز عبور را تغییر دهید و نشست‌های فعال را بررسی کنید."
+        }
+      },
+      "disabledItems": {
+        "title": "آیتم‌های غیرفعال",
+        "description": "disabled روی AccordionItem تعامل را مسدود و فوکوس صفحه‌کلید را رد می‌کند.",
+        "available": {
+          "trigger": "بخش در دسترس",
+          "content": "این پنل به‌طور عادی باز و بسته می‌شود."
+        },
+        "locked": {
+          "trigger": "بخش قفل‌شده (غیرفعال)",
+          "content": "تا زمانی که آیتم غیرفعال است به این محتوا دسترسی نیست."
+        },
+        "another": {
+          "trigger": "بخش در دسترس دیگر",
+          "content": "هنگام tab بین تریگرها، فوکوس از آیتم غیرفعال عبور می‌کند."
+        }
+      },
+      "singleItem": {
+        "title": "تک آیتم",
+        "description": "آکاردئون حداقلی با یک پنل قابل گسترش.",
+        "trigger": "یادداشت‌های انتشار",
+        "content": "نسخه ۲.۴ انیمیشن آکاردئون و پشتیبانی بهتر صفحه‌کلید را اضافه می‌کند."
+      },
+      "richContent": {
+        "title": "محتوای غنی",
+        "description": "بدنه پنل از پاراگراف، فهرست و چیدمان تو در تو پشتیبانی می‌کند.",
+        "trigger": "چک‌لیست شروع",
+        "intro": "قبل از انتشار این مراحل را انجام دهید:",
+        "listItem1": "بسته و وابستگی‌های peer را نصب کنید.",
+        "listItem2": "اپ را با theme provider بپوشانید.",
+        "listItem3": "اجزای Accordion را از barrel مشترک import کنید.",
+        "outro": "در یک اپ واقعی هر مرحله به مستندات لینک می‌شود."
       }
     },
     "alerts": {
@@ -1206,12 +1309,92 @@
       }
     },
     "avatar": {
-      "sizes": {
-        "title": "اندازه‌ها",
-        "description": "UserAvatar از @/components/common/avatar."
+      "withPhoto": {
+        "title": "با عکس",
+        "description": "تصاویر واقعی از /public/avatars با alt قابل دسترس.",
+        "sara": "سارا احمدی",
+        "ali": "علی حسینی",
+        "mina": "مینا رحمانی",
+        "reza": "رضا کریمی"
       },
-      "fallbackInitials": {
-        "title": "حروف اول جایگزین"
+      "presetSizes": {
+        "title": "اندازه‌های از پیش‌تعریف‌شده",
+        "description": "توکن‌های size در CVA از xs تا 3xl.",
+        "photoRow": "آواتار با عکس",
+        "initialsRow": "حروف اول جایگزین"
+      },
+      "customSizes": {
+        "title": "اندازه سفارشی",
+        "description": "عدد پیکسلی یا هر واحد CSS رشته‌ای بدهید."
+      },
+      "shapes": {
+        "title": "شکل‌ها",
+        "description": "variantهای دایره، گرد و مربع.",
+        "circle": "دایره",
+        "rounded": "گرد",
+        "square": "مربع"
+      },
+      "severities": {
+        "title": "شدت fallback",
+        "description": "variantهای رنگ برای حروف اول و آیکن."
+      },
+      "initials": {
+        "title": "حروف اول",
+        "description": "حالت تک‌حرفی یا دوحرفی برای fallback.",
+        "single": "تک",
+        "dual": "دوگانه",
+        "username": "نام کاربری",
+        "default": "پیش‌فرض"
+      },
+      "autoSeverity": {
+        "title": "شدت خودکار",
+        "description": "رنگ پایدار از نام نمایشی وقتی autoSeverity فعال است."
+      },
+      "status": {
+        "title": "نشانگر وضعیت",
+        "description": "نقطه حضور برای online، offline، busy و away.",
+        "online": "آنلاین",
+        "offline": "آفلاین",
+        "busy": "مشغول",
+        "away": "دور"
+      },
+      "borders": {
+        "title": "حاشیه‌ها",
+        "description": "variantهای border برای آواتار تکی و گروه.",
+        "none": "بدون",
+        "default": "پیش‌فرض",
+        "ring": "حلقه"
+      },
+      "loading": {
+        "title": "بارگذاری",
+        "description": "overlay اسپینر هنگام بارگذاری تصویر یا loading اجباری."
+      },
+      "imageError": {
+        "title": "fallback خطای تصویر",
+        "description": "URL نامعتبر به‌طور خودکار به حروف اول برمی‌گردد."
+      },
+      "iconFallback": {
+        "title": "fallback آیکن",
+        "description": "به‌جای حروف اول از آیکن Lucide استفاده کنید."
+      },
+      "interactive": {
+        "title": "تعاملی",
+        "description": "آواتار قابل کلیک با scale در hover و فعال‌سازی صفحه‌کلید.",
+        "clicks": "{{count}} بار کلیک شد"
+      },
+      "disabled": {
+        "title": "غیرفعال",
+        "description": "کاهش opacity و بدون تعامل اشاره‌گر."
+      },
+      "avatarGroup": {
+        "title": "گروه آواتار",
+        "description": "چیدمان با overlap یا gap و overflow به صورت +N.",
+        "overlap": "هم‌پوشانی با overflow",
+        "gap": "فاصله‌گذاری"
+      },
+      "userAvatarCompat": {
+        "title": "سازگاری UserAvatar",
+        "description": "wrapper قدیمی UserAvatar همچنان به API جدید Avatar نگاشت می‌شود."
       }
     },
     "badges": {

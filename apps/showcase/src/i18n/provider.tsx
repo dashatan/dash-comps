@@ -10,9 +10,13 @@ import {
   showcaseLocaleLoaders,
   SHOWCASE_FALLBACK_LOCALE,
   ShowcaseLocale,
+  ShowcaseTranslationKeys,
 } from "@/i18n/locales/registry";
 
-type ShowcaseTranslator = (path: string, params?: TranslationParams) => string;
+type ShowcaseTranslator = (
+  path: ShowcaseTranslationKeys,
+  params?: TranslationParams,
+) => string;
 
 type ShowcaseLocaleContextValue = {
   t: ShowcaseTranslator;

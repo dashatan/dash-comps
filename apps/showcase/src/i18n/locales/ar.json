@@ -41,7 +41,7 @@
     },
     "avatar": {
       "title": "صورة رمزية",
-      "description": "صور المستخدمين."
+      "description": "صور وأحرف أولى وحالة ومجموعات وvariants CVA."
     },
     "badges": {
       "title": "شارات",
@@ -1078,6 +1078,7 @@
     "accordion": {
       "singleCollapsible": {
         "title": "قابل للطي — عنصر واحد",
+        "description": "قسم واحد فقط مفتوح في كل مرة. انقر على المُشغّل النشط مرة أخرى لطيه.",
         "whatIsLibrary": {
           "trigger": "ما هي مكتبة المكونات هذه؟",
           "content": "مجموعة من مكونات React الجاهزة للإنتاج، مبنية باستخدام Tailwind CSS v4 وRadix UI وتفاعلات تركز على الحركة."
@@ -1093,6 +1094,7 @@
       },
       "multipleOpen": {
         "title": "فتح متعدد",
+        "description": "افتح عدة أقسام في آن واحد — كل لوحة تُبدَّل بشكل مستقل.",
         "designTokens": {
           "trigger": "رموز التصميم",
           "content": "ألوان دلالية، وتباعد، ومتغيرات طباعة."
@@ -1100,7 +1102,108 @@
         "accessibility": {
           "trigger": "إمكانية الوصول",
           "content": "مبنية على عناصر Radix مع التنقل بلوحة المفاتيح."
+        },
+        "composition": {
+          "trigger": "التركيب",
+          "content": "الجذر والعنصر والمُشغّل والمحتوى عناصر أولية منفصلة يمكنك تنسيقها وترتيبها."
         }
+      },
+      "singleExclusive": {
+        "title": "حصري — عنصر واحد",
+        "description": "بدون collapsible، يبقى القسم المفتوح حتى يُختار قسم آخر.",
+        "account": {
+          "trigger": "إعدادات الحساب",
+          "content": "حدّث ملفك الشخصي والبريد الإلكتروني واسم العرض."
+        },
+        "billing": {
+          "trigger": "الفوترة",
+          "content": "أدر طرق الدفع وحمّل الفواتير."
+        },
+        "notifications": {
+          "trigger": "الإشعارات",
+          "content": "اختر التنبيهات التي تصلك عبر البريد أو push."
+        }
+      },
+      "defaultOpen": {
+        "title": "مفتوح افتراضياً",
+        "description": "استخدم defaultValue لتوسيع قسم عند أول عرض.",
+        "shipping": {
+          "trigger": "سياسة الشحن",
+          "content": "تُشحن الطلبات خلال يومي عمل عبر البريد القياسي."
+        },
+        "returns": {
+          "trigger": "المرتجعات والاسترداد",
+          "content": "يبدأ هذا القسم مفتوحاً. تُقبل المرتجعات خلال 30 يوماً."
+        },
+        "support": {
+          "trigger": "ساعات الدعم",
+          "content": "الدردشة المباشرة متاحة أيام الأسبوع 9:00–17:00."
+        }
+      },
+      "defaultOpenMultiple": {
+        "title": "مفتوح افتراضياً (متعدد)",
+        "description": "مرّر مصفوفة إلى defaultValue عندما يكون type هو multiple.",
+        "tokens": {
+          "trigger": "رموز التصميم",
+          "content": "الألوان والتباعد ومقياس الطباعة من سمتك."
+        },
+        "a11y": {
+          "trigger": "إمكانية الوصول",
+          "content": "ينتقل تركيز لوحة المفاتيح بين المُشغّلات؛ اللوحات تعرض aria-expanded."
+        },
+        "motion": {
+          "trigger": "الحركة",
+          "content": "يتحرك ارتفاع المحتوى باستخدام keyframes accordion-up وaccordion-down."
+        }
+      },
+      "controlled": {
+        "title": "مُتحكَّم به",
+        "description": "تحكم في حالة الفتح عبر value وonValueChange من خارج الأكورديون.",
+        "openFirst": "فتح الملف الشخصي",
+        "openSecond": "فتح الأمان",
+        "collapseAll": "طي الكل",
+        "current": "مفتوح: {{value}}",
+        "none": "لا شيء",
+        "profile": {
+          "trigger": "الملف الشخصي",
+          "content": "عدّل اسمك وصورتك والسيرة العامة."
+        },
+        "security": {
+          "trigger": "الأمان",
+          "content": "غيّر كلمة المرور وراجع الجلسات النشطة."
+        }
+      },
+      "disabledItems": {
+        "title": "عناصر معطّلة",
+        "description": "عيّن disabled على AccordionItem لمنع التفاعل وتخطي تركيز لوحة المفاتيح.",
+        "available": {
+          "trigger": "قسم متاح",
+          "content": "يمكن فتح وإغلاق هذه اللوحة بشكل طبيعي."
+        },
+        "locked": {
+          "trigger": "قسم مقفل (معطّل)",
+          "content": "لا يمكن الوصول إلى هذا المحتوى طالما العنصر معطّل."
+        },
+        "another": {
+          "trigger": "قسم متاح آخر",
+          "content": "يتخطى التركيز العنصر المعطّل عند التنقل بين المُشغّلات."
+        }
+      },
+      "singleItem": {
+        "title": "عنصر واحد",
+        "description": "أكورديون بسيط بلوحة قابلة للتوسيع واحدة.",
+        "trigger": "ملاحظات الإصدار",
+        "content": "الإصدار 2.4 يضيف رسوم الأكورديون ودعم لوحة مفاتيح محسّناً."
+      },
+      "richContent": {
+        "title": "محتوى غني",
+        "description": "يدعم جسم اللوحة فقرات وقوائم وتخطيطات متداخلة.",
+        "trigger": "قائمة البدء",
+        "intro": "أكمل هذه الخطوات قبل الإطلاق:",
+        "listItem1": "ثبّت الحزمة والتبعيات المطلوبة.",
+        "listItem2": "غلّف تطبيقك بمزود السمة.",
+        "listItem3": "استورد عناصر Accordion من barrel المشترك.",
+        "outro": "في تطبيق حقيقي، يرتبط كل خطوة بالوثائق."
       }
     },
     "alerts": {
@@ -1206,12 +1309,92 @@
       }
     },
     "avatar": {
-      "sizes": {
-        "title": "الأحجام",
-        "description": "UserAvatar من @/components/common/avatar."
+      "withPhoto": {
+        "title": "مع صورة",
+        "description": "صور حقيقية من /public/avatars مع alt يمكن الوصول إليه.",
+        "sara": "سارة أحمدي",
+        "ali": "علي حسيني",
+        "mina": "مينا رحماني",
+        "reza": "رضا كريمي"
       },
-      "fallbackInitials": {
-        "title": "الأحرف الأولى البديلة"
+      "presetSizes": {
+        "title": "أحجام محددة مسبقاً",
+        "description": "رموز size في CVA من xs إلى 3xl.",
+        "photoRow": "صور رمزية",
+        "initialsRow": "أحرف بديلة"
+      },
+      "customSizes": {
+        "title": "أحجام مخصصة",
+        "description": "مرّر رقماً بالبكسل أو أي وحدة CSS كنص."
+      },
+      "shapes": {
+        "title": "الأشكال",
+        "description": "variants دائرة ومستديرة ومربعة.",
+        "circle": "دائرة",
+        "rounded": "مستدير",
+        "square": "مربع"
+      },
+      "severities": {
+        "title": "شدة fallback",
+        "description": "variants لون للأحرف الأولى والأيقونة."
+      },
+      "initials": {
+        "title": "الأحرف الأولى",
+        "description": "وضع حرف واحد أو حرفين للfallback.",
+        "single": "مفرد",
+        "dual": "مزدوج",
+        "username": "اسم المستخدم",
+        "default": "افتراضي"
+      },
+      "autoSeverity": {
+        "title": "شدة تلقائية",
+        "description": "لون ثابت من اسم العرض عند تفعيل autoSeverity."
+      },
+      "status": {
+        "title": "مؤشر الحالة",
+        "description": "نقطة حضور لحالات online وoffline وbusy وaway.",
+        "online": "متصل",
+        "offline": "غير متصل",
+        "busy": "مشغول",
+        "away": "بعيد"
+      },
+      "borders": {
+        "title": "الحدود",
+        "description": "variants border للصورة المفردة والمجموعة.",
+        "none": "بدون",
+        "default": "افتراضي",
+        "ring": "حلقة"
+      },
+      "loading": {
+        "title": "تحميل",
+        "description": "طبقة spinner أثناء تحميل الصورة أو عند فرض loading."
+      },
+      "imageError": {
+        "title": "fallback خطأ الصورة",
+        "description": "URL معطوب يعود تلقائياً إلى الأحرف الأولى."
+      },
+      "iconFallback": {
+        "title": "fallback أيقونة",
+        "description": "استخدم أيقونة Lucide بدلاً من الأحرف عند غياب الصورة."
+      },
+      "interactive": {
+        "title": "تفاعلي",
+        "description": "صورة قابلة للنقر مع تكبير hover وتفعيل بلوحة المفاتيح.",
+        "clicks": "نُقر {{count}} مرات"
+      },
+      "disabled": {
+        "title": "معطّل",
+        "description": "شفافية أقل وبدون تفاعل مؤشر."
+      },
+      "avatarGroup": {
+        "title": "مجموعة صور",
+        "description": "تراص مع overlap أو gap وتجاوز +N.",
+        "overlap": "تداخل مع overflow",
+        "gap": "تباعد"
+      },
+      "userAvatarCompat": {
+        "title": "توافق UserAvatar",
+        "description": "غلاف UserAvatar القديم ما زال يُ mapped إلى Avatar الجديد."
       }
     },
     "badges": {

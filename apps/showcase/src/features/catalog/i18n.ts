@@ -1,11 +1,26 @@
 import type { TranslationParams } from "@/lib/language/plural";
 import { useShowcaseLocale } from "@/i18n/provider";
+import type { ShowcaseTranslationKeys } from "@/i18n/locales/registry";
 import type { CatalogSlug } from "@/features/catalog/registry";
 
-export function useShowcasePage(slug: CatalogSlug) {
+type ShowcasePageKey<S extends CatalogSlug> = Extract<
+  ShowcaseTranslationKeys,
+  `pages.${S}.${string}`
+>;
+
+type ShowcasePageSuffix<S extends CatalogSlug> =
+  ShowcasePageKey<S> extends `pages.${S}.${infer Rest}` ? Rest : never;
+
+type ShowcaseCategoryKey<
+  S extends CatalogSlug,
+  Field extends "title" | "description",
+> = Extract<ShowcaseTranslationKeys, `categories.${S}.${Field}`>;
+
+export function useShowcasePage<S extends CatalogSlug>(slug: S) {
   const { t } = useShowcaseLocale();
-  return (suffix: string, params?: TranslationParams) =>
-    t(`pages.${slug}.${suffix}`, params);
+
+  return (suffix: ShowcasePageSuffix<S>, params?: TranslationParams) =>
+    t(`pages.${slug}.${suffix}` as ShowcasePageKey<S>, params);
 }
 
 export function useShowcaseShell() {
@@ -39,7 +54,14 @@ export function useShowcaseShell() {
       collapse: t("sidebar.collapse"),
       expand: t("sidebar.expand"),
     },
-    categoryTitle: (slug: CatalogSlug) => t(`categories.${slug}.title`),
-    categoryDescription: (slug: CatalogSlug) => t(`categories.${slug}.description`),
+    categoryTitle: <S extends CatalogSlug>(slug: S) =>
+      t(`categories.${slug}.title` as ShowcaseCategoryKey<S, "title">),
+    categoryDescription: <S extends CatalogSlug>(slug: S) =>
+      t(
+        `categories.${slug}.description` as ShowcaseCategoryKey<
+          S,
+          "description"
+        >,
+      ),
   };
 }

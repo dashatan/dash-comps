@@ -41,7 +41,7 @@
     },
     "avatar": {
       "title": "Avatar",
-      "description": "User avatars with fallback initials."
+      "description": "Photos, initials, status, groups, and CVA variants."
     },
     "badges": {
       "title": "Badges",
@@ -1078,6 +1078,7 @@
     "accordion": {
       "singleCollapsible": {
         "title": "Single collapsible",
+        "description": "Only one section open at a time. Click the active trigger again to collapse it.",
         "whatIsLibrary": {
           "trigger": "What is this component library?",
           "content": "A collection of production-ready React components built with Tailwind CSS v4, Radix UI, and motion-first interactions."
@@ -1093,6 +1094,7 @@
       },
       "multipleOpen": {
         "title": "Multiple open",
+        "description": "Expand several sections at once — each panel toggles independently.",
         "designTokens": {
           "trigger": "Design tokens",
           "content": "Semantic colors, spacing, and typography variables."
@@ -1100,7 +1102,108 @@
         "accessibility": {
           "trigger": "Accessibility",
           "content": "Built on Radix primitives with keyboard navigation."
+        },
+        "composition": {
+          "trigger": "Composition",
+          "content": "Root, item, trigger, and content are separate primitives you can style and arrange."
         }
+      },
+      "singleExclusive": {
+        "title": "Single exclusive",
+        "description": "Without collapsible, an open section stays open until another is selected.",
+        "account": {
+          "trigger": "Account settings",
+          "content": "Update your profile, email, and display name."
+        },
+        "billing": {
+          "trigger": "Billing",
+          "content": "Manage payment methods and download invoices."
+        },
+        "notifications": {
+          "trigger": "Notifications",
+          "content": "Choose which alerts you receive by email or push."
+        }
+      },
+      "defaultOpen": {
+        "title": "Default open",
+        "description": "Use defaultValue to expand a section on first render.",
+        "shipping": {
+          "trigger": "Shipping policy",
+          "content": "Orders ship within 2 business days via standard courier."
+        },
+        "returns": {
+          "trigger": "Returns & refunds",
+          "content": "This section starts open. Returns are accepted within 30 days."
+        },
+        "support": {
+          "trigger": "Support hours",
+          "content": "Live chat is available weekdays 9:00–17:00."
+        }
+      },
+      "defaultOpenMultiple": {
+        "title": "Default open (multiple)",
+        "description": "Pass an array to defaultValue when type is multiple.",
+        "tokens": {
+          "trigger": "Design tokens",
+          "content": "Colors, spacing, and typography scale from your theme."
+        },
+        "a11y": {
+          "trigger": "Accessibility",
+          "content": "Keyboard focus moves between triggers; panels expose aria-expanded."
+        },
+        "motion": {
+          "trigger": "Motion",
+          "content": "Content height animates with accordion-up and accordion-down keyframes."
+        }
+      },
+      "controlled": {
+        "title": "Controlled",
+        "description": "Drive open state with value and onValueChange from outside the accordion.",
+        "openFirst": "Open profile",
+        "openSecond": "Open security",
+        "collapseAll": "Collapse all",
+        "current": "Open: {{value}}",
+        "none": "none",
+        "profile": {
+          "trigger": "Profile",
+          "content": "Edit your name, avatar, and public bio."
+        },
+        "security": {
+          "trigger": "Security",
+          "content": "Change password and review active sessions."
+        }
+      },
+      "disabledItems": {
+        "title": "Disabled items",
+        "description": "Set disabled on AccordionItem to block interaction and skip keyboard focus.",
+        "available": {
+          "trigger": "Available section",
+          "content": "This panel can be opened and closed normally."
+        },
+        "locked": {
+          "trigger": "Locked section (disabled)",
+          "content": "This content is not reachable while the item is disabled."
+        },
+        "another": {
+          "trigger": "Another available section",
+          "content": "Focus moves past the disabled item when tabbing through triggers."
+        }
+      },
+      "singleItem": {
+        "title": "Single item",
+        "description": "Minimal accordion with one expandable panel.",
+        "trigger": "Release notes",
+        "content": "Version 2.4 adds accordion animations and improved keyboard support."
+      },
+      "richContent": {
+        "title": "Rich content",
+        "description": "Panel bodies support paragraphs, lists, and nested layout.",
+        "trigger": "Getting started checklist",
+        "intro": "Complete these steps before shipping:",
+        "listItem1": "Install the package and peer dependencies.",
+        "listItem2": "Wrap your app with the theme provider.",
+        "listItem3": "Import Accordion primitives from the common barrel.",
+        "outro": "Each step links to docs in a real application."
       }
     },
     "alerts": {
@@ -1206,12 +1309,92 @@
       }
     },
     "avatar": {
-      "sizes": {
-        "title": "Sizes",
-        "description": "UserAvatar from @/components/common/avatar."
+      "withPhoto": {
+        "title": "With photo",
+        "description": "Real images from /public/avatars with accessible alt text.",
+        "sara": "Sara Ahmadi",
+        "ali": "Ali Hosseini",
+        "mina": "Mina Rahmani",
+        "reza": "Reza Karimi"
       },
-      "fallbackInitials": {
-        "title": "Fallback initials"
+      "presetSizes": {
+        "title": "Preset sizes",
+        "description": "CVA size tokens from xs through 3xl.",
+        "photoRow": "Photo avatars",
+        "initialsRow": "Initial fallbacks"
+      },
+      "customSizes": {
+        "title": "Custom sizes",
+        "description": "Pass a pixel number or any CSS length string."
+      },
+      "shapes": {
+        "title": "Shapes",
+        "description": "Circle, rounded, and square variants.",
+        "circle": "Circle",
+        "rounded": "Rounded",
+        "square": "Square"
+      },
+      "severities": {
+        "title": "Fallback severities",
+        "description": "Tone variants for initials and icon fallbacks."
+      },
+      "initials": {
+        "title": "Initials",
+        "description": "Single-letter or dual-letter fallback modes.",
+        "single": "Single",
+        "dual": "Dual",
+        "username": "Username",
+        "default": "Default"
+      },
+      "autoSeverity": {
+        "title": "Auto severity",
+        "description": "Deterministic color from the display name when autoSeverity is enabled."
+      },
+      "status": {
+        "title": "Status indicator",
+        "description": "Presence dot with online, offline, busy, and away states.",
+        "online": "Online",
+        "offline": "Offline",
+        "busy": "Busy",
+        "away": "Away"
+      },
+      "borders": {
+        "title": "Borders",
+        "description": "Border variants for standalone avatars and groups.",
+        "none": "None",
+        "default": "Default",
+        "ring": "Ring"
+      },
+      "loading": {
+        "title": "Loading",
+        "description": "Spinner overlay while the image is loading or loading is forced."
+      },
+      "imageError": {
+        "title": "Image error fallback",
+        "description": "Broken image URLs fall back to initials automatically."
+      },
+      "iconFallback": {
+        "title": "Icon fallback",
+        "description": "Use a Lucide icon instead of initials when no image is available."
+      },
+      "interactive": {
+        "title": "Interactive",
+        "description": "Clickable avatar with hover scale and keyboard activation.",
+        "clicks": "Clicked {{count}} times"
+      },
+      "disabled": {
+        "title": "Disabled",
+        "description": "Reduced opacity and no pointer interaction."
+      },
+      "avatarGroup": {
+        "title": "Avatar group",
+        "description": "Stack avatars with overlap or gap spacing and +N overflow.",
+        "overlap": "Overlap with overflow",
+        "gap": "Gap spacing"
+      },
+      "userAvatarCompat": {
+        "title": "UserAvatar compatibility",
+        "description": "Legacy UserAvatar wrapper still maps to the new Avatar API."
       }
     },
     "badges": {
