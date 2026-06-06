@@ -1,6 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useLanguage } from "@/lib/language/client";
 import {
+  getCachedLocale,
+  hasCachedLocale,
+  setCachedLocale,
+} from "@/lib/language/locale-cache";
+import { resolveInitialLanguage } from "@/lib/language/detect";
+import {
   formatTranslation,
   type TranslationParams,
 } from "@/lib/language/plural";
@@ -40,6 +46,8 @@ function createShowcaseTranslator(
   };
 }
 
+const SHOWCASE_LOCALE_CACHE_NAMESPACE = "showcase";
+
 export function ShowcaseLocaleProvider({
   children,
 }: {
@@ -48,14 +56,40 @@ export function ShowcaseLocaleProvider({
   const { language } = useLanguage();
   const [loaded, setLoaded] = useState<
     Partial<Record<Language, ShowcaseLocale>>
-  >({
-    en: SHOWCASE_FALLBACK_LOCALE,
+  >(() => {
+    const initialLanguage = resolveInitialLanguage();
+    const cachedActive = getCachedLocale<ShowcaseLocale>(
+      SHOWCASE_LOCALE_CACHE_NAMESPACE,
+      initialLanguage,
+    );
+
+    return {
+      en: SHOWCASE_FALLBACK_LOCALE,
+      ...(cachedActive ? { [initialLanguage]: cachedActive } : {}),
+    };
   });
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(() => {
+    const initialLanguage = resolveInitialLanguage();
+    return (
+      initialLanguage === "en" ||
+      hasCachedLocale(SHOWCASE_LOCALE_CACHE_NAMESPACE, initialLanguage)
+    );
+  });
 
   useEffect(() => {
     let cancelled = false;
-    setIsReady(false);
+
+    const cachedActive = getCachedLocale<ShowcaseLocale>(
+      SHOWCASE_LOCALE_CACHE_NAMESPACE,
+      language,
+    );
+
+    if (cachedActive) {
+      setLoaded((prev) => ({ ...prev, [language]: cachedActive }));
+      setIsReady(true);
+    } else {
+      setIsReady(false);
+    }
 
     async function load() {
       const [active, fallback] = await Promise.all([
@@ -65,6 +99,7 @@ export function ShowcaseLocaleProvider({
           : showcaseLocaleLoaders.en(),
       ]);
       if (cancelled) return;
+      setCachedLocale(SHOWCASE_LOCALE_CACHE_NAMESPACE, language, active);
       setLoaded((prev) => ({ ...prev, en: fallback, [language]: active }));
       setIsReady(true);
     }

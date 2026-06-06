@@ -19,7 +19,14 @@ import {
   SupportedLanguages,
 } from "./utils";
 import { resolveInitialLanguage } from "./detect";
+import {
+  getCachedLocale,
+  hasCachedLocale,
+  setCachedLocale,
+} from "./locale-cache";
 import { createTranslator, type Translation } from "./translator";
+
+const CORE_LOCALE_CACHE_NAMESPACE = "core";
 
 export type { TranslationParams } from "./plural";
 export type { Translation } from "./translator";
@@ -72,10 +79,30 @@ export function LanguageProvider(props: LanguageProviderProps) {
   );
   const [loadedLocales, setLoadedLocales] = useState<
     Partial<Record<Language, TranslationType>>
-  >(() =>
-    isLazy ? { en: props.fallbackLocale ?? FALLBACK_LOCALE } : {},
-  );
-  const [isLocaleReady, setIsLocaleReady] = useState(!isLazy);
+  >(() => {
+    if (!isLazy) return {};
+
+    const initialLanguage = resolveInitialLanguage(defaultLanguage);
+    const fallback = props.fallbackLocale ?? FALLBACK_LOCALE;
+    const cachedActive = getCachedLocale<TranslationType>(
+      CORE_LOCALE_CACHE_NAMESPACE,
+      initialLanguage,
+    );
+
+    return {
+      en: fallback,
+      ...(cachedActive ? { [initialLanguage]: cachedActive } : {}),
+    };
+  });
+  const [isLocaleReady, setIsLocaleReady] = useState(() => {
+    if (!isLazy) return true;
+
+    const initialLanguage = resolveInitialLanguage(defaultLanguage);
+    return (
+      initialLanguage === "en" ||
+      hasCachedLocale(CORE_LOCALE_CACHE_NAMESPACE, initialLanguage)
+    );
+  });
 
   const fallbackLocale = isLazy
     ? (props.fallbackLocale ?? FALLBACK_LOCALE)
@@ -94,13 +121,28 @@ export function LanguageProvider(props: LanguageProviderProps) {
     let cancelled = false;
 
     async function load() {
-      setIsLocaleReady(false);
+      const cachedActive = getCachedLocale<TranslationType>(
+        CORE_LOCALE_CACHE_NAMESPACE,
+        language,
+      );
+
+      if (cachedActive) {
+        setLoadedLocales((prev) => ({
+          ...prev,
+          [language]: cachedActive,
+        }));
+        setIsLocaleReady(true);
+      } else {
+        setIsLocaleReady(false);
+      }
+
       try {
         const [active, fallback] = await Promise.all([
           activeLoaders[language](),
           language === "en" ? Promise.resolve(fallbackLocale) : activeLoaders.en(),
         ]);
         if (cancelled) return;
+        setCachedLocale(CORE_LOCALE_CACHE_NAMESPACE, language, active);
         setLoadedLocales((prev) => ({
           ...prev,
           en: fallback,
