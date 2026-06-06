@@ -1687,9 +1687,140 @@
       }
     },
     "carousel": {
-      "slides": {
-        "title": "الشرائح",
-        "slide": "الشرائح"
+      "compound": {
+        "title": "عرض دوار رئيسي",
+        "description": "واجهة مركبة مع تشغيل تلقائي وحلقة وشريط تقدم وأزرار solid."
+      },
+      "useCases": {
+        "title": "أنماط واقعية",
+        "description": "بطل صفحة هبوط، معرض منتجات، بطاقات وجهات، عروض، وصفوف فئات — كل منها بصور مخصصة.",
+        "frames": {
+          "landingHero": "بطل صفحة الهبوط",
+          "productGallery": "معرض منتجات · peek",
+          "destinations": "بطاقات وجهات",
+          "promotions": "لافتات ترويجية",
+          "categories": "صور مصغرة للفئات",
+          "relatedProducts": "منتجات ذات صلة · ٣ في العرض"
+        },
+        "heroes": {
+          "workspace": {
+            "title": "مساحة عمل حديثة",
+            "description": "تعاون من أي مكان بأدوات سحابية."
+          },
+          "travel": {
+            "title": "اكتشف أماكن جديدة",
+            "description": "رحلات منتقاة لكل موسم."
+          },
+          "food": {
+            "title": "قائمة موسمية طازجة",
+            "description": "أطباق من الطهاة إلى بابك."
+          },
+          "retail": {
+            "title": "مجموعة الربيع",
+            "description": "وصول جديد هذا الأسبوع."
+          },
+          "team": {
+            "title": "مصمّم للفرق",
+            "description": "أنجز أسرع بلوحات مشتركة."
+          }
+        },
+        "products": {
+          "watch": { "name": "ساعة minimal", "price": "١٢٩ $" },
+          "headphones": { "name": "سماعات استوديو", "price": "٢٤٩ $" },
+          "camera": { "name": "كاميرا مدمجة", "price": "٥٩٩ $" },
+          "sneaker": { "name": "حذاء جري", "price": "٨٩ $" },
+          "chair": { "name": "كرسي lounge", "price": "٣٤٩ $" },
+          "plant": { "name": "نبتة مكتب", "price": "٢٤ $" }
+        },
+        "destinations": {
+          "city": { "title": "هروب حضري", "description": "عطلات نهاية أسبوع" },
+          "interior": { "title": "ملاذ دافئ", "description": "إقامات بتصميم" },
+          "coast": { "title": "إطلالة ساحلية", "description": "عطلات على الشاطئ" }
+        },
+        "promos": {
+          "release": { "title": "إطلاق منتج", "description": "وصول مبكر للأعضاء" },
+          "event": { "title": "حدث مباشر", "description": "سجّل قبل امتلاء المقاعد" }
+        },
+        "categories": {
+          "coffee": "قهوة وشاي",
+          "desk": "مساحة عمل",
+          "fitness": "لياقة"
+        }
+      },
+      "shared": {
+        "slideLabel": "شريحة {{n}}"
+      },
+      "layouts": {
+        "title": "العرض والارتفاع",
+        "description": "يتكيّف العرض الدوار مع الحاوية ومحتوى الشريحة — عرض كامل، شريط جانبي، نصف عمود، أو ارتفاعات مختلطة.",
+        "fullWidth": "عرض كامل · شرائح لافتة قصيرة",
+        "sidebar": "عرض الشريط الجانبي (w-72)",
+        "halfWidth": "نصف عمود (sm:w-1/2)",
+        "dynamicHeight": "ارتفاعات شرائح مختلطة",
+        "heroDescription": "صورة بطولية لأقسام الهبوط.",
+        "bannerHint": "شريط إعلان قصير",
+        "bannerSlide": "إعلان",
+        "heroSlide": "ميزة بارزة",
+        "statSlide": "٩٨٪",
+        "compactSlide": "وسم مدمج",
+        "shortSlideHint": "مساحة عمودية minimal",
+        "tallSlideHint": "محتوى بطولي أطول",
+        "metricHint": "بلاطة KPI أو إحصاء",
+        "fixedDimensions": "عرض وارتفاع ثابتان",
+        "fixedDimensionsHint": "width=\"50%\" height=\"400px\" على Carousel"
+      },
+      "transitions": {
+        "title": "الانتقالات",
+        "description": "انزلاق أو تلاشي متقاطع بين اللوحات.",
+        "slide": "انزلاق",
+        "fade": "تلاشي"
+      },
+      "indicators": {
+        "title": "المؤشرات",
+        "description": "نقاط أو أشرطة أو حبوب أو عداد كسري أو شريط تقدم للتشغيل التلقائي.",
+        "dots": "نقاط",
+        "bars": "أشرطة",
+        "pills": "حبوب",
+        "fraction": "كسري",
+        "progress": "تقدم"
+      },
+      "sizes": {
+        "title": "الأحجام",
+        "description": "إيقاع تباعد الجذر ومقياس أزرار التحكم الافتراضي (sm، md، lg)."
+      },
+      "controls": {
+        "title": "أنواع التحكم",
+        "description": "أزرار سابق/التالي ghost أو outline أو solid.",
+        "ghost": "Ghost",
+        "outline": "Outline",
+        "solid": "Solid"
+      },
+      "autoplay": {
+        "title": "تشغيل تلقائي",
+        "description": "يتقدّم كل خمس ثوانٍ ويتوقّف عند التمرير أو التركيز."
+      },
+      "peek": {
+        "title": "Peek",
+        "description": "يعرض جزءًا من الشريحة التالية مع تباعد بين اللوحات."
+      },
+      "slidesPerView": {
+        "title": "شرائح متعددة",
+        "description": "اعرض عنصرين أو ثلاثة أو أربعة دفعة واحدة. استخدم slidesToScroll للتقدّم بعنصر أو صفحة كاملة.",
+        "two": "٢ في العرض",
+        "three": "٣ في العرض",
+        "four": "٤ في العرض",
+        "pageScroll": "تمرير صفحة (٣ في العرض)"
+      },
+      "outsideControls": {
+        "title": "تحكم خارجي",
+        "description": "أزرار سابق/التالي بجانب منطقة العرض مع عداد كسري بالأسفل."
+      },
+      "rounded": {
+        "title": "زوايا مستديرة",
+        "description": "قص الشرائح حسب نصف قطر الحدود المحدد.",
+        "md": "مستدير md",
+        "xl": "مستدير xl",
+        "2xl": "مستدير 2xl"
       }
     },
     "charts": {

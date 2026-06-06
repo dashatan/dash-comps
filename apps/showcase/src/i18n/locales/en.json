@@ -1687,9 +1687,140 @@
       }
     },
     "carousel": {
-      "slides": {
-        "title": "Slides",
-        "slide": "Slides"
+      "compound": {
+        "title": "Hero carousel",
+        "description": "Compound API with autoplay, loop, progress indicator, and solid controls."
+      },
+      "useCases": {
+        "title": "Real-world patterns",
+        "description": "Landing heroes, product galleries, destination cards, promos, and category rows — each with dedicated imagery.",
+        "frames": {
+          "landingHero": "Landing page hero",
+          "productGallery": "Product gallery · peek",
+          "destinations": "Destination cards",
+          "promotions": "Promotional banners",
+          "categories": "Category thumbnails",
+          "relatedProducts": "Related products · 3 per view"
+        },
+        "heroes": {
+          "workspace": {
+            "title": "Modern workspace",
+            "description": "Collaborate from anywhere with cloud-native tools."
+          },
+          "travel": {
+            "title": "Discover new places",
+            "description": "Curated trips and hidden gems for every season."
+          },
+          "food": {
+            "title": "Fresh seasonal menu",
+            "description": "Chef-crafted dishes delivered to your door."
+          },
+          "retail": {
+            "title": "Spring collection",
+            "description": "New arrivals in store and online this week."
+          },
+          "team": {
+            "title": "Built for teams",
+            "description": "Ship faster with shared dashboards and workflows."
+          }
+        },
+        "products": {
+          "watch": { "name": "Minimal watch", "price": "$129" },
+          "headphones": { "name": "Studio headphones", "price": "$249" },
+          "camera": { "name": "Compact camera", "price": "$599" },
+          "sneaker": { "name": "Running sneaker", "price": "$89" },
+          "chair": { "name": "Lounge chair", "price": "$349" },
+          "plant": { "name": "Desk plant", "price": "$24" }
+        },
+        "destinations": {
+          "city": { "title": "Urban escape", "description": "Weekend city breaks" },
+          "interior": { "title": "Cozy retreat", "description": "Design-led stays" },
+          "coast": { "title": "Coastal views", "description": "Beachfront getaways" }
+        },
+        "promos": {
+          "release": { "title": "Product launch", "description": "Early access for members" },
+          "event": { "title": "Live event", "description": "Register before seats fill up" }
+        },
+        "categories": {
+          "coffee": "Coffee & tea",
+          "desk": "Workspace",
+          "fitness": "Fitness"
+        }
+      },
+      "shared": {
+        "slideLabel": "Slide {{n}}"
+      },
+      "layouts": {
+        "title": "Widths and heights",
+        "description": "Carousels adapt to their container and slide content — full width, sidebar, half column, or mixed slide heights.",
+        "fullWidth": "Full width · short banner slides",
+        "sidebar": "Sidebar width (w-72)",
+        "halfWidth": "Half column (sm:w-1/2)",
+        "dynamicHeight": "Mixed slide heights",
+        "heroDescription": "Full-bleed hero imagery for landing sections.",
+        "bannerHint": "Short announcement strip",
+        "bannerSlide": "Announcement",
+        "heroSlide": "Feature spotlight",
+        "statSlide": "98%",
+        "compactSlide": "Compact tag",
+        "shortSlideHint": "Minimal vertical space",
+        "tallSlideHint": "Taller hero content",
+        "metricHint": "KPI or stat tile",
+        "fixedDimensions": "Fixed width & height",
+        "fixedDimensionsHint": "width=\"50%\" height=\"400px\" on Carousel"
+      },
+      "transitions": {
+        "title": "Transitions",
+        "description": "Slide translation or cross-fade between panels.",
+        "slide": "Slide",
+        "fade": "Fade"
+      },
+      "indicators": {
+        "title": "Indicators",
+        "description": "Dots, bars, pills, fraction counter, or autoplay progress bar.",
+        "dots": "Dots",
+        "bars": "Bars",
+        "pills": "Pills",
+        "fraction": "Fraction",
+        "progress": "Progress"
+      },
+      "sizes": {
+        "title": "Sizes",
+        "description": "Root spacing rhythm and default control button scale (sm, md, lg)."
+      },
+      "controls": {
+        "title": "Control variants",
+        "description": "Ghost, outline, or solid previous/next buttons.",
+        "ghost": "Ghost",
+        "outline": "Outline",
+        "solid": "Solid"
+      },
+      "autoplay": {
+        "title": "Autoplay",
+        "description": "Auto-advances every five seconds and pauses on hover or focus."
+      },
+      "peek": {
+        "title": "Peek",
+        "description": "Shows a slice of the next slide with gap spacing between panels."
+      },
+      "slidesPerView": {
+        "title": "Multiple slides",
+        "description": "Show two, three, or four items at once. Use slidesToScroll to advance one item or a full page.",
+        "two": "2 per view",
+        "three": "3 per view",
+        "four": "4 per view",
+        "pageScroll": "Page scroll (3 per view)"
+      },
+      "outsideControls": {
+        "title": "Outside controls",
+        "description": "Place previous and next buttons beside the viewport with a fraction counter below."
+      },
+      "rounded": {
+        "title": "Rounded corners",
+        "description": "Clip slides to the selected border radius.",
+        "md": "Rounded md",
+        "xl": "Rounded xl",
+        "2xl": "Rounded 2xl"
       }
     },
     "charts": {

@@ -1687,9 +1687,140 @@
       }
     },
     "carousel": {
-      "slides": {
-        "title": "اسلایدها",
-        "slide": "اسلایدها"
+      "compound": {
+        "title": "کاروسل قهرمان",
+        "description": "API ترکیبی با پخش خودکار، حلقه، نوار پیشرفت و کنترل‌های solid."
+      },
+      "useCases": {
+        "title": "الگوهای کاربردی",
+        "description": "قهرمان فرود، گالری محصول، کارت مقصد، پرومو و ردیف دسته‌بندی — هر کدام با تصویر اختصاصی.",
+        "frames": {
+          "landingHero": "قهرمان صفحه فرود",
+          "productGallery": "گالری محصول · peek",
+          "destinations": "کارت مقصد",
+          "promotions": "بنر تبلیغاتی",
+          "categories": "بندانگشتی دسته‌بندی",
+          "relatedProducts": "محصولات مرتبط · ۳ در هر نما"
+        },
+        "heroes": {
+          "workspace": {
+            "title": "فضای کاری مدرن",
+            "description": "همکاری از هر جا با ابزارهای ابری."
+          },
+          "travel": {
+            "title": "مکان‌های تازه",
+            "description": "سفرهای منتخب برای هر فصل."
+          },
+          "food": {
+            "title": "منوی فصلی تازه",
+            "description": "غذاهای سرآشپز تا درب منزل."
+          },
+          "retail": {
+            "title": "کلکسیون بهاری",
+            "description": "ورودی‌های جدید این هفته."
+          },
+          "team": {
+            "title": "ساخته برای تیم‌ها",
+            "description": "ارسال سریع‌تر با داشبورد مشترک."
+          }
+        },
+        "products": {
+          "watch": { "name": "ساعت مینیمال", "price": "۱۲۹ دلار" },
+          "headphones": { "name": "هدفون استودیو", "price": "۲۴۹ دلار" },
+          "camera": { "name": "دوربین جمع‌وجور", "price": "۵۹۹ دلار" },
+          "sneaker": { "name": "کفش دویدن", "price": "۸۹ دلار" },
+          "chair": { "name": "صندلی راحتی", "price": "۳۴۹ دلار" },
+          "plant": { "name": "گیاه میز", "price": "۲۴ دلار" }
+        },
+        "destinations": {
+          "city": { "title": "فرار شهری", "description": "سفر آخر هفته" },
+          "interior": { "title": "پناهگاه دنج", "description": "اقامت با طراحی" },
+          "coast": { "title": "منظره ساحلی", "description": "اقامت ساحلی" }
+        },
+        "promos": {
+          "release": { "title": "عرضه محصول", "description": "دسترسی زودهنگام اعضا" },
+          "event": { "title": "رویداد زنده", "description": "ثبت‌نام قبل از تکمیل ظرفیت" }
+        },
+        "categories": {
+          "coffee": "قهوه و چای",
+          "desk": "فضای کار",
+          "fitness": "تناسب اندام"
+        }
+      },
+      "shared": {
+        "slideLabel": "اسلاید {{n}}"
+      },
+      "layouts": {
+        "title": "عرض و ارتفاع",
+        "description": "کاروسل به container و محتوای اسلاید واکنش نشان می‌دهد — تمام‌عرض، سایدبار، نصف ستون، یا ارتفاع‌های مختلط.",
+        "fullWidth": "تمام‌عرض · اسلایدهای بنر کوتاه",
+        "sidebar": "عرض سایدبار (w-72)",
+        "halfWidth": "نیم ستون (sm:w-1/2)",
+        "dynamicHeight": "ارتفاع‌های مختلط اسلاید",
+        "heroDescription": "تصویر قهرمان تمام‌صفحه برای بخش‌های فرود.",
+        "bannerHint": "نوار اعلان کوتاه",
+        "bannerSlide": "اعلان",
+        "heroSlide": "ویژگی برجسته",
+        "statSlide": "۹۸٪",
+        "compactSlide": "برچسب فشرده",
+        "shortSlideHint": "فضای عمودی کم",
+        "tallSlideHint": "محتوای قهرمان بلندتر",
+        "metricHint": "کاشی KPI یا آمار",
+        "fixedDimensions": "عرض و ارتفاع ثابت",
+        "fixedDimensionsHint": "width=\"50%\" height=\"400px\" روی Carousel"
+      },
+      "transitions": {
+        "title": "انتقال‌ها",
+        "description": "جابه‌جایی اسلاید یا محو شدن متقابل بین پنل‌ها.",
+        "slide": "اسلاید",
+        "fade": "محو"
+      },
+      "indicators": {
+        "title": "نشانگرها",
+        "description": "نقطه، میله، قرص، شمارنده کسری، یا نوار پیشرفت پخش خودکار.",
+        "dots": "نقطه‌ای",
+        "bars": "میله‌ای",
+        "pills": "قرصی",
+        "fraction": "کسری",
+        "progress": "پیشرفت"
+      },
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "ریتم فاصله root و مقیاس پیش‌فرض دکمه‌های کنترل (sm، md، lg)."
+      },
+      "controls": {
+        "title": "انواع کنترل",
+        "description": "دکمه‌های قبلی/بعدی ghost، outline یا solid.",
+        "ghost": "Ghost",
+        "outline": "Outline",
+        "solid": "Solid"
+      },
+      "autoplay": {
+        "title": "پخش خودکار",
+        "description": "هر پنج ثانیه جلو می‌رود و با hover یا focus متوقف می‌شود."
+      },
+      "peek": {
+        "title": "Peek",
+        "description": "بخشی از اسلاید بعدی با فاصله بین پنل‌ها نمایش داده می‌شود."
+      },
+      "slidesPerView": {
+        "title": "چند اسلاید همزمان",
+        "description": "نمایش ۲، ۳ یا ۴ آیتم در یک نما. با slidesToScroll یک آیتم یا یک صفحه کامل جابه‌جا کنید.",
+        "two": "۲ در هر نما",
+        "three": "۳ در هر نما",
+        "four": "۴ در هر نما",
+        "pageScroll": "اسکرول صفحه‌ای (۳ در هر نما)"
+      },
+      "outsideControls": {
+        "title": "کنترل‌های بیرونی",
+        "description": "دکمه‌های قبلی و بعدی کنار viewport با شمارنده کسری در پایین."
+      },
+      "rounded": {
+        "title": "گوشه‌های گرد",
+        "description": "اسلایدها به شعاع حاشیه انتخاب‌شده برش می‌خورند.",
+        "md": "گرد md",
+        "xl": "گرد xl",
+        "2xl": "گرد 2xl"
       }
     },
     "charts": {
