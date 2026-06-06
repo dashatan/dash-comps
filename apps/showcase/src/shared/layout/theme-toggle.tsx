@@ -13,7 +13,9 @@ export function ThemeToggle() {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return <Button variant="text" size={32} className="rounded-full" aria-hidden />;
+    return (
+      <Button variant="text" size={32} className="rounded-full" aria-hidden />
+    );
   }
 
   const isDark = theme === "dark";

@@ -50,3 +50,7 @@ export function nestedSearch<T extends Record<string, unknown>>(
 export function createUUID() {
   return Math.random().toString(36).substring(2, 15);
 }
+
+export function makeArray(count: number) {
+  return Array.from(Array(count).keys());
+}

@@ -280,6 +280,12 @@
     "zoomIn": "بزرگنمایی",
     "zoomOut": "کوچکنمایی"
   },
+  "map": {
+    "geoman": {
+      "polygon": "رسم چندضلعی",
+      "rectangle": "رسم مستطیل"
+    }
+  },
   "date": {
     "friday": "جمعه",
     "monday": "دوشنبه",
@@ -347,6 +353,22 @@
   },
   "header": {
     "searchPlaceHolder": "جستجو در امکانات..."
+  },
+  "locationPicker": {
+    "camerasFromDate": "دوربین‌های فعال از",
+    "coordinates": "مختصات {coords}",
+    "kilometer": "کیلومتر",
+    "loadingRoutes": "در حال بارگذاری مسیرها…",
+    "mapSearchPlaceholder": "جستجو روی نقشه",
+    "meter": "متر",
+    "registeredTraffic": "ثبت شده است.",
+    "routeFetchError": "بارگذاری مسیرها ممکن نشد. دوباره تلاش کنید.",
+    "routeTitle": "مسیر {index}",
+    "selectDevices": "انتخاب دوربین‌ها",
+    "selectProvinces": "انتخاب استان‌ها",
+    "selectRoads": "انتخاب محورها",
+    "tabRoutingFromMap": "مسیریابی از روی نقشه",
+    "tabSelectFromMap": "انتخاب از روی نقشه"
   },
   "plate": {
     "chooseFromGallery": "انتخاب از فهرست پلاک‌های ذخیره‌شده",

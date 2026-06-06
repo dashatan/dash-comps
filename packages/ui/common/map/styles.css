@@ -121,6 +121,11 @@
   position: relative;
 }
 
+.sirat-leaflet-map .sirat-map-endpoint-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
 .sirat-leaflet-map .origin-icon,
 .sirat-leaflet-map .destination-icon {
   position: absolute;

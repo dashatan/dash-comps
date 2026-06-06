@@ -5,7 +5,7 @@ import CarPlate from "./components/car";
 import MotorcyclePlate from "./components/motorcycle";
 import ProtocolPlate from "./components/protocol";
 import SimplePlate from "./components/simple";
-import { forwardRef, useState, useCallback, useId, useEffect } from "react";
+import { forwardRef, useState, useCallback, useEffect } from "react";
 import { cn } from "@/lib";
 import { PlateValue, PlateInputProps } from "@/components/compound/license-plate/types";
 
@@ -86,7 +86,6 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
       onClear,
       width = 280,
       id,
-      ...props
     },
     ref,
   ) => {
@@ -95,9 +94,7 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
     const inputId = id || `plate-${variant || "input"}`;
 
     useEffect(() => {
-      if (JSON.stringify(value) !== JSON.stringify(value)) {
-        setVal(value);
-      }
+      setVal(value);
     }, [value]);
 
     // Handler for value change
@@ -140,6 +137,16 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
             className.root,
           )}
         >
+          {withClear && val && !disabled && !readonly ? (
+            <button
+              type="button"
+              onClick={handleClear}
+              className="text-muted-foreground hover:text-foreground flex h-full shrink-0 items-center px-1 transition-colors"
+              aria-label="Clear plate"
+            >
+              <X className="size-4" />
+            </button>
+          ) : null}
           <Plate
             variant={variant}
             value={val}
@@ -147,7 +154,7 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
             setClear={setClear}
             onChange={handleChange}
             disabled={disabled}
-            error={!!errorMessage}
+            error={error || !!errorMessage}
             className={className}
             readonly={readonly}
             containerWidth={width}

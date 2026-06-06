@@ -41,7 +41,7 @@ export default function MotorcyclePlate({ onChange, ...props }: MotorcyclePlateI
   }, [props.values])
 
   /* -------------------------------- Functions ------------------------------- */
-  function handleFinish(key: keyof MotorcyclePlateValue, val: string | number, nextRef?: React.RefObject<HTMLInputElement>) {
+  function handleFinish(key: keyof MotorcyclePlateValue, val: string | number, nextRef?: React.RefObject<HTMLInputElement | null>) {
     nextRef?.current?.select()
     const newVal = { ...values, [key]: val }
     setValues(newVal)

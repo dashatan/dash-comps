@@ -11,6 +11,7 @@ export { useGeomanCreate } from "@/components/common/map/hooks/use-geoman-create
 // Plugins
 export { MapGeoSearch } from "@/components/common/map/plugins/geo-search";
 export { MapGeoman } from "@/components/common/map/plugins/geoman";
+export { MapGeomanControls } from "@/components/common/map/plugins/geoman-controls";
 export { MapDeviceCluster } from "@/components/common/map/plugins/device-cluster";
 export { MapPolyline } from "@/components/common/map/plugins/polyline";
 export { MapFitBounds } from "@/components/common/map/plugins/fit-bounds";
@@ -25,6 +26,7 @@ export {
   extractPolygonPoints,
   removeLayer,
   removeMarker,
+  safeRemoveLayer,
 } from "@/components/common/map/utils/layers";
 export {
   createActiveDeviceIcon,

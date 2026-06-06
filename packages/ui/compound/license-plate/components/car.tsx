@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib";
 import Number from "../inputs/number";
 import Text from "../inputs/text";
@@ -226,7 +225,11 @@ const CarPlate = forwardRef<HTMLDivElement, CarPlateInputProps>((props, ref) => 
     <Popover open={open} onOpenChange={(open) => setOpen(open)}>
       <PopoverAnchor className="h-full w-full">
         <div
-          ref={containerRef}
+          ref={(node) => {
+            containerRef.current = node;
+            if (typeof ref === "function") ref(node);
+            else if (ref) ref.current = node;
+          }}
           id={plateId}
           onKeyDown={handleGlobalKeyDown}
           className={cn(
@@ -247,7 +250,7 @@ const CarPlate = forwardRef<HTMLDivElement, CarPlateInputProps>((props, ref) => 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <Image
+            <img
               src="/iran-flag.png"
               alt="Iran flag"
               className={cn("w-fit", className?.car?.flag?.image)}

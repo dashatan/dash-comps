@@ -1,12 +1,29 @@
-import { cn } from '@/lib'
-import { Loader2 } from 'lucide-react'
-interface SpinnerLoadingProps {
-  className?: string
-}
-export default function SpinnerLoading({ className }: SpinnerLoadingProps) {
+import Loading from "@/components/common/loading";
+import type { LoadingProps } from "@/components/common/loading/types";
+
+type SpinnerLoadingProps = Pick<
+  LoadingProps,
+  "className" | "indicatorClassName" | "label" | "size" | "severity"
+>;
+
+/** @deprecated Prefer `Loading` with `mode="overlay"`. */
+export default function SpinnerLoading({
+  className,
+  indicatorClassName,
+  label,
+  size = "md",
+  severity = "primary",
+}: SpinnerLoadingProps) {
   return (
-    <div className={cn('bg-accent/30', 'absolute top-0 left-0 flex h-full w-full items-center justify-center', className)}>
-      <Loader2 className='animate-spin' size={24} />
-    </div>
-  )
+    <Loading
+      variant="spinner"
+      mode="overlay"
+      backdrop="subtle"
+      size={size}
+      severity={severity}
+      label={label}
+      className={className}
+      indicatorClassName={indicatorClassName}
+    />
+  );
 }

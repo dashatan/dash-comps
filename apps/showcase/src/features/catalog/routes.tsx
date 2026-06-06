@@ -14,7 +14,6 @@ import { CollapsiblePage } from "@/features/catalog/pages/collapsible.page";
 import { ContextMenuPage } from "@/features/catalog/pages/context-menu.page";
 import { DashboardPage } from "@/features/catalog/pages/dashboard.page";
 import { DividerPage } from "@/features/catalog/pages/divider.page";
-import { ErrorsPage } from "@/features/catalog/pages/errors.page";
 import { FadeablePage } from "@/features/catalog/pages/fadeable.page";
 import { FileUploaderPage } from "@/features/catalog/pages/file-uploader.page";
 import { FlexPage } from "@/features/catalog/pages/flex.page";
@@ -29,8 +28,6 @@ import { LocationPickerPage } from "@/features/catalog/pages/location-picker.pag
 import { MapPage } from "@/features/catalog/pages/map.page";
 import { OverlayPage } from "@/features/catalog/pages/overlay.page";
 import { PaginationPage } from "@/features/catalog/pages/pagination.page";
-import { PaginatorPage } from "@/features/catalog/pages/paginator.page";
-import { PersianDatePickerPage } from "@/features/catalog/pages/persian-date-picker.page";
 import { ShapesPage } from "@/features/catalog/pages/shapes.page";
 import { SkeletonPage } from "@/features/catalog/pages/skeleton.page";
 import { SliderPage } from "@/features/catalog/pages/slider.page";
@@ -63,7 +60,6 @@ export const catalogRoutes: CatalogRoute[] = [
   { path: "/components/context-menu", element: <ContextMenuPage /> },
   { path: "/components/dashboard", element: <DashboardPage /> },
   { path: "/components/divider", element: <DividerPage /> },
-  { path: "/components/errors", element: <ErrorsPage /> },
   { path: "/components/fadeable", element: <FadeablePage /> },
   { path: "/components/file-uploader", element: <FileUploaderPage /> },
   { path: "/components/flex", element: <FlexPage /> },
@@ -78,8 +74,6 @@ export const catalogRoutes: CatalogRoute[] = [
   { path: "/components/map", element: <MapPage /> },
   { path: "/components/overlay", element: <OverlayPage /> },
   { path: "/components/pagination", element: <PaginationPage /> },
-  { path: "/components/paginator", element: <PaginatorPage /> },
-  { path: "/components/persian-date-picker", element: <PersianDatePickerPage /> },
   { path: "/components/shapes", element: <ShapesPage /> },
   { path: "/components/skeleton", element: <SkeletonPage /> },
   { path: "/components/slider", element: <SliderPage /> },

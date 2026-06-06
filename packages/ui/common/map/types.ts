@@ -2,10 +2,12 @@ import type { TooltipItem } from "@/components/common/charts/tooltip";
 import type { ReactNode } from "react";
 import type L from "leaflet";
 
-// /** Single URL or light/dark pair for theme-aware tiles. */
-// export type MapTiles = string | { light: string; dark?: string };
+export type Point = [number, number];
 
-// export type MapTheme = "light" | "dark";
+/** Single URL or light/dark pair for theme-aware tiles. */
+export type MapTiles = string | { light: string; dark?: string };
+
+export type MapTheme = "light" | "dark";
 
 export type LeafletMapProps = {
   center?: Point;
@@ -122,21 +124,22 @@ export type MapOverlayItemsConfig<T> = {
   popupTitle?: (item: T) => string | undefined;
 };
 
-export type MapMarkersProps<T extends MapMarkerItem = MapMarkerItem> = MapOverlayItemsConfig<T> & {
-  data: T[];
-  icon?: L.Icon | L.DivIcon | ((item: T) => L.Icon | L.DivIcon);
-  cluster?: boolean;
-  /** Highlights and focuses the map when this key changes. */
-  selectedKey?: string | number | null;
-  getItemKey?: (item: T) => string | number | undefined;
-  /** Minimum zoom when focusing a selected marker. */
-  selectionMinZoom?: number;
-  /** Pixel pan after selection focus (sidebar offset). */
-  selectionPanOffsetPx?: [number, number];
-  /** Raw HTML tooltip; ignored when `tooltipItems` is set. */
-  tooltip?: (item: T) => string;
-  /** Raw HTML popup; ignored when `popupItems` is set. */
-  popup?: (item: T) => string;
-  popupOptions?: L.PopupOptions;
-  onMarkerClick?: (item: T, latLng: L.LatLng) => void;
-};
+export type MapMarkersProps<T extends MapMarkerItem = MapMarkerItem> =
+  MapOverlayItemsConfig<T> & {
+    data: T[];
+    icon?: L.Icon | L.DivIcon | ((item: T) => L.Icon | L.DivIcon);
+    cluster?: boolean;
+    /** Highlights and focuses the map when this key changes. */
+    selectedKey?: string | number | null;
+    getItemKey?: (item: T) => string | number | undefined;
+    /** Minimum zoom when focusing a selected marker. */
+    selectionMinZoom?: number;
+    /** Pixel pan after selection focus (sidebar offset). */
+    selectionPanOffsetPx?: [number, number];
+    /** Raw HTML tooltip; ignored when `tooltipItems` is set. */
+    tooltip?: (item: T) => string;
+    /** Raw HTML popup; ignored when `popupItems` is set. */
+    popup?: (item: T) => string;
+    popupOptions?: L.PopupOptions;
+    onMarkerClick?: (item: T, latLng: L.LatLng) => void;
+  };

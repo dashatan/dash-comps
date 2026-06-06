@@ -2,7 +2,6 @@ import usePlateSignals from "@/components/compound/license-plate/context/usePlat
 import { getPlateForegroundColorVariable } from "@/components/compound/license-plate/utils/color-classes";
 import { lettersColorCodes } from "@/components/compound/license-plate/utils/letters";
 import { cn } from "@/lib";
-import Image from "next/image";
 import { PlateValue } from "@/components/compound/license-plate/types";
 import { colors } from "@/components/compound/license-plate/components/letters-box";
 import IranPlateIcon from "@/components/common/icons/iran-plate";

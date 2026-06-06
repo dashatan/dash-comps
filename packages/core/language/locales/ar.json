@@ -280,6 +280,12 @@
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out"
   },
+  "map": {
+    "geoman": {
+      "polygon": "رسم مضلع",
+      "rectangle": "رسم مستطيل"
+    }
+  },
   "date": {
     "friday": "الجمعة",
     "monday": "الإثنين",
@@ -347,6 +353,22 @@
   },
   "header": {
     "searchPlaceHolder": "البحث في الميزات..."
+  },
+  "locationPicker": {
+    "camerasFromDate": "الكاميرات النشطة من",
+    "coordinates": "الإحداثيات {coords}",
+    "kilometer": "كم",
+    "loadingRoutes": "جارٍ تحميل المسارات…",
+    "mapSearchPlaceholder": "البحث على الخريطة",
+    "meter": "م",
+    "registeredTraffic": "حركة مرور مسجلة.",
+    "routeFetchError": "تعذر تحميل المسارات. حاول مرة أخرى.",
+    "routeTitle": "المسار {index}",
+    "selectDevices": "اختيار الكاميرات",
+    "selectProvinces": "اختيار المحافظات",
+    "selectRoads": "اختيار الطرق",
+    "tabRoutingFromMap": "التوجيه من الخريطة",
+    "tabSelectFromMap": "الاختيار من الخريطة"
   },
   "plate": {
     "chooseFromGallery": "الاختيار من قائمة اللوحات المحفوظة",

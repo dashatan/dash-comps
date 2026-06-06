@@ -69,7 +69,7 @@
     },
     "chips": {
       "title": "چیپ‌ها",
-      "description": "برچسب، فیلتر و حذف."
+      "description": "برچسب، فیلتر، preset انتخابی و برچسب‌های قابل حذف."
     },
     "collapsible": {
       "title": "تاشو",
@@ -77,7 +77,7 @@
     },
     "context-menu": {
       "title": "منوی زمینه",
-      "description": "منوی کلیک راست."
+      "description": "منوی کلیک راست با میانبر، زیرمنو، toggle و trigger تصویری."
     },
     "dashboard": {
       "title": "چیدمان داشبورد",
@@ -109,11 +109,11 @@
     },
     "grid": {
       "title": "گرید",
-      "description": "چیدمان شبکه‌ای."
+      "description": "شبکه ویجت داشبورد — چیدمان چند ستونه و چند ردیفه."
     },
     "hover-card": {
       "title": "کارت شناور",
-      "description": "محتوای غنی روی هاور."
+      "description": "پیش‌نمایش غنی با هاور اشاره‌گر — تراز، موقعیت، تأخیر و تریگر تصویر."
     },
     "inputs": {
       "title": "ورودی‌ها",
@@ -129,7 +129,7 @@
     },
     "license-plate": {
       "title": "پلاک",
-      "description": "ورودی پلاک ایران."
+      "description": "ورودی پلاک ایرانی — خودرو، موتور، تشریفات، رنگ حروف و کلیپ‌بورد."
     },
     "location-picker": {
       "title": "انتخاب مکان",
@@ -205,6 +205,130 @@
       "threeColumns": {
         "title": "۳ ستون"
       },
+      "twoByTwo": {
+        "title": "Two By Two",
+        "description": "Demo for two by two.",
+        "ariaLabel": "Two By Two widgets"
+      },
+      "asymmetric": {
+        "title": "Asymmetric",
+        "description": "Demo for asymmetric.",
+        "ariaLabel": "Asymmetric widgets",
+        "chartTitle": "Chart Title",
+        "chartSubtitle": "Chart Subtitle",
+        "export": "Export",
+        "activityTitle": "Activity Title",
+        "activitySubtitle": "Activity Subtitle"
+      },
+      "widgets": {
+        "revenue": {
+          "title": "Revenue",
+          "subtitle": "Revenue",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "users": {
+          "title": "Users",
+          "subtitle": "Users",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "orders": {
+          "title": "Orders",
+          "subtitle": "Orders",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "conversion": {
+          "title": "Conversion",
+          "subtitle": "Conversion",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        }
+      },
+      "threeColumn": {
+        "title": "Three Column",
+        "description": "Demo for three column.",
+        "ariaLabel": "Three Column widgets",
+        "summaryTitle": "Summary Title",
+        "summarySubtitle": "Summary Subtitle",
+        "viewReport": "View Report"
+      },
+      "gridGroup": {
+        "title": "Grid Group",
+        "description": "Demo for grid group.",
+        "ariaLabel": "Grid Group widgets",
+        "performanceTitle": "Performance Title",
+        "performanceSubtitle": "Performance Subtitle",
+        "goalTitle": "Goal Title",
+        "goalSubtitle": "Goal Subtitle",
+        "goalLabel": "Goal Label",
+        "goalValue": "Goal Value",
+        "goalTrend": "Goal Trend"
+      },
+      "responsive": {
+        "title": "Responsive",
+        "description": "Demo for responsive.",
+        "widePanel": "Wide Panel",
+        "wideAriaLabel": "Wide Aria Label",
+        "analyticsTitle": "Analytics Title",
+        "analyticsSubtitle": "Analytics Subtitle",
+        "liveTitle": "Live Title",
+        "liveSubtitle": "Live Subtitle",
+        "events": {
+          "first": "First",
+          "firstMeta": "First Meta",
+          "second": "Second",
+          "secondMeta": "Second Meta"
+        },
+        "narrowPanel": "Narrow Panel",
+        "narrowAriaLabel": "Narrow Aria Label",
+        "storeTitle": "Store Title",
+        "storeSubtitle": "Store Subtitle"
+      },
+      "fullDashboard": {
+        "title": "Full Dashboard",
+        "description": "Demo for full dashboard.",
+        "ariaLabel": "Full Dashboard widgets",
+        "analyticsTitle": "Analytics Title",
+        "analyticsSubtitle": "Analytics Subtitle",
+        "dateRange": "Date Range",
+        "activityTitle": "Activity Title",
+        "activitySubtitle": "Activity Subtitle",
+        "activityItems": {
+          "first": "First",
+          "firstMeta": "First Meta",
+          "second": "Second",
+          "secondMeta": "Second Meta",
+          "third": "Third",
+          "thirdMeta": "Third Meta"
+        }
+      },
+      "products": {
+        "watch": {
+          "imageAlt": "Preview image",
+          "title": "Watch",
+          "subtitle": "Watch"
+        },
+        "headphones": {
+          "imageAlt": "Preview image",
+          "title": "Headphones",
+          "subtitle": "Headphones"
+        },
+        "camera": {
+          "imageAlt": "Preview image",
+          "title": "Camera",
+          "subtitle": "Camera"
+        }
+      },
       "3Columns": {
         "title": "۳ ستون"
       }
@@ -220,6 +344,129 @@
         "hoverCardTitle": "کارت شناور",
         "hoverMe": "روی من هاور کنید",
         "title": "تریگر + محتوا"
+      },
+      "basic": {
+        "title": "Basic",
+        "description": "Demo for basic.",
+        "hoverMe": "Hover Me",
+        "cardTitle": "Card Title",
+        "cardDescription": "Card Description"
+      },
+      "imageTrigger": {
+        "title": "Image Trigger",
+        "description": "Demo for image trigger.",
+        "alt": "Preview image",
+        "titleText": "Title Text",
+        "caption": "Caption"
+      },
+      "productPreview": {
+        "title": "Product Preview",
+        "description": "Demo for product preview.",
+        "trigger": "Trigger",
+        "imageAlt": "Preview image",
+        "titleText": "Title Text",
+        "category": "Category",
+        "price": "Price",
+        "descriptionText": "Description Text"
+      },
+      "profileCard": {
+        "title": "Profile Card",
+        "description": "Demo for profile card.",
+        "handle": "Handle",
+        "name": "Name",
+        "role": "Role",
+        "location": "Location",
+        "joined": "Joined",
+        "bio": "Bio",
+        "imageAlt": "Preview image"
+      },
+      "alignment": {
+        "title": "Alignment",
+        "description": "Demo for alignment.",
+        "content": "Content",
+        "start": "Start",
+        "center": "Center",
+        "end": "End"
+      },
+      "placement": {
+        "title": "Placement",
+        "description": "Demo for placement.",
+        "content": "Content",
+        "top": "Top",
+        "right": "Right",
+        "bottom": "Bottom",
+        "left": "Left"
+      },
+      "delays": {
+        "title": "Delays",
+        "description": "Demo for delays.",
+        "instantLabel": "Instant Label",
+        "instant": "Instant",
+        "instantContent": "Instant Content",
+        "defaultLabel": "Default Label",
+        "default": "Default",
+        "defaultContent": "Default Content",
+        "slowLabel": "Slow Label",
+        "slow": "Slow",
+        "slowContent": "Slow Content"
+      },
+      "offsets": {
+        "title": "Offsets",
+        "description": "Demo for offsets.",
+        "compact": "Compact",
+        "default": "Default",
+        "spacious": "Spacious",
+        "compactLabel": "Compact offset",
+        "defaultLabel": "Default offset",
+        "spaciousLabel": "Spacious offset",
+        "compactContent": "Tighter sideOffset and alignOffset.",
+        "defaultContent": "Default Radix offset values.",
+        "spaciousContent": "Extra spacing from the trigger."
+      },
+      "richContent": {
+        "title": "Rich Content",
+        "description": "Demo for rich content.",
+        "trigger": "Trigger",
+        "imageAlt": "Preview image",
+        "titleText": "Title Text",
+        "body": "Body",
+        "primaryAction": "Primary Action",
+        "secondaryAction": "Secondary Action"
+      },
+      "gallery": {
+        "title": "Gallery",
+        "description": "Demo for gallery.",
+        "rowLabel": "Row Label",
+        "products": {
+          "watch": {
+            "title": "Watch",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the watch.",
+            "imageAlt": "Watch product photo"
+          },
+          "headphones": {
+            "title": "Headphones",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the headphones.",
+            "imageAlt": "Headphones product photo"
+          },
+          "camera": {
+            "title": "Camera",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the camera.",
+            "imageAlt": "Camera product photo"
+          },
+          "sneaker": {
+            "title": "Sneaker",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the sneaker.",
+            "imageAlt": "Sneaker product photo"
+          }
+        }
       }
     },
     "inputs": {
@@ -250,11 +497,11 @@
           "billedAnnually": "صورتحساب سالانه",
           "unavailable": "در دسترس نیست"
         },
-        "title": "چک‌باکس.کارت",
         "titles": {
           "disabled": "غیرفعال",
           "premiumPlan": "طرح ویژه"
-        }
+        },
+        "title": "چک‌باکس.کارت"
       },
       "checkboxLabeled": {
         "description": "موقعیت برچسب چپ | راست و نام کلاس‌های ظرف.",
@@ -382,8 +629,8 @@
       "numberRangeInput": {
         "description": "بازه عددی از/تا با min، max و برچسب‌های سفارشی اختیاری.",
         "fromLabel": "حداقل",
-        "title": "ورودی بازه عددی",
-        "toLabel": "حداکثر"
+        "toLabel": "حداکثر",
+        "title": "ورودی بازه عددی"
       },
       "options": {
         "optionA": "گزینه الف",
@@ -497,13 +744,13 @@
         "description": "Switch داخل LabelContainer؛ برای حالت کنترل‌شده از value استفاده کنید.",
         "title": "فیلد سوییچ"
       },
-      "textareaInput": {
-        "description": "فیلد چندخطی با ظرف برچسب شناور.",
-        "title": "ورودی چندخطی"
-      },
       "textInput": {
         "description": "فیلد متنی با برچسب شناور، وضعیت، پیشوند، اندازه‌ها و ویژگی‌های بومی input.",
         "title": "ورودی متنی"
+      },
+      "textareaInput": {
+        "description": "فیلد چندخطی با ظرف برچسب شناور.",
+        "title": "ورودی چندخطی"
       },
       "values": {
         "cannotEdit": "قابل ویرایش نیست",
@@ -692,20 +939,114 @@
       },
       "simpleText": {
         "title": "متن ساده"
+      },
+      "variants": {
+        "title": "Variants",
+        "description": "Demo for variants.",
+        "car": "Car",
+        "motorcycle": "Motorcycle",
+        "protocol": "Protocol",
+        "simple": "Simple"
+      },
+      "letterColors": {
+        "title": "Letter Colors",
+        "description": "Demo for letter colors.",
+        "samples": {
+          "protocol": "Protocol",
+          "police": "Police",
+          "taxi": "Taxi",
+          "policeSepah": "Police Sepah",
+          "navy": "Navy",
+          "army": "Army",
+          "general": "General",
+          "agriculture": "Agriculture",
+          "serviceD": "Service D",
+          "serviceS": "Service S"
+        }
+      },
+      "states": {
+        "title": "States",
+        "description": "Demo for states.",
+        "empty": "Empty",
+        "prefilled": "Prefilled",
+        "disabled": "Disabled",
+        "readonly": "Readonly",
+        "error": "Error",
+        "errorMessage": "Error Message",
+        "motorcyclePrefilled": "Motorcycle Prefilled",
+        "protocolPrefilled": "Protocol Prefilled",
+        "simplePrefilled": "Simple Prefilled"
+      },
+      "formFields": {
+        "title": "Form Fields",
+        "description": "Demo for form fields.",
+        "labelRequired": "Label Required",
+        "plateLabel": "Plate Label",
+        "helperText": "Helper Text",
+        "helperHint": "Helper Hint",
+        "withClear": "With Clear",
+        "validationError": "Validation Error",
+        "validationMessage": "Validation Message"
+      },
+      "widths": {
+        "title": "Widths",
+        "description": "Demo for widths.",
+        "compact": "Compact",
+        "default": "Default",
+        "wide": "Wide"
+      },
+      "plateCard": {
+        "title": "Plate Card",
+        "description": "Demo for plate card.",
+        "hint": "Hint"
+      },
+      "controlled": {
+        "title": "Controlled",
+        "description": "Demo for controlled.",
+        "label": "Label",
+        "helper": "Helper",
+        "output": "Output"
+      },
+      "clipboard": {
+        "title": "Clipboard",
+        "description": "Demo for clipboard.",
+        "hover": "Hover",
+        "copyShortcut": "Copy Shortcut",
+        "pasteShortcut": "Paste Shortcut"
       }
     },
     "list": {
       "cardsList": {
-        "title": "فهرست کارت‌ها"
+        "title": "فهرست کارت‌ها",
+        "description": "Demo for cards list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading"
+        }
       },
       "chipsList": {
         "tagA": "برچسب الف",
         "tagB": "برچسب ب",
         "tagC": "برچسب ج",
-        "title": "فهرست چیپ‌ها"
+        "title": "فهرست چیپ‌ها",
+        "description": "Demo for chips list.",
+        "rows": {
+          "states": "States",
+          "withIcons": "With Icons",
+          "sharedIcon": "Shared Icon"
+        },
+        "tagD": "Tag D"
       },
       "linesList": {
-        "title": "فهرست خطی"
+        "title": "فهرست خطی",
+        "description": "Demo for lines list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading",
+          "longValues": "Long Values"
+        }
       },
       "sample": {
         "active": "فعال",
@@ -713,7 +1054,78 @@
         "notes": "یادداشت‌ها",
         "region": "منطقه",
         "status": "وضعیت",
-        "tehran": "تهران"
+        "tehran": "تهران",
+        "plan": "Plan",
+        "pro": "Pro",
+        "email": "Email",
+        "longEmail": "Long Email",
+        "updated": "Updated",
+        "longTimestamp": "Long Timestamp",
+        "confirmed": "Confirmed",
+        "tier": "Tier",
+        "longTier": "Long Tier",
+        "today": "Today"
+      },
+      "gridList": {
+        "columns": {
+          "name": "Name",
+          "role": "Role",
+          "score": "Score",
+          "status": "Status"
+        },
+        "title": "Grid List",
+        "description": "Demo for grid list.",
+        "rows": {
+          "default": "Default",
+          "sortable": "Sortable",
+          "loading": "Loading",
+          "empty": "Empty",
+          "cellClick": "Cell Click",
+          "customHeights": "Custom Heights",
+          "alice": {
+            "name": "Alice",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "bob": {
+            "name": "Bob",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "carol": {
+            "name": "Carol",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "dan": {
+            "name": "Dan",
+            "role": "Designer",
+            "status": "Active"
+          }
+        },
+        "sortActive": "Sort Active",
+        "sortCleared": "Sort Cleared",
+        "cellClicked": "Cell Clicked",
+        "cellHint": "Cell Hint"
+      },
+      "buttonsList": {
+        "title": "Buttons List",
+        "description": "Demo for buttons list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading",
+          "marquee": "Marquee"
+        }
+      },
+      "twoColGrid": {
+        "title": "Two Col Grid",
+        "description": "Demo for two col grid.",
+        "rows": {
+          "even": "Even",
+          "odd": "Odd",
+          "loading": "Loading"
+        }
       }
     },
     "loading": {
@@ -721,7 +1133,93 @@
         "title": "اسپینر پیش‌فرض"
       },
       "sizes": {
-        "title": "اندازه‌ها"
+        "title": "اندازه‌ها",
+        "description": "Demo for sizes.",
+        "items": {
+          "xs": "XS",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        }
+      },
+      "variants": {
+        "title": "Variants",
+        "description": "Demo for variants.",
+        "items": {
+          "spinner": "Spinner",
+          "dots": "Dots",
+          "pulse": "Pulse",
+          "bars": "Bars",
+          "ring": "Ring",
+          "orbit": "Orbit",
+          "ripple": "Ripple",
+          "line": "Line"
+        }
+      },
+      "severities": {
+        "title": "Severities",
+        "description": "Demo for severities.",
+        "items": {
+          "primary": "Primary",
+          "muted": "Muted",
+          "success": "Success",
+          "warning": "Warning",
+          "danger": "Danger",
+          "info": "Info"
+        }
+      },
+      "labels": {
+        "title": "Labels",
+        "description": "Demo for labels.",
+        "rows": {
+          "default": "Default",
+          "success": "Success",
+          "warning": "Warning"
+        },
+        "samples": {
+          "default": "Default",
+          "success": "Success",
+          "warning": "Warning"
+        }
+      },
+      "inline": {
+        "title": "Inline",
+        "description": "Demo for inline."
+      },
+      "overlay": {
+        "title": "Overlay",
+        "description": "Demo for overlay.",
+        "hide": "Hide",
+        "show": "Show",
+        "sampleTitle": "Sample Title",
+        "hint": "Hint",
+        "sampleLabel": "Sample Label"
+      },
+      "backdrops": {
+        "title": "Backdrops",
+        "description": "Demo for backdrops.",
+        "items": {
+          "subtle": "Subtle",
+          "solid": "Solid",
+          "blur": "Blur"
+        }
+      },
+      "inContext": {
+        "title": "In Context",
+        "description": "Demo for in context.",
+        "cardTitle": "Card Title",
+        "cardDescription": "Card Description",
+        "cardLoading": "Card Loading",
+        "panelTitle": "Panel Title",
+        "panelDescription": "Panel Description"
+      },
+      "fullscreen": {
+        "title": "Fullscreen",
+        "description": "Demo for fullscreen.",
+        "trigger": "Trigger",
+        "label": "Label",
+        "dismiss": "Dismiss"
       }
     },
     "location-picker": {
@@ -732,6 +1230,71 @@
       },
       "locationPicker": {
         "title": "انتخاب مکان"
+      },
+      "dialogPreview": {
+        "filterEmpty": "Filter Empty",
+        "filterSelected": "Filter Selected",
+        "dateHint": "Date Hint",
+        "routingOrigin": "Routing Origin",
+        "routingDestination": "Routing Destination",
+        "routingRoutes": "Routing Routes",
+        "routingLoading": "Routing Loading",
+        "title": "Dialog Preview",
+        "description": "Demo for dialog preview."
+      },
+      "trigger": {
+        "empty": "Empty",
+        "devices": "Devices",
+        "provinces": "Provinces",
+        "title": "Trigger",
+        "description": "Demo for trigger.",
+        "sources": "Sources",
+        "roads": "Roads",
+        "prefilled": "Prefilled"
+      },
+      "dialogGallery": {
+        "filterMap": "Filter Map",
+        "filterSelected": "Filter Selected",
+        "dateHint": "Date Hint",
+        "routingOrigin": "Routing Origin",
+        "routingRoutes": "Routing Routes",
+        "routingLoading": "Routing Loading",
+        "title": "Dialog Gallery",
+        "description": "Demo for dialog gallery."
+      },
+      "interactive": {
+        "title": "Interactive",
+        "description": "Demo for interactive.",
+        "label": "Label",
+        "fieldLabel": "Field Label",
+        "output": "Output"
+      },
+      "triggerGallery": {
+        "title": "Trigger Gallery",
+        "description": "Demo for trigger gallery."
+      },
+      "triggerProps": {
+        "title": "Trigger Props",
+        "description": "Demo for trigger props.",
+        "withLabel": "With Label",
+        "fieldLabel": "Field Label",
+        "customWidth": "Custom Width",
+        "required": "Required",
+        "helperText": "Helper Text",
+        "helperHint": "Helper Hint",
+        "dateHint": "Date Hint",
+        "dateHintDescription": "Date Hint Description"
+      },
+      "formIntegration": {
+        "title": "Form Integration",
+        "description": "Demo for form integration.",
+        "field": "Field",
+        "fieldLabel": "Field Label",
+        "output": "Output"
+      },
+      "commitPayload": {
+        "title": "Commit Payload",
+        "description": "Demo for commit payload."
       }
     },
     "map": {
@@ -740,6 +1303,82 @@
       },
       "tallerViewport": {
         "title": "نمای بزرگ‌تر"
+      },
+      "countries": {
+        "title": "Countries",
+        "description": "Demo for countries.",
+        "iran": "Iran",
+        "usa": "Usa",
+        "uk": "Uk",
+        "japan": "Japan",
+        "uae": "Uae",
+        "germany": "Germany",
+        "france": "France",
+        "australia": "Australia"
+      },
+      "zoomLevels": {
+        "title": "Zoom Levels",
+        "description": "Demo for zoom levels.",
+        "continent": "Continent",
+        "country": "Country",
+        "city": "City"
+      },
+      "tileThemes": {
+        "title": "Tile Themes",
+        "description": "Demo for tile themes.",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "zoomControls": {
+        "title": "Zoom Controls",
+        "description": "Demo for zoom controls.",
+        "leaflet": "Leaflet",
+        "custom": "Custom"
+      },
+      "geoSearch": {
+        "title": "Geo Search",
+        "description": "Demo for geo search.",
+        "searchLabel": "Search Label"
+      },
+      "markers": {
+        "title": "Markers",
+        "description": "Demo for markers.",
+        "clustered": "Clustered",
+        "selectHint": "Select Hint",
+        "flat": "Flat",
+        "selected": "Selected"
+      },
+      "deviceCluster": {
+        "title": "Device Cluster",
+        "description": "Demo for device cluster."
+      },
+      "geoman": {
+        "title": "Geoman",
+        "description": "Demo for geoman.",
+        "lastShape": "Last Shape"
+      },
+      "clickPlacement": {
+        "title": "Click Placement",
+        "description": "Demo for click placement.",
+        "activate": "Activate",
+        "placed": "Placed",
+        "idle": "Idle"
+      },
+      "route": {
+        "title": "Route",
+        "description": "Demo for route."
+      },
+      "centerTracking": {
+        "title": "Center Tracking",
+        "description": "Demo for center tracking.",
+        "coords": "Coords"
+      },
+      "viewports": {
+        "title": "Viewports",
+        "description": "Demo for viewports.",
+        "short": "Short",
+        "medium": "Medium",
+        "tall": "Tall"
       }
     },
     "overlay": {
@@ -748,19 +1387,178 @@
         "confirmAction": "تأیید عملیات",
         "description": "دیالوگ از @/components/common/overlay/dialog.",
         "openDialog": "باز کردن دیالوگ",
-        "title": "دیالوگ"
+        "title": "دیالوگ",
+        "basic": {
+          "title": "Basic",
+          "description": "Demo for basic.",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body"
+        },
+        "confirmation": {
+          "title": "Confirmation",
+          "description": "Demo for confirmation.",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body",
+          "cancel": "Cancel",
+          "confirm": "Confirm"
+        },
+        "controlled": {
+          "title": "Controlled",
+          "description": "Demo for controlled.",
+          "stateOpen": "State Open",
+          "stateClosed": "State Closed",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body",
+          "close": "Close",
+          "download": "Download"
+        },
+        "hideHeader": {
+          "title": "Hide Header",
+          "description": "Demo for hide header.",
+          "open": "Open",
+          "alt": "Preview image"
+        },
+        "large": {
+          "title": "Large",
+          "description": "Demo for large.",
+          "open": "Open",
+          "heading": "Heading",
+          "previewAlt": "Preview Alt",
+          "descriptionText": "Description Text"
+        }
       },
       "popover": {
         "button": "پاپ‌اور",
         "content": "محتوای پاپ‌اور",
         "description": "پنل شناور لنگرخورده.",
-        "title": "پاپ‌اور"
+        "title": "پاپ‌اور",
+        "basic": {
+          "title": "Basic",
+          "description": "Demo for basic.",
+          "trigger": "Trigger",
+          "content": "Content",
+          "hint": "Hint"
+        },
+        "portal": {
+          "title": "Portal",
+          "description": "Demo for portal.",
+          "overflowLabel": "Overflow Label",
+          "trigger": "Trigger",
+          "content": "Content",
+          "hint": "Hint"
+        },
+        "profile": {
+          "title": "Profile",
+          "description": "Demo for profile.",
+          "trigger": "Trigger",
+          "name": "Name",
+          "role": "Role",
+          "viewProfile": "View Profile",
+          "message": "Message"
+        },
+        "notifications": {
+          "title": "Notifications",
+          "description": "Demo for notifications.",
+          "trigger": "Trigger",
+          "markAll": "Mark All",
+          "viewAll": "View All",
+          "items": {
+            "deploy": "Deploy",
+            "comment": "Comment",
+            "invite": "Invite"
+          }
+        },
+        "product": {
+          "title": "Product",
+          "description": "Demo for product.",
+          "trigger": "Trigger",
+          "name": "Name",
+          "descriptionText": "Description Text",
+          "price": "Price",
+          "addToCart": "Add To Cart"
+        },
+        "alignment": {
+          "title": "Alignment",
+          "description": "Demo for alignment.",
+          "panel": "Panel",
+          "start": "Start",
+          "center": "Center",
+          "end": "End"
+        }
       },
       "sheet": {
         "description": "شیت از لبه وارد می‌شود.",
         "openSheet": "باز کردن شیت",
         "sidePanel": "پنل کناری",
-        "title": "شیت"
+        "title": "شیت",
+        "sides": {
+          "title": "Sides",
+          "description": "Demo for sides.",
+          "top": "Top",
+          "bottom": "Bottom",
+          "left": "Left",
+          "right": "Right",
+          "topBody": "Top sheet panel content.",
+          "bottomBody": "Bottom sheet panel content.",
+          "leftBody": "Left sheet panel content.",
+          "rightBody": "Right sheet panel content."
+        },
+        "memberDetail": {
+          "title": "Member Detail",
+          "description": "Demo for member detail.",
+          "open": "Open",
+          "heading": "Heading",
+          "role": "Role",
+          "bio": "Bio",
+          "email": "Email",
+          "projects": "Projects",
+          "tasks": "Tasks",
+          "message": "Message",
+          "assign": "Assign"
+        },
+        "filters": {
+          "title": "Filters",
+          "description": "Demo for filters.",
+          "open": "Open",
+          "heading": "Heading",
+          "reset": "Reset",
+          "apply": "Apply",
+          "options": {
+            "electronics": "Electronics",
+            "furniture": "Furniture",
+            "travel": "Travel",
+            "workspace": "Workspace"
+          }
+        },
+        "cart": {
+          "title": "Cart",
+          "description": "Demo for cart.",
+          "open": "Open",
+          "heading": "Heading",
+          "total": "Total",
+          "checkout": "Checkout",
+          "items": {
+            "watch": "Watch",
+            "headphones": "Headphones"
+          }
+        }
+      },
+      "compound": {
+        "title": "Compound",
+        "description": "Demo for compound.",
+        "primaryAction": "Primary Action",
+        "heading": "Heading",
+        "badge": "Badge",
+        "subheading": "Subheading",
+        "secondaryAction": "Secondary Action"
+      },
+      "stats": {
+        "revenue": "Revenue",
+        "sessions": "Sessions",
+        "conversion": "Conversion"
       }
     },
     "pagination": {
@@ -770,6 +1568,38 @@
       },
       "pageLinks": {
         "title": "پیوندهای صفحه"
+      },
+      "controlled": {
+        "title": "Controlled",
+        "info": "Step {{step}} of {{total}}"
+      },
+      "variants": {
+        "title": "Variants",
+        "default": "Default",
+        "ghost": "Ghost",
+        "outline": "Outline"
+      },
+      "navigation": {
+        "title": "Navigation",
+        "previousNext": "Previous Next",
+        "firstLast": "First Last",
+        "full": "Full"
+      },
+      "ellipsis": {
+        "title": "Ellipsis",
+        "description": "Demo for ellipsis."
+      },
+      "firstPage": {
+        "title": "First Page"
+      },
+      "lastPage": {
+        "title": "Last Page"
+      },
+      "singlePage": {
+        "title": "Single Page"
+      },
+      "fewPages": {
+        "title": "Few Pages"
       }
     },
     "paginator": {
@@ -790,37 +1620,210 @@
     },
     "shapes": {
       "indicator": {
-        "title": "نشانگر"
+        "title": "نشانگر",
+        "default": {
+          "title": "Default",
+          "description": "Demo for default."
+        },
+        "colors": {
+          "default": "Default",
+          "title": "Colors",
+          "success": "Success",
+          "warning": "Warning",
+          "error": "Error",
+          "primary": "Primary",
+          "secondary": "Secondary",
+          "info": "Info",
+          "muted": "Muted"
+        },
+        "sizes": {
+          "title": "Sizes",
+          "xs": "XS",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        },
+        "radius": {
+          "title": "Radius",
+          "none": "None",
+          "sm": "Sm",
+          "md": "Md",
+          "full": "Full"
+        }
       },
       "square": {
-        "title": "مربع"
+        "title": "مربع",
+        "statuses": {
+          "title": "Statuses",
+          "ok": "Ok",
+          "warning": "Warning",
+          "danger": "Danger",
+          "none": "None"
+        },
+        "sizes": {
+          "title": "Sizes"
+        },
+        "hover": {
+          "title": "Hover",
+          "description": "Demo for hover."
+        },
+        "customization": {
+          "title": "Customization",
+          "colors": "Colors",
+          "radius": "Radius",
+          "ring": "Ring"
+        },
+        "combinations": {
+          "title": "Combinations"
+        }
       }
     },
     "skeleton": {
       "cardBlock": {
-        "title": "بلوک کارت"
+        "title": "بلوک کارت",
+        "description": "Demo for card block."
       },
       "textPlaceholders": {
-        "title": "جای‌نگهدارهای متن"
+        "title": "جای‌نگهدارهای متن",
+        "description": "Demo for text placeholders."
+      },
+      "default": {
+        "title": "Default",
+        "description": "Demo for default."
+      },
+      "rows": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long",
+        "full": "Full"
+      },
+      "heights": {
+        "title": "Heights",
+        "description": "Demo for heights."
+      },
+      "widths": {
+        "title": "Widths",
+        "description": "Demo for widths."
+      },
+      "borderRadius": {
+        "title": "Border Radius",
+        "description": "Demo for border radius."
+      },
+      "shapes": {
+        "title": "Shapes",
+        "description": "Demo for shapes."
+      },
+      "listRows": {
+        "title": "List Rows",
+        "description": "Demo for list rows."
+      },
+      "tableField": {
+        "title": "Table Field",
+        "description": "Demo for table field."
+      },
+      "buttonPlaceholder": {
+        "title": "Button Placeholder",
+        "description": "Demo for button placeholder."
+      },
+      "profileRow": {
+        "title": "Profile Row",
+        "description": "Demo for profile row."
+      },
+      "articleLayout": {
+        "title": "Article Layout",
+        "description": "Demo for article layout."
+      },
+      "gridList": {
+        "title": "Grid List",
+        "description": "Demo for grid list."
+      },
+      "fillContainer": {
+        "title": "Fill Container",
+        "description": "Demo for fill container."
+      },
+      "inContext": {
+        "title": "In Context",
+        "description": "Demo for in context."
       }
     },
     "slider": {
       "range": {
-        "title": "بازه"
+        "title": "بازه",
+        "customSteps": {
+          "labels": {
+            "low": "Low",
+            "medium": "Medium",
+            "high": "High",
+            "veryHigh": "Very High",
+            "max": "Max"
+          },
+          "title": "Custom Steps"
+        },
+        "basic": {
+          "title": "Basic",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "steps": {
+          "title": "Steps",
+          "description": "Demo for steps.",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "gradient": {
+          "title": "Gradient",
+          "description": "Demo for gradient."
+        },
+        "hiddenLabels": {
+          "title": "Hidden Labels",
+          "description": "Demo for hidden labels."
+        },
+        "disabled": {
+          "title": "Disabled"
+        },
+        "customColor": {
+          "title": "Custom Color"
+        },
+        "wideRange": {
+          "title": "Wide Range",
+          "description": "Demo for wide range.",
+          "info": "Step {{step}} of {{total}}"
+        }
       },
       "singleValue": {
         "title": "مقدار تکی"
+      },
+      "single": {
+        "controlled": {
+          "title": "Controlled",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "defaultValue": {
+          "title": "Default Value",
+          "description": "Demo for default value."
+        },
+        "disabled": {
+          "title": "Disabled"
+        },
+        "customRange": {
+          "title": "Custom Range",
+          "description": "Demo for custom range.",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "customStyles": {
+          "title": "Custom Styles"
+        }
       }
     },
     "sonner": {
       "toastVariants": {
+        "title": "انواع اعلان",
+        "description": "اعلان‌های موفقیت، خطا، هشدار و اطلاعات با آیکون و رنگ اختصاصی.",
         "buttons": {
           "error": "خطا",
           "info": "اطلاعات",
           "success": "موفقیت",
           "warning": "هشدار"
         },
-        "title": "انواع اعلان",
         "toasts": {
           "checkInput": "ورودی خود را بررسی کنید",
           "headsUp": "توجه",
@@ -829,20 +1832,291 @@
         }
       },
       "withDescription": {
-        "button": "موفقیت + توضیحات",
-        "description": "تغییرات پس از بارگذاری مجدد نمایش داده می‌شوند.",
         "title": "همراه با توضیحات",
+        "description": "تغییرات پس از بارگذاری مجدد نمایش داده می‌شوند.",
+        "buttons": {
+          "success": "موفقیت + توضیحات",
+          "error": "خطا + توضیحات",
+          "warning": "هشدار + توضیحات",
+          "info": "اطلاعات + توضیحات"
+        },
+        "toasts": {
+          "successTitle": "پروفایل به‌روزرسانی شد",
+          "errorTitle": "آپلود ناموفق",
+          "warningTitle": "تغییرات ذخیره نشده",
+          "infoTitle": "همگام‌سازی زمان‌بندی شد"
+        },
+        "descriptions": {
+          "success": "تغییرات پس از بارگذاری مجدد نمایش داده می‌شوند.",
+          "error": "حجم فایل از ۱۰ مگابایت بیشتر است.",
+          "warning": "قبل از خروج ذخیره یا لغو کنید.",
+          "info": "داده‌ها در پس‌زمینه همگام می‌شوند."
+        },
+        "button": "موفقیت + توضیحات",
         "toastTitle": "پروفایل به‌روزرسانی شد"
+      },
+      "multipleDescriptions": {
+        "title": "چند خط توضیح",
+        "description": "آرایه descriptions برای نمایش خطوط جزئیات پشت‌سرهم.",
+        "button": "خطا با جزئیات",
+        "toastTitle": "اعتبارسنجی ناموفق",
+        "lines": {
+          "first": "ایمیل الزامی است.",
+          "second": "رمز عبور حداقل ۸ کاراکتر باشد.",
+          "third": "پذیرش قوانین الزامی است."
+        }
+      },
+      "defaultMessage": {
+        "title": "پیام پیش‌فرض",
+        "description": "اعلان خنثی با toast.message() — بدون استایل شدت.",
+        "button": "نمایش پیام",
+        "toast": "نظر جدید روی پست شما"
+      },
+      "loading": {
+        "title": "بارگذاری",
+        "description": "اعلان اسپینر — دستی ببندید یا با promise جایگزین شود.",
+        "showButton": "نمایش بارگذاری",
+        "dismissButton": "بستن بارگذاری",
+        "toast": "در حال ذخیره…"
+      },
+      "promise": {
+        "title": "Promise",
+        "description": "خودکار از بارگذاری به موفقیت یا خطا پس از اتمام درخواست.",
+        "resolveButton": "موفقیت",
+        "rejectButton": "خطا",
+        "loading": "در حال پردازش…",
+        "success": "درخواست انجام شد",
+        "error": "درخواست ناموفق"
+      },
+      "actionButton": {
+        "title": "دکمه عمل",
+        "description": "عمل اصلی داخل اعلان — استایل بر اساس نوع.",
+        "button": "با دکمه عمل",
+        "toastTitle": "فایل حذف شد",
+        "descriptionText": "سند به سطل زباله منتقل شد.",
+        "actionLabel": "بازگردانی",
+        "actionFeedback": "حذف لغو شد"
+      },
+      "cancelButton": {
+        "title": "لغو + تأیید",
+        "description": "دکمه لغو و تأیید برای عملیات حساس یا قابل بازگشت.",
+        "button": "تأیید حذف",
+        "toastTitle": "این پروژه حذف شود؟",
+        "descriptionText": "همه پیش‌نویس‌ها و تنظیمات برای همیشه حذف می‌شوند.",
+        "cancelLabel": "لغو",
+        "confirmLabel": "حذف",
+        "cancelFeedback": "حذف لغو شد",
+        "confirmFeedback": "پروژه حذف شد"
+      },
+      "closeButton": {
+        "title": "دکمه بستن",
+        "description": "بستن با closeButton: true — تا زمان بستن باقی می‌ماند.",
+        "button": "ماندگار + بستن",
+        "toast": "بکشید یا × را بزنید"
+      },
+      "duration": {
+        "title": "مدت نمایش",
+        "description": "زمان بستن خودکار — کوتاه یا Infinity برای ماندگار.",
+        "shortButton": "خودکار (۲ ثانیه)",
+        "persistentButton": "ماندگار",
+        "shortToast": "این اعلان در ۲ ثانیه بسته می‌شود",
+        "persistentToast": "تا زمان بستن باقی می‌ماند"
+      },
+      "stacking": {
+        "title": "پشته‌سازی",
+        "description": "چند اعلان در صف — expand در Toaster لیست کامل را نشان می‌دهد.",
+        "button": "نمایش همه انواع",
+        "toasts": {
+          "success": "پرداخت دریافت شد",
+          "info": "ورود جدید از Chrome",
+          "warning": "فضای ذخیره تقریباً پر",
+          "error": "تحویل webhook ناموفق"
+        }
+      },
+      "dismissAll": {
+        "title": "بستن همه",
+        "description": "toast.dismiss() بدون id همه اعلان‌ها را پاک می‌کند.",
+        "showButton": "نمایش نمونه",
+        "dismissButton": "بستن همه",
+        "sampleOne": "اعلان اول",
+        "sampleTwo": "اعلان دوم"
+      },
+      "custom": {
+        "title": "محتوای سفارشی",
+        "description": "toast.custom() هر JSX دلخواه با موقعیت و انیمیشن Sonner.",
+        "button": "اعلان سفارشی",
+        "toastTitle": "چیدمان سفارشی",
+        "toastBody": "هر UI دلخواه — دکمه، آواتار یا پیش‌نمایش.",
+        "dismissLabel": "بستن"
       }
     },
     "steps": {
-      "midProgress": {
+      "firstStep": {
+        "title": "گام اول فعال",
+        "description": "سربرگ کامل ویزارد با name، title و subtitle در گام ۱ (active={0}).",
         "steps": {
-          "done": "پایان",
+          "details": {
+            "name": "۱",
+            "title": "جزئیات",
+            "subtitle": "اطلاعات پایه"
+          },
+          "review": {
+            "name": "۲",
+            "title": "بازبینی",
+            "subtitle": "بررسی ورودی‌ها"
+          },
+          "done": {
+            "name": "۳",
+            "title": "انجام شد",
+            "subtitle": "پایان"
+          }
+        }
+      },
+      "midProgress": {
+        "title": "پیشرفت میانی",
+        "description": "گام‌های فقط با name و گام دوم فعال (active={1}).",
+        "steps": {
+          "start": "شروع",
           "review": "بازبینی",
-          "start": "شروع"
+          "done": "پایان"
+        }
+      },
+      "lastStep": {
+        "title": "گام آخر فعال",
+        "description": "سربرگ کامل ویزارد در گام نهایی (active={2})."
+      },
+      "withoutSubtitles": {
+        "title": "بدون زیرعنوان",
+        "description": "name و title برای هر گام؛ subtitle حذف شده.",
+        "steps": {
+          "details": {
+            "name": "۱",
+            "title": "حساب"
+          },
+          "review": {
+            "name": "۲",
+            "title": "تأیید"
+          },
+          "done": {
+            "name": "۳",
+            "title": "تکمیل"
+          }
+        }
+      },
+      "withoutNames": {
+        "title": "بدون name",
+        "description": "فقط title و subtitle — بدون برچسب name کنار دایره.",
+        "steps": {
+          "details": {
+            "title": "آدرس ارسال",
+            "subtitle": "کجا تحویل دهیم؟"
+          },
+          "review": {
+            "title": "روش پرداخت",
+            "subtitle": "نحوه پرداخت را انتخاب کنید"
+          },
+          "done": {
+            "title": "تأیید",
+            "subtitle": "بازبینی و ارسال"
+          }
+        }
+      },
+      "minimalHeader": {
+        "title": "سربرگ minimal",
+        "description": "گام‌های فقط با name و بدون بلوک title/subtitle.",
+        "steps": {
+          "details": "جزئیات",
+          "review": "بازبینی",
+          "done": "پایان"
+        }
+      },
+      "twoSteps": {
+        "title": "دو گام",
+        "description": "جریان کوتاه دو مرحله‌ای.",
+        "steps": {
+          "setup": {
+            "name": "۱",
+            "title": "راه‌اندازی",
+            "subtitle": "پیکربندی فضای کار"
+          },
+          "confirm": {
+            "name": "۲",
+            "title": "تأیید",
+            "subtitle": "بازبینی تنظیمات"
+          }
+        }
+      },
+      "fiveSteps": {
+        "title": "پنج گام",
+        "description": "جریان طولانی‌تر با پنج گام فقط name (active={2}).",
+        "steps": {
+          "account": "حساب",
+          "profile": "پروفایل",
+          "billing": "صورتحساب",
+          "review": "بازبینی",
+          "done": "پایان"
+        }
+      },
+      "customNames": {
+        "title": "گره‌های name سفارشی",
+        "description": "جایگاه name از نوع ReactNode — نشان به‌جای متن ساده.",
+        "steps": {
+          "badges": {
+            "draft": "پیش‌نویس",
+            "review": "بازبینی",
+            "published": "منتشر"
+          },
+          "draft": {
+            "title": "محتوای پیش‌نویس",
+            "subtitle": "در حال انجام"
+          },
+          "review": {
+            "title": "بازبینی تحریریه",
+            "subtitle": "در انتظار تأیید"
+          },
+          "published": {
+            "title": "منتشر شده",
+            "subtitle": "برای همه قابل مشاهده"
+          }
+        }
+      },
+      "controlled": {
+        "title": "active کنترل‌شده",
+        "description": "کنترل active از state با دکمه‌های قبلی/بعدی.",
+        "previous": "قبلی",
+        "next": "بعدی",
+        "info": "گام {{step}} از {{total}}",
+        "steps": {
+          "details": {
+            "name": "۱",
+            "title": "جزئیات",
+            "subtitle": "اطلاعات خود را وارد کنید"
+          },
+          "review": {
+            "name": "۲",
+            "title": "بازبینی",
+            "subtitle": "قبل از ادامه تأیید کنید"
+          },
+          "done": {
+            "name": "۳",
+            "title": "انجام شد",
+            "subtitle": "همه چیز آماده است"
+          }
+        }
+      },
+      "activeStates": {
+        "title": "حالت‌های فعال",
+        "description": "همان گام‌ها با active={0}، active={1} و active={2}.",
+        "labels": {
+          "step1": "active={0}",
+          "step2": "active={1}",
+          "step3": "active={2}"
         },
-        "title": "پیشرفت میانی"
+        "steps": {
+          "details": "جزئیات",
+          "review": "بازبینی",
+          "done": "پایان"
+        }
       },
       "step1Active": {
         "steps": {
@@ -872,22 +2146,208 @@
       }
     },
     "tabs": {
+      "customStyles": {
+        "description": "با className می‌توانید استایل ظرف، نوار تب، اسلایدر و محتوا را بازنویسی کنید.",
+        "title": "کلاس‌های سفارشی"
+      },
+      "defaultActive": {
+        "description": "با defaultActiveTab تب مشخصی را در بارگذاری اولیه باز کنید.",
+        "title": "تب فعال پیش‌فرض"
+      },
+      "disabled": {
+        "description": "جابه‌جایی بین تب‌ها غیرفعال است و برچسب‌های غیرفعال رنگ پیش‌فرض متن را می‌گیرند.",
+        "title": "غیرفعال"
+      },
+      "headerElements": {
+        "banner": "اسلات زیرسرصفحه بین جداکننده و محتوای پنل رندر می‌شود.",
+        "description": "محتوای زیر جداکننده نوار تب را با headerElements تزریق کنید.",
+        "title": "عناصر سرصفحه"
+      },
+      "hideDivider": {
+        "analyticsContent": "در این تب جداکننده نمایش داده می‌شود.",
+        "description": "با hideDivider روی یک تب، خط جداکننده هنگام فعال بودن آن حذف می‌شود.",
+        "overviewContent": "وقتی «نمای کلی» فعال است جداکننده پنهان است.",
+        "settingsContent": "به «نمای کلی» برگردید تا اثر hideDivider را ببینید.",
+        "title": "پنهان‌کردن جداکننده"
+      },
       "keepMounted": {
+        "description": "پنل‌های غیرفعال در DOM می‌مانند تا وضعیت محلی هنگام جابه‌جایی حفظ شود.",
         "draft": {
           "content": "محتوای پیش‌نویس هنگام جابه‌جایی بین تب‌ها وضعیت خود را حفظ می‌کند.",
-          "header": "پیش‌نویس"
+          "header": "پیش‌نویس",
+          "hint": "به «منتشرشده» بروید و برگردید — متن شما اینجا می‌ماند.",
+          "placeholder": "یادداشت پیش‌نویس بنویسید…"
         },
         "published": {
           "content": "موارد منتشرشده اینجا نمایش داده می‌شوند.",
-          "header": "منتشرشده"
+          "header": "منتشرشده",
+          "hint": "این پنل وضعیت ورودی جداگانه خود را نگه می‌دارد.",
+          "placeholder": "یادداشت منتشرشده بنویسید…"
         },
         "title": "حفظ در DOM"
+      },
+      "onChange": {
+        "activeIndex": "شاخص تب فعال: {index}",
+        "description": "با callback مربوط به onChange به تغییر تب واکنش نشان دهید.",
+        "title": "callback مربوط به onChange"
+      },
+      "panels": {
+        "analytics": {
+          "chartTitle": "ترافیک هفتگی",
+          "metrics": {
+            "bounce": {
+              "label": "نرخ پرش",
+              "trend": "-۲٫۱٪",
+              "value": "۳۲٪"
+            },
+            "duration": {
+              "label": "میانگین مدت",
+              "trend": "+۱۸ث",
+              "value": "۴د ۱۲ث"
+            },
+            "sessions": {
+              "label": "نشست‌ها",
+              "trend": "+۱۴٪",
+              "value": "۲۸٫۴هزار"
+            }
+          },
+          "sources": {
+            "direct": "مستقیم",
+            "referral": "ارجاع",
+            "search": "جستجو",
+            "social": "شبکه اجتماعی"
+          },
+          "sourcesTitle": "برترین منابع"
+        },
+        "overview": {
+          "activities": {
+            "0": "سفارش جدید #۴۸۲۱ توسط سارا ثبت شد",
+            "1": "گزارش کمپین به CSV خروجی گرفته شد",
+            "2": "دعوت تیم توسط علی پذیرفته شد"
+          },
+          "activityTitle": "فعالیت اخیر",
+          "bannerAlt": "فضای کاری تیم",
+          "bannerSubtitle": "مرکز همکاری برای پروژه‌های اخیر شما",
+          "bannerTitle": "نمای کلی فضای کاری",
+          "stats": {
+            "conversion": {
+              "label": "تبدیل",
+              "trend": "+۰٫۴٪",
+              "value": "۳٫۸٪"
+            },
+            "revenue": {
+              "label": "درآمد",
+              "trend": "+۱۲٪",
+              "value": "۴۸٫۲هزار$"
+            },
+            "users": {
+              "label": "کاربران فعال",
+              "trend": "+۸٫۲٪",
+              "value": "۱۲٫۴هزار"
+            }
+          }
+        },
+        "scrollable": {
+          "imageAlt": "پیش‌نمایش فصل {n}",
+          "metricLabel": "پیشرفت هدف",
+          "metricValue": "{percent}٪",
+          "subtitle": "نمای عملکرد برای فصل {n}",
+          "title": "فصل {n}"
+        },
+        "segments": {
+          "daily": {
+            "description": "تفکیک ساعتی امروز با به‌روزرسانی زنده.",
+            "title": "نمای روزانه"
+          },
+          "monthly": {
+            "description": "مقایسه ماه‌به‌ماه و روندهای بلندمدت.",
+            "title": "نمای ماهانه"
+          },
+          "weekly": {
+            "description": "روند ۷ روز گذشته در یک نگاه.",
+            "title": "نمای هفتگی"
+          }
+        },
+        "settings": {
+          "items": {
+            "analytics": {
+              "description": "به بهبود محصول به‌صورت ناشناس کمک کنید",
+              "label": "تحلیل استفاده"
+            },
+            "notifications": {
+              "description": "دریافت خلاصه هفتگی و ایمیل هشدار",
+              "label": "اعلان‌های ایمیل"
+            },
+            "twoFactor": {
+              "description": "در ورود از دستگاه جدید کد الزامی باشد",
+              "label": "احراز هویت دو مرحله‌ای"
+            }
+          },
+          "subtitle": "مدیریت اعلان‌ها، امنیت و حریم خصوصی",
+          "tipBody": "تنظیمات امنیتی برای همه اعضای این فضای کاری اعمال می‌شود.",
+          "tipTitle": "امنیت فضای کاری",
+          "title": "ترجیحات فضای کاری"
+        },
+        "standalone": {
+          "analytics": "نمودارها، خروجی‌ها و روندها در چیدمان خودتان رندر می‌شوند.",
+          "overview": "شاخص‌ها و فید فعالیت خارج از TabbedContent مدیریت می‌شوند.",
+          "settings": "فرم‌ها و کلیدهای تنظیمات در پنلی که خودتان کنترل می‌کنید قرار می‌گیرند."
+        }
+      },
+      "scrollable": {
+        "content": "محتوای تب قابل اسکرول {n}. نوار تب را بکشید یا از دکمه‌های فلش استفاده کنید.",
+        "description": "enableScroll اسکرول افقی با پشتیبانی از کشیدن و دکمه‌های قبل/بعد اضافه می‌کند.",
+        "tabLabel": "تب {n}",
+        "title": "تب‌های قابل اسکرول"
+      },
+      "segments": {
+        "description": "کنترل سگمنت تمام‌عرض با نشانگر نقطه‌ای اختیاری برای تب فعال.",
+        "tabs": {
+          "daily": "روزانه",
+          "monthly": "ماهانه",
+          "weekly": "هفتگی"
+        },
+        "title": "سگمنت‌ها",
+        "withIndicator": "با نشانگر",
+        "withoutIndicator": "بدون نشانگر"
+      },
+      "shared": {
+        "analytics": "تحلیل",
+        "overview": "نمای کلی",
+        "settings": "تنظیمات"
+      },
+      "sideElements": {
+        "analyticsContent": "تب تحلیل دکمه اقدام اضافه در ردیف سرصفحه دارد.",
+        "description": "sideElements سراسری کنار نوار تب قرار می‌گیرد؛ sideElements هر تب فقط برای تب فعال نمایش داده می‌شود.",
+        "globalAction": "سراسری",
+        "overviewContent": "اقدام جانبی سراسری همیشه در ردیف سرصفحه دیده می‌شود.",
+        "settingsContent": "فقط اقدام جانبی سراسری در این تب نمایش داده می‌شود.",
+        "tabAction": "خروجی",
+        "title": "عناصر جانبی"
+      },
+      "standalone": {
+        "activeIndex": "شاخص تب انتخاب‌شده: {index}",
+        "basic": "پایه",
+        "description": "فقط نوار تب — وقتی محتوای پنل را خودتان مدیریت می‌کنید از Tabs استفاده کنید.",
+        "disabled": "غیرفعال",
+        "scrollable": "قابل اسکرول",
+        "title": "نوار تب"
+      },
+      "tabScroller": {
+        "description": "نوار تب صفحه‌بندی‌شده با کنترل‌های قبل/بعد و حالت‌های موقعیت‌دهی اسکرول.",
+        "narrowWindow": "visibleCount: 4",
+        "scrollToCenter": "scrollTo: center",
+        "scrollToStart": "scrollTo: start",
+        "scrollToValue": "scrollTo: value",
+        "selected": "مقدار انتخاب‌شده: {value}",
+        "title": "اسکرولر تب"
       },
       "tabbedContent": {
         "analytics": {
           "content": "پنل تحلیل با نمودارها و داده‌های روند.",
           "header": "تحلیل"
         },
+        "description": "چیدمان تب‌دار پیش‌فرض با نشانگر اسلایدر متحرک و محتوای پنل.",
         "overview": {
           "content": "پنل نمای کلی با شاخص‌های خلاصه و اقدامات سریع.",
           "header": "نمای کلی"
@@ -901,12 +2361,140 @@
     },
     "timeline": {
       "eventList": {
+        "title": "فهرست رویدادها",
+        "description": "زمان و عنوان برای فید فعالیت‌های شبیه سفارش.",
         "events": {
           "delivered": "تحویل شد",
           "orderPlaced": "سفارش ثبت شد",
           "shipped": "ارسال شد"
-        },
-        "title": "فهرست رویدادها"
+        }
+      },
+      "descriptions": {
+        "title": "با توضیحات",
+        "description": "متن توضیح اختیاری زیر عنوان هر رویداد.",
+        "items": {
+          "morning": {
+            "time": "09:00",
+            "title": "جلسه استندآپ",
+            "description": "برنامه‌ریزی اسپرینت و بررسی موانع با تیم."
+          },
+          "afternoon": {
+            "time": "13:30",
+            "title": "بازبینی طراحی",
+            "description": "مرور چیدمان و ناوبری جدید داشبورد."
+          },
+          "evening": {
+            "time": "17:00",
+            "title": "چک‌لیست انتشار",
+            "description": "تأیید نهایی QA پیش از استقرار در production."
+          }
+        }
+      },
+      "changes": {
+        "title": "فهرست تغییرات",
+        "description": "لیست گلوله‌ای برای یادداشت انتشار یا رد پای ممیزی بدون نشان نسخه.",
+        "items": {
+          "design": {
+            "title": "به‌روزرسانی سیستم طراحی",
+            "description": "پالایش توکن‌ها و کامپوننت‌ها برای کاتالوگ.",
+            "changes": {
+              "0": "به‌روزرسانی نسبت کنتراست پالت اصلی",
+              "1": "یکسان‌سازی توکن‌های شعاع گوشه در کارت‌ها",
+              "2": "بهبود متن muted برای برچسب‌های ثانویه"
+            }
+          },
+          "engineering": {
+            "title": "بهینه‌سازی عملکرد",
+            "description": "بهبود bundle و رندر.",
+            "changes": {
+              "0": "بارگذاری تنبل ماژول‌های سنگین نمودار",
+              "1": "کاهش جابه‌جایی چیدمان در انتقال skeleton"
+            }
+          }
+        }
+      },
+      "versionReleases": {
+        "title": "انتشار نسخه‌ها",
+        "description": "نشان نسخه با زمان، عنوان، توضیح و گلوله‌های تغییر.",
+        "items": {
+          "v240": {
+            "time": "2026-06-01",
+            "version": "v2.4.0",
+            "title": "داشبورد تحلیل",
+            "description": "ویجت‌ها و گزینه‌های خروجی جدید برای سرپرستان تیم.",
+            "changes": {
+              "0": "افزودن ویجت نمای کلی ترافیک",
+              "1": "خروجی CSV برای جداول KPI"
+            }
+          },
+          "v230": {
+            "time": "2026-05-15",
+            "version": "v2.3.0",
+            "title": "رفع مشکلات دسترس‌پذیری",
+            "description": "بهبود ترتیب فوکوس و کنتراست در فرم‌ها.",
+            "changes": {
+              "0": "ناوبری صفحه‌کلید برای منوهای تو در تو"
+            }
+          }
+        }
+      },
+      "withImages": {
+        "title": "با تصویر",
+        "description": "پیش‌نمایش تصویر اختیاری برای هر آیتم از طریق prop تصویر.",
+        "items": {
+          "launch": {
+            "time": "10:00",
+            "title": "راه‌اندازی محصول",
+            "description": "سایت بازاریابی و بنر اعلان منتشر شد.",
+            "imageAlt": "بنر اعلام انتشار"
+          },
+          "event": {
+            "time": "15:00",
+            "title": "رویداد جامعه",
+            "description": "دموی زنده و پرسش و پاسخ با کاربران اولیه.",
+            "imageAlt": "بنر رویداد جامعه"
+          }
+        }
+      },
+      "titleOnly": {
+        "title": "فقط عنوان",
+        "description": "آیتم‌های minimal وقتی فقط برچسب لازم است.",
+        "items": {
+          "0": "حساب ایجاد شد",
+          "1": "پروفایل تکمیل شد",
+          "2": "اولین پروژه شروع شد"
+        }
+      },
+      "singleItem": {
+        "title": "تک آیتم",
+        "description": "حالت لبه با یک ورودی و بدون خط اتصال.",
+        "time": "12:00",
+        "titleText": "مهاجرت کامل شد",
+        "descriptionText": "همه سرویس‌ها روی کلاستر جدید در حال اجرا هستند."
+      },
+      "mixed": {
+        "title": "اشکال ترکیبی آیتم",
+        "description": "یک timeline با رویدادهای sparse، توضیحات و بلوک نسخه.",
+        "items": {
+          "placed": {
+            "time": "08:15",
+            "title": "سفارش ثبت شد"
+          },
+          "shipped": {
+            "time": "11:40",
+            "title": "در مسیر تحویل",
+            "description": "پیک بسته را از انبار تحویل گرفت."
+          },
+          "release": {
+            "version": "v1.0",
+            "title": "API ردیابی منتشر شد",
+            "description": "رویدادهای webhook اکنون به‌روزرسانی ETA دارند.",
+            "changes": {
+              "0": "افزودن payload webhook تحویل",
+              "1": "مستندسازی سیاست retry"
+            }
+          }
+        }
       }
     },
     "tracker": {
@@ -923,16 +2511,78 @@
     },
     "typography": {
       "headings": {
+        "title": "سرتیترها",
+        "description": "H1–H4 semantic elements with preset size and weight tokens.",
         "h1": "سرتیتر ۱",
         "h2": "سرتیتر ۲",
         "h3": "سرتیتر ۳",
         "h4": "سرتیتر ۴",
-        "title": "سرتیترها"
+        "styles": {
+          "h1": "text-3xl · font-extrabold",
+          "h2": "text-2xl · font-bold",
+          "h3": "text-xl · font-semibold",
+          "h4": "text-lg · font-medium"
+        }
+      },
+      "hierarchy": {
+        "title": "Heading hierarchy",
+        "description": "Stack headings and body copy the way they appear in page layouts.",
+        "subtitle": "Section subtitle for context",
+        "body": "Supporting paragraph beneath the heading stack — uses the default P style (text-sm, font-normal)."
       },
       "paragraph": {
+        "title": "پاراگراف",
+        "description": "P renders a paragraph with text-sm and font-normal. All components share m-0, p-0, text-foreground, and cursor-default.",
         "body": "متن بدنه — سبک پاراگراف پیش‌فرض از ماژول تایپوگرافی.",
-        "muted": "پاراگراف کم‌رنگ با بازنویسی className.",
-        "title": "پاراگراف"
+        "muted": "پاراگراف کم‌رنگ با بازنویسی className."
+      },
+      "paragraphTones": {
+        "title": "Paragraph tones",
+        "description": "Override foreground with className for muted, severity, and mono styles.",
+        "sample": "The quick brown fox jumps over the lazy dog.",
+        "tones": {
+          "default": "Default",
+          "muted": "Muted",
+          "primary": "Primary",
+          "success": "Success",
+          "warning": "Warning",
+          "error": "Error",
+          "info": "Info",
+          "mono": "Mono"
+        }
+      },
+      "headingOverrides": {
+        "title": "Heading className override",
+        "description": "Merge custom utilities onto the preset heading styles.",
+        "primaryH2": "Primary-colored H2",
+        "truncatedH4": "This heading is intentionally long and will truncate with an ellipsis when space is limited",
+        "uppercaseH3": "Uppercase tracking label"
+      },
+      "htmlAttributes": {
+        "title": "HTML attributes",
+        "description": "Components forward standard HTML attributes to the underlying element.",
+        "ariaLabel": "Accessible section title"
+      },
+      "marquee": {
+        "title": "Marquee",
+        "description": "Overflowing text scrolls automatically; short text stays centered without animation.",
+        "short": "Fits",
+        "long": "This label is much longer than the container and triggers the marquee scroll animation",
+        "styled": "Styled value cell",
+        "rows": {
+          "static": "Static (fits container)",
+          "scrolling": "Scrolling (overflow)",
+          "styled": "Bordered (list pattern)"
+        }
+      },
+      "inContext": {
+        "title": "In context",
+        "description": "Typical dashboard panel with a title, subtitle, body copy, and a marquee value row.",
+        "panelTitle": "Account overview",
+        "panelSubtitle": "Billing & usage",
+        "panelBody": "Review plan limits, recent invoices, and usage metrics for the current billing period.",
+        "rowLabel": "Current plan",
+        "rowValue": "Enterprise · unlimited seats · renews March 2026"
       }
     },
     "buttons": {
@@ -1078,7 +2728,6 @@
     "accordion": {
       "singleCollapsible": {
         "title": "تاشوی تک‌بخشی",
-        "description": "فقط یک بخش همزمان باز است. برای بستن، روی تریگر فعال دوباره کلیک کنید.",
         "whatIsLibrary": {
           "trigger": "این کتابخانه کامپوننت چیست؟",
           "content": "مجموعه‌ای از کامپوننت‌های آماده تولید React ساخته‌شده با Tailwind CSS v4، Radix UI و تعاملات اولویت‌دار با حرکت."
@@ -1090,11 +2739,11 @@
         "staticSite": {
           "trigger": "آیا می‌توانم در یک سایت استاتیک از آن استفاده کنم؟",
           "content": "قطعاً. این نمایشگاه با Vite ساخته شده و به HTML، CSS و JS استاتیک صادر می‌شود."
-        }
+        },
+        "description": "Only one section open at a time; opening another closes the rest."
       },
       "multipleOpen": {
         "title": "باز بودن همزمان چند بخش",
-        "description": "چند بخش را همزمان باز کنید — هر پنل مستقل جابه‌جا می‌شود.",
         "designTokens": {
           "trigger": "توکن‌های طراحی",
           "content": "رنگ‌ها، فاصله‌ها و متغیرهای تایپوگرافی معنادار."
@@ -1104,106 +2753,107 @@
           "content": "بر پایه اجزای Radix با ناوبری صفحه‌کلید ساخته شده است."
         },
         "composition": {
-          "trigger": "ترکیب‌پذیری",
-          "content": "ریشه، آیتم، تریگر و محتوا اجزای جداگانه‌ای هستند که می‌توانید استایل و چیدمان دهید."
-        }
-      },
-      "singleExclusive": {
-        "title": "انحصاری تک‌بخشی",
-        "description": "بدون collapsible، بخش باز تا انتخاب بخش دیگر باز می‌ماند.",
-        "account": {
-          "trigger": "تنظیمات حساب",
-          "content": "پروفایل، ایمیل و نام نمایشی را به‌روزرسانی کنید."
+          "content": "Combine AccordionItem, AccordionTrigger, and AccordionContent for flexible layouts.",
+          "trigger": "Composition"
         },
-        "billing": {
-          "trigger": "صورتحساب",
-          "content": "روش‌های پرداخت را مدیریت و فاکتورها را دانلود کنید."
-        },
-        "notifications": {
-          "trigger": "اعلان‌ها",
-          "content": "انتخاب کنید کدام هشدارها را از طریق ایمیل یا push دریافت کنید."
-        }
-      },
-      "defaultOpen": {
-        "title": "باز پیش‌فرض",
-        "description": "با defaultValue یک بخش را در اولین رندر باز کنید.",
-        "shipping": {
-          "trigger": "سیاست ارسال",
-          "content": "سفارش‌ها ظرف ۲ روز کاری با پست استاندارد ارسال می‌شوند."
-        },
-        "returns": {
-          "trigger": "مرجوعی و بازپرداخت",
-          "content": "این بخش از ابتدا باز است. مرجوعی تا ۳۰ روز پذیرفته می‌شود."
-        },
-        "support": {
-          "trigger": "ساعات پشتیبانی",
-          "content": "چت زنده روزهای کاری ۹:۰۰ تا ۱۷:۰۰ در دسترس است."
-        }
-      },
-      "defaultOpenMultiple": {
-        "title": "باز پیش‌فرض (چندتایی)",
-        "description": "وقتی type برابر multiple است، آرایه‌ای به defaultValue بدهید.",
-        "tokens": {
-          "trigger": "توکن‌های طراحی",
-          "content": "رنگ‌ها، فاصله‌ها و مقیاس تایپوگرافی از تم شما."
-        },
-        "a11y": {
-          "trigger": "دسترس‌پذیری",
-          "content": "فوکوس صفحه‌کلید بین تریگرها حرکت می‌کند؛ پنل‌ها aria-expanded دارند."
-        },
-        "motion": {
-          "trigger": "حرکت",
-          "content": "ارتفاع محتوا با keyframeهای accordion-up و accordion-down انیمیت می‌شود."
-        }
+        "description": "Multiple sections can stay open simultaneously."
       },
       "controlled": {
-        "title": "کنترل‌شده",
-        "description": "وضعیت باز بودن را با value و onValueChange از بیرون آکاردئون مدیریت کنید.",
-        "openFirst": "باز کردن پروفایل",
-        "openSecond": "باز کردن امنیت",
-        "collapseAll": "بستن همه",
-        "current": "باز: {{value}}",
-        "none": "هیچ‌کدام",
+        "collapseAll": "Collapse all",
+        "current": "Open section: {{value}}",
+        "description": "Drive the open section with value and onValueChange.",
+        "none": "none",
+        "openFirst": "Open first",
+        "openSecond": "Open second",
         "profile": {
-          "trigger": "پروفایل",
-          "content": "نام، آواتار و بیوگرافی عمومی را ویرایش کنید."
+          "content": "Update display name, avatar, and public profile fields.",
+          "trigger": "Profile"
         },
         "security": {
-          "trigger": "امنیت",
-          "content": "رمز عبور را تغییر دهید و نشست‌های فعال را بررسی کنید."
+          "content": "Change password, enable two-factor authentication, and review sessions.",
+          "trigger": "Security"
+        },
+        "title": "Controlled"
+      },
+      "defaultOpen": {
+        "description": "Use defaultValue to open a section on first render.",
+        "returns": {
+          "content": "Return unused items within 30 days for a full refund.",
+          "trigger": "Returns & refunds"
+        },
+        "shipping": {
+          "content": "Orders ship within 2 business days. Tracking is emailed once dispatched.",
+          "trigger": "Shipping policy"
+        },
+        "support": {
+          "content": "Live chat is available weekdays 9:00–18:00. Weekend requests are answered Monday.",
+          "trigger": "Support hours"
+        },
+        "title": "Default open"
+      },
+      "defaultOpenMultiple": {
+        "a11y": {
+          "content": "Keyboard navigation, focus rings, and ARIA attributes from Radix primitives.",
+          "trigger": "Accessibility"
+        },
+        "description": "Pass an array to defaultValue when type=\"multiple\".",
+        "motion": {
+          "content": "Height animations use CSS variables for smooth expand and collapse.",
+          "trigger": "Motion"
+        },
+        "title": "Default open (multiple)",
+        "tokens": {
+          "content": "Semantic colors, spacing, and typography variables shared across components.",
+          "trigger": "Design tokens"
         }
       },
       "disabledItems": {
-        "title": "آیتم‌های غیرفعال",
-        "description": "disabled روی AccordionItem تعامل را مسدود و فوکوس صفحه‌کلید را رد می‌کند.",
-        "available": {
-          "trigger": "بخش در دسترس",
-          "content": "این پنل به‌طور عادی باز و بسته می‌شود."
-        },
-        "locked": {
-          "trigger": "بخش قفل‌شده (غیرفعال)",
-          "content": "تا زمانی که آیتم غیرفعال است به این محتوا دسترسی نیست."
-        },
         "another": {
-          "trigger": "بخش در دسترس دیگر",
-          "content": "هنگام tab بین تریگرها، فوکوس از آیتم غیرفعال عبور می‌کند."
-        }
-      },
-      "singleItem": {
-        "title": "تک آیتم",
-        "description": "آکاردئون حداقلی با یک پنل قابل گسترش.",
-        "trigger": "یادداشت‌های انتشار",
-        "content": "نسخه ۲.۴ انیمیشن آکاردئون و پشتیبانی بهتر صفحه‌کلید را اضافه می‌کند."
+          "content": "Disabled neighbors do not block other items.",
+          "trigger": "Another available section"
+        },
+        "available": {
+          "content": "This item is interactive and can be expanded.",
+          "trigger": "Available section"
+        },
+        "description": "Disabled AccordionItem values cannot be toggled.",
+        "locked": {
+          "content": "This item is disabled and cannot be opened.",
+          "trigger": "Locked section"
+        },
+        "title": "Disabled items"
       },
       "richContent": {
-        "title": "محتوای غنی",
-        "description": "بدنه پنل از پاراگراف، فهرست و چیدمان تو در تو پشتیبانی می‌کند.",
-        "trigger": "چک‌لیست شروع",
-        "intro": "قبل از انتشار این مراحل را انجام دهید:",
-        "listItem1": "بسته و وابستگی‌های peer را نصب کنید.",
-        "listItem2": "اپ را با theme provider بپوشانید.",
-        "listItem3": "اجزای Accordion را از barrel مشترک import کنید.",
-        "outro": "در یک اپ واقعی هر مرحله به مستندات لینک می‌شود."
+        "description": "AccordionContent accepts any React nodes — lists, paragraphs, and actions.",
+        "intro": "Version 2.1 includes the following highlights:",
+        "listItem1": "New chart layouts and tooltip formatters",
+        "listItem2": "Improved RTL support across inputs and overlays",
+        "listItem3": "Performance fixes for virtualized lists",
+        "outro": "See the changelog for migration notes.",
+        "title": "Rich content",
+        "trigger": "Release notes"
+      },
+      "singleExclusive": {
+        "account": {
+          "content": "Manage profile details, email preferences, and connected accounts.",
+          "trigger": "Account settings"
+        },
+        "billing": {
+          "content": "View invoices, update payment methods, and download receipts.",
+          "trigger": "Billing"
+        },
+        "description": "One section must always remain open — collapsible is disabled.",
+        "notifications": {
+          "content": "Choose which events send email, push, or in-app alerts.",
+          "trigger": "Notifications"
+        },
+        "title": "Single exclusive"
+      },
+      "singleItem": {
+        "content": "Useful for FAQ entries or compact disclosure panels.",
+        "description": "An accordion with one item still exposes full keyboard support.",
+        "title": "Single item",
+        "trigger": "Only section"
       }
     },
     "alerts": {
@@ -1309,92 +2959,99 @@
       }
     },
     "avatar": {
-      "withPhoto": {
-        "title": "با عکس",
-        "description": "تصاویر واقعی از /public/avatars با alt قابل دسترس.",
-        "sara": "سارا احمدی",
-        "ali": "علی حسینی",
-        "mina": "مینا رحمانی",
-        "reza": "رضا کریمی"
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "UserAvatar از @/components/common/avatar."
       },
-      "presetSizes": {
-        "title": "اندازه‌های از پیش‌تعریف‌شده",
-        "description": "توکن‌های size در CVA از xs تا 3xl.",
-        "photoRow": "آواتار با عکس",
-        "initialsRow": "حروف اول جایگزین"
-      },
-      "customSizes": {
-        "title": "اندازه سفارشی",
-        "description": "عدد پیکسلی یا هر واحد CSS رشته‌ای بدهید."
-      },
-      "shapes": {
-        "title": "شکل‌ها",
-        "description": "variantهای دایره، گرد و مربع.",
-        "circle": "دایره",
-        "rounded": "گرد",
-        "square": "مربع"
-      },
-      "severities": {
-        "title": "شدت fallback",
-        "description": "variantهای رنگ برای حروف اول و آیکن."
-      },
-      "initials": {
-        "title": "حروف اول",
-        "description": "حالت تک‌حرفی یا دوحرفی برای fallback.",
-        "single": "تک",
-        "dual": "دوگانه",
-        "username": "نام کاربری",
-        "default": "پیش‌فرض"
+      "fallbackInitials": {
+        "title": "حروف اول جایگزین"
       },
       "autoSeverity": {
-        "title": "شدت خودکار",
-        "description": "رنگ پایدار از نام نمایشی وقتی autoSeverity فعال است."
-      },
-      "status": {
-        "title": "نشانگر وضعیت",
-        "description": "نقطه حضور برای online، offline، busy و away.",
-        "online": "آنلاین",
-        "offline": "آفلاین",
-        "busy": "مشغول",
-        "away": "دور"
-      },
-      "borders": {
-        "title": "حاشیه‌ها",
-        "description": "variantهای border برای آواتار تکی و گروه.",
-        "none": "بدون",
-        "default": "پیش‌فرض",
-        "ring": "حلقه"
-      },
-      "loading": {
-        "title": "بارگذاری",
-        "description": "overlay اسپینر هنگام بارگذاری تصویر یا loading اجباری."
-      },
-      "imageError": {
-        "title": "fallback خطای تصویر",
-        "description": "URL نامعتبر به‌طور خودکار به حروف اول برمی‌گردد."
-      },
-      "iconFallback": {
-        "title": "fallback آیکن",
-        "description": "به‌جای حروف اول از آیکن Lucide استفاده کنید."
-      },
-      "interactive": {
-        "title": "تعاملی",
-        "description": "آواتار قابل کلیک با scale در hover و فعال‌سازی صفحه‌کلید.",
-        "clicks": "{{count}} بار کلیک شد"
-      },
-      "disabled": {
-        "title": "غیرفعال",
-        "description": "کاهش opacity و بدون تعامل اشاره‌گر."
+        "description": "Auto Severity examples and configuration options.",
+        "title": "Auto Severity"
       },
       "avatarGroup": {
-        "title": "گروه آواتار",
-        "description": "چیدمان با overlap یا gap و overflow به صورت +N.",
-        "overlap": "هم‌پوشانی با overflow",
-        "gap": "فاصله‌گذاری"
+        "description": "Avatar Group examples and configuration options.",
+        "gap": "Gap",
+        "overlap": "Overlap",
+        "title": "Avatar Group"
+      },
+      "borders": {
+        "default": "Default",
+        "description": "Borders examples and configuration options.",
+        "none": "none",
+        "ring": "Ring",
+        "title": "Borders"
+      },
+      "customSizes": {
+        "description": "Custom Sizes examples and configuration options.",
+        "title": "Custom Sizes"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "title": "Disabled"
+      },
+      "iconFallback": {
+        "description": "Icon Fallback examples and configuration options.",
+        "title": "Icon Fallback"
+      },
+      "imageError": {
+        "description": "Image Error examples and configuration options.",
+        "title": "Image Error"
+      },
+      "initials": {
+        "default": "Default",
+        "description": "Initials examples and configuration options.",
+        "dual": "Dual",
+        "single": "Single",
+        "title": "Initials",
+        "username": "Username"
+      },
+      "interactive": {
+        "clicks": "Clicks",
+        "description": "Interactive examples and configuration options.",
+        "title": "Interactive"
+      },
+      "loading": {
+        "description": "Loading examples and configuration options.",
+        "title": "Loading"
+      },
+      "presetSizes": {
+        "description": "Preset Sizes examples and configuration options.",
+        "initialsRow": "Initials Row",
+        "photoRow": "Photo Row",
+        "title": "Preset Sizes"
+      },
+      "severities": {
+        "description": "Severities examples and configuration options.",
+        "title": "Severities"
+      },
+      "shapes": {
+        "circle": "دایره",
+        "description": "Shapes examples and configuration options.",
+        "rounded": "گوشه‌گرد",
+        "square": "مربع",
+        "title": "Shapes"
+      },
+      "status": {
+        "away": "دور",
+        "busy": "مشغول",
+        "description": "Status examples and configuration options.",
+        "offline": "آفلاین",
+        "online": "آنلاین",
+        "title": "Status"
       },
       "userAvatarCompat": {
-        "title": "سازگاری UserAvatar",
-        "description": "wrapper قدیمی UserAvatar همچنان به API جدید Avatar نگاشت می‌شود."
+        "description": "User Avatar Compat examples and configuration options.",
+        "title": "User Avatar Compat"
+      },
+      "withPhoto": {
+        "ali": "Ali",
+        "description": "With Photo examples and configuration options.",
+        "mina": "Mina",
+        "reza": "Reza",
+        "sara": "Sara",
+        "title": "With Photo"
       }
     },
     "badges": {
@@ -1443,652 +3100,572 @@
       }
     },
     "banner": {
-      "compound": {
-        "title": "محتوای compound",
-        "description": "Banner.Badge، Title، Description و Actions سطح را می‌سازند.",
-        "badge": "جدید",
-        "heading": "داشبوردها را سریع‌تر بسازید",
-        "subheading": "کامپوننت‌های آماده تولید با توکن، motion و حالت تاریک.",
-        "primaryAction": "شروع کنید",
-        "secondaryAction": "مشاهده مستندات"
+      "withImage": {
+        "title": "با تصویر",
+        "description": "Banner از @/components/common/banner.",
+        "heading": "بنر خوش‌آمدگویی",
+        "subheading": "سطح تبلیغاتی با تصویر پس‌زمینه."
       },
-      "severities": {
-        "title": "شدت‌ها",
-        "description": "variantهای tone معنادار با appearance soft.",
-        "default": "پیش‌فرض",
-        "defaultDescription": "سطح خنثی با توکن‌های banner.",
-        "primary": "Primary",
-        "primaryDescription": "برجسته‌سازی راه‌اندازی محصول و به‌روزرسانی‌های کلیدی.",
-        "secondary": "Secondary",
-        "secondaryDescription": "اعلان‌های ثانویه و زمینه پشتیبان.",
-        "success": "Success",
-        "successDescription": "تأیید عملیات انجام‌شده یا نتایج مثبت.",
-        "warning": "Warning",
-        "warningDescription": "جلب توجه به موارد حساس به زمان.",
-        "danger": "Danger",
-        "dangerDescription": "نمایش خطا، مسدودیت یا زمینه destructive.",
-        "info": "Info",
-        "infoDescription": "اشتراک نکات خنثی و متن اطلاعاتی."
+      "contentOnly": {
+        "title": "فقط محتوا",
+        "content": "بدون تصویر — پس‌زمینه گرادیان / یکدست از طریق className."
       },
       "appearances": {
-        "title": "ظاهرها",
-        "description": "پر کردن soft، outline و solid برای یک severity.",
-        "soft": "Soft",
-        "softDescription": "پس‌زمینه رنگی با border ظریف.",
+        "description": "Appearances examples and configuration options.",
         "outline": "Outline",
-        "outlineDescription": "پرشدگی شفاف با border معنادار.",
+        "outlineDescription": "Bordered banner with transparent fill.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with muted foreground text.",
         "solid": "Solid",
-        "solidDescription": "پس‌زمینه و رنگ foreground معنادار کامل."
+        "solidDescription": "Filled background with high-contrast text.",
+        "title": "Appearances"
       },
-      "sizes": {
-        "title": "اندازه‌ها",
-        "description": "preset ارتفاع و padding از sm تا hero.",
-        "heading": "نمای کلی analytics",
-        "subheading": "توکن اندازه banner: {{size}}."
-      },
-      "layouts": {
-        "title": "چیدمان‌ها",
-        "description": "تراز start، center و row.",
-        "start": "Start",
-        "startDescription": "تراز پیش‌فرض محتوا از بالا-شروع.",
-        "center": "Center",
-        "centerDescription": "محتوای وسط‌چین برای پیام hero.",
-        "row": "Row",
-        "rowDescription": "محتوا و actionها در یک row واکنش‌گرا.",
-        "action": "مشاهده جزئیات"
-      },
-      "imageModes": {
-        "title": "حالت‌های تصویر",
-        "description": "پردازش پس‌زمینه decor، gradient، cover و contain.",
-        "decor": "Decor",
-        "gradient": "Gradient",
-        "cover": "Cover",
-        "contain": "Contain",
-        "heading": "روایت بصری",
-        "subheading": "حالت تصویر: {{mode}}."
-      },
-      "imageAlign": {
-        "title": "تراز تصویر",
-        "description": "جایگذاری افقی decor برای imageMode=\"decor\".",
-        "start": "Start",
-        "end": "End",
-        "heading": "پیش‌نمایش workspace",
-        "subheading": "Decor تراز شده به {{align}}."
-      },
-      "imageBlend": {
-        "title": "blend تصویر",
-        "description": "حالت‌های blend روی لایه decor.",
-        "heading": "ضربان analytics",
-        "subheading": "حالت blend: {{blend}}."
-      },
-      "imageOpacity": {
-        "title": "شفافیت تصویر",
-        "description": "preset شدت decor: subtle، default و strong.",
-        "heading": "همکاری تیمی",
-        "subheading": "preset شفافیت: {{opacity}}."
-      },
-      "hero": {
-        "title": "Hero",
-        "description": "بنر hero بزرگ با تصویر cover و چیدمان center.",
-        "heading": "یک‌بار بسازید، همه‌جا ترکیب کنید",
-        "subheading": "اجزای چیدمان قابل استفاده مجدد و کامپوننت‌های compound برای اپ‌های داده‌محور.",
-        "action": "مرور کامپوننت‌ها"
+      "compound": {
+        "badge": "Badge",
+        "description": "Compound examples and configuration options.",
+        "heading": "Heading",
+        "primaryAction": "Primary Action",
+        "secondaryAction": "Secondary Action",
+        "subheading": "Subheading",
+        "title": "Compound"
       },
       "dismissible": {
-        "title": "قابل بستن",
-        "description": "دکمه بستن با callback onDismiss.",
-        "heading": "به‌روزرسانی سیاست",
-        "subheading": "قبل از deploy بعدی شرایط به‌روزشده را مرور کنید.",
-        "dismissed": "بنر بسته شد. برای مشاهده دوباره صفحه را refresh کنید."
+        "description": "Dismissible examples and configuration options.",
+        "dismissed": "Dismissed",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Dismissible"
+      },
+      "hero": {
+        "action": "Action",
+        "description": "Hero examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Hero"
+      },
+      "imageAlign": {
+        "description": "Image Align examples and configuration options.",
+        "end": "End",
+        "heading": "Heading",
+        "start": "Start",
+        "subheading": "Subheading",
+        "title": "Image Align"
+      },
+      "imageBlend": {
+        "description": "Image Blend examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Blend"
+      },
+      "imageModes": {
+        "contain": "Contain",
+        "cover": "Cover",
+        "decor": "Decor",
+        "description": "Image Modes examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Modes"
+      },
+      "imageOpacity": {
+        "description": "Image Opacity examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Opacity"
       },
       "interactive": {
-        "title": "تعاملی",
-        "description": "بنر قابل کلیک با shadow در hover و پشتیبانی صفحه‌کلید.",
-        "heading": "باز کردن یادداشت‌های انتشار",
-        "subheading": "هر جای بنر را کلیک کنید تا ناوبری شبیه‌سازی شود.",
-        "clicks": "{{count}} بار کلیک شد"
+        "clicks": "Clicks",
+        "description": "Interactive examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Interactive"
+      },
+      "layouts": {
+        "action": "Action",
+        "center": "Center",
+        "centerDescription": "Content centered horizontally.",
+        "description": "Layouts examples and configuration options.",
+        "row": "Row",
+        "rowDescription": "Title, description, and actions in a horizontal row.",
+        "start": "Start",
+        "startDescription": "Content aligned to the start edge.",
+        "title": "Layouts"
       },
       "legacyImage": {
-        "title": "prop قدیمی image",
-        "description": "فرم deprecated image={{ src }} همچنان درست resolve می‌شود.",
-        "heading": "سازگار با گذشته",
-        "subheading": "برای کد جدید src را ترجیح دهید؛ image پشتیبانی می‌شود."
+        "description": "Legacy Image examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Legacy Image"
+      },
+      "severities": {
+        "danger": "Danger",
+        "dangerDescription": "Critical error or destructive action banner.",
+        "default": "Default",
+        "defaultDescription": "Neutral surface for general announcements.",
+        "description": "Severities examples and configuration options.",
+        "info": "Info",
+        "infoDescription": "Informational update or tip banner.",
+        "primary": "Primary",
+        "primaryDescription": "Emphasized brand-colored banner.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Subtle secondary accent banner.",
+        "success": "Success",
+        "successDescription": "Positive outcome or confirmation banner.",
+        "title": "Severities",
+        "warning": "Warning",
+        "warningDescription": "Attention needed before proceeding."
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Sizes"
       }
     },
     "cards": {
-      "compound": {
-        "title": "کارت کامل",
-        "description": "اسلات ترکیبی با نشان، عنوان، توضیح، محتوا و عملیات.",
-        "badge": "ویژه",
+      "defaultCard": {
+        "title": "کارت پیش‌فرض",
         "cardTitle": "نمای کلی پروژه",
         "cardDescription": "پیشرفت داشبوردهای فعال خود را پیگیری کنید.",
         "cardContent": "کارت‌ها با استفاده از توکن‌های معنادار سیستم طراحی شما با تم روشن و تاریک سازگار می‌شوند.",
         "viewDetails": "مشاهده جزئیات",
         "dismiss": "بستن"
       },
-      "severities": {
-        "title": "شدت‌ها",
-        "description": "نقش‌های رنگ معنادار همراه با سطوح نرم.",
+      "variants": {
+        "title": "گونه‌ها",
         "default": "پیش‌فرض",
-        "defaultDescription": "سطح کارت خنثی برای محتوای عمومی.",
-        "primary": "اصلی",
-        "primaryDescription": "برجسته‌سازی محتوای مهم یا ویژه.",
-        "secondary": "ثانویه",
-        "secondaryDescription": "تأکید ثانویه بدون وزن اصلی.",
-        "success": "موفقیت",
-        "successDescription": "نتایج مثبت و تأییدها.",
-        "warning": "هشدار",
-        "warningDescription": "اطلاعات احتیاطی و هشدارها.",
-        "danger": "خطر",
-        "dangerDescription": "خطاها، شکست‌ها و زمینه مخرب.",
-        "info": "اطلاعات",
-        "infoDescription": "اطلاعیه‌های خنثی و اطلاعاتی.",
-        "muted": "کمرنگ",
-        "mutedDescription": "محتوای پشتیبان با تأکید کمتر."
+        "outline": "حاشیه‌دار",
+        "ghost": "شبح"
       },
       "appearances": {
-        "title": "ظاهرها",
-        "description": "رنگ ملایم، حاشیه، پرکننده یکدست یا شبح شفاف.",
-        "soft": "نرم",
-        "softDescription": "پس‌زمینه رنگی با حاشیه ظریف.",
-        "outline": "حاشیه‌دار",
-        "outlineDescription": "پرکننده شفاف با حاشیه رنگی.",
-        "solid": "یکدست",
-        "solidDescription": "سطح پر شده با متن متضاد.",
-        "ghost": "شبح",
-        "ghostDescription": "بدون حاشیه یا سایه — فقط محتوا."
-      },
-      "sizes": {
-        "title": "اندازه‌ها",
-        "description": "padding بخش‌ها و ریتم عمودی با هم مقیاس می‌شوند.",
-        "sampleTitle": "اندازه کارت",
-        "sampleContent": "padding سرصفحه، محتوا و پاورقی از اندازه root پیروی می‌کند."
-      },
-      "media": {
-        "title": "رسانه",
-        "description": "Card.Media از نسبت تصویر و object fit پشتیبانی می‌کند.",
-        "square": "مربعی",
-        "video": "ویدیویی",
-        "wide": "عریض",
-        "imageAlt": "تصویر جلد کارت",
-        "cardTitle": "فضای طراحی",
-        "cardDescription": "پیش‌نمایش اسلات رسانه بالای محتوای کارت.",
-        "action": "باز کردن گالری"
-      },
-      "orientation": {
-        "title": "چیدمان افقی",
-        "description": "رسانه و محتوا در viewportهای عریض‌تر کنار هم.",
-        "imageAlt": "همکاری تیم",
-        "cardTitle": "همکاری تیم",
-        "cardDescription": "رسانه در حالت افقی به لبه شروع تراز می‌شود.",
-        "cardContent": "از orientation=\"horizontal\" برای پیش‌نمایش پروفایل، محصول یا مقاله استفاده کنید.",
-        "action": "مشاهده تیم"
-      },
-      "headerAction": {
-        "title": "عملیات سرصفحه",
-        "description": "Card.Action در شبکه سرصفحه کنار عنوان قرار می‌گیرد.",
-        "cardTitle": "اعلان‌ها",
-        "cardDescription": "مدیریت هشدارها و ترجیحات ارسال.",
-        "cardContent": "از Card.Action برای منوی بیشتر، تنظیمات یا بستن استفاده کنید.",
-        "menuLabel": "باز کردن منو"
-      },
-      "divided": {
-        "title": "بخش‌های جدا",
-        "description": "prop مربوط به divided بین سرصفحه، محتوا و پاورقی حاشیه اضافه می‌کند.",
-        "cardTitle": "جزئیات صورتحساب",
-        "cardDescription": "فاکتور #1042 · سررسید ۱۵ آوریل",
-        "cardContent": "مبلغ قابل پرداخت: ۲۴۸.۰۰ دلار",
-        "save": "ذخیره تغییرات",
-        "cancel": "لغو"
-      },
-      "roundedShadow": {
-        "title": "گردی و سایه",
-        "description": "شعاع گوشه و ارتفاع props مستقل هستند.",
-        "rounded": {
-          "none": "بدون گردی",
-          "md": "گردی md",
-          "xl": "گردی xl",
-          "2xl": "گردی 2xl"
-        },
-        "shadow": {
-          "none": "بدون سایه",
-          "sm": "سایه sm",
-          "md": "سایه md",
-          "lg": "سایه lg"
-        }
-      },
-      "interactive": {
-        "title": "تعاملی",
-        "description": "پشتیبانی داخلی از کیبورد، hover، focus و selected.",
-        "selected": "انتخاب‌شده",
-        "select": "انتخاب طرح",
-        "basic": {
-          "title": "پایه",
-          "description": "ویژگی‌های ضروری برای تیم‌های کوچک.",
-          "price": "۹ دلار / ماه"
-        },
-        "pro": {
-          "title": "حرفه‌ای",
-          "description": "تحلیل‌ها و یکپارچه‌سازی‌های پیشرفته.",
-          "price": "۲۹ دلار / ماه"
-        }
+        "description": "Appearances examples and configuration options.",
+        "ghost": "Ghost",
+        "ghostDescription": "Minimal surface without background fill.",
+        "outline": "Outline",
+        "outlineDescription": "Bordered card with transparent fill.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with muted foreground text.",
+        "solid": "Solid",
+        "solidDescription": "Filled background with high-contrast text.",
+        "title": "Appearances"
       },
       "compositions": {
-        "title": "ترکیب‌ها",
-        "description": "اسلات‌ها را برای چیدمان‌های ساده‌تر ترکیب کنید.",
-        "contentOnly": "فقط محتوا",
-        "contentOnlyBody": "کارت شبح ساده فقط با Card.Content.",
-        "headerContent": "سرصفحه و محتوا",
-        "headerContentTitle": "خلاصه هفتگی",
-        "headerContentDescription": "شاخص‌های کلیدی هفت روز گذشته.",
-        "headerContentBody": "درآمد ۱۲٪ نسبت به هفته قبل افزایش یافت.",
-        "mediaOnly": "فقط رسانه",
-        "mediaAlt": "پیش‌نمایش تحلیل"
+        "contentOnly": "Content Only",
+        "contentOnlyBody": "Content Only Body",
+        "description": "Compositions examples and configuration options.",
+        "headerContent": "Header Content",
+        "headerContentBody": "Header Content Body",
+        "headerContentDescription": "Header Content Description",
+        "headerContentTitle": "Header Content Title",
+        "mediaAlt": "Media Alt",
+        "mediaOnly": "Media Only",
+        "title": "Compositions"
+      },
+      "compound": {
+        "badge": "Badge",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Compound examples and configuration options.",
+        "dismiss": "Dismiss",
+        "title": "Compound",
+        "viewDetails": "View Details"
+      },
+      "divided": {
+        "cancel": "Cancel",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Divided examples and configuration options.",
+        "save": "Save",
+        "title": "Divided"
+      },
+      "headerAction": {
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Header Action examples and configuration options.",
+        "menuLabel": "Menu",
+        "title": "Header Action"
+      },
+      "interactive": {
+        "basic": {
+          "description": "Essential features for getting started.",
+          "price": "$9/mo",
+          "title": "Basic"
+        },
+        "description": "Interactive examples and configuration options.",
+        "pro": {
+          "description": "Advanced tools for growing teams.",
+          "price": "$29/mo",
+          "title": "Pro"
+        },
+        "select": "Select",
+        "selected": "Selected",
+        "title": "Interactive"
+      },
+      "media": {
+        "action": "Action",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Media examples and configuration options.",
+        "imageAlt": "Media image",
+        "square": "Square",
+        "title": "Media",
+        "video": "Video",
+        "wide": "Wide"
+      },
+      "orientation": {
+        "action": "Action",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Orientation examples and configuration options.",
+        "imageAlt": "Orientation image",
+        "title": "Orientation"
+      },
+      "roundedShadow": {
+        "description": "Rounded Shadow examples and configuration options.",
+        "rounded": {
+          "2xl": "2XL",
+          "md": "MD",
+          "none": "None",
+          "xl": "XL"
+        },
+        "shadow": {
+          "lg": "LG",
+          "md": "MD",
+          "none": "None",
+          "sm": "SM"
+        },
+        "title": "Rounded Shadow"
+      },
+      "severities": {
+        "danger": "Danger",
+        "dangerDescription": "Critical error or destructive action card.",
+        "default": "Default",
+        "defaultDescription": "Neutral card for general content.",
+        "description": "Severities examples and configuration options.",
+        "info": "Info",
+        "infoDescription": "Informational update or tip card.",
+        "muted": "Muted",
+        "mutedDescription": "De-emphasized card with subdued colors.",
+        "primary": "Primary",
+        "primaryDescription": "Emphasized brand-colored card.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Subtle secondary accent card.",
+        "success": "Success",
+        "successDescription": "Positive outcome or confirmation card.",
+        "title": "Severities",
+        "warning": "Warning",
+        "warningDescription": "Attention needed before proceeding."
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "sampleContent": "Sample Content",
+        "sampleTitle": "Sample Title",
+        "title": "Sizes"
       }
     },
     "carousel": {
-      "compound": {
-        "title": "کاروسل قهرمان",
-        "description": "API ترکیبی با پخش خودکار، حلقه، نوار پیشرفت و کنترل‌های solid."
-      },
-      "useCases": {
-        "title": "الگوهای کاربردی",
-        "description": "قهرمان فرود، گالری محصول، کارت مقصد، پرومو و ردیف دسته‌بندی — هر کدام با تصویر اختصاصی.",
-        "frames": {
-          "landingHero": "قهرمان صفحه فرود",
-          "productGallery": "گالری محصول · peek",
-          "destinations": "کارت مقصد",
-          "promotions": "بنر تبلیغاتی",
-          "categories": "بندانگشتی دسته‌بندی",
-          "relatedProducts": "محصولات مرتبط · ۳ در هر نما"
-        },
-        "heroes": {
-          "workspace": {
-            "title": "فضای کاری مدرن",
-            "description": "همکاری از هر جا با ابزارهای ابری."
-          },
-          "travel": {
-            "title": "مکان‌های تازه",
-            "description": "سفرهای منتخب برای هر فصل."
-          },
-          "food": {
-            "title": "منوی فصلی تازه",
-            "description": "غذاهای سرآشپز تا درب منزل."
-          },
-          "retail": {
-            "title": "کلکسیون بهاری",
-            "description": "ورودی‌های جدید این هفته."
-          },
-          "team": {
-            "title": "ساخته برای تیم‌ها",
-            "description": "ارسال سریع‌تر با داشبورد مشترک."
-          }
-        },
-        "products": {
-          "watch": {
-            "name": "ساعت مینیمال",
-            "price": "۱۲۹ دلار"
-          },
-          "headphones": {
-            "name": "هدفون استودیو",
-            "price": "۲۴۹ دلار"
-          },
-          "camera": {
-            "name": "دوربین جمع‌وجور",
-            "price": "۵۹۹ دلار"
-          },
-          "sneaker": {
-            "name": "کفش دویدن",
-            "price": "۸۹ دلار"
-          },
-          "chair": {
-            "name": "صندلی راحتی",
-            "price": "۳۴۹ دلار"
-          },
-          "plant": {
-            "name": "گیاه میز",
-            "price": "۲۴ دلار"
-          }
-        },
-        "destinations": {
-          "city": {
-            "title": "فرار شهری",
-            "description": "سفر آخر هفته"
-          },
-          "interior": {
-            "title": "پناهگاه دنج",
-            "description": "اقامت با طراحی"
-          },
-          "coast": {
-            "title": "منظره ساحلی",
-            "description": "اقامت ساحلی"
-          }
-        },
-        "promos": {
-          "release": {
-            "title": "عرضه محصول",
-            "description": "دسترسی زودهنگام اعضا"
-          },
-          "event": {
-            "title": "رویداد زنده",
-            "description": "ثبت‌نام قبل از تکمیل ظرفیت"
-          }
-        },
-        "categories": {
-          "coffee": "قهوه و چای",
-          "desk": "فضای کار",
-          "fitness": "تناسب اندام"
-        }
-      },
-      "shared": {
-        "slideLabel": "اسلاید {{n}}"
-      },
-      "layouts": {
-        "title": "عرض و ارتفاع",
-        "description": "کاروسل به container و محتوای اسلاید واکنش نشان می‌دهد — تمام‌عرض، سایدبار، نصف ستون، یا ارتفاع‌های مختلط.",
-        "fullWidth": "تمام‌عرض · اسلایدهای بنر کوتاه",
-        "sidebar": "عرض سایدبار (w-72)",
-        "halfWidth": "نیم ستون (sm:w-1/2)",
-        "dynamicHeight": "ارتفاع‌های مختلط اسلاید",
-        "heroDescription": "تصویر قهرمان تمام‌صفحه برای بخش‌های فرود.",
-        "bannerHint": "نوار اعلان کوتاه",
-        "bannerSlide": "اعلان",
-        "heroSlide": "ویژگی برجسته",
-        "statSlide": "۹۸٪",
-        "compactSlide": "برچسب فشرده",
-        "shortSlideHint": "فضای عمودی کم",
-        "tallSlideHint": "محتوای قهرمان بلندتر",
-        "metricHint": "کاشی KPI یا آمار",
-        "fixedDimensions": "عرض و ارتفاع ثابت",
-        "fixedDimensionsHint": "width=\"50%\" height=\"400px\" روی Carousel"
-      },
-      "transitions": {
-        "title": "انتقال‌ها",
-        "description": "جابه‌جایی اسلاید یا محو شدن متقابل بین پنل‌ها.",
-        "slide": "اسلاید",
-        "fade": "محو"
-      },
-      "indicators": {
-        "title": "نشانگرها",
-        "description": "نقطه، میله، قرص، شمارنده کسری، یا نوار پیشرفت پخش خودکار.",
-        "dots": "نقطه‌ای",
-        "bars": "میله‌ای",
-        "pills": "قرصی",
-        "fraction": "کسری",
-        "progress": "پیشرفت"
-      },
-      "sizes": {
-        "title": "اندازه‌ها",
-        "description": "ریتم فاصله root و مقیاس پیش‌فرض دکمه‌های کنترل (sm، md، lg)."
-      },
-      "controls": {
-        "title": "انواع کنترل",
-        "description": "دکمه‌های قبلی/بعدی ghost، outline یا solid.",
-        "ghost": "Ghost",
-        "outline": "Outline",
-        "solid": "Solid"
+      "slides": {
+        "title": "اسلایدها",
+        "slide": "اسلایدها"
       },
       "autoplay": {
-        "title": "پخش خودکار",
-        "description": "هر پنج ثانیه جلو می‌رود و با hover یا focus متوقف می‌شود."
+        "description": "Autoplay examples and configuration options.",
+        "title": "Autoplay"
       },
-      "peek": {
-        "title": "Peek",
-        "description": "بخشی از اسلاید بعدی با فاصله بین پنل‌ها نمایش داده می‌شود."
+      "compound": {
+        "description": "Compound examples and configuration options.",
+        "title": "Compound"
       },
-      "slidesPerView": {
-        "title": "چند اسلاید همزمان",
-        "description": "نمایش ۲، ۳ یا ۴ آیتم در یک نما. با slidesToScroll یک آیتم یا یک صفحه کامل جابه‌جا کنید.",
-        "two": "۲ در هر نما",
-        "three": "۳ در هر نما",
-        "four": "۴ در هر نما",
-        "pageScroll": "اسکرول صفحه‌ای (۳ در هر نما)"
+      "controls": {
+        "description": "Controls examples and configuration options.",
+        "title": "Controls"
+      },
+      "indicators": {
+        "description": "Indicators examples and configuration options.",
+        "title": "Indicators"
+      },
+      "layouts": {
+        "bannerSlide": "Banner Slide",
+        "compactSlide": "Compact Slide",
+        "description": "Layouts examples and configuration options.",
+        "dynamicHeight": "Dynamic Height",
+        "fixedDimensions": "Fixed Dimensions",
+        "fixedDimensionsHint": "Fixed Dimensions Hint",
+        "fullWidth": "Full Width",
+        "halfWidth": "Half Width",
+        "heroSlide": "Hero Slide",
+        "metricHint": "Metric Hint",
+        "shortSlideHint": "Short Slide Hint",
+        "sidebar": "Sidebar",
+        "statSlide": "Stat Slide",
+        "tallSlideHint": "Tall Slide Hint",
+        "title": "Layouts"
       },
       "outsideControls": {
-        "title": "کنترل‌های بیرونی",
-        "description": "دکمه‌های قبلی و بعدی کنار viewport با شمارنده کسری در پایین."
+        "description": "Outside Controls examples and configuration options.",
+        "title": "Outside Controls"
+      },
+      "peek": {
+        "description": "Peek examples and configuration options.",
+        "title": "Peek"
       },
       "rounded": {
-        "title": "گوشه‌های گرد",
-        "description": "اسلایدها به شعاع حاشیه انتخاب‌شده برش می‌خورند.",
-        "md": "گرد md",
-        "xl": "گرد xl",
-        "2xl": "گرد 2xl"
+        "description": "Rounded examples and configuration options.",
+        "title": "Rounded"
+      },
+      "shared": {
+        "slideLabel": "Slide"
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "title": "Sizes"
+      },
+      "slidesPerView": {
+        "description": "Slides Per View examples and configuration options.",
+        "pageScroll": "Page Scroll",
+        "title": "Slides Per View"
+      },
+      "transitions": {
+        "description": "Transitions examples and configuration options.",
+        "title": "Transitions"
       }
     },
     "charts": {
-      "shared": {
-        "months": {
-          "jan": "فروردین",
-          "feb": "اردیبهشت",
-          "mar": "خرداد",
-          "apr": "تیر",
-          "may": "مرداد",
-          "jun": "شهریور",
-          "jul": "مهر",
-          "aug": "آبان",
-          "sep": "آذر",
-          "oct": "دی",
-          "nov": "بهمن",
-          "dec": "اسفند"
-        },
-        "quarters": {
-          "q1": "Q1",
-          "q2": "Q2",
-          "q3": "Q3",
-          "q4": "Q4"
-        }
-      },
-      "useCases": {
-        "title": "Real-world dashboards",
-        "description": "SaaS, e-commerce, healthcare, and ops metrics with realistic datasets.",
-        "frames": {
-          "saas": "SaaS · MRR & growth",
-          "ecommerce": "E-commerce · orders by category",
-          "payments": "Payment mix",
-          "healthcare": "Healthcare · admissions",
-          "ops": "DevOps · API latency"
-        },
-        "descriptions": {
-          "saas": "Monthly recurring revenue alongside new logos and churn.",
-          "ecommerce": "Stacked weekly orders across product verticals.",
-          "healthcare": "Department admissions tracked over a week."
-        },
-        "titles": {
-          "saasMrr": "MRR dashboard",
-          "ecommerce": "Weekly orders",
-          "admissions": "Hospital admissions",
-          "latency": "API response time"
-        },
-        "series": {
-          "mrr": "MRR ($K)",
-          "newLogos": "New logos",
-          "churn": "Churn ($K)",
-          "electronics": "Electronics",
-          "fashion": "Fashion",
-          "home": "Home",
-          "emergency": "Emergency",
-          "surgery": "Surgery",
-          "pediatrics": "Pediatrics",
-          "api": "API (ms)",
-          "database": "Database (ms)"
-        }
-      },
-      "layouts": {
-        "title": "Heights & widths",
-        "description": "Charts adapt to full-bleed, compact, half-column, and tall containers.",
-        "frames": {
-          "fullBleed": "Full width · tall",
-          "compact": "Compact · w-64",
-          "halfColumn": "Half column",
-          "tall": "Extra tall · stacked area"
-        },
-        "titles": {
-          "annualRevenue": "Annual revenue overview"
-        }
-      },
       "bar": {
-        "title": "Bar charts",
-        "description": "Vertical, horizontal, stacked, narrow/wide bars, backgrounds, rotated labels, negatives, and custom tooltips.",
-        "frames": {
-          "vertical": "Vertical · multi-series",
-          "narrowBars": "Narrow bars · 28%",
-          "wideBars": "Wide bars · 78%",
-          "horizontal": "Horizontal ranking",
-          "stacked": "Stacked · 4 series",
-          "withBackground": "Bar background",
-          "rotatedLabels": "Rotated labels",
-          "negative": "Negative values",
-          "customTooltip": "Custom HTML tooltip"
-        },
+        "title": "میله‌ای",
         "chartTitles": {
-          "revenue": "Revenue vs expenses",
-          "products": "Units sold by product",
-          "channels": "Leads by channel",
-          "profitLoss": "Regional profit / loss",
-          "plans": "Revenue by plan"
+          "channels": "Channels",
+          "plans": "Plans",
+          "products": "Products",
+          "profitLoss": "Profit Loss",
+          "revenue": "Revenue"
+        },
+        "description": "Bar examples and configuration options.",
+        "frames": {
+          "customTooltip": "Custom Tooltip",
+          "horizontal": "Horizontal",
+          "narrowBars": "Narrow Bars",
+          "negative": "Negative",
+          "rotatedLabels": "Rotated Labels",
+          "stacked": "Stacked",
+          "vertical": "Vertical",
+          "wideBars": "Wide Bars",
+          "withBackground": "With Background"
         },
         "series": {
-          "revenue": "Revenue",
+          "email": "Email",
           "expenses": "Expenses",
-          "profit": "Profit",
-          "unitsSold": "Units sold",
+          "netProfit": "Net Profit",
           "organic": "Organic",
           "paid": "Paid",
+          "profit": "Profit",
           "referral": "Referral",
-          "email": "Email",
-          "netProfit": "Net profit"
-        }
-      },
-      "line": {
-        "title": "Line charts",
-        "description": "Smooth, step, multi-series, custom colors, and line-only modes.",
-        "frames": {
-          "smooth": "Smooth · 3 series + area",
-          "step": "Step · funnel",
-          "noArea": "Line only",
-          "multiColor": "Custom colors"
-        },
-        "chartTitles": {
-          "activeUsers": "Daily active users",
-          "funnel": "Conversion funnel"
-        },
-        "series": {
-          "mobile": "Mobile",
-          "desktop": "Desktop",
-          "tablet": "Tablet",
-          "visits": "Visits",
-          "signups": "Sign-ups",
-          "trials": "Trials",
-          "revenue": "Revenue"
-        }
-      },
-      "area": {
-        "title": "Area charts",
-        "description": "Stacked traffic sources and smooth cumulative growth.",
-        "frames": {
-          "stacked": "Stacked · 5 sources",
-          "smooth": "Smooth area"
-        },
-        "chartTitles": {
-          "traffic": "Weekly traffic sources",
-          "growth": "Revenue growth",
-          "energy": "Energy mix (GWh)"
-        },
-        "series": {
-          "direct": "Direct",
-          "search": "Search",
-          "social": "Social",
-          "email": "Email",
-          "paid": "Paid ads",
           "revenue": "Revenue",
-          "solar": "Solar",
-          "wind": "Wind",
-          "hydro": "Hydro",
-          "gas": "Natural gas"
+          "unitsSold": "Units Sold"
         }
       },
       "pie": {
-        "title": "Pie charts",
-        "description": "Slices, donuts, drill-down, rose, inside labels, and styling options.",
-        "frames": {
-          "basic": "Category share",
-          "donutDrillDown": "Donut · drill-down",
-          "rose": "Rose chart",
-          "insideLabels": "Inside labels",
-          "thinDonut": "Thin donut ring",
-          "noRadius": "Square segments"
-        },
+        "title": "دایره‌ای",
         "chartTitles": {
-          "categories": "Sales by category",
-          "technology": "Technology usage",
-          "campaigns": "Campaign performance"
+          "campaigns": "Campaigns",
+          "categories": "Categories",
+          "technology": "Technology"
+        },
+        "description": "Pie examples and configuration options.",
+        "frames": {
+          "basic": "Basic",
+          "donutDrillDown": "Donut Drill Down",
+          "insideLabels": "Inside Labels",
+          "noRadius": "No Radius",
+          "rose": "Rose",
+          "thinDonut": "Thin Donut"
         }
       },
       "doughnut": {
-        "title": "Doughnut charts",
-        "description": "Completion rings, budgets, rose mode, thick/thin radius, and percentage labels.",
-        "done": "Completed",
-        "pending": "Remaining",
-        "frames": {
-          "completion": "Task breakdown",
-          "withLegend": "Legend & tooltip",
-          "budget": "Budget allocation",
-          "percentLabels": "Percentage labels",
-          "rose": "Rose doughnut",
-          "thickRing": "Thick ring · rounded"
-        },
+        "title": "حلقه‌ای",
+        "done": "انجام‌شده",
+        "pending": "در انتظار",
         "chartTitles": {
-          "tasks": "Sprint tasks",
-          "projects": "Project status",
-          "budget": "Annual budget"
+          "budget": "Budget",
+          "projects": "Projects",
+          "tasks": "Tasks"
+        },
+        "description": "Doughnut examples and configuration options.",
+        "frames": {
+          "budget": "Budget",
+          "completion": "Completion",
+          "percentLabels": "Percent Labels",
+          "rose": "Rose",
+          "thickRing": "Thick Ring",
+          "withLegend": "With Legend"
         }
       },
-      "treeMap": {
-        "title": "Treemap",
-        "description": "Hierarchical data with zoom, breadcrumb, and nested categories.",
-        "frames": {
-          "marketShare": "Market cap by sector",
-          "websiteTraffic": "Website traffic by section"
-        },
+      "area": {
         "chartTitles": {
-          "marketShare": "Global market share",
-          "websiteTraffic": "Page views · last 30 days"
+          "energy": "Energy",
+          "growth": "Growth",
+          "traffic": "Traffic"
+        },
+        "description": "Area examples and configuration options.",
+        "frames": {
+          "smooth": "Smooth",
+          "stacked": "Stacked"
+        },
+        "series": {
+          "direct": "Direct",
+          "email": "Email",
+          "gas": "Gas",
+          "hydro": "Hydro",
+          "paid": "Paid",
+          "revenue": "Revenue",
+          "search": "Search",
+          "social": "Social",
+          "solar": "Solar",
+          "wind": "Wind"
+        },
+        "title": "Area"
+      },
+      "layouts": {
+        "description": "Layouts examples and configuration options.",
+        "frames": {
+          "compact": "Compact",
+          "fullBleed": "Full Bleed",
+          "halfColumn": "Half Column",
+          "tall": "Tall"
+        },
+        "title": "Layouts",
+        "titles": {
+          "annualRevenue": "Annual Revenue"
         }
+      },
+      "line": {
+        "chartTitles": {
+          "activeUsers": "Active Users",
+          "funnel": "Funnel"
+        },
+        "description": "Line examples and configuration options.",
+        "frames": {
+          "multiColor": "Multi Color",
+          "noArea": "No Area",
+          "smooth": "Smooth",
+          "step": "Step"
+        },
+        "series": {
+          "desktop": "Desktop",
+          "mobile": "Mobile",
+          "revenue": "Revenue",
+          "signups": "Signups",
+          "tablet": "Tablet",
+          "trials": "Trials",
+          "visits": "Visits"
+        },
+        "title": "Line"
       },
       "map": {
-        "title": "Choropleth maps",
-        "description": "Iran provinces, US states, and world countries with GeoJSON — multiple sizes and tooltips.",
-        "frames": {
-          "iranSales": "Iran · province sales",
-          "iranLabels": "Iran · labels & tooltip",
-          "usTechJobs": "USA · tech employment",
-          "worldGdp": "World · GDP heatmap",
-          "compactWorld": "Compact world · sidebar",
-          "sidebarUs": "Sidebar · US states"
-        },
+        "description": "Map examples and configuration options.",
         "descriptions": {
-          "iran": "Built-in Iran map with visual map legend.",
-          "iranLabels": "Province labels with rich HTML tooltip.",
-          "us": "GeoJSON from Apache ECharts · state-level data.",
-          "world": "World countries GeoJSON · GDP sample data."
+          "iran": "Iran dashboard sample.",
+          "iranLabels": "Iran Labels dashboard sample.",
+          "us": "Us dashboard sample.",
+          "world": "World dashboard sample."
         },
-        "rangeLow": "Low",
-        "rangeHigh": "High",
+        "frames": {
+          "compactWorld": "Compact World",
+          "iranLabels": "Iran Labels",
+          "iranSales": "Iran Sales",
+          "sidebarUs": "Sidebar Us",
+          "usTechJobs": "Us Tech Jobs",
+          "worldGdp": "World Gdp"
+        },
+        "rangeHigh": "Range High",
+        "rangeLow": "Range Low",
+        "title": "Map",
         "tooltip": {
-          "province": "Province",
-          "sales": "Sales (K units)",
           "country": "Country",
-          "gdp": "GDP (USD B)"
+          "gdp": "Gdp",
+          "province": "Province",
+          "sales": "Sales"
         }
       },
       "states": {
-        "title": "States & options",
-        "description": "Loading overlay, hidden legend, and disabled tooltips.",
+        "description": "States examples and configuration options.",
         "frames": {
           "loading": "Loading",
-          "noLegend": "Legend hidden",
-          "noTooltip": "Tooltip off"
+          "noLegend": "No Legend",
+          "noTooltip": "No Tooltip"
+        },
+        "title": "States"
+      },
+      "treeMap": {
+        "chartTitles": {
+          "marketShare": "Market Share",
+          "websiteTraffic": "Website Traffic"
+        },
+        "description": "Tree Map examples and configuration options.",
+        "frames": {
+          "marketShare": "Market Share",
+          "websiteTraffic": "Website Traffic"
+        },
+        "title": "Tree Map"
+      },
+      "useCases": {
+        "description": "Use Cases examples and configuration options.",
+        "descriptions": {
+          "ecommerce": "Ecommerce dashboard sample.",
+          "healthcare": "Healthcare dashboard sample.",
+          "saas": "SAAS dashboard sample."
+        },
+        "frames": {
+          "ecommerce": "Ecommerce",
+          "healthcare": "Healthcare",
+          "ops": "Ops",
+          "payments": "Payments",
+          "saas": "SAAS"
+        },
+        "series": {
+          "api": "API",
+          "churn": "Churn",
+          "database": "Database",
+          "electronics": "Electronics",
+          "emergency": "Emergency",
+          "fashion": "Fashion",
+          "home": "Home",
+          "mrr": "MRR",
+          "newLogos": "New Logos",
+          "pediatrics": "Pediatrics",
+          "surgery": "Surgery"
+        },
+        "title": "Use Cases",
+        "titles": {
+          "admissions": "Admissions",
+          "ecommerce": "Ecommerce",
+          "latency": "Latency",
+          "saasMrr": "SAAS MRR"
+        }
+      },
+      "shared": {
+        "months": {
+          "jan": "ژان",
+          "feb": "فور",
+          "mar": "مار",
+          "apr": "آپر",
+          "may": "مه",
+          "jun": "ژوئن",
+          "jul": "ژوئی",
+          "aug": "اوت",
+          "sep": "سپت",
+          "oct": "اکت",
+          "nov": "نوام",
+          "dec": "دسام"
+        },
+        "quarters": {
+          "q1": "س۱",
+          "q2": "س۲",
+          "q3": "س۳",
+          "q4": "س۴"
         }
       }
     },
@@ -2114,6 +3691,63 @@
         "default": "پیش‌فرض",
         "active": "فعال",
         "muted": "کمرنگ"
+      },
+      "chipRemove": {
+        "active": "Active",
+        "description": "Chip Remove examples and configuration options.",
+        "inactive": "Inactive",
+        "options": {
+          "design": "Design",
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "devops": "Devops"
+        },
+        "title": "Chip Remove"
+      },
+      "chipSelect": {
+        "description": "Chip Select examples and configuration options.",
+        "disabledState": "Disabled State",
+        "options": {
+          "today": "Today",
+          "week": "Week",
+          "month": "Month",
+          "year": "Year"
+        },
+        "singleSelect": "Single Select",
+        "title": "Chip Select"
+      },
+      "filterChips": {
+        "description": "Filter Chips examples and configuration options.",
+        "region": "Region",
+        "regionValue": "Region Value",
+        "status": "Status",
+        "statusValue": "Status Value",
+        "title": "Filter Chips"
+      },
+      "selectChips": {
+        "description": "Select Chips examples and configuration options.",
+        "items": {
+          "react": "React",
+          "typescript": "TypeScript",
+          "tailwind": "Tailwind",
+          "motion": "Motion",
+          "vite": "Vite",
+          "pnpm": "pnpm"
+        },
+        "rowLimit": "Row Limit",
+        "title": "Select Chips",
+        "withOverflow": "With Overflow"
+      },
+      "styled": {
+        "compact": "Compact",
+        "outline": "Outline",
+        "preset": "Preset",
+        "title": "Styled"
+      },
+      "template": {
+        "prefix": "Prefix",
+        "title": "Template",
+        "value": "Value"
       }
     },
     "collapsible": {
@@ -2121,6 +3755,85 @@
         "title": "بلوک قابل گسترش",
         "trigger": "جزئیات",
         "content": "محتوای پنهان با فعال‌سازی تریگر نمایش داده می‌شود."
+      },
+      "asChildTrigger": {
+        "buttonLabel": "Button",
+        "content": "Details about as child trigger.",
+        "description": "As Child Trigger examples and configuration options.",
+        "title": "As Child Trigger"
+      },
+      "basic": {
+        "content": "Details about basic.",
+        "description": "Basic examples and configuration options.",
+        "title": "Basic",
+        "trigger": "Basic"
+      },
+      "controlled": {
+        "close": "Close",
+        "closedLabel": "Closed",
+        "content": "Details about controlled.",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "open": "Open",
+        "openLabel": "Open",
+        "title": "Controlled",
+        "trigger": "Controlled"
+      },
+      "defaultOpen": {
+        "content": "Details about default open.",
+        "description": "Default Open examples and configuration options.",
+        "title": "Default Open",
+        "trigger": "Default Open"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "disabledContent": "Disabled Content",
+        "disabledTrigger": "Disabled Trigger",
+        "enabledContent": "Enabled Content",
+        "enabledTrigger": "Enabled Trigger",
+        "title": "Disabled"
+      },
+      "imageCard": {
+        "content": "Details about image card.",
+        "description": "Image Card examples and configuration options.",
+        "price": "Price",
+        "productName": "Product Name",
+        "spec1": "Spec1",
+        "spec2": "Spec2",
+        "spec3": "Spec3",
+        "title": "Image Card"
+      },
+      "imageGallery": {
+        "description": "Image Gallery examples and configuration options.",
+        "items": {
+          "watch": "Smart watch",
+          "headphones": "Wireless headphones",
+          "camera": "Mirrorless camera",
+          "sneaker": "Running sneaker",
+          "chair": "Desk chair",
+          "plant": "Desk plant"
+        },
+        "title": "Image Gallery",
+        "trigger": "Image Gallery"
+      },
+      "richContent": {
+        "description": "Rich Content examples and configuration options.",
+        "intro": "Overview of rich content.",
+        "listItem1": "Bullet point 1.",
+        "listItem2": "Bullet point 2.",
+        "listItem3": "Bullet point 3.",
+        "outro": "Additional notes and references.",
+        "title": "Rich Content",
+        "trigger": "Rich Content"
+      },
+      "variants": {
+        "content": "Details about variants.",
+        "default": "Default",
+        "description": "Variants examples and configuration options.",
+        "ghost": "Ghost",
+        "outline": "Outline",
+        "title": "Variants",
+        "trigger": "Variants"
       }
     },
     "context-menu": {
@@ -2130,6 +3843,113 @@
         "copy": "کپی",
         "paste": "چسباندن",
         "delete": "حذف"
+      },
+      "basic": {
+        "copy": "Copy",
+        "delete": "Delete",
+        "description": "Basic examples and configuration options.",
+        "paste": "Paste",
+        "title": "Basic",
+        "trigger": "Basic"
+      },
+      "checkbox": {
+        "description": "Checkbox examples and configuration options.",
+        "label": "Label",
+        "showBadges": "Show Badges",
+        "showGrid": "Show Grid",
+        "showLabels": "Show Labels",
+        "title": "Checkbox",
+        "trigger": "Checkbox"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "devtools": "Devtools",
+        "duplicate": "Duplicate",
+        "insetLabel": "Inset",
+        "inspect": "Inspect",
+        "label": "Label",
+        "moveDisabled": "Move Disabled",
+        "title": "Disabled",
+        "trigger": "Disabled"
+      },
+      "gallery": {
+        "delete": "Delete",
+        "description": "Gallery examples and configuration options.",
+        "download": "Download",
+        "favorite": "Favorite",
+        "products": {
+          "watch": "Smart watch product photo",
+          "headphones": "Wireless headphones product photo",
+          "camera": "Mirrorless camera product photo",
+          "sneaker": "Running sneaker product photo"
+        },
+        "rowLabel": "Row",
+        "share": "Share",
+        "title": "Gallery"
+      },
+      "imageTrigger": {
+        "alt": "Image Trigger image",
+        "copyImage": "Copy Image",
+        "description": "Image Trigger examples and configuration options.",
+        "open": "Open",
+        "remove": "Remove",
+        "saveAs": "Save As",
+        "setWallpaper": "Set Wallpaper",
+        "title": "Image Trigger"
+      },
+      "labels": {
+        "archive": "Archive",
+        "dangerZone": "Danger Zone",
+        "delete": "Delete",
+        "description": "Labels examples and configuration options.",
+        "fileActions": "File Actions",
+        "open": "Open",
+        "rename": "Rename",
+        "share": "Share",
+        "title": "Labels",
+        "trigger": "Labels"
+      },
+      "radio": {
+        "date": "Date",
+        "description": "Radio examples and configuration options.",
+        "grid": "Grid",
+        "list": "List",
+        "name": "Name",
+        "size": "Size",
+        "sortLabel": "Sort",
+        "title": "Radio",
+        "trigger": "Radio",
+        "viewLabel": "View"
+      },
+      "shortcuts": {
+        "copy": "Copy",
+        "copyShortcut": "Copy Shortcut",
+        "cut": "Cut",
+        "cutShortcut": "Cut Shortcut",
+        "description": "Shortcuts examples and configuration options.",
+        "label": "Label",
+        "paste": "Paste",
+        "pasteShortcut": "Paste Shortcut",
+        "redo": "Redo",
+        "redoShortcut": "Redo Shortcut",
+        "title": "Shortcuts",
+        "trigger": "Shortcuts",
+        "undo": "Undo",
+        "undoShortcut": "Undo Shortcut"
+      },
+      "submenu": {
+        "addToCart": "Add To Cart",
+        "alt": "Submenu image",
+        "copyLink": "Copy Link",
+        "description": "Submenu examples and configuration options.",
+        "email": "Email",
+        "export": "Export",
+        "jpeg": "Jpeg",
+        "png": "Png",
+        "share": "Share",
+        "social": "Social",
+        "title": "Submenu",
+        "webp": "Webp"
       }
     },
     "dashboard": {
@@ -2144,15 +3964,74 @@
       "horizontal": {
         "title": "افقی",
         "sectionAbove": "بخش بالا",
-        "sectionBelow": "بخش پایین"
+        "sectionBelow": "بخش پایین",
+        "description": "Horizontal examples and configuration options."
       },
       "vertical": {
         "title": "عمودی",
         "left": "چپ",
-        "right": "راست"
+        "right": "راست",
+        "description": "Vertical examples and configuration options."
       },
       "customMargin": {
         "title": "حاشیه سفارشی"
+      },
+      "articleLayout": {
+        "body": "Body",
+        "description": "Article Layout examples and configuration options.",
+        "heading": "Heading",
+        "title": "Article Layout"
+      },
+      "customStyle": {
+        "default": "Default",
+        "description": "Custom Style examples and configuration options.",
+        "muted": "Muted",
+        "primary": "Primary",
+        "title": "Custom Style"
+      },
+      "margins": {
+        "description": "Margins examples and configuration options.",
+        "title": "Margins",
+        "values": {
+          "0": "0 px",
+          "8": "8 px",
+          "16": "16 px",
+          "32": "32 px"
+        }
+      },
+      "productCard": {
+        "description": "Product Card examples and configuration options.",
+        "detail": "Detail",
+        "name": "Name",
+        "price": "Price",
+        "title": "Product Card"
+      },
+      "productList": {
+        "description": "Product List examples and configuration options.",
+        "items": {
+          "watch": "Smart watch",
+          "headphones": "Wireless headphones",
+          "camera": "Mirrorless camera"
+        },
+        "prices": {
+          "watch": "$299",
+          "headphones": "$189",
+          "camera": "$899"
+        },
+        "title": "Product List"
+      },
+      "splitPanel": {
+        "description": "Split Panel examples and configuration options.",
+        "left": "Left",
+        "right": "Right",
+        "title": "Split Panel"
+      },
+      "verticalToolbar": {
+        "copy": "Copy",
+        "description": "Vertical Toolbar examples and configuration options.",
+        "download": "Download",
+        "share": "Share",
+        "title": "Vertical Toolbar"
       }
     },
     "errors": {
@@ -2190,12 +4069,150 @@
         "title": "تغییر نمایش",
         "hide": "پنهان",
         "show": "نمایش",
-        "content": "محتوا با محو شدن ظاهر و ناپدید می‌شود"
+        "content": "محتوا با محو شدن ظاهر و ناپدید می‌شود",
+        "description": "Visibility Toggle examples and configuration options."
+      },
+      "contentSwap": {
+        "description": "Content Swap examples and configuration options.",
+        "messages": {
+          "first": "This is the first block of content.",
+          "second": "Content has swapped to the second message.",
+          "third": "Now showing the third message."
+        },
+        "next": "Next",
+        "title": "Content Swap"
+      },
+      "controlled": {
+        "content": "Details about controlled.",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "hiddenLabel": "Hidden",
+        "hide": "Hide",
+        "show": "Show",
+        "title": "Controlled",
+        "visibleLabel": "Visible"
+      },
+      "initialStates": {
+        "description": "Initial States examples and configuration options.",
+        "hiddenContent": "Hidden Content",
+        "hiddenLabel": "Hidden",
+        "hiddenPlaceholder": "Hidden Placeholder",
+        "title": "Initial States",
+        "visibleContent": "Visible Content",
+        "visibleLabel": "Visible"
+      },
+      "layoutCollapse": {
+        "blockAbove": "Block Above",
+        "blockBelow": "Block Below",
+        "description": "Layout Collapse examples and configuration options.",
+        "hideMiddle": "Hide Middle",
+        "middleContent": "Middle Content",
+        "showMiddle": "Show Middle",
+        "title": "Layout Collapse"
+      },
+      "multipleItems": {
+        "description": "Multiple Items examples and configuration options.",
+        "details": {
+          "alpha": "Alpha details are visible.",
+          "beta": "Beta details are visible.",
+          "gamma": "Gamma details are visible."
+        },
+        "hide": "Hide",
+        "items": {
+          "alpha": "Item Alpha",
+          "beta": "Item Beta",
+          "gamma": "Item Gamma"
+        },
+        "show": "Show",
+        "title": "Multiple Items"
+      },
+      "richContent": {
+        "badge": "Badge",
+        "body": "Body",
+        "description": "Rich Content examples and configuration options.",
+        "heading": "Heading",
+        "hide": "Hide",
+        "show": "Show",
+        "title": "Rich Content"
+      },
+      "styledVariants": {
+        "content": "Details about styled variants.",
+        "description": "Styled Variants examples and configuration options.",
+        "muted": "Muted",
+        "outline": "Outline",
+        "primary": "Primary",
+        "success": "Success",
+        "title": "Styled Variants"
       }
     },
     "file-uploader": {
       "dropZone": {
-        "title": "ناحیه رها کردن"
+        "title": "ناحیه رها کردن",
+        "description": "Drop Zone examples and configuration options."
+      },
+      "acceptedTypes": {
+        "description": "Accepted Types examples and configuration options.",
+        "success": "Success",
+        "title": "Accepted Types",
+        "typeError": "Type Error"
+      },
+      "controlled": {
+        "clear": "Clear",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "none": "none",
+        "title": "Controlled"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "title": "Disabled"
+      },
+      "dragging": {
+        "active": "Active",
+        "description": "Dragging examples and configuration options.",
+        "empty": "Empty",
+        "idle": "Idle",
+        "title": "Dragging"
+      },
+      "multipleFiles": {
+        "description": "Multiple Files examples and configuration options.",
+        "empty": "Empty",
+        "title": "Multiple Files"
+      },
+      "singleFile": {
+        "description": "Single File examples and configuration options.",
+        "empty": "Empty",
+        "nameLabel": "Name",
+        "sizeLabel": "Size",
+        "title": "Single File",
+        "typeLabel": "Type"
+      },
+      "sizeLimits": {
+        "description": "Size Limits examples and configuration options.",
+        "sizeError": "Size Error",
+        "success": "Success",
+        "title": "Size Limits"
+      },
+      "uploadFlow": {
+        "description": "Upload Flow examples and configuration options.",
+        "error": "Error",
+        "reset": "Reset",
+        "simulateFailure": "Simulate Failure",
+        "success": "Success",
+        "title": "Upload Flow",
+        "tryAgain": "Try Again",
+        "uploading": "Uploading"
+      },
+      "visualStates": {
+        "description": "Visual States examples and configuration options.",
+        "error": "Error",
+        "errorMessage": "Sample message text.",
+        "idle": "Idle",
+        "success": "Success",
+        "successMessage": "Sample message text.",
+        "title": "Visual States",
+        "uploading": "Uploading",
+        "uploadingMessage": "Sample message text."
       }
     },
     "flex": {
@@ -2214,6 +4231,174 @@
         "title": "فاصله بین",
         "start": "شروع",
         "end": "پایان"
+      },
+      "align": {
+        "baseline": "Baseline",
+        "center": "Center",
+        "description": "Align examples and configuration options.",
+        "end": "End",
+        "large": "Large",
+        "medium": "Medium",
+        "mid": "Mid",
+        "short": "Short",
+        "small": "Small",
+        "start": "Start",
+        "stretch": "Stretch",
+        "tall": "Tall",
+        "title": "Align"
+      },
+      "cardBasis": {
+        "1/2": "1/2",
+        "1/3": "1/3",
+        "1/4": "1/4",
+        "auto": "Auto",
+        "description": "Card Basis examples and configuration options.",
+        "full": "Full",
+        "sample": "Sample",
+        "title": "Card Basis"
+      },
+      "cardFlex": {
+        "description": "Card Flex examples and configuration options.",
+        "growLabel": "Grow",
+        "shrinkLabel": "Shrink",
+        "title": "Card Flex"
+      },
+      "cardVariants": {
+        "description": "Card Variants examples and configuration options.",
+        "title": "Card Variants"
+      },
+      "customization": {
+        "action": "Action",
+        "ariaLabel": "Aria",
+        "body": "Body",
+        "description": "Customization examples and configuration options.",
+        "title": "Customization",
+        "titleText": "Title Text"
+      },
+      "direction": {
+        "column": "Column",
+        "column-reverse": "Column reverse",
+        "description": "Direction examples and configuration options.",
+        "itemOne": "Item One",
+        "itemThree": "Item Three",
+        "itemTwo": "Item Two",
+        "row": "Row",
+        "row-reverse": "Row reverse",
+        "title": "Direction"
+      },
+      "gallery": {
+        "description": "Gallery examples and configuration options.",
+        "headerAdditional": "Header Additional",
+        "headerSubtitle": "Header Subtitle",
+        "headerTitle": "Header Title",
+        "title": "Gallery",
+        "viewAll": "View All"
+      },
+      "gap": {
+        "description": "Gap examples and configuration options.",
+        "lg": "Large",
+        "md": "Medium",
+        "none": "None",
+        "sm": "Small",
+        "title": "Gap",
+        "xl": "Extra large"
+      },
+      "header": {
+        "center": {
+          "additional": "Center aligned header",
+          "subtitle": "Subtitle",
+          "title": "Center"
+        },
+        "description": "Header examples and configuration options.",
+        "left": {
+          "additional": "Left aligned header",
+          "subtitle": "Subtitle",
+          "title": "Left"
+        },
+        "right": {
+          "additional": "Right aligned header",
+          "subtitle": "Subtitle",
+          "title": "Right"
+        },
+        "title": "Header",
+        "withActions": {
+          "primary": "Primary",
+          "secondary": "Secondary",
+          "subtitle": "Subtitle",
+          "title": "Header"
+        }
+      },
+      "item": {
+        "basisLabel": "Basis",
+        "description": "Item examples and configuration options.",
+        "first": "First",
+        "fixed": "Fixed",
+        "growLabel": "Grow",
+        "grows": "Grows",
+        "orderLabel": "Order",
+        "second": "Second",
+        "third": "Third",
+        "title": "Item"
+      },
+      "justify": {
+        "alpha": "Alpha",
+        "around": "Space around",
+        "beta": "Beta",
+        "between": "Space between",
+        "center": "Center",
+        "description": "Justify examples and configuration options.",
+        "end": "End",
+        "evenly": "Space evenly",
+        "start": "Start",
+        "title": "Justify"
+      },
+      "products": {
+        "camera": {
+          "description": "Compact body with interchangeable lens mount.",
+          "imageAlt": "Camera product photo",
+          "subtitle": "24 MP · 4K video",
+          "title": "Mirrorless camera"
+        },
+        "chair": {
+          "description": "Lumbar support with breathable fabric seat.",
+          "imageAlt": "Desk chair product photo",
+          "subtitle": "Ergonomic · adjustable",
+          "title": "Desk chair"
+        },
+        "headphones": {
+          "description": "Over-ear comfort with adaptive transparency mode.",
+          "imageAlt": "Headphones product photo",
+          "subtitle": "Noise cancelling",
+          "title": "Wireless headphones"
+        },
+        "plant": {
+          "description": "Potted succulent suited for indoor light.",
+          "imageAlt": "Desk plant product photo",
+          "subtitle": "Low maintenance",
+          "title": "Desk plant"
+        },
+        "sneaker": {
+          "description": "Responsive foam midsole for daily training.",
+          "imageAlt": "Sneaker product photo",
+          "subtitle": "Lightweight mesh",
+          "title": "Running sneaker"
+        },
+        "watch": {
+          "description": "Fitness tracking, notifications, and week-long battery.",
+          "imageAlt": "Smart watch product photo",
+          "subtitle": "Series X · midnight",
+          "title": "Smart watch"
+        }
+      },
+      "shared": {
+        "imageAlt": "Shared image"
+      },
+      "wrap": {
+        "description": "Wrap examples and configuration options.",
+        "nowrap": "No wrap",
+        "title": "Wrap",
+        "wrap": "Wrap",
+        "wrap-reverse": "Wrap reverse"
       }
     },
     "form": {
@@ -2233,6 +4418,176 @@
         "titleRequired": "عنوان الزامی است",
         "submit": "ارسال",
         "submittedToast": "ارسال شد: {{title}}"
+      },
+      "actions": {
+        "reset": "Reset",
+        "search": "Search",
+        "submit": "Submit"
+      },
+      "basicUsage": {
+        "agreeLabel": "I agree to the terms",
+        "description": "Minimal Form + FormField + FormActions wiring with react-hook-form.",
+        "submittedToast": "Submitted: {{title}}",
+        "title": "Basic usage",
+        "titleLabel": "Title"
+      },
+      "defaults": {
+        "bio": "Product designer · Tehran",
+        "lockedValue": "Locked value",
+        "reviewValue": "Needs review",
+        "username": "jane.doe",
+        "validValue": "Valid value"
+      },
+      "fieldStates": {
+        "description": "Error, success, warning, and disabled presentations.",
+        "disabled": "Referral code",
+        "error": "Email",
+        "errorMessage": "Enter a valid email address.",
+        "success": "Username",
+        "successMessage": "Username is available.",
+        "title": "Field states",
+        "warning": "Display name",
+        "warningMessage": "This name may be visible to other users."
+      },
+      "formHistory": {
+        "columns": {
+          "dateRange": "Date range",
+          "keyword": "Keyword",
+          "plate": "Plate"
+        },
+        "dateRange": "Date range",
+        "description": "FormHistory persists recent submissions in local storage.",
+        "keyword": "Keyword",
+        "plate": "Plate",
+        "submittedToast": "Search saved to history.",
+        "title": "Form history"
+      },
+      "numericFields": {
+        "description": "Number, weight, and range inputs with presets.",
+        "presets": {
+          "heavy": "Heavy (20–100 kg)",
+          "light": "Light (0–5 kg)",
+          "medium": "Medium (5–20 kg)"
+        },
+        "priceRange": "Price range",
+        "quantity": "Quantity",
+        "submittedToast": "Numeric fields saved.",
+        "title": "Numeric fields",
+        "weight": "Weight (kg)"
+      },
+      "productListing": {
+        "category": "Category",
+        "description": "Composite form with image preview and product grid.",
+        "descriptionField": "Description",
+        "featured": "Featured listing",
+        "previewLabel": "Preview",
+        "price": "Price",
+        "product": "Product",
+        "publish": "Publish immediately",
+        "submit": "Save listing",
+        "successToast": "Listing saved: {{title}}",
+        "title": "Product listing",
+        "titleField": "Listing title"
+      },
+      "products": {
+        "camera": {
+          "imageAlt": "Camera product photo",
+          "title": "Mirrorless camera",
+          "subtitle": "24 MP · 4K video",
+          "description": "Compact body with interchangeable lens mount."
+        },
+        "chair": {
+          "imageAlt": "Desk chair product photo",
+          "title": "Desk chair",
+          "subtitle": "Ergonomic · adjustable",
+          "description": "Lumbar support with breathable fabric seat."
+        },
+        "headphones": {
+          "imageAlt": "Headphones product photo",
+          "title": "Wireless headphones",
+          "subtitle": "Noise cancelling",
+          "description": "Over-ear comfort with adaptive transparency mode."
+        },
+        "plant": {
+          "imageAlt": "Desk plant product photo",
+          "title": "Desk plant",
+          "subtitle": "Low maintenance",
+          "description": "Potted succulent suited for indoor light."
+        },
+        "sneaker": {
+          "imageAlt": "Sneaker product photo",
+          "title": "Running sneaker",
+          "subtitle": "Lightweight mesh",
+          "description": "Responsive foam midsole for daily training."
+        },
+        "watch": {
+          "imageAlt": "Smart watch product photo",
+          "title": "Smart watch",
+          "subtitle": "Series X · midnight",
+          "description": "Fitness tracking, notifications, and week-long battery."
+        }
+      },
+      "selectionFields": {
+        "categories": {
+          "accessories": "Accessories",
+          "audio": "Audio",
+          "decor": "Decor",
+          "furniture": "Furniture"
+        },
+        "categoriesLabel": "Categories",
+        "department": "Department",
+        "description": "Select, multi-select, tree select, tags, and radio groups.",
+        "groups": {
+          "electronics": "Electronics",
+          "lifestyle": "Lifestyle"
+        },
+        "product": "Product",
+        "shipping": {
+          "express": "Express",
+          "pickup": "Store pickup",
+          "standard": "Standard"
+        },
+        "shippingLabel": "Shipping",
+        "submittedToast": "Selection saved.",
+        "tags": "Tags",
+        "title": "Selection fields"
+      },
+      "specializedFields": {
+        "birthDate": "Birth date",
+        "description": "Date, OTP, and license plate inputs.",
+        "plate": "License plate",
+        "submittedToast": "Specialized fields saved.",
+        "title": "Specialized fields",
+        "verificationCode": "Verification code"
+      },
+      "textFields": {
+        "bio": "Bio",
+        "description": "Text, password, phone, and textarea inputs inside FormField.",
+        "password": "Password",
+        "phone": "Phone",
+        "submittedToast": "Text fields saved.",
+        "title": "Text fields",
+        "username": "Username"
+      },
+      "toggleFields": {
+        "description": "Checkbox and switch fields bound to form state.",
+        "newsletter": "Subscribe to newsletter",
+        "notifications": "Enable push notifications",
+        "submittedToast": "Preferences saved.",
+        "title": "Toggle fields"
+      },
+      "validation": {
+        "description": "Client-side rules with onInvalid feedback.",
+        "email": "Email",
+        "emailRequired": "Email is required.",
+        "imageAlt": "Team reviewing form submissions",
+        "imageCaption": "Validated submissions sync instantly.",
+        "imageHint": "Use onInvalid for toast or inline summaries.",
+        "invalidToast": "Fix the highlighted fields.",
+        "password": "Password",
+        "passwordMin": "Password must be at least 8 characters.",
+        "successToast": "Validation passed.",
+        "title": "Validation"
       }
     }
   }

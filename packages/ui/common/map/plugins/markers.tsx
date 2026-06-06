@@ -5,6 +5,7 @@ import L from "leaflet";
 import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import { useMapPlugin } from "@/components/common/map/hooks/use-map-plugin";
+import { safeRemoveLayer } from "@/components/common/map/utils/layers";
 import { formatMapOverlayHtml } from "@/components/common/map/utils/overlay-content";
 import {
   createDeviceIcon,
@@ -64,7 +65,7 @@ export function MapMarkers<T extends { lat: string | number; long: string | numb
 
   useMapPlugin((map) => {
     if (layerRef.current) {
-      map.removeLayer(layerRef.current);
+      safeRemoveLayer(map, layerRef.current);
     }
 
     markerByKeyRef.current.clear();
@@ -165,17 +166,15 @@ export function MapMarkers<T extends { lat: string | number; long: string | numb
     layerRef.current = layer;
 
     return () => {
-      map.removeLayer(layer);
+      safeRemoveLayer(map, layer);
       layerRef.current = null;
       markerByKeyRef.current.clear();
     };
   }, [data, cluster, popupOptions, getItemKey]);
 
   useMapPlugin((map) => {
-    if (highlightRef.current) {
-      map.removeLayer(highlightRef.current);
-      highlightRef.current = null;
-    }
+    safeRemoveLayer(map, highlightRef.current);
+    highlightRef.current = null;
 
     if (selectedKey == null || !getItemKey) return;
 
@@ -215,10 +214,8 @@ export function MapMarkers<T extends { lat: string | number; long: string | numb
     }
 
     return () => {
-      if (highlightRef.current) {
-        map.removeLayer(highlightRef.current);
-        highlightRef.current = null;
-      }
+      safeRemoveLayer(map, highlightRef.current);
+      highlightRef.current = null;
     };
   }, [selectedKey, data, cluster, getItemKey, selectionMinZoom, selectionPanOffsetPx]);
 

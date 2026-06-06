@@ -75,7 +75,7 @@ export default function ProtocolPlate({ onChange, ...props }: ProtocolPlateInput
 
 /* ---------------------------------- Utils --------------------------------- */
 function normalizeFrom(values: PlateValue) {
-  const { p1, p2, p3, p4, p5, p6, p7, p8 } = values
+  const { p1, p2, p3, p4 } = values
   const res: ProtocolPlateInputValue = {
     p1:
       `${(p1 && parseInt(p1)) || ''}` + `${(p2 && parseInt(p2)) || ''}` + `${(p3 && parseInt(p3)) || ''}` + `${(p4 && parseInt(p4)) || ''}` !== ''

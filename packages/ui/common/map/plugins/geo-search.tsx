@@ -32,7 +32,11 @@ export function MapGeoSearch({
     map.addControl(control);
 
     return () => {
-      map.removeControl(control);
+      try {
+        map.removeControl(control);
+      } catch {
+        // Map may already be destroyed during React unmount
+      }
     };
   }, [nominatimUrl, searchLabel, acceptLanguage, position, markerIcon]);
 

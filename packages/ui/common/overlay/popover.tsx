@@ -37,8 +37,8 @@ const PopoverContent = React.forwardRef<
           forceMount={forceMount}
           className={cn(
             "z-50 rounded-lg outline-none",
-            "data-[state=open]:animate-in duration-300",
-            "data-[state=closed]:animate-out data-[state=closed]:pointer-events-none data-[state=closed]:duration-200",
+            "duration-300 data-[state=open]:animate-in",
+            "data-[state=closed]:pointer-events-none data-[state=closed]:animate-out data-[state=closed]:duration-200",
             "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
             "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
@@ -54,11 +54,10 @@ const PopoverContent = React.forwardRef<
         align={align}
         sideOffset={sideOffset}
         forceMount={forceMount}
-        asChild
         className={cn(
           "z-7 rounded-lg border outline-none",
-          "data-[state=open]:animate-in duration-300",
-          "data-[state=closed]:animate-out data-[state=closed]:pointer-events-none data-[state=closed]:duration-200",
+          "duration-300 data-[state=open]:animate-in",
+          "data-[state=closed]:pointer-events-none data-[state=closed]:animate-out data-[state=closed]:duration-200",
           "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
           "data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4",
           "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",

@@ -69,7 +69,7 @@
     },
     "chips": {
       "title": "شرائح",
-      "description": "وسوم وفلاتر."
+      "description": "وسوم وفلاتر وإعدادات مسبقة وعلامات قابلة للإزالة."
     },
     "collapsible": {
       "title": "قابل للطي",
@@ -77,7 +77,7 @@
     },
     "context-menu": {
       "title": "قائمة سياق",
-      "description": "قائمة النقر الأيمن."
+      "description": "قوائم النقر الأيمن مع اختصارات وقوائم فرعية وتبديلات ومشغّلات صور."
     },
     "dashboard": {
       "title": "تخطيط لوحة",
@@ -109,11 +109,11 @@
     },
     "grid": {
       "title": "شبكة",
-      "description": "تخطيط شبكي."
+      "description": "شبكة widgets لوحة التحكم — تخطيطات متعددة الأعمدة والصفوف."
     },
     "hover-card": {
       "title": "بطاقة تحويم",
-      "description": "محتوى عند التحويم."
+      "description": "معاينات غنية عند تمرير المؤشر — المحاذاة والموضع والتأخير ومُشغّلات الصور."
     },
     "inputs": {
       "title": "مدخلات",
@@ -129,7 +129,7 @@
     },
     "license-plate": {
       "title": "لوحة",
-      "description": "إدخال لوحة إيرانية."
+      "description": "مدخلات اللوحات الإيرانية — سيارة، دراجة، بروتوكول، ألوان الحروف والحافظة."
     },
     "location-picker": {
       "title": "اختيار موقع",
@@ -205,6 +205,130 @@
       "threeColumns": {
         "title": "3 أعمدة"
       },
+      "twoByTwo": {
+        "title": "Two By Two",
+        "description": "Demo for two by two.",
+        "ariaLabel": "Two By Two widgets"
+      },
+      "asymmetric": {
+        "title": "Asymmetric",
+        "description": "Demo for asymmetric.",
+        "ariaLabel": "Asymmetric widgets",
+        "chartTitle": "Chart Title",
+        "chartSubtitle": "Chart Subtitle",
+        "export": "Export",
+        "activityTitle": "Activity Title",
+        "activitySubtitle": "Activity Subtitle"
+      },
+      "widgets": {
+        "revenue": {
+          "title": "Revenue",
+          "subtitle": "Revenue",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "users": {
+          "title": "Users",
+          "subtitle": "Users",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "orders": {
+          "title": "Orders",
+          "subtitle": "Orders",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        },
+        "conversion": {
+          "title": "Conversion",
+          "subtitle": "Conversion",
+          "metricLabel": "Metric Label",
+          "metricValue": "Metric Value",
+          "trend": "Trend",
+          "imageAlt": "Dashboard widget photo"
+        }
+      },
+      "threeColumn": {
+        "title": "Three Column",
+        "description": "Demo for three column.",
+        "ariaLabel": "Three Column widgets",
+        "summaryTitle": "Summary Title",
+        "summarySubtitle": "Summary Subtitle",
+        "viewReport": "View Report"
+      },
+      "gridGroup": {
+        "title": "Grid Group",
+        "description": "Demo for grid group.",
+        "ariaLabel": "Grid Group widgets",
+        "performanceTitle": "Performance Title",
+        "performanceSubtitle": "Performance Subtitle",
+        "goalTitle": "Goal Title",
+        "goalSubtitle": "Goal Subtitle",
+        "goalLabel": "Goal Label",
+        "goalValue": "Goal Value",
+        "goalTrend": "Goal Trend"
+      },
+      "responsive": {
+        "title": "Responsive",
+        "description": "Demo for responsive.",
+        "widePanel": "Wide Panel",
+        "wideAriaLabel": "Wide Aria Label",
+        "analyticsTitle": "Analytics Title",
+        "analyticsSubtitle": "Analytics Subtitle",
+        "liveTitle": "Live Title",
+        "liveSubtitle": "Live Subtitle",
+        "events": {
+          "first": "First",
+          "firstMeta": "First Meta",
+          "second": "Second",
+          "secondMeta": "Second Meta"
+        },
+        "narrowPanel": "Narrow Panel",
+        "narrowAriaLabel": "Narrow Aria Label",
+        "storeTitle": "Store Title",
+        "storeSubtitle": "Store Subtitle"
+      },
+      "fullDashboard": {
+        "title": "Full Dashboard",
+        "description": "Demo for full dashboard.",
+        "ariaLabel": "Full Dashboard widgets",
+        "analyticsTitle": "Analytics Title",
+        "analyticsSubtitle": "Analytics Subtitle",
+        "dateRange": "Date Range",
+        "activityTitle": "Activity Title",
+        "activitySubtitle": "Activity Subtitle",
+        "activityItems": {
+          "first": "First",
+          "firstMeta": "First Meta",
+          "second": "Second",
+          "secondMeta": "Second Meta",
+          "third": "Third",
+          "thirdMeta": "Third Meta"
+        }
+      },
+      "products": {
+        "watch": {
+          "imageAlt": "Preview image",
+          "title": "Watch",
+          "subtitle": "Watch"
+        },
+        "headphones": {
+          "imageAlt": "Preview image",
+          "title": "Headphones",
+          "subtitle": "Headphones"
+        },
+        "camera": {
+          "imageAlt": "Preview image",
+          "title": "Camera",
+          "subtitle": "Camera"
+        }
+      },
       "3Columns": {
         "title": "3 أعمدة"
       }
@@ -220,6 +344,129 @@
         "hoverCardTitle": "بطاقة التحويم",
         "hoverMe": "مرّر فوقي",
         "title": "المُشغّل + المحتوى"
+      },
+      "basic": {
+        "title": "Basic",
+        "description": "Demo for basic.",
+        "hoverMe": "Hover Me",
+        "cardTitle": "Card Title",
+        "cardDescription": "Card Description"
+      },
+      "imageTrigger": {
+        "title": "Image Trigger",
+        "description": "Demo for image trigger.",
+        "alt": "Preview image",
+        "titleText": "Title Text",
+        "caption": "Caption"
+      },
+      "productPreview": {
+        "title": "Product Preview",
+        "description": "Demo for product preview.",
+        "trigger": "Trigger",
+        "imageAlt": "Preview image",
+        "titleText": "Title Text",
+        "category": "Category",
+        "price": "Price",
+        "descriptionText": "Description Text"
+      },
+      "profileCard": {
+        "title": "Profile Card",
+        "description": "Demo for profile card.",
+        "handle": "Handle",
+        "name": "Name",
+        "role": "Role",
+        "location": "Location",
+        "joined": "Joined",
+        "bio": "Bio",
+        "imageAlt": "Preview image"
+      },
+      "alignment": {
+        "title": "Alignment",
+        "description": "Demo for alignment.",
+        "content": "Content",
+        "start": "Start",
+        "center": "Center",
+        "end": "End"
+      },
+      "placement": {
+        "title": "Placement",
+        "description": "Demo for placement.",
+        "content": "Content",
+        "top": "Top",
+        "right": "Right",
+        "bottom": "Bottom",
+        "left": "Left"
+      },
+      "delays": {
+        "title": "Delays",
+        "description": "Demo for delays.",
+        "instantLabel": "Instant Label",
+        "instant": "Instant",
+        "instantContent": "Instant Content",
+        "defaultLabel": "Default Label",
+        "default": "Default",
+        "defaultContent": "Default Content",
+        "slowLabel": "Slow Label",
+        "slow": "Slow",
+        "slowContent": "Slow Content"
+      },
+      "offsets": {
+        "title": "Offsets",
+        "description": "Demo for offsets.",
+        "compact": "Compact",
+        "default": "Default",
+        "spacious": "Spacious",
+        "compactLabel": "Compact offset",
+        "defaultLabel": "Default offset",
+        "spaciousLabel": "Spacious offset",
+        "compactContent": "Tighter sideOffset and alignOffset.",
+        "defaultContent": "Default Radix offset values.",
+        "spaciousContent": "Extra spacing from the trigger."
+      },
+      "richContent": {
+        "title": "Rich Content",
+        "description": "Demo for rich content.",
+        "trigger": "Trigger",
+        "imageAlt": "Preview image",
+        "titleText": "Title Text",
+        "body": "Body",
+        "primaryAction": "Primary Action",
+        "secondaryAction": "Secondary Action"
+      },
+      "gallery": {
+        "title": "Gallery",
+        "description": "Demo for gallery.",
+        "rowLabel": "Row Label",
+        "products": {
+          "watch": {
+            "title": "Watch",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the watch.",
+            "imageAlt": "Watch product photo"
+          },
+          "headphones": {
+            "title": "Headphones",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the headphones.",
+            "imageAlt": "Headphones product photo"
+          },
+          "camera": {
+            "title": "Camera",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the camera.",
+            "imageAlt": "Camera product photo"
+          },
+          "sneaker": {
+            "title": "Sneaker",
+            "category": "Accessories",
+            "price": "$199",
+            "description": "Preview details for the sneaker.",
+            "imageAlt": "Sneaker product photo"
+          }
+        }
       }
     },
     "inputs": {
@@ -250,11 +497,11 @@
           "billedAnnually": "فوترة سنوية",
           "unavailable": "غير متاح"
         },
-        "title": "Checkbox — بطاقة",
         "titles": {
           "disabled": "معطّل",
           "premiumPlan": "الخطة المميزة"
-        }
+        },
+        "title": "Checkbox — بطاقة"
       },
       "checkboxLabeled": {
         "description": "موضع التسمية يسار | يمين وأسماء فئات الحاوية.",
@@ -382,8 +629,8 @@
       "numberRangeInput": {
         "description": "نطاق رقمي من/إلى مع min وmax وتسميات مخصّصة اختيارية.",
         "fromLabel": "الحد الأدنى",
-        "title": "إدخال نطاق رقمي",
-        "toLabel": "الحد الأقصى"
+        "toLabel": "الحد الأقصى",
+        "title": "إدخال نطاق رقمي"
       },
       "options": {
         "optionA": "الخيار أ",
@@ -497,13 +744,13 @@
         "description": "Switch داخل LabelContainer؛ استخدم value للحالة المُتحكّم بها.",
         "title": "حقل مفتاح التبديل"
       },
-      "textareaInput": {
-        "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
-        "title": "إدخال نص متعدد الأسطر"
-      },
       "textInput": {
         "description": "حقل نصي بتسمية عائمة مع حالة وبادئة وأحجام وسمات input الأصلية.",
         "title": "إدخال نص"
+      },
+      "textareaInput": {
+        "description": "حقل متعدد الأسطر مع حاوية تسمية عائمة.",
+        "title": "إدخال نص متعدد الأسطر"
       },
       "values": {
         "cannotEdit": "غير قابل للتعديل",
@@ -692,20 +939,114 @@
       },
       "simpleText": {
         "title": "نص بسيط"
+      },
+      "variants": {
+        "title": "Variants",
+        "description": "Demo for variants.",
+        "car": "Car",
+        "motorcycle": "Motorcycle",
+        "protocol": "Protocol",
+        "simple": "Simple"
+      },
+      "letterColors": {
+        "title": "Letter Colors",
+        "description": "Demo for letter colors.",
+        "samples": {
+          "protocol": "Protocol",
+          "police": "Police",
+          "taxi": "Taxi",
+          "policeSepah": "Police Sepah",
+          "navy": "Navy",
+          "army": "Army",
+          "general": "General",
+          "agriculture": "Agriculture",
+          "serviceD": "Service D",
+          "serviceS": "Service S"
+        }
+      },
+      "states": {
+        "title": "States",
+        "description": "Demo for states.",
+        "empty": "Empty",
+        "prefilled": "Prefilled",
+        "disabled": "Disabled",
+        "readonly": "Readonly",
+        "error": "Error",
+        "errorMessage": "Error Message",
+        "motorcyclePrefilled": "Motorcycle Prefilled",
+        "protocolPrefilled": "Protocol Prefilled",
+        "simplePrefilled": "Simple Prefilled"
+      },
+      "formFields": {
+        "title": "Form Fields",
+        "description": "Demo for form fields.",
+        "labelRequired": "Label Required",
+        "plateLabel": "Plate Label",
+        "helperText": "Helper Text",
+        "helperHint": "Helper Hint",
+        "withClear": "With Clear",
+        "validationError": "Validation Error",
+        "validationMessage": "Validation Message"
+      },
+      "widths": {
+        "title": "Widths",
+        "description": "Demo for widths.",
+        "compact": "Compact",
+        "default": "Default",
+        "wide": "Wide"
+      },
+      "plateCard": {
+        "title": "Plate Card",
+        "description": "Demo for plate card.",
+        "hint": "Hint"
+      },
+      "controlled": {
+        "title": "Controlled",
+        "description": "Demo for controlled.",
+        "label": "Label",
+        "helper": "Helper",
+        "output": "Output"
+      },
+      "clipboard": {
+        "title": "Clipboard",
+        "description": "Demo for clipboard.",
+        "hover": "Hover",
+        "copyShortcut": "Copy Shortcut",
+        "pasteShortcut": "Paste Shortcut"
       }
     },
     "list": {
       "cardsList": {
-        "title": "قائمة بطاقات"
+        "title": "قائمة بطاقات",
+        "description": "Demo for cards list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading"
+        }
       },
       "chipsList": {
         "tagA": "وسم أ",
         "tagB": "وسم ب",
         "tagC": "وسم ج",
-        "title": "قائمة شرائح"
+        "title": "قائمة شرائح",
+        "description": "Demo for chips list.",
+        "rows": {
+          "states": "States",
+          "withIcons": "With Icons",
+          "sharedIcon": "Shared Icon"
+        },
+        "tagD": "Tag D"
       },
       "linesList": {
-        "title": "قائمة خطية"
+        "title": "قائمة خطية",
+        "description": "Demo for lines list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading",
+          "longValues": "Long Values"
+        }
       },
       "sample": {
         "active": "نشط",
@@ -713,7 +1054,78 @@
         "notes": "ملاحظات",
         "region": "المنطقة",
         "status": "الحالة",
-        "tehran": "طهران"
+        "tehran": "طهران",
+        "plan": "Plan",
+        "pro": "Pro",
+        "email": "Email",
+        "longEmail": "Long Email",
+        "updated": "Updated",
+        "longTimestamp": "Long Timestamp",
+        "confirmed": "Confirmed",
+        "tier": "Tier",
+        "longTier": "Long Tier",
+        "today": "Today"
+      },
+      "gridList": {
+        "columns": {
+          "name": "Name",
+          "role": "Role",
+          "score": "Score",
+          "status": "Status"
+        },
+        "title": "Grid List",
+        "description": "Demo for grid list.",
+        "rows": {
+          "default": "Default",
+          "sortable": "Sortable",
+          "loading": "Loading",
+          "empty": "Empty",
+          "cellClick": "Cell Click",
+          "customHeights": "Custom Heights",
+          "alice": {
+            "name": "Alice",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "bob": {
+            "name": "Bob",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "carol": {
+            "name": "Carol",
+            "role": "Designer",
+            "status": "Active"
+          },
+          "dan": {
+            "name": "Dan",
+            "role": "Designer",
+            "status": "Active"
+          }
+        },
+        "sortActive": "Sort Active",
+        "sortCleared": "Sort Cleared",
+        "cellClicked": "Cell Clicked",
+        "cellHint": "Cell Hint"
+      },
+      "buttonsList": {
+        "title": "Buttons List",
+        "description": "Demo for buttons list.",
+        "rows": {
+          "default": "Default",
+          "indicator": "Indicator",
+          "loading": "Loading",
+          "marquee": "Marquee"
+        }
+      },
+      "twoColGrid": {
+        "title": "Two Col Grid",
+        "description": "Demo for two col grid.",
+        "rows": {
+          "even": "Even",
+          "odd": "Odd",
+          "loading": "Loading"
+        }
       }
     },
     "loading": {
@@ -721,7 +1133,93 @@
         "title": "مؤشر التحميل الافتراضي"
       },
       "sizes": {
-        "title": "الأحجام"
+        "title": "الأحجام",
+        "description": "Demo for sizes.",
+        "items": {
+          "xs": "XS",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        }
+      },
+      "variants": {
+        "title": "Variants",
+        "description": "Demo for variants.",
+        "items": {
+          "spinner": "Spinner",
+          "dots": "Dots",
+          "pulse": "Pulse",
+          "bars": "Bars",
+          "ring": "Ring",
+          "orbit": "Orbit",
+          "ripple": "Ripple",
+          "line": "Line"
+        }
+      },
+      "severities": {
+        "title": "Severities",
+        "description": "Demo for severities.",
+        "items": {
+          "primary": "Primary",
+          "muted": "Muted",
+          "success": "Success",
+          "warning": "Warning",
+          "danger": "Danger",
+          "info": "Info"
+        }
+      },
+      "labels": {
+        "title": "Labels",
+        "description": "Demo for labels.",
+        "rows": {
+          "default": "Default",
+          "success": "Success",
+          "warning": "Warning"
+        },
+        "samples": {
+          "default": "Default",
+          "success": "Success",
+          "warning": "Warning"
+        }
+      },
+      "inline": {
+        "title": "Inline",
+        "description": "Demo for inline."
+      },
+      "overlay": {
+        "title": "Overlay",
+        "description": "Demo for overlay.",
+        "hide": "Hide",
+        "show": "Show",
+        "sampleTitle": "Sample Title",
+        "hint": "Hint",
+        "sampleLabel": "Sample Label"
+      },
+      "backdrops": {
+        "title": "Backdrops",
+        "description": "Demo for backdrops.",
+        "items": {
+          "subtle": "Subtle",
+          "solid": "Solid",
+          "blur": "Blur"
+        }
+      },
+      "inContext": {
+        "title": "In Context",
+        "description": "Demo for in context.",
+        "cardTitle": "Card Title",
+        "cardDescription": "Card Description",
+        "cardLoading": "Card Loading",
+        "panelTitle": "Panel Title",
+        "panelDescription": "Panel Description"
+      },
+      "fullscreen": {
+        "title": "Fullscreen",
+        "description": "Demo for fullscreen.",
+        "trigger": "Trigger",
+        "label": "Label",
+        "dismiss": "Dismiss"
       }
     },
     "location-picker": {
@@ -732,6 +1230,71 @@
       },
       "locationPicker": {
         "title": "اختيار موقع"
+      },
+      "dialogPreview": {
+        "filterEmpty": "Filter Empty",
+        "filterSelected": "Filter Selected",
+        "dateHint": "Date Hint",
+        "routingOrigin": "Routing Origin",
+        "routingDestination": "Routing Destination",
+        "routingRoutes": "Routing Routes",
+        "routingLoading": "Routing Loading",
+        "title": "Dialog Preview",
+        "description": "Demo for dialog preview."
+      },
+      "trigger": {
+        "empty": "Empty",
+        "devices": "Devices",
+        "provinces": "Provinces",
+        "title": "Trigger",
+        "description": "Demo for trigger.",
+        "sources": "Sources",
+        "roads": "Roads",
+        "prefilled": "Prefilled"
+      },
+      "dialogGallery": {
+        "filterMap": "Filter Map",
+        "filterSelected": "Filter Selected",
+        "dateHint": "Date Hint",
+        "routingOrigin": "Routing Origin",
+        "routingRoutes": "Routing Routes",
+        "routingLoading": "Routing Loading",
+        "title": "Dialog Gallery",
+        "description": "Demo for dialog gallery."
+      },
+      "interactive": {
+        "title": "Interactive",
+        "description": "Demo for interactive.",
+        "label": "Label",
+        "fieldLabel": "Field Label",
+        "output": "Output"
+      },
+      "triggerGallery": {
+        "title": "Trigger Gallery",
+        "description": "Demo for trigger gallery."
+      },
+      "triggerProps": {
+        "title": "Trigger Props",
+        "description": "Demo for trigger props.",
+        "withLabel": "With Label",
+        "fieldLabel": "Field Label",
+        "customWidth": "Custom Width",
+        "required": "Required",
+        "helperText": "Helper Text",
+        "helperHint": "Helper Hint",
+        "dateHint": "Date Hint",
+        "dateHintDescription": "Date Hint Description"
+      },
+      "formIntegration": {
+        "title": "Form Integration",
+        "description": "Demo for form integration.",
+        "field": "Field",
+        "fieldLabel": "Field Label",
+        "output": "Output"
+      },
+      "commitPayload": {
+        "title": "Commit Payload",
+        "description": "Demo for commit payload."
       }
     },
     "map": {
@@ -740,6 +1303,82 @@
       },
       "tallerViewport": {
         "title": "نافذة عرض أطول"
+      },
+      "countries": {
+        "title": "Countries",
+        "description": "Demo for countries.",
+        "iran": "Iran",
+        "usa": "Usa",
+        "uk": "Uk",
+        "japan": "Japan",
+        "uae": "Uae",
+        "germany": "Germany",
+        "france": "France",
+        "australia": "Australia"
+      },
+      "zoomLevels": {
+        "title": "Zoom Levels",
+        "description": "Demo for zoom levels.",
+        "continent": "Continent",
+        "country": "Country",
+        "city": "City"
+      },
+      "tileThemes": {
+        "title": "Tile Themes",
+        "description": "Demo for tile themes.",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "zoomControls": {
+        "title": "Zoom Controls",
+        "description": "Demo for zoom controls.",
+        "leaflet": "Leaflet",
+        "custom": "Custom"
+      },
+      "geoSearch": {
+        "title": "Geo Search",
+        "description": "Demo for geo search.",
+        "searchLabel": "Search Label"
+      },
+      "markers": {
+        "title": "Markers",
+        "description": "Demo for markers.",
+        "clustered": "Clustered",
+        "selectHint": "Select Hint",
+        "flat": "Flat",
+        "selected": "Selected"
+      },
+      "deviceCluster": {
+        "title": "Device Cluster",
+        "description": "Demo for device cluster."
+      },
+      "geoman": {
+        "title": "Geoman",
+        "description": "Demo for geoman.",
+        "lastShape": "Last Shape"
+      },
+      "clickPlacement": {
+        "title": "Click Placement",
+        "description": "Demo for click placement.",
+        "activate": "Activate",
+        "placed": "Placed",
+        "idle": "Idle"
+      },
+      "route": {
+        "title": "Route",
+        "description": "Demo for route."
+      },
+      "centerTracking": {
+        "title": "Center Tracking",
+        "description": "Demo for center tracking.",
+        "coords": "Coords"
+      },
+      "viewports": {
+        "title": "Viewports",
+        "description": "Demo for viewports.",
+        "short": "Short",
+        "medium": "Medium",
+        "tall": "Tall"
       }
     },
     "overlay": {
@@ -748,19 +1387,178 @@
         "confirmAction": "تأكيد الإجراء",
         "description": "حوار من @/components/common/overlay/dialog.",
         "openDialog": "فتح الحوار",
-        "title": "حوار"
+        "title": "حوار",
+        "basic": {
+          "title": "Basic",
+          "description": "Demo for basic.",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body"
+        },
+        "confirmation": {
+          "title": "Confirmation",
+          "description": "Demo for confirmation.",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body",
+          "cancel": "Cancel",
+          "confirm": "Confirm"
+        },
+        "controlled": {
+          "title": "Controlled",
+          "description": "Demo for controlled.",
+          "stateOpen": "State Open",
+          "stateClosed": "State Closed",
+          "open": "Open",
+          "heading": "Heading",
+          "body": "Body",
+          "close": "Close",
+          "download": "Download"
+        },
+        "hideHeader": {
+          "title": "Hide Header",
+          "description": "Demo for hide header.",
+          "open": "Open",
+          "alt": "Preview image"
+        },
+        "large": {
+          "title": "Large",
+          "description": "Demo for large.",
+          "open": "Open",
+          "heading": "Heading",
+          "previewAlt": "Preview Alt",
+          "descriptionText": "Description Text"
+        }
       },
       "popover": {
         "button": "نافذة منبثقة",
         "content": "محتوى النافذة المنبثقة",
         "description": "لوحة عائمة مثبتة.",
-        "title": "نافذة منبثقة"
+        "title": "نافذة منبثقة",
+        "basic": {
+          "title": "Basic",
+          "description": "Demo for basic.",
+          "trigger": "Trigger",
+          "content": "Content",
+          "hint": "Hint"
+        },
+        "portal": {
+          "title": "Portal",
+          "description": "Demo for portal.",
+          "overflowLabel": "Overflow Label",
+          "trigger": "Trigger",
+          "content": "Content",
+          "hint": "Hint"
+        },
+        "profile": {
+          "title": "Profile",
+          "description": "Demo for profile.",
+          "trigger": "Trigger",
+          "name": "Name",
+          "role": "Role",
+          "viewProfile": "View Profile",
+          "message": "Message"
+        },
+        "notifications": {
+          "title": "Notifications",
+          "description": "Demo for notifications.",
+          "trigger": "Trigger",
+          "markAll": "Mark All",
+          "viewAll": "View All",
+          "items": {
+            "deploy": "Deploy",
+            "comment": "Comment",
+            "invite": "Invite"
+          }
+        },
+        "product": {
+          "title": "Product",
+          "description": "Demo for product.",
+          "trigger": "Trigger",
+          "name": "Name",
+          "descriptionText": "Description Text",
+          "price": "Price",
+          "addToCart": "Add To Cart"
+        },
+        "alignment": {
+          "title": "Alignment",
+          "description": "Demo for alignment.",
+          "panel": "Panel",
+          "start": "Start",
+          "center": "Center",
+          "end": "End"
+        }
       },
       "sheet": {
         "description": "تنزلق الورقة من الحافة.",
         "openSheet": "فتح الورقة",
         "sidePanel": "لوحة جانبية",
-        "title": "ورقة"
+        "title": "ورقة",
+        "sides": {
+          "title": "Sides",
+          "description": "Demo for sides.",
+          "top": "Top",
+          "bottom": "Bottom",
+          "left": "Left",
+          "right": "Right",
+          "topBody": "Top sheet panel content.",
+          "bottomBody": "Bottom sheet panel content.",
+          "leftBody": "Left sheet panel content.",
+          "rightBody": "Right sheet panel content."
+        },
+        "memberDetail": {
+          "title": "Member Detail",
+          "description": "Demo for member detail.",
+          "open": "Open",
+          "heading": "Heading",
+          "role": "Role",
+          "bio": "Bio",
+          "email": "Email",
+          "projects": "Projects",
+          "tasks": "Tasks",
+          "message": "Message",
+          "assign": "Assign"
+        },
+        "filters": {
+          "title": "Filters",
+          "description": "Demo for filters.",
+          "open": "Open",
+          "heading": "Heading",
+          "reset": "Reset",
+          "apply": "Apply",
+          "options": {
+            "electronics": "Electronics",
+            "furniture": "Furniture",
+            "travel": "Travel",
+            "workspace": "Workspace"
+          }
+        },
+        "cart": {
+          "title": "Cart",
+          "description": "Demo for cart.",
+          "open": "Open",
+          "heading": "Heading",
+          "total": "Total",
+          "checkout": "Checkout",
+          "items": {
+            "watch": "Watch",
+            "headphones": "Headphones"
+          }
+        }
+      },
+      "compound": {
+        "title": "Compound",
+        "description": "Demo for compound.",
+        "primaryAction": "Primary Action",
+        "heading": "Heading",
+        "badge": "Badge",
+        "subheading": "Subheading",
+        "secondaryAction": "Secondary Action"
+      },
+      "stats": {
+        "revenue": "Revenue",
+        "sessions": "Sessions",
+        "conversion": "Conversion"
       }
     },
     "pagination": {
@@ -770,6 +1568,38 @@
       },
       "pageLinks": {
         "title": "روابط الصفحات"
+      },
+      "controlled": {
+        "title": "Controlled",
+        "info": "Step {{step}} of {{total}}"
+      },
+      "variants": {
+        "title": "Variants",
+        "default": "Default",
+        "ghost": "Ghost",
+        "outline": "Outline"
+      },
+      "navigation": {
+        "title": "Navigation",
+        "previousNext": "Previous Next",
+        "firstLast": "First Last",
+        "full": "Full"
+      },
+      "ellipsis": {
+        "title": "Ellipsis",
+        "description": "Demo for ellipsis."
+      },
+      "firstPage": {
+        "title": "First Page"
+      },
+      "lastPage": {
+        "title": "Last Page"
+      },
+      "singlePage": {
+        "title": "Single Page"
+      },
+      "fewPages": {
+        "title": "Few Pages"
       }
     },
     "paginator": {
@@ -790,37 +1620,210 @@
     },
     "shapes": {
       "indicator": {
-        "title": "مؤشر"
+        "title": "مؤشر",
+        "default": {
+          "title": "Default",
+          "description": "Demo for default."
+        },
+        "colors": {
+          "default": "Default",
+          "title": "Colors",
+          "success": "Success",
+          "warning": "Warning",
+          "error": "Error",
+          "primary": "Primary",
+          "secondary": "Secondary",
+          "info": "Info",
+          "muted": "Muted"
+        },
+        "sizes": {
+          "title": "Sizes",
+          "xs": "XS",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        },
+        "radius": {
+          "title": "Radius",
+          "none": "None",
+          "sm": "Sm",
+          "md": "Md",
+          "full": "Full"
+        }
       },
       "square": {
-        "title": "مربع"
+        "title": "مربع",
+        "statuses": {
+          "title": "Statuses",
+          "ok": "Ok",
+          "warning": "Warning",
+          "danger": "Danger",
+          "none": "None"
+        },
+        "sizes": {
+          "title": "Sizes"
+        },
+        "hover": {
+          "title": "Hover",
+          "description": "Demo for hover."
+        },
+        "customization": {
+          "title": "Customization",
+          "colors": "Colors",
+          "radius": "Radius",
+          "ring": "Ring"
+        },
+        "combinations": {
+          "title": "Combinations"
+        }
       }
     },
     "skeleton": {
       "cardBlock": {
-        "title": "كتلة بطاقة"
+        "title": "كتلة بطاقة",
+        "description": "Demo for card block."
       },
       "textPlaceholders": {
-        "title": "عناصر نائبة للنص"
+        "title": "عناصر نائبة للنص",
+        "description": "Demo for text placeholders."
+      },
+      "default": {
+        "title": "Default",
+        "description": "Demo for default."
+      },
+      "rows": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long",
+        "full": "Full"
+      },
+      "heights": {
+        "title": "Heights",
+        "description": "Demo for heights."
+      },
+      "widths": {
+        "title": "Widths",
+        "description": "Demo for widths."
+      },
+      "borderRadius": {
+        "title": "Border Radius",
+        "description": "Demo for border radius."
+      },
+      "shapes": {
+        "title": "Shapes",
+        "description": "Demo for shapes."
+      },
+      "listRows": {
+        "title": "List Rows",
+        "description": "Demo for list rows."
+      },
+      "tableField": {
+        "title": "Table Field",
+        "description": "Demo for table field."
+      },
+      "buttonPlaceholder": {
+        "title": "Button Placeholder",
+        "description": "Demo for button placeholder."
+      },
+      "profileRow": {
+        "title": "Profile Row",
+        "description": "Demo for profile row."
+      },
+      "articleLayout": {
+        "title": "Article Layout",
+        "description": "Demo for article layout."
+      },
+      "gridList": {
+        "title": "Grid List",
+        "description": "Demo for grid list."
+      },
+      "fillContainer": {
+        "title": "Fill Container",
+        "description": "Demo for fill container."
+      },
+      "inContext": {
+        "title": "In Context",
+        "description": "Demo for in context."
       }
     },
     "slider": {
       "range": {
-        "title": "نطاق"
+        "title": "نطاق",
+        "customSteps": {
+          "labels": {
+            "low": "Low",
+            "medium": "Medium",
+            "high": "High",
+            "veryHigh": "Very High",
+            "max": "Max"
+          },
+          "title": "Custom Steps"
+        },
+        "basic": {
+          "title": "Basic",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "steps": {
+          "title": "Steps",
+          "description": "Demo for steps.",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "gradient": {
+          "title": "Gradient",
+          "description": "Demo for gradient."
+        },
+        "hiddenLabels": {
+          "title": "Hidden Labels",
+          "description": "Demo for hidden labels."
+        },
+        "disabled": {
+          "title": "Disabled"
+        },
+        "customColor": {
+          "title": "Custom Color"
+        },
+        "wideRange": {
+          "title": "Wide Range",
+          "description": "Demo for wide range.",
+          "info": "Step {{step}} of {{total}}"
+        }
       },
       "singleValue": {
         "title": "قيمة واحدة"
+      },
+      "single": {
+        "controlled": {
+          "title": "Controlled",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "defaultValue": {
+          "title": "Default Value",
+          "description": "Demo for default value."
+        },
+        "disabled": {
+          "title": "Disabled"
+        },
+        "customRange": {
+          "title": "Custom Range",
+          "description": "Demo for custom range.",
+          "info": "Step {{step}} of {{total}}"
+        },
+        "customStyles": {
+          "title": "Custom Styles"
+        }
       }
     },
     "sonner": {
       "toastVariants": {
+        "title": "أنواع الإشعارات",
+        "description": "إشعارات نجاح وخطأ وتحذير ومعلومات بأيقونات وألوان مخصصة.",
         "buttons": {
           "error": "خطأ",
           "info": "معلومات",
           "success": "نجاح",
           "warning": "تحذير"
         },
-        "title": "أنواع الإشعارات",
         "toasts": {
           "checkInput": "تحقق من مدخلاتك",
           "headsUp": "تنبيه",
@@ -829,20 +1832,291 @@
         }
       },
       "withDescription": {
-        "button": "نجاح + وصف",
-        "description": "ستظهر التغييرات بعد التحديث.",
         "title": "مع وصف",
+        "description": "ستظهر التغييرات بعد التحديث.",
+        "buttons": {
+          "success": "نجاح + وصف",
+          "error": "خطأ + وصف",
+          "warning": "تحذير + وصف",
+          "info": "معلومات + وصف"
+        },
+        "toasts": {
+          "successTitle": "تم تحديث الملف الشخصي",
+          "errorTitle": "فشل الرفع",
+          "warningTitle": "تغييرات غير محفوظة",
+          "infoTitle": "تم جدولة المزامنة"
+        },
+        "descriptions": {
+          "success": "ستظهر التغييرات بعد التحديث.",
+          "error": "الملف يتجاوز حد 10 ميغابايت.",
+          "warning": "احفظ أو تجاهل قبل المغادرة.",
+          "info": "ستتم مزامنة بياناتك في الخلفية."
+        },
+        "button": "نجاح + وصف",
         "toastTitle": "تم تحديث الملف الشخصي"
+      },
+      "multipleDescriptions": {
+        "title": "أسطر وصف متعددة",
+        "description": "مرر descriptions كمصفوفة لعرض تفاصيل متراصة.",
+        "button": "خطأ مع تفاصيل",
+        "toastTitle": "فشل التحقق",
+        "lines": {
+          "first": "البريد الإلكتروني مطلوب.",
+          "second": "كلمة المرور 8 أحرف على الأقل.",
+          "third": "يجب قبول الشروط للمتابعة."
+        }
+      },
+      "defaultMessage": {
+        "title": "رسالة افتراضية",
+        "description": "إشعار محايد عبر toast.message() — بدون تنسيق شدة.",
+        "button": "عرض رسالة",
+        "toast": "تعليق جديد على منشورك"
+      },
+      "loading": {
+        "title": "تحميل",
+        "description": "إشعار spinner — أغلقه يدوياً أو يستبدله promise.",
+        "showButton": "عرض التحميل",
+        "dismissButton": "إغلاق التحميل",
+        "toast": "جاري الحفظ…"
+      },
+      "promise": {
+        "title": "Promise",
+        "description": "ينتقل تلقائياً من التحميل إلى النجاح أو الخطأ عند انتهاء الطلب.",
+        "resolveButton": "نجاح",
+        "rejectButton": "فشل",
+        "loading": "جاري المعالجة…",
+        "success": "اكتمل الطلب",
+        "error": "فشل الطلب"
+      },
+      "actionButton": {
+        "title": "زر الإجراء",
+        "description": "إجراء أساسي داخل الإشعار — منسق حسب النوع.",
+        "button": "مع إجراء",
+        "toastTitle": "تم حذف الملف",
+        "descriptionText": "نُقل المستند إلى سلة المحذوفات.",
+        "actionLabel": "تراجع",
+        "actionFeedback": "تم التراجع عن الحذف"
+      },
+      "cancelButton": {
+        "title": "إلغاء + تأكيد",
+        "description": "أزرار إلغاء وتأكيد للعمليات الحساسة أو القابلة للتراجع.",
+        "button": "تأكيد الحذف",
+        "toastTitle": "حذف هذا المشروع؟",
+        "descriptionText": "ستُزال جميع المسودات والإعدادات نهائياً.",
+        "cancelLabel": "إلغاء",
+        "confirmLabel": "حذف",
+        "cancelFeedback": "تم إلغاء الحذف",
+        "confirmFeedback": "تم حذف المشروع"
+      },
+      "closeButton": {
+        "title": "زر الإغلاق",
+        "description": "إغلاق لكل إشعار مع closeButton: true — يبقى حتى الإغلاق.",
+        "button": "دائم + إغلاق",
+        "toast": "اسحب أو انقر × للإغلاق"
+      },
+      "duration": {
+        "title": "المدة",
+        "description": "تحكم بوقت الإغلاق التلقائي — قصير أو Infinity للدائم.",
+        "shortButton": "تلقائي (2 ث)",
+        "persistentButton": "دائم",
+        "shortToast": "يُغلق هذا الإشعار خلال ثانيتين",
+        "persistentToast": "يبقى حتى الإغلاق"
+      },
+      "stacking": {
+        "title": "التكديس",
+        "description": "إشعارات متعددة في قائمة — expand في Toaster يعرض القائمة كاملة.",
+        "button": "عرض كل الأنواع",
+        "toasts": {
+          "success": "تم استلام الدفع",
+          "info": "تسجيل دخول جديد من Chrome",
+          "warning": "التخزين شبه ممتلئ",
+          "error": "فشل تسليم webhook"
+        }
+      },
+      "dismissAll": {
+        "title": "إغلاق الكل",
+        "description": "toast.dismiss() بدون id يمسح كل الإشعارات المرئية.",
+        "showButton": "عرض عينات",
+        "dismissButton": "إغلاق الكل",
+        "sampleOne": "إشعار أول",
+        "sampleTwo": "إشعار ثانٍ"
+      },
+      "custom": {
+        "title": "محتوى مخصص",
+        "description": "toast.custom() يعرض JSX مخصصاً مع موضع وحركة Sonner.",
+        "button": "إشعار مخصص",
+        "toastTitle": "تخطيط مخصص",
+        "toastBody": "أي واجهة — أزرار أو صور أو معاينات.",
+        "dismissLabel": "إغلاق"
       }
     },
     "steps": {
-      "midProgress": {
+      "firstStep": {
+        "title": "الخطوة الأولى نشطة",
+        "description": "رأس معالج كامل مع name وtitle وsubtitle في الخطوة 1 (active={0}).",
         "steps": {
-          "done": "انتهى",
+          "details": {
+            "name": "١",
+            "title": "التفاصيل",
+            "subtitle": "معلومات أساسية"
+          },
+          "review": {
+            "name": "٢",
+            "title": "مراجعة",
+            "subtitle": "تحقق من الإدخالات"
+          },
+          "done": {
+            "name": "٣",
+            "title": "تم",
+            "subtitle": "إنهاء"
+          }
+        }
+      },
+      "midProgress": {
+        "title": "تقدم منتصف المسار",
+        "description": "خطوات بالاسم فقط والخطوة الثانية نشطة (active={1}).",
+        "steps": {
+          "start": "بداية",
           "review": "مراجعة",
-          "start": "بداية"
+          "done": "انتهى"
+        }
+      },
+      "lastStep": {
+        "title": "الخطوة الأخيرة نشطة",
+        "description": "رأس معالج كامل في الخطوة النهائية (active={2})."
+      },
+      "withoutSubtitles": {
+        "title": "بدون عناوين فرعية",
+        "description": "name وtitle لكل خطوة؛ subtitle محذوف.",
+        "steps": {
+          "details": {
+            "name": "١",
+            "title": "الحساب"
+          },
+          "review": {
+            "name": "٢",
+            "title": "تحقق"
+          },
+          "done": {
+            "name": "٣",
+            "title": "اكتمال"
+          }
+        }
+      },
+      "withoutNames": {
+        "title": "بدون name",
+        "description": "title وsubtitle فقط — بدون تسمية name بجانب الدائرة.",
+        "steps": {
+          "details": {
+            "title": "عنوان الشحن",
+            "subtitle": "أين نُسلّم؟"
+          },
+          "review": {
+            "title": "طريقة الدفع",
+            "subtitle": "اختر طريقة الدفع"
+          },
+          "done": {
+            "title": "تأكيد",
+            "subtitle": "راجع وأرسل"
+          }
+        }
+      },
+      "minimalHeader": {
+        "title": "رأس minimal",
+        "description": "خطوات بالاسم فقط بدون كتلة title/subtitle.",
+        "steps": {
+          "details": "التفاصيل",
+          "review": "مراجعة",
+          "done": "انتهى"
+        }
+      },
+      "twoSteps": {
+        "title": "خطوتان",
+        "description": "تدفق قصير من خطوتين.",
+        "steps": {
+          "setup": {
+            "name": "١",
+            "title": "إعداد",
+            "subtitle": "تهيئة مساحة العمل"
+          },
+          "confirm": {
+            "name": "٢",
+            "title": "تأكيد",
+            "subtitle": "مراجعة الإعدادات"
+          }
+        }
+      },
+      "fiveSteps": {
+        "title": "خمس خطوات",
+        "description": "تدفق أطول بخمس خطوات بالاسم فقط (active={2}).",
+        "steps": {
+          "account": "الحساب",
+          "profile": "الملف",
+          "billing": "الفوترة",
+          "review": "مراجعة",
+          "done": "انتهى"
+        }
+      },
+      "customNames": {
+        "title": "عُقد name مخصصة",
+        "description": "فتحة name من نوع ReactNode — شارات بدل نص عادي.",
+        "steps": {
+          "badges": {
+            "draft": "مسودة",
+            "review": "مراجعة",
+            "published": "منشور"
+          },
+          "draft": {
+            "title": "محتوى مسودة",
+            "subtitle": "قيد العمل"
+          },
+          "review": {
+            "title": "مراجعة تحريرية",
+            "subtitle": "بانتظار الموافقة"
+          },
+          "published": {
+            "title": "منشور",
+            "subtitle": "مرئي للجميع"
+          }
+        }
+      },
+      "controlled": {
+        "title": "active مُتحكَّم",
+        "description": "تحكم في active من الحالة بأزرار السابق/التالي.",
+        "previous": "السابق",
+        "next": "التالي",
+        "info": "الخطوة {{step}} من {{total}}",
+        "steps": {
+          "details": {
+            "name": "١",
+            "title": "التفاصيل",
+            "subtitle": "أدخل معلوماتك"
+          },
+          "review": {
+            "name": "٢",
+            "title": "مراجعة",
+            "subtitle": "أكد قبل المتابعة"
+          },
+          "done": {
+            "name": "٣",
+            "title": "تم",
+            "subtitle": "كل شيء جاهز"
+          }
+        }
+      },
+      "activeStates": {
+        "title": "حالات النشاط",
+        "description": "نفس الخطوات مع active={0} وactive={1} وactive={2}.",
+        "labels": {
+          "step1": "active={0}",
+          "step2": "active={1}",
+          "step3": "active={2}"
         },
-        "title": "تقدم منتصف المسار"
+        "steps": {
+          "details": "التفاصيل",
+          "review": "مراجعة",
+          "done": "انتهى"
+        }
       },
       "step1Active": {
         "steps": {
@@ -872,22 +2146,208 @@
       }
     },
     "tabs": {
+      "customStyles": {
+        "description": "يمكنك تجاوز أنماط الحاوية وشريط التبويب والمنزلق والمحتوى عبر className.",
+        "title": "أسماء فئات مخصصة"
+      },
+      "defaultActive": {
+        "description": "افتح تبويبًا محددًا عند التحميل الأول باستخدام defaultActiveTab.",
+        "title": "التبويب النشط الافتراضي"
+      },
+      "disabled": {
+        "description": "يُمنع التبديل بين التبويبات وتستخدم التسميات غير النشطة لون النص الافتراضي.",
+        "title": "معطّل"
+      },
+      "headerElements": {
+        "banner": "فتحة العنوان الفرعي تُعرض بين الفاصل ومحتوى اللوحة.",
+        "description": "أدرج محتوى أسفل فاصل شريط التبويب عبر headerElements.",
+        "title": "عناصر الرأس"
+      },
+      "hideDivider": {
+        "analyticsContent": "يظهر الفاصل على هذا التبويب.",
+        "description": "اضبط hideDivider على تبويب لإزالة خط الفاصل أثناء نشاطه.",
+        "overviewContent": "الفاصل مخفي بينما «نظرة عامة» نشط.",
+        "settingsContent": "ارجع إلى «نظرة عامة» لرؤية تأثير hideDivider.",
+        "title": "إخفاء الفاصل"
+      },
       "keepMounted": {
+        "description": "تبقى اللوحات غير النشطة مثبتة ليحفظ الحالة المحلية عند التبديل.",
         "draft": {
           "content": "يحافظ محتوى المسودة على حالته عند التبديل بين التبويبات.",
-          "header": "مسودة"
+          "header": "مسودة",
+          "hint": "انتقل إلى «منشور» ثم عد — يبقى نصك هنا.",
+          "placeholder": "اكتب ملاحظات المسودة…"
         },
         "published": {
           "content": "تظهر العناصر المنشورة هنا.",
-          "header": "منشور"
+          "header": "منشور",
+          "hint": "تحتفظ هذه اللوحة بحالة إدخال منفصلة خاصة بها.",
+          "placeholder": "اكتب ملاحظات منشورة…"
         },
         "title": "يبقى مثبتاً"
+      },
+      "onChange": {
+        "activeIndex": "فهرس التبويب النشط: {index}",
+        "description": "استمع لتغييرات التبويب عبر callback الخاص بـ onChange.",
+        "title": "callback onChange"
+      },
+      "panels": {
+        "analytics": {
+          "chartTitle": "الزيارات الأسبوعية",
+          "metrics": {
+            "bounce": {
+              "label": "معدل الارتداد",
+              "trend": "-2.1%",
+              "value": "32%"
+            },
+            "duration": {
+              "label": "متوسط المدة",
+              "trend": "+18ث",
+              "value": "4د 12ث"
+            },
+            "sessions": {
+              "label": "الجلسات",
+              "trend": "+14%",
+              "value": "28.4k"
+            }
+          },
+          "sources": {
+            "direct": "مباشر",
+            "referral": "إحالة",
+            "search": "بحث",
+            "social": "اجتماعي"
+          },
+          "sourcesTitle": "أهم المصادر"
+        },
+        "overview": {
+          "activities": {
+            "0": "طلب جديد #4821 من سارة",
+            "1": "تم تصدير تقرير الحملة إلى CSV",
+            "2": "قبل علي دعوة الفريق"
+          },
+          "activityTitle": "النشاط الأخير",
+          "bannerAlt": "مساحة عمل الفريق",
+          "bannerSubtitle": "مركز التعاون لمشاريعك الأخيرة",
+          "bannerTitle": "نظرة عامة على مساحة العمل",
+          "stats": {
+            "conversion": {
+              "label": "التحويل",
+              "trend": "+0.4%",
+              "value": "3.8%"
+            },
+            "revenue": {
+              "label": "الإيرادات",
+              "trend": "+12%",
+              "value": "$48.2k"
+            },
+            "users": {
+              "label": "المستخدمون النشطون",
+              "trend": "+8.2%",
+              "value": "12.4k"
+            }
+          }
+        },
+        "scrollable": {
+          "imageAlt": "معاينة الربع {n}",
+          "metricLabel": "تقدم الهدف",
+          "metricValue": "{percent}%",
+          "subtitle": "لمحة أداء للربع {n}",
+          "title": "الربع {n}"
+        },
+        "segments": {
+          "daily": {
+            "description": "تفصيل ساعي لليوم مع تحديثات مباشرة.",
+            "title": "عرض يومي"
+          },
+          "monthly": {
+            "description": "مقارنات شهر بشهر واتجاهات طويلة المدى.",
+            "title": "عرض شهري"
+          },
+          "weekly": {
+            "description": "اتجاهات آخر 7 أيام في لمحة.",
+            "title": "عرض أسبوعي"
+          }
+        },
+        "settings": {
+          "items": {
+            "analytics": {
+              "description": "ساعد في تحسين المنتج بشكل مجهول",
+              "label": "تحليلات الاستخدام"
+            },
+            "notifications": {
+              "description": "استلام ملخص أسبوعي وتنبيهات بالبريد",
+              "label": "إشعارات البريد"
+            },
+            "twoFactor": {
+              "description": "طلب رمز عند تسجيل الدخول من جهاز جديد",
+              "label": "المصادقة الثنائية"
+            }
+          },
+          "subtitle": "إدارة الإشعارات والأمان والخصوصية",
+          "tipBody": "تُطبَّق إعدادات الأمان على جميع أعضاء مساحة العمل.",
+          "tipTitle": "أمان مساحة العمل",
+          "title": "تفضيلات مساحة العمل"
+        },
+        "standalone": {
+          "analytics": "تُعرض الرسوم البيانية والتصدير والاتجاهات في تخطيطك الخاص.",
+          "overview": "تُدار مؤشرات الأداء وموجز النشاط خارج TabbedContent.",
+          "settings": "تعيش نماذج الإعدادات والمفاتيح في لوحة تتحكم بها."
+        }
+      },
+      "scrollable": {
+        "content": "محتوى التبويب القابل للتمرير {n}. اسحب شريط التبويب أو استخدم أزرار الأسهم.",
+        "description": "يضيف enableScroll تمريرًا أفقيًا مع السحب وأزرار السابق/التالي.",
+        "tabLabel": "تبويب {n}",
+        "title": "تبويبات قابلة للتمرير"
+      },
+      "segments": {
+        "description": "تحكم مقطعي بعرض كامل مع مؤشر نقطة اختياري للتبويب النشط.",
+        "tabs": {
+          "daily": "يومي",
+          "monthly": "شهري",
+          "weekly": "أسبوعي"
+        },
+        "title": "المقاطع",
+        "withIndicator": "مع مؤشر",
+        "withoutIndicator": "بدون مؤشر"
+      },
+      "shared": {
+        "analytics": "تحليلات",
+        "overview": "نظرة عامة",
+        "settings": "إعدادات"
+      },
+      "sideElements": {
+        "analyticsContent": "تبويب التحليلات يحتوي على زر إجراء إضافي في صف الرأس.",
+        "description": "عناصر sideElements العامة بجانب شريط التبويب؛ عناصر كل تبويب تظهر فقط للتبويب النشط.",
+        "globalAction": "عام",
+        "overviewContent": "إجراء جانبي عام يظهر دائمًا في صف الرأس.",
+        "settingsContent": "يُعرض الإجراء الجانبي العام فقط على هذا التبويب.",
+        "tabAction": "تصدير",
+        "title": "عناصر جانبية"
+      },
+      "standalone": {
+        "activeIndex": "فهرس التبويب المحدد: {index}",
+        "basic": "أساسي",
+        "description": "شريط تبويب فقط — استخدم Tabs عندما تدير محتوى اللوحة بنفسك.",
+        "disabled": "معطّل",
+        "scrollable": "قابل للتمرير",
+        "title": "شريط التبويب"
+      },
+      "tabScroller": {
+        "description": "شريط تبويب مقسّم إلى صفحات مع عناصر تحكم سابق/التالي وأوضاع تموضع التمرير.",
+        "narrowWindow": "visibleCount: 4",
+        "scrollToCenter": "scrollTo: center",
+        "scrollToStart": "scrollTo: start",
+        "scrollToValue": "scrollTo: value",
+        "selected": "القيمة المحددة: {value}",
+        "title": "مُمرّر التبويب"
       },
       "tabbedContent": {
         "analytics": {
           "content": "لوحة تحليلات مع رسوم بيانية وبيانات الاتجاهات.",
           "header": "تحليلات"
         },
+        "description": "تخطيط تبويبات افتراضي مع مؤشر منزلق متحرك ومحتوى اللوحة.",
         "overview": {
           "content": "لوحة نظرة عامة مع مقاييس ملخصة وإجراءات سريعة.",
           "header": "نظرة عامة"
@@ -901,12 +2361,140 @@
     },
     "timeline": {
       "eventList": {
+        "title": "قائمة الأحداث",
+        "description": "الوقت والعنوان لتغذية نشاط على نمط الطلبات.",
         "events": {
           "delivered": "تم التسليم",
           "orderPlaced": "تم تقديم الطلب",
           "shipped": "تم الشحن"
-        },
-        "title": "قائمة الأحداث"
+        }
+      },
+      "descriptions": {
+        "title": "مع أوصاف",
+        "description": "نص وصف اختياري تحت عنوان كل حدث.",
+        "items": {
+          "morning": {
+            "time": "09:00",
+            "title": "اجتماع يومي",
+            "description": "تخطيط Sprint ومراجعة العوائق مع الفريق."
+          },
+          "afternoon": {
+            "time": "13:30",
+            "title": "مراجعة التصميم",
+            "description": "جولة في تخطيط لوحة التحكم الجديدة والتنقل."
+          },
+          "evening": {
+            "time": "17:00",
+            "title": "قائمة الإطلاق",
+            "description": "الموافقة النهائية من QA قبل النشر في الإنتاج."
+          }
+        }
+      },
+      "changes": {
+        "title": "قوائم التغييرات",
+        "description": "قوائم نقطية لملاحظات الإصدار أو سجل التدقيق بدون شارة إصدار.",
+        "items": {
+          "design": {
+            "title": "تحديث نظام التصميم",
+            "description": "تحسين الرموز والمكوّنات للفهرس.",
+            "changes": {
+              "0": "تحديث نسب تباين اللوحة الأساسية",
+              "1": "مواءمة رموز نصف قطر الحدود عبر البطاقات",
+              "2": "تحسين النص الباهت للتسميات الثانوية"
+            }
+          },
+          "engineering": {
+            "title": "تحسين الأداء",
+            "description": "تحسينات الحزمة والعرض.",
+            "changes": {
+              "0": "تحميل كسول لوحدات الرسوم البيانية الثقيلة",
+              "1": "تقليل تحرك التخطيط عند انتقالات الهيكل"
+            }
+          }
+        }
+      },
+      "versionReleases": {
+        "title": "إصدارات النسخ",
+        "description": "شارة الإصدار مع الوقت والعنوان والوصف ونقاط التغيير.",
+        "items": {
+          "v240": {
+            "time": "2026-06-01",
+            "version": "v2.4.0",
+            "title": "لوحة التحليلات",
+            "description": "أدوات وخيارات تصدير جديدة لقادة الفرق.",
+            "changes": {
+              "0": "إضافة أداة نظرة عامة على الزيارات",
+              "1": "تصدير CSV لجداول KPI"
+            }
+          },
+          "v230": {
+            "time": "2026-05-15",
+            "version": "v2.3.0",
+            "title": "إصلاحات إمكانية الوصول",
+            "description": "تحسينات ترتيب التركيز والتباين في النماذج.",
+            "changes": {
+              "0": "التنقل بلوحة المفاتيح للقوائم المتداخلة"
+            }
+          }
+        }
+      },
+      "withImages": {
+        "title": "مع صور",
+        "description": "معاينة صورة اختيارية لكل عنصر عبر خاصية image.",
+        "items": {
+          "launch": {
+            "time": "10:00",
+            "title": "إطلاق المنتج",
+            "description": "تم نشر موقع التسويق ولافتة الإعلان.",
+            "imageAlt": "لافتة إعلان الإطلاق"
+          },
+          "event": {
+            "time": "15:00",
+            "title": "فعالية المجتمع",
+            "description": "عرض مباشر وأسئلة وأجوبة مع المستخدمين الأوائل.",
+            "imageAlt": "لافتة فعالية المجتمع"
+          }
+        }
+      },
+      "titleOnly": {
+        "title": "العنوان فقط",
+        "description": "عناصر minimal عندما يلزم التسمية فقط.",
+        "items": {
+          "0": "تم إنشاء الحساب",
+          "1": "اكتمل الملف الشخصي",
+          "2": "بدأ أول مشروع"
+        }
+      },
+      "singleItem": {
+        "title": "عنصر واحد",
+        "description": "حالة حافة بمدخل واحد وبدون خط رابط.",
+        "time": "12:00",
+        "titleText": "اكتملت الهجرة",
+        "descriptionText": "جميع الخدمات تعمل على المجموعة الجديدة."
+      },
+      "mixed": {
+        "title": "أشكال عناصر مختلطة",
+        "description": "خط زمني واحد يجمع أحداثًا متفرقة وأوصافًا وكتلة إصدار.",
+        "items": {
+          "placed": {
+            "time": "08:15",
+            "title": "تم تقديم الطلب"
+          },
+          "shipped": {
+            "time": "11:40",
+            "title": "في طريق التسليم",
+            "description": "استلم الساعي الطرد من المستودع."
+          },
+          "release": {
+            "version": "v1.0",
+            "title": "تم شحن API التتبع",
+            "description": "أحداث webhook تتضمن الآن تحديثات ETA.",
+            "changes": {
+              "0": "إضافة payload webhook للتسليم",
+              "1": "توثيق سياسة إعادة المحاولة"
+            }
+          }
+        }
       }
     },
     "tracker": {
@@ -923,16 +2511,78 @@
     },
     "typography": {
       "headings": {
+        "title": "العناوين",
+        "description": "H1–H4 semantic elements with preset size and weight tokens.",
         "h1": "عنوان 1",
         "h2": "عنوان 2",
         "h3": "عنوان 3",
         "h4": "عنوان 4",
-        "title": "العناوين"
+        "styles": {
+          "h1": "text-3xl · font-extrabold",
+          "h2": "text-2xl · font-bold",
+          "h3": "text-xl · font-semibold",
+          "h4": "text-lg · font-medium"
+        }
+      },
+      "hierarchy": {
+        "title": "Heading hierarchy",
+        "description": "Stack headings and body copy the way they appear in page layouts.",
+        "subtitle": "Section subtitle for context",
+        "body": "Supporting paragraph beneath the heading stack — uses the default P style (text-sm, font-normal)."
       },
       "paragraph": {
+        "title": "فقرة",
+        "description": "P renders a paragraph with text-sm and font-normal. All components share m-0, p-0, text-foreground, and cursor-default.",
         "body": "نص أساسي — أسلوب الفقرة الافتراضي من وحدة الطباعة.",
-        "muted": "فقرة باهتة مع تجاوز className.",
-        "title": "فقرة"
+        "muted": "فقرة باهتة مع تجاوز className."
+      },
+      "paragraphTones": {
+        "title": "Paragraph tones",
+        "description": "Override foreground with className for muted, severity, and mono styles.",
+        "sample": "The quick brown fox jumps over the lazy dog.",
+        "tones": {
+          "default": "Default",
+          "muted": "Muted",
+          "primary": "Primary",
+          "success": "Success",
+          "warning": "Warning",
+          "error": "Error",
+          "info": "Info",
+          "mono": "Mono"
+        }
+      },
+      "headingOverrides": {
+        "title": "Heading className override",
+        "description": "Merge custom utilities onto the preset heading styles.",
+        "primaryH2": "Primary-colored H2",
+        "truncatedH4": "This heading is intentionally long and will truncate with an ellipsis when space is limited",
+        "uppercaseH3": "Uppercase tracking label"
+      },
+      "htmlAttributes": {
+        "title": "HTML attributes",
+        "description": "Components forward standard HTML attributes to the underlying element.",
+        "ariaLabel": "Accessible section title"
+      },
+      "marquee": {
+        "title": "Marquee",
+        "description": "Overflowing text scrolls automatically; short text stays centered without animation.",
+        "short": "Fits",
+        "long": "This label is much longer than the container and triggers the marquee scroll animation",
+        "styled": "Styled value cell",
+        "rows": {
+          "static": "Static (fits container)",
+          "scrolling": "Scrolling (overflow)",
+          "styled": "Bordered (list pattern)"
+        }
+      },
+      "inContext": {
+        "title": "In context",
+        "description": "Typical dashboard panel with a title, subtitle, body copy, and a marquee value row.",
+        "panelTitle": "Account overview",
+        "panelSubtitle": "Billing & usage",
+        "panelBody": "Review plan limits, recent invoices, and usage metrics for the current billing period.",
+        "rowLabel": "Current plan",
+        "rowValue": "Enterprise · unlimited seats · renews March 2026"
       }
     },
     "buttons": {
@@ -1078,7 +2728,6 @@
     "accordion": {
       "singleCollapsible": {
         "title": "قابل للطي — عنصر واحد",
-        "description": "قسم واحد فقط مفتوح في كل مرة. انقر على المُشغّل النشط مرة أخرى لطيه.",
         "whatIsLibrary": {
           "trigger": "ما هي مكتبة المكونات هذه؟",
           "content": "مجموعة من مكونات React الجاهزة للإنتاج، مبنية باستخدام Tailwind CSS v4 وRadix UI وتفاعلات تركز على الحركة."
@@ -1090,11 +2739,11 @@
         "staticSite": {
           "trigger": "هل يمكنني استخدامها في موقع ثابت؟",
           "content": "بالتأكيد. تم بناء هذا العرض التوضيحي باستخدام Vite ويُصدَّر إلى HTML وCSS وJS ثابت."
-        }
+        },
+        "description": "Only one section open at a time; opening another closes the rest."
       },
       "multipleOpen": {
         "title": "فتح متعدد",
-        "description": "افتح عدة أقسام في آن واحد — كل لوحة تُبدَّل بشكل مستقل.",
         "designTokens": {
           "trigger": "رموز التصميم",
           "content": "ألوان دلالية، وتباعد، ومتغيرات طباعة."
@@ -1104,106 +2753,107 @@
           "content": "مبنية على عناصر Radix مع التنقل بلوحة المفاتيح."
         },
         "composition": {
-          "trigger": "التركيب",
-          "content": "الجذر والعنصر والمُشغّل والمحتوى عناصر أولية منفصلة يمكنك تنسيقها وترتيبها."
-        }
-      },
-      "singleExclusive": {
-        "title": "حصري — عنصر واحد",
-        "description": "بدون collapsible، يبقى القسم المفتوح حتى يُختار قسم آخر.",
-        "account": {
-          "trigger": "إعدادات الحساب",
-          "content": "حدّث ملفك الشخصي والبريد الإلكتروني واسم العرض."
+          "content": "Combine AccordionItem, AccordionTrigger, and AccordionContent for flexible layouts.",
+          "trigger": "Composition"
         },
-        "billing": {
-          "trigger": "الفوترة",
-          "content": "أدر طرق الدفع وحمّل الفواتير."
-        },
-        "notifications": {
-          "trigger": "الإشعارات",
-          "content": "اختر التنبيهات التي تصلك عبر البريد أو push."
-        }
-      },
-      "defaultOpen": {
-        "title": "مفتوح افتراضياً",
-        "description": "استخدم defaultValue لتوسيع قسم عند أول عرض.",
-        "shipping": {
-          "trigger": "سياسة الشحن",
-          "content": "تُشحن الطلبات خلال يومي عمل عبر البريد القياسي."
-        },
-        "returns": {
-          "trigger": "المرتجعات والاسترداد",
-          "content": "يبدأ هذا القسم مفتوحاً. تُقبل المرتجعات خلال 30 يوماً."
-        },
-        "support": {
-          "trigger": "ساعات الدعم",
-          "content": "الدردشة المباشرة متاحة أيام الأسبوع 9:00–17:00."
-        }
-      },
-      "defaultOpenMultiple": {
-        "title": "مفتوح افتراضياً (متعدد)",
-        "description": "مرّر مصفوفة إلى defaultValue عندما يكون type هو multiple.",
-        "tokens": {
-          "trigger": "رموز التصميم",
-          "content": "الألوان والتباعد ومقياس الطباعة من سمتك."
-        },
-        "a11y": {
-          "trigger": "إمكانية الوصول",
-          "content": "ينتقل تركيز لوحة المفاتيح بين المُشغّلات؛ اللوحات تعرض aria-expanded."
-        },
-        "motion": {
-          "trigger": "الحركة",
-          "content": "يتحرك ارتفاع المحتوى باستخدام keyframes accordion-up وaccordion-down."
-        }
+        "description": "Multiple sections can stay open simultaneously."
       },
       "controlled": {
-        "title": "مُتحكَّم به",
-        "description": "تحكم في حالة الفتح عبر value وonValueChange من خارج الأكورديون.",
-        "openFirst": "فتح الملف الشخصي",
-        "openSecond": "فتح الأمان",
-        "collapseAll": "طي الكل",
-        "current": "مفتوح: {{value}}",
-        "none": "لا شيء",
+        "collapseAll": "Collapse all",
+        "current": "Open section: {{value}}",
+        "description": "Drive the open section with value and onValueChange.",
+        "none": "none",
+        "openFirst": "Open first",
+        "openSecond": "Open second",
         "profile": {
-          "trigger": "الملف الشخصي",
-          "content": "عدّل اسمك وصورتك والسيرة العامة."
+          "content": "Update display name, avatar, and public profile fields.",
+          "trigger": "Profile"
         },
         "security": {
-          "trigger": "الأمان",
-          "content": "غيّر كلمة المرور وراجع الجلسات النشطة."
+          "content": "Change password, enable two-factor authentication, and review sessions.",
+          "trigger": "Security"
+        },
+        "title": "Controlled"
+      },
+      "defaultOpen": {
+        "description": "Use defaultValue to open a section on first render.",
+        "returns": {
+          "content": "Return unused items within 30 days for a full refund.",
+          "trigger": "Returns & refunds"
+        },
+        "shipping": {
+          "content": "Orders ship within 2 business days. Tracking is emailed once dispatched.",
+          "trigger": "Shipping policy"
+        },
+        "support": {
+          "content": "Live chat is available weekdays 9:00–18:00. Weekend requests are answered Monday.",
+          "trigger": "Support hours"
+        },
+        "title": "Default open"
+      },
+      "defaultOpenMultiple": {
+        "a11y": {
+          "content": "Keyboard navigation, focus rings, and ARIA attributes from Radix primitives.",
+          "trigger": "Accessibility"
+        },
+        "description": "Pass an array to defaultValue when type=\"multiple\".",
+        "motion": {
+          "content": "Height animations use CSS variables for smooth expand and collapse.",
+          "trigger": "Motion"
+        },
+        "title": "Default open (multiple)",
+        "tokens": {
+          "content": "Semantic colors, spacing, and typography variables shared across components.",
+          "trigger": "Design tokens"
         }
       },
       "disabledItems": {
-        "title": "عناصر معطّلة",
-        "description": "عيّن disabled على AccordionItem لمنع التفاعل وتخطي تركيز لوحة المفاتيح.",
-        "available": {
-          "trigger": "قسم متاح",
-          "content": "يمكن فتح وإغلاق هذه اللوحة بشكل طبيعي."
-        },
-        "locked": {
-          "trigger": "قسم مقفل (معطّل)",
-          "content": "لا يمكن الوصول إلى هذا المحتوى طالما العنصر معطّل."
-        },
         "another": {
-          "trigger": "قسم متاح آخر",
-          "content": "يتخطى التركيز العنصر المعطّل عند التنقل بين المُشغّلات."
-        }
-      },
-      "singleItem": {
-        "title": "عنصر واحد",
-        "description": "أكورديون بسيط بلوحة قابلة للتوسيع واحدة.",
-        "trigger": "ملاحظات الإصدار",
-        "content": "الإصدار 2.4 يضيف رسوم الأكورديون ودعم لوحة مفاتيح محسّناً."
+          "content": "Disabled neighbors do not block other items.",
+          "trigger": "Another available section"
+        },
+        "available": {
+          "content": "This item is interactive and can be expanded.",
+          "trigger": "Available section"
+        },
+        "description": "Disabled AccordionItem values cannot be toggled.",
+        "locked": {
+          "content": "This item is disabled and cannot be opened.",
+          "trigger": "Locked section"
+        },
+        "title": "Disabled items"
       },
       "richContent": {
-        "title": "محتوى غني",
-        "description": "يدعم جسم اللوحة فقرات وقوائم وتخطيطات متداخلة.",
-        "trigger": "قائمة البدء",
-        "intro": "أكمل هذه الخطوات قبل الإطلاق:",
-        "listItem1": "ثبّت الحزمة والتبعيات المطلوبة.",
-        "listItem2": "غلّف تطبيقك بمزود السمة.",
-        "listItem3": "استورد عناصر Accordion من barrel المشترك.",
-        "outro": "في تطبيق حقيقي، يرتبط كل خطوة بالوثائق."
+        "description": "AccordionContent accepts any React nodes — lists, paragraphs, and actions.",
+        "intro": "Version 2.1 includes the following highlights:",
+        "listItem1": "New chart layouts and tooltip formatters",
+        "listItem2": "Improved RTL support across inputs and overlays",
+        "listItem3": "Performance fixes for virtualized lists",
+        "outro": "See the changelog for migration notes.",
+        "title": "Rich content",
+        "trigger": "Release notes"
+      },
+      "singleExclusive": {
+        "account": {
+          "content": "Manage profile details, email preferences, and connected accounts.",
+          "trigger": "Account settings"
+        },
+        "billing": {
+          "content": "View invoices, update payment methods, and download receipts.",
+          "trigger": "Billing"
+        },
+        "description": "One section must always remain open — collapsible is disabled.",
+        "notifications": {
+          "content": "Choose which events send email, push, or in-app alerts.",
+          "trigger": "Notifications"
+        },
+        "title": "Single exclusive"
+      },
+      "singleItem": {
+        "content": "Useful for FAQ entries or compact disclosure panels.",
+        "description": "An accordion with one item still exposes full keyboard support.",
+        "title": "Single item",
+        "trigger": "Only section"
       }
     },
     "alerts": {
@@ -1309,92 +2959,99 @@
       }
     },
     "avatar": {
-      "withPhoto": {
-        "title": "مع صورة",
-        "description": "صور حقيقية من /public/avatars مع alt يمكن الوصول إليه.",
-        "sara": "سارة أحمدي",
-        "ali": "علي حسيني",
-        "mina": "مينا رحماني",
-        "reza": "رضا كريمي"
+      "sizes": {
+        "title": "الأحجام",
+        "description": "UserAvatar من @/components/common/avatar."
       },
-      "presetSizes": {
-        "title": "أحجام محددة مسبقاً",
-        "description": "رموز size في CVA من xs إلى 3xl.",
-        "photoRow": "صور رمزية",
-        "initialsRow": "أحرف بديلة"
-      },
-      "customSizes": {
-        "title": "أحجام مخصصة",
-        "description": "مرّر رقماً بالبكسل أو أي وحدة CSS كنص."
-      },
-      "shapes": {
-        "title": "الأشكال",
-        "description": "variants دائرة ومستديرة ومربعة.",
-        "circle": "دائرة",
-        "rounded": "مستدير",
-        "square": "مربع"
-      },
-      "severities": {
-        "title": "شدة fallback",
-        "description": "variants لون للأحرف الأولى والأيقونة."
-      },
-      "initials": {
-        "title": "الأحرف الأولى",
-        "description": "وضع حرف واحد أو حرفين للfallback.",
-        "single": "مفرد",
-        "dual": "مزدوج",
-        "username": "اسم المستخدم",
-        "default": "افتراضي"
+      "fallbackInitials": {
+        "title": "الأحرف الأولى البديلة"
       },
       "autoSeverity": {
-        "title": "شدة تلقائية",
-        "description": "لون ثابت من اسم العرض عند تفعيل autoSeverity."
-      },
-      "status": {
-        "title": "مؤشر الحالة",
-        "description": "نقطة حضور لحالات online وoffline وbusy وaway.",
-        "online": "متصل",
-        "offline": "غير متصل",
-        "busy": "مشغول",
-        "away": "بعيد"
-      },
-      "borders": {
-        "title": "الحدود",
-        "description": "variants border للصورة المفردة والمجموعة.",
-        "none": "بدون",
-        "default": "افتراضي",
-        "ring": "حلقة"
-      },
-      "loading": {
-        "title": "تحميل",
-        "description": "طبقة spinner أثناء تحميل الصورة أو عند فرض loading."
-      },
-      "imageError": {
-        "title": "fallback خطأ الصورة",
-        "description": "URL معطوب يعود تلقائياً إلى الأحرف الأولى."
-      },
-      "iconFallback": {
-        "title": "fallback أيقونة",
-        "description": "استخدم أيقونة Lucide بدلاً من الأحرف عند غياب الصورة."
-      },
-      "interactive": {
-        "title": "تفاعلي",
-        "description": "صورة قابلة للنقر مع تكبير hover وتفعيل بلوحة المفاتيح.",
-        "clicks": "نُقر {{count}} مرات"
-      },
-      "disabled": {
-        "title": "معطّل",
-        "description": "شفافية أقل وبدون تفاعل مؤشر."
+        "description": "Auto Severity examples and configuration options.",
+        "title": "Auto Severity"
       },
       "avatarGroup": {
-        "title": "مجموعة صور",
-        "description": "تراص مع overlap أو gap وتجاوز +N.",
-        "overlap": "تداخل مع overflow",
-        "gap": "تباعد"
+        "description": "Avatar Group examples and configuration options.",
+        "gap": "Gap",
+        "overlap": "Overlap",
+        "title": "Avatar Group"
+      },
+      "borders": {
+        "default": "Default",
+        "description": "Borders examples and configuration options.",
+        "none": "none",
+        "ring": "Ring",
+        "title": "Borders"
+      },
+      "customSizes": {
+        "description": "Custom Sizes examples and configuration options.",
+        "title": "Custom Sizes"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "title": "Disabled"
+      },
+      "iconFallback": {
+        "description": "Icon Fallback examples and configuration options.",
+        "title": "Icon Fallback"
+      },
+      "imageError": {
+        "description": "Image Error examples and configuration options.",
+        "title": "Image Error"
+      },
+      "initials": {
+        "default": "Default",
+        "description": "Initials examples and configuration options.",
+        "dual": "Dual",
+        "single": "Single",
+        "title": "Initials",
+        "username": "Username"
+      },
+      "interactive": {
+        "clicks": "Clicks",
+        "description": "Interactive examples and configuration options.",
+        "title": "Interactive"
+      },
+      "loading": {
+        "description": "Loading examples and configuration options.",
+        "title": "Loading"
+      },
+      "presetSizes": {
+        "description": "Preset Sizes examples and configuration options.",
+        "initialsRow": "Initials Row",
+        "photoRow": "Photo Row",
+        "title": "Preset Sizes"
+      },
+      "severities": {
+        "description": "Severities examples and configuration options.",
+        "title": "Severities"
+      },
+      "shapes": {
+        "circle": "دائرة",
+        "description": "Shapes examples and configuration options.",
+        "rounded": "زوايا مستديرة",
+        "square": "مربع",
+        "title": "Shapes"
+      },
+      "status": {
+        "away": "بعيد",
+        "busy": "مشغول",
+        "description": "Status examples and configuration options.",
+        "offline": "غير متصل",
+        "online": "متصل",
+        "title": "Status"
       },
       "userAvatarCompat": {
-        "title": "توافق UserAvatar",
-        "description": "غلاف UserAvatar القديم ما زال يُ mapped إلى Avatar الجديد."
+        "description": "User Avatar Compat examples and configuration options.",
+        "title": "User Avatar Compat"
+      },
+      "withPhoto": {
+        "ali": "Ali",
+        "description": "With Photo examples and configuration options.",
+        "mina": "Mina",
+        "reza": "Reza",
+        "sara": "Sara",
+        "title": "With Photo"
       }
     },
     "badges": {
@@ -1443,420 +3100,552 @@
       }
     },
     "banner": {
-      "compound": {
-        "title": "محتوى مركّب",
-        "description": "Banner.Badge وTitle وDescription وActions يشكّلون السطح.",
-        "badge": "جديد",
-        "heading": "أطلق لوحات التحكم أسرع",
-        "subheading": "مكونات جاهزة للإنتاج مع tokens وحركة ووضع داكن.",
-        "primaryAction": "ابدأ",
-        "secondaryAction": "عرض الوثائق"
+      "withImage": {
+        "title": "مع صورة",
+        "description": "Banner من @/components/common/banner.",
+        "heading": "لافتة ترحيب",
+        "subheading": "سطح ترويجي مع صورة خلفية."
       },
-      "severities": {
-        "title": "الشدات",
-        "description": "variants نغمة دلالية مع appearance soft.",
-        "default": "افتراضي",
-        "defaultDescription": "سطح محايد باستخدام tokens اللافتة.",
-        "primary": "Primary",
-        "primaryDescription": "إبراز إطلاق المنتج والتحديثات الرئيسية.",
-        "secondary": "Secondary",
-        "secondaryDescription": "إعلانات ثانوية وسياق داعم.",
-        "success": "Success",
-        "successDescription": "تأكيد الإجراءات المكتملة أو النتائج الإيجابية.",
-        "warning": "Warning",
-        "warningDescription": "لفت الانتباه للعناصر الحساسة للوقت.",
-        "danger": "Danger",
-        "dangerDescription": "عرض الأخطاء أو الحظر أو سياق destructive.",
-        "info": "Info",
-        "infoDescription": "مشاركة نصائح محايدة ونص إعلامي."
+      "contentOnly": {
+        "title": "محتوى فقط",
+        "content": "بدون صورة — خلفية متدرجة / بلون واحد عبر className."
       },
       "appearances": {
-        "title": "المظهر",
-        "description": "تعبئة soft وoutline وsolid لنفس severity.",
-        "soft": "Soft",
-        "softDescription": "خلفية ملونة مع حد خفيف.",
+        "description": "Appearances examples and configuration options.",
         "outline": "Outline",
-        "outlineDescription": "تعبئة شفافة مع حد دلالي.",
+        "outlineDescription": "Bordered banner with transparent fill.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with muted foreground text.",
         "solid": "Solid",
-        "solidDescription": "ألوان خلفية وforeground دلالية كاملة."
+        "solidDescription": "Filled background with high-contrast text.",
+        "title": "Appearances"
       },
-      "sizes": {
-        "title": "الأحجام",
-        "description": "presets للارتفاع والحشو من sm إلى hero.",
-        "heading": "نظرة عامة على التحليلات",
-        "subheading": "رمز حجم اللافتة: {{size}}."
-      },
-      "layouts": {
-        "title": "التخطيطات",
-        "description": "محاذاة start وcenter وrow.",
-        "start": "Start",
-        "startDescription": "محاذاة المحتوى الافتراضية أعلى-البداية.",
-        "center": "Center",
-        "centerDescription": "محتوى متمركز لرسائل hero.",
-        "row": "Row",
-        "rowDescription": "المحتوى والإجراءات في صف متجاوب.",
-        "action": "عرض التفاصيل"
-      },
-      "imageModes": {
-        "title": "أوضاع الصورة",
-        "description": "معالجة خلفية decor وgradient وcover وcontain.",
-        "decor": "Decor",
-        "gradient": "Gradient",
-        "cover": "Cover",
-        "contain": "Contain",
-        "heading": "سرد بصري",
-        "subheading": "وضع الصورة: {{mode}}."
-      },
-      "imageAlign": {
-        "title": "محاذاة الصورة",
-        "description": "موضع decor أفقي لـ imageMode=\"decor\".",
-        "start": "Start",
-        "end": "End",
-        "heading": "معاينة workspace",
-        "subheading": "Decor محاذى إلى {{align}}."
-      },
-      "imageBlend": {
-        "title": "مزج الصورة",
-        "description": "أوضاع blend مطبّقة على طبقة decor.",
-        "heading": "نبض التحليلات",
-        "subheading": "وضع blend: {{blend}}."
-      },
-      "imageOpacity": {
-        "title": "شفافية الصورة",
-        "description": "presets شدة decor: subtle وdefault وstrong.",
-        "heading": "تعاون الفريق",
-        "subheading": "preset الشفافية: {{opacity}}."
-      },
-      "hero": {
-        "title": "Hero",
-        "description": "لافتة hero كبيرة مع صورة cover وتخطيط center.",
-        "heading": "ابنِ مرة واحدة، ركّب في كل مكان",
-        "subheading": "بدائيات تخطيط قابلة لإعادة الاستخدام ومكونات مركبة للتطبيقات الغنية بالبيانات.",
-        "action": "تصفح المكونات"
+      "compound": {
+        "badge": "Badge",
+        "description": "Compound examples and configuration options.",
+        "heading": "Heading",
+        "primaryAction": "Primary Action",
+        "secondaryAction": "Secondary Action",
+        "subheading": "Subheading",
+        "title": "Compound"
       },
       "dismissible": {
-        "title": "قابل للإغلاق",
-        "description": "زر إغلاق مع callback onDismiss.",
-        "heading": "تحديث السياسة",
-        "subheading": "راجع الشروط المحدّثة قبل النشر التالي.",
-        "dismissed": "تم إغلاق اللافتة. حدّث الصفحة لرؤيتها مجدداً."
+        "description": "Dismissible examples and configuration options.",
+        "dismissed": "Dismissed",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Dismissible"
+      },
+      "hero": {
+        "action": "Action",
+        "description": "Hero examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Hero"
+      },
+      "imageAlign": {
+        "description": "Image Align examples and configuration options.",
+        "end": "End",
+        "heading": "Heading",
+        "start": "Start",
+        "subheading": "Subheading",
+        "title": "Image Align"
+      },
+      "imageBlend": {
+        "description": "Image Blend examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Blend"
+      },
+      "imageModes": {
+        "contain": "Contain",
+        "cover": "Cover",
+        "decor": "Decor",
+        "description": "Image Modes examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Modes"
+      },
+      "imageOpacity": {
+        "description": "Image Opacity examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Image Opacity"
       },
       "interactive": {
-        "title": "تفاعلي",
-        "description": "لافتة قابلة للنقر مع ظل hover ودعم لوحة المفاتيح.",
-        "heading": "فتح ملاحظات الإصدار",
-        "subheading": "انقر في أي مكان على اللافتة لمحاكاة التنقل.",
-        "clicks": "نُقر {{count}} مرات"
+        "clicks": "Clicks",
+        "description": "Interactive examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Interactive"
+      },
+      "layouts": {
+        "action": "Action",
+        "center": "Center",
+        "centerDescription": "Content centered horizontally.",
+        "description": "Layouts examples and configuration options.",
+        "row": "Row",
+        "rowDescription": "Title, description, and actions in a horizontal row.",
+        "start": "Start",
+        "startDescription": "Content aligned to the start edge.",
+        "title": "Layouts"
       },
       "legacyImage": {
-        "title": "prop image القديم",
-        "description": "الشكل deprecated image={{ src }} ما زال يُ resolved بشكل صحيح.",
-        "heading": "متوافق مع الإصدارات السابقة",
-        "subheading": "فضّل src للكود الجديد؛ image ما زال مدعوماً."
+        "description": "Legacy Image examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Legacy Image"
+      },
+      "severities": {
+        "danger": "Danger",
+        "dangerDescription": "Critical error or destructive action banner.",
+        "default": "Default",
+        "defaultDescription": "Neutral surface for general announcements.",
+        "description": "Severities examples and configuration options.",
+        "info": "Info",
+        "infoDescription": "Informational update or tip banner.",
+        "primary": "Primary",
+        "primaryDescription": "Emphasized brand-colored banner.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Subtle secondary accent banner.",
+        "success": "Success",
+        "successDescription": "Positive outcome or confirmation banner.",
+        "title": "Severities",
+        "warning": "Warning",
+        "warningDescription": "Attention needed before proceeding."
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "title": "Sizes"
       }
     },
     "cards": {
-      "compound": {
-        "title": "بطاقة كاملة",
-        "description": "فتحات مركّبة مع شارة وعنوان ووصف ومحتوى وإجراءات.",
-        "badge": "مميز",
+      "defaultCard": {
+        "title": "بطاقة افتراضية",
         "cardTitle": "نظرة عامة على المشروع",
         "cardDescription": "تتبّع التقدّم في لوحات المعلومات النشطة.",
         "cardContent": "تتكيّف البطاقات مع السمات الفاتحة والداكنة باستخدام الرموز الدلالية من نظام التصميم.",
         "viewDetails": "عرض التفاصيل",
         "dismiss": "إغلاق"
       },
-      "severities": {
-        "title": "درجات الدلالة",
-        "description": "أدوار لونية دلالية مع أسطح ناعمة.",
+      "variants": {
+        "title": "الأنواع",
         "default": "افتراضي",
-        "defaultDescription": "سطح بطاقة محايد للمحتوى العام.",
-        "primary": "أساسي",
-        "primaryDescription": "إبراز المحتوى المهم أو المميز.",
-        "secondary": "ثانوي",
-        "secondaryDescription": "ت emphasis ثانوي دون وزن أساسي.",
-        "success": "نجاح",
-        "successDescription": "نتائج إيجابية وتأكيدات.",
-        "warning": "تحذير",
-        "warningDescription": "معلومات تحذيرية وتنبيهات.",
-        "danger": "خطر",
-        "dangerDescription": "أخطاء وإخفاقات وسياق destructive.",
-        "info": "معلومات",
-        "infoDescription": "إشعارات معلوماتية ومحايدة.",
-        "muted": "باهت",
-        "mutedDescription": "محتوى داعم مخفّض الت emphasis."
+        "outline": "محدّد",
+        "ghost": "شفاف"
       },
       "appearances": {
-        "title": "المظاهر",
-        "description": "تلوين ناعم، حدود، تعبئة صلبة، أو شفاف.",
-        "soft": "ناعم",
-        "softDescription": "خلفية ملونة مع حدود خفيفة.",
-        "outline": "محدّد",
-        "outlineDescription": "تعبئة شفافة مع حدود ملونة.",
-        "solid": "صلب",
-        "solidDescription": "سطح معبّأ مع نص متباين.",
-        "ghost": "شفاف",
-        "ghostDescription": "بدون حدود أو ظل — المحتوى فقط."
-      },
-      "sizes": {
-        "title": "الأحجام",
-        "description": "حشو الأقسام والإيقاع العمودي يتدرّجان معًا.",
-        "sampleTitle": "حجم البطاقة",
-        "sampleContent": "حشو الرأس والمحتوى والتذييل يتبع حجم الجذر."
-      },
-      "media": {
-        "title": "الوسائط",
-        "description": "Card.Media يدعم نسب العرض وملاءمة الكائن.",
-        "square": "مربّع",
-        "video": "فيديو",
-        "wide": "عريض",
-        "imageAlt": "صورة غلاف البطاقة",
-        "cardTitle": "مساحة تصميم",
-        "cardDescription": "معاينة فتحات الوسائط فوق محتوى البطاقة.",
-        "action": "فتح المعرض"
-      },
-      "orientation": {
-        "title": "تخطيط أفقي",
-        "description": "وسائط ومحتوى جنبًا إلى جنب على الشاشات الأوسع.",
-        "imageAlt": "تعاون الفريق",
-        "cardTitle": "تعاون الفريق",
-        "cardDescription": "تتم محاذاة الوسائط إلى الحافة البداية في الوضع الأفقي.",
-        "cardContent": "استخدم orientation=\"horizontal\" لمعاينات الملف الشخصي أو المنتج أو المقال.",
-        "action": "عرض الفريق"
-      },
-      "headerAction": {
-        "title": "إجراء في الرأس",
-        "description": "Card.Action يُدرج في شبكة الرأس بجانب العنوان.",
-        "cardTitle": "الإشعارات",
-        "cardDescription": "إدارة التنبيهات وتفضيلات التسليم.",
-        "cardContent": "استخدم Card.Action لقوائم الفائض أو الإعدادات أو أزرار الإغلاق.",
-        "menuLabel": "فتح القائمة"
-      },
-      "divided": {
-        "title": "أقسام مقسّمة",
-        "description": "خاصية divided تضيف حدودًا بين الرأس والمحتوى والتذييل.",
-        "cardTitle": "تفاصيل الفوترة",
-        "cardDescription": "فاتورة #1042 · الاستحقاق 15 أبريل",
-        "cardContent": "المبلغ المستحق: 248.00$",
-        "save": "حفظ التغييرات",
-        "cancel": "إلغاء"
-      },
-      "roundedShadow": {
-        "title": "التقويس والظل",
-        "description": "نصف قطر الزوايا والارتفاع خصائص مستقلة.",
-        "rounded": {
-          "none": "بدون تقويس",
-          "md": "تقويس md",
-          "xl": "تقويس xl",
-          "2xl": "تقويس 2xl"
-        },
-        "shadow": {
-          "none": "بدون ظل",
-          "sm": "ظل sm",
-          "md": "ظل md",
-          "lg": "ظل lg"
-        }
-      },
-      "interactive": {
-        "title": "تفاعلي",
-        "description": "دعم لوحة المفاتيح وحالات hover و focus و selected مدمجة.",
-        "selected": "مُحدّد",
-        "select": "اختر الخطة",
-        "basic": {
-          "title": "أساسي",
-          "description": "ميزات أساسية للفرق الصغيرة.",
-          "price": "9$ / شهر"
-        },
-        "pro": {
-          "title": "Pro",
-          "description": "تحليلات وتكاملات متقدمة.",
-          "price": "29$ / شهر"
-        }
+        "description": "Appearances examples and configuration options.",
+        "ghost": "Ghost",
+        "ghostDescription": "Minimal surface without background fill.",
+        "outline": "Outline",
+        "outlineDescription": "Bordered card with transparent fill.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with muted foreground text.",
+        "solid": "Solid",
+        "solidDescription": "Filled background with high-contrast text.",
+        "title": "Appearances"
       },
       "compositions": {
-        "title": "التكوينات",
-        "description": "امزج الفتحات لتخطيطات أبسط.",
-        "contentOnly": "محتوى فقط",
-        "contentOnlyBody": "بطاقة شبح بسيطة بـ Card.Content فقط.",
-        "headerContent": "رأس ومحتوى",
-        "headerContentTitle": "ملخص أسبوعي",
-        "headerContentDescription": "المقاييس الرئيسية من آخر سبعة أيام.",
-        "headerContentBody": "الإيرادات ارتفعت 12٪ مقارنة بالأسبوع السابق.",
-        "mediaOnly": "وسائط فقط",
-        "mediaAlt": "معاينة التحليلات"
+        "contentOnly": "Content Only",
+        "contentOnlyBody": "Content Only Body",
+        "description": "Compositions examples and configuration options.",
+        "headerContent": "Header Content",
+        "headerContentBody": "Header Content Body",
+        "headerContentDescription": "Header Content Description",
+        "headerContentTitle": "Header Content Title",
+        "mediaAlt": "Media Alt",
+        "mediaOnly": "Media Only",
+        "title": "Compositions"
+      },
+      "compound": {
+        "badge": "Badge",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Compound examples and configuration options.",
+        "dismiss": "Dismiss",
+        "title": "Compound",
+        "viewDetails": "View Details"
+      },
+      "divided": {
+        "cancel": "Cancel",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Divided examples and configuration options.",
+        "save": "Save",
+        "title": "Divided"
+      },
+      "headerAction": {
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Header Action examples and configuration options.",
+        "menuLabel": "Menu",
+        "title": "Header Action"
+      },
+      "interactive": {
+        "basic": {
+          "description": "Essential features for getting started.",
+          "price": "$9/mo",
+          "title": "Basic"
+        },
+        "description": "Interactive examples and configuration options.",
+        "pro": {
+          "description": "Advanced tools for growing teams.",
+          "price": "$29/mo",
+          "title": "Pro"
+        },
+        "select": "Select",
+        "selected": "Selected",
+        "title": "Interactive"
+      },
+      "media": {
+        "action": "Action",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Media examples and configuration options.",
+        "imageAlt": "Media image",
+        "square": "Square",
+        "title": "Media",
+        "video": "Video",
+        "wide": "Wide"
+      },
+      "orientation": {
+        "action": "Action",
+        "cardContent": "Card Content",
+        "cardDescription": "Card Description",
+        "cardTitle": "Card Title",
+        "description": "Orientation examples and configuration options.",
+        "imageAlt": "Orientation image",
+        "title": "Orientation"
+      },
+      "roundedShadow": {
+        "description": "Rounded Shadow examples and configuration options.",
+        "rounded": {
+          "2xl": "2XL",
+          "md": "MD",
+          "none": "None",
+          "xl": "XL"
+        },
+        "shadow": {
+          "lg": "LG",
+          "md": "MD",
+          "none": "None",
+          "sm": "SM"
+        },
+        "title": "Rounded Shadow"
+      },
+      "severities": {
+        "danger": "Danger",
+        "dangerDescription": "Critical error or destructive action card.",
+        "default": "Default",
+        "defaultDescription": "Neutral card for general content.",
+        "description": "Severities examples and configuration options.",
+        "info": "Info",
+        "infoDescription": "Informational update or tip card.",
+        "muted": "Muted",
+        "mutedDescription": "De-emphasized card with subdued colors.",
+        "primary": "Primary",
+        "primaryDescription": "Emphasized brand-colored card.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Subtle secondary accent card.",
+        "success": "Success",
+        "successDescription": "Positive outcome or confirmation card.",
+        "title": "Severities",
+        "warning": "Warning",
+        "warningDescription": "Attention needed before proceeding."
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "sampleContent": "Sample Content",
+        "sampleTitle": "Sample Title",
+        "title": "Sizes"
       }
     },
     "carousel": {
-      "compound": {
-        "title": "عرض دوار رئيسي",
-        "description": "واجهة مركبة مع تشغيل تلقائي وحلقة وشريط تقدم وأزرار solid."
-      },
-      "useCases": {
-        "title": "أنماط واقعية",
-        "description": "بطل صفحة هبوط، معرض منتجات، بطاقات وجهات، عروض، وصفوف فئات — كل منها بصور مخصصة.",
-        "frames": {
-          "landingHero": "بطل صفحة الهبوط",
-          "productGallery": "معرض منتجات · peek",
-          "destinations": "بطاقات وجهات",
-          "promotions": "لافتات ترويجية",
-          "categories": "صور مصغرة للفئات",
-          "relatedProducts": "منتجات ذات صلة · ٣ في العرض"
-        },
-        "heroes": {
-          "workspace": {
-            "title": "مساحة عمل حديثة",
-            "description": "تعاون من أي مكان بأدوات سحابية."
-          },
-          "travel": {
-            "title": "اكتشف أماكن جديدة",
-            "description": "رحلات منتقاة لكل موسم."
-          },
-          "food": {
-            "title": "قائمة موسمية طازجة",
-            "description": "أطباق من الطهاة إلى بابك."
-          },
-          "retail": {
-            "title": "مجموعة الربيع",
-            "description": "وصول جديد هذا الأسبوع."
-          },
-          "team": {
-            "title": "مصمّم للفرق",
-            "description": "أنجز أسرع بلوحات مشتركة."
-          }
-        },
-        "products": {
-          "watch": {
-            "name": "ساعة minimal",
-            "price": "١٢٩ $"
-          },
-          "headphones": {
-            "name": "سماعات استوديو",
-            "price": "٢٤٩ $"
-          },
-          "camera": {
-            "name": "كاميرا مدمجة",
-            "price": "٥٩٩ $"
-          },
-          "sneaker": {
-            "name": "حذاء جري",
-            "price": "٨٩ $"
-          },
-          "chair": {
-            "name": "كرسي lounge",
-            "price": "٣٤٩ $"
-          },
-          "plant": {
-            "name": "نبتة مكتب",
-            "price": "٢٤ $"
-          }
-        },
-        "destinations": {
-          "city": {
-            "title": "هروب حضري",
-            "description": "عطلات نهاية أسبوع"
-          },
-          "interior": {
-            "title": "ملاذ دافئ",
-            "description": "إقامات بتصميم"
-          },
-          "coast": {
-            "title": "إطلالة ساحلية",
-            "description": "عطلات على الشاطئ"
-          }
-        },
-        "promos": {
-          "release": {
-            "title": "إطلاق منتج",
-            "description": "وصول مبكر للأعضاء"
-          },
-          "event": {
-            "title": "حدث مباشر",
-            "description": "سجّل قبل امتلاء المقاعد"
-          }
-        },
-        "categories": {
-          "coffee": "قهوة وشاي",
-          "desk": "مساحة عمل",
-          "fitness": "لياقة"
-        }
-      },
-      "shared": {
-        "slideLabel": "شريحة {{n}}"
-      },
-      "layouts": {
-        "title": "العرض والارتفاع",
-        "description": "يتكيّف العرض الدوار مع الحاوية ومحتوى الشريحة — عرض كامل، شريط جانبي، نصف عمود، أو ارتفاعات مختلطة.",
-        "fullWidth": "عرض كامل · شرائح لافتة قصيرة",
-        "sidebar": "عرض الشريط الجانبي (w-72)",
-        "halfWidth": "نصف عمود (sm:w-1/2)",
-        "dynamicHeight": "ارتفاعات شرائح مختلطة",
-        "heroDescription": "صورة بطولية لأقسام الهبوط.",
-        "bannerHint": "شريط إعلان قصير",
-        "bannerSlide": "إعلان",
-        "heroSlide": "ميزة بارزة",
-        "statSlide": "٩٨٪",
-        "compactSlide": "وسم مدمج",
-        "shortSlideHint": "مساحة عمودية minimal",
-        "tallSlideHint": "محتوى بطولي أطول",
-        "metricHint": "بلاطة KPI أو إحصاء",
-        "fixedDimensions": "عرض وارتفاع ثابتان",
-        "fixedDimensionsHint": "width=\"50%\" height=\"400px\" على Carousel"
-      },
-      "transitions": {
-        "title": "الانتقالات",
-        "description": "انزلاق أو تلاشي متقاطع بين اللوحات.",
-        "slide": "انزلاق",
-        "fade": "تلاشي"
-      },
-      "indicators": {
-        "title": "المؤشرات",
-        "description": "نقاط أو أشرطة أو حبوب أو عداد كسري أو شريط تقدم للتشغيل التلقائي.",
-        "dots": "نقاط",
-        "bars": "أشرطة",
-        "pills": "حبوب",
-        "fraction": "كسري",
-        "progress": "تقدم"
-      },
-      "sizes": {
-        "title": "الأحجام",
-        "description": "إيقاع تباعد الجذر ومقياس أزرار التحكم الافتراضي (sm، md، lg)."
-      },
-      "controls": {
-        "title": "أنواع التحكم",
-        "description": "أزرار سابق/التالي ghost أو outline أو solid.",
-        "ghost": "Ghost",
-        "outline": "Outline",
-        "solid": "Solid"
+      "slides": {
+        "title": "الشرائح",
+        "slide": "الشرائح"
       },
       "autoplay": {
-        "title": "تشغيل تلقائي",
-        "description": "يتقدّم كل خمس ثوانٍ ويتوقّف عند التمرير أو التركيز."
+        "description": "Autoplay examples and configuration options.",
+        "title": "Autoplay"
       },
-      "peek": {
-        "title": "Peek",
-        "description": "يعرض جزءًا من الشريحة التالية مع تباعد بين اللوحات."
+      "compound": {
+        "description": "Compound examples and configuration options.",
+        "title": "Compound"
       },
-      "slidesPerView": {
-        "title": "شرائح متعددة",
-        "description": "اعرض عنصرين أو ثلاثة أو أربعة دفعة واحدة. استخدم slidesToScroll للتقدّم بعنصر أو صفحة كاملة.",
-        "two": "٢ في العرض",
-        "three": "٣ في العرض",
-        "four": "٤ في العرض",
-        "pageScroll": "تمرير صفحة (٣ في العرض)"
+      "controls": {
+        "description": "Controls examples and configuration options.",
+        "title": "Controls"
+      },
+      "indicators": {
+        "description": "Indicators examples and configuration options.",
+        "title": "Indicators"
+      },
+      "layouts": {
+        "bannerSlide": "Banner Slide",
+        "compactSlide": "Compact Slide",
+        "description": "Layouts examples and configuration options.",
+        "dynamicHeight": "Dynamic Height",
+        "fixedDimensions": "Fixed Dimensions",
+        "fixedDimensionsHint": "Fixed Dimensions Hint",
+        "fullWidth": "Full Width",
+        "halfWidth": "Half Width",
+        "heroSlide": "Hero Slide",
+        "metricHint": "Metric Hint",
+        "shortSlideHint": "Short Slide Hint",
+        "sidebar": "Sidebar",
+        "statSlide": "Stat Slide",
+        "tallSlideHint": "Tall Slide Hint",
+        "title": "Layouts"
       },
       "outsideControls": {
-        "title": "تحكم خارجي",
-        "description": "أزرار سابق/التالي بجانب منطقة العرض مع عداد كسري بالأسفل."
+        "description": "Outside Controls examples and configuration options.",
+        "title": "Outside Controls"
+      },
+      "peek": {
+        "description": "Peek examples and configuration options.",
+        "title": "Peek"
       },
       "rounded": {
-        "title": "زوايا مستديرة",
-        "description": "قص الشرائح حسب نصف قطر الحدود المحدد.",
-        "md": "مستدير md",
-        "xl": "مستدير xl",
-        "2xl": "مستدير 2xl"
+        "description": "Rounded examples and configuration options.",
+        "title": "Rounded"
+      },
+      "shared": {
+        "slideLabel": "Slide"
+      },
+      "sizes": {
+        "description": "Sizes examples and configuration options.",
+        "title": "Sizes"
+      },
+      "slidesPerView": {
+        "description": "Slides Per View examples and configuration options.",
+        "pageScroll": "Page Scroll",
+        "title": "Slides Per View"
+      },
+      "transitions": {
+        "description": "Transitions examples and configuration options.",
+        "title": "Transitions"
       }
     },
     "charts": {
+      "bar": {
+        "title": "أعمدة",
+        "chartTitles": {
+          "channels": "Channels",
+          "plans": "Plans",
+          "products": "Products",
+          "profitLoss": "Profit Loss",
+          "revenue": "Revenue"
+        },
+        "description": "Bar examples and configuration options.",
+        "frames": {
+          "customTooltip": "Custom Tooltip",
+          "horizontal": "Horizontal",
+          "narrowBars": "Narrow Bars",
+          "negative": "Negative",
+          "rotatedLabels": "Rotated Labels",
+          "stacked": "Stacked",
+          "vertical": "Vertical",
+          "wideBars": "Wide Bars",
+          "withBackground": "With Background"
+        },
+        "series": {
+          "email": "Email",
+          "expenses": "Expenses",
+          "netProfit": "Net Profit",
+          "organic": "Organic",
+          "paid": "Paid",
+          "profit": "Profit",
+          "referral": "Referral",
+          "revenue": "Revenue",
+          "unitsSold": "Units Sold"
+        }
+      },
+      "pie": {
+        "title": "دائري",
+        "chartTitles": {
+          "campaigns": "Campaigns",
+          "categories": "Categories",
+          "technology": "Technology"
+        },
+        "description": "Pie examples and configuration options.",
+        "frames": {
+          "basic": "Basic",
+          "donutDrillDown": "Donut Drill Down",
+          "insideLabels": "Inside Labels",
+          "noRadius": "No Radius",
+          "rose": "Rose",
+          "thinDonut": "Thin Donut"
+        }
+      },
+      "doughnut": {
+        "title": "حلقي",
+        "done": "مكتمل",
+        "pending": "قيد الانتظار",
+        "chartTitles": {
+          "budget": "Budget",
+          "projects": "Projects",
+          "tasks": "Tasks"
+        },
+        "description": "Doughnut examples and configuration options.",
+        "frames": {
+          "budget": "Budget",
+          "completion": "Completion",
+          "percentLabels": "Percent Labels",
+          "rose": "Rose",
+          "thickRing": "Thick Ring",
+          "withLegend": "With Legend"
+        }
+      },
+      "area": {
+        "chartTitles": {
+          "energy": "Energy",
+          "growth": "Growth",
+          "traffic": "Traffic"
+        },
+        "description": "Area examples and configuration options.",
+        "frames": {
+          "smooth": "Smooth",
+          "stacked": "Stacked"
+        },
+        "series": {
+          "direct": "Direct",
+          "email": "Email",
+          "gas": "Gas",
+          "hydro": "Hydro",
+          "paid": "Paid",
+          "revenue": "Revenue",
+          "search": "Search",
+          "social": "Social",
+          "solar": "Solar",
+          "wind": "Wind"
+        },
+        "title": "Area"
+      },
+      "layouts": {
+        "description": "Layouts examples and configuration options.",
+        "frames": {
+          "compact": "Compact",
+          "fullBleed": "Full Bleed",
+          "halfColumn": "Half Column",
+          "tall": "Tall"
+        },
+        "title": "Layouts",
+        "titles": {
+          "annualRevenue": "Annual Revenue"
+        }
+      },
+      "line": {
+        "chartTitles": {
+          "activeUsers": "Active Users",
+          "funnel": "Funnel"
+        },
+        "description": "Line examples and configuration options.",
+        "frames": {
+          "multiColor": "Multi Color",
+          "noArea": "No Area",
+          "smooth": "Smooth",
+          "step": "Step"
+        },
+        "series": {
+          "desktop": "Desktop",
+          "mobile": "Mobile",
+          "revenue": "Revenue",
+          "signups": "Signups",
+          "tablet": "Tablet",
+          "trials": "Trials",
+          "visits": "Visits"
+        },
+        "title": "Line"
+      },
+      "map": {
+        "description": "Map examples and configuration options.",
+        "descriptions": {
+          "iran": "Iran dashboard sample.",
+          "iranLabels": "Iran Labels dashboard sample.",
+          "us": "Us dashboard sample.",
+          "world": "World dashboard sample."
+        },
+        "frames": {
+          "compactWorld": "Compact World",
+          "iranLabels": "Iran Labels",
+          "iranSales": "Iran Sales",
+          "sidebarUs": "Sidebar Us",
+          "usTechJobs": "Us Tech Jobs",
+          "worldGdp": "World Gdp"
+        },
+        "rangeHigh": "Range High",
+        "rangeLow": "Range Low",
+        "title": "Map",
+        "tooltip": {
+          "country": "Country",
+          "gdp": "Gdp",
+          "province": "Province",
+          "sales": "Sales"
+        }
+      },
+      "states": {
+        "description": "States examples and configuration options.",
+        "frames": {
+          "loading": "Loading",
+          "noLegend": "No Legend",
+          "noTooltip": "No Tooltip"
+        },
+        "title": "States"
+      },
+      "treeMap": {
+        "chartTitles": {
+          "marketShare": "Market Share",
+          "websiteTraffic": "Website Traffic"
+        },
+        "description": "Tree Map examples and configuration options.",
+        "frames": {
+          "marketShare": "Market Share",
+          "websiteTraffic": "Website Traffic"
+        },
+        "title": "Tree Map"
+      },
+      "useCases": {
+        "description": "Use Cases examples and configuration options.",
+        "descriptions": {
+          "ecommerce": "Ecommerce dashboard sample.",
+          "healthcare": "Healthcare dashboard sample.",
+          "saas": "SAAS dashboard sample."
+        },
+        "frames": {
+          "ecommerce": "Ecommerce",
+          "healthcare": "Healthcare",
+          "ops": "Ops",
+          "payments": "Payments",
+          "saas": "SAAS"
+        },
+        "series": {
+          "api": "API",
+          "churn": "Churn",
+          "database": "Database",
+          "electronics": "Electronics",
+          "emergency": "Emergency",
+          "fashion": "Fashion",
+          "home": "Home",
+          "mrr": "MRR",
+          "newLogos": "New Logos",
+          "pediatrics": "Pediatrics",
+          "surgery": "Surgery"
+        },
+        "title": "Use Cases",
+        "titles": {
+          "admissions": "Admissions",
+          "ecommerce": "Ecommerce",
+          "latency": "Latency",
+          "saasMrr": "SAAS MRR"
+        }
+      },
       "shared": {
         "months": {
           "jan": "يناير",
@@ -1873,222 +3662,10 @@
           "dec": "ديسمبر"
         },
         "quarters": {
-          "q1": "Q1",
-          "q2": "Q2",
-          "q3": "Q3",
-          "q4": "Q4"
-        }
-      },
-      "useCases": {
-        "title": "Real-world dashboards",
-        "description": "SaaS, e-commerce, healthcare, and ops metrics with realistic datasets.",
-        "frames": {
-          "saas": "SaaS · MRR & growth",
-          "ecommerce": "E-commerce · orders by category",
-          "payments": "Payment mix",
-          "healthcare": "Healthcare · admissions",
-          "ops": "DevOps · API latency"
-        },
-        "descriptions": {
-          "saas": "Monthly recurring revenue alongside new logos and churn.",
-          "ecommerce": "Stacked weekly orders across product verticals.",
-          "healthcare": "Department admissions tracked over a week."
-        },
-        "titles": {
-          "saasMrr": "MRR dashboard",
-          "ecommerce": "Weekly orders",
-          "admissions": "Hospital admissions",
-          "latency": "API response time"
-        },
-        "series": {
-          "mrr": "MRR ($K)",
-          "newLogos": "New logos",
-          "churn": "Churn ($K)",
-          "electronics": "Electronics",
-          "fashion": "Fashion",
-          "home": "Home",
-          "emergency": "Emergency",
-          "surgery": "Surgery",
-          "pediatrics": "Pediatrics",
-          "api": "API (ms)",
-          "database": "Database (ms)"
-        }
-      },
-      "layouts": {
-        "title": "Heights & widths",
-        "description": "Charts adapt to full-bleed, compact, half-column, and tall containers.",
-        "frames": {
-          "fullBleed": "Full width · tall",
-          "compact": "Compact · w-64",
-          "halfColumn": "Half column",
-          "tall": "Extra tall · stacked area"
-        },
-        "titles": {
-          "annualRevenue": "Annual revenue overview"
-        }
-      },
-      "bar": {
-        "title": "Bar charts",
-        "description": "Vertical, horizontal, stacked, narrow/wide bars, backgrounds, rotated labels, negatives, and custom tooltips.",
-        "frames": {
-          "vertical": "Vertical · multi-series",
-          "narrowBars": "Narrow bars · 28%",
-          "wideBars": "Wide bars · 78%",
-          "horizontal": "Horizontal ranking",
-          "stacked": "Stacked · 4 series",
-          "withBackground": "Bar background",
-          "rotatedLabels": "Rotated labels",
-          "negative": "Negative values",
-          "customTooltip": "Custom HTML tooltip"
-        },
-        "chartTitles": {
-          "revenue": "Revenue vs expenses",
-          "products": "Units sold by product",
-          "channels": "Leads by channel",
-          "profitLoss": "Regional profit / loss",
-          "plans": "Revenue by plan"
-        },
-        "series": {
-          "revenue": "Revenue",
-          "expenses": "Expenses",
-          "profit": "Profit",
-          "unitsSold": "Units sold",
-          "organic": "Organic",
-          "paid": "Paid",
-          "referral": "Referral",
-          "email": "Email",
-          "netProfit": "Net profit"
-        }
-      },
-      "line": {
-        "title": "Line charts",
-        "description": "Smooth, step, multi-series, custom colors, and line-only modes.",
-        "frames": {
-          "smooth": "Smooth · 3 series + area",
-          "step": "Step · funnel",
-          "noArea": "Line only",
-          "multiColor": "Custom colors"
-        },
-        "chartTitles": {
-          "activeUsers": "Daily active users",
-          "funnel": "Conversion funnel"
-        },
-        "series": {
-          "mobile": "Mobile",
-          "desktop": "Desktop",
-          "tablet": "Tablet",
-          "visits": "Visits",
-          "signups": "Sign-ups",
-          "trials": "Trials",
-          "revenue": "Revenue"
-        }
-      },
-      "area": {
-        "title": "Area charts",
-        "description": "Stacked traffic sources and smooth cumulative growth.",
-        "frames": {
-          "stacked": "Stacked · 5 sources",
-          "smooth": "Smooth area"
-        },
-        "chartTitles": {
-          "traffic": "Weekly traffic sources",
-          "growth": "Revenue growth",
-          "energy": "Energy mix (GWh)"
-        },
-        "series": {
-          "direct": "Direct",
-          "search": "Search",
-          "social": "Social",
-          "email": "Email",
-          "paid": "Paid ads",
-          "revenue": "Revenue",
-          "solar": "Solar",
-          "wind": "Wind",
-          "hydro": "Hydro",
-          "gas": "Natural gas"
-        }
-      },
-      "pie": {
-        "title": "Pie charts",
-        "description": "Slices, donuts, drill-down, rose, inside labels, and styling options.",
-        "frames": {
-          "basic": "Category share",
-          "donutDrillDown": "Donut · drill-down",
-          "rose": "Rose chart",
-          "insideLabels": "Inside labels",
-          "thinDonut": "Thin donut ring",
-          "noRadius": "Square segments"
-        },
-        "chartTitles": {
-          "categories": "Sales by category",
-          "technology": "Technology usage",
-          "campaigns": "Campaign performance"
-        }
-      },
-      "doughnut": {
-        "title": "Doughnut charts",
-        "description": "Completion rings, budgets, rose mode, thick/thin radius, and percentage labels.",
-        "done": "Completed",
-        "pending": "Remaining",
-        "frames": {
-          "completion": "Task breakdown",
-          "withLegend": "Legend & tooltip",
-          "budget": "Budget allocation",
-          "percentLabels": "Percentage labels",
-          "rose": "Rose doughnut",
-          "thickRing": "Thick ring · rounded"
-        },
-        "chartTitles": {
-          "tasks": "Sprint tasks",
-          "projects": "Project status",
-          "budget": "Annual budget"
-        }
-      },
-      "treeMap": {
-        "title": "Treemap",
-        "description": "Hierarchical data with zoom, breadcrumb, and nested categories.",
-        "frames": {
-          "marketShare": "Market cap by sector",
-          "websiteTraffic": "Website traffic by section"
-        },
-        "chartTitles": {
-          "marketShare": "Global market share",
-          "websiteTraffic": "Page views · last 30 days"
-        }
-      },
-      "map": {
-        "title": "Choropleth maps",
-        "description": "Iran provinces, US states, and world countries with GeoJSON — multiple sizes and tooltips.",
-        "frames": {
-          "iranSales": "Iran · province sales",
-          "iranLabels": "Iran · labels & tooltip",
-          "usTechJobs": "USA · tech employment",
-          "worldGdp": "World · GDP heatmap",
-          "compactWorld": "Compact world · sidebar",
-          "sidebarUs": "Sidebar · US states"
-        },
-        "descriptions": {
-          "iran": "Built-in Iran map with visual map legend.",
-          "iranLabels": "Province labels with rich HTML tooltip.",
-          "us": "GeoJSON from Apache ECharts · state-level data.",
-          "world": "World countries GeoJSON · GDP sample data."
-        },
-        "rangeLow": "Low",
-        "rangeHigh": "High",
-        "tooltip": {
-          "province": "Province",
-          "sales": "Sales (K units)",
-          "country": "Country",
-          "gdp": "GDP (USD B)"
-        }
-      },
-      "states": {
-        "title": "States & options",
-        "description": "Loading overlay, hidden legend, and disabled tooltips.",
-        "frames": {
-          "loading": "Loading",
-          "noLegend": "Legend hidden",
-          "noTooltip": "Tooltip off"
+          "q1": "ر1",
+          "q2": "ر2",
+          "q3": "ر3",
+          "q4": "ر4"
         }
       }
     },
@@ -2114,6 +3691,63 @@
         "default": "افتراضي",
         "active": "نشط",
         "muted": "باهت"
+      },
+      "chipRemove": {
+        "active": "Active",
+        "description": "Chip Remove examples and configuration options.",
+        "inactive": "Inactive",
+        "options": {
+          "design": "Design",
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "devops": "Devops"
+        },
+        "title": "Chip Remove"
+      },
+      "chipSelect": {
+        "description": "Chip Select examples and configuration options.",
+        "disabledState": "Disabled State",
+        "options": {
+          "today": "Today",
+          "week": "Week",
+          "month": "Month",
+          "year": "Year"
+        },
+        "singleSelect": "Single Select",
+        "title": "Chip Select"
+      },
+      "filterChips": {
+        "description": "Filter Chips examples and configuration options.",
+        "region": "Region",
+        "regionValue": "Region Value",
+        "status": "Status",
+        "statusValue": "Status Value",
+        "title": "Filter Chips"
+      },
+      "selectChips": {
+        "description": "Select Chips examples and configuration options.",
+        "items": {
+          "react": "React",
+          "typescript": "TypeScript",
+          "tailwind": "Tailwind",
+          "motion": "Motion",
+          "vite": "Vite",
+          "pnpm": "pnpm"
+        },
+        "rowLimit": "Row Limit",
+        "title": "Select Chips",
+        "withOverflow": "With Overflow"
+      },
+      "styled": {
+        "compact": "Compact",
+        "outline": "Outline",
+        "preset": "Preset",
+        "title": "Styled"
+      },
+      "template": {
+        "prefix": "Prefix",
+        "title": "Template",
+        "value": "Value"
       }
     },
     "collapsible": {
@@ -2121,6 +3755,85 @@
         "title": "كتلة قابلة للتوسيع",
         "trigger": "التفاصيل",
         "content": "يظهر المحتوى المخفي عند تفعيل المُشغّل."
+      },
+      "asChildTrigger": {
+        "buttonLabel": "Button",
+        "content": "Details about as child trigger.",
+        "description": "As Child Trigger examples and configuration options.",
+        "title": "As Child Trigger"
+      },
+      "basic": {
+        "content": "Details about basic.",
+        "description": "Basic examples and configuration options.",
+        "title": "Basic",
+        "trigger": "Basic"
+      },
+      "controlled": {
+        "close": "Close",
+        "closedLabel": "Closed",
+        "content": "Details about controlled.",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "open": "Open",
+        "openLabel": "Open",
+        "title": "Controlled",
+        "trigger": "Controlled"
+      },
+      "defaultOpen": {
+        "content": "Details about default open.",
+        "description": "Default Open examples and configuration options.",
+        "title": "Default Open",
+        "trigger": "Default Open"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "disabledContent": "Disabled Content",
+        "disabledTrigger": "Disabled Trigger",
+        "enabledContent": "Enabled Content",
+        "enabledTrigger": "Enabled Trigger",
+        "title": "Disabled"
+      },
+      "imageCard": {
+        "content": "Details about image card.",
+        "description": "Image Card examples and configuration options.",
+        "price": "Price",
+        "productName": "Product Name",
+        "spec1": "Spec1",
+        "spec2": "Spec2",
+        "spec3": "Spec3",
+        "title": "Image Card"
+      },
+      "imageGallery": {
+        "description": "Image Gallery examples and configuration options.",
+        "items": {
+          "watch": "Smart watch",
+          "headphones": "Wireless headphones",
+          "camera": "Mirrorless camera",
+          "sneaker": "Running sneaker",
+          "chair": "Desk chair",
+          "plant": "Desk plant"
+        },
+        "title": "Image Gallery",
+        "trigger": "Image Gallery"
+      },
+      "richContent": {
+        "description": "Rich Content examples and configuration options.",
+        "intro": "Overview of rich content.",
+        "listItem1": "Bullet point 1.",
+        "listItem2": "Bullet point 2.",
+        "listItem3": "Bullet point 3.",
+        "outro": "Additional notes and references.",
+        "title": "Rich Content",
+        "trigger": "Rich Content"
+      },
+      "variants": {
+        "content": "Details about variants.",
+        "default": "Default",
+        "description": "Variants examples and configuration options.",
+        "ghost": "Ghost",
+        "outline": "Outline",
+        "title": "Variants",
+        "trigger": "Variants"
       }
     },
     "context-menu": {
@@ -2130,6 +3843,113 @@
         "copy": "نسخ",
         "paste": "لصق",
         "delete": "حذف"
+      },
+      "basic": {
+        "copy": "Copy",
+        "delete": "Delete",
+        "description": "Basic examples and configuration options.",
+        "paste": "Paste",
+        "title": "Basic",
+        "trigger": "Basic"
+      },
+      "checkbox": {
+        "description": "Checkbox examples and configuration options.",
+        "label": "Label",
+        "showBadges": "Show Badges",
+        "showGrid": "Show Grid",
+        "showLabels": "Show Labels",
+        "title": "Checkbox",
+        "trigger": "Checkbox"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "devtools": "Devtools",
+        "duplicate": "Duplicate",
+        "insetLabel": "Inset",
+        "inspect": "Inspect",
+        "label": "Label",
+        "moveDisabled": "Move Disabled",
+        "title": "Disabled",
+        "trigger": "Disabled"
+      },
+      "gallery": {
+        "delete": "Delete",
+        "description": "Gallery examples and configuration options.",
+        "download": "Download",
+        "favorite": "Favorite",
+        "products": {
+          "watch": "Smart watch product photo",
+          "headphones": "Wireless headphones product photo",
+          "camera": "Mirrorless camera product photo",
+          "sneaker": "Running sneaker product photo"
+        },
+        "rowLabel": "Row",
+        "share": "Share",
+        "title": "Gallery"
+      },
+      "imageTrigger": {
+        "alt": "Image Trigger image",
+        "copyImage": "Copy Image",
+        "description": "Image Trigger examples and configuration options.",
+        "open": "Open",
+        "remove": "Remove",
+        "saveAs": "Save As",
+        "setWallpaper": "Set Wallpaper",
+        "title": "Image Trigger"
+      },
+      "labels": {
+        "archive": "Archive",
+        "dangerZone": "Danger Zone",
+        "delete": "Delete",
+        "description": "Labels examples and configuration options.",
+        "fileActions": "File Actions",
+        "open": "Open",
+        "rename": "Rename",
+        "share": "Share",
+        "title": "Labels",
+        "trigger": "Labels"
+      },
+      "radio": {
+        "date": "Date",
+        "description": "Radio examples and configuration options.",
+        "grid": "Grid",
+        "list": "List",
+        "name": "Name",
+        "size": "Size",
+        "sortLabel": "Sort",
+        "title": "Radio",
+        "trigger": "Radio",
+        "viewLabel": "View"
+      },
+      "shortcuts": {
+        "copy": "Copy",
+        "copyShortcut": "Copy Shortcut",
+        "cut": "Cut",
+        "cutShortcut": "Cut Shortcut",
+        "description": "Shortcuts examples and configuration options.",
+        "label": "Label",
+        "paste": "Paste",
+        "pasteShortcut": "Paste Shortcut",
+        "redo": "Redo",
+        "redoShortcut": "Redo Shortcut",
+        "title": "Shortcuts",
+        "trigger": "Shortcuts",
+        "undo": "Undo",
+        "undoShortcut": "Undo Shortcut"
+      },
+      "submenu": {
+        "addToCart": "Add To Cart",
+        "alt": "Submenu image",
+        "copyLink": "Copy Link",
+        "description": "Submenu examples and configuration options.",
+        "email": "Email",
+        "export": "Export",
+        "jpeg": "Jpeg",
+        "png": "Png",
+        "share": "Share",
+        "social": "Social",
+        "title": "Submenu",
+        "webp": "Webp"
       }
     },
     "dashboard": {
@@ -2144,15 +3964,74 @@
       "horizontal": {
         "title": "أفقي",
         "sectionAbove": "القسم أعلاه",
-        "sectionBelow": "القسم أدناه"
+        "sectionBelow": "القسم أدناه",
+        "description": "Horizontal examples and configuration options."
       },
       "vertical": {
         "title": "عمودي",
         "left": "يسار",
-        "right": "يمين"
+        "right": "يمين",
+        "description": "Vertical examples and configuration options."
       },
       "customMargin": {
         "title": "هامش مخصص"
+      },
+      "articleLayout": {
+        "body": "Body",
+        "description": "Article Layout examples and configuration options.",
+        "heading": "Heading",
+        "title": "Article Layout"
+      },
+      "customStyle": {
+        "default": "Default",
+        "description": "Custom Style examples and configuration options.",
+        "muted": "Muted",
+        "primary": "Primary",
+        "title": "Custom Style"
+      },
+      "margins": {
+        "description": "Margins examples and configuration options.",
+        "title": "Margins",
+        "values": {
+          "0": "0 px",
+          "8": "8 px",
+          "16": "16 px",
+          "32": "32 px"
+        }
+      },
+      "productCard": {
+        "description": "Product Card examples and configuration options.",
+        "detail": "Detail",
+        "name": "Name",
+        "price": "Price",
+        "title": "Product Card"
+      },
+      "productList": {
+        "description": "Product List examples and configuration options.",
+        "items": {
+          "watch": "Smart watch",
+          "headphones": "Wireless headphones",
+          "camera": "Mirrorless camera"
+        },
+        "prices": {
+          "watch": "$299",
+          "headphones": "$189",
+          "camera": "$899"
+        },
+        "title": "Product List"
+      },
+      "splitPanel": {
+        "description": "Split Panel examples and configuration options.",
+        "left": "Left",
+        "right": "Right",
+        "title": "Split Panel"
+      },
+      "verticalToolbar": {
+        "copy": "Copy",
+        "description": "Vertical Toolbar examples and configuration options.",
+        "download": "Download",
+        "share": "Share",
+        "title": "Vertical Toolbar"
       }
     },
     "errors": {
@@ -2190,12 +4069,150 @@
         "title": "تبديل الظهور",
         "hide": "إخفاء",
         "show": "إظهار",
-        "content": "يظهر المحتوى ويختفي بتلاشٍ"
+        "content": "يظهر المحتوى ويختفي بتلاشٍ",
+        "description": "Visibility Toggle examples and configuration options."
+      },
+      "contentSwap": {
+        "description": "Content Swap examples and configuration options.",
+        "messages": {
+          "first": "This is the first block of content.",
+          "second": "Content has swapped to the second message.",
+          "third": "Now showing the third message."
+        },
+        "next": "Next",
+        "title": "Content Swap"
+      },
+      "controlled": {
+        "content": "Details about controlled.",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "hiddenLabel": "Hidden",
+        "hide": "Hide",
+        "show": "Show",
+        "title": "Controlled",
+        "visibleLabel": "Visible"
+      },
+      "initialStates": {
+        "description": "Initial States examples and configuration options.",
+        "hiddenContent": "Hidden Content",
+        "hiddenLabel": "Hidden",
+        "hiddenPlaceholder": "Hidden Placeholder",
+        "title": "Initial States",
+        "visibleContent": "Visible Content",
+        "visibleLabel": "Visible"
+      },
+      "layoutCollapse": {
+        "blockAbove": "Block Above",
+        "blockBelow": "Block Below",
+        "description": "Layout Collapse examples and configuration options.",
+        "hideMiddle": "Hide Middle",
+        "middleContent": "Middle Content",
+        "showMiddle": "Show Middle",
+        "title": "Layout Collapse"
+      },
+      "multipleItems": {
+        "description": "Multiple Items examples and configuration options.",
+        "details": {
+          "alpha": "Alpha details are visible.",
+          "beta": "Beta details are visible.",
+          "gamma": "Gamma details are visible."
+        },
+        "hide": "Hide",
+        "items": {
+          "alpha": "Item Alpha",
+          "beta": "Item Beta",
+          "gamma": "Item Gamma"
+        },
+        "show": "Show",
+        "title": "Multiple Items"
+      },
+      "richContent": {
+        "badge": "Badge",
+        "body": "Body",
+        "description": "Rich Content examples and configuration options.",
+        "heading": "Heading",
+        "hide": "Hide",
+        "show": "Show",
+        "title": "Rich Content"
+      },
+      "styledVariants": {
+        "content": "Details about styled variants.",
+        "description": "Styled Variants examples and configuration options.",
+        "muted": "Muted",
+        "outline": "Outline",
+        "primary": "Primary",
+        "success": "Success",
+        "title": "Styled Variants"
       }
     },
     "file-uploader": {
       "dropZone": {
-        "title": "منطقة الإفلات"
+        "title": "منطقة الإفلات",
+        "description": "Drop Zone examples and configuration options."
+      },
+      "acceptedTypes": {
+        "description": "Accepted Types examples and configuration options.",
+        "success": "Success",
+        "title": "Accepted Types",
+        "typeError": "Type Error"
+      },
+      "controlled": {
+        "clear": "Clear",
+        "current": "Current: {{value}}",
+        "description": "Controlled examples and configuration options.",
+        "none": "none",
+        "title": "Controlled"
+      },
+      "disabled": {
+        "description": "Disabled examples and configuration options.",
+        "title": "Disabled"
+      },
+      "dragging": {
+        "active": "Active",
+        "description": "Dragging examples and configuration options.",
+        "empty": "Empty",
+        "idle": "Idle",
+        "title": "Dragging"
+      },
+      "multipleFiles": {
+        "description": "Multiple Files examples and configuration options.",
+        "empty": "Empty",
+        "title": "Multiple Files"
+      },
+      "singleFile": {
+        "description": "Single File examples and configuration options.",
+        "empty": "Empty",
+        "nameLabel": "Name",
+        "sizeLabel": "Size",
+        "title": "Single File",
+        "typeLabel": "Type"
+      },
+      "sizeLimits": {
+        "description": "Size Limits examples and configuration options.",
+        "sizeError": "Size Error",
+        "success": "Success",
+        "title": "Size Limits"
+      },
+      "uploadFlow": {
+        "description": "Upload Flow examples and configuration options.",
+        "error": "Error",
+        "reset": "Reset",
+        "simulateFailure": "Simulate Failure",
+        "success": "Success",
+        "title": "Upload Flow",
+        "tryAgain": "Try Again",
+        "uploading": "Uploading"
+      },
+      "visualStates": {
+        "description": "Visual States examples and configuration options.",
+        "error": "Error",
+        "errorMessage": "Sample message text.",
+        "idle": "Idle",
+        "success": "Success",
+        "successMessage": "Sample message text.",
+        "title": "Visual States",
+        "uploading": "Uploading",
+        "uploadingMessage": "Sample message text."
       }
     },
     "flex": {
@@ -2214,6 +4231,174 @@
         "title": "مسافة بين",
         "start": "البداية",
         "end": "النهاية"
+      },
+      "align": {
+        "baseline": "Baseline",
+        "center": "Center",
+        "description": "Align examples and configuration options.",
+        "end": "End",
+        "large": "Large",
+        "medium": "Medium",
+        "mid": "Mid",
+        "short": "Short",
+        "small": "Small",
+        "start": "Start",
+        "stretch": "Stretch",
+        "tall": "Tall",
+        "title": "Align"
+      },
+      "cardBasis": {
+        "1/2": "1/2",
+        "1/3": "1/3",
+        "1/4": "1/4",
+        "auto": "Auto",
+        "description": "Card Basis examples and configuration options.",
+        "full": "Full",
+        "sample": "Sample",
+        "title": "Card Basis"
+      },
+      "cardFlex": {
+        "description": "Card Flex examples and configuration options.",
+        "growLabel": "Grow",
+        "shrinkLabel": "Shrink",
+        "title": "Card Flex"
+      },
+      "cardVariants": {
+        "description": "Card Variants examples and configuration options.",
+        "title": "Card Variants"
+      },
+      "customization": {
+        "action": "Action",
+        "ariaLabel": "Aria",
+        "body": "Body",
+        "description": "Customization examples and configuration options.",
+        "title": "Customization",
+        "titleText": "Title Text"
+      },
+      "direction": {
+        "column": "Column",
+        "column-reverse": "Column reverse",
+        "description": "Direction examples and configuration options.",
+        "itemOne": "Item One",
+        "itemThree": "Item Three",
+        "itemTwo": "Item Two",
+        "row": "Row",
+        "row-reverse": "Row reverse",
+        "title": "Direction"
+      },
+      "gallery": {
+        "description": "Gallery examples and configuration options.",
+        "headerAdditional": "Header Additional",
+        "headerSubtitle": "Header Subtitle",
+        "headerTitle": "Header Title",
+        "title": "Gallery",
+        "viewAll": "View All"
+      },
+      "gap": {
+        "description": "Gap examples and configuration options.",
+        "lg": "Large",
+        "md": "Medium",
+        "none": "None",
+        "sm": "Small",
+        "title": "Gap",
+        "xl": "Extra large"
+      },
+      "header": {
+        "center": {
+          "additional": "Center aligned header",
+          "subtitle": "Subtitle",
+          "title": "Center"
+        },
+        "description": "Header examples and configuration options.",
+        "left": {
+          "additional": "Left aligned header",
+          "subtitle": "Subtitle",
+          "title": "Left"
+        },
+        "right": {
+          "additional": "Right aligned header",
+          "subtitle": "Subtitle",
+          "title": "Right"
+        },
+        "title": "Header",
+        "withActions": {
+          "primary": "Primary",
+          "secondary": "Secondary",
+          "subtitle": "Subtitle",
+          "title": "Header"
+        }
+      },
+      "item": {
+        "basisLabel": "Basis",
+        "description": "Item examples and configuration options.",
+        "first": "First",
+        "fixed": "Fixed",
+        "growLabel": "Grow",
+        "grows": "Grows",
+        "orderLabel": "Order",
+        "second": "Second",
+        "third": "Third",
+        "title": "Item"
+      },
+      "justify": {
+        "alpha": "Alpha",
+        "around": "Space around",
+        "beta": "Beta",
+        "between": "Space between",
+        "center": "Center",
+        "description": "Justify examples and configuration options.",
+        "end": "End",
+        "evenly": "Space evenly",
+        "start": "Start",
+        "title": "Justify"
+      },
+      "products": {
+        "camera": {
+          "description": "Compact body with interchangeable lens mount.",
+          "imageAlt": "Camera product photo",
+          "subtitle": "24 MP · 4K video",
+          "title": "Mirrorless camera"
+        },
+        "chair": {
+          "description": "Lumbar support with breathable fabric seat.",
+          "imageAlt": "Desk chair product photo",
+          "subtitle": "Ergonomic · adjustable",
+          "title": "Desk chair"
+        },
+        "headphones": {
+          "description": "Over-ear comfort with adaptive transparency mode.",
+          "imageAlt": "Headphones product photo",
+          "subtitle": "Noise cancelling",
+          "title": "Wireless headphones"
+        },
+        "plant": {
+          "description": "Potted succulent suited for indoor light.",
+          "imageAlt": "Desk plant product photo",
+          "subtitle": "Low maintenance",
+          "title": "Desk plant"
+        },
+        "sneaker": {
+          "description": "Responsive foam midsole for daily training.",
+          "imageAlt": "Sneaker product photo",
+          "subtitle": "Lightweight mesh",
+          "title": "Running sneaker"
+        },
+        "watch": {
+          "description": "Fitness tracking, notifications, and week-long battery.",
+          "imageAlt": "Smart watch product photo",
+          "subtitle": "Series X · midnight",
+          "title": "Smart watch"
+        }
+      },
+      "shared": {
+        "imageAlt": "Shared image"
+      },
+      "wrap": {
+        "description": "Wrap examples and configuration options.",
+        "nowrap": "No wrap",
+        "title": "Wrap",
+        "wrap": "Wrap",
+        "wrap-reverse": "Wrap reverse"
       }
     },
     "form": {
@@ -2233,6 +4418,176 @@
         "titleRequired": "العنوان مطلوب",
         "submit": "إرسال",
         "submittedToast": "تم الإرسال: {{title}}"
+      },
+      "actions": {
+        "reset": "Reset",
+        "search": "Search",
+        "submit": "Submit"
+      },
+      "basicUsage": {
+        "agreeLabel": "I agree to the terms",
+        "description": "Minimal Form + FormField + FormActions wiring with react-hook-form.",
+        "submittedToast": "Submitted: {{title}}",
+        "title": "Basic usage",
+        "titleLabel": "Title"
+      },
+      "defaults": {
+        "bio": "Product designer · Tehran",
+        "lockedValue": "Locked value",
+        "reviewValue": "Needs review",
+        "username": "jane.doe",
+        "validValue": "Valid value"
+      },
+      "fieldStates": {
+        "description": "Error, success, warning, and disabled presentations.",
+        "disabled": "Referral code",
+        "error": "Email",
+        "errorMessage": "Enter a valid email address.",
+        "success": "Username",
+        "successMessage": "Username is available.",
+        "title": "Field states",
+        "warning": "Display name",
+        "warningMessage": "This name may be visible to other users."
+      },
+      "formHistory": {
+        "columns": {
+          "dateRange": "Date range",
+          "keyword": "Keyword",
+          "plate": "Plate"
+        },
+        "dateRange": "Date range",
+        "description": "FormHistory persists recent submissions in local storage.",
+        "keyword": "Keyword",
+        "plate": "Plate",
+        "submittedToast": "Search saved to history.",
+        "title": "Form history"
+      },
+      "numericFields": {
+        "description": "Number, weight, and range inputs with presets.",
+        "presets": {
+          "heavy": "Heavy (20–100 kg)",
+          "light": "Light (0–5 kg)",
+          "medium": "Medium (5–20 kg)"
+        },
+        "priceRange": "Price range",
+        "quantity": "Quantity",
+        "submittedToast": "Numeric fields saved.",
+        "title": "Numeric fields",
+        "weight": "Weight (kg)"
+      },
+      "productListing": {
+        "category": "Category",
+        "description": "Composite form with image preview and product grid.",
+        "descriptionField": "Description",
+        "featured": "Featured listing",
+        "previewLabel": "Preview",
+        "price": "Price",
+        "product": "Product",
+        "publish": "Publish immediately",
+        "submit": "Save listing",
+        "successToast": "Listing saved: {{title}}",
+        "title": "Product listing",
+        "titleField": "Listing title"
+      },
+      "products": {
+        "camera": {
+          "imageAlt": "Camera product photo",
+          "title": "Mirrorless camera",
+          "subtitle": "24 MP · 4K video",
+          "description": "Compact body with interchangeable lens mount."
+        },
+        "chair": {
+          "imageAlt": "Desk chair product photo",
+          "title": "Desk chair",
+          "subtitle": "Ergonomic · adjustable",
+          "description": "Lumbar support with breathable fabric seat."
+        },
+        "headphones": {
+          "imageAlt": "Headphones product photo",
+          "title": "Wireless headphones",
+          "subtitle": "Noise cancelling",
+          "description": "Over-ear comfort with adaptive transparency mode."
+        },
+        "plant": {
+          "imageAlt": "Desk plant product photo",
+          "title": "Desk plant",
+          "subtitle": "Low maintenance",
+          "description": "Potted succulent suited for indoor light."
+        },
+        "sneaker": {
+          "imageAlt": "Sneaker product photo",
+          "title": "Running sneaker",
+          "subtitle": "Lightweight mesh",
+          "description": "Responsive foam midsole for daily training."
+        },
+        "watch": {
+          "imageAlt": "Smart watch product photo",
+          "title": "Smart watch",
+          "subtitle": "Series X · midnight",
+          "description": "Fitness tracking, notifications, and week-long battery."
+        }
+      },
+      "selectionFields": {
+        "categories": {
+          "accessories": "Accessories",
+          "audio": "Audio",
+          "decor": "Decor",
+          "furniture": "Furniture"
+        },
+        "categoriesLabel": "Categories",
+        "department": "Department",
+        "description": "Select, multi-select, tree select, tags, and radio groups.",
+        "groups": {
+          "electronics": "Electronics",
+          "lifestyle": "Lifestyle"
+        },
+        "product": "Product",
+        "shipping": {
+          "express": "Express",
+          "pickup": "Store pickup",
+          "standard": "Standard"
+        },
+        "shippingLabel": "Shipping",
+        "submittedToast": "Selection saved.",
+        "tags": "Tags",
+        "title": "Selection fields"
+      },
+      "specializedFields": {
+        "birthDate": "Birth date",
+        "description": "Date, OTP, and license plate inputs.",
+        "plate": "License plate",
+        "submittedToast": "Specialized fields saved.",
+        "title": "Specialized fields",
+        "verificationCode": "Verification code"
+      },
+      "textFields": {
+        "bio": "Bio",
+        "description": "Text, password, phone, and textarea inputs inside FormField.",
+        "password": "Password",
+        "phone": "Phone",
+        "submittedToast": "Text fields saved.",
+        "title": "Text fields",
+        "username": "Username"
+      },
+      "toggleFields": {
+        "description": "Checkbox and switch fields bound to form state.",
+        "newsletter": "Subscribe to newsletter",
+        "notifications": "Enable push notifications",
+        "submittedToast": "Preferences saved.",
+        "title": "Toggle fields"
+      },
+      "validation": {
+        "description": "Client-side rules with onInvalid feedback.",
+        "email": "Email",
+        "emailRequired": "Email is required.",
+        "imageAlt": "Team reviewing form submissions",
+        "imageCaption": "Validated submissions sync instantly.",
+        "imageHint": "Use onInvalid for toast or inline summaries.",
+        "invalidToast": "Fix the highlighted fields.",
+        "password": "Password",
+        "passwordMin": "Password must be at least 8 characters.",
+        "successToast": "Validation passed.",
+        "title": "Validation"
       }
     }
   }

@@ -1,12 +1,10 @@
 "use client";
 
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import { ArrowLeft, Clock, Routing, Video } from "iconsax-reactjs";
 import { cn, useLanguage } from "@/lib";
-import { NumberField } from "@/components/macro/table/components/micro";
-import { useSecondConvertor } from "@/features/profiles/utils";
-import { Divider } from "@/components/micro/divider";
-import Chip from "@/components/micro/chips/chip";
+import Chip from "@/components/common/chips/chip";
+import { Divider } from "@/components/common/divider";
 import TextInput from "@/components/common/inputs/text";
 import Button from "@/components/common/buttons";
 import { useLocationPickerStore } from "@/components/compound/location-picker/context";
@@ -15,9 +13,32 @@ export type RoutingSidebarProps = {
   onConfirm: () => void;
 };
 
+function formatDuration(seconds: number): string {
+  const minutes = Math.floor(seconds / 60);
+  const remainder = seconds % 60;
+  if (minutes === 0) return `${remainder}s`;
+  return `${minutes}m ${remainder}s`;
+}
+
+function RouteMetric({
+  value,
+  prefix,
+  className,
+}: {
+  value?: number;
+  prefix?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <span className={cn("dir-ltr inline-flex items-center gap-1", className)}>
+      {prefix ? <span>{prefix}</span> : null}
+      <span>{(value ?? 0).toLocaleString()}</span>
+    </span>
+  );
+}
+
 function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
   const { t } = useLanguage();
-  const convertSecond = useSecondConvertor();
   const { routing, setRouting, setDraftField } = useLocationPickerStore();
   const ol = routing.originLatLng;
   const dl = routing.destinationLatLng;
@@ -54,7 +75,7 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
               <div className="w-full cursor-pointer" onClick={getOrigin}>
                 <TextInput
                   label={t("common.selectOrigin")}
-                  value={ol?.map((x) => x.toFixed(2)).join(" , ")}
+                  value={ol?.map((coord: number) => coord.toFixed(2)).join(" , ")}
                   disabled
                   className="pointer-events-none cursor-pointer text-sm font-semibold"
                   status={addingOrigin ? "warning" : undefined}
@@ -70,7 +91,7 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
               <div className="w-full cursor-pointer" onClick={getDestination}>
                 <TextInput
                   label={t("common.selectDestination")}
-                  value={dl?.map((x) => x.toFixed(2)).join(" , ")}
+                  value={dl?.map((coord: number) => coord.toFixed(2)).join(" , ")}
                   disabled
                   className="pointer-events-none cursor-pointer text-sm font-semibold"
                   status={addingDestination ? "primary" : undefined}
@@ -120,7 +141,7 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
                   <div className="text-foreground/50 mt-4 flex items-center gap-3 text-xs font-semibold">
                     <div className="flex items-center">
                       <Routing size={21} />
-                      <NumberField
+                      <RouteMetric
                         className="mt-px"
                         value={distance < 1000 ? distance : distance / 1000}
                         prefix={
@@ -132,11 +153,11 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock size={17} />
-                      <span className="mt-1">{convertSecond(duration)}</span>
+                      <span className="mt-1">{formatDuration(duration)}</span>
                     </div>
                     <div className="flex items-center">
                       <Video size={22} />
-                      <NumberField
+                      <RouteMetric
                         className="mt-px"
                         value={devices?.length}
                         prefix={t("common.device")}

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import L from "leaflet";
 import { useMapPlugin } from "@/components/common/map/hooks/use-map-plugin";
+import { safeRemoveLayer } from "@/components/common/map/utils/layers";
 import type { MapPolylineProps } from "@/components/common/map/types";
 
 export function MapPolyline({
@@ -15,10 +16,8 @@ export function MapPolyline({
   const lineRef = useRef<L.Polyline | null>(null);
 
   useMapPlugin((map) => {
-    if (lineRef.current) {
-      map.removeLayer(lineRef.current);
-      lineRef.current = null;
-    }
+    safeRemoveLayer(map, lineRef.current);
+    lineRef.current = null;
 
     if (points.length < 2) return;
 
@@ -33,10 +32,8 @@ export function MapPolyline({
     }
 
     return () => {
-      if (lineRef.current) {
-        map.removeLayer(lineRef.current);
-        lineRef.current = null;
-      }
+      safeRemoveLayer(map, lineRef.current);
+      lineRef.current = null;
     };
   }, [points, pathOptions, className, fitBounds, fitBoundsPadding]);
 

@@ -1,11 +1,37 @@
 import L from "leaflet";
 
+/** Avoid Leaflet _leaflet_events errors when icons are already torn down. */
+export function safeRemoveLayer(
+  map: L.Map | null | undefined,
+  layer: L.Layer | null | undefined,
+) {
+  if (!map || !layer) return;
+
+  try {
+    if (map.hasLayer(layer)) {
+      map.removeLayer(layer);
+    }
+  } catch {
+    // Map or layer already destroyed during React unmount
+  }
+}
+
+export function safeDestroyMap(map: L.Map | null | undefined) {
+  if (!map) return;
+
+  try {
+    map.remove();
+  } catch {
+    // Child plugins may have partially torn down layers before map.destroy
+  }
+}
+
 export function removeMarker(
   markerRef: React.MutableRefObject<L.Marker | undefined>,
   map: L.Map,
 ) {
   if (!markerRef.current) return;
-  map.removeLayer(markerRef.current);
+  safeRemoveLayer(map, markerRef.current);
   markerRef.current = undefined;
 }
 
@@ -14,7 +40,7 @@ export function removeLayer(
   map: L.Map,
 ) {
   if (!layerRef.current) return;
-  map.removeLayer(layerRef.current);
+  safeRemoveLayer(map, layerRef.current);
   layerRef.current = undefined;
 }
 

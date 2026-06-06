@@ -3,9 +3,9 @@
 import { memo, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { cn, useLanguage } from "@/lib";
+import Loading from "@/components/common/loading";
 import Skeleton from "@/components/common/skeleton";
-import CarLoader from "@/components/micro/loader";
-import Tabs from "@/components/micro/tabs/tab";
+import Tabs from "@/components/common/tabs/tab";
 import FilterSidebar from "@/components/compound/location-picker/sidebars/filter";
 import RoutingSidebar from "@/components/compound/location-picker/sidebars/routing";
 import {
@@ -48,8 +48,8 @@ function DialogInner({
   const [activeTab, setActiveTab] = useState(0);
   const tabs = useMemo(
     () => [
-      { header: t("locationPicker.tabSelectFromMap") },
-      { header: t("locationPicker.tabRoutingFromMap") },
+      { content: t("locationPicker.tabSelectFromMap") },
+      { content: t("locationPicker.tabRoutingFromMap") },
     ],
     [t],
   );
@@ -66,7 +66,11 @@ function DialogInner({
           className="absolute top-0 left-0 z-5 flex h-full w-full items-center justify-center"
           style={{ backgroundColor: "rgba(128, 128, 128, 0.3)" }}
         >
-          <CarLoader className="scale-75" text={t("locationPicker.loadingRoutes")} />
+          <Loading
+            className="scale-75"
+            label={t("locationPicker.loadingRoutes")}
+            mode="inline"
+          />
         </div>
       )}
       <div className={cn("bg-card flex h-full w-92 flex-col rounded-br-lg border")}>

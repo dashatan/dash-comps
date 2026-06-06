@@ -2,13 +2,15 @@ import { CarPlateInputValue, PlateValue, PlateValueRequestParams } from '@/compo
 import { plateLetters } from '@/components/compound/license-plate/utils/letters'
 
 export function normalizePlateValueToRequest(plate: PlateValue) {
-  let params = {} as PlateValueRequestParams
-  Object.entries(plate).map(([key, val]) => {
+  const params = {} as PlateValueRequestParams
+  for (const [key, val] of Object.entries(plate)) {
     if (key === 'p3') {
       const letter = plateLetters.letters.find((x) => x.letter === val)
-      params[key] = val && letter ? (letter.code as number) : undefined
-    } else params[key] = val ? parseFloat(val) : undefined
-  })
+      params.p3 = val && letter ? (letter.code as number) : undefined
+    } else if (key in params) {
+      params[key as keyof PlateValueRequestParams] = val ? parseFloat(val) : undefined
+    }
+  }
   return params
 }
 

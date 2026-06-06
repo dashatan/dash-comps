@@ -280,6 +280,12 @@
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out"
   },
+  "map": {
+    "geoman": {
+      "polygon": "Draw polygon",
+      "rectangle": "Draw rectangle"
+    }
+  },
   "date": {
     "friday": "Friday",
     "monday": "Monday",
@@ -347,6 +353,22 @@
   },
   "header": {
     "searchPlaceHolder": "Search features..."
+  },
+  "locationPicker": {
+    "camerasFromDate": "Cameras active from",
+    "coordinates": "Coordinates {coords}",
+    "kilometer": "km",
+    "loadingRoutes": "Loading routes…",
+    "mapSearchPlaceholder": "Search on map",
+    "meter": "m",
+    "registeredTraffic": "recorded traffic.",
+    "routeFetchError": "Could not load routes. Try again.",
+    "routeTitle": "Route {index}",
+    "selectDevices": "Select cameras",
+    "selectProvinces": "Select provinces",
+    "selectRoads": "Select roads",
+    "tabRoutingFromMap": "Routing from map",
+    "tabSelectFromMap": "Select from map"
   },
   "plate": {
     "chooseFromGallery": "Choose from saved plates list",

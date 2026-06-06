@@ -26,7 +26,7 @@ function GridBodyCellInner<T extends object>({
     }
   }, [data, column, rowIndex, loading, onCellClick]);
 
-  const showSkeleton = loading && column.body;
+  const showSkeleton = loading;
   const bodyClassName = column.bodyClassName;
 
   let Body: ReactNode = null;
@@ -35,6 +35,14 @@ function GridBodyCellInner<T extends object>({
     Body = <SkeletonField />;
   } else if (column.body) {
     Body = column.body(data);
+  } else if (column.field != null) {
+    const value = data[column.field];
+    Body =
+      value != null && value !== "" ? (
+        typeof value === "string" || typeof value === "number" ? value : String(value)
+      ) : (
+        "—"
+      );
   }
 
   return (

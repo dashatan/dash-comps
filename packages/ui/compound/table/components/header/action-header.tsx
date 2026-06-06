@@ -63,7 +63,9 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
   function handleRefresh() {
     setReorder(true);
     onOrderChange &&
-      onOrderChange({ activeColumns: props.columns?.flatMap((x) => x.field || []) });
+      onOrderChange({
+        activeColumns: props.columns?.flatMap((x) => x.field || []),
+      });
   }
 
   const columnsOptions = orderColumnsWithoutHide(
@@ -105,8 +107,16 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
             { label: t("table.item", { count: 15 }), value: 15, title: "15" },
             { label: t("table.item", { count: 20 }), value: 20, title: "20" },
             { label: t("table.item", { count: 50 }), value: 50, title: "50" },
-            { label: t("table.item", { count: 100 }), value: 100, title: "100" },
-            { label: t("table.item", { count: 1000 }), value: 1000, title: "1000" },
+            {
+              label: t("table.item", { count: 100 }),
+              value: 100,
+              title: "100",
+            },
+            {
+              label: t("table.item", { count: 1000 }),
+              value: 1000,
+              title: "1000",
+            },
           ]}
         />
         <Select.MultiOrderable
@@ -116,7 +126,7 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
               tooltip={t("table.tableSettings")}
               tooltipOptions={{ sideOffset: 22 }}
             >
-              <Cog className="text-icon size-7" />
+              <Cog className="size-7 text-icon" />
             </ActionButton>
           }
           onChange={handleColumnsOrder}
@@ -133,7 +143,8 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
           <ActionButton
             tooltip={t("traffic.changeFilters")}
             onClick={() => {
-              onChange && onChange({ ...state, showFilter: !state.showFilter }, "filter");
+              onChange &&
+                onChange({ ...state, showFilter: !state.showFilter }, "filter");
               table.setValue("showFilter", !state.showFilter);
             }}
           >
@@ -181,7 +192,10 @@ export function ActionButton(props: ButtonProps) {
       asChild
       variant="outlined"
       severity="info"
-      className={cn("bg-input text-icon size-14 min-w-14 border p-0", props.className)}
+      className={cn(
+        "size-14 min-w-14 border bg-input p-0 text-icon",
+        props.className,
+      )}
       {...props}
     >
       <span>{props.children}</span>

@@ -5,7 +5,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { cn } from "@/lib";
 import { LeafletMapProvider } from "@/components/common/map/context";
-import type { LeafletMapProps } from "@/components/common/map/types";
+import type { LeafletMapProps, Point } from "@/components/common/map/types";
+import { safeDestroyMap } from "@/components/common/map/utils/layers";
 import "@/components/common/map/styles.css";
 
 const DEFAULT_CENTER: Point = [35.691143, 51.428421];
@@ -37,7 +38,11 @@ export function LeafletMap({
   onCenterChangeRef.current = onCenterChange;
 
   useEffect(() => {
-    if (typeof window === "undefined" || !containerRef.current || mapRef.current) {
+    if (
+      typeof window === "undefined" ||
+      !containerRef.current ||
+      mapRef.current
+    ) {
       return;
     }
 
@@ -51,7 +56,9 @@ export function LeafletMap({
       L.control.zoom({ position: "topleft" }).addTo(map);
     }
 
-    tileLayerRef.current = L.tileLayer(tileUrl, { minZoom, maxZoom }).addTo(map);
+    tileLayerRef.current = L.tileLayer(tileUrl, { minZoom, maxZoom }).addTo(
+      map,
+    );
 
     const handleDragEnd = () => {
       const c = map.getCenter();
@@ -66,7 +73,7 @@ export function LeafletMap({
 
     return () => {
       map.off("dragend", handleDragEnd);
-      map.remove();
+      safeDestroyMap(map);
       mapRef.current = null;
       tileLayerRef.current = null;
       setMapInstance(null);
@@ -90,7 +97,9 @@ export function LeafletMap({
 
   return (
     <LeafletMapProvider map={mapInstance} isReady={isReady}>
-      <div className={cn("sirat-leaflet-map relative h-full w-full", className)}>
+      <div
+        className={cn("sirat-leaflet-map relative h-full w-full", className)}
+      >
         <div ref={containerRef} className="h-full w-full" />
         {children}
       </div>
