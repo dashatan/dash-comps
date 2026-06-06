@@ -1,6 +1,6 @@
 import { EChartsOption } from "echarts";
 import { BaseChart, ChartProps } from "./base";
-import { getTheme, negativeFormatter } from "@/components/common/charts/helpers";
+import { negativeFormatter } from "@/components/common/charts/helpers";
 import { InferChartPayloadFromSeries } from "@/components/common/charts/infer";
 import { getHexColor } from "@/lib/utils";
 

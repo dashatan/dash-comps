@@ -1,4 +1,5 @@
 import { EChartsOption } from "echarts";
+import type { ECharts, TooltipComponentFormatterCallbackParams } from "echarts";
 import { BaseChart, ChartProps } from "./base";
 import { useMemo, useRef, useEffect, useCallback } from "react";
 import { getTheme } from "./helpers";
@@ -103,8 +104,8 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
   title,
   showTooltip = true,
   visualDimension = "value",
-  roam = false,
-  nodeClick = "zoomToNode",
+  roam = true,
+  nodeClick = false,
   breadcrumb = true,
   labelFontSize = 12,
   upperLabel = {
@@ -130,7 +131,7 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
   ...props
 }: TreeMapChartProps<D>) {
   const theme = getTheme();
-  const chartInstanceRef = useRef<echarts.ECharts | null>(null);
+  const chartInstanceRef = useRef<ECharts | null>(null);
   const isMouseDownOnChartRef = useRef<boolean>(false);
 
   // Filter data to remove items below 2%
@@ -163,7 +164,7 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
     });
   }, []);
 
-  const handleChartReady = useCallback((instance: echarts.ECharts) => {
+  const handleChartReady = useCallback((instance: ECharts) => {
     chartInstanceRef.current = instance;
   }, []);
 
@@ -215,10 +216,11 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
       tooltip: showTooltip
         ? {
             trigger: "item",
-            formatter: (params: any) => {
-              const { name, value, treePathInfo } = params;
-              const path = name;
-              return `${path}<br/>${params.marker || ""}${name}: ${value}`;
+            formatter: (params: TooltipComponentFormatterCallbackParams) => {
+              const first = Array.isArray(params) ? params[0] : params;
+              if (!first) return "";
+              const { name, value } = first;
+              return `${name}<br/>${first.marker ?? ""}${name}: ${value}`;
             },
           }
         : undefined,
@@ -226,8 +228,8 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
         {
           type: "treemap",
           data: filteredData,
-          roam: true,
-          nodeClick: false,
+          roam,
+          nodeClick,
           left: 5,
           right: 5,
           top: 5,
@@ -314,7 +316,7 @@ function TreeMapChartInner<const D extends readonly TreeMapDataItem[]>({
       ],
     }),
     [
-      data,
+      filteredData,
       title,
       showTooltip,
       visualDimension,

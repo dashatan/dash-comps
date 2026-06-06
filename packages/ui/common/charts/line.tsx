@@ -1,7 +1,7 @@
 import { EChartsOption, LineSeriesOption, YAXisComponentOption } from "echarts";
 import { BaseChart, ChartProps } from "./base";
 import { InferChartPayloadFromSeries } from "@/components/common/charts/infer";
-import { getHexColor } from "@/lib";
+import { getHexColor } from "@/lib/utils";
 import { negativeFormatter } from "@/components/common/charts/helpers";
 
 export type LineSeriesInput = Omit<LineSeriesOption, "data"> & {

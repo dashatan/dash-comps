@@ -1,12 +1,11 @@
 import ReactECharts from "echarts-for-react";
 import { EChartsOption } from "echarts";
-import type { TitleComponentOption } from "echarts";
+import type { ECharts, TitleComponentOption } from "echarts";
 import { useTheme } from "next-themes";
 import { forwardRef, useEffect, useRef, useState, type Ref } from "react";
 import { createSeriesConfig, createTooltipFormatter, getTheme } from "./helpers";
 import EChartsReact from "echarts-for-react";
 import { cn } from "@/lib";
-import { useLanguage } from "@/lib";
 import {
   CHART_TOOLTIP_HTML_STYLE,
   ChartTooltipConfig,
@@ -31,7 +30,7 @@ export type ChartProps<T = unknown> = Omit<
     containerClassName?: string;
     loading?: boolean;
     theme?: string;
-    onChartReady?: (instance: echarts.ECharts) => void;
+    onChartReady?: (instance: ECharts) => void;
     onEvents?: Record<string, Function>;
     id?: string;
     textColor?: string;
@@ -60,9 +59,8 @@ function BaseChartInner<T = unknown>(
   ref: Ref<EChartsReact>,
 ) {
   const { resolvedTheme } = useTheme();
-  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
-  const [chartInstance, setChartInstance] = useState<echarts.ECharts | null>(null);
+  const [chartInstance, setChartInstance] = useState<ECharts | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const theme = getTheme();
   const fillsContainer = height === "100%" || height === "100";

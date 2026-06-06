@@ -1,4 +1,5 @@
 import { EChartsOption } from 'echarts'
+import type { DefaultLabelFormatterCallbackParams, ECharts } from 'echarts'
 import { BaseChart, ChartProps } from './base'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { getTheme } from './helpers'
@@ -31,6 +32,12 @@ export type PieChartProps<D extends readonly PieDataItem[] = readonly PieDataIte
   options?: EChartsOption
 }
 
+type PieClickParams = Pick<DefaultLabelFormatterCallbackParams, 'dataIndex' | 'data'>
+
+function isPieDataItem(data: DefaultLabelFormatterCallbackParams['data']): data is PieDataItem {
+  return data != null && typeof data === 'object' && 'name' in data && 'value' in data
+}
+
 function PieChartInner<const D extends readonly PieDataItem[]>({
   data,
   title,
@@ -46,10 +53,11 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
   labelPosition = 'outside',
   centerText = true,
   options,
+  onChartReady,
   ...props
 }: PieChartProps<D>) {
   const theme = getTheme()
-  const [chartInstance, setChartInstance] = useState<echarts.ECharts | null>(null)
+  const [chartInstance, setChartInstance] = useState<ECharts | null>(null)
   const [activeData, setActiveData] = useState<PieDataItem[]>([...data])
   const [parentData, setParentData] = useState<PieDataItem[][]>([])
 
@@ -80,73 +88,39 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
       setActiveData(lastParent)
       setParentData((prev) => prev.slice(0, -1))
     }
-  }, [parentData, title])
+  }, [parentData])
 
-  const handleCenterText = useCallback(
-    (name: string, value: number) => {
-      if (!chartInstance) return
-      const commonOptions = {
-        type: 'text',
-        left: 'center',
-        style: { text: name, fontSize: 12, fontFamily: theme.fontFamily, fontWeight: 'lighter', fill: theme.textColor },
-      }
-      chartInstance?.setOption({
-        graphic: [
-          {
-            type: 'group',
-            left: 'center',
-            top: 'center',
-            z: 100,
-            children: [
-              { ...commonOptions, top: '15' },
-              { ...commonOptions, top: '35', style: { ...commonOptions.style, fontSize: 24, fontWeight: 'bold', text: value } },
-            ],
-          },
-        ],
-      })
+  const handleMouseOver = useCallback(
+    (params: DefaultLabelFormatterCallbackParams) => {
+      if (!centerText) return
+      const data = isPieDataItem(params.data) ? params.data : null
+      if (!data) return
+      setCenterLabel({ name: data.name, value: data.value })
     },
-    [chartInstance, theme]
+    [centerText],
   )
-
-  const handleClearCenterText = useCallback(() => {
-    chartInstance?.setOption?.({
-      graphic: [
-        {
-          type: 'group',
-          left: 'center',
-          top: 'center',
-          z: 100,
-          children: [
-            { type: 'text', style: { text: '' } },
-            { type: 'text', style: { text: '' } },
-          ],
-        },
-      ],
-    })
-  }, [chartInstance])
-
-  const handleMouseOver = useCallback((params: { data?: { name?: string; value?: number } }) => {
-    const { name = "", value = 0 } = params?.data || {};
-    setCenterLabel({ name, value });
-  }, []);
 
   const handleMouseOut = useCallback(() => {
-    setCenterLabel(null);
-  }, []);
+    setCenterLabel(null)
+  }, [])
 
   const handleChartReady = useCallback(
-    (instance: echarts.ECharts) => {
+    (instance: ECharts) => {
       setChartInstance(instance)
-      props.onChartReady?.(instance)
+      onChartReady?.(instance)
     },
-    [props.onChartReady]
+    [onChartReady],
   )
 
-  const handleChartClick = (params: any) => {
-    const hasChildren = params?.data?.children?.length > 0
-    if (hasChildren) handleDrillDown(params)
-    else handleDrillUp()
-  }
+  const handleChartClick = useCallback(
+    (params: PieClickParams) => {
+      const item = isPieDataItem(params.data) ? params.data : undefined
+      const hasChildren = (item?.children?.length ?? 0) > 0
+      if (hasChildren) handleDrillDown(params)
+      else handleDrillUp()
+    },
+    [handleDrillDown, handleDrillUp],
+  )
 
   useEffect(() => {
     if (!chartInstance) return
@@ -160,9 +134,8 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
       chartInstance.off('mouseover', handleMouseOver)
       chartInstance.off('mouseout', handleMouseOut)
     }
-  }, [chartInstance, handleDrillDown, handleDrillUp, handleMouseOver, handleMouseOut])
+  }, [chartInstance, handleChartClick, handleDrillDown, handleDrillUp, handleMouseOver, handleMouseOut])
 
-  // Generate options with current data state
   const generatedOptions = useMemo<EChartsOption>(
     () => ({
       title: {
@@ -196,7 +169,6 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
             hideOverlap: false,
           },
           minAngle,
-          // Label styling
           label: {
             show: showLabel,
             position: labelPosition,
@@ -205,40 +177,30 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
             lineHeight: 4,
             alignTo: 'edge',
             edgeDistance: '5%',
-            ...(options?.label as any),
+            ...(options?.label as object),
           },
-
-          // Label connector lines
           labelLine: {
             show: showLabel && labelPosition === 'outside',
             length: 10,
             length2: 2,
             smooth: true,
-            ...(options?.labelLine as any),
+            ...(options?.labelLine as object),
           },
-
-          // Segment styling
           itemStyle: {
             borderRadius: showRadius ? 4 : 0,
             borderWidth: 2,
             borderColor: theme.backgroundColor,
-
-            ...(options?.itemStyle as any),
+            ...(options?.itemStyle as object),
           },
-
-          // Hover state styling
           emphasis: {
             label: {
               show: showLabel,
               fontSize: labelFontSize,
               fontWeight: 'bold',
-              ...(options?.emphasis as any)?.label,
+              ...((options?.emphasis as { label?: object })?.label),
             },
-
-            ...(options?.emphasis as any),
+            ...(options?.emphasis as object),
           },
-
-          // Animation configuration for smooth drill transitions
           animation: true,
           animationType: 'expansion',
           animationEasing: 'backIn',
@@ -246,12 +208,25 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
           updateAnimation: true,
           updateAnimationDuration: 600,
           animationDelay: (idx: number) => idx * 10,
-
-          ...(options?.series as any),
+          ...(options?.series as object),
         },
       ],
     }),
-    [activeData, donut, labelFontSize, labelPosition, parentData.length, radius, roseType, showLegend, theme, title, options]
+    [
+      activeData,
+      donut,
+      labelFontSize,
+      labelPosition,
+      radius,
+      roseType,
+      showLabel,
+      showLegend,
+      showRadius,
+      showTooltip,
+      theme,
+      title,
+      options,
+    ],
   )
 
   return (
@@ -262,7 +237,7 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
         className={cn('z-5', props.className)}
         {...props}
       />
-      <CenterText centerText={centerLabel} />
+      {centerText ? <CenterText centerText={centerLabel} /> : null}
     </div>
   )
 }
@@ -272,10 +247,12 @@ export const PieChart = PieChartInner
 export default PieChart
 
 function CenterText({ centerText }: { centerText: { name: string; value: number } | null }) {
+  if (!centerText) return null
+
   return (
     <div className='absolute top-1/2 left-1/2 z-4 flex -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center'>
-      <span className='text-foreground/70 text-xs font-bold'>{centerText?.name}</span>
-      <span className='text-2xl font-bold'>{centerText?.value}</span>
+      <span className='text-foreground/70 text-xs font-bold'>{centerText.name}</span>
+      <span className='text-2xl font-bold'>{centerText.value}</span>
     </div>
   )
 }

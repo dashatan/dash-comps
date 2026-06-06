@@ -44,52 +44,6 @@ export const getTheme = () => {
   };
 };
 
-function oklchToRgba(oklch: string): { r: number; g: number; b: number } {
-  // Extract values from oklch string (e.g., "oklch(0.5 0.2 240)")
-  const match = oklch.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
-  if (!match) return { r: 0, g: 0, b: 0 };
-
-  const [, l, c, h] = match.map(Number);
-
-  // Convert OKLCH to RGB using a simplified conversion
-  // This is a basic approximation - for more accurate conversion,
-  // you might want to use a color conversion library
-  const hRad = (h * Math.PI) / 180;
-  const a = c * Math.cos(hRad);
-  const bValue = c * Math.sin(hRad);
-
-  // Convert to RGB
-  const r = Math.round((l + 1.402 * a) * 255);
-  const g = Math.round((l - 0.344136 * a - 0.714136 * bValue) * 255);
-  const b = Math.round((l + 1.772 * bValue) * 255);
-
-  return {
-    r: Math.max(0, Math.min(255, r)),
-    g: Math.max(0, Math.min(255, g)),
-    b: Math.max(0, Math.min(255, b)),
-  };
-}
-
-function addOpacityToColor(color: string, opacity: number): string {
-  // If the color is already in rgba format, update the opacity
-  if (color.startsWith("rgba")) {
-    return color.replace(/[\d.]+\)$/, `${opacity})`);
-  }
-  // If the color is in oklch format, convert to rgba
-  if (color.startsWith("oklch")) {
-    const { r, g, b } = oklchToRgba(color);
-    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-  }
-  // If the color is in hex format, convert to rgba
-  if (color.startsWith("#")) {
-    const r = parseInt(color.slice(1, 3), 16);
-    const g = parseInt(color.slice(3, 5), 16);
-    const b = parseInt(color.slice(5, 7), 16);
-    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-  }
-  return color;
-}
-
 export const createSeriesConfig = (
   series: any,
   index: number,

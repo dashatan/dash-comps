@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useMemo, type Ref } from "react";
 import * as echarts from "echarts";
-import iranGeoJson from "./IRGeoJson3.json" assert { type: "json" };
+import iranGeoJson from "./IRGeoJson3.json" with { type: "json" };
 import {
   MapAreaClickParams,
   MapData,
@@ -19,7 +19,6 @@ import {
 import {
   buildTooltipFormatterContext,
   CHART_TOOLTIP_HTML_STYLE,
-  ChartTooltipConfig,
   formatChartTooltipHtml,
 } from "../tooltip";
 import {
@@ -29,7 +28,7 @@ import {
 } from "echarts";
 import { useThemeColors } from "@/lib/hooks/use-theme-colors";
 import EChartsReact from "echarts-for-react";
-import { getHexColor } from "@/lib";
+import { getHexColor } from "@/lib/utils";
 
 export type { TooltipItem } from "../tooltip";
 export { formatChartTooltipHtml, formatMapTooltipHtml } from "../tooltip";
@@ -96,7 +95,10 @@ function MapInner<const D extends readonly MapData[]>(
   const mapData = data ?? ([] as unknown as D);
 
   useEffect(() => {
-    echarts.registerMap("iran", iranGeoJson as any);
+    echarts.registerMap(
+      "iran",
+      iranGeoJson as Parameters<typeof echarts.registerMap>[1],
+    );
   }, []);
 
   // Ensure non-interactive provinces are always included with blue color, even if missing from data

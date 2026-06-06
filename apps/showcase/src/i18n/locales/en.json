@@ -65,7 +65,7 @@
     },
     "charts": {
       "title": "Charts",
-      "description": "Bar, line, pie, and area charts."
+      "description": "Bar, line, area, pie, doughnut, treemap, and multi-region choropleth maps."
     },
     "chips": {
       "title": "Chips",
@@ -1824,16 +1824,227 @@
       }
     },
     "charts": {
+      "shared": {
+        "months": {
+          "jan": "Jan", "feb": "Feb", "mar": "Mar", "apr": "Apr",
+          "may": "May", "jun": "Jun", "jul": "Jul", "aug": "Aug",
+          "sep": "Sep", "oct": "Oct", "nov": "Nov", "dec": "Dec"
+        },
+        "quarters": {
+          "q1": "Q1", "q2": "Q2", "q3": "Q3", "q4": "Q4"
+        }
+      },
+      "useCases": {
+        "title": "Real-world dashboards",
+        "description": "SaaS, e-commerce, healthcare, and ops metrics with realistic datasets.",
+        "frames": {
+          "saas": "SaaS · MRR & growth",
+          "ecommerce": "E-commerce · orders by category",
+          "payments": "Payment mix",
+          "healthcare": "Healthcare · admissions",
+          "ops": "DevOps · API latency"
+        },
+        "descriptions": {
+          "saas": "Monthly recurring revenue alongside new logos and churn.",
+          "ecommerce": "Stacked weekly orders across product verticals.",
+          "healthcare": "Department admissions tracked over a week."
+        },
+        "titles": {
+          "saasMrr": "MRR dashboard",
+          "ecommerce": "Weekly orders",
+          "admissions": "Hospital admissions",
+          "latency": "API response time"
+        },
+        "series": {
+          "mrr": "MRR ($K)",
+          "newLogos": "New logos",
+          "churn": "Churn ($K)",
+          "electronics": "Electronics",
+          "fashion": "Fashion",
+          "home": "Home",
+          "emergency": "Emergency",
+          "surgery": "Surgery",
+          "pediatrics": "Pediatrics",
+          "api": "API (ms)",
+          "database": "Database (ms)"
+        }
+      },
+      "layouts": {
+        "title": "Heights & widths",
+        "description": "Charts adapt to full-bleed, compact, half-column, and tall containers.",
+        "frames": {
+          "fullBleed": "Full width · tall",
+          "compact": "Compact · w-64",
+          "halfColumn": "Half column",
+          "tall": "Extra tall · stacked area"
+        },
+        "titles": {
+          "annualRevenue": "Annual revenue overview"
+        }
+      },
       "bar": {
-        "title": "Bar"
+        "title": "Bar charts",
+        "description": "Vertical, horizontal, stacked, narrow/wide bars, backgrounds, rotated labels, negatives, and custom tooltips.",
+        "frames": {
+          "vertical": "Vertical · multi-series",
+          "narrowBars": "Narrow bars · 28%",
+          "wideBars": "Wide bars · 78%",
+          "horizontal": "Horizontal ranking",
+          "stacked": "Stacked · 4 series",
+          "withBackground": "Bar background",
+          "rotatedLabels": "Rotated labels",
+          "negative": "Negative values",
+          "customTooltip": "Custom HTML tooltip"
+        },
+        "chartTitles": {
+          "revenue": "Revenue vs expenses",
+          "products": "Units sold by product",
+          "channels": "Leads by channel",
+          "profitLoss": "Regional profit / loss",
+          "plans": "Revenue by plan"
+        },
+        "series": {
+          "revenue": "Revenue",
+          "expenses": "Expenses",
+          "profit": "Profit",
+          "unitsSold": "Units sold",
+          "organic": "Organic",
+          "paid": "Paid",
+          "referral": "Referral",
+          "email": "Email",
+          "netProfit": "Net profit"
+        }
+      },
+      "line": {
+        "title": "Line charts",
+        "description": "Smooth, step, multi-series, custom colors, and line-only modes.",
+        "frames": {
+          "smooth": "Smooth · 3 series + area",
+          "step": "Step · funnel",
+          "noArea": "Line only",
+          "multiColor": "Custom colors"
+        },
+        "chartTitles": {
+          "activeUsers": "Daily active users",
+          "funnel": "Conversion funnel"
+        },
+        "series": {
+          "mobile": "Mobile",
+          "desktop": "Desktop",
+          "tablet": "Tablet",
+          "visits": "Visits",
+          "signups": "Sign-ups",
+          "trials": "Trials",
+          "revenue": "Revenue"
+        }
+      },
+      "area": {
+        "title": "Area charts",
+        "description": "Stacked traffic sources and smooth cumulative growth.",
+        "frames": {
+          "stacked": "Stacked · 5 sources",
+          "smooth": "Smooth area"
+        },
+        "chartTitles": {
+          "traffic": "Weekly traffic sources",
+          "growth": "Revenue growth",
+          "energy": "Energy mix (GWh)"
+        },
+        "series": {
+          "direct": "Direct",
+          "search": "Search",
+          "social": "Social",
+          "email": "Email",
+          "paid": "Paid ads",
+          "revenue": "Revenue",
+          "solar": "Solar",
+          "wind": "Wind",
+          "hydro": "Hydro",
+          "gas": "Natural gas"
+        }
       },
       "pie": {
-        "title": "Pie"
+        "title": "Pie charts",
+        "description": "Slices, donuts, drill-down, rose, inside labels, and styling options.",
+        "frames": {
+          "basic": "Category share",
+          "donutDrillDown": "Donut · drill-down",
+          "rose": "Rose chart",
+          "insideLabels": "Inside labels",
+          "thinDonut": "Thin donut ring",
+          "noRadius": "Square segments"
+        },
+        "chartTitles": {
+          "categories": "Sales by category",
+          "technology": "Technology usage",
+          "campaigns": "Campaign performance"
+        }
       },
       "doughnut": {
-        "title": "Doughnut",
-        "done": "Done",
-        "pending": "Pending"
+        "title": "Doughnut charts",
+        "description": "Completion rings, budgets, rose mode, thick/thin radius, and percentage labels.",
+        "done": "Completed",
+        "pending": "Remaining",
+        "frames": {
+          "completion": "Task breakdown",
+          "withLegend": "Legend & tooltip",
+          "budget": "Budget allocation",
+          "percentLabels": "Percentage labels",
+          "rose": "Rose doughnut",
+          "thickRing": "Thick ring · rounded"
+        },
+        "chartTitles": {
+          "tasks": "Sprint tasks",
+          "projects": "Project status",
+          "budget": "Annual budget"
+        }
+      },
+      "treeMap": {
+        "title": "Treemap",
+        "description": "Hierarchical data with zoom, breadcrumb, and nested categories.",
+        "frames": {
+          "marketShare": "Market cap by sector",
+          "websiteTraffic": "Website traffic by section"
+        },
+        "chartTitles": {
+          "marketShare": "Global market share",
+          "websiteTraffic": "Page views · last 30 days"
+        }
+      },
+      "map": {
+        "title": "Choropleth maps",
+        "description": "Iran provinces, US states, and world countries with GeoJSON — multiple sizes and tooltips.",
+        "frames": {
+          "iranSales": "Iran · province sales",
+          "iranLabels": "Iran · labels & tooltip",
+          "usTechJobs": "USA · tech employment",
+          "worldGdp": "World · GDP heatmap",
+          "compactWorld": "Compact world · sidebar",
+          "sidebarUs": "Sidebar · US states"
+        },
+        "descriptions": {
+          "iran": "Built-in Iran map with visual map legend.",
+          "iranLabels": "Province labels with rich HTML tooltip.",
+          "us": "GeoJSON from Apache ECharts · state-level data.",
+          "world": "World countries GeoJSON · GDP sample data."
+        },
+        "rangeLow": "Low",
+        "rangeHigh": "High",
+        "tooltip": {
+          "province": "Province",
+          "sales": "Sales (K units)",
+          "country": "Country",
+          "gdp": "GDP (USD B)"
+        }
+      },
+      "states": {
+        "title": "States & options",
+        "description": "Loading overlay, hidden legend, and disabled tooltips.",
+        "frames": {
+          "loading": "Loading",
+          "noLegend": "Legend hidden",
+          "noTooltip": "Tooltip off"
+        }
       }
     },
     "chips": {
