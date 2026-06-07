@@ -2507,6 +2507,52 @@
       },
       "trackerCompound": {
         "title": "متتبع مركّب"
+      },
+      "trackerNew": {
+        "description": "متتبع موحد مبني على Zustand مع خيارات م typed لمحرك الخريطة ووضع المسار والتشغيل والجداول الزمنية واللوحات.",
+        "playground": {
+          "description": "بدّل خيارات وقت التشغيل وانتقل بين مدخلات المسارات والأحداث.",
+          "emphasizes": "لوحة التأكيدات",
+          "eventsInput": "الأحداث",
+          "eventsPanel": "لوحة الأحداث",
+          "filterIran": "تصفية إيران",
+          "inputKind": "نوع المدخل",
+          "livePreview": "معاينة مباشرة",
+          "mapEngine": "محرك الخريطة",
+          "panelFleet": "الأسطول",
+          "panelObserve": "Observe",
+          "panelOff": "إيقاف",
+          "panelUnified": "موحد",
+          "perTrack": "مسارات لكل لوحة",
+          "playbackEvent": "حسب الحدث",
+          "playbackMode": "وضع التشغيل",
+          "playbackTime": "حسب الوقت",
+          "plateLegend": "دليل اللوحات",
+          "routeDirect": "مباشر",
+          "routeMode": "وضع المسار",
+          "routeNone": "بدون",
+          "routeOsrm": "OSRM",
+          "timelineDay": "الجدول اليومي",
+          "timelineTotal": "الجدول الكلي",
+          "title": "ملعب الخيارات",
+          "traceLength": "طول الأثر",
+          "tracksInput": "المسارات"
+        },
+        "presets": {
+          "fleet": {
+            "description": "عرض أسطول متعدد اللوحات مع مسارات مباشرة وجدول يومي وتأكيدات.",
+            "title": "إعداد Fleet"
+          },
+          "full": {
+            "description": "جميع اللوحات والجداول مع توجيه OSRM.",
+            "title": "إعداد Full"
+          },
+          "observe": {
+            "description": "بطاقات أحداث Observe مع رسوم مسار OSRM.",
+            "title": "إعداد Observe"
+          }
+        },
+        "title": "Tracker New"
       }
     },
     "typography": {

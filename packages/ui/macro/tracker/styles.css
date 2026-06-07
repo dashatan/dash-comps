@@ -1,0 +1,147 @@
+/* --------------------------------- LAYOUT --------------------------------- */
+#tracker-map .leaflet-bottom.leaflet-left {
+  direction: ltr;
+  width: calc(100% - 24px);
+  padding: var(--spacing-3);
+}
+
+#tracker-map .leaflet-bottom.leaflet-left .leaflet-control {
+  border-radius: var(--radius-md);
+  border: none;
+  padding: var(--spacing-4);
+}
+
+#tracker-map .leaflet-bar.leaflet-bar-horizontal.leaflet-bar-timecontrol.leaflet-control {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+}
+
+#tracker-control-container {
+  display: flex;
+  align-items: center;
+  order: 1;
+  width: 100%;
+  gap: var(--spacing-2);
+  padding-bottom: var(--spacing-4);
+}
+
+#tracker-control-container:first-child {
+  display: none;
+}
+
+/* --------------------------------- Player Buttons -------------------------------- */
+#tracker-map .leaflet-control-timecontrol.timecontrol-forward {
+  display: none;
+}
+
+#tracker-map .leaflet-control-timecontrol.timecontrol-backward {
+  display: none;
+}
+
+#tracker-play-button {
+  display: none;
+}
+
+/* ------------------------------ Speed Slider ----------------------------- */
+#tracker-speed-slider {
+  order: 3;
+  display: flex;
+  height: var(--spacing-10);
+  width: var(--spacing-52);
+  cursor: default;
+  align-items: center;
+  justify-content: start;
+  gap: var(--spacing-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  padding: 0 var(--spacing-2);
+  &:hover {
+    background-color: var(--color-card-accent);
+  }
+
+  .slider {
+    top: -2px;
+    left: var(--spacing-2);
+    margin: 0 var(--spacing-4);
+    height: var(--spacing-1);
+    width: var(--spacing-32);
+    border: none;
+    background-color: var(--color-gray-200);
+  }
+  .slider .knob {
+    height: var(--spacing-4);
+    width: var(--spacing-4);
+    cursor: pointer;
+    border-radius: 9999px;
+    background-color: var(--color-foreground);
+  }
+  .speed {
+    display: none;
+    width: var(--spacing-8);
+  }
+}
+
+#tracker-speed-slider::after {
+  font-family: var(--font-family);
+  content: "200X";
+}
+
+#tracker-speed-slider::before {
+  font-family: var(--font-family);
+  content: "1X";
+}
+
+/* ------------------------------ Time Slider ------------------------------ */
+#tracker-time-slider {
+  position: relative;
+  order: 2;
+  height: auto !important;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  padding: 0 var(--spacing-2);
+
+  &:hover {
+    background-color: var(--color-card-accent);
+  }
+
+  .slider {
+    z-index: 10;
+    margin: 0;
+    height: var(--spacing-14);
+    width: 100%;
+    border: none;
+  }
+
+  .knob.main {
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+    background-color: var(--color-primary);
+    top: var(--spacing-1);
+    left: var(--spacing-1);
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.time-slider-thumb-arrow {
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+}
+
+.time-slider-thumb::before {
+  background-color: var(--color-primary);
+  height: var(--spacing-10);
+  width: var(--spacing-1);
+}
+
+span:has(> .time-slider-thumb) {
+  z-index: 10;
+}
+
+.car-icon {
+  svg {
+    position: absolute;
+    left: -5px;
+  }
+}

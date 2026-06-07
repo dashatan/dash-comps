@@ -2507,6 +2507,52 @@
       },
       "trackerCompound": {
         "title": "Tracker compound"
+      },
+      "trackerNew": {
+        "description": "Unified tracker built on Zustand with typed options for map engine, route mode, playback, timelines, and panels. Existing macro and compound trackers are unchanged.",
+        "playground": {
+          "description": "Toggle runtime options and switch between tracks vs events input to see behavior changes live.",
+          "emphasizes": "Emphasizes panel",
+          "eventsInput": "Events",
+          "eventsPanel": "Events panel",
+          "filterIran": "Filter Iran",
+          "inputKind": "Input kind",
+          "livePreview": "Live preview",
+          "mapEngine": "Map engine",
+          "panelFleet": "Fleet",
+          "panelObserve": "Observe",
+          "panelOff": "Off",
+          "panelUnified": "Unified",
+          "perTrack": "Per-track routes",
+          "playbackEvent": "By event",
+          "playbackMode": "Playback mode",
+          "playbackTime": "By time",
+          "plateLegend": "Plate legend",
+          "routeDirect": "Direct",
+          "routeMode": "Route mode",
+          "routeNone": "None",
+          "routeOsrm": "OSRM",
+          "timelineDay": "Day timeline",
+          "timelineTotal": "Total timeline",
+          "title": "Options playground",
+          "traceLength": "Trail length",
+          "tracksInput": "Tracks"
+        },
+        "presets": {
+          "fleet": {
+            "description": "Multi-plate fleet view with direct per-track routes, day timeline, and emphasizes.",
+            "title": "Fleet preset"
+          },
+          "full": {
+            "description": "All panels and timelines with OSRM routing on observe-style unified events.",
+            "title": "Full preset"
+          },
+          "observe": {
+            "description": "Observe-style event cards with OSRM route animation and event-based playback.",
+            "title": "Observe preset"
+          }
+        },
+        "title": "Tracker New"
       }
     },
     "typography": {

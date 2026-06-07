@@ -2507,6 +2507,52 @@
       },
       "trackerCompound": {
         "title": "ردیاب ترکیبی"
+      },
+      "trackerNew": {
+        "description": "ردیاب یکپارچه مبتنی بر Zustand با گزینه‌های تایپ‌شده برای موتور نقشه، مسیر، پخش، خط زمانی و پنل‌ها. ردیاب‌های macro و compound بدون تغییر باقی مانده‌اند.",
+        "playground": {
+          "description": "گزینه‌های زمان اجرا را تغییر دهید و بین ورودی tracks و events جابه‌جا شوید.",
+          "emphasizes": "پنل تاکیدها",
+          "eventsInput": "رویدادها",
+          "eventsPanel": "پنل رویدادها",
+          "filterIran": "فیلتر ایران",
+          "inputKind": "نوع ورودی",
+          "livePreview": "پیش‌نمایش زنده",
+          "mapEngine": "موتور نقشه",
+          "panelFleet": "ناوگان",
+          "panelObserve": "Observe",
+          "panelOff": "خاموش",
+          "panelUnified": "یکپارچه",
+          "perTrack": "مسیر هر پلاک",
+          "playbackEvent": "بر اساس رویداد",
+          "playbackMode": "حالت پخش",
+          "playbackTime": "بر اساس زمان",
+          "plateLegend": "راهنمای پلاک",
+          "routeDirect": "مستقیم",
+          "routeMode": "حالت مسیر",
+          "routeNone": "بدون مسیر",
+          "routeOsrm": "OSRM",
+          "timelineDay": "خط زمانی روز",
+          "timelineTotal": "خط زمانی کل",
+          "title": "محیط گزینه‌ها",
+          "traceLength": "طول دنباله",
+          "tracksInput": "مسیرها"
+        },
+        "presets": {
+          "fleet": {
+            "description": "نمای ناوگان چندپلاک با مسیر مستقیم، خط زمانی روز و تاکیدها.",
+            "title": "پیش‌تنظیم Fleet"
+          },
+          "full": {
+            "description": "همه پنل‌ها و خطوط زمانی با مسیریابی OSRM.",
+            "title": "پیش‌تنظیم Full"
+          },
+          "observe": {
+            "description": "کارت‌های رویداد Observe با انیمیشن مسیر OSRM و پخش رویدادی.",
+            "title": "پیش‌تنظیم Observe"
+          }
+        },
+        "title": "Tracker New"
       }
     },
     "typography": {

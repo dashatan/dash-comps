@@ -143,7 +143,7 @@ const compoundCatalogCategories: CatalogCategory[] = [
   { slug: "license-plate", icon: Car, count: 8 },
   { slug: "location-picker", icon: MapPin, count: 8 },
   { slug: "table", icon: Table2, count: 1 },
-  { slug: "tracker", icon: Route, count: 1 },
+  { slug: "tracker", icon: Route, count: 5 },
 ];
 
 export const catalogCategoryGroups: CatalogCategoryGroup[] = [
