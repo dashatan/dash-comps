@@ -48,6 +48,18 @@ export default function StatusBox({ text, className, color, icon, onClick, textC
       onClick={onClick}
     >
       <div className={cn(statusBoxVariants({ color, rounded }), className)}>
+        {onClick && (
+          <Dot
+            className={cn('absolute right-1 scale-[2]', {
+              'text-primary/80': color === 'primary',
+              'text-secondary/80': color === 'secondary',
+              'text-success/80': color === 'success',
+              'text-error/80': color === 'error',
+              'text-warning/80': color === 'warning',
+              'text-info/80': !color || color === 'info',
+            })}
+          />
+        )}
         <span className={cn(textClassName, 'mt-px')}>{text}</span>
         <span>{icon}</span>
       </div>

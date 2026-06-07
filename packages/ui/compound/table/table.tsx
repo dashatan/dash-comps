@@ -1,22 +1,22 @@
-import { useEffect, useRef, useState } from "react";
-import orderColumns from "./utils/order-columns";
-import ActionHeader from "./components/header/action-header";
-import { useFormContext } from "react-hook-form";
-import { ChangeTag, ColumnProps, TableData, TableProps } from "./types";
-import ActionFilters from "./components/header/action-filters";
-import Body from "./components/body";
-import Header from "./components/header";
-import { cn } from "@/lib";
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import orderColumns from './utils/order-columns'
+import { applyDragScroll } from './utils/scroll-drag'
+import ActionHeader from './components/header/action-header'
+import { TableData, TableProps } from './types'
+import ActionFilters from './components/header/action-filters'
+import Body from './components/body'
+import Header from './components/header'
+import { cn } from '@/lib'
+import { useTableStore, useTableStoreContext } from './context'
 
 export function TableComponent({
   columns: initialColumns,
   data,
-  totalRecords,
   loading = false,
   showActionHeader = false,
   showActionFilters = false,
   expandOnNewRow = false,
-  dataKey = "id",
+  dataKey = 'id',
   draggable = false,
   columnHover = false,
   fullScreen = false,
@@ -26,104 +26,118 @@ export function TableComponent({
   TDProps,
   rowProps,
   className,
-  onTableChange,
   rowExpansionTemplate,
   sidePanelTemplate,
   rightClickMenu,
-  defaultValues,
 }: TableProps) {
-  /* -------------------------------- Variables ------------------------------- */
+  const store = useTableStoreContext()
+  const storeActiveColumns = useTableStore((s) => s.activeColumns)
+  const sidePanelData = useTableStore((s) => s.sidePanelData)
+  const showFilterChips = useTableStore((s) => s.showFilterChips)
+  const setSidePanelData = useTableStore((s) => s.setSidePanelData)
+  const setActiveColumns = useTableStore((s) => s.setActiveColumns)
 
-  const table = useFormContext<TableData>();
-  const activeCols = table.watch("activeColumns");
-  const sidePanelData = table.watch("sidePanelData");
-  const state = table.getValues();
-  const initialActiveColumns =
-    activeCols ||
-    initialColumns?.flatMap((x) => {
-      return !x.defaultInactive && x.field ? (x.field as string) : [];
-    });
-  const orderedColumns = orderColumns(initialColumns || [], initialActiveColumns || []);
-  const [activeColumns, setActiveColumns] = useState<string[] | undefined>(
-    initialActiveColumns,
-  );
-  const [columns, setColumns] = useState<ColumnProps[] | undefined>(orderedColumns);
-  const [hoveredColumnIndex, setHoveredColumnIndex] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const startY = useRef(0);
-  const scrollLeft = useRef(0);
-  const scrollTop = useRef(0);
-  const noResult = !loading && !data?.length;
-  /* --------------------------------- Effects -------------------------------- */
+  const columnFieldsKey = useMemo(
+    () => initialColumns?.map((c) => `${c.field ?? ''}:${c.defaultInactive ? 1 : 0}`).join('|') ?? '',
+    [initialColumns],
+  )
+
+  const defaultActiveFields = useMemo(
+    () =>
+      initialColumns?.flatMap((x) => (!x.defaultInactive && x.field ? (x.field as string) : [])) ?? [],
+    [columnFieldsKey, initialColumns],
+  )
+
+  const activeColumns = storeActiveColumns?.length ? storeActiveColumns : defaultActiveFields
+  const activeColumnsKey = activeColumns.join(',')
+
+  const columns = useMemo(
+    () => orderColumns(initialColumns || [], activeColumns),
+    [initialColumns, activeColumnsKey],
+  )
+
+  const [hoveredColumnIndex, setHoveredColumnIndex] = useState<number | null>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const dragStart = useRef({ x: 0, y: 0, scrollLeft: 0, scrollTop: 0 })
+  const noResult = !loading && !data?.length
 
   useEffect(() => {
     if (sidePanelData && loading) {
-      table.setValue("sidePanelData", undefined);
+      setSidePanelData(undefined)
     }
-  }, [loading]);
+  }, [loading, sidePanelData, setSidePanelData])
 
   useEffect(() => {
-    if (initialColumns && initialActiveColumns) {
-      setColumns(orderColumns(initialColumns, activeColumns || initialActiveColumns));
+    const validFields = new Set(
+      initialColumns?.flatMap((c) => (c.field ? [c.field as string] : [])) ?? [],
+    )
+    const current = store.getState().activeColumns ?? []
+
+    if (!current.length && defaultActiveFields.length) {
+      setActiveColumns(defaultActiveFields)
+      return
     }
-  }, [initialColumns]);
+
+    const filtered = current.filter((field) => validFields.has(field))
+    if (filtered.length !== current.length) {
+      setActiveColumns(filtered.length ? filtered : defaultActiveFields)
+    }
+  }, [columnFieldsKey, defaultActiveFields, setActiveColumns, store, initialColumns])
+
+  const handleOrder = useCallback(
+    ({ activeColumns: cols }: TableData) => {
+      if (loading) return
+      setActiveColumns(cols || [])
+    },
+    [loading, setActiveColumns],
+  )
+
+  const stopDragging = useCallback(() => {
+    setIsDragging(false)
+  }, [])
+
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      if (!draggable || !scrollRef.current) return
+      setIsDragging(true)
+      dragStart.current = {
+        x: e.pageX - scrollRef.current.offsetLeft,
+        y: e.pageY - scrollRef.current.offsetTop,
+        scrollLeft: scrollRef.current.scrollLeft,
+        scrollTop: scrollRef.current.scrollTop,
+      }
+    },
+    [draggable],
+  )
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (!isDragging || !scrollRef.current) return
+      e.preventDefault()
+      const x = e.pageX - scrollRef.current.offsetLeft
+      const y = e.pageY - scrollRef.current.offsetTop
+      applyDragScroll(
+        scrollRef.current,
+        dragStart.current.scrollLeft,
+        dragStart.current.scrollTop,
+        x - dragStart.current.x,
+        y - dragStart.current.y,
+      )
+    },
+    [isDragging],
+  )
 
   useEffect(() => {
-    table.setValue("totalRecords", totalRecords);
-  }, [totalRecords]);
-
-  useEffect(() => {
-    table.setValue("selected", defaultValues?.selected);
-  }, [defaultValues?.selected]);
-
-  /* -------------------------------- Functions ------------------------------- */
-
-  function handleOrder({ activeColumns }: TableData) {
-    if (loading) return;
-    setActiveColumns(activeColumns);
-    const newColumns = orderColumns(initialColumns || [], activeColumns || []);
-    setColumns(newColumns);
-    handleChange({ ...table.getValues(), activeColumns }, "order");
-  }
-
-  function handleChange(data: Partial<TableData>, tag: ChangeTag) {
-    if (loading) return;
-    onTableChange && onTableChange(data, tag);
-  }
-
-  function handleMouseDown(e: React.MouseEvent) {
-    if (!scrollRef.current) return;
-    isDragging.current = true;
-    startX.current = e.pageX - scrollRef.current.offsetLeft;
-    startY.current = e.pageY - scrollRef.current.offsetTop;
-    scrollLeft.current = scrollRef.current.scrollLeft;
-    scrollTop.current = scrollRef.current.scrollTop;
-  }
-
-  function handleMouseMove(e: React.MouseEvent) {
-    if (!isDragging.current || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const y = e.pageY - scrollRef.current.offsetTop;
-    scrollRef.current.scrollLeft = scrollLeft.current - (x - startX.current);
-    scrollRef.current.scrollTop = scrollTop.current - (y - startY.current);
-  }
-
-  function handleMouseUp() {
-    isDragging.current = false;
-  }
-
-  /* ----------------------------------- JSX ---------------------------------- */
+    if (!isDragging) return
+    window.addEventListener('mouseup', stopDragging)
+    return () => window.removeEventListener('mouseup', stopDragging)
+  }, [isDragging, stopDragging])
 
   const tableContent = (
     <div
       id="table-container"
-      className={cn(
-        "flex-full flex h-full w-full flex-col overflow-hidden",
-        className?.l1,
-      )}
+      className={cn('flex h-full min-h-0 w-full flex-col overflow-hidden', className?.l1)}
     >
       {showActionHeader && (
         <ActionHeader
@@ -131,48 +145,37 @@ export function TableComponent({
           columns={initialColumns}
           activeColumns={activeColumns}
           onOrderChange={handleOrder}
-          onChange={handleChange}
           loading={loading}
         />
       )}
-      {showActionFilters && state.showFilterChips && (
-        <ActionFilters
-          columns={initialColumns}
-          onChange={handleChange}
-          {...actionFilterProps}
-        />
+      {showActionFilters && showFilterChips && (
+        <ActionFilters columns={initialColumns} {...actionFilterProps} />
       )}
       <div
         id="table-content"
-        className={cn(
-          "flex-full flex flex-col overflow-hidden",
-          { "p-4": showActionHeader },
-          className?.l2,
-        )}
+        className={cn('flex min-h-0 flex-1 flex-col overflow-hidden', { 'p-4': showActionHeader }, className?.l2)}
       >
         <div
           ref={scrollRef}
           id="table-inner"
           className={cn(
-            "border-table-border relative flex max-h-full min-h-0 w-full min-w-0 flex-col overflow-auto rounded-md border select-none",
-            { "cursor-grab active:cursor-grabbing": draggable },
-            !isDragging.current && "select-text",
-            noResult && "flex-full",
+            'border-table-border relative min-h-0 w-full min-w-0 flex-1 overflow-x-auto overflow-y-auto rounded-md border',
+            draggable && 'cursor-grab select-none',
+            draggable && isDragging && 'cursor-grabbing',
+            !draggable && 'select-text',
+            noResult && 'flex flex-col',
             className?.l3,
           )}
           onMouseDown={draggable ? handleMouseDown : undefined}
           onMouseMove={draggable ? handleMouseMove : undefined}
-          onMouseUp={draggable ? handleMouseUp : undefined}
+          onMouseUp={draggable ? stopDragging : undefined}
+          onMouseLeave={draggable ? stopDragging : undefined}
         >
           <table
             id="table-non-scrollable"
-            className={cn(
-              "flex-full w-full border-separate border-spacing-0",
-              className?.table,
-            )}
+            className={cn('w-max min-w-full border-separate border-spacing-0', className?.table)}
           >
             <Header
-              onChange={handleChange}
               actionHeaderProps={actionHeaderProps}
               columns={columns}
               loading={loading}
@@ -201,15 +204,11 @@ export function TableComponent({
         {sidePanelData && sidePanelTemplate && sidePanelTemplate(sidePanelData)}
       </div>
     </div>
-  );
+  )
 
   if (fullScreen) {
-    return (
-      <div className="bg-background fixed inset-0 z-9999 flex flex-col">
-        {tableContent}
-      </div>
-    );
+    return <div className="bg-background fixed inset-0 z-9999 flex flex-col">{tableContent}</div>
   }
 
-  return tableContent;
+  return tableContent
 }

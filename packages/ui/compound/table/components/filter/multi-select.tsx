@@ -1,10 +1,8 @@
-import { Select } from "@/components/common/inputs/select";
-import { FilterElementProps } from ".";
-import { useLanguage } from "@/lib";
+import { Select } from '@/components/common/inputs/select'
+import { FilterElementProps } from '.'
 
 export default function FilterMultiSelectElement(props: FilterElementProps) {
-  const { t } = useLanguage();
-  const { inputProps, ...rest } = props;
+  const { inputProps, ...rest } = props
   return (
     <Select.Multi
       {...rest}
@@ -25,7 +23,7 @@ export default function FilterMultiSelectElement(props: FilterElementProps) {
       }}
       // label={t("common.choose")}
       options={props.options}
-      selected={props.defaultValue}
+      selected={props.defaultValue as (string | number)[] | undefined}
       labelType="simple"
       fitContent
       filter

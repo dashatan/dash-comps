@@ -1,5 +1,36 @@
 @import "@dash/styles/index.css";
 
+/* Table filter row animation */
+@keyframes filter-row-enter-keyframes {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes filter-row-exit-keyframes {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.filter-row-enter {
+  animation: filter-row-enter-keyframes 100ms ease-out forwards;
+}
+
+.filter-row-exit {
+  animation: filter-row-exit-keyframes 100ms ease-in forwards;
+}
+
 /* Showcase: full viewport shell (scroll lives in <main>) */
 html,
 body,

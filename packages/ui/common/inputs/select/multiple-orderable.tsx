@@ -18,6 +18,12 @@ const REORDER_TRANSITION = {
   damping: 35,
 };
 
+function optionLabelKey(label: SelectItem['label']): string | number | boolean | undefined {
+  if (label === null || label === undefined) return undefined
+  if (typeof label === 'string' || typeof label === 'number' || typeof label === 'boolean') return label
+  return String(label)
+}
+
 function pruneSelected(
   selected: SelectItem["value"][],
   options: SelectItem[],
@@ -160,8 +166,8 @@ export default function MultiSelectOrderable({
 
   const selectedKey = JSON.stringify(externalSelected);
   const optionsContentKey = JSON.stringify(
-    options.map((item) => [item.value, item.label, item.disabled]),
-  );
+    options.map((item) => [item.value, optionLabelKey(item.label), item.disabled]),
+  )
 
   const [internalSelected, setInternalSelected] = useState<
     SelectItem["value"][]
@@ -191,12 +197,14 @@ export default function MultiSelectOrderable({
     if (isControlled) {
       const baseSelected = isSelectedControlled
         ? (selectedProp ?? [])
-        : (value ?? []);
-      const pruned = pruneSelected(baseSelected, options);
-      if (pruned.length !== baseSelected.length) {
-        notifyChange({ data: options, selected: pruned });
+        : (value ?? [])
+      const pruned = pruneSelected(baseSelected, options)
+      const prunedKey = pruned.join('\0')
+      const baseKey = baseSelected.join('\0')
+      if (prunedKey !== baseKey) {
+        notifyChange({ data: options, selected: pruned })
       }
-      return;
+      return
     }
 
     setInternalSelected((prev) => {

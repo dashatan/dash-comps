@@ -16,7 +16,7 @@ export default function FilterTreeMultiSelectElement(props: FilterElementProps) 
         props.onChange && props.onChange(val as number[])
       }}
       options={props.options}
-      selected={props.defaultValue}
+      selected={props.defaultValue as (string | number)[] | undefined}
       labelType='count'
     />
   )

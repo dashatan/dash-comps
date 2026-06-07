@@ -9,7 +9,7 @@ export default function FilterSelectElement(props: FilterElementProps) {
     <Select.Single
       {...rest}
       onChange={(e) => props.onChange && props.onChange(e as string)}
-      value={props.defaultValue}
+      value={props.defaultValue as string | number | undefined}
       label={t("common.choose")}
       labelType="simple"
       height={40}

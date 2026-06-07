@@ -1,8 +1,12 @@
-import { cn, formatPersianTime, formatPersianDate } from "@/lib";
-import { DivProps } from "@/lib/types";
-import { Minus } from "lucide-react";
-import { ReactNode } from "react";
-import { formatNumber } from "@utils/numberFormat";
+import { cn, formatPersianTime, formatPersianDate } from '@/lib'
+import { DivProps } from '@/lib/types'
+import { Minus } from 'lucide-react'
+import { ReactNode } from 'react'
+import { ColorType, colorFieldVariants } from '@/components/common/badge/color'
+
+function formatNumber(value: number) {
+  return Intl.NumberFormat().format(Math.round(value || 0))
+}
 
 export type TableCellTextFieldProps = {
   value?: string | number;
@@ -196,21 +200,72 @@ export function TableCellTimeField({
 
 export function TableCellDateTimeField({
   value,
-  justify = "center",
+  justify = 'center',
 }: {
-  value?: number | string;
-  justify?: "center" | "start" | "end";
+  value?: number | string
+  justify?: 'center' | 'start' | 'end'
 }) {
   return (
     <div
-      className={cn("flex flex-row-reverse items-center gap-2", {
-        "justify-center": justify === "center",
-        "justify-start": justify === "start",
-        "justify-end": justify === "end",
+      className={cn('flex flex-row-reverse items-center gap-2', {
+        'justify-center': justify === 'center',
+        'justify-start': justify === 'start',
+        'justify-end': justify === 'end',
       })}
     >
       <span>{formatPersianDate(value) || <TableNoContent />}</span>
       <span>{formatPersianTime(value) || <TableNoContent />}</span>
     </div>
-  );
+  )
 }
+
+/** Macro-style combined time | date cell with divider (tracker parity) */
+export function TableCellDateElement({
+  val,
+  className,
+  justify = 'start',
+}: {
+  val?: number | null
+  className?: string
+  justify?: 'center' | 'start' | 'end'
+}) {
+  if (!val) {
+    return (
+      <div
+        className={cn('flex items-center gap-2', className, {
+          'justify-start': justify === 'start',
+          'justify-center': justify === 'center',
+          'justify-end': justify === 'end',
+        })}
+      >
+        <TableNoContent />
+      </div>
+    )
+  }
+  return (
+    <div
+      className={cn('flex items-center gap-2', className, {
+        'justify-start': justify === 'start',
+        'justify-center': justify === 'center',
+        'justify-end': justify === 'end',
+      })}
+    >
+      <span className="w-20 border-e border-slate-300 pl-2 text-left">{formatPersianTime(val)}</span>
+      <span>{formatPersianDate(val)}</span>
+    </div>
+  )
+}
+
+/** @deprecated Use TableCellDateElement */
+export const DateElement = TableCellDateElement
+
+export function TableCellColorDot({ color }: { color?: ColorType }) {
+  return (
+    <span
+      className={cn('inline-block h-2 w-2 rounded-sm', colorFieldVariants({ color: color ?? 'gray' }))}
+    />
+  )
+}
+
+/** @deprecated Use TableCellColorDot */
+export const ColorDot = TableCellColorDot

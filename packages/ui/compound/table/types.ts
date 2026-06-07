@@ -1,30 +1,35 @@
 import { FilterElementsKeys } from './components/filter'
 import { ActionHeaderProps } from './components/header/action-header'
-import { FieldValues, UseFormReturn } from 'react-hook-form'
 import { ActionFiltersProps } from './components/header/action-filters'
 import { TableRowProps } from './components/body/table-row'
 import { THProps } from './components/header/TH'
 import { TDProps } from './components/body/TD'
 import { SelectItem } from '@/components/common/inputs/select/types'
 import { ReactElement } from 'react'
+import type { CarPlateInputValue, PlateValue } from '@/components/compound/license-plate/types'
+import type { TableStoreApi } from './store'
 
-export const tableDefaultState = {
-  rows: 10,
+export const tableDefaultState: TableData = {
+  rows: 15,
   page: 0,
   offset: 0,
-  limit: 10,
+  limit: 15,
   first: 1,
   expandedRows: {},
+  totalRecords: 0,
+  selected: [],
+  selectAll: false,
+  showFilter: false,
+  showFilterChips: false,
 }
 
 export type TableProps = {
   columns?: ColumnProps[]
-  data?: any[]
+  data?: Record<string, unknown>[]
   defaultValues?: TableData
   loading?: boolean
   showActionHeader?: boolean
   showActionFilters?: boolean
-  showFooterPagination?: boolean
   expandOnNewRow?: boolean
   totalSelected?: number
   totalRecords?: number
@@ -39,16 +44,16 @@ export type TableProps = {
   rowProps?: Partial<TableRowProps>
   className?: { table?: string; l1?: string; l2?: string; l3?: string }
   onTableChange?: (data: TableData | { [key: string]: string }, tag: ChangeTag) => void
-  rowExpansionTemplate?: (data: any) => React.ReactNode
-  sidePanelTemplate?: (data: any) => React.ReactNode
-  rightClickMenu?: (data: any) => React.ReactNode
+  rowExpansionTemplate?: (data: Record<string, unknown>) => React.ReactNode
+  sidePanelTemplate?: (data: Record<string, unknown>) => React.ReactNode
+  rightClickMenu?: (data: Record<string, unknown>) => React.ReactNode
 }
 
 export type ColumnBodyOptions = {
   column: ColumnProps
   field: string
   rowIndex: number
-  props?: any
+  props?: Record<string, unknown>
   frozenRow?: boolean
 }
 
@@ -61,7 +66,7 @@ export type ColumnOption<T> = {
 }
 
 export type BodyElementProps = {
-  data?: any
+  data?: Record<string, unknown>
   options?: ColumnBodyOptions
 }
 
@@ -78,7 +83,7 @@ export type ColumnProps = {
   defaultInactive?: boolean
   noDebounce?: boolean
   filter?: boolean
-  filterProps?: any
+  filterProps?: Record<string, unknown>
   filterOptions?: SelectItem[]
   filterClassName?: string | object
   filterElement?: React.ReactNode
@@ -87,7 +92,7 @@ export type ColumnProps = {
   filterElementType?: FilterElementsKeys
   filterKey?: string
   header?: string | React.ReactNode | ((data: unknown, options: ColumnBodyOptions) => React.ReactNode)
-  body?: React.ReactNode | ((data: any, options: ColumnBodyOptions) => React.ReactNode)
+  body?: React.ReactNode | ((data: Record<string, unknown>, options: ColumnBodyOptions) => React.ReactNode)
   bodyElement?: (props: BodyElementProps) => ReactElement
   onFilterChange?: (value: FilterValue) => void
   frozen?: {
@@ -106,6 +111,18 @@ export type Column<T> = Omit<ColumnProps, 'field' | 'body' | 'header'> & {
 }
 
 /* --------------------------------- Filter --------------------------------- */
+export type NumberRangeFilterValue = [number | undefined, number | undefined]
+
+export type FilterValue =
+  | string
+  | number
+  | boolean
+  | (string | number)[]
+  | NumberRangeFilterValue
+  | CarPlateInputValue
+  | PlateValue
+  | undefined
+
 export type TableData = {
   first?: number
   rows?: number
@@ -122,16 +139,11 @@ export type TableData = {
   showFilterChips?: boolean
   activeColumns?: string[]
   filters?: { [key: string]: FilterValue | undefined }
-  expandedRows?: any
-  sidePanelData?: any
+  expandedRows?: Record<string | number, boolean>
+  sidePanelData?: Record<string, unknown>
+  limit?: number
 }
 
-export type TableContext = {
-  state: TableData
-  setState: TableSetState
-}
+export type ChangeTag = 'order' | 'sort' | 'filter' | 'pagination' | 'rows' | 'selection' | 'loading'
 
-export type TableContextType = UseFormReturn<TableData, any, FieldValues>
-export type ChangeTag = 'order' | 'sort' | 'filter' | 'pagination' | 'rows' | 'loading'
-export type TableSetState = React.Dispatch<React.SetStateAction<TableData>>
-export type FilterValue = any
+export type { TableStoreApi }

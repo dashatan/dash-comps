@@ -1,4 +1,4 @@
-import { FileX, SearchX } from "lucide-react";
+import { SearchX } from "lucide-react";
 import { cn, useLanguage } from "@/lib";
 
 export default function EmptyTemplate(props?: { size?: "sm" | "lg" }) {

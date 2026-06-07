@@ -1,26 +1,23 @@
-import { useFormContext } from "react-hook-form";
-import { X } from "lucide-react";
-import { TableData, tableDefaultState } from "@/components/compound/table/types";
-import Button from "@/components/common/buttons";
+import { X } from 'lucide-react'
+import { TableData, tableDefaultState } from '@/components/compound/table/types'
+import Button from '@/components/common/buttons'
+import { useTableStore } from '@/components/compound/table/context'
 
-export default function ClearTable({
-  onChange,
-}: {
-  onChange?: (data: TableData) => void;
-}) {
-  const table = useFormContext<TableData>();
-  const totalRecords = table.watch("totalRecords");
+export default function ClearTable({ onChange }: { onChange?: (data: TableData) => void }) {
+  const totalRecords = useTableStore((s) => s.totalRecords)
+  const reset = useTableStore((s) => s.reset)
+  const getSnapshot = useTableStore((s) => s.getSnapshot)
 
   function handleClick() {
-    const newData: TableData = { ...tableDefaultState, showFilter: true, totalRecords };
-    table.reset(newData);
-    onChange && onChange(newData);
+    reset({ ...tableDefaultState, showFilter: true, totalRecords })
+    onChange?.(getSnapshot())
   }
+
   return (
     <div className="flex w-full items-center justify-center">
       <Button severity="input" variant="icon-button" size="md" onClick={handleClick}>
         <X className="size-6" />
       </Button>
     </div>
-  );
+  )
 }

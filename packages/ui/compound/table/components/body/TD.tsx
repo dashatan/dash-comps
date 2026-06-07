@@ -1,12 +1,11 @@
 import { ColumnProps } from '@/components/compound/table/types'
 import SkeletonField from './skeleton'
-import { forwardRef, memo, useCallback, useRef } from 'react'
-import { cn, useLanguage } from '@/lib'
-import { toast } from '@/components/common/sonner'
+import { forwardRef, memo, useRef } from 'react'
+import { cn } from '@/lib'
 
 export interface TDProps {
   loading?: boolean
-  data: any
+  data: Record<string, unknown>
   rowIndex: number
   index?: number
   col: ColumnProps
@@ -20,7 +19,7 @@ export interface TDProps {
 }
 
 const TD = forwardRef<HTMLTableCellElement, TDProps>(
-  ({ data, rowIndex, col, loading, children, className, columnHover, hoveredColumnIndex, onColumnHover, index, skeletonClassName, ...props }, ref) => {
+  ({ data, rowIndex, col, loading, children, className, columnHover, hoveredColumnIndex, onColumnHover, index, skeletonClassName }, ref) => {
     const localRef = useRef<HTMLTableCellElement>(null)
 
     const showSkeleton = loading && (col.body || col.bodyElement)
