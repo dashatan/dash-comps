@@ -33,7 +33,7 @@
     },
     "alerts": {
       "title": "تنبيهات",
-      "description": "فارغ وتحميل وخطأ وصلاحيات."
+      "description": "حالات فارغة وتنبيهات حالة مع variants CVA وأجزاء مركبة."
     },
     "auth": {
       "title": "تخطيط auth",
@@ -2857,21 +2857,18 @@
       }
     },
     "alerts": {
-      "builtInAlerts": {
-        "title": "تنبيهات مدمجة",
-        "description": "حالات محددة مسبقًا تُستخدم في عروض البيانات — يُعرض كل منها في لوحة مدمجة وليس بعرض كامل.",
-        "labels": {
-          "emptyDefault": "فارغ (افتراضي)",
-          "emptyCustom": "فارغ (مخصص)",
-          "loadingDefault": "جارٍ التحميل (افتراضي)",
-          "loadingCustom": "جارٍ التحميل (مخصص)",
-          "errorDefault": "خطأ (افتراضي)",
-          "errorCustom": "خطأ (مخصص)",
-          "forbidden": "محظور"
-        },
-        "message": "لا توجد طلبات تطابق عوامل التصفية.",
-        "message1": "جارٍ جلب الشحنات…",
-        "message2": "تعذّرت مزامنة المخزون. حاول مرة أخرى لاحقًا.",
+      "compound": {
+        "title": "تنبيه مركب",
+        "description": "أنشئ أيقونة وعنوانًا ووصفًا وإجراءات باستخدام variants.",
+        "label": "مثال كامل",
+        "titleText": "تأخير في الشحن",
+        "descriptionText": "طردك ما زال في الطريق. سنُعلمك عند وصوله.",
+        "primaryAction": "تتبع الطلب",
+        "secondaryAction": "اتصل بالدعم"
+      },
+      "presets": {
+        "title": "إعدادات مسبقة",
+        "description": "حالات Empty وLoading وError وForbidden جاهزة في عروض البيانات.",
         "emptyDefault": "فارغ (افتراضي)",
         "emptyCustom": "فارغ (مخصص)",
         "loadingDefault": "جارٍ التحميل (افتراضي)",
@@ -2883,72 +2880,86 @@
         "loadingCustomMessage": "جارٍ جلب الشحنات…",
         "errorCustomMessage": "تعذّرت مزامنة المخزون. حاول مرة أخرى لاحقًا."
       },
-      "baseAlertAnimations": {
-        "title": "تنبيه أساسي — الحركات",
-        "description": "نفس الرسالة والأيقونة؛ يتغيّر فقط حركة الدخول.",
-        "message": "طردك في الطريق."
+      "severities": {
+        "title": "درجات الشدة",
+        "description": "نغمات دلالية لحالات الفراغ والتحذير والنجاح.",
+        "default": "افتراضي",
+        "defaultDescription": "حالة فارغة أو إعلامية محايدة.",
+        "primary": "أساسي",
+        "primaryDescription": "إرشاد أو دعوة للعمل بأسلوب العلامة.",
+        "secondary": "ثانوي",
+        "secondaryDescription": "تأكيد ثانوي دون إلحاح قوي.",
+        "success": "نجاح",
+        "successDescription": "إكمال أو تأكيد إيجابي.",
+        "warning": "تحذير",
+        "warningDescription": "يتطلب انتباهًا دون حظر.",
+        "danger": "خطر",
+        "dangerDescription": "خطأ أو وصول محظور أو مشكلة حرجة.",
+        "info": "معلومات",
+        "infoDescription": "سياق إعلامي بتأكيد خافت.",
+        "muted": "خافت",
+        "mutedDescription": "حالة placeholder بتأكيد منخفض."
       },
-      "baseAlertIconsSituations": {
-        "title": "تنبيه أساسي — الأيقونات والحالات",
-        "description": "أيقونات ونصوص مخصصة لحالات الفراغ والخطأ والمعلومات الشائعة.",
-        "labels": {
-          "offline": "غير متصل",
-          "serviceDown": "الخدمة متوقفة",
-          "emptyInbox": "صندوق الوارد فارغ",
-          "noDocuments": "لا توجد مستندات",
-          "sessionExpired": "انتهت الجلسة",
-          "maintenance": "صيانة",
-          "notificationsOff": "الإشعارات متوقفة",
-          "allCaughtUp": "أنت على اطلاع بكل شيء",
-          "emptyWarehouse": "المستودع فارغ",
-          "accessBlocked": "الوصول محظور"
-        },
-        "message": "أنت غير متصل. تحقق من اتصالك.",
-        "message1": "الخدمة غير متاحة مؤقتًا.",
-        "message2": "صندوق الوارد فارغ.",
-        "message3": "لم تُحمَّل أي مستندات بعد.",
-        "message4": "انتهت الجلسة. سجّل الدخول مرة أخرى.",
-        "message5": "صيانة مجدولة قيد التنفيذ.",
-        "message6": "الإشعارات معطّلة.",
-        "message7": "أنت على اطلاع بكل شيء!",
-        "message8": "لا يوجد مخزون في هذا المستودع.",
-        "message9": "هذه المنطقة تتطلب صلاحيات المسؤول."
+      "appearances": {
+        "title": "المظاهر",
+        "description": "أساليب السطح من ghost minimal إلى outline محدد.",
+        "soft": "ناعم",
+        "softDescription": "خلفية ملونة مع حدود خفيفة.",
+        "outline": "محدد",
+        "outlineDescription": "بدون تعبئة مع حدود ملونة.",
+        "ghost": "شبح",
+        "ghostDescription": "بدون سطح — أيقونة ونص فقط."
       },
-      "baseAnimations": {
-        "title": "تنبيه أساسي — الحركات",
-        "description": "نفس الرسالة والأيقونة؛ يتغيّر فقط حركة الدخول.",
-        "packageMessage": "طردك في الطريق."
+      "sizes": {
+        "title": "الأحجام",
+        "description": "تكبير الأيقونة والطباعة معًا.",
+        "message": "لا توجد مستندات بالحجم {size}."
       },
-      "iconsSituations": {
-        "title": "تنبيه أساسي — الأيقونات والحالات",
-        "description": "أيقونات ونصوص مخصصة لحالات الفراغ والخطأ والمعلومات الشائعة.",
-        "offline": "غير متصل",
-        "serviceDown": "الخدمة متوقفة",
-        "emptyInbox": "صندوق الوارد فارغ",
-        "noDocuments": "لا توجد مستندات",
-        "sessionExpired": "انتهت الجلسة",
-        "maintenance": "صيانة",
-        "notificationsOff": "الإشعارات متوقفة",
-        "allCaughtUp": "أنت على اطلاع بكل شيء",
-        "emptyWarehouse": "المستودع فارغ",
-        "accessBlocked": "الوصول محظور",
-        "offlineMessage": "أنت غير متصل. تحقق من اتصالك.",
-        "serviceDownMessage": "الخدمة غير متاحة مؤقتًا.",
-        "emptyInboxMessage": "صندوق الوارد فارغ.",
-        "noDocumentsMessage": "لم تُحمَّل أي مستندات بعد.",
-        "sessionExpiredMessage": "انتهت الجلسة. سجّل الدخول مرة أخرى.",
-        "maintenanceMessage": "صيانة مجدولة قيد التنفيذ.",
-        "notificationsOffMessage": "الإشعارات معطّلة.",
-        "allCaughtUpMessage": "أنت على اطلاع بكل شيء!",
-        "emptyWarehouseMessage": "لا يوجد مخزون في هذا المستودع.",
-        "accessBlockedMessage": "هذه المنطقة تتطلب صلاحيات المسؤول."
+      "layouts": {
+        "title": "التخطيطات",
+        "description": "تكديس مركزي أو كتل محاذاة لليسار أو صفوف أفقية.",
+        "center": "وسط",
+        "centerDescription": "الأيقونة والنص في وسط الحاوية.",
+        "start": "بداية",
+        "startDescription": "تكديس عمودي محاذٍ لليسار.",
+        "row": "صف",
+        "rowDescription": "أيقونة بجانب العنوان والوصف والإجراءات.",
+        "heading": "مشكلة في الاتصال",
+        "action": "إعادة المحاولة"
       },
       "animations": {
-        "jumpIn": "قفزة للداخل (افتراضي)",
+        "title": "الحركات",
+        "description": "إعدادات حركة الدخول للأيقونة والنص.",
+        "message": "طردك في الطريق.",
+        "jumpIn": "قفزة للداخل",
         "shake": "اهتزاز",
         "bounceIn": "ارتداد للداخل",
         "flipUp": "قلب للأعلى",
         "none": "بدون حركة"
+      },
+      "situations": {
+        "title": "حالات واقعية",
+        "description": "أنماط شائعة للفراغ وعدم الاتصال والصلاحيات مع أيقونات ونصوص مناسبة.",
+        "offline": "غير متصل",
+        "offlineMessage": "أنت غير متصل. تحقق من اتصالك.",
+        "serviceDown": "الخدمة متوقفة",
+        "serviceDownMessage": "الخدمة غير متاحة مؤقتًا.",
+        "emptyInbox": "صندوق الوارد فارغ",
+        "emptyInboxMessage": "صندوق الوارد فارغ.",
+        "noDocuments": "لا توجد مستندات",
+        "noDocumentsMessage": "لم تُحمَّل أي مستندات بعد.",
+        "sessionExpired": "انتهت الجلسة",
+        "sessionExpiredMessage": "انتهت الجلسة. سجّل الدخول مرة أخرى.",
+        "maintenance": "صيانة",
+        "maintenanceMessage": "صيانة مجدولة قيد التنفيذ.",
+        "notificationsOff": "الإشعارات متوقفة",
+        "notificationsOffMessage": "الإشعارات معطّلة.",
+        "allCaughtUp": "أنت على اطلاع بكل شيء",
+        "allCaughtUpMessage": "أنت على اطلاع بكل شيء!",
+        "emptyWarehouse": "المستودع فارغ",
+        "emptyWarehouseMessage": "لا يوجد مخزون في هذا المستودع.",
+        "accessBlocked": "الوصول محظور",
+        "accessBlockedMessage": "هذه المنطقة تتطلب صلاحيات المسؤول."
       }
     },
     "auth": {

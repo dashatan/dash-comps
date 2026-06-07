@@ -1,15 +1,16 @@
-import { Lock } from 'lucide-react'
-import BaseAlert from './base-alert'
-import { useLanguage } from '@/lib'
+import { Lock } from "lucide-react";
+import Alert from "@/components/common/alert/alert";
+import { useLanguage } from "@/lib";
 
 export default function PermissionAlert() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
+
   return (
-    <BaseAlert
-      icon={<Lock size={40} />}
-      message={t('errors.noPermission')}
-      animation='animate-flip-up'
-      className='text-accent-foreground'
-    />
-  )
+    <Alert severity="danger" animation="flipUp">
+      <Alert.Icon>
+        <Lock />
+      </Alert.Icon>
+      <Alert.Description>{t("errors.noPermission")}</Alert.Description>
+    </Alert>
+  );
 }

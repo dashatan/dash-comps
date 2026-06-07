@@ -1,33 +1,29 @@
-import { cn } from "@/lib";
-import { ReactNode } from "react";
+import Alert from "@/components/common/alert/alert";
+import type { LegacyAlertProps } from "@/components/common/alert/types";
+import { resolveLegacyAnimationClass } from "@/components/common/alert/variants";
 
-export type BaseAlertProps = {
-  icon?: ReactNode;
-  message?: string;
-  className?: string;
-  children?: ReactNode;
-  animation?: string;
-};
+export type BaseAlertProps = LegacyAlertProps;
 
 export default function BaseAlert({
   icon,
   message,
   className,
   children,
-  animation = "animate-jump-in",
+  animation,
 }: BaseAlertProps) {
+  const animationClass = resolveLegacyAnimationClass(animation);
+
   return (
-    <div
-      className={cn(
-        "flex size-full flex-full flex-col items-center justify-center gap-2 text-lg font-semibold text-icon",
-        className,
-      )}
-    >
-      {icon && <div className={animation}>{icon}</div>}
-      {message && (
-        <span className={cn(animation, "text-center")}>{message}</span>
-      )}
+    <Alert className={className} animation="none">
+      {icon ? (
+        <Alert.Icon className={animationClass || undefined}>{icon}</Alert.Icon>
+      ) : null}
+      {message ? (
+        <Alert.Description className={animationClass || undefined}>
+          {message}
+        </Alert.Description>
+      ) : null}
       {children}
-    </div>
+    </Alert>
   );
 }

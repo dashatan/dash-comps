@@ -33,7 +33,7 @@
     },
     "alerts": {
       "title": "هشدارها",
-      "description": "خالی، بارگذاری، خطا و دسترسی."
+      "description": "حالت‌های خالی و وضعیت با variantهای CVA و بخش‌های compound."
     },
     "auth": {
       "title": "چیدمان ورود",
@@ -2857,21 +2857,18 @@
       }
     },
     "alerts": {
-      "builtInAlerts": {
-        "title": "هشدارهای داخلی",
-        "description": "حالت‌های از پیش‌تعریف‌شده در نماهای داده — هر کدام در پنل فشرده نمایش داده می‌شوند، نه تمام‌عرض.",
-        "labels": {
-          "emptyDefault": "خالی (پیش‌فرض)",
-          "emptyCustom": "خالی (سفارشی)",
-          "loadingDefault": "بارگذاری (پیش‌فرض)",
-          "loadingCustom": "بارگذاری (سفارشی)",
-          "errorDefault": "خطا (پیش‌فرض)",
-          "errorCustom": "خطا (سفارشی)",
-          "forbidden": "ممنوع"
-        },
-        "message": "هیچ سفارشی با فیلترهای شما مطابقت ندارد.",
-        "message1": "در حال دریافت محموله‌ها…",
-        "message2": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید.",
+      "compound": {
+        "title": "هشدار compound",
+        "description": "آیکن، عنوان، توضیح و عملیات را با variantها بسازید.",
+        "label": "نمونه کامل",
+        "titleText": "تأخیر در ارسال",
+        "descriptionText": "بسته شما هنوز در مسیر است. هنگام رسیدن به شما اطلاع می‌دهیم.",
+        "primaryAction": "پیگیری سفارش",
+        "secondaryAction": "تماس با پشتیبانی"
+      },
+      "presets": {
+        "title": "presetهای داخلی",
+        "description": "حالت‌های آماده Empty، Loading، Error و Forbidden در نماهای داده.",
         "emptyDefault": "خالی (پیش‌فرض)",
         "emptyCustom": "خالی (سفارشی)",
         "loadingDefault": "بارگذاری (پیش‌فرض)",
@@ -2883,72 +2880,86 @@
         "loadingCustomMessage": "در حال دریافت محموله‌ها…",
         "errorCustomMessage": "همگام‌سازی موجودی انجام نشد. بعداً دوباره تلاش کنید."
       },
-      "baseAlertAnimations": {
-        "title": "هشدار پایه — انیمیشن‌ها",
-        "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
-        "message": "بسته شما در راه است."
+      "severities": {
+        "title": "شدت‌ها",
+        "description": "تن‌های معنایی برای حالت‌های خالی، هشدار و موفقیت.",
+        "default": "پیش‌فرض",
+        "defaultDescription": "حالت خنثی خالی یا اطلاعاتی.",
+        "primary": "اصلی",
+        "primaryDescription": "راهنمایی یا فراخوان با تأکید برند.",
+        "secondary": "ثانویه",
+        "secondaryDescription": "تأکید ثانویه بدون فوریت زیاد.",
+        "success": "موفقیت",
+        "successDescription": "تکمیل یا تأیید مثبت.",
+        "warning": "هشدار",
+        "warningDescription": "نیاز به توجه اما بدون مسدودسازی.",
+        "danger": "خطر",
+        "dangerDescription": "خطا، دسترسی مسدود یا مشکل بحرانی.",
+        "info": "اطلاعات",
+        "infoDescription": "زمینه اطلاعاتی با تأکید کم.",
+        "muted": "کمرنگ",
+        "mutedDescription": "حالت placeholder با تأکید پایین."
       },
-      "baseAlertIconsSituations": {
-        "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
-        "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
-        "labels": {
-          "offline": "آفلاین",
-          "serviceDown": "سرویس از دسترس خارج",
-          "emptyInbox": "صندوق ورودی خالی",
-          "noDocuments": "بدون سند",
-          "sessionExpired": "نشست منقضی شده",
-          "maintenance": "تعمیر و نگهداری",
-          "notificationsOff": "اعلان‌ها خاموش",
-          "allCaughtUp": "همه چیز به‌روز است",
-          "emptyWarehouse": "انبار خالی",
-          "accessBlocked": "دسترسی مسدود"
-        },
-        "message": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
-        "message1": "سرویس به‌طور موقت در دسترس نیست.",
-        "message2": "صندوق ورودی شما خالی است.",
-        "message3": "هنوز سندی بارگذاری نشده است.",
-        "message4": "نشست منقضی شده است. دوباره وارد شوید.",
-        "message5": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
-        "message6": "اعلان‌ها غیرفعال هستند.",
-        "message7": "همه چیز به‌روز است!",
-        "message8": "موجودی در این انبار وجود ندارد.",
-        "message9": "این بخش نیاز به دسترسی مدیر دارد."
+      "appearances": {
+        "title": "ظاهرها",
+        "description": "سبک سطح از ghost مینیمال تا outline حاشیه‌دار.",
+        "soft": "نرم",
+        "softDescription": "پس‌زمینه رنگی با حاشیه ظریف.",
+        "outline": "حاشیه‌دار",
+        "outlineDescription": "پر بدون رنگ با حاشیه رنگی.",
+        "ghost": "شبح",
+        "ghostDescription": "بدون سطح — فقط آیکن و متن."
       },
-      "baseAnimations": {
-        "title": "هشدار پایه — انیمیشن‌ها",
-        "description": "همان پیام و آیکن؛ فقط انیمیشن ورود تغییر می‌کند.",
-        "packageMessage": "بسته شما در راه است."
+      "sizes": {
+        "title": "اندازه‌ها",
+        "description": "آیکن و تایپوگرافی با هم مقیاس می‌شوند.",
+        "message": "بدون سند در اندازه {size}."
       },
-      "iconsSituations": {
-        "title": "هشدار پایه — آیکن‌ها و موقعیت‌ها",
-        "description": "آیکن‌ها و متن سفارشی برای حالت‌های رایج خالی، خطا و اطلاعات.",
-        "offline": "آفلاین",
-        "serviceDown": "سرویس از دسترس خارج",
-        "emptyInbox": "صندوق ورودی خالی",
-        "noDocuments": "بدون سند",
-        "sessionExpired": "نشست منقضی شده",
-        "maintenance": "تعمیر و نگهداری",
-        "notificationsOff": "اعلان‌ها خاموش",
-        "allCaughtUp": "همه چیز به‌روز است",
-        "emptyWarehouse": "انبار خالی",
-        "accessBlocked": "دسترسی مسدود",
-        "offlineMessage": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
-        "serviceDownMessage": "سرویس به‌طور موقت در دسترس نیست.",
-        "emptyInboxMessage": "صندوق ورودی شما خالی است.",
-        "noDocumentsMessage": "هنوز سندی بارگذاری نشده است.",
-        "sessionExpiredMessage": "نشست منقضی شده است. دوباره وارد شوید.",
-        "maintenanceMessage": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
-        "notificationsOffMessage": "اعلان‌ها غیرفعال هستند.",
-        "allCaughtUpMessage": "همه چیز به‌روز است!",
-        "emptyWarehouseMessage": "موجودی در این انبار وجود ندارد.",
-        "accessBlockedMessage": "این بخش نیاز به دسترسی مدیر دارد."
+      "layouts": {
+        "title": "چیدمان‌ها",
+        "description": "پشته مرکزی، بلوک چپ‌چین یا ردیف افقی.",
+        "center": "مرکز",
+        "centerDescription": "آیکن و متن در مرکز ظرف.",
+        "start": "شروع",
+        "startDescription": "پشته عمودی چپ‌چین.",
+        "row": "ردیف",
+        "rowDescription": "آیکن کنار عنوان، توضیح و عملیات.",
+        "heading": "مشکل اتصال",
+        "action": "تلاش مجدد"
       },
       "animations": {
-        "jumpIn": "پرش به داخل (پیش‌فرض)",
+        "title": "انیمیشن‌ها",
+        "description": "presetهای حرکت ورود برای آیکن و متن.",
+        "message": "بسته شما در راه است.",
+        "jumpIn": "پرش به داخل",
         "shake": "لرزش",
         "bounceIn": "پرش ورودی",
         "flipUp": "چرخش به بالا",
         "none": "بدون انیمیشن"
+      },
+      "situations": {
+        "title": "موقعیت‌های واقعی",
+        "description": "الگوهای رایج خالی، آفلاین و دسترسی با آیکن و متن مناسب.",
+        "offline": "آفلاین",
+        "offlineMessage": "شما آفلاین هستید. اتصال خود را بررسی کنید.",
+        "serviceDown": "سرویس از دسترس خارج",
+        "serviceDownMessage": "سرویس به‌طور موقت در دسترس نیست.",
+        "emptyInbox": "صندوق ورودی خالی",
+        "emptyInboxMessage": "صندوق ورودی شما خالی است.",
+        "noDocuments": "بدون سند",
+        "noDocumentsMessage": "هنوز سندی بارگذاری نشده است.",
+        "sessionExpired": "نشست منقضی شده",
+        "sessionExpiredMessage": "نشست منقضی شده است. دوباره وارد شوید.",
+        "maintenance": "تعمیر و نگهداری",
+        "maintenanceMessage": "تعمیر و نگهداری برنامه‌ریزی‌شده در حال انجام است.",
+        "notificationsOff": "اعلان‌ها خاموش",
+        "notificationsOffMessage": "اعلان‌ها غیرفعال هستند.",
+        "allCaughtUp": "همه چیز به‌روز است",
+        "allCaughtUpMessage": "همه چیز به‌روز است!",
+        "emptyWarehouse": "انبار خالی",
+        "emptyWarehouseMessage": "موجودی در این انبار وجود ندارد.",
+        "accessBlocked": "دسترسی مسدود",
+        "accessBlockedMessage": "این بخش نیاز به دسترسی مدیر دارد."
       }
     },
     "auth": {

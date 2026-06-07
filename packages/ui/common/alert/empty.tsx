@@ -1,16 +1,17 @@
 import { SearchX } from "lucide-react";
-import BaseAlert from "./base-alert";
+import Alert from "@/components/common/alert/alert";
 import { useLanguage } from "@/lib";
-import { AlertProps } from ".";
+import type { LegacyAlertProps } from "@/components/common/alert/types";
 
-export default function EmptyAlert({ message }: AlertProps) {
+export default function EmptyAlert({ message }: LegacyAlertProps) {
   const { t } = useLanguage();
+
   return (
-    <BaseAlert
-      icon={<SearchX size={40} />}
-      message={message || t("errors.empty")}
-      animation="animate-shake"
-      className="text-icon"
-    />
+    <Alert severity="muted" animation="shake">
+      <Alert.Icon>
+        <SearchX />
+      </Alert.Icon>
+      <Alert.Description>{message || t("errors.empty")}</Alert.Description>
+    </Alert>
   );
 }

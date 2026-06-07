@@ -1,20 +1,52 @@
-import ErrorAlert from '@/components/common/alert/data-error'
-import LoadingAlert from '@/components/common/alert/loading'
-import EmptyAlert from '@/components/common/alert/empty'
-import PermissionAlert from '@/components/common/alert/permission'
-import BaseAlert from '@/components/common/alert/base-alert'
-import { ReactNode } from 'react'
+export {
+  Alert,
+  AlertActions,
+  AlertContent,
+  AlertDescription,
+  AlertDivider,
+  AlertIcon,
+  AlertRoot,
+  AlertTitle,
+  alertVariants,
+} from "@/components/common/alert/alert";
 
-export type AlertProps = {
-  message?: string
-  icon?: ReactNode
-  className?: string
-}
+export { default } from "@/components/common/alert/alert";
 
-export namespace Alert {
-  export const Loading = LoadingAlert
-  export const Empty = EmptyAlert
-  export const Error = ErrorAlert
-  export const Forbidden = PermissionAlert
-  export const Base = BaseAlert
-}
+export {
+  alertActionsVariants,
+  alertBodyVariants,
+  alertDescriptionVariants,
+  alertDividerVariants,
+  alertIconVariants,
+  alertTitleVariants,
+  resolveAlertAnimation,
+  resolveLegacyAnimationClass,
+  ALERT_ANIMATION_CLASSES,
+} from "@/components/common/alert/variants";
+
+export type { AlertAnimation } from "@/components/common/alert/variants";
+
+export type {
+  AlertActionsProps,
+  AlertAppearance,
+  AlertContentProps,
+  AlertDescriptionProps,
+  AlertDividerProps,
+  AlertIconProps,
+  AlertLayout,
+  AlertProps,
+  AlertSeverity,
+  AlertSize,
+  AlertTitleProps,
+  LegacyAlertProps,
+} from "@/components/common/alert/types";
+
+export {
+  ALERT_ANIMATIONS,
+  ALERT_APPEARANCES,
+  ALERT_LAYOUTS,
+  ALERT_SEVERITIES,
+  ALERT_SIZES,
+} from "@/components/common/alert/types";
+
+export type { BaseAlertProps } from "@/components/common/alert/base-alert";

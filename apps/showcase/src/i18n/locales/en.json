@@ -33,7 +33,7 @@
     },
     "alerts": {
       "title": "Alerts",
-      "description": "Empty, loading, error, and permission states."
+      "description": "Empty states and status alerts with CVA variants and compound parts."
     },
     "auth": {
       "title": "Auth layout",
@@ -2857,21 +2857,18 @@
       }
     },
     "alerts": {
-      "builtInAlerts": {
-        "title": "Built-in alerts",
-        "description": "Preset states used across data views — each shown in a compact panel, not full width.",
-        "labels": {
-          "emptyDefault": "Empty (default)",
-          "emptyCustom": "Empty (custom)",
-          "loadingDefault": "Loading (default)",
-          "loadingCustom": "Loading (custom)",
-          "errorDefault": "Error (default)",
-          "errorCustom": "Error (custom)",
-          "forbidden": "Forbidden"
-        },
-        "message": "No orders match your filters.",
-        "message1": "Fetching shipments…",
-        "message2": "Could not sync inventory. Try again later.",
+      "compound": {
+        "title": "Compound alert",
+        "description": "Compose icon, title, description, and actions with variant props.",
+        "label": "Full example",
+        "titleText": "Shipment delayed",
+        "descriptionText": "Your package is still in transit. We'll notify you when it arrives.",
+        "primaryAction": "Track order",
+        "secondaryAction": "Contact support"
+      },
+      "presets": {
+        "title": "Built-in presets",
+        "description": "Ready-made Empty, Loading, Error, and Forbidden states used across data views.",
         "emptyDefault": "Empty (default)",
         "emptyCustom": "Empty (custom)",
         "loadingDefault": "Loading (default)",
@@ -2883,72 +2880,86 @@
         "loadingCustomMessage": "Fetching shipments…",
         "errorCustomMessage": "Could not sync inventory. Try again later."
       },
-      "baseAlertAnimations": {
-        "title": "Base alert — animations",
-        "description": "Same message and icon; only the entrance animation changes.",
-        "message": "Your package is on the way."
+      "severities": {
+        "title": "Severities",
+        "description": "Semantic tones for empty, warning, and success states.",
+        "default": "Default",
+        "defaultDescription": "Neutral empty or informational state.",
+        "primary": "Primary",
+        "primaryDescription": "Brand-forward guidance or call to action.",
+        "secondary": "Secondary",
+        "secondaryDescription": "Secondary emphasis without strong urgency.",
+        "success": "Success",
+        "successDescription": "Positive completion or confirmation.",
+        "warning": "Warning",
+        "warningDescription": "Attention needed but not blocking.",
+        "danger": "Danger",
+        "dangerDescription": "Error, blocked access, or critical issue.",
+        "info": "Info",
+        "infoDescription": "Informational context with muted emphasis.",
+        "muted": "Muted",
+        "mutedDescription": "Low-emphasis placeholder state."
       },
-      "baseAlertIconsSituations": {
-        "title": "Base alert — icons & situations",
-        "description": "Custom icons and copy for common empty, error, and info states.",
-        "labels": {
-          "offline": "Offline",
-          "serviceDown": "Service down",
-          "emptyInbox": "Empty inbox",
-          "noDocuments": "No documents",
-          "sessionExpired": "Session expired",
-          "maintenance": "Maintenance",
-          "notificationsOff": "Notifications off",
-          "allCaughtUp": "All caught up",
-          "emptyWarehouse": "Empty warehouse",
-          "accessBlocked": "Access blocked"
-        },
-        "message": "You are offline. Check your connection.",
-        "message1": "Service temporarily unavailable.",
-        "message2": "Your inbox is empty.",
-        "message3": "No documents uploaded yet.",
-        "message4": "Session expired. Sign in again.",
-        "message5": "Scheduled maintenance in progress.",
-        "message6": "Notifications are disabled.",
-        "message7": "You are all caught up!",
-        "message8": "No stock in this warehouse.",
-        "message9": "This area requires admin access."
+      "appearances": {
+        "title": "Appearances",
+        "description": "Surface styles from minimal ghost to bordered outline.",
+        "soft": "Soft",
+        "softDescription": "Tinted background with subtle border.",
+        "outline": "Outline",
+        "outlineDescription": "Transparent fill with colored border.",
+        "ghost": "Ghost",
+        "ghostDescription": "No surface — icon and text only."
       },
-      "baseAnimations": {
-        "title": "Base alert — animations",
-        "description": "Same message and icon; only the entrance animation changes.",
-        "packageMessage": "Your package is on the way."
+      "sizes": {
+        "title": "Sizes",
+        "description": "Scale icon and typography together.",
+        "message": "No documents at the {size} size."
       },
-      "iconsSituations": {
-        "title": "Base alert — icons & situations",
-        "description": "Custom icons and copy for common empty, error, and info states.",
-        "offline": "Offline",
-        "serviceDown": "Service down",
-        "emptyInbox": "Empty inbox",
-        "noDocuments": "No documents",
-        "sessionExpired": "Session expired",
-        "maintenance": "Maintenance",
-        "notificationsOff": "Notifications off",
-        "allCaughtUp": "All caught up",
-        "emptyWarehouse": "Empty warehouse",
-        "accessBlocked": "Access blocked",
-        "offlineMessage": "You are offline. Check your connection.",
-        "serviceDownMessage": "Service temporarily unavailable.",
-        "emptyInboxMessage": "Your inbox is empty.",
-        "noDocumentsMessage": "No documents uploaded yet.",
-        "sessionExpiredMessage": "Session expired. Sign in again.",
-        "maintenanceMessage": "Scheduled maintenance in progress.",
-        "notificationsOffMessage": "Notifications are disabled.",
-        "allCaughtUpMessage": "You are all caught up!",
-        "emptyWarehouseMessage": "No stock in this warehouse.",
-        "accessBlockedMessage": "This area requires admin access."
+      "layouts": {
+        "title": "Layouts",
+        "description": "Centered stacks, left-aligned blocks, or horizontal rows.",
+        "center": "Center",
+        "centerDescription": "Icon and copy centered in the container.",
+        "start": "Start",
+        "startDescription": "Left-aligned vertical stack.",
+        "row": "Row",
+        "rowDescription": "Icon beside title, description, and actions.",
+        "heading": "Connection issue",
+        "action": "Retry"
       },
       "animations": {
-        "jumpIn": "Jump in (default)",
+        "title": "Animations",
+        "description": "Entrance motion presets for icon and text.",
+        "message": "Your package is on the way.",
+        "jumpIn": "Jump in",
         "shake": "Shake",
         "bounceIn": "Bounce in",
         "flipUp": "Flip up",
         "none": "None"
+      },
+      "situations": {
+        "title": "Real-world situations",
+        "description": "Common empty, offline, and permission patterns with tailored icons and copy.",
+        "offline": "Offline",
+        "offlineMessage": "You are offline. Check your connection.",
+        "serviceDown": "Service down",
+        "serviceDownMessage": "Service temporarily unavailable.",
+        "emptyInbox": "Empty inbox",
+        "emptyInboxMessage": "Your inbox is empty.",
+        "noDocuments": "No documents",
+        "noDocumentsMessage": "No documents uploaded yet.",
+        "sessionExpired": "Session expired",
+        "sessionExpiredMessage": "Session expired. Sign in again.",
+        "maintenance": "Maintenance",
+        "maintenanceMessage": "Scheduled maintenance in progress.",
+        "notificationsOff": "Notifications off",
+        "notificationsOffMessage": "Notifications are disabled.",
+        "allCaughtUp": "All caught up",
+        "allCaughtUpMessage": "You are all caught up!",
+        "emptyWarehouse": "Empty warehouse",
+        "emptyWarehouseMessage": "No stock in this warehouse.",
+        "accessBlocked": "Access blocked",
+        "accessBlockedMessage": "This area requires admin access."
       }
     },
     "auth": {

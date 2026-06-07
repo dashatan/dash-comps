@@ -1,15 +1,17 @@
-import { useLanguage } from "@/lib";
-import BaseAlert from "./base-alert";
 import { AlertTriangle } from "lucide-react";
-import { AlertProps } from ".";
+import Alert from "@/components/common/alert/alert";
+import { useLanguage } from "@/lib";
+import type { LegacyAlertProps } from "@/components/common/alert/types";
 
-export default function DataError({ message }: AlertProps) {
+export default function DataError({ message }: LegacyAlertProps) {
   const { t } = useLanguage();
+
   return (
-    <BaseAlert
-      icon={<AlertTriangle size={38} />}
-      message={message || t("errors.fetch")}
-      className="text-icon"
-    />
+    <Alert severity="muted" animation="jumpIn">
+      <Alert.Icon>
+        <AlertTriangle />
+      </Alert.Icon>
+      <Alert.Description>{message || t("errors.fetch")}</Alert.Description>
+    </Alert>
   );
 }
