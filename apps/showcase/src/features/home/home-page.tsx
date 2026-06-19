@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
+import { catalogLinkParams } from "@/shared/router/nav-link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import {
@@ -51,7 +52,7 @@ export function HomePage() {
                 {home.browse}
               </Button>
             </Link>
-            <Link to="/components/buttons">
+            <Link to="/components/$slug" params={{ slug: "buttons" }}>
               <Button variant="outlined" size="lg">
                 {home.startButtons}
               </Button>
@@ -64,7 +65,7 @@ export function HomePage() {
         {catalogCategories.map((category) => (
           <AnimatedItem key={category.slug}>
             <HoverShadow className="block rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm transition-colors hover:border-primary/40">
-              <Link to={`/components/${category.slug}`}>
+              <Link to="/components/$slug" params={catalogLinkParams(category.slug)}>
                 <category.icon className="mb-3 size-5 text-primary" />
                 <h3 className="font-semibold">{categoryTitle(category.slug)}</h3>
                 <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">

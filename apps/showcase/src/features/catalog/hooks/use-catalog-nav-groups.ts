@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRouterState } from "@tanstack/react-router";
 import {
   catalogCategoryGroups,
   type CatalogGroup,
@@ -25,9 +25,9 @@ function readStoredOpenGroups(): OpenGroups {
 }
 
 export function useCatalogNavGroups() {
-  const location = useLocation();
-  const activeSlug = location.pathname.startsWith("/components/")
-    ? location.pathname.replace("/components/", "").split("/")[0]
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const activeSlug = pathname.startsWith("/components/")
+    ? pathname.replace("/components/", "").split("/")[0]
     : undefined;
 
   const activeGroup = useMemo(

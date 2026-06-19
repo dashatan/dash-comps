@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, catalogLinkParams } from "@/shared/router/nav-link";
 import { Home, LayoutGrid, Sidebar as SidebarIcon } from "lucide-react";
 import { cn } from "@/lib";
 import { catalogCategoryGroups } from "@/features/catalog/registry";
@@ -19,8 +19,8 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
   const isExpanded = forceExpanded || expand;
 
   const navItems = [
-    { to: "/", label: nav.home, icon: Home },
-    { to: "/components", label: nav.allComponents, icon: LayoutGrid },
+    { to: "/" as const, label: nav.home, icon: Home },
+    { to: "/components" as const, label: nav.allComponents, icon: LayoutGrid },
   ];
 
   return (
@@ -97,7 +97,8 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
                 return (
                   <li key={category.slug}>
                     <NavLink
-                      to={`/components/${category.slug}`}
+                      to="/components/$slug"
+                      params={catalogLinkParams(category.slug)}
                       title={label}
                       className={({ isActive }) =>
                         cn(

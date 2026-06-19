@@ -7,7 +7,7 @@ import {
   type ErrorInfo,
   type ReactNode,
 } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { AlertTriangle, Check, Copy, Home, RotateCcw } from "lucide-react";
 import { useLanguage } from "@/lib";
 import Button from "@/components/common/buttons";

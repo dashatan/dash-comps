@@ -1,6 +1,10 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import react from "@vitejs/plugin-react";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 
 const root = path.resolve(__dirname, "../..");
@@ -15,7 +19,7 @@ const coreAlias = (prefix: string) => [
 ] as const;
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [tanstackRouter({ target: "react" }), react(), tailwindcss()],
   resolve: {
     dedupe: ["react", "react-dom"],
     alias: [

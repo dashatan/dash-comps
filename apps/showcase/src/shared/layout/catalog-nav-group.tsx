@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, catalogLinkParams } from "@/shared/router/nav-link";
 import { ChevronRight } from "lucide-react";
 import {
   Collapsible,
@@ -61,7 +61,8 @@ export function CatalogNavGroup({
             return (
               <li key={category.slug}>
                 <NavLink
-                  to={`/components/${category.slug}`}
+                  to="/components/$slug"
+                  params={catalogLinkParams(category.slug)}
                   className={({ isActive }) =>
                     cn(
                       "relative flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[13px] leading-snug transition-colors",

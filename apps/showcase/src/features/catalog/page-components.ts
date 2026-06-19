@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { ComponentType } from "react";
 import { AccordionPage } from "@/features/catalog/pages/accordion.page";
 import { AlertsPage } from "@/features/catalog/pages/alerts.page";
 import { AuthPage } from "@/features/catalog/pages/auth.page";
@@ -39,49 +39,50 @@ import { TimelinePage } from "@/features/catalog/pages/timeline.page";
 import { TrackerPage } from "@/features/catalog/pages/tracker.page";
 import { TypographyPage } from "@/features/catalog/pages/typography.page";
 
-type CatalogRoute = {
-  path: string;
-  element: ReactElement;
-};
+export const catalogPageComponents = {
+  accordion: AccordionPage,
+  alerts: AlertsPage,
+  auth: AuthPage,
+  avatar: AvatarPage,
+  badges: BadgesPage,
+  banner: BannerPage,
+  buttons: ButtonsPage,
+  cards: CardsPage,
+  carousel: CarouselPage,
+  charts: ChartsPage,
+  chips: ChipsPage,
+  collapsible: CollapsiblePage,
+  "context-menu": ContextMenuPage,
+  dashboard: DashboardPage,
+  divider: DividerPage,
+  fadeable: FadeablePage,
+  "file-uploader": FileUploaderPage,
+  flex: FlexPage,
+  form: FormPage,
+  grid: GridPage,
+  "hover-card": HoverCardPage,
+  inputs: InputsPage,
+  "license-plate": LicensePlatePage,
+  list: ListPage,
+  loading: LoadingPage,
+  "location-picker": LocationPickerPage,
+  map: MapPage,
+  overlay: OverlayPage,
+  pagination: PaginationPage,
+  shapes: ShapesPage,
+  skeleton: SkeletonPage,
+  slider: SliderPage,
+  sonner: SonnerPage,
+  steps: StepsPage,
+  table: TablePage,
+  tabs: TabsPage,
+  timeline: TimelinePage,
+  tracker: TrackerPage,
+  typography: TypographyPage,
+} as const satisfies Record<string, ComponentType>;
 
-export const catalogRoutes: CatalogRoute[] = [
-  { path: "/components/accordion", element: <AccordionPage /> },
-  { path: "/components/alerts", element: <AlertsPage /> },
-  { path: "/components/auth", element: <AuthPage /> },
-  { path: "/components/avatar", element: <AvatarPage /> },
-  { path: "/components/badges", element: <BadgesPage /> },
-  { path: "/components/banner", element: <BannerPage /> },
-  { path: "/components/buttons", element: <ButtonsPage /> },
-  { path: "/components/cards", element: <CardsPage /> },
-  { path: "/components/carousel", element: <CarouselPage /> },
-  { path: "/components/charts", element: <ChartsPage /> },
-  { path: "/components/chips", element: <ChipsPage /> },
-  { path: "/components/collapsible", element: <CollapsiblePage /> },
-  { path: "/components/context-menu", element: <ContextMenuPage /> },
-  { path: "/components/dashboard", element: <DashboardPage /> },
-  { path: "/components/divider", element: <DividerPage /> },
-  { path: "/components/fadeable", element: <FadeablePage /> },
-  { path: "/components/file-uploader", element: <FileUploaderPage /> },
-  { path: "/components/flex", element: <FlexPage /> },
-  { path: "/components/form", element: <FormPage /> },
-  { path: "/components/grid", element: <GridPage /> },
-  { path: "/components/hover-card", element: <HoverCardPage /> },
-  { path: "/components/inputs", element: <InputsPage /> },
-  { path: "/components/license-plate", element: <LicensePlatePage /> },
-  { path: "/components/list", element: <ListPage /> },
-  { path: "/components/loading", element: <LoadingPage /> },
-  { path: "/components/location-picker", element: <LocationPickerPage /> },
-  { path: "/components/map", element: <MapPage /> },
-  { path: "/components/overlay", element: <OverlayPage /> },
-  { path: "/components/pagination", element: <PaginationPage /> },
-  { path: "/components/shapes", element: <ShapesPage /> },
-  { path: "/components/skeleton", element: <SkeletonPage /> },
-  { path: "/components/slider", element: <SliderPage /> },
-  { path: "/components/sonner", element: <SonnerPage /> },
-  { path: "/components/steps", element: <StepsPage /> },
-  { path: "/components/table", element: <TablePage /> },
-  { path: "/components/tabs", element: <TabsPage /> },
-  { path: "/components/timeline", element: <TimelinePage /> },
-  { path: "/components/tracker", element: <TrackerPage /> },
-  { path: "/components/typography", element: <TypographyPage /> },
-];
+export type CatalogPageSlug = keyof typeof catalogPageComponents;
+
+export function isCatalogPageSlug(slug: string): slug is CatalogPageSlug {
+  return slug in catalogPageComponents;
+}

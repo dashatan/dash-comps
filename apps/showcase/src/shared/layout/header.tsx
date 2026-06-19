@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib";
 import { HEADER_HEIGHT } from "@/components/layout/dashboard/types";
@@ -18,13 +18,13 @@ import { SIDEBAR_WIDTH } from "@/components/layout/dashboard/types";
 
 export function ShowcaseHeader() {
   const { title: showcaseTitle, nav, catalog, categoryTitle } = useShowcaseShell();
-  const location = useLocation();
-  const slug = location.pathname.split("/").pop();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const slug = pathname.split("/").pop();
   const category = catalogCategories.find((c) => c.slug === slug);
   const title =
-    location.pathname === "/"
+    pathname === "/"
       ? nav.home
-      : location.pathname === "/components"
+      : pathname === "/components"
         ? catalog.indexTitle
         : category
           ? categoryTitle(category.slug)
@@ -55,7 +55,7 @@ export function ShowcaseHeader() {
           <Link to="/" className="hover:text-foreground transition-colors">
             {nav.home}
           </Link>
-          {location.pathname !== "/" ? (
+          {pathname !== "/" ? (
             <>
               <span>/</span>
               <span className="text-foreground truncate font-medium">{title}</span>

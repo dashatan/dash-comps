@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
+import { catalogLinkParams } from "@/shared/router/nav-link";
 import { motion } from "framer-motion";
 import { ChevronRight, ArrowUpRight } from "lucide-react";
 import {
@@ -65,7 +66,8 @@ export function CatalogIndexGroup({
               <AnimatedItem key={category.slug}>
                 <HoverScale scale={1.015}>
                   <Link
-                    to={`/components/${category.slug}`}
+                    to="/components/$slug"
+                    params={catalogLinkParams(category.slug)}
                     className="group border-border/70 bg-card/50 flex items-start gap-3 rounded-xl border p-4 backdrop-blur-sm transition-colors hover:border-primary/30"
                   >
                     <motion.div

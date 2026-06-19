@@ -1,26 +1,30 @@
-import { useCallback } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useRouter as useTanStackRouter,
+} from "@tanstack/react-router";
 
 export function useRouter() {
   const navigate = useNavigate();
   const location = useLocation();
+  const router = useTanStackRouter();
   return {
-    push: (href: string) => navigate(href),
-    replace: (href: string) => navigate(href, { replace: true }),
-    back: () => navigate(-1),
-    forward: () => navigate(1),
-    refresh: () => navigate(0),
+    push: (href: string) => navigate({ to: href }),
+    replace: (href: string) => navigate({ to: href, replace: true }),
+    back: () => router.history.back(),
+    forward: () => router.history.forward(),
+    refresh: () => navigate({ to: location.pathname, replace: true }),
     pathname: location.pathname,
   };
 }
 
 export function usePathname() {
-  return useLocation().pathname;
+  return useLocation({ select: (state) => state.pathname });
 }
 
 export function useSearchParams() {
-  const location = useLocation();
-  return new URLSearchParams(location.search);
+  const search = useLocation({ select: (state) => state.search });
+  return new URLSearchParams(search);
 }
 
 export function redirect(_url: string) {

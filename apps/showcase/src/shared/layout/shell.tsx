@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useRouterState } from "@tanstack/react-router";
 import { ShowcaseSidebar } from "@/shared/layout/sidebar";
 import { ShowcaseHeader } from "@/shared/layout/header";
 import {
@@ -15,7 +15,7 @@ type AppShellProps = {
 
 export function AppShell({ children }: AppShellProps) {
   const { expand } = useDashboardSignals();
-  const { pathname } = useLocation();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const sidebarWidth = expand ? SIDEBAR_WIDTH : SIDEBAR_WIDTH_COLLAPSED;
 
   useLayoutEffect(() => {

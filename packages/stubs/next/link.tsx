@@ -1,10 +1,8 @@
 import { forwardRef } from "react";
-import {
-  Link as RouterLink,
-  type LinkProps as RouterLinkProps,
-} from "react-router-dom";
+import { Link as RouterLink } from "@tanstack/react-router";
+import type { LinkProps as TanStackLinkProps } from "@tanstack/react-router";
 
-type LinkProps = Omit<RouterLinkProps, "to"> & {
+type LinkProps = Omit<TanStackLinkProps, "to"> & {
   href: string;
   prefetch?: boolean;
 };
