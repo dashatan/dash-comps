@@ -1,5 +1,11 @@
 import { createStore } from 'zustand/vanilla'
 import { ChangeTag, FilterValue, TableData, tableDefaultState } from './types'
+import {
+  areFiltersEqual,
+  isSameFilterValue,
+  normalizeFilterValue,
+  normalizeFilters,
+} from './utils/is-same-filter-value'
 
 export type TableOnChange = (data: TableData, tag: ChangeTag) => void
 
@@ -71,18 +77,41 @@ export function createTableStore(initial: Partial<TableData> = {}, onChange?: Ta
     },
 
     setFilter: (key: string, value: FilterValue | undefined) => {
-      const filters = { ...get().filters, [key]: value || undefined }
+      const next = normalizeFilterValue(value)
+      const prev = get().filters?.[key]
+      if (isSameFilterValue(prev, next)) return
+
+      const filters = { ...get().filters, [key]: next }
       set({ filters, page: 0, offset: 0, first: 0 })
       get().emit('filter')
     },
 
     setFilters: (filters) => {
-      set({ filters, page: 0, offset: 0, first: 0 })
+      const normalized = normalizeFilters(filters)
+      if (areFiltersEqual(get().filters, normalized)) return
+
+      set({ filters: normalized, page: 0, offset: 0, first: 0 })
       get().emit('filter')
     },
 
     applyFilterValues: (values) => {
-      set({ ...values, page: 0, offset: 0, first: 0 })
+      const current = get()
+      const nextFilters =
+        values.filters !== undefined ? normalizeFilters(values.filters) : current.filters
+
+      if (
+        values.filters !== undefined &&
+        areFiltersEqual(current.filters, nextFilters) &&
+        Object.keys(values).every(
+          (key) =>
+            key === 'filters' ||
+            values[key as keyof TableData] === current[key as keyof TableData],
+        )
+      ) {
+        return
+      }
+
+      set({ ...values, filters: nextFilters, page: 0, offset: 0, first: 0 })
       get().emit('filter')
     },
 

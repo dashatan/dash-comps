@@ -238,6 +238,7 @@ export function TablePage() {
   const { language } = useLanguage();
   const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
   const [loading, setLoading] = useState(false);
+  const [excelLoading, setExcelLoading] = useState(false);
   const [lastChangeTag, setLastChangeTag] = useState<ChangeTag | null>(null);
 
   const localizeRow = useCallback(
@@ -302,6 +303,20 @@ export function TablePage() {
     setLoading(true);
     window.setTimeout(() => setLoading(false), 380);
   }, []);
+
+  const handleExcelExport = useCallback(async () => {
+    setExcelLoading(true);
+    try {
+      await new Promise<void>((resolve) => window.setTimeout(resolve, 800));
+      window.alert(
+        p("bulkActions.exportFilteredAlert", {
+          count: filteredRows.length,
+        }),
+      );
+    } finally {
+      setExcelLoading(false);
+    }
+  }, [filteredRows.length, p]);
 
   const handleTableChange = useCallback(
     (data: TableData | Record<string, string>, tag: ChangeTag) => {
@@ -758,7 +773,7 @@ export function TablePage() {
                 </Badge>
               ),
               secondExtraElements: (
-                <Badge severity="info" className="me-2 hidden sm:inline-flex">
+                <Badge severity="info" className="mx-2 hidden sm:inline-flex">
                   <Maximize2 className="me-1 size-3.5" />
                   {p("compoundTable.showcase.hint")}
                 </Badge>
@@ -785,13 +800,8 @@ export function TablePage() {
                 },
               ],
               excelExportOptions: {
-                isLoading: loading,
-                onRequest: () =>
-                  window.alert(
-                    p("bulkActions.exportFilteredAlert", {
-                      count: filteredRows.length,
-                    }),
-                  ),
+                isLoading: excelLoading,
+                onRequest: handleExcelExport,
               },
             }}
             actionFilterProps={{

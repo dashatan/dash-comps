@@ -1,6 +1,7 @@
 import { cn, useLanguage } from "@/lib";
 import { FilterElementProps } from ".";
 import { useEffect, useState } from "react";
+import type { NumberRangeFilterValue } from "../../types";
 
 export type numberDuplex = [number | undefined, number | undefined];
 export type NumberRangeInputProps = {
@@ -10,6 +11,19 @@ export type NumberRangeInputProps = {
   onChange?: (value: numberDuplex) => void;
   className?: string;
 };
+
+function parseRangeInput(raw: string): number | undefined {
+  if (raw === "") return undefined;
+  const parsed = parseFloat(raw);
+  return Number.isNaN(parsed) ? undefined : parsed;
+}
+
+function toFilterValue(
+  range: numberDuplex | undefined,
+): NumberRangeFilterValue | undefined {
+  if (range?.[0] === undefined && range?.[1] === undefined) return undefined;
+  return [range?.[0], range?.[1]];
+}
 
 export default function FilterNumberRangeElement(props: FilterElementProps) {
   const { t } = useLanguage();
@@ -22,10 +36,10 @@ export default function FilterNumberRangeElement(props: FilterElementProps) {
     setValue(props.defaultValue as numberDuplex);
   }, [props.defaultValue]);
 
-  useEffect(() => {
-    const val = value?.[0] || value?.[1] ? [value?.[0], value?.[1]] : undefined;
-    props.onChange && props.onChange(val as any);
-  }, [value]);
+  const handleRangeChange = (next: numberDuplex | undefined) => {
+    setValue(next);
+    props.onChange?.(toFilterValue(next));
+  };
 
   const inputClassName = cn(
     "h-10 w-14 rounded-md border border-input px-2 bg-input focus:border-primary transition-all border-border",
@@ -41,10 +55,9 @@ export default function FilterNumberRangeElement(props: FilterElementProps) {
           className={inputClassName}
           min={min || 0}
           max={max}
-          value={value ? value[0] : undefined}
+          value={value?.[0] ?? ""}
           onChange={(e) => {
-            const val = parseFloat(e.target.value);
-            setValue((x) => [val, x?.[1]]);
+            handleRangeChange([parseRangeInput(e.target.value), value?.[1]]);
           }}
         />
       </div>
@@ -55,10 +68,9 @@ export default function FilterNumberRangeElement(props: FilterElementProps) {
           className={inputClassName}
           min={min || 0}
           max={max}
-          value={value ? value[1] : undefined}
+          value={value?.[1] ?? ""}
           onChange={(e) => {
-            const val = parseFloat(e.target.value);
-            setValue((x) => [x?.[0], val]);
+            handleRangeChange([value?.[0], parseRangeInput(e.target.value)]);
           }}
         />
       </div>
