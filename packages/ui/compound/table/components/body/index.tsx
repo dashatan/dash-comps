@@ -76,9 +76,8 @@ export default function Body({
             !!expandedRows[itemDataKey] &&
             !loading;
           if (expanded && rowExpansionTemplate && !expandOnNewRow) {
-            const { start: startFrozen, end: endFrozen } = getFrozenGroupIndices(
-              columns ?? [],
-            );
+            const { start: startFrozen, end: endFrozen } =
+              getFrozenGroupIndices(columns ?? []);
             const startFrozenSet = new Set(startFrozen);
             const endFrozenSet = new Set(endFrozen);
 
@@ -122,7 +121,7 @@ export default function Body({
               <tr key={itemDataKey ?? index} className="group bg-table">
                 {(startExcludeCols || []).map(renderExcludeCol)}
                 <td
-                  className="border-b border-table-border align-top p-0"
+                  className="border-b border-table-border p-0 align-top"
                   colSpan={normalCols?.length}
                 >
                   {rowExpansionTemplate(item)}
