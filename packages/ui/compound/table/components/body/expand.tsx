@@ -1,21 +1,22 @@
 import Button from '@/components/common/buttons'
-import { BodyElementProps } from '../../types'
 import { cn } from '@/lib'
 import { DivProps } from '@/lib/types'
 import { ChevronDown } from 'lucide-react'
 import { useTableStore } from '../../context'
 
 export default function ExpandButton({
-  key,
+  expandKey,
   className,
-}: BodyElementProps & { key: string | number; className?: string }) {
+}: {
+  expandKey: string | number;
+  className?: string;
+}) {
   const expandedRows = useTableStore((s) => s.expandedRows)
   const toggleExpandedRow = useTableStore((s) => s.toggleExpandedRow)
-  const expanded = !!expandedRows && !!key && expandedRows[key]
+  const expanded = !!expandedRows && expandedRows[expandKey]
 
   function handleClick() {
-    if (!key) return
-    toggleExpandedRow(key)
+    toggleExpandedRow(expandKey)
   }
 
   return (

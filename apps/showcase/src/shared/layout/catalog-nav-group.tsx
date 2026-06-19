@@ -5,7 +5,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/common/collapsible";
-import type { CatalogCategory, CatalogGroup } from "@/features/catalog/registry";
+import type {
+  CatalogCategory,
+  CatalogGroup,
+} from "@/features/catalog/registry";
 import { cn } from "@/lib";
 
 type CatalogNavGroupProps = {
@@ -41,20 +44,20 @@ export function CatalogNavGroup({
       >
         <ChevronRight
           className={cn(
-            "text-sidebar-foreground/45 size-3.5 shrink-0 transition-transform duration-200",
+            "size-3.5 shrink-0 text-sidebar-foreground/45 transition-transform duration-200",
             isOpen && "rotate-90",
           )}
         />
         <span className="truncate text-xs font-semibold tracking-wide uppercase">
           {label}
         </span>
-        <span className="bg-sidebar-accent/50 text-sidebar-foreground/55 ms-auto rounded-md px-1.5 py-0.5 text-[10px] font-medium tabular-nums">
+        <span className="ms-auto rounded-md bg-sidebar-accent/50 px-1.5 py-0.5 text-[10px] font-medium text-sidebar-foreground/55 tabular-nums">
           {items.length}
         </span>
       </CollapsibleTrigger>
 
       <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-        <ul className="border-sidebar-border/70 mt-1.5 ms-2.5 space-y-0.5 border-s ps-2.5">
+        <ul className="ms-2.5 mt-1.5 space-y-0.5 border-s border-sidebar-border/70 ps-2.5">
           {items.map((category) => {
             const itemLabel = getItemLabel(category);
 
@@ -67,8 +70,8 @@ export function CatalogNavGroup({
                     cn(
                       "relative flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[13px] leading-snug transition-colors",
                       isActive
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium before:bg-primary before:absolute before:inset-y-1.5 before:-start-[9px] before:w-0.5 before:rounded-full"
-                        : "text-sidebar-foreground/70 hover:bg-sidebar-accent/45 hover:text-sidebar-accent-foreground",
+                        ? "text-sidebar-accent-foreground bg-sidebar-accent font-medium before:absolute before:inset-y-1.5 before:-start-[9px] before:w-0.5 before:rounded-full before:bg-primary"
+                        : "hover:text-sidebar-accent-foreground text-sidebar-foreground/70 hover:bg-sidebar-accent/45",
                     )
                   }
                 >

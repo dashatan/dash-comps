@@ -101,6 +101,8 @@ export type ColumnProps = {
     pos: 'left' | 'right'
     /** Internal: marks the frozen cell facing the scrolling area (gets the edge shadow). */
     edge?: boolean
+    /** Internal: resolved CSS sticky side after document direction is applied. */
+    stickySide?: 'left' | 'right'
   }
   excludeExpand?: {
     pos: 'left' | 'right'

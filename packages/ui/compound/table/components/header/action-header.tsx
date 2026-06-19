@@ -201,12 +201,18 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
           width={80}
         />
         {!props.hideFilter && (
-          <ActionButton tooltip="Filters" onClick={handleToggleFilter}>
+          <ActionButton
+            tooltip={t("common.filters")}
+            onClick={handleToggleFilter}
+          >
             <Search className={cn("size-6", showFilter && "text-primary")} />
           </ActionButton>
         )}
         {props.excelExportOptions && (
-          <ActionButton onClick={props.excelExportOptions.onRequest}>
+          <ActionButton
+            tooltip={t("table.excelDownload")}
+            onClick={props.excelExportOptions.onRequest}
+          >
             {props.excelExportOptions.isLoading ? (
               <Loader2 className="size-6 animate-spin" />
             ) : (
@@ -226,7 +232,7 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
                 disabled={!totalSelected}
               >
                 {!!totalSelected && <X className="size-3" />}
-                <span className="me-px mt-px">{totalSelected || 0}</span>
+                <span className="me-px">{totalSelected || 0}</span>
               </Badge>
             </div>
           </div>

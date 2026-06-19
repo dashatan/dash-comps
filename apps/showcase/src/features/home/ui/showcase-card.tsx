@@ -38,14 +38,14 @@ export function ShowcaseCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "group border-border/70 bg-card/30 relative flex min-h-64 flex-col overflow-hidden rounded-2xl border backdrop-blur-sm",
-        "hover:border-primary/35 transition-colors duration-300",
+        "group relative flex min-h-64 flex-col overflow-hidden rounded-2xl border border-border/70 bg-card/30 backdrop-blur-sm",
+        "transition-colors duration-300 hover:border-primary/35",
         spanClass[span],
       )}
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklch,var(--primary)_12%,transparent),transparent_65%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklch,var(--primary)_12%,transparent),transparent_65%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
 
       <Link
@@ -53,26 +53,26 @@ export function ShowcaseCard({
         params={catalogLinkParams(category.slug as CatalogSlug)}
         className="relative flex min-h-0 flex-1 flex-col"
       >
-        <div className="border-border/50 flex min-h-40 flex-1 items-center justify-center overflow-hidden border-b p-4 md:p-5">
+        <div className="flex min-h-40 flex-1 items-center justify-center overflow-hidden border-b border-border/50 p-4 md:p-5">
           {preview}
         </div>
 
         <div className="relative p-4 md:p-5">
           <div className="flex items-start justify-between gap-3">
-            <div className="bg-primary/10 text-primary mb-3 flex size-9 items-center justify-center rounded-lg">
+            <div className="mb-3 flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <category.icon className="size-4" />
             </div>
-            <span className="text-muted-foreground text-[0.65rem] font-medium tracking-wide uppercase tabular-nums">
+            <span className="text-[0.65rem] font-medium tracking-wide text-muted-foreground uppercase tabular-nums">
               {variantsLabel}
             </span>
           </div>
 
           <h3 className="text-base font-semibold tracking-tight">{title}</h3>
-          <p className="text-muted-foreground mt-1.5 line-clamp-2 text-sm leading-relaxed">
+          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
             {description}
           </p>
 
-          <span className="text-primary mt-4 inline-flex items-center gap-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
             {exploreLabel}
             <ArrowUpRight className="size-3.5" />
           </span>

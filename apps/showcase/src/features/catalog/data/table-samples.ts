@@ -1,98 +1,107 @@
 import type { NumberRangeFilterValue, TableData } from '@/components/compound/table/types'
 import type { ColorType } from '@/components/common/badge/color'
 
-export type FleetVehicleRow = {
+export type CommerceUserRow = {
   id: number
-  plate: string
-  driver: string
-  status: 'active' | 'pending' | 'inactive' | 'maintenance'
-  region: string
-  department: string
-  mileage: number
-  fuelLevel: number
-  lastServiceAt: number
+  nameKey: (typeof TABLE_NAME_KEYS)[number]
+  status: (typeof TABLE_STATUSES)[number]
+  region: (typeof TABLE_REGIONS)[number]
+  segment: (typeof TABLE_SEGMENTS)[number]
+  tier: (typeof TABLE_TIERS)[number]
+  category: (typeof TABLE_CATEGORIES)[number]
+  orders: number
+  totalSpent: number
+  loyaltyScore: number
+  lastOrderAt: number
   registeredAt: number
-  notes: string
   color: ColorType
-  category: string
-  contractEnd: number
-  gpsEnabled: boolean
-  assignedRoute: string
+  subscriptionEnd: number
+  newsletterEnabled: boolean
 }
 
 export const TABLE_ROW_COUNT = 1247
 
 export const TABLE_REGIONS = [
-  'Tehran',
-  'Isfahan',
-  'Shiraz',
-  'Tabriz',
-  'Mashhad',
-  'Ahvaz',
-  'Kerman',
-  'Yazd',
+  'tehran',
+  'isfahan',
+  'shiraz',
+  'tabriz',
+  'mashhad',
+  'ahvaz',
+  'kerman',
+  'yazd',
 ] as const
 
-export const TABLE_DEPARTMENTS = [
-  'Logistics',
-  'Operations',
-  'Sales',
-  'Support',
-  'Finance',
+export const TABLE_SEGMENTS = [
+  'retail',
+  'wholesale',
+  'enterprise',
+  'subscription',
+  'marketplace',
 ] as const
 
-export const TABLE_STATUSES = ['active', 'pending', 'inactive', 'maintenance'] as const
+export const TABLE_STATUSES = ['active', 'pending', 'inactive', 'churned'] as const
 
-export const TABLE_CATEGORIES = ['sedan', 'van', 'truck', 'motorcycle', 'bus'] as const
+export const TABLE_TIERS = ['bronze', 'silver', 'gold', 'platinum', 'vip'] as const
+
+export const TABLE_CATEGORIES = [
+  'electronics',
+  'fashion',
+  'home',
+  'beauty',
+  'food',
+] as const
+
+export const TABLE_NAME_KEYS = [
+  'sara',
+  'ali',
+  'mina',
+  'reza',
+  'leila',
+  'amir',
+  'neda',
+  'hassan',
+  'fatemeh',
+  'karim',
+  'zahra',
+  'omar',
+] as const
 
 const STATUS_CYCLE = TABLE_STATUSES
 const REGION_CYCLE = TABLE_REGIONS
-const DEPT_CYCLE = TABLE_DEPARTMENTS
+const SEGMENT_CYCLE = TABLE_SEGMENTS
+const TIER_CYCLE = TABLE_TIERS
 const CATEGORY_CYCLE = TABLE_CATEGORIES
+const NAME_CYCLE = TABLE_NAME_KEYS
 const COLOR_CYCLE: ColorType[] = ['green', 'yellow', 'red', 'blue', 'teal', 'orange', 'indigo', 'gray']
-
-const ROUTE_PREFIXES = [
-  'North ring express',
-  'Industrial zone loop',
-  'City center shuttle',
-  'Port warehouse link',
-  'Airport transfer corridor',
-  'Suburban delivery arc',
-] as const
 
 function daysAgo(days: number): number {
   return Date.now() - days * 86_400_000
 }
 
-function buildRow(id: number): FleetVehicleRow {
-  const status = STATUS_CYCLE[id % STATUS_CYCLE.length]
-  const region = REGION_CYCLE[id % REGION_CYCLE.length]
-  const department = DEPT_CYCLE[id % DEPT_CYCLE.length]
-  const category = CATEGORY_CYCLE[id % CATEGORY_CYCLE.length]
-  const route = ROUTE_PREFIXES[id % ROUTE_PREFIXES.length]
-
+function buildRow(id: number): CommerceUserRow {
   return {
     id,
-    plate: `${String.fromCharCode(65 + (id % 26))}${String.fromCharCode(65 + ((id * 3) % 26))}-${1000 + (id % 9000)}`,
-    driver: `Driver ${id}`,
-    status,
-    region,
-    department,
-    mileage: 12_000 + (id % 480) * 250,
-    fuelLevel: 15 + (id % 85),
-    lastServiceAt: daysAgo(10 + (id % 120)),
-    registeredAt: daysAgo(400 + (id % 900)),
-    notes: `Fleet unit #${id} — ${category} assigned to ${department.toLowerCase()} ops in ${region}.`,
+    nameKey: NAME_CYCLE[id % NAME_CYCLE.length],
+    status: STATUS_CYCLE[id % STATUS_CYCLE.length],
+    region: REGION_CYCLE[id % REGION_CYCLE.length],
+    segment: SEGMENT_CYCLE[id % SEGMENT_CYCLE.length],
+    tier: TIER_CYCLE[id % TIER_CYCLE.length],
+    category: CATEGORY_CYCLE[id % CATEGORY_CYCLE.length],
+    orders: 3 + (id % 120),
+    totalSpent: 250_000 + (id % 500) * 18_500,
+    loyaltyScore: 15 + (id % 85),
+    lastOrderAt: daysAgo(3 + (id % 90)),
+    registeredAt: daysAgo(120 + (id % 900)),
     color: COLOR_CYCLE[id % COLOR_CYCLE.length],
-    category,
-    contractEnd: daysAgo(-(30 + (id % 720))),
-    gpsEnabled: id % 4 !== 0,
-    assignedRoute: `${route} via ${region} sector ${(id % 12) + 1} — daily manifest ${id}`,
+    subscriptionEnd: daysAgo(-(30 + (id % 720))),
+    newsletterEnabled: id % 4 !== 0,
   }
 }
 
-export const TABLE_ALL_ROWS: FleetVehicleRow[] = Array.from({ length: TABLE_ROW_COUNT }, (_, i) =>
-  buildRow(i + 1),
+export const TABLE_ALL_ROWS: CommerceUserRow[] = Array.from(
+  { length: TABLE_ROW_COUNT },
+  (_, i) => buildRow(i + 1),
 )
 
 function asNumberRange(value: unknown): NumberRangeFilterValue | undefined {
@@ -106,13 +115,16 @@ function asStringArray(value: unknown): string[] {
   return []
 }
 
-export function filterAndSortTableRows(rows: FleetVehicleRow[], state: TableData): FleetVehicleRow[] {
+export function filterAndSortTableRows<T extends { id: number; name: string; status: string; region: string; segment: string; orders: number; totalSpent: number; lastOrderAt: number; registeredAt: number; loyaltyScore: number }>(
+  rows: T[],
+  state: TableData,
+): T[] {
   let result = [...rows]
 
-  const driver = state.filters?.driver as string | undefined
-  if (driver?.trim()) {
-    const q = driver.trim().toLowerCase()
-    result = result.filter((r) => r.driver.toLowerCase().includes(q))
+  const name = state.filters?.name as string | undefined
+  if (name?.trim()) {
+    const q = name.trim().toLowerCase()
+    result = result.filter((r) => r.name.toLowerCase().includes(q))
   }
 
   const status = state.filters?.status as string | undefined
@@ -125,23 +137,23 @@ export function filterAndSortTableRows(rows: FleetVehicleRow[], state: TableData
     result = result.filter((r) => regions.includes(r.region))
   }
 
-  const department = state.filters?.department as string | undefined
-  if (department) {
-    result = result.filter((r) => r.department === department)
+  const segment = state.filters?.segment as string | undefined
+  if (segment) {
+    result = result.filter((r) => r.segment === segment)
   }
 
-  const mileageRange = asNumberRange(state.filters?.mileage)
-  if (mileageRange) {
-    const [min, max] = mileageRange
-    if (min !== undefined) result = result.filter((r) => r.mileage >= min)
-    if (max !== undefined) result = result.filter((r) => r.mileage <= max)
+  const ordersRange = asNumberRange(state.filters?.orders)
+  if (ordersRange) {
+    const [min, max] = ordersRange
+    if (min !== undefined) result = result.filter((r) => r.orders >= min)
+    if (max !== undefined) result = result.filter((r) => r.orders <= max)
   }
 
-  const serviceAfter = state.filters?.lastServiceAt as number | number[] | undefined
-  if (serviceAfter !== undefined) {
-    const ts = Array.isArray(serviceAfter) ? serviceAfter[0] : serviceAfter
+  const orderAfter = state.filters?.lastOrderAt as number | number[] | undefined
+  if (orderAfter !== undefined) {
+    const ts = Array.isArray(orderAfter) ? orderAfter[0] : orderAfter
     if (typeof ts === 'number') {
-      result = result.filter((r) => r.lastServiceAt >= ts)
+      result = result.filter((r) => r.lastOrderAt >= ts)
     }
   }
 
@@ -153,14 +165,16 @@ export function filterAndSortTableRows(rows: FleetVehicleRow[], state: TableData
       switch (sortField) {
         case 'id':
           return (a.id - b.id) * dir
-        case 'driver':
-          return a.driver.localeCompare(b.driver) * dir
-        case 'mileage':
-          return (a.mileage - b.mileage) * dir
+        case 'name':
+          return a.name.localeCompare(b.name) * dir
+        case 'orders':
+          return (a.orders - b.orders) * dir
+        case 'totalSpent':
+          return (a.totalSpent - b.totalSpent) * dir
         case 'registeredAt':
           return (a.registeredAt - b.registeredAt) * dir
-        case 'fuelLevel':
-          return (a.fuelLevel - b.fuelLevel) * dir
+        case 'loyaltyScore':
+          return (a.loyaltyScore - b.loyaltyScore) * dir
         default:
           return 0
       }
@@ -170,7 +184,7 @@ export function filterAndSortTableRows(rows: FleetVehicleRow[], state: TableData
   return result
 }
 
-export function paginateTableRows(rows: FleetVehicleRow[], state: TableData): FleetVehicleRow[] {
+export function paginateTableRows<T>(rows: T[], state: TableData): T[] {
   const page = state.page ?? 0
   const rowsPerPage = state.rows ?? 15
   const start = page * rowsPerPage

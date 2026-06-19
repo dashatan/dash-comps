@@ -3,6 +3,7 @@ import { ColumnProps, FilterValue } from "../../types";
 import { cn } from "@/lib";
 import React, { memo, useCallback, useMemo, useRef } from "react";
 import { useTableStore } from "../../context";
+import { getFrozenStickySide } from "../../utils/frozen-columns";
 
 function useDebouncedCallback<T extends (...args: Parameters<T>) => void>(
   callback: T,
@@ -65,21 +66,24 @@ const Filter: React.FC<FilterProps> = memo(({ col, loading = false }) => {
     [loading, key, col, setFilter, debouncedSetFilter],
   );
 
+  const stickySide = col.frozen ? getFrozenStickySide(col.frozen) : undefined;
+
   return (
     <th
       style={{
         ...col.style,
-        ...(col.frozen && {
-          position: "sticky",
-          [col.frozen.pos]: col.frozen.distance ?? 0,
-          zIndex: 2,
-        }),
+        ...(col.frozen &&
+          stickySide && {
+            position: "sticky",
+            [stickySide]: col.frozen.distance ?? 0,
+            zIndex: 2,
+          }),
       }}
       className={cn("overflow-hidden border-b bg-table p-2", {
         "shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.2)]":
-          col.frozen?.edge && col.frozen.pos === "right",
+          col.frozen?.edge && stickySide === "right",
         "shadow-[6px_0_8px_-6px_rgba(0,0,0,0.2)]":
-          col.frozen?.edge && col.frozen.pos === "left",
+          col.frozen?.edge && stickySide === "left",
       })}
     >
       <div className={cn("flex w-full items-center", FILTER_ROW_CONTROL_HEIGHT)}>

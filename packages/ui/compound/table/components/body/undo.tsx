@@ -1,4 +1,5 @@
 import Button from "@/components/common/buttons";
+import { useLanguage } from "@/lib";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function Undo(props: Props) {
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,10 +24,15 @@ export default function Undo(props: Props) {
       <span className="font-semibold text-gray-100">{props.message}</span>
       <div className="flex items-center gap-2">
         {props.onUndo && (
-          <Button variant="text" label="بازگردانی" onClick={props.onUndo} />
+          <Button variant="text" label={t("common.undo")} onClick={props.onUndo} />
         )}
         {props.onDelete && (
-          <Button variant="text" label="حذف" severity="danger" onClick={props.onDelete} />
+          <Button
+            variant="text"
+            label={t("common.delete")}
+            severity="danger"
+            onClick={props.onDelete}
+          />
         )}
         {props.onClose && (
           <X className="w-10 cursor-pointer text-gray-100" onClick={props.onClose} />

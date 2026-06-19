@@ -2,6 +2,7 @@ import { ColumnProps } from '../../types'
 import SkeletonField from './skeleton'
 import { forwardRef, memo, useRef, type ReactNode } from 'react'
 import { cn } from '@/lib'
+import { getFrozenStickySide } from '../../utils/frozen-columns'
 
 export interface TDProps {
   loading?: boolean
@@ -41,6 +42,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
     }
 
     const isHovered = columnHover && hoveredColumnIndex === index
+    const stickySide = col.frozen ? getFrozenStickySide(col.frozen) : undefined
 
     return (
       <td
@@ -53,21 +55,26 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           }
         }}
         className={cn(
-          'border-table-border h-16 overflow-hidden border-b px-2 whitespace-nowrap',
+          'border-table-border h-16 overflow-hidden border-b px-2 whitespace-nowrap transition-colors duration-200',
           'group-last:border-b-0',
           {
             'pointer-events-none': loading,
             'bg-table-row': isHovered,
             '**:overflow-hidden **:text-ellipsis **:whitespace-nowrap': col.width,
             'bg-table group-hover:bg-table-row': !!col.frozen,
-            'shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && col.frozen.pos === 'right',
-            'shadow-[6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && col.frozen.pos === 'left',
+            'shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && stickySide === 'right',
+            'shadow-[6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && stickySide === 'left',
           },
           className?.td,
           bodyClassName?.td,
         )}
         style={{
-          ...(col.frozen && { position: 'sticky', [col.frozen.pos]: col.frozen.distance ?? 0, zIndex: 1 }),
+          ...(col.frozen &&
+            stickySide && {
+              position: 'sticky',
+              [stickySide]: col.frozen.distance ?? 0,
+              zIndex: 1,
+            }),
         }}
         onMouseEnter={columnHover && onColumnHover && index !== undefined ? () => onColumnHover(index) : undefined}
         onMouseLeave={columnHover && onColumnHover ? () => onColumnHover(null) : undefined}

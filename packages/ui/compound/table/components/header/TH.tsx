@@ -3,6 +3,7 @@ import { ColumnProps } from "../../types";
 import { cn } from "@/lib";
 import SortIcon from "./sort-icon";
 import { useTableStore } from "../../context";
+import { getFrozenStickySide } from "../../utils/frozen-columns";
 
 export interface THProps {
   col: ColumnProps;
@@ -69,15 +70,18 @@ export const TH = memo(
           })
         : col.header;
 
+    const stickySide = col.frozen ? getFrozenStickySide(col.frozen) : undefined;
+
     return (
       <th
         style={{
           ...col.style,
-          ...(col.frozen && {
-            position: "sticky",
-            [col.frozen.pos]: col.frozen.distance ?? 0,
-            zIndex: 2,
-          }),
+          ...(col.frozen &&
+            stickySide && {
+              position: "sticky",
+              [stickySide]: col.frozen.distance ?? 0,
+              zIndex: 2,
+            }),
           ...style,
         }}
         className={cn(
@@ -85,9 +89,9 @@ export const TH = memo(
           {
             "pointer-events-none cursor-not-allowed": loading,
             "shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.2)]":
-              col.frozen?.edge && col.frozen.pos === "right",
+              col.frozen?.edge && stickySide === "right",
             "shadow-[6px_0_8px_-6px_rgba(0,0,0,0.2)]":
-              col.frozen?.edge && col.frozen.pos === "left",
+              col.frozen?.edge && stickySide === "left",
           },
           className?.th,
           col.className,
@@ -97,7 +101,7 @@ export const TH = memo(
         <div
           className={cn(
             "h-16 w-full overflow-hidden p-2 text-right whitespace-nowrap",
-            "bg-table-header text-base font-medium text-foreground transition duration-200",
+            "bg-table-header text-base font-medium text-foreground transition-colors duration-200",
             "min-w-full border-e border-b border-table-border group-last:border-e-0",
             "flex items-center justify-center",
             { "bg-table-row": isHovered },

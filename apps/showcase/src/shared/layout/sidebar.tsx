@@ -12,7 +12,9 @@ type ShowcaseSidebarProps = {
   forceExpanded?: boolean;
 };
 
-export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps) {
+export function ShowcaseSidebar({
+  forceExpanded = false,
+}: ShowcaseSidebarProps) {
   const { appName, title, nav, sidebar, categoryTitle } = useShowcaseShell();
   const { expand, setExpand } = useDashboardSignals();
   const { isGroupOpen, setGroupOpen } = useCatalogNavGroups();
@@ -25,19 +27,21 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
 
   return (
     <div className="flex h-full flex-col">
-      <div className="border-sidebar-border flex items-center justify-between gap-2 border-b px-3 py-4">
+      <div className="flex items-center justify-between gap-2 border-b border-sidebar-border px-3 py-4">
         {isExpanded ? (
           <div className="min-w-0 ps-1">
-            <p className="text-primary text-xs font-semibold tracking-widest uppercase">
+            <p className="text-xs font-semibold tracking-widest text-primary uppercase">
               {appName}
             </p>
-            <h1 className="text-sidebar-foreground truncate text-lg font-bold">{title}</h1>
+            <h1 className="truncate text-lg font-bold text-sidebar-foreground">
+              {title}
+            </h1>
           </div>
         ) : null}
         <button
           type="button"
           onClick={() => !forceExpanded && setExpand(!expand)}
-          className="text-sidebar-icon hover:bg-sidebar-accent shrink-0 rounded-full p-2 transition-colors"
+          className="shrink-0 rounded-full p-2 text-sidebar-icon transition-colors hover:bg-sidebar-accent"
           aria-label={isExpanded ? sidebar.collapse : sidebar.expand}
         >
           <SidebarIcon
@@ -61,8 +65,8 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
                   cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                     isActive
-                      ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                      : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                      ? "text-sidebar-primary-foreground bg-sidebar-primary"
+                      : "hover:text-sidebar-accent-foreground text-sidebar-foreground/80 hover:bg-sidebar-accent",
                     !isExpanded && "justify-center px-2",
                   )
                 }
@@ -76,7 +80,7 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
 
         {isExpanded ? (
           <div className="mt-5 space-y-2 px-1">
-            <div className="bg-sidebar-border/60 h-px" />
+            <div className="h-px bg-sidebar-border/60" />
             {catalogCategoryGroups.map(({ group, items }) => (
               <CatalogNavGroup
                 key={group}
@@ -104,8 +108,8 @@ export function ShowcaseSidebar({ forceExpanded = false }: ShowcaseSidebarProps)
                         cn(
                           "flex items-center justify-center rounded-lg px-2 py-2 text-sm transition-colors",
                           isActive
-                            ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                            : "text-sidebar-foreground/75 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
+                            ? "text-sidebar-accent-foreground bg-sidebar-accent font-medium"
+                            : "hover:text-sidebar-accent-foreground text-sidebar-foreground/75 hover:bg-sidebar-accent/60",
                         )
                       }
                     >

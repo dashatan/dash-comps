@@ -2158,11 +2158,36 @@
       }
     },
     "table": {
+      "bulkActions": {
+        "clearSelection": "Clear selection",
+        "exportFilteredAlert": "Export {{count}} filtered rows",
+        "exportSelected": "Export selected",
+        "exportSelectedAlert": "Export {{count}} row(s)"
+      },
+      "columns": {
+        "email": "Email",
+        "id": "#",
+        "lastOrder": "Last order",
+        "loyaltyScore": "Loyalty %",
+        "name": "Name",
+        "newsletter": "Newsletter",
+        "notes": "Notes",
+        "orders": "Orders",
+        "preferredCategory": "Preferred category",
+        "region": "Region",
+        "registered": "Registered",
+        "segment": "Segment",
+        "status": "Status",
+        "subscriptionEnd": "Subscription end",
+        "tag": "Tag",
+        "tier": "Tier",
+        "totalSpent": "Total spent"
+      },
       "compoundTable": {
         "description": {
           "dataTable": "The data table lives in",
           "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources.",
-          "lead": "Interactive fleet registry with 1,247 records — pagination up to 1,000 rows per page, every major table capability enabled in one live demo."
+          "lead": "Interactive commerce user analytics with 1,247 records — pagination up to 1,000 rows per page, every major table capability enabled in one live demo."
         },
         "features": {
           "columns": "Column resize, reorder & hide (settings cog)",
@@ -2172,7 +2197,7 @@
           "pagination": "Server-style pagination with 5–1,000 rows per page",
           "scroll": "Drag-to-scroll + wide columns for horizontal overflow",
           "selection": "Row selection, bulk actions & Excel export",
-          "sidePanel": "Row click side panel & right-click context menu"
+          "sidePanel": "Right-click context menu side panel"
         },
         "meta": {
           "interact": "Interact with the table to see state changes.",
@@ -2180,11 +2205,106 @@
           "records": "records"
         },
         "showcase": {
-          "description": "Resize columns, drag to scroll, toggle filters, sort, paginate, select rows, expand, and open the side panel.",
-          "hint": "Click a row for side panel",
+          "description": "Resize columns, drag to scroll, toggle filters, sort, paginate, select rows, expand, and right-click to open the side panel.",
+          "hint": "Right-click a row for side panel",
           "title": "Full capability demo"
         },
         "title": "Compound table"
+      },
+      "contextMenu": {
+        "archive": "Archive",
+        "archiveAlert": "Archive {{email}}",
+        "copyEmail": "Copy email",
+        "openSidePanel": "Open side panel",
+        "view": "View record",
+        "viewAlert": "View {{name}}"
+      },
+      "expansion": {
+        "email": "Email",
+        "groups": {
+          "activity": "Activity",
+          "commerce": "Commerce",
+          "profile": "Profile"
+        },
+        "lastOrder": "Last order",
+        "loyaltyScore": "Loyalty",
+        "newsletter": "Newsletter",
+        "notes": "Notes",
+        "orders": "Orders",
+        "preferredCategory": "Preferred category",
+        "region": "Region",
+        "registered": "Registered",
+        "segment": "Segment",
+        "totalSpent": "Total spent"
+      },
+      "filterChips": {
+        "status": "Status: {{value}}"
+      },
+      "sampleData": {
+        "categories": {
+          "beauty": "Beauty",
+          "electronics": "Electronics",
+          "fashion": "Fashion",
+          "food": "Food & Grocery",
+          "home": "Home & Garden"
+        },
+        "currencySuffix": " $",
+        "names": {
+          "ali": "Ali Hosseini",
+          "amir": "Amir Karimi",
+          "fatemeh": "Fatemeh Rahimi",
+          "hassan": "Hassan Moradi",
+          "karim": "Karim Azizi",
+          "leila": "Leila Mohammadi",
+          "mina": "Mina Rahmani",
+          "neda": "Neda Sadeghi",
+          "omar": "Omar Khalil",
+          "reza": "Reza Nouri",
+          "sara": "Sara Ahmadi",
+          "zahra": "Zahra Ghasemi"
+        },
+        "newsletter": {
+          "off": "Off",
+          "on": "On"
+        },
+        "notes": "User #{{id}} — {{tier}} member, {{segment}} segment, based in {{region}}.",
+        "preferredCategory": "{{category}} — top interest in {{region}}",
+        "regions": {
+          "ahvaz": "Ahvaz",
+          "isfahan": "Isfahan",
+          "kerman": "Kerman",
+          "mashhad": "Mashhad",
+          "shiraz": "Shiraz",
+          "tabriz": "Tabriz",
+          "tehran": "Tehran",
+          "yazd": "Yazd"
+        },
+        "segments": {
+          "enterprise": "Enterprise",
+          "marketplace": "Marketplace",
+          "retail": "Retail",
+          "subscription": "Subscription",
+          "wholesale": "Wholesale"
+        },
+        "statuses": {
+          "active": "Active",
+          "churned": "Churned",
+          "inactive": "Inactive",
+          "pending": "Pending"
+        },
+        "tiers": {
+          "bronze": "Bronze",
+          "gold": "Gold",
+          "platinum": "Platinum",
+          "silver": "Silver",
+          "vip": "VIP"
+        }
+      },
+      "sidePanel": {
+        "orders": "Orders",
+        "region": "Region",
+        "segment": "Segment",
+        "totalSpent": "Total spent"
       }
     },
     "tabs": {

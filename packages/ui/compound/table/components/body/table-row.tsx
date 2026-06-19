@@ -61,7 +61,7 @@ const TableRow = memo(
           ref={ref}
           key={index}
           className={cn(
-            'bg-table hover:bg-table-row group transition-all',
+            'bg-table hover:bg-table-row group transition-colors duration-200',
             { '[&_td]:border-b-0': expanded, 'bg-table-row': isSelected },
             dynamicClassName,
             typeof classNameProp === 'string' ? classNameProp : undefined,

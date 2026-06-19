@@ -10,6 +10,7 @@ import {
 } from "@/components/common/context-menu";
 import React from "react";
 import { useTableStore } from "../../context";
+import { getFrozenGroupIndices } from "../../utils/frozen-columns";
 
 export type TableBodyProps = Pick<
   TableProps,
@@ -75,67 +76,59 @@ export default function Body({
             !!expandedRows[itemDataKey] &&
             !loading;
           if (expanded && rowExpansionTemplate && !expandOnNewRow) {
-            const rightExcludeCols = columns?.filter(
-              (x) => x.excludeExpand?.pos === "right",
+            const { start: startFrozen, end: endFrozen } = getFrozenGroupIndices(
+              columns ?? [],
+            );
+            const startFrozenSet = new Set(startFrozen);
+            const endFrozenSet = new Set(endFrozen);
+
+            const startExcludeCols = columns?.filter(
+              (col, i) => col.excludeExpand && startFrozenSet.has(i),
+            );
+            const endExcludeCols = columns?.filter(
+              (col, i) => col.excludeExpand && endFrozenSet.has(i),
             );
             const leftExcludeCols = columns?.filter(
               (x) => x.excludeExpand?.pos === "left",
             );
             const normalCols = columns?.filter(
-              (x) => !x.frozen && !x.excludeExpand,
+              (col, i) => !col.frozen && !col.excludeExpand,
             );
+
+            const renderExcludeCol = (col: ColumnProps) => {
+              const colIndex = columns?.findIndex((c) => c === col) ?? 0;
+              return (
+                <TD
+                  {...TDProps}
+                  key={`${col.field ?? colIndex}-${index}`}
+                  index={colIndex}
+                  col={col}
+                  data={item}
+                  rowIndex={index}
+                  loading={loading}
+                  className={{
+                    td: cn("align-top", TDProps?.className?.td),
+                    content: TDProps?.className?.content,
+                  }}
+                  columnHover={columnHover}
+                  hoveredColumnIndex={hoveredColumnIndex}
+                  onColumnHover={onColumnHover}
+                  draggable={draggable}
+                />
+              );
+            };
+
             return (
               <tr key={itemDataKey ?? index} className="group bg-table">
-                {(rightExcludeCols || []).map((col, i) => {
-                  const colIndex = columns?.findIndex((c) => c === col) ?? i;
-                  return (
-                    <TD
-                      {...TDProps}
-                      key={`${i}${index}`}
-                      index={colIndex}
-                      col={col}
-                      data={item}
-                      rowIndex={index}
-                      loading={loading}
-                      className={{
-                        td: cn("align-top", TDProps?.className?.td),
-                        content: TDProps?.className?.content,
-                      }}
-                      columnHover={columnHover}
-                      hoveredColumnIndex={hoveredColumnIndex}
-                      onColumnHover={onColumnHover}
-                      draggable={draggable}
-                    />
-                  );
-                })}
+                {(startExcludeCols || []).map(renderExcludeCol)}
                 <td
-                  className="border-b border-table-border"
+                  className="border-b border-table-border align-top p-0"
                   colSpan={normalCols?.length}
                 >
                   {rowExpansionTemplate(item)}
                 </td>
-                {(leftExcludeCols || []).map((col, i) => {
-                  const colIndex = columns?.findIndex((c) => c === col) ?? i;
-                  return (
-                    <TD
-                      {...TDProps}
-                      key={`${i}${index}`}
-                      index={colIndex}
-                      col={col}
-                      data={item}
-                      rowIndex={index}
-                      loading={loading}
-                      className={{
-                        td: cn("align-top", TDProps?.className?.td),
-                        content: TDProps?.className?.content,
-                      }}
-                      columnHover={columnHover}
-                      hoveredColumnIndex={hoveredColumnIndex}
-                      onColumnHover={onColumnHover}
-                      draggable={draggable}
-                    />
-                  );
-                })}
+                {(endExcludeCols || []).map(renderExcludeCol)}
+                {(leftExcludeCols || []).map(renderExcludeCol)}
               </tr>
             );
           }

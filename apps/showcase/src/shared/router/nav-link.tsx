@@ -12,7 +12,14 @@ type NavLinkProps = {
   children?: ReactNode;
 };
 
-export function NavLink({ end, className, children, to, params, title }: NavLinkProps) {
+export function NavLink({
+  end,
+  className,
+  children,
+  to,
+  params,
+  title,
+}: NavLinkProps) {
   const matchRoute = useMatchRoute();
   const isActive = Boolean(matchRoute({ to, params, fuzzy: !end }));
 
@@ -32,6 +39,8 @@ export function NavLink({ end, className, children, to, params, title }: NavLink
   );
 }
 
-export function catalogLinkParams(slug: CatalogSlug): { slug: CatalogPageSlug } {
+export function catalogLinkParams(slug: CatalogSlug): {
+  slug: CatalogPageSlug;
+} {
   return { slug: slug as CatalogPageSlug };
 }

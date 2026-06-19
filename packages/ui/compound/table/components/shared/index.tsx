@@ -1,11 +1,11 @@
-import { cn, formatPersianTime, formatPersianDate } from '@/lib'
-import { DivProps } from '@/lib/types'
-import { Minus } from 'lucide-react'
-import { ReactNode } from 'react'
-import { ColorType, colorFieldVariants } from '@/components/common/badge/color'
+import { cn, formatPersianTime, formatPersianDate } from "@/lib";
+import { DivProps } from "@/lib/types";
+import { Minus } from "lucide-react";
+import { ReactNode } from "react";
+import { ColorType, colorFieldVariants } from "@/components/common/badge/color";
 
 function formatNumber(value: number) {
-  return Intl.NumberFormat().format(Math.round(value || 0))
+  return Intl.NumberFormat().format(Math.round(value || 0));
 }
 
 export type TableCellTextFieldProps = {
@@ -84,7 +84,13 @@ export function TableHeaderCell({
   );
 }
 
-export function TableCellLinkButton({ text, icon }: { text: string; icon: ReactNode }) {
+export function TableCellLinkButton({
+  text,
+  icon,
+}: {
+  text: string;
+  icon: ReactNode;
+}) {
   return (
     <div className="flex h-10 items-center gap-2 px-2">
       <span className="w-6">{icon}</span>
@@ -114,7 +120,7 @@ export function TableCellNumberField({
 }: NumberFieldProps) {
   return (
     <div
-      className={cn("dir-ltr flex w-full items-center gap-1", className, {
+      className={cn("flex w-full items-center gap-1 dir-ltr", className, {
         "justify-center": justify === "center",
         "justify-start": justify === "start",
         "justify-end": justify === "end",
@@ -131,7 +137,10 @@ export function TableNoContent(props: DivProps) {
   return (
     <div
       {...props}
-      className={cn("text-hint flex items-center justify-center", props.className)}
+      className={cn(
+        "flex items-center justify-center text-hint",
+        props.className,
+      )}
     >
       <Minus className="size-5" />
     </div>
@@ -143,7 +152,8 @@ export default function TableHeaderCountBox(props: {
   value?: string | number;
   className?: string;
 }) {
-  const value = typeof props.value === "string" ? parseFloat(props.value) : props.value;
+  const value =
+    typeof props.value === "string" ? parseFloat(props.value) : props.value;
   const formattedValue = formatNumber(value ?? 0);
   return (
     <div
@@ -152,7 +162,7 @@ export default function TableHeaderCountBox(props: {
         props.className,
       )}
     >
-      <span className="text-hint text-xs font-semibold">{props.label}</span>
+      <span className="text-xs font-semibold text-hint">{props.label}</span>
       <span className="text-xl font-semibold">{formattedValue}</span>
     </div>
   );
@@ -200,72 +210,77 @@ export function TableCellTimeField({
 
 export function TableCellDateTimeField({
   value,
-  justify = 'center',
+  justify = "center",
 }: {
-  value?: number | string
-  justify?: 'center' | 'start' | 'end'
+  value?: number | string;
+  justify?: "center" | "start" | "end";
 }) {
   return (
     <div
-      className={cn('flex flex-row-reverse items-center gap-2', {
-        'justify-center': justify === 'center',
-        'justify-start': justify === 'start',
-        'justify-end': justify === 'end',
+      className={cn("flex flex-row-reverse items-center gap-2", {
+        "justify-center": justify === "center",
+        "justify-start": justify === "start",
+        "justify-end": justify === "end",
       })}
     >
       <span>{formatPersianDate(value) || <TableNoContent />}</span>
       <span>{formatPersianTime(value) || <TableNoContent />}</span>
     </div>
-  )
+  );
 }
 
 /** Macro-style combined time | date cell with divider (tracker parity) */
 export function TableCellDateElement({
   val,
   className,
-  justify = 'start',
+  justify = "start",
 }: {
-  val?: number | null
-  className?: string
-  justify?: 'center' | 'start' | 'end'
+  val?: number | null;
+  className?: string;
+  justify?: "center" | "start" | "end";
 }) {
   if (!val) {
     return (
       <div
-        className={cn('flex items-center gap-2', className, {
-          'justify-start': justify === 'start',
-          'justify-center': justify === 'center',
-          'justify-end': justify === 'end',
+        className={cn("flex items-center gap-2", className, {
+          "justify-start": justify === "start",
+          "justify-center": justify === "center",
+          "justify-end": justify === "end",
         })}
       >
         <TableNoContent />
       </div>
-    )
+    );
   }
   return (
     <div
-      className={cn('flex items-center gap-2', className, {
-        'justify-start': justify === 'start',
-        'justify-center': justify === 'center',
-        'justify-end': justify === 'end',
+      className={cn("flex items-center gap-2", className, {
+        "justify-start": justify === "start",
+        "justify-center": justify === "center",
+        "justify-end": justify === "end",
       })}
     >
-      <span className="w-20 border-e border-slate-300 pl-2 text-left">{formatPersianTime(val)}</span>
+      <span className="w-20 border-e border-slate-300 pl-2 text-left">
+        {formatPersianTime(val)}
+      </span>
       <span>{formatPersianDate(val)}</span>
     </div>
-  )
+  );
 }
 
 /** @deprecated Use TableCellDateElement */
-export const DateElement = TableCellDateElement
+export const DateElement = TableCellDateElement;
 
 export function TableCellColorDot({ color }: { color?: ColorType }) {
   return (
     <span
-      className={cn('inline-block h-2 w-2 rounded-sm', colorFieldVariants({ color: color ?? 'gray' }))}
+      className={cn(
+        "inline-block h-2 w-2 rounded-sm",
+        colorFieldVariants({ color: color ?? "gray" }),
+      )}
     />
-  )
+  );
 }
 
 /** @deprecated Use TableCellColorDot */
-export const ColorDot = TableCellColorDot
+export const ColorDot = TableCellColorDot;

@@ -83,6 +83,7 @@ export const CATALOG_SLUGS = [
   "location-picker",
   "persian-date-picker",
   "table",
+  "table2",
   "tracker",
 ] as const;
 
