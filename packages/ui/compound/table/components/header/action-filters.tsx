@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from 'react'
 import Chip from '@/components/common/chips/chip'
-import { ColumnProps, FilterValue, TableProps } from '@/components/compound/table/types'
-import { useTableStore } from '@/components/compound/table/context'
+import { ColumnProps, FilterValue, TableProps } from '../../types'
+import { useTableStore } from '../../context'
 
 export type ActionFiltersProps = {
   columns?: ColumnProps[]

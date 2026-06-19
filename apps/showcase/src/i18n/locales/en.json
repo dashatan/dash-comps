@@ -14,7 +14,28 @@
     "titleHighlight": "motion & precision",
     "description": "Explore production-ready UI components. Every interaction is animated; themes support light and dark mode.",
     "browse": "Browse components",
-    "startButtons": "Start with buttons"
+    "startButtons": "Start with buttons",
+    "stats": {
+      "total": "{{count}} components",
+      "common": "{{count}} common",
+      "compound": "{{count}} compound"
+    },
+    "compound": {
+      "eyebrow": "Compound systems",
+      "title": "Production-grade assemblies",
+      "description": "Multi-part components that ship complete workflows — maps, tables, auth, and domain-specific inputs wired with motion, state, and theming out of the box.",
+      "seeAll": "See all compound"
+    },
+    "common": {
+      "eyebrow": "Common primitives",
+      "title": "Refined building blocks",
+      "description": "Buttons, cards, inputs, and feedback patterns — every primitive is animated, accessible, and tuned for light and dark themes.",
+      "seeAll": "See all common"
+    },
+    "card": {
+      "variants": "{{count}} variants",
+      "explore": "Explore"
+    }
   },
   "catalog": {
     "indexTitle": "Component catalog",
@@ -2140,7 +2161,28 @@
       "compoundTable": {
         "description": {
           "dataTable": "The data table lives in",
-          "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources."
+          "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources.",
+          "lead": "Interactive fleet registry with 1,247 records — pagination up to 1,000 rows per page, every major table capability enabled in one live demo."
+        },
+        "features": {
+          "columns": "Column resize, reorder & hide (settings cog)",
+          "expansion": "Row expansion with inline detail panel",
+          "filters": "Text, select, multi-select, number range & date filters + chips",
+          "frozen": "Frozen checkbox, expand & ID columns (RTL-aware)",
+          "pagination": "Server-style pagination with 5–1,000 rows per page",
+          "scroll": "Drag-to-scroll + wide columns for horizontal overflow",
+          "selection": "Row selection, bulk actions & Excel export",
+          "sidePanel": "Row click side panel & right-click context menu"
+        },
+        "meta": {
+          "interact": "Interact with the table to see state changes.",
+          "lastEvent": "Last event",
+          "records": "records"
+        },
+        "showcase": {
+          "description": "Resize columns, drag to scroll, toggle filters, sort, paginate, select rows, expand, and open the side panel.",
+          "hint": "Click a row for side panel",
+          "title": "Full capability demo"
         },
         "title": "Compound table"
       }

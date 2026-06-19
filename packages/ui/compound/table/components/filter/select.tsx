@@ -15,10 +15,11 @@ export default function FilterSelectElement(props: FilterElementProps) {
       height={40}
       className={{
         wrapper: {
-          body: "h-11 min-h-11 whitespace-nowrap",
+          body: "h-10 min-h-10 whitespace-nowrap",
         },
         trigger: {
           label: "p-2",
+          container: "h-10 min-h-10",
         },
       }}
     />

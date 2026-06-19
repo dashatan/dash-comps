@@ -1,9 +1,9 @@
 import { forwardRef, memo } from 'react'
 import TD from './TD'
-import { ColumnProps, TableProps } from '@/components/compound/table/types'
+import { ColumnProps, TableProps } from '../../types'
 import { cn } from '@/lib'
-import { useTableStore, useTableStoreApi } from '@/components/compound/table/context'
-import type { TableStoreApi } from '@/components/compound/table/store'
+import { useTableStore, useTableStoreApi } from '../../context'
+import type { TableStoreApi } from '../../store'
 
 export type TableRowProps = Pick<
   TableProps,
@@ -15,6 +15,8 @@ export type TableRowProps = Pick<
   columns?: ColumnProps[]
   expanded?: boolean
   className?: (data: Record<string, unknown>, api: TableStoreApi) => string
+  /** @deprecated Use `getRowClassName` — `className` collides with Radix `asChild` triggers. */
+  getRowClassName?: (data: Record<string, unknown>, api: TableStoreApi) => string
   onClick?: (data: Record<string, unknown>, api: TableStoreApi) => void
   extraElements?: (data: Record<string, unknown>, api: TableStoreApi) => React.ReactNode
   hoveredColumnIndex?: number | null
@@ -32,7 +34,8 @@ const TableRow = memo(
         expanded,
         TDProps,
         dataKey,
-        className,
+        className: classNameProp,
+        getRowClassName,
         onClick,
         extraElements,
         columnHover,
@@ -49,6 +52,10 @@ const TableRow = memo(
       const rowKey = dataKey ? (data[dataKey as string] as string | number) : undefined
       const isSelected = rowKey !== undefined && selected?.includes(rowKey)
 
+      const dynamicClassName =
+        getRowClassName?.(data, api) ??
+        (typeof classNameProp === 'function' ? classNameProp(data, api) : undefined)
+
       return (
         <tr
           ref={ref}
@@ -56,7 +63,8 @@ const TableRow = memo(
           className={cn(
             'bg-table hover:bg-table-row group transition-all',
             { '[&_td]:border-b-0': expanded, 'bg-table-row': isSelected },
-            className?.(data, api),
+            dynamicClassName,
+            typeof classNameProp === 'string' ? classNameProp : undefined,
           )}
           onClick={() => onClick?.(data, api)}
           {...props}

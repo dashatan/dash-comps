@@ -66,6 +66,18 @@ export function TableStoreProvider({
     }
   }, [totalRecords])
 
+  const selectedSignature = useMemo(
+    () => (defaultValues?.selected ? JSON.stringify(defaultValues.selected) : null),
+    [defaultValues?.selected],
+  )
+
+  useEffect(() => {
+    if (selectedSignature) {
+      const parsed = JSON.parse(selectedSignature) as TableData['selected']
+      storeRef.current?.getState().setSelected(parsed)
+    }
+  }, [selectedSignature])
+
   return (
     <TableStoreContext.Provider value={storeRef.current}>
       {children}

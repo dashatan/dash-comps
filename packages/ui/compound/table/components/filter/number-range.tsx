@@ -33,7 +33,7 @@ export default function FilterNumberRangeElement(props: FilterElementProps) {
   );
 
   return (
-    <div className="text-input-foreground flex items-center gap-3 text-sm font-semibold">
+    <div className="text-input-foreground flex h-10 min-h-10 w-full items-center gap-2 text-sm font-semibold">
       <div className="flex items-center gap-1">
         <span>{t("common.from")}:</span>
         <input

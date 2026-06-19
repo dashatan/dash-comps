@@ -4,8 +4,8 @@ import FilterMultiSelectElement from './multi-select'
 import FilterDateElement from './date'
 import FilterPlateElement from './plate'
 import FilterTreeMultiSelectElement from './tree-multi-select'
-import FilterNumberRangeElement from '@/components/compound/table/components/filter/number-range'
-import { FilterValue } from '@/components/compound/table/types'
+import FilterNumberRangeElement from './number-range'
+import { FilterValue } from '../../types'
 import { SelectItem } from '@/components/common/inputs/select/types'
 
 const filterElements = {
@@ -20,12 +20,15 @@ const filterElements = {
 }
 
 export type FilterElementsKeys = keyof typeof filterElements
-export interface FilterElementProps {
+export type FilterElementProps = {
   onChange?: (value: FilterValue) => void
   options?: SelectItem[]
   defaultValue?: FilterValue
-  className?: any
-  inputProps?: any
+  className?: unknown
+  inputProps?: Record<string, unknown>
 }
+
+/** Shared control height for every filter row input. */
+export const FILTER_ROW_CONTROL_HEIGHT = 'h-10 min-h-10'
 
 export default filterElements

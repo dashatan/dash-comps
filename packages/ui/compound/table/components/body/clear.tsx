@@ -1,7 +1,7 @@
 import { X } from 'lucide-react'
-import { TableData, tableDefaultState } from '@/components/compound/table/types'
+import { TableData, tableDefaultState } from '../../types'
 import Button from '@/components/common/buttons'
-import { useTableStore } from '@/components/compound/table/context'
+import { useTableStore } from '../../context'
 
 export default function ClearTable({ onChange }: { onChange?: (data: TableData) => void }) {
   const totalRecords = useTableStore((s) => s.totalRecords)

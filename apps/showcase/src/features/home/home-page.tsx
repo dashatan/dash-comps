@@ -1,81 +1,96 @@
-import { Link } from "@tanstack/react-router";
-import { catalogLinkParams } from "@/shared/router/nav-link";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-import {
-  PageTransition,
-  AnimatedList,
-  AnimatedItem,
-  HoverShadow,
-} from "@/shared/motion/primitives";
+import { PageTransition } from "@/shared/motion/primitives";
 import { catalogCategories } from "@/features/catalog/registry";
-import { Button } from "@/components/common/buttons";
 import { useShowcaseShell } from "@/features/catalog/i18n";
+import {
+  featuredCommonComponents,
+  featuredCompoundComponents,
+} from "@/features/home/data/featured-components";
+import { HomeHero } from "@/features/home/ui/home-hero";
+import { HomeSectionHeader } from "@/features/home/ui/home-section-header";
+import { ShowcaseCard } from "@/features/home/ui/showcase-card";
+import { CommonComponentPreview } from "@/features/home/ui/previews/common-previews";
+import { CompoundComponentPreview } from "@/features/home/ui/previews/compound-previews";
+
+function findCategory(slug: string) {
+  return catalogCategories.find((category) => category.slug === slug);
+}
 
 export function HomePage() {
   const { home, categoryTitle, categoryDescription } = useShowcaseShell();
 
   return (
-    <PageTransition>
-      <section className="relative overflow-hidden rounded-3xl border border-border bg-linear-to-br from-primary/10 via-card to-card p-8 md:p-12">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute -top-20 -right-20 size-64 rounded-full bg-primary/20 blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+    <PageTransition className="flex w-full flex-col gap-16 pb-8 md:gap-20 md:pb-12">
+      <HomeHero />
+
+      <section aria-labelledby="compound-showcase-heading">
+        <HomeSectionHeader
+          eyebrow={home.compound.eyebrow}
+          title={home.compound.title}
+          description={home.compound.description}
+          seeAllLabel={home.compound.seeAll}
+          seeAllTo="/components"
+          seeAllHash="compound"
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            <Sparkles className="size-3.5" />
-            {home.badge}
-          </div>
+        <h2 id="compound-showcase-heading" className="sr-only">
+          {home.compound.title}
+        </h2>
 
-          <h1 className="flex gap-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            {home.title}
-            <span className="block text-primary">{home.titleHighlight}</span>
-          </h1>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredCompoundComponents.map((featured) => {
+            const category = findCategory(featured.slug);
+            if (!category) return null;
 
-          <p className="mt-4 text-lg text-muted-foreground">{home.description}</p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/components">
-              <Button
-                severity="primary"
-                size="lg"
-                rightIcon={<ArrowRight className="size-4" />}
-              >
-                {home.browse}
-              </Button>
-            </Link>
-            <Link to="/components/$slug" params={{ slug: "buttons" }}>
-              <Button variant="outlined" size="lg">
-                {home.startButtons}
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+            return (
+              <ShowcaseCard
+                key={featured.slug}
+                category={category}
+                title={categoryTitle(featured.slug)}
+                description={categoryDescription(featured.slug)}
+                exploreLabel={home.card.explore}
+                variantsLabel={home.card.variants(category.count)}
+                preview={<CompoundComponentPreview slug={featured.slug} />}
+                span={"span" in featured ? featured.span : undefined}
+              />
+            );
+          })}
+        </div>
       </section>
 
-      <AnimatedList className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {catalogCategories.map((category) => (
-          <AnimatedItem key={category.slug}>
-            <HoverShadow className="block rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm transition-colors hover:border-primary/40">
-              <Link to="/components/$slug" params={catalogLinkParams(category.slug)}>
-                <category.icon className="mb-3 size-5 text-primary" />
-                <h3 className="font-semibold">{categoryTitle(category.slug)}</h3>
-                <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-                  {categoryDescription(category.slug)}
-                </p>
-              </Link>
-            </HoverShadow>
-          </AnimatedItem>
-        ))}
-      </AnimatedList>
+      <section aria-labelledby="common-showcase-heading">
+        <HomeSectionHeader
+          eyebrow={home.common.eyebrow}
+          title={home.common.title}
+          description={home.common.description}
+          seeAllLabel={home.common.seeAll}
+          seeAllTo="/components"
+          seeAllHash="common"
+        />
+
+        <h2 id="common-showcase-heading" className="sr-only">
+          {home.common.title}
+        </h2>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredCommonComponents.map((featured) => {
+            const category = findCategory(featured.slug);
+            if (!category) return null;
+
+            return (
+              <ShowcaseCard
+                key={featured.slug}
+                category={category}
+                title={categoryTitle(featured.slug)}
+                description={categoryDescription(featured.slug)}
+                exploreLabel={home.card.explore}
+                variantsLabel={home.card.variants(category.count)}
+                preview={<CommonComponentPreview slug={featured.slug} />}
+                span={"span" in featured ? featured.span : undefined}
+              />
+            );
+          })}
+        </div>
+      </section>
     </PageTransition>
   );
 }

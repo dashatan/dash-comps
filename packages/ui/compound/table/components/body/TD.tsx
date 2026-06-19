@@ -1,6 +1,6 @@
-import { ColumnProps } from '@/components/compound/table/types'
+import { ColumnProps } from '../../types'
 import SkeletonField from './skeleton'
-import { forwardRef, memo, useRef } from 'react'
+import { forwardRef, memo, useRef, type ReactNode } from 'react'
 import { cn } from '@/lib'
 
 export interface TDProps {
@@ -23,8 +23,8 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
     const localRef = useRef<HTMLTableCellElement>(null)
 
     const showSkeleton = loading && (col.body || col.bodyElement)
-    let { body, bodyClassName } = col
-    let Body = <></>
+    const { body, bodyClassName } = col
+    let Body: ReactNode = null
     if (showSkeleton) {
       Body = (
         <div className={skeletonClassName}>
@@ -33,11 +33,11 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       )
     } else if (typeof body === 'string') {
       Body = <span>{body}</span>
-    } else if (body) {
-      Body = (body as any)(data)
+    } else if (typeof body === 'function') {
+      Body = body(data, { column: col, field: col.field ?? '', rowIndex })
     } else if (col.bodyElement) {
       const El = col.bodyElement
-      Body = <El data={data} options={{ column: El.prototype, field: col.field || '', rowIndex: rowIndex }} />
+      Body = <El data={data} options={{ column: col, field: col.field || '', rowIndex }} />
     }
 
     const isHovered = columnHover && hoveredColumnIndex === index
@@ -59,23 +59,30 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
             'pointer-events-none': loading,
             'bg-table-row': isHovered,
             '**:overflow-hidden **:text-ellipsis **:whitespace-nowrap': col.width,
+            'bg-table group-hover:bg-table-row': !!col.frozen,
+            'shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && col.frozen.pos === 'right',
+            'shadow-[6px_0_8px_-6px_rgba(0,0,0,0.2)]': col.frozen?.edge && col.frozen.pos === 'left',
           },
           className?.td,
-          bodyClassName?.td
+          bodyClassName?.td,
         )}
         style={{
-          ...(col.frozen && { position: 'sticky', [col.frozen.pos]: col.frozen.distance, zIndex: 1 }),
-          ...(col.width && { minWidth: col.width, maxWidth: col.width }),
+          ...(col.frozen && { position: 'sticky', [col.frozen.pos]: col.frozen.distance ?? 0, zIndex: 1 }),
         }}
         onMouseEnter={columnHover && onColumnHover && index !== undefined ? () => onColumnHover(index) : undefined}
         onMouseLeave={columnHover && onColumnHover ? () => onColumnHover(null) : undefined}
       >
         {children || (
-          <div className={cn('text-foreground text-right text-base font-medium', className?.content, bodyClassName?.content, col.className)}>{Body}</div>
+          <div
+            data-slot="body-cell-content"
+            className={cn('text-foreground text-right text-base font-medium', className?.content, bodyClassName?.content, col.className)}
+          >
+            {Body}
+          </div>
         )}
       </td>
     )
-  }
+  },
 )
 
 export default memo(TD)

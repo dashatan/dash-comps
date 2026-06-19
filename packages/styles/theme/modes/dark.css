@@ -47,7 +47,8 @@
 
   /* Table Colors */
   --table: var(--color-neutral-900);
-  --table-row: color-mix(in srgb, var(--color-neutral-800) 50%, transparent);
+  --table-row: var(--color-neutral-800);
+  --table-row-hover: var(--color-neutral-800);
   --table-border: var(--color-neutral-700);
   --table-header: var(--color-neutral-800);
   --table-checkbox: var(--color-neutral-950);

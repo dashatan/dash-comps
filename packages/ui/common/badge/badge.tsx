@@ -2,7 +2,7 @@ import { cn } from "@/lib";
 import { cva, type VariantProps } from "class-variance-authority";
 
 export const badgeVariants = cva(
-  "inline-flex items-center justify-center dir-ltr text-xs font-semibold cursor-pointer",
+  "inline-flex items-center justify-center dir-ltr text-xs font-semibold cursor-pointer whitespace-nowrap",
   {
     variants: {
       severity: {

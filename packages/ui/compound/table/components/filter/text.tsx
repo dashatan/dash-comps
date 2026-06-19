@@ -8,7 +8,7 @@ export default function FilterTextElement(props: FilterElementProps) {
     <BasicTextInput
       {...rest}
       className={cn(
-        'ring-offset-table-background h-10 rounded-lg border px-4 transition-all',
+        'ring-offset-table-background h-10 min-h-10 w-full rounded-lg border px-4 transition-all',
         'focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:outline-none'
       )}
       onChange={(e) => {

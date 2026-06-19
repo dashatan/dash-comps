@@ -1,4 +1,4 @@
-import { ColumnProps } from '@/components/compound/table/types'
+import { ColumnProps } from '../types'
 
 /**
  * Partitions columns into fixed (no field, e.g. checkbox/actions) and data (with field).

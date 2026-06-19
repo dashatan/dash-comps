@@ -43,6 +43,27 @@ export function useShowcaseShell() {
       description: t("home.description"),
       browse: t("home.browse"),
       startButtons: t("home.startButtons"),
+      stats: {
+        total: (count: number) => t("home.stats.total", { count }),
+        common: (count: number) => t("home.stats.common", { count }),
+        compound: (count: number) => t("home.stats.compound", { count }),
+      },
+      compound: {
+        eyebrow: t("home.compound.eyebrow"),
+        title: t("home.compound.title"),
+        description: t("home.compound.description"),
+        seeAll: t("home.compound.seeAll"),
+      },
+      common: {
+        eyebrow: t("home.common.eyebrow"),
+        title: t("home.common.title"),
+        description: t("home.common.description"),
+        seeAll: t("home.common.seeAll"),
+      },
+      card: {
+        variants: (count: number) => t("home.card.variants", { count }),
+        explore: t("home.card.explore"),
+      },
     },
     catalog: {
       indexTitle: t("catalog.indexTitle"),

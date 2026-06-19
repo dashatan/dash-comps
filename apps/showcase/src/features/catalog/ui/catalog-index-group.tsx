@@ -39,6 +39,7 @@ export function CatalogIndexGroup({
       className="border-border/60 bg-card/20 rounded-2xl border"
       data-group={group}
     >
+      <div id={group} className="scroll-mt-24" />
       <CollapsibleTrigger
         className={cn(
           "flex w-full items-center gap-3 rounded-2xl px-5 py-4 text-left transition-colors",

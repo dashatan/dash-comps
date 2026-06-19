@@ -1,14 +1,16 @@
 import { cn } from '@/lib'
 import { TH } from './TH'
 import { Filter } from './filter-row'
-import { ColumnProps, TableProps } from '@/components/compound/table/types'
+import { ColumnProps, TableProps } from '../../types'
 import { useEffect, useState } from 'react'
-import { useTableStore } from '@/components/compound/table/context'
+import { useTableStore } from '../../context'
 
 export type TableHeaderProps = Pick<TableProps, 'actionHeaderProps' | 'loading' | 'THProps' | 'columnHover'> & {
   columns?: ColumnProps[]
   hoveredColumnIndex?: number | null
   onColumnHover?: (index: number | null) => void
+  onColumnResizeStart?: (e: React.PointerEvent, index: number) => void
+  onColumnResizeReset?: (index: number) => void
 }
 
 const FILTER_ROW_EXIT_MS = 100
@@ -20,6 +22,8 @@ export default function Header({
   columnHover,
   hoveredColumnIndex,
   onColumnHover,
+  onColumnResizeStart,
+  onColumnResizeReset,
   columns,
 }: TableHeaderProps) {
   const showFilter = useTableStore((s) => s.showFilter) && !actionHeaderProps?.hideFilter
@@ -49,17 +53,19 @@ export default function Header({
       )}
     >
       <tr>
-        {columns?.map((col, i, a) => (
+        {columns?.map((col, i, all) => (
           <TH
             key={i}
             index={i}
-            style={{ ...(i === a.length - 2 && { width: 'auto' }) }}
+            showColumnDivider={i < all.length - 1}
             {...THProps}
             col={col}
             loading={loading}
             columnHover={columnHover}
             hoveredColumnIndex={hoveredColumnIndex}
             onColumnHover={onColumnHover}
+            onResizeStart={onColumnResizeStart}
+            onResizeReset={onColumnResizeReset}
           />
         ))}
       </tr>

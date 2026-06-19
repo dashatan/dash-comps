@@ -1,9 +1,9 @@
 import Button from '@/components/common/buttons'
-import { BodyElementProps } from '@/components/compound/table/types'
+import { BodyElementProps } from '../../types'
 import { cn } from '@/lib'
 import { DivProps } from '@/lib/types'
 import { ChevronDown } from 'lucide-react'
-import { useTableStore } from '@/components/compound/table/context'
+import { useTableStore } from '../../context'
 
 export default function ExpandButton({
   key,

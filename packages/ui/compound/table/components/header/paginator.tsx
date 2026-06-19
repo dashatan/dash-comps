@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { tableDefaultState } from '@/components/compound/table/types'
+import { tableDefaultState } from '../../types'
 import { cn } from '@/lib'
 import { ChevronsLeft, ChevronsRight } from 'lucide-react'
 import {
@@ -11,7 +11,7 @@ import {
   PaginationPrevious,
   PaginationEllipsis,
 } from '@/components/common/pagination'
-import { useTableStore } from '@/components/compound/table/context'
+import { useTableStore } from '../../context'
 
 export interface TablePaginationProps {
   loading?: boolean

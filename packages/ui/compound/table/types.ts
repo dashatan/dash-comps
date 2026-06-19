@@ -96,8 +96,11 @@ export type ColumnProps = {
   bodyElement?: (props: BodyElementProps) => ReactElement
   onFilterChange?: (value: FilterValue) => void
   frozen?: {
-    distance: number
+    /** Offset from the pinned edge. Auto-computed from column widths; only used as fallback. */
+    distance?: number
     pos: 'left' | 'right'
+    /** Internal: marks the frozen cell facing the scrolling area (gets the edge shadow). */
+    edge?: boolean
   }
   excludeExpand?: {
     pos: 'left' | 'right'

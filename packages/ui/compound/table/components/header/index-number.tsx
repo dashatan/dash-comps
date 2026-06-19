@@ -1,5 +1,5 @@
-import { useTableStore } from '@/components/compound/table/context'
-import { BodyElementProps, tableDefaultState } from '@/components/compound/table/types'
+import { useTableStore } from '../../context'
+import { BodyElementProps, tableDefaultState } from '../../types'
 
 export default function IndexNumber({ options }: BodyElementProps) {
   const page = useTableStore((s) => s.page)

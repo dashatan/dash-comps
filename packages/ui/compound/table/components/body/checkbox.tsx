@@ -1,5 +1,5 @@
 import { Checkbox } from '@/components/common/inputs/checkbox'
-import { useTableStore } from '@/components/compound/table/context'
+import { useTableStore } from '../../context'
 import { cn } from '@/lib'
 
 export namespace TableCheckbox {

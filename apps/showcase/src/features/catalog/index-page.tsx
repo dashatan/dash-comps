@@ -1,13 +1,29 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/shared/motion/primitives";
-import { catalogCategoryGroups } from "@/features/catalog/registry";
+import { catalogCategoryGroups, type CatalogGroup } from "@/features/catalog/registry";
 import { useCatalogNavGroups } from "@/features/catalog/hooks/use-catalog-nav-groups";
 import { CatalogIndexGroup } from "@/features/catalog/ui/catalog-index-group";
 import { useShowcaseShell } from "@/features/catalog/i18n";
 
+function resolveHashGroup(hash: string): CatalogGroup | undefined {
+  if (hash === "compound" || hash === "common") return hash;
+  return undefined;
+}
+
 export function CatalogIndexPage() {
   const { nav, catalog, categoryTitle, categoryDescription } = useShowcaseShell();
   const { isGroupOpen, setGroupOpen } = useCatalogNavGroups();
+
+  useEffect(() => {
+    const group = resolveHashGroup(window.location.hash.replace("#", ""));
+    if (!group) return;
+
+    setGroupOpen(group, true);
+    requestAnimationFrame(() => {
+      document.getElementById(group)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [setGroupOpen]);
 
   return (
     <PageTransition>

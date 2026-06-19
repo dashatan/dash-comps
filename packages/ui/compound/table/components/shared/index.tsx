@@ -43,8 +43,8 @@ export function TableCellTextField({
         (emptyValue ?? <TableNoContent />)
       ) : (
         <>
-          <span>{value}</span>
-          <span>{prefix}</span>
+          <span className="truncate">{value}</span>
+          {prefix && <span className="shrink-0">{prefix}</span>}
         </>
       )}
     </div>
