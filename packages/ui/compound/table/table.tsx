@@ -6,7 +6,7 @@ import { ColumnProps, TableData, TableProps } from './types'
 import ActionFilters from './components/header/action-filters'
 import Body from './components/body'
 import Header from './components/header'
-import { cn, getDocumentDirection, useLanguage } from '@/lib'
+import { cn } from '@/lib'
 import { useTableStore, useTableStoreContext } from './context'
 
 const MIN_COL_WIDTH = 50
@@ -81,8 +81,6 @@ export function TableComponent({
   sidePanelTemplate,
   rightClickMenu,
 }: TableProps) {
-  const { language } = useLanguage()
-  const isDocumentRtl = getDocumentDirection(language) === 'rtl'
   const store = useTableStoreContext()
   const storeActiveColumns = useTableStore((s) => s.activeColumns)
   const sidePanelData = useTableStore((s) => s.sidePanelData)
@@ -325,7 +323,7 @@ export function TableComponent({
           ref={scrollRef}
           id="table-inner"
           className={cn(
-            'dir-ltr border-table-border relative min-h-0 w-full min-w-0 flex-1 overflow-auto rounded-md border',
+            'border-table-border relative min-h-0 w-full min-w-0 flex-1 overflow-auto rounded-md border',
             draggable && 'cursor-grab select-none',
             draggable && isDragging && 'cursor-grabbing',
             !draggable && 'select-text',
@@ -339,11 +337,7 @@ export function TableComponent({
         >
           <table
             id="table-non-scrollable"
-            className={cn(
-              'w-full table-fixed border-separate border-spacing-0',
-              isDocumentRtl && 'dir-rtl',
-              className?.table,
-            )}
+            className={cn('w-full table-fixed border-separate border-spacing-0', className?.table)}
           >
             <colgroup>
               {columns?.map((col, i, a) => (
