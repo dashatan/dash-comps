@@ -10,7 +10,6 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@fontsource/noto-sans-arabic": "^5.2.10",
-    "@fontsource/vazir": "^4.5.4",
-    "@fontsource/vazirmatn": "^5.2.8"
+    "@fontsource/vazir": "^4.5.4"
   }
 }

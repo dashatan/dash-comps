@@ -1,0 +1,36 @@
+/* Map Latin digits (0-9) to Persian digits (۰-۹) when Vazir is selected */
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/vazirmatn-fd/Vazirmatn-FD-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/vazirmatn-fd/Vazirmatn-FD-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/vazirmatn-fd/Vazirmatn-FD-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/vazirmatn-fd/Vazirmatn-FD-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}

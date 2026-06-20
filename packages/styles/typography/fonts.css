@@ -4,29 +4,31 @@
 @import "@fontsource/inter/latin-600.css";
 @import "@fontsource/inter/latin-700.css";
 
-/* Persian — Vazirmatn */
-@import "@fontsource/vazirmatn/400.css";
-@import "@fontsource/vazirmatn/500.css";
-@import "@fontsource/vazirmatn/600.css";
-@import "@fontsource/vazirmatn/700.css";
+/* Persian — Peyda FaNum (self-hosted, licensed) */
+@import "./peyda.css";
 
-/* Arabic — Noto Sans Arabic */
+/* Arabic — Noto Sans Arabic + native digit override */
 @import "@fontsource/noto-sans-arabic/400.css";
 @import "@fontsource/noto-sans-arabic/500.css";
 @import "@fontsource/noto-sans-arabic/600.css";
 @import "@fontsource/noto-sans-arabic/700.css";
+@import "./arabic-digits.css";
+
+/* Fallback Persian fonts with baked-in Farsi digits */
+@import "./vazirmatn-fd.css";
 
 /* Optional Persian preference — Vazir */
 @import "@fontsource/vazir/400.css";
 @import "@fontsource/vazir/700.css";
+@import "./vazir-digits.css";
 
 :root {
   --font-en: "Inter", system-ui, sans-serif;
-  --font-fa: "Vazirmatn", system-ui, sans-serif;
+  --font-fa: "Peyda", system-ui, sans-serif;
   --font-ar: "Noto Sans Arabic", system-ui, sans-serif;
-  --font-peyda: "Vazirmatn", system-ui, sans-serif;
+  --font-peyda: "Peyda", system-ui, sans-serif;
   --font-vazir: "Vazir", system-ui, sans-serif;
-  --font-yekan: "Vazirmatn", system-ui, sans-serif;
+  --font-yekan: "Vazirmatn FD", system-ui, sans-serif;
   --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 }

@@ -207,9 +207,6 @@ importers:
       '@fontsource/vazir':
         specifier: ^4.5.4
         version: 4.5.4
-      '@fontsource/vazirmatn':
-        specifier: ^5.2.8
-        version: 5.2.8
 
   packages/ui: {}
 
@@ -483,9 +480,6 @@ packages:
 
   '@fontsource/vazir@4.5.4':
     resolution: {integrity: sha512-PnQwwPf9JDnCHHLx55c9QHBfPSQY4VOqhGTTQ0jUkAAJOW66gE6aCOKZGGANd5e3u95LGXEzzt6E0GZXVUv0cg==}
-
-  '@fontsource/vazirmatn@5.2.8':
-    resolution: {integrity: sha512-WoDgv8R/y1gwgTS8Q2uL8d2ayeSGNv2IrYQ4wHmJkVwYPb8KVODrqbbvEjBqLOo5WP5kLJIrO06FRDMnSFuCaA==}
 
   '@geoman-io/leaflet-geoman-free@2.19.3':
     resolution: {integrity: sha512-HjbEpfAEUs0NyI1Dhvz3SMVG6m0pAN/1Eo0tRKsz9cpaROTrFtmJGY22swEir1Uj/8IeGF1NJId38C5Fu+nZGQ==}
@@ -2428,8 +2422,6 @@ snapshots:
   '@fontsource/noto-sans-arabic@5.2.10': {}
 
   '@fontsource/vazir@4.5.4': {}
-
-  '@fontsource/vazirmatn@5.2.8': {}
 
   '@geoman-io/leaflet-geoman-free@2.19.3(leaflet@1.9.4)':
     dependencies:

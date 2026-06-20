@@ -1,0 +1,32 @@
+/* Peyda FaNum — Persian digits baked into Latin digit codepoints (0-9 → ۰-۹) */
+@font-face {
+  font-family: "Peyda";
+  src: url("../fonts/peyda/PeydaFaNum-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../fonts/peyda/PeydaFaNum-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../fonts/peyda/PeydaFaNum-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../fonts/peyda/PeydaFaNum-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
