@@ -11,11 +11,11 @@ import { applyDragScroll } from "./utils/scroll-drag";
 import ActionHeader from "./components/header/action-header";
 import { ColumnProps, TableData, TableProps } from "./types";
 import ActionFilters from "./components/header/action-filters";
-import Body from "./components/body";
-import Header from "./components/header";
+import VirtualizedTable from "./components/body/virtualized-table";
 import { cn, getDocumentDirection, useLanguage } from "@/lib";
 import { useTableStore, useTableStoreContext } from "./context";
 import { resolveFrozenColumns } from "./utils/frozen-columns";
+import { isDragScrollTarget } from "./utils/is-drag-scroll-target";
 
 const MIN_COL_WIDTH = 50;
 
@@ -146,6 +146,11 @@ export function TableComponent({
   const columnMinWidthsRef = useRef<Record<string, number>>({});
   const colRefs = useRef<(HTMLTableColElement | null)[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollParent, setScrollParent] = useState<HTMLElement | null>(null);
+  const setScrollContainerRef = useCallback((node: HTMLDivElement | null) => {
+    scrollRef.current = node;
+    setScrollParent(node);
+  }, []);
   const dragStart = useRef({ x: 0, y: 0, scrollLeft: 0, scrollTop: 0 });
   const noResult = !loading && !data?.length;
 
@@ -230,7 +235,8 @@ export function TableComponent({
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
-      if (!draggable || !scrollRef.current) return;
+      if (!draggable || !scrollRef.current || isDragScrollTarget(e.target)) return;
+      if (e.target instanceof HTMLElement && e.target.closest("thead")) return;
       setIsDragging(true);
       dragStart.current = {
         x: e.pageX - scrollRef.current.offsetLeft,
@@ -265,13 +271,26 @@ export function TableComponent({
     return () => window.removeEventListener("mouseup", stopDragging);
   }, [isDragging, stopDragging]);
 
+  function setColumnWidth(index: number, width: number) {
+    const widthPx = `${width}px`;
+    scrollRef.current?.querySelectorAll("table").forEach((table) => {
+      const col = table.querySelectorAll("col")[index];
+      if (col instanceof HTMLTableColElement) {
+        col.style.width = widthPx;
+      }
+    });
+    colRefs.current[index] =
+      scrollRef.current?.querySelector("table col:nth-child(" + (index + 1) + ")") ??
+      colRefs.current[index] ??
+      null;
+  }
+
   function handleColumnResizeStart(e: React.PointerEvent, index: number) {
     const handle = e.currentTarget as HTMLElement;
     const th = handle.closest("th");
     const col = columns?.[index];
-    const colEl = colRefs.current[index];
     const table = scrollRef.current?.querySelector("table");
-    if (!th || !col || !colEl || !table) return;
+    if (!th || !col || !table) return;
     e.preventDefault();
     const startX = e.clientX;
     const startWidth = th.getBoundingClientRect().width;
@@ -285,7 +304,7 @@ export function TableComponent({
       Math.max(minWidth, startWidth + (ev.clientX - startX) * dir);
 
     const onMove = (ev: PointerEvent) => {
-      colEl.style.width = `${computeWidth(ev)}px`;
+      setColumnWidth(index, computeWidth(ev));
     };
     const onUp = (ev: PointerEvent) => {
       setColWidths((prev) => ({ ...prev, [key]: computeWidth(ev) }));
@@ -362,7 +381,7 @@ export function TableComponent({
         )}
       >
         <div
-          ref={scrollRef}
+          ref={setScrollContainerRef}
           id="table-inner"
           className={cn(
             "relative min-h-0 w-full min-w-0 flex-1 overflow-auto rounded-md border border-table-border",
@@ -377,51 +396,30 @@ export function TableComponent({
           onMouseUp={draggable ? stopDragging : undefined}
           onMouseLeave={draggable ? stopDragging : undefined}
         >
-          <table
-            id="table-non-scrollable"
-            className={cn(
-              "w-full table-fixed border-separate border-spacing-0",
-              className?.table,
-            )}
-          >
-            <colgroup>
-              {columns?.map((col, i, a) => (
-                <col
-                  key={colKey(col, i)}
-                  ref={(el) => {
-                    colRefs.current[i] = el;
-                  }}
-                  style={{ width: getColWidth(col, i, a) }}
-                />
-              ))}
-            </colgroup>
-            <Header
-              actionHeaderProps={actionHeaderProps}
-              columns={resolvedColumns}
-              loading={loading}
-              THProps={THProps}
-              columnHover={columnHover}
-              hoveredColumnIndex={hoveredColumnIndex}
-              onColumnHover={setHoveredColumnIndex}
-              onColumnResizeStart={handleColumnResizeStart}
-              onColumnResizeReset={handleColumnResizeReset}
-            />
-            <Body
-              columns={resolvedColumns}
-              data={data}
-              dataKey={dataKey}
-              loading={loading}
-              rightClickMenu={rightClickMenu}
-              rowExpansionTemplate={rowExpansionTemplate}
-              rowProps={rowProps}
-              expandOnNewRow={expandOnNewRow}
-              TDProps={TDProps}
-              columnHover={columnHover}
-              hoveredColumnIndex={hoveredColumnIndex}
-              onColumnHover={setHoveredColumnIndex}
-              draggable={draggable}
-            />
-          </table>
+          <VirtualizedTable
+            actionHeaderProps={actionHeaderProps}
+            columns={resolvedColumns}
+            data={data}
+            dataKey={dataKey}
+            loading={loading}
+            rightClickMenu={rightClickMenu}
+            rowExpansionTemplate={rowExpansionTemplate}
+            rowProps={rowProps}
+            expandOnNewRow={expandOnNewRow}
+            TDProps={TDProps}
+            columnHover={columnHover}
+            hoveredColumnIndex={hoveredColumnIndex}
+            onColumnHover={setHoveredColumnIndex}
+            draggable={draggable}
+            THProps={THProps}
+            className={className}
+            scrollParent={scrollParent}
+            onColumnResizeStart={handleColumnResizeStart}
+            onColumnResizeReset={handleColumnResizeReset}
+            colRefs={colRefs}
+            getColWidth={getColWidth}
+            colKey={colKey}
+          />
         </div>
         {sidePanelData && sidePanelTemplate && sidePanelTemplate(sidePanelData)}
       </div>
