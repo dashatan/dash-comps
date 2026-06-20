@@ -2192,6 +2192,7 @@
       },
       "compoundTable": {
         "showcase": {
+          "description": "Sort, filter, and paginate columns; select rows for bulk actions, expand inline details, drag to reorder columns, and open a side panel from the context menu. Built entirely from scratch — a pure custom data grid with no third-party table library.",
           "hint": "Right-click a row for side panel",
           "title": "Live demo"
         }

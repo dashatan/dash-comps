@@ -637,7 +637,7 @@ export function TablePage() {
       },
       {
         field: "orders",
-        header: headerCell(p("columns.orders"), "end"),
+        header: headerCell(p("columns.orders"), "center"),
         sortable: true,
         filter: true,
         filterElementType: "number-range",
@@ -646,21 +646,20 @@ export function TablePage() {
         body: (row) => (
           <TableCellNumberField
             value={(row as LocalizedCommerceUserRow).orders}
-            justify="end"
-            className="px-4"
+            justify="center"
           />
         ),
       },
       {
         field: "totalSpent",
-        header: headerCell(p("columns.totalSpent"), "end"),
+        header: headerCell(p("columns.totalSpent"), "center"),
         sortable: true,
         width: 150,
         body: (row) => (
           <TableCellNumberField
             value={(row as LocalizedCommerceUserRow).totalSpent}
             suffix={p("sampleData.currencySuffix")}
-            justify="end"
+            justify="center"
             className="px-4"
           />
         ),
@@ -681,40 +680,40 @@ export function TablePage() {
       },
       {
         field: "lastOrderAt",
-        header: headerCell(p("columns.lastOrder"), "start"),
+        header: headerCell(p("columns.lastOrder"), "center"),
         filter: true,
         filterElementType: "date",
         width: 180,
         body: (row) => (
           <TableCellDateElement
             val={(row as LocalizedCommerceUserRow).lastOrderAt}
-            justify="start"
+            justify="center"
             className="px-4"
           />
         ),
       },
       {
         field: "registeredAt",
-        header: headerCell(p("columns.registered"), "start"),
+        header: headerCell(p("columns.registered"), "center"),
         sortable: true,
         width: 200,
         body: (row) => (
           <TableCellDateElement
             val={(row as LocalizedCommerceUserRow).registeredAt}
-            justify="start"
+            justify="center"
             className="px-4"
           />
         ),
       },
       {
         field: "subscriptionEnd",
-        header: headerCell(p("columns.subscriptionEnd"), "start"),
+        header: headerCell(p("columns.subscriptionEnd"), "center"),
         defaultInactive: true,
         width: 160,
         body: (row) => (
           <TableCellDateElement
             val={(row as LocalizedCommerceUserRow).subscriptionEnd}
-            justify="start"
+            justify="center"
             className="px-4"
           />
         ),
@@ -800,13 +799,9 @@ export function TablePage() {
     <CatalogPageShell
       slug="table"
       title={p("pageHeader.title")}
-      description={p("pageHeader.description")}
+      description={p("compoundTable.showcase.description")}
     >
-      <ShowcaseSection
-        title={p("compoundTable.showcase.title")}
-        layout="stack"
-        contentClassName="gap-4"
-      >
+      <ShowcaseSection title={""} layout="stack" contentClassName="gap-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="min-w-0 flex-1 text-sm text-muted-foreground">
             {p("guide.summary")}
