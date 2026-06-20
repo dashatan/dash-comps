@@ -312,13 +312,7 @@ function RowDetailHeader({ row }: { row: LocalizedCommerceUserRow }) {
   );
 }
 
-function RowDetailNotes({
-  notes,
-  label,
-}: {
-  notes: string;
-  label: string;
-}) {
+function RowDetailNotes({ notes, label }: { notes: string; label: string }) {
   return (
     <div className="border-t border-table-border bg-muted/15 px-4 py-3">
       <p className="mb-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
