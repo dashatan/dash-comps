@@ -12,7 +12,8 @@
     "sync:locales": "node scripts/sync-locales.mjs",
     "sync:showcase-locales": "node scripts/sync-showcase-locales.mjs",
     "validate:locales": "node scripts/validate-locales.mjs",
-    "validate:showcase-locales": "node scripts/validate-showcase-locale.mjs"
+    "validate:showcase-locales": "node scripts/validate-showcase-locale.mjs",
+    "capture:table-guide": "node scripts/capture-table-guide-screenshots.mjs"
   },
   "dependencies": {
     "@geoman-io/leaflet-geoman-free": "^2.19.3",
@@ -74,6 +75,7 @@
     "tailwindcss-animated": "^2.0.0",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5.8.3",
+    "playwright": "^1.52.0",
     "vite": "^6.3.5"
   }
 }

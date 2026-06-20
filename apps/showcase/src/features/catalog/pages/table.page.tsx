@@ -14,6 +14,10 @@ import {
   paginateTableRows,
   type CommerceUserRow,
 } from "@/features/catalog/data/table-samples";
+import {
+  showcaseTableGuideImages,
+  type ShowcaseTableGuideSectionKey,
+} from "@/features/catalog/data/table-guide-samples";
 import Table, {
   ExpandButton,
   StatusBox,
@@ -34,7 +38,15 @@ import {
 } from "@/components/common/context-menu";
 import Badge from "@/components/common/badge";
 import Chip from "@/components/common/chips/chip";
-import { Copy, Download, Maximize2, Trash2 } from "lucide-react";
+import { Button } from "@/components/common/buttons";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/common/overlay/dialog";
+import TabbedContent from "@/components/common/tabs";
+import { Copy, Download, HelpCircle, Maximize2, Trash2 } from "lucide-react";
 import { cn, useLanguage } from "@/lib";
 
 const STATUS_COLORS = {
@@ -43,6 +55,117 @@ const STATUS_COLORS = {
   inactive: "info",
   churned: "error",
 } as const;
+
+const TABLE_GUIDE_SECTIONS = {
+  overview: ["dataset", "liveDemo"],
+  toolbar: [
+    "pagination",
+    "rowCount",
+    "bulkActions",
+    "columnSettings",
+    "filterToggle",
+    "excel",
+    "selectedCount",
+  ],
+  sorting: ["click", "cycle", "reload"],
+  filtering: ["toggle", "types", "chips", "remove", "reload"],
+  columns: ["resize", "reset", "reorder", "hide", "hover"],
+  selection: ["single", "selectAll", "bulk", "clear"],
+  expansion: ["open", "content", "collapse"],
+  sidePanel: ["open", "toggle", "highlight", "actions"],
+  scroll: ["drag", "frozen", "wide"],
+} as const;
+
+type TableGuideSectionKey = keyof typeof TABLE_GUIDE_SECTIONS;
+
+const TABLE_GUIDE_SECTION_KEYS = Object.keys(
+  TABLE_GUIDE_SECTIONS,
+) as TableGuideSectionKey[];
+
+function useTableGuideText() {
+  const p = useShowcasePage("table");
+  return useCallback((key: string) => p(key as Parameters<typeof p>[0]), [p]);
+}
+
+function TableGuideScreenshot({ section }: { section: TableGuideSectionKey }) {
+  const t = useTableGuideText();
+  const src = showcaseTableGuideImages[section as ShowcaseTableGuideSectionKey];
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-muted/10">
+      <img
+        src={src}
+        alt={t(`guide.sections.${section}.screenshotAlt`)}
+        className="aspect-16/10 w-full object-cover object-top"
+        loading="lazy"
+      />
+    </div>
+  );
+}
+
+function TableGuidePanel({ section }: { section: TableGuideSectionKey }) {
+  const t = useTableGuideText();
+  const intro = t(`guide.sections.${section}.intro`);
+
+  return (
+    <div className="flex flex-col gap-4 p-4">
+      <TableGuideScreenshot section={section} />
+      {intro ? (
+        <p className="text-sm leading-relaxed text-muted-foreground">{intro}</p>
+      ) : null}
+      <ul className="list-disc space-y-2 ps-5 text-sm leading-relaxed text-muted-foreground">
+        {TABLE_GUIDE_SECTIONS[section].map((item) => (
+          <li key={item}>{t(`guide.sections.${section}.items.${item}`)}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function TableGuideDialog() {
+  const t = useTableGuideText();
+
+  const tabs = useMemo(
+    () =>
+      TABLE_GUIDE_SECTION_KEYS.map((section) => ({
+        name: section,
+        header: t(`guide.sections.${section}.title`),
+        content: <TableGuidePanel section={section} />,
+      })),
+    [t],
+  );
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outlined" leftIcon={<HelpCircle className="size-4" />}>
+          {t("guide.openButton")}
+        </Button>
+      </DialogTrigger>
+      <DialogContent
+        title={t("guide.title")}
+        className="flex h-[min(85vh,720px)] w-[calc(100vw-2rem)] flex-col overflow-hidden sm:w-176"
+      >
+        <div className="shrink-0 border-b border-border px-4 py-3">
+          <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
+            {t("guide.description")}
+          </DialogDescription>
+        </div>
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          <TabbedContent
+            tabs={tabs}
+            enableScroll
+            className={{
+              container: "min-h-0 flex-1",
+              content: "min-h-0 overflow-auto",
+              tabs: "px-2",
+            }}
+          />
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 type CellJustify = "center" | "start" | "end";
 
@@ -239,7 +362,6 @@ export function TablePage() {
   const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
   const [loading, setLoading] = useState(false);
   const [excelLoading, setExcelLoading] = useState(false);
-  const [lastChangeTag, setLastChangeTag] = useState<ChangeTag | null>(null);
 
   const localizeRow = useCallback(
     (row: CommerceUserRow): LocalizedCommerceUserRow => {
@@ -298,8 +420,7 @@ export function TablePage() {
     [language],
   );
 
-  const simulateFetch = useCallback((tag: ChangeTag) => {
-    setLastChangeTag(tag);
+  const simulateFetch = useCallback(() => {
     setLoading(true);
     window.setTimeout(() => setLoading(false), 380);
   }, []);
@@ -327,9 +448,7 @@ export function TablePage() {
         tag === "rows" ||
         tag === "sort"
       ) {
-        simulateFetch(tag);
-      } else {
-        setLastChangeTag(tag);
+        simulateFetch();
       }
     },
     [simulateFetch],
@@ -603,7 +722,7 @@ export function TablePage() {
           <TableCellTextField
             value={(row as LocalizedCommerceUserRow).notes}
             justify="start"
-            className="max-w-[260px]"
+            className="w-full truncate"
           />
         ),
       },
@@ -616,7 +735,7 @@ export function TablePage() {
           <TableCellTextField
             value={(row as LocalizedCommerceUserRow).preferredCategory}
             justify="start"
-            className="max-w-[300px]"
+            className="w-full truncate"
           />
         ),
       },
@@ -635,53 +754,22 @@ export function TablePage() {
   );
 
   return (
-    <CatalogPageShell slug="table">
-      <ShowcaseSection
-        title={p("compoundTable.title")}
-        className="flex-col items-start"
-        layout="stack"
-      >
-        <p className="max-w-3xl text-sm text-muted-foreground">
-          {p("compoundTable.description.lead")}
-        </p>
-        <ul className="mt-3 grid gap-1.5 text-sm text-muted-foreground sm:grid-cols-2">
-          {(
-            [
-              p("compoundTable.features.pagination"),
-              p("compoundTable.features.filters"),
-              p("compoundTable.features.selection"),
-              p("compoundTable.features.columns"),
-              p("compoundTable.features.frozen"),
-              p("compoundTable.features.scroll"),
-              p("compoundTable.features.expansion"),
-              p("compoundTable.features.sidePanel"),
-            ] as const
-          ).map((item) => (
-            <li key={item} className="flex items-center gap-2">
-              <span className="size-1.5 shrink-0 rounded-full bg-primary" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-3 text-xs text-muted-foreground">
-          {TABLE_ROW_COUNT.toLocaleString(language)}{" "}
-          {p("compoundTable.meta.records")} ·{" "}
-          {lastChangeTag ? (
-            <>
-              {p("compoundTable.meta.lastEvent")}:{" "}
-              <code className="text-foreground">{lastChangeTag}</code>
-            </>
-          ) : (
-            p("compoundTable.meta.interact")
-          )}
-        </p>
-      </ShowcaseSection>
-
+    <CatalogPageShell
+      slug="table"
+      title={p("pageHeader.title")}
+      description={p("pageHeader.description")}
+    >
       <ShowcaseSection
         title={p("compoundTable.showcase.title")}
-        description={p("compoundTable.showcase.description")}
         layout="stack"
+        contentClassName="gap-4"
       >
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="min-w-0 flex-1 text-sm text-muted-foreground">
+            {p("guide.summary")}
+          </p>
+          <TableGuideDialog />
+        </div>
         <div className="h-[min(78vh,820px)] w-full overflow-hidden rounded-xl border border-border">
           <Table
             columns={columns}

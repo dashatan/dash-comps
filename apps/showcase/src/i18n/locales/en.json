@@ -2184,32 +2184,10 @@
         "totalSpent": "Total spent"
       },
       "compoundTable": {
-        "description": {
-          "dataTable": "The data table lives in",
-          "expectsConfig": "and expects app-level column config, filters, and API hooks. Use List, Pagination, and Inputs pages for related primitives; wire the full table in your app with real data sources.",
-          "lead": "Interactive commerce user analytics with 1,247 records — pagination up to 1,000 rows per page, every major table capability enabled in one live demo."
-        },
-        "features": {
-          "columns": "Column resize, reorder & hide (settings cog)",
-          "expansion": "Row expansion with inline detail panel",
-          "filters": "Text, select, multi-select, number range & date filters + chips",
-          "frozen": "Frozen checkbox, expand & ID columns (RTL-aware)",
-          "pagination": "Server-style pagination with 5–1,000 rows per page",
-          "scroll": "Drag-to-scroll + wide columns for horizontal overflow",
-          "selection": "Row selection, bulk actions & Excel export",
-          "sidePanel": "Right-click context menu side panel"
-        },
-        "meta": {
-          "interact": "Interact with the table to see state changes.",
-          "lastEvent": "Last event",
-          "records": "records"
-        },
         "showcase": {
-          "description": "Resize columns, drag to scroll, toggle filters, sort, paginate, select rows, expand, and right-click to open the side panel.",
           "hint": "Right-click a row for side panel",
-          "title": "Full capability demo"
-        },
-        "title": "Compound table"
+          "title": "Live demo"
+        }
       },
       "contextMenu": {
         "archive": "Archive",
@@ -2239,6 +2217,117 @@
       },
       "filterChips": {
         "status": "Status: {{value}}"
+      },
+      "guide": {
+        "description": "A walkthrough of every control in the demo table — what it does and how to use it.",
+        "openButton": "Interaction guide",
+        "summary": "Explore sorting, filters, selection, expansion, and more. Open the guide for step-by-step instructions.",
+        "sections": {
+          "columns": {
+            "intro": "",
+            "items": {
+              "hide": "In column settings, toggle columns on or off. Segment, Subscription end, and Preferred category are hidden by default.",
+              "hover": "Hover a column header to highlight that column across all rows.",
+              "reorder": "In column settings, drag column names to change their order.",
+              "reset": "Double-click a column resize handle to restore its default width.",
+              "resize": "Drag the edge of a column header to resize it. Frozen columns cannot be resized."
+            },
+            "screenshotAlt": "Table with a highlighted column header",
+            "title": "Columns"
+          },
+          "expansion": {
+            "intro": "",
+            "items": {
+              "collapse": "Click the expand button again to close the panel.",
+              "content": "The panel groups profile, commerce, and activity details plus a notes section for that user.",
+              "open": "Click the chevron button on the left edge of a row to expand it."
+            },
+            "screenshotAlt": "Expanded table row showing inline detail sections",
+            "title": "Row expansion"
+          },
+          "filtering": {
+            "intro": "Filters apply to the full dataset (1,247 rows), not just the current page.",
+            "items": {
+              "chips": "Active filters appear as chips below the toolbar so you can see what is applied.",
+              "reload": "Changing a filter resets to page 1 and briefly shows a loading state, simulating a server refetch.",
+              "remove": "Click the remove control on a chip, or clear the value in the filter row, to drop that filter.",
+              "toggle": "Click the search icon in the toolbar to show or hide the filter row under the column headers.",
+              "types": "Name — text search. Status & Segment — single select. Region — multi-select. Orders — from/to number range. Last order — date picker."
+            },
+            "screenshotAlt": "Table with the filter row open under the headers",
+            "title": "Filtering"
+          },
+          "overview": {
+            "intro": "This page demonstrates the compound Table with realistic commerce-user data.",
+            "items": {
+              "dataset": "The sample dataset contains 1,247 users. Filtering, sorting, and pagination run client-side in this demo; in production you would wire onTableChange to your API.",
+              "liveDemo": "Use the live table below to try each interaction. The filtered count badge in the toolbar updates as you filter."
+            },
+            "screenshotAlt": "Overview of the live commerce users table demo",
+            "title": "Getting started"
+          },
+          "scroll": {
+            "intro": "",
+            "items": {
+              "drag": "Click and drag anywhere on the table body to scroll horizontally when columns overflow.",
+              "frozen": "The checkbox, expand, and ID columns stay fixed at the edges while you scroll (layout adapts for RTL).",
+              "wide": "The table is intentionally wide — use drag-scroll, a trackpad, or a horizontal scrollbar to reach hidden columns."
+            },
+            "screenshotAlt": "Horizontally scrolled table with frozen edge columns",
+            "title": "Scrolling & frozen columns"
+          },
+          "selection": {
+            "intro": "",
+            "items": {
+              "bulk": "Open the Bulk actions menu to export the current selection or clear it.",
+              "clear": "Click the selection badge on the right side of the toolbar (×) to clear all selected rows.",
+              "selectAll": "Use the checkbox in the header row to select or deselect every row on the current page.",
+              "single": "Tick the checkbox at the start of a row to include it in the selection."
+            },
+            "screenshotAlt": "Table rows selected with checkboxes",
+            "title": "Row selection"
+          },
+          "sidePanel": {
+            "intro": "",
+            "items": {
+              "actions": "The menu also offers Copy email and Archive (demo alerts).",
+              "highlight": "The row linked to the open panel is highlighted with a subtle ring.",
+              "open": "Right-click a row and choose Open side panel, or use the same item again from the menu.",
+              "toggle": "Selecting Open side panel on the same row again closes the panel."
+            },
+            "screenshotAlt": "Side panel open beside the table for a selected row",
+            "title": "Side panel & context menu"
+          },
+          "sorting": {
+            "intro": "",
+            "items": {
+              "click": "Click a sortable column header — Name, #, Orders, Total spent, Loyalty %, Registered, and others marked with a sort icon.",
+              "cycle": "Each click cycles through ascending, descending, and unsorted.",
+              "reload": "Sorting triggers a brief loading state, simulating a server-side sort request."
+            },
+            "screenshotAlt": "Table sorted by the Name column",
+            "title": "Sorting"
+          },
+          "toolbar": {
+            "intro": "The action bar above the table contains pagination, bulk tools, and global controls.",
+            "items": {
+              "bulkActions": "When at least one row is selected, use Bulk actions for Export selected or Clear selection.",
+              "columnSettings": "Click the cog icon to show, hide, or reorder columns.",
+              "excel": "Click the Excel icon to export all currently filtered rows. Export has its own loading spinner, separate from table reloads.",
+              "filterToggle": "Click the search icon to reveal or hide the per-column filter row.",
+              "pagination": "Use the page controls to move forward and backward through results.",
+              "rowCount": "Choose how many rows appear per page — from 5 up to 1,000.",
+              "selectedCount": "The badge on the right shows how many rows are selected; click it to clear the selection."
+            },
+            "screenshotAlt": "Table toolbar with pagination and action buttons",
+            "title": "Toolbar"
+          }
+        },
+        "title": "How to use this table"
+      },
+      "pageHeader": {
+        "description": "A production-ready data grid for large datasets — sort and filter columns, paginate results, select rows for bulk actions, expand inline details, and open a side panel from the context menu. This live demo runs on 1,247 sample commerce users with client-side state; wire onTableChange to your API in production.",
+        "title": "Compound Table"
       },
       "sampleData": {
         "categories": {
