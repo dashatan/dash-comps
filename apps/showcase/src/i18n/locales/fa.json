@@ -2164,6 +2164,13 @@
         "exportSelected": "خروجی موارد انتخاب‌شده",
         "exportSelectedAlert": "خروجی {{count}} ردیف"
       },
+      "codeSample": {
+        "copied": "کپی شد",
+        "copy": "کپی",
+        "description": "راه‌اندازی ساده با ستون‌ها، صفحه‌بندی سمت کلاینت و handler برای onTableChange متصل به تابع fetch.",
+        "filename": "users-table.tsx",
+        "title": "نمونهٔ استفاده"
+      },
       "columns": {
         "email": "ایمیل",
         "id": "#",

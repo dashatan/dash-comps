@@ -2164,6 +2164,13 @@
         "exportSelected": "تصدير المحدد",
         "exportSelectedAlert": "تصدير {{count}} صف"
       },
+      "codeSample": {
+        "copied": "تم النسخ",
+        "copy": "نسخ",
+        "description": "إعداد بسيط مع الأعمدة والترقيم على العميل ومعالج onTableChange مربوط بدالة fetch.",
+        "filename": "users-table.tsx",
+        "title": "مثال الاستخدام"
+      },
       "columns": {
         "email": "البريد الإلكتروني",
         "id": "#",

@@ -2164,6 +2164,13 @@
         "exportSelected": "Export selected",
         "exportSelectedAlert": "Export {{count}} row(s)"
       },
+      "codeSample": {
+        "copied": "Copied",
+        "copy": "Copy",
+        "description": "Minimal setup with columns, client pagination, and an onTableChange handler wired to a fetch function.",
+        "filename": "users-table.tsx",
+        "title": "Usage example"
+      },
       "columns": {
         "email": "Email",
         "id": "#",

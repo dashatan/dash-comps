@@ -4,6 +4,8 @@ import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
+import { CodePreview } from "@/features/catalog/ui/code-preview";
+import { TABLE_BASIC_USAGE_CODE } from "@/features/catalog/data/table-code-samples";
 import {
   TABLE_ALL_ROWS,
   TABLE_REGIONS,
@@ -199,20 +201,26 @@ type LocalizedCommerceUserRow = CommerceUserRow & {
   preferredCategory: string;
 };
 
-function RowExpandSection({ row }: { row: LocalizedCommerceUserRow }) {
-  const p = useShowcasePage("table");
-  const { language } = useLanguage();
+type RowDetailItem = {
+  label: string;
+  value: ReactNode;
+  valueClassName?: string;
+};
 
-  const formatCurrency = (value: number) =>
-    value.toLocaleString(language, { maximumFractionDigits: 0 });
+type RowDetailGroup = {
+  title: string;
+  items: RowDetailItem[];
+};
 
-  type DetailItem = {
-    label: string;
-    value: ReactNode;
-    valueClassName?: string;
-  };
+type TableTranslate = ReturnType<typeof useShowcasePage<"table">>;
 
-  const groups: { title: string; items: DetailItem[] }[] = [
+function buildRowDetailGroups(
+  row: LocalizedCommerceUserRow,
+  p: TableTranslate,
+  language: string,
+  formatCurrency: (value: number) => string,
+): RowDetailGroup[] {
+  return [
     {
       title: p("expansion.groups.profile"),
       items: [
@@ -266,55 +274,104 @@ function RowExpandSection({ row }: { row: LocalizedCommerceUserRow }) {
       ],
     },
   ];
+}
+
+function RowDetailGroupSection({ group }: { group: RowDetailGroup }) {
+  return (
+    <section className="overflow-hidden rounded-md border border-table-border bg-table-row">
+      <h4 className="border-b border-table-border bg-muted/20 px-3 py-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+        {group.title}
+      </h4>
+      <dl className="divide-y divide-table-border">
+        {group.items.map((item) => (
+          <div
+            key={item.label}
+            className="grid grid-cols-[minmax(6.5rem,42%)_1fr] items-start gap-3 px-3 py-2.5"
+          >
+            <dt className="text-xs font-medium text-muted-foreground">
+              {item.label}
+            </dt>
+            <dd className={cn("text-sm font-medium", item.valueClassName)}>
+              {item.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+function RowDetailHeader({ row }: { row: LocalizedCommerceUserRow }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2 border-b border-table-border bg-muted/30 px-4 py-3">
+      <span className="text-base font-semibold">{row.name}</span>
+      <Badge severity="primary">#{row.id}</Badge>
+      <StatusBox text={row.statusLabel} color={STATUS_COLORS[row.status]} />
+      <Badge severity="info">{row.tierLabel}</Badge>
+    </div>
+  );
+}
+
+function RowDetailNotes({
+  notes,
+  label,
+}: {
+  notes: string;
+  label: string;
+}) {
+  return (
+    <div className="border-t border-table-border bg-muted/15 px-4 py-3">
+      <p className="mb-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+        {label}
+      </p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{notes}</p>
+    </div>
+  );
+}
+
+function TableRowSidePanel({ row }: { row: LocalizedCommerceUserRow }) {
+  const p = useShowcasePage("table");
+  const { language } = useLanguage();
+
+  const formatCurrency = (value: number) =>
+    value.toLocaleString(language, { maximumFractionDigits: 0 });
+
+  const groups = buildRowDetailGroups(row, p, language, formatCurrency);
+
+  return (
+    <aside className="flex h-full w-80 shrink-0 flex-col overflow-hidden rounded-md border border-table-border bg-table">
+      <RowDetailHeader row={row} />
+      <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-3">
+        {groups.map((group) => (
+          <RowDetailGroupSection key={group.title} group={group} />
+        ))}
+      </div>
+      <RowDetailNotes notes={row.notes} label={p("expansion.notes")} />
+    </aside>
+  );
+}
+
+function RowExpandSection({ row }: { row: LocalizedCommerceUserRow }) {
+  const p = useShowcasePage("table");
+  const { language } = useLanguage();
+
+  const formatCurrency = (value: number) =>
+    value.toLocaleString(language, { maximumFractionDigits: 0 });
+
+  const groups = buildRowDetailGroups(row, p, language, formatCurrency);
 
   return (
     <div className="p-3">
       <div className="overflow-hidden rounded-lg border border-table-border bg-table">
-        <div className="flex flex-wrap items-center gap-2 border-b border-table-border bg-muted/30 px-4 py-3">
-          <span className="text-base font-semibold">{row.name}</span>
-          <Badge severity="primary">#{row.id}</Badge>
-          <StatusBox text={row.statusLabel} color={STATUS_COLORS[row.status]} />
-          <Badge severity="info">{row.tierLabel}</Badge>
-        </div>
+        <RowDetailHeader row={row} />
 
         <div className="grid gap-3 p-3 lg:grid-cols-3">
           {groups.map((group) => (
-            <section
-              key={group.title}
-              className="overflow-hidden rounded-md border border-table-border bg-table-row"
-            >
-              <h4 className="border-b border-table-border bg-muted/20 px-3 py-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-                {group.title}
-              </h4>
-              <dl className="divide-y divide-table-border">
-                {group.items.map((item) => (
-                  <div
-                    key={item.label}
-                    className="grid grid-cols-[minmax(7rem,38%)_1fr] items-center gap-3 px-3 py-2.5"
-                  >
-                    <dt className="text-xs font-medium text-muted-foreground">
-                      {item.label}
-                    </dt>
-                    <dd
-                      className={cn("text-sm font-medium", item.valueClassName)}
-                    >
-                      {item.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
+            <RowDetailGroupSection key={group.title} group={group} />
           ))}
         </div>
 
-        <div className="border-t border-table-border bg-muted/15 px-4 py-3">
-          <p className="mb-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-            {p("expansion.notes")}
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {row.notes}
-          </p>
-        </div>
+        <RowDetailNotes notes={row.notes} label={p("expansion.notes")} />
       </div>
     </div>
   );
@@ -411,14 +468,6 @@ export function TablePage() {
   );
 
   const pageIds = useMemo(() => pageData.map((r) => r.id), [pageData]);
-
-  const formatCurrency = useCallback(
-    (value: number) =>
-      value.toLocaleString(language, {
-        maximumFractionDigits: 0,
-      }),
-    [language],
-  );
 
   const simulateFetch = useCallback(() => {
     setLoading(true);
@@ -800,56 +849,9 @@ export function TablePage() {
             rowExpansionTemplate={(row) => (
               <RowExpandSection row={row as LocalizedCommerceUserRow} />
             )}
-            sidePanelTemplate={(row) => {
-              const r = row as LocalizedCommerceUserRow;
-              return (
-                <aside className="flex h-full w-80 shrink-0 flex-col gap-4 overflow-y-auto rounded-md border border-table-border bg-table p-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-base font-semibold">{r.name}</h3>
-                    <Badge severity="primary">#{r.id}</Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground dir-ltr">
-                    {r.email}
-                  </p>
-                  <StatusBox
-                    text={r.statusLabel}
-                    color={STATUS_COLORS[r.status]}
-                  />
-                  <dl className="grid gap-2 text-sm">
-                    <div className="flex justify-between gap-2">
-                      <dt className="text-muted-foreground">
-                        {p("sidePanel.region")}
-                      </dt>
-                      <dd>{r.regionLabel}</dd>
-                    </div>
-                    <div className="flex justify-between gap-2">
-                      <dt className="text-muted-foreground">
-                        {p("sidePanel.segment")}
-                      </dt>
-                      <dd>{r.segmentLabel}</dd>
-                    </div>
-                    <div className="flex justify-between gap-2">
-                      <dt className="text-muted-foreground">
-                        {p("sidePanel.orders")}
-                      </dt>
-                      <dd>{r.orders.toLocaleString(language)}</dd>
-                    </div>
-                    <div className="flex justify-between gap-2">
-                      <dt className="text-muted-foreground">
-                        {p("sidePanel.totalSpent")}
-                      </dt>
-                      <dd>
-                        {formatCurrency(r.totalSpent)}
-                        {p("sampleData.currencySuffix")}
-                      </dd>
-                    </div>
-                  </dl>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    {r.notes}
-                  </p>
-                </aside>
-              );
-            }}
+            sidePanelTemplate={(row) => (
+              <TableRowSidePanel row={row as LocalizedCommerceUserRow} />
+            )}
             rightClickMenu={(row) => (
               <TableRowContextMenu row={row as LocalizedCommerceUserRow} />
             )}
@@ -897,6 +899,21 @@ export function TablePage() {
             }}
           />
         </div>
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("codeSample.title")}
+        description={p("codeSample.description")}
+        layout="stack"
+        contentClassName="border-0 bg-transparent p-0"
+      >
+        <CodePreview
+          code={TABLE_BASIC_USAGE_CODE}
+          filename={p("codeSample.filename")}
+          language="tsx"
+          copyLabel={p("codeSample.copy")}
+          copiedLabel={p("codeSample.copied")}
+        />
       </ShowcaseSection>
     </CatalogPageShell>
   );
