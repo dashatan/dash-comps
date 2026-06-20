@@ -37,6 +37,8 @@ export type TableProps = {
   draggable?: boolean
   columnHover?: boolean
   fullScreen?: boolean
+  /** When true, rows are virtualized for large datasets. Defaults to false. */
+  virtualized?: boolean
   actionHeaderProps?: Partial<ActionHeaderProps>
   actionFilterProps?: Partial<ActionFiltersProps>
   THProps?: Partial<THProps>

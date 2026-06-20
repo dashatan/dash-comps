@@ -821,6 +821,9 @@ export function TablePage() {
             columnHover
             dataKey="id"
             expandOnNewRow={false}
+            virtualized={
+              (tableState.rows ?? INITIAL_TABLE_STATE.rows ?? 15) > 50
+            }
             onTableChange={handleTableChange}
             rowProps={{
               getRowClassName: (data, api) => {
