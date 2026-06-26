@@ -354,6 +354,13 @@
   "header": {
     "searchPlaceHolder": "البحث في الميزات..."
   },
+  "observe": {
+    "chosenPlateInfo": "معلومات اللوحة المختارة",
+    "isLoading": "جارٍ تحميل الملاحظات…",
+    "loadingRoute": "جارٍ تحميل المسار…",
+    "noData": "لا توجد ملاحظات في هذا النطاق",
+    "observesInDateRange": "الملاحظات في نطاق التاريخ"
+  },
   "locationPicker": {
     "camerasFromDate": "الكاميرات النشطة من",
     "coordinates": "الإحداثيات {coords}",

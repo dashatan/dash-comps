@@ -16,7 +16,8 @@ export const TRACKER_MAP_ENV = {
   OSRM_URL: "https://router.project-osrm.org",
 } as const;
 
-const dayStart = new Date("2024-06-03T00:00:00+03:30").getTime();
+/** Paris (Europe/Paris) — used for showcase mock tracker data. */
+const dayStart = new Date("2024-06-03T00:00:00+02:00").getTime();
 
 function interpolatePoints(
   start: [number, number],
@@ -35,7 +36,7 @@ function interpolatePoints(
       latLng: [lat, lng],
       time: startTime + i * stepMs,
       road: `${roadPrefix} ${i + 1}`,
-      province: "Tehran",
+      province: "Paris",
       hasEvent: i % 4 === 0,
     });
   }
@@ -45,24 +46,24 @@ function interpolatePoints(
 const fleetTrackA: Track = {
   plate: { p1: "12", p2: "ب", p3: "345", p4: "67" },
   points: interpolatePoints(
-    [35.6892, 51.389],
-    [35.7219, 51.4247],
+    [48.8566, 2.3522],
+    [48.8738, 2.295],
     18,
     dayStart + 8 * HOUR_MS,
     8 * 60_000,
-    "Azadi–Enghelab",
+    "Seine–Louvre",
   ),
 };
 
 const fleetTrackB: Track = {
   plate: { p1: "45", p2: "ج", p3: "678", p4: "21" },
   points: interpolatePoints(
-    [35.701, 51.338],
-    [35.744, 51.375],
+    [48.8462, 2.3372],
+    [48.8867, 2.3431],
     16,
     dayStart + 9 * HOUR_MS,
     10 * 60_000,
-    "Vanak–Tajrish",
+    "Montmartre–Opéra",
   ),
 };
 
@@ -71,14 +72,14 @@ const fleetEmphasizes: Emphasize[] = [
     title: "Rest stop",
     startTime: dayStart + 8 * HOUR_MS + 40 * 60_000,
     endTime: dayStart + 8 * HOUR_MS + 55 * 60_000,
-    latLng: [35.705, 51.405],
+    latLng: [48.8606, 2.3376],
     type: "route",
   },
   {
     title: "Encounter zone",
     startTime: dayStart + 9 * HOUR_MS + 30 * 60_000,
     endTime: dayStart + 9 * HOUR_MS + 50 * 60_000,
-    latLng: [35.718, 51.362],
+    latLng: [48.8656, 2.3212],
     type: "encounter",
   },
 ];
@@ -92,16 +93,16 @@ export const fleetTracksSample: TracksInput = {
 
 function buildObserveEvents(): ObserveEvent[] {
   const coords: [number, number][] = [
-    [35.6892, 51.389],
-    [35.6965, 51.401],
-    [35.7038, 51.412],
-    [35.711, 51.418],
-    [35.7185, 51.425],
-    [35.726, 51.431],
-    [35.733, 51.428],
-    [35.739, 51.42],
-    [35.744, 51.412],
-    [35.748, 51.402],
+    [48.8566, 2.3522],
+    [48.8606, 2.3376],
+    [48.8656, 2.3212],
+    [48.8738, 2.295],
+    [48.8799, 2.3553],
+    [48.8867, 2.3431],
+    [48.8818, 2.3182],
+    [48.875, 2.31],
+    [48.8661, 2.3296],
+    [48.8584, 2.3445],
   ];
 
   return coords.map((latlng, index) => ({
@@ -112,9 +113,9 @@ function buildObserveEvents(): ObserveEvent[] {
     error: index === 3,
     miss: index === 6,
     speed: 42 + index * 3,
-    province: "Tehran",
+    province: "Paris",
     deviceId: 1000 + index,
-    road: `Observed segment ${index + 1}`,
+    road: `Boulevard segment ${index + 1}`,
     roadId: 500 + index,
     trafficId: 900 + index,
     crimes: index === 5 ? ["Speeding"] : [],
@@ -135,7 +136,7 @@ export const fullTracksSample: TracksInput = {
       title: "Night corridor",
       startTime: dayStart + DAY_MS + 6 * HOUR_MS,
       endTime: dayStart + DAY_MS + 8 * HOUR_MS,
-      latLng: [35.73, 51.39],
+      latLng: [48.87, 2.33],
       type: "route",
     },
   ],

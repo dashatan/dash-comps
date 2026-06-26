@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTheme } from "next-themes";
 import { Loader2 } from "lucide-react";
@@ -68,17 +68,25 @@ export default function ObservesTrackerMap() {
         console.warn("Failed to create map:", error);
       }
     }
-  }, [resolvedTheme, tilesConfigured]);
+  }, [resolvedTheme, mapTiles.light, mapTiles.dark]);
 
   useEffect(() => {
     handleMapReady();
-  }, [events, routeCoords]);
+  }, [events, routeCoords, eventOsrmIndices, activeEventIndex]);
 
   useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !routeCoords.length || !eventOsrmIndices.length) return;
+    if (prevActiveEventIndex.current === activeEventIndex) return;
+
     handleRouteAnimation();
   }, [routeCoords, eventOsrmIndices, activeEventIndex, playSpeed]);
 
   useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !events.length || !eventOsrmIndices.length || !routeCoords.length) return;
+    if (prevActiveEventIndex.current === activeEventIndex) return;
+
     handleArrowAnimation();
     prevActiveEventIndex.current = activeEventIndex;
 
@@ -110,6 +118,15 @@ export default function ObservesTrackerMap() {
       autoPaneMap,
       force,
     );
+
+    const toRouteIndex = eventOsrmIndices[activeEventIndex] ?? 0;
+    if (toRouteIndex >= 0) {
+      routeDrawer.updatePassedRoute(
+        map,
+        routeCoords,
+        routeCoords.slice(0, toRouteIndex + 1),
+      );
+    }
   };
 
   const handleRouteAnimation = () => {
@@ -157,7 +174,7 @@ export default function ObservesTrackerMap() {
     );
 
     const tooltipGenerator = tooltipService.createTooltipGenerator(events[nextIndex], events, t);
-    markerManager.attachTooltip(element, tooltipGenerator, mapRef.current);
+    markerManager.attachTooltip(element, tooltipGenerator, map);
 
     movingMarkerRef.current = marker;
 
@@ -178,7 +195,7 @@ export default function ObservesTrackerMap() {
     <div
       ref={mapContainerRef}
       id="maplibre-map"
-      className="flex h-full w-full items-start justify-center pt-4"
+      className="flex h-full w-full items-start justify-center"
     >
       {!tilesConfigured && (
         <div className="bg-background/70 font-family mobile:translate-x-0 z-6 flex h-16 translate-x-40 items-center justify-center gap-2 rounded-md p-4 text-lg">

@@ -1,7 +1,27 @@
 import type { TrackerStore } from "@dash/ui/compound/tracker/store/create-store";
 import type { Emphasize } from "@dash/ui/compound/tracker/types/input";
+import type { TrackWithEvents } from "@dash/ui/compound/tracker/types/normalized";
 import { isWithinIran } from "@dash/ui/compound/tracker/utils/geo";
 import { timeHourClear } from "@dash/ui/compound/tracker/data/time";
+
+let tracksFilteredCache: {
+  source: TrackWithEvents[];
+  filterIran: boolean;
+  result: TrackWithEvents[];
+} | null = null;
+
+let panelEventsCache: {
+  source: TrackerStore["events"];
+  filterIran: boolean;
+  result: TrackerStore["events"];
+} | null = null;
+
+let activeEmphasizesCache: {
+  emphasizes: Emphasize[];
+  timeIndex: number;
+  time: number | undefined;
+  result: Emphasize[];
+} | null = null;
 
 export function selectActiveEvent(state: TrackerStore) {
   return state.events[state.activeEventIndex];
@@ -13,23 +33,69 @@ export function selectCurrentTime(state: TrackerStore): number | undefined {
 
 export function selectPanelEvents(state: TrackerStore) {
   if (!state.filterIran) return state.events;
-  return state.events.filter((e) => isWithinIran(e.latlng[0], e.latlng[1]));
+  if (
+    panelEventsCache &&
+    panelEventsCache.source === state.events &&
+    panelEventsCache.filterIran === state.filterIran
+  ) {
+    return panelEventsCache.result;
+  }
+  const result = state.events.filter((e) =>
+    isWithinIran(e.latlng[0], e.latlng[1]),
+  );
+  panelEventsCache = {
+    source: state.events,
+    filterIran: state.filterIran,
+    result,
+  };
+  return result;
 }
 
 export function selectTracksWithEventsFiltered(state: TrackerStore) {
   if (!state.filterIran) return state.tracksWithEvents;
-  return state.tracksWithEvents.map((t) => ({
-    ...t,
-    events: t.events.filter((e) => isWithinIran(e.latlng[0], e.latlng[1])),
-  }));
+  if (
+    tracksFilteredCache &&
+    tracksFilteredCache.source === state.tracksWithEvents &&
+    tracksFilteredCache.filterIran === state.filterIran
+  ) {
+    return tracksFilteredCache.result;
+  }
+  const result = state.tracksWithEvents.map((t) => {
+    const events = t.events.filter((e) =>
+      isWithinIran(e.latlng[0], e.latlng[1]),
+    );
+    if (events.length === t.events.length) return t;
+    return { ...t, events };
+  });
+  tracksFilteredCache = {
+    source: state.tracksWithEvents,
+    filterIran: state.filterIran,
+    result,
+  };
+  return result;
 }
 
 export function selectActiveEmphasizes(state: TrackerStore): Emphasize[] {
   const currentTime = selectCurrentTime(state);
   if (currentTime == null) return [];
-  return state.emphasizes.filter(
+  if (
+    activeEmphasizesCache &&
+    activeEmphasizesCache.emphasizes === state.emphasizes &&
+    activeEmphasizesCache.timeIndex === state.timeIndex &&
+    activeEmphasizesCache.time === currentTime
+  ) {
+    return activeEmphasizesCache.result;
+  }
+  const result = state.emphasizes.filter(
     (x) => x.startTime <= currentTime && x.endTime >= currentTime,
   );
+  activeEmphasizesCache = {
+    emphasizes: state.emphasizes,
+    timeIndex: state.timeIndex,
+    time: currentTime,
+    result,
+  };
+  return result;
 }
 
 export function selectVisibleTrailPoints(

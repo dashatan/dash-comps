@@ -12,6 +12,7 @@ import {
   detectInputKind,
   adaptTracksInput,
   mergeTracksIntoNormalized,
+  type TracksAdapterResult,
 } from "@dash/ui/compound/tracker/adapters/from-tracks";
 import { adaptEventsInput } from "@dash/ui/compound/tracker/adapters/from-events";
 import { processTracksData } from "@dash/ui/compound/tracker/data/remap";
@@ -27,7 +28,23 @@ import Alert from "@dash/ui/common/alert";
 import type {
   TrackerProviderProps,
   ResolvedTrackerOptions,
+  TrackerOptions,
 } from "@dash/ui/compound/tracker/types";
+
+function useTrackerStoreApi(optionsKey: string) {
+  const storeRef = useRef<{ key: string; store: TrackerStoreApi } | null>(null);
+
+  if (!storeRef.current || storeRef.current.key !== optionsKey) {
+    storeRef.current = {
+      key: optionsKey,
+      store: createTrackerStore(
+        resolveTrackerOptions(JSON.parse(optionsKey) as TrackerOptions),
+      ),
+    };
+  }
+
+  return storeRef.current.store;
+}
 
 function PlaybackRunner() {
   usePlaybackEngine();
@@ -36,104 +53,158 @@ function PlaybackRunner() {
 
 function RouteSync({
   store,
-  resolvedOptions,
+  osrmUrl,
+  osrmChunkSize,
 }: {
   store: TrackerStoreApi;
-  resolvedOptions: ResolvedTrackerOptions;
+  osrmUrl?: string;
+  osrmChunkSize: number;
 }) {
-  const routeMode = useTrackerStore((s) => s.routeMode);
-  const status = useTrackerStore((s) => s.status);
-  const skipInitial = useRef(true);
-
   useEffect(() => {
-    if (status !== "success") return;
-    if (skipInitial.current) {
-      skipInitial.current = false;
-      return;
-    }
+    let skipInitial = true;
 
-    let cancelled = false;
-
-    async function reloadRoute() {
-      const s = store.getState();
-      const { events } = s;
-
-      if (routeMode === "osrm" && events.length) {
-        s.setRouteIsLoading(true);
-        try {
-          const coords = await resolveOsrmRouteCoords(events, {
-            url: resolvedOptions.route.osrm.url || undefined,
-            chunkSize: resolvedOptions.route.osrm.chunkSize,
-          });
-          if (cancelled) return;
-          s.setRouteCoords(coords);
-          s.setEventOsrmIndices(mapEventsToOsrmIndices(events, coords));
-        } catch (err) {
-          if (cancelled) return;
-          s.setError({
-            message:
-              err instanceof Error ? err.message : "Failed to load OSRM route",
-            cause: err,
-          });
-        } finally {
-          if (!cancelled) s.setRouteIsLoading(false);
-        }
-      } else if (routeMode === "direct") {
-        s.setRouteCoords(resolveDirectRouteCoords(events));
-        s.setEventOsrmIndices([]);
-        s.setRouteIsLoading(false);
-      } else {
-        s.setRouteCoords([]);
-        s.setEventOsrmIndices([]);
-        s.setRouteIsLoading(false);
+    const unsubscribe = store.subscribe((state, prev) => {
+      if (state.status !== "success") return;
+      if (skipInitial) {
+        skipInitial = false;
+        return;
       }
-    }
+      if (state.routeMode === prev.routeMode) return;
 
-    reloadRoute();
-    return () => {
-      cancelled = true;
-    };
-  }, [
-    routeMode,
-    status,
-    store,
-    resolvedOptions.route.osrm.url,
-    resolvedOptions.route.osrm.chunkSize,
-  ]);
+      const { events } = state;
+
+      if (state.routeMode === "osrm" && events.length) {
+        state.setRouteIsLoading(true);
+        void resolveOsrmRouteCoords(events, {
+          url: osrmUrl || undefined,
+          chunkSize: osrmChunkSize,
+        })
+          .then((coords) => {
+            const current = store.getState();
+            if (current.routeMode !== "osrm") return;
+            current.setRouteCoords(coords);
+            current.setEventOsrmIndices(
+              mapEventsToOsrmIndices(events, coords),
+            );
+            current.setRouteIsLoading(false);
+          })
+          .catch((err) => {
+            store.getState().setError({
+              message:
+                err instanceof Error ? err.message : "Failed to load OSRM route",
+              cause: err,
+            });
+            store.getState().setRouteIsLoading(false);
+          });
+        return;
+      }
+
+      if (state.routeMode === "direct") {
+        state.setRouteCoords(resolveDirectRouteCoords(events));
+        state.setEventOsrmIndices([]);
+        state.setRouteIsLoading(false);
+        return;
+      }
+
+      state.setRouteCoords([]);
+      state.setEventOsrmIndices([]);
+      state.setRouteIsLoading(false);
+    });
+
+    return unsubscribe;
+  }, [store, osrmUrl, osrmChunkSize]);
 
   return null;
+}
+
+function applyResolvedSettings(
+  store: TrackerStoreApi,
+  resolvedOptions: ResolvedTrackerOptions,
+) {
+  const state = store.getState();
+  state.setMode(resolvedOptions.playback.mode);
+  state.setEventIntervalMs(resolvedOptions.playback.speed.eventIntervalMs);
+  state.setTimeMultiplier(resolvedOptions.playback.speed.timeMultiplier);
+  state.setTimeStepMultiplier(resolvedOptions.playback.speed.timeStepMultiplier);
+  state.setEngineKey(resolvedOptions.map.engine);
+  state.setLoop(resolvedOptions.playback.loop);
+  if (state.initToFirstEvent !== resolvedOptions.playback.initToFirstEvent) {
+    store.setState({
+      initToFirstEvent: resolvedOptions.playback.initToFirstEvent,
+    });
+  }
 }
 
 function TrackerBootstrap({
   store,
   input,
-  resolvedOptions,
+  optionsKey,
   onError,
 }: {
   store: TrackerStoreApi;
   input: TrackerProviderProps["input"];
-  resolvedOptions: ResolvedTrackerOptions;
+  optionsKey: string;
   onError?: TrackerProviderProps["onError"];
 }) {
   const workerRef = useRef<Worker | null>(null);
+  const onErrorRef = useRef(onError);
+  const inputRef = useRef(input);
+  onErrorRef.current = onError;
+  inputRef.current = input;
+
+  const routeOptions = useMemo(() => {
+    const resolved = resolveTrackerOptions(
+      JSON.parse(optionsKey) as TrackerOptions,
+    );
+    return {
+      osrmUrl: resolved.route.osrm.url,
+      osrmChunkSize: resolved.route.osrm.chunkSize,
+    };
+  }, [optionsKey]);
 
   useEffect(() => {
-    const s = store.getState();
-    s.setMode(resolvedOptions.playback.mode);
-    s.setEventIntervalMs(resolvedOptions.playback.speed.eventIntervalMs);
-    s.setTimeMultiplier(resolvedOptions.playback.speed.timeMultiplier);
-    s.setTimeStepMultiplier(resolvedOptions.playback.speed.timeStepMultiplier);
-    s.setEngineKey(resolvedOptions.map.engine);
-    s.setLoop(resolvedOptions.playback.loop);
-    store.setState({
-      initToFirstEvent: resolvedOptions.playback.initToFirstEvent,
-    });
-  }, [store, resolvedOptions]);
-
-  useEffect(() => {
+    const resolvedOptions = resolveTrackerOptions(
+      JSON.parse(optionsKey) as TrackerOptions,
+    );
+    const currentInput = inputRef.current;
     let cancelled = false;
 
+    async function processTracks(
+      workerInput: TracksAdapterResult["workerInput"],
+    ): Promise<RemapWorkerOutput> {
+      if (!resolvedOptions.data.useWorker || typeof Worker === "undefined") {
+        return processTracksData(workerInput);
+      }
+
+      try {
+        workerRef.current?.terminate();
+        const worker = new Worker(
+          new URL("./data/remap.worker.ts", import.meta.url),
+          { type: "module" },
+        );
+        workerRef.current = worker;
+
+        return await Promise.race([
+          new Promise<RemapWorkerOutput>((resolve, reject) => {
+            worker.onmessage = (event) =>
+              resolve(event.data as RemapWorkerOutput);
+            worker.onerror = () => reject(new Error("Worker failed"));
+            worker.postMessage(workerInput);
+          }),
+          new Promise<RemapWorkerOutput>((_, reject) => {
+            window.setTimeout(() => reject(new Error("Worker timeout")), 5000);
+          }),
+        ]);
+      } catch {
+        return processTracksData(workerInput);
+      } finally {
+        workerRef.current?.terminate();
+        workerRef.current = null;
+      }
+    }
+
     async function load() {
+      applyResolvedSettings(store, resolvedOptions);
       store.getState().setStatus("loading");
       store.getState().setError(null);
 
@@ -141,37 +212,22 @@ function TrackerBootstrap({
         const kind =
           resolvedOptions.data.inputKind === "auto"
             ? detectInputKind(
-                input as { kind?: string; tracks?: unknown; events?: unknown },
+                currentInput as {
+                  kind?: string;
+                  tracks?: unknown;
+                  events?: unknown;
+                },
               )
             : resolvedOptions.data.inputKind === "tracks"
               ? "tracks"
               : "events";
 
-        if (kind === "tracks" && input.kind === "tracks") {
+        if (kind === "tracks" && currentInput.kind === "tracks") {
           const adapted = adaptTracksInput(
-            input,
+            currentInput,
             resolvedOptions.data.extendDateRangeToEvents,
           );
-          let result: RemapWorkerOutput;
-
-          if (resolvedOptions.data.useWorker && typeof Worker !== "undefined") {
-            workerRef.current?.terminate();
-            workerRef.current = new Worker(
-              new URL(
-                "@dash/ui/compound/tracker/data/remap.worker.ts",
-                import.meta.url,
-              ),
-              { type: "module" },
-            );
-            result = await new Promise<RemapWorkerOutput>((resolve, reject) => {
-              const worker = workerRef.current!;
-              worker.onmessage = (e) => resolve(e.data as RemapWorkerOutput);
-              worker.onerror = () => reject(new Error("Worker failed"));
-              worker.postMessage(adapted.workerInput);
-            });
-          } else {
-            result = processTracksData(adapted.workerInput);
-          }
+          const result = await processTracks(adapted.workerInput);
 
           if (cancelled) return;
           store
@@ -183,9 +239,9 @@ function TrackerBootstrap({
                 adapted.tracks,
               ),
             );
-        } else if (input.kind === "events") {
+        } else if (currentInput.kind === "events") {
           if (cancelled) return;
-          store.getState().hydrate(adaptEventsInput(input));
+          store.getState().hydrate(adaptEventsInput(currentInput));
         }
 
         const { events, totalTimes, totalTimeIndex, routeMode } =
@@ -224,21 +280,26 @@ function TrackerBootstrap({
           cause: err,
         };
         store.getState().setError(error);
-        onError?.(error);
+        onErrorRef.current?.(error);
       }
     }
 
-    load();
+    void load();
     return () => {
       cancelled = true;
       workerRef.current?.terminate();
+      workerRef.current = null;
     };
-  }, [store, input, resolvedOptions, onError]);
+  }, [store, optionsKey]);
 
   return (
     <>
       <PlaybackRunner />
-      <RouteSync store={store} resolvedOptions={resolvedOptions} />
+      <RouteSync
+        store={store}
+        osrmUrl={routeOptions.osrmUrl}
+        osrmChunkSize={routeOptions.osrmChunkSize}
+      />
     </>
   );
 }
@@ -264,26 +325,24 @@ export function TrackerProvider({
   onError,
   children,
 }: TrackerProviderProps) {
-  const optionsKey = useMemo(() => JSON.stringify(options ?? {}), [options]);
-  const resolvedOptions = useMemo(
-    () => resolveTrackerOptions(options),
-    [optionsKey, options],
-  );
-  const store = useMemo(
-    () => createTrackerStore(resolvedOptions),
-    [optionsKey, resolvedOptions],
-  );
+  const optionsKey = JSON.stringify(options ?? {});
+  const store = useTrackerStoreApi(optionsKey);
+
+  const onEventSelectRef = useRef(onEventSelect);
+  const onTimeChangeRef = useRef(onTimeChange);
+  onEventSelectRef.current = onEventSelect;
+  onTimeChangeRef.current = onTimeChange;
 
   useEffect(() => {
     const unsub = store.subscribe((state, prev) => {
       if (state.activeEventIndex !== prev.activeEventIndex) {
         const event = state.events[state.activeEventIndex];
-        if (event) onEventSelect?.(event, state.activeEventIndex);
+        if (event) onEventSelectRef.current?.(event, state.activeEventIndex);
       }
       const time = state.minutes[state.timeIndex];
       const prevTime = prev.minutes[prev.timeIndex];
       if (time != null && time !== prevTime) {
-        onTimeChange?.(time, {
+        onTimeChangeRef.current?.(time, {
           activeEventIndex: state.activeEventIndex,
           totalTimeIndex: state.totalTimeIndex,
           timeIndex: state.timeIndex,
@@ -291,14 +350,14 @@ export function TrackerProvider({
       }
     });
     return unsub;
-  }, [store, onEventSelect, onTimeChange]);
+  }, [store]);
 
   return (
     <TrackerStoreProvider store={store}>
       <TrackerBootstrap
         store={store}
         input={input}
-        resolvedOptions={resolvedOptions}
+        optionsKey={optionsKey}
         onError={onError}
       />
       <TrackerStatusGate>{children}</TrackerStatusGate>

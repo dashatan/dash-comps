@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { getMapTileUrl } from "@/lib";
@@ -26,6 +26,7 @@ export default function MapHost() {
   const engineRef = useRef<MapEngine | null>(null);
   const handleRef = useRef<{ destroy: () => void } | null>(null);
   const prevEventIndex = useRef(0);
+  const [mapReadyVersion, setMapReadyVersion] = useState(0);
   const { resolvedTheme } = useTheme();
   const options = useResolvedOptions();
   const ctx = useMapRouteContext();
@@ -42,9 +43,12 @@ export default function MapHost() {
     async function init() {
       if (!containerRef.current) return;
       handleRef.current?.destroy();
+      handleRef.current = null;
+      engineRef.current = null;
+
       const engine = await loadMapEngine(ctx.mapEngine);
-      if (cancelled) return;
-      engineRef.current = engine;
+      if (cancelled || !containerRef.current) return;
+
       const tileUrl = getMapTileUrl(resolvedTheme === "dark" ? "dark" : "light");
       const handle = await mountMapEngine(engine, containerRef.current, {
         center: options.map.center,
@@ -54,12 +58,17 @@ export default function MapHost() {
         rtlSupport: options.map.rtlSupport,
         controls: options.map.controls,
       });
+      if (cancelled) return;
+
+      engineRef.current = engine;
       handleRef.current = handle;
+      setMapReadyVersion((version) => version + 1);
     }
-    init();
+    void init();
     return () => {
       cancelled = true;
       handleRef.current?.destroy();
+      handleRef.current = null;
       engineRef.current = null;
     };
   }, [ctx.mapEngine, resolvedTheme, options.map.center, options.map.defaultZoom, options.map.rtlSupport, options.map.controls]);
@@ -155,15 +164,31 @@ export default function MapHost() {
 
     prevEventIndex.current = ctx.activeEventIndex;
   }, [
-    ctx,
+    ctx.mapEngine,
+    ctx.routeCoords,
+    ctx.routeMode,
+    ctx.traceLength,
+    ctx.activeEventIndex,
+    ctx.eventOsrmIndices,
+    ctx.autoPan,
+    ctx.autoPanMaxZoom,
+    ctx.events,
+    ctx.routeIsLoading,
     emphasizes,
     tracksWithEvents,
     emphasizeRadius,
     perEventMarkers,
     headStyle,
-    options,
+    options.route.direct.perTrack,
+    options.route.direct.lineWeight,
+    options.route.direct.showIntermediatePoints,
+    options.route.osrm.animateMovingMarker,
+    options.geo.emphasize.mapCircles,
+    options.map.autoPanPadding,
+    options.map.autoPanMaxZoom,
     setActiveEventIndex,
     eventIntervalMs,
+    mapReadyVersion,
   ]);
 
   return (

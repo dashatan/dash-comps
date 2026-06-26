@@ -2,6 +2,7 @@ import mapLibreGl from 'maplibre-gl'
 import { MAP_CONFIG } from '../config/constants'
 import { createMapControl, CustomControl } from '../controls'
 import { trackerStore } from '../../store'
+import { resolveMapStyle } from '../utils/resolve-map-style'
 
 // Global flag to track RTL plugin initialization across component mounts
 let globalRTLInitialized = false
@@ -23,31 +24,26 @@ export class MapInitializer {
    * Initialize RTL text plugin for Farsi/Arabic/Hebrew support
    */
   public initializeRTLSupport(): void {
-    // Check global flag first to prevent multiple calls
-    if (typeof window !== 'undefined' && mapLibreGl.setRTLTextPlugin && !globalRTLInitialized) {
-      try {
-        mapLibreGl
-          .setRTLTextPlugin('/mapbox-gl-rtl-text.js', true)
-          .then(() => {
-            globalRTLInitialized = true
-            trackerStore.getState().setRtlSet(true)
-          })
-          .catch((error) => {
-            // Plugin may already be set - this is expected behavior
-            console.debug('RTL plugin already initialized:', error.message)
-            globalRTLInitialized = true
-            trackerStore.getState().setRtlSet(true)
-          })
-      } catch (error) {
-        // Plugin may already be set - this is expected behavior
-        console.debug('RTL plugin already initialized:', error)
-        globalRTLInitialized = true
-        trackerStore.getState().setRtlSet(true)
-      }
-    } else if (globalRTLInitialized) {
-      // Plugin already initialized, just update the signal
+    if (globalRTLInitialized) {
       trackerStore.getState().setRtlSet(true)
+      return
     }
+
+    if (typeof window === 'undefined' || !mapLibreGl.setRTLTextPlugin) {
+      return
+    }
+
+    globalRTLInitialized = true
+
+    mapLibreGl
+      .setRTLTextPlugin('/mapbox-gl-rtl-text.js', true)
+      .then(() => {
+        trackerStore.getState().setRtlSet(true)
+      })
+      .catch((error) => {
+        console.debug('RTL plugin already initialized:', error.message)
+        trackerStore.getState().setRtlSet(true)
+      })
   }
 
   /**
@@ -55,14 +51,13 @@ export class MapInitializer {
    */
   public createMap(container: HTMLDivElement, theme: 'light' | 'dark', onLoad?: () => void): mapLibreGl.Map {
     const { mapTiles } = trackerStore.getState();
-    const style = theme === "dark" ? mapTiles.dark : mapTiles.light;
+    const tileUrl = theme === "dark" ? mapTiles.dark : mapTiles.light;
 
-    // Validate that we have a valid style URL
-    if (!style) {
-      console.warn('Map tiles not configured yet, using fallback style')
-      // Use a fallback style or wait for proper configuration
+    if (!tileUrl) {
       throw new Error('Map tiles not configured')
     }
+
+    const style = resolveMapStyle(tileUrl)
 
     const center: [number, number] = MAP_CONFIG.CENTER_COORD
 
@@ -92,15 +87,13 @@ export class MapInitializer {
    */
   public updateMapStyle(map: mapLibreGl.Map, theme: 'light' | 'dark', onStyleLoad?: () => void): void {
     const { mapTiles } = trackerStore.getState();
-    const style = theme === "dark" ? mapTiles.dark : mapTiles.light;
+    const tileUrl = theme === "dark" ? mapTiles.dark : mapTiles.light;
 
-    // Validate that we have a valid style URL
-    if (!style) {
-      console.warn('Map tiles not configured yet, skipping style update')
+    if (!tileUrl) {
       return
     }
 
-    map.setStyle(style)
+    map.setStyle(resolveMapStyle(tileUrl))
 
     if (onStyleLoad) {
       map.once('styledata', onStyleLoad)

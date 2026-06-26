@@ -354,6 +354,13 @@
   "header": {
     "searchPlaceHolder": "Search features..."
   },
+  "observe": {
+    "chosenPlateInfo": "Selected plate information",
+    "isLoading": "Loading observations…",
+    "loadingRoute": "Loading route…",
+    "noData": "No observations in this range",
+    "observesInDateRange": "Observations in date range"
+  },
   "locationPicker": {
     "camerasFromDate": "Cameras active from",
     "coordinates": "Coordinates {coords}",

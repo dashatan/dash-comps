@@ -48,9 +48,14 @@ export const createPlaybackSlice: StateCreator<
   initToFirstEvent: true,
   setPlay: (play) => set({ play }),
   togglePlay: () => set({ play: !get().play }),
-  setMode: (mode) => set({ mode }),
-  setLoop: (loop) => set({ loop }),
-  setActiveEventIndex: (activeEventIndex) => set({ activeEventIndex }),
+  setMode: (mode) =>
+    set((state) => (state.mode === mode ? state : { mode })),
+  setLoop: (loop) =>
+    set((state) => (state.loop === loop ? state : { loop })),
+  setActiveEventIndex: (activeEventIndex) =>
+    set((state) =>
+      state.activeEventIndex === activeEventIndex ? state : { activeEventIndex },
+    ),
   incrementActiveEventIndex: () => {
     const { activeEventIndex, events } = get();
     if (activeEventIndex < events.length - 1) {
@@ -67,9 +72,20 @@ export const createPlaybackSlice: StateCreator<
     ),
   setTimeIndex: (timeIndex) =>
     set((state) => (state.timeIndex === timeIndex ? state : { timeIndex })),
-  setEventIntervalMs: (eventIntervalMs) => set({ eventIntervalMs }),
-  setTimeMultiplier: (timeMultiplier) => set({ timeMultiplier }),
-  setTimeStepMultiplier: (timeStepMultiplier) => set({ timeStepMultiplier }),
+  setEventIntervalMs: (eventIntervalMs) =>
+    set((state) =>
+      state.eventIntervalMs === eventIntervalMs ? state : { eventIntervalMs },
+    ),
+  setTimeMultiplier: (timeMultiplier) =>
+    set((state) =>
+      state.timeMultiplier === timeMultiplier ? state : { timeMultiplier },
+    ),
+  setTimeStepMultiplier: (timeStepMultiplier) =>
+    set((state) =>
+      state.timeStepMultiplier === timeStepMultiplier
+        ? state
+        : { timeStepMultiplier },
+    ),
   advanceEvent: () => {
     const { activeEventIndex, events, play, loop } = get();
     if (activeEventIndex >= events.length - 1) {
@@ -105,13 +121,28 @@ export const createPlaybackSlice: StateCreator<
     }
   },
   initPlaybackToFirstEvent: () => {
-    const { events, totalTimes, initToFirstEvent } = get();
+    const {
+      events,
+      totalTimes,
+      initToFirstEvent,
+      activeEventIndex,
+      totalTimeIndex,
+      timeIndex,
+    } = get();
     if (!initToFirstEvent || !events.length || !totalTimes.length) return;
     const firstTime = events[0].time;
     const totalIdx = totalTimes.findIndex((x) => x === firstTime);
+    const nextTotalTimeIndex = totalIdx >= 0 ? totalIdx : 0;
+    if (
+      activeEventIndex === 0 &&
+      totalTimeIndex === nextTotalTimeIndex &&
+      timeIndex === 0
+    ) {
+      return;
+    }
     set({
       activeEventIndex: 0,
-      totalTimeIndex: totalIdx >= 0 ? totalIdx : 0,
+      totalTimeIndex: nextTotalTimeIndex,
       timeIndex: 0,
     });
   },

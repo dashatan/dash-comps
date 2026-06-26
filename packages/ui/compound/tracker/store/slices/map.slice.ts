@@ -35,5 +35,6 @@ export const createMapSlice: StateCreator<TrackerStore, [], [], MapSlice> = (
   setMapReady: (mapReady) => set({ mapReady }),
   setRtlSet: (rtlSet) => set({ rtlSet }),
   setMapTiles: (mapTiles) => set({ mapTiles }),
-  setEngineKey: (engineKey) => set({ engineKey }),
+  setEngineKey: (engineKey) =>
+    set((state) => (state.engineKey === engineKey ? state : { engineKey })),
 });

@@ -23,10 +23,6 @@ export const useMapState = (): MapRefs & MapState => {
   const [mapReady, setMapReady] = useState(false);
 
   useEffect(() => {
-    prevActiveEventIndex.current = activeEventIndex;
-  }, [activeEventIndex]);
-
-  useEffect(() => {
     const indices =
       routeCoords.length && events.length
         ? mapEventsToOsrmIndices(events, routeCoords)

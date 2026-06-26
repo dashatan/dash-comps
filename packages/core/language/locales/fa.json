@@ -354,6 +354,13 @@
   "header": {
     "searchPlaceHolder": "جستجو در امکانات..."
   },
+  "observe": {
+    "chosenPlateInfo": "اطلاعات پلاک انتخاب‌شده",
+    "isLoading": "در حال بارگذاری ترددها…",
+    "loadingRoute": "در حال بارگذاری مسیر…",
+    "noData": "ترددی در این بازه یافت نشد",
+    "observesInDateRange": "ترددهای بازه زمانی"
+  },
   "locationPicker": {
     "camerasFromDate": "دوربین‌های فعال از",
     "coordinates": "مختصات {coords}",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Slider } from "@dash/ui/common/slider";
+import TimelineSlider from "@dash/ui/compound/tracker/timeline/timeline-slider";
 import { PERSIAN_LOCALE, TEHRAN_TZ, cn } from "@/lib";
 import {
   useResolvedOptions,
@@ -10,7 +10,7 @@ import {
 import { calculateEvenlySpacedItems } from "@dash/ui/compound/tracker/data/time";
 import { colors, getColor } from "@dash/ui/common/badge/color";
 import { isWithinIran } from "@dash/ui/compound/tracker/utils/geo";
-import { useResizeDetector } from "react-resize-detector";
+import { useElementWidth } from "@dash/ui/compound/tracker/utils/use-element-width";
 import { useMemo } from "react";
 
 export default function DayTimeline() {
@@ -23,8 +23,7 @@ export default function DayTimeline() {
       ? options.timeline.day.showPerTrackRows !== false
       : !!options.timeline.day;
   const showEmphasizeBands = options.geo.emphasize.timelineBands;
-  const container = useResizeDetector();
-  const width = container.width ?? 0;
+  const { ref: containerRef, width } = useElementWidth();
   const tickWidth = minutes.length ? (width - 16) / minutes.length : 0;
   const evenlySpaced = useMemo(
     () => calculateEvenlySpacedItems(minutes, width, 70),
@@ -33,19 +32,21 @@ export default function DayTimeline() {
 
   if (!minutes.length) return null;
 
+  const maxIndex = Math.max(minutes.length - 1, 0);
+  const safeTimeIndex = Math.min(Math.max(timeIndex, 0), maxIndex);
+
   return (
     <div
-      ref={container.ref}
+      ref={containerRef}
       className="relative flex w-full flex-1 flex-col overflow-hidden px-4"
     >
-      <Slider
+      <TimelineSlider
         className="h-10"
         min={0}
-        max={Math.max(minutes.length - 1, 0)}
-        value={[timeIndex]}
-        onValueChange={(val) => {
-          const next = val[0];
-          if (next !== timeIndex) setTimeIndex(next);
+        max={maxIndex}
+        value={safeTimeIndex}
+        onValueChange={(next) => {
+          if (next !== safeTimeIndex) setTimeIndex(next);
         }}
       />
       <div className="pointer-events-none flex h-10 justify-between text-[10px]">

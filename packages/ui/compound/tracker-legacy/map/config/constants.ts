@@ -14,7 +14,7 @@ export const MAP_STYLES = {
 
 // === Map Configuration ===
 export const MAP_CONFIG = {
-  CENTER_COORD: [35.691143, 51.428421] as [number, number],
+  CENTER_COORD: [48.8566, 2.3522] as [number, number],
   MAX_PITCH: 80,
   DEFAULT_ZOOM: 7,
   DETAIL_ZOOM: 15,
@@ -28,6 +28,8 @@ export const ANIMATION_CONFIG = {
   TOOLTIP_HIDE_DELAY: 300, // milliseconds
   AUTO_PANE_TIMEOUT: 100, // milliseconds
   ARROW_OFFSET_RATIO: 0.1, // 10% along the segment
+  /** Calibrates pointer SVG asset to geographic bearing (degrees). */
+  ARROW_BEARING_OFFSET: -59,
 } as const;
 
 // === Padding Configuration ===

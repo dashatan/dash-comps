@@ -13,7 +13,7 @@ export const TRACKER_PRESETS: Record<
     panels: { events: "fleet", emphasizes: true, settings: true },
     geo: { filterIran: true, emphasize: { enabled: true, mapCircles: true } },
     markers: { headStyle: "car", headRotation: "angle", perEventMarkers: false },
-    data: { useWorker: true, extendDateRangeToEvents: true },
+    data: { useWorker: false, extendDateRangeToEvents: true },
   },
   observe: {
     preset: "observe",

@@ -31,6 +31,17 @@ export function createMapLibreEngine(): MapEngine {
   const toLngLat = (coords: [number, number][]) =>
     coords.map(([lat, lng]) => [lng, lat] as [number, number]);
 
+  const whenStyleReady = (fn: () => void) => {
+    if (!map) return;
+    if (map.isStyleLoaded()) {
+      fn();
+      return;
+    }
+    map.once("load", () => {
+      if (map?.isStyleLoaded()) fn();
+    });
+  };
+
   const addLine = (id: string, layerId: string, coords: [number, number][], colorVar: string) => {
     if (!map || coords.length < 2) return;
     const color = getHexColor(colorVar);
@@ -83,29 +94,32 @@ export function createMapLibreEngine(): MapEngine {
     },
     drawRoute(ctx) {
       if (!map) return;
-      removeRouteLayers();
-      removeEventMarkers();
-      headMarker?.remove();
-      headMarker = null;
-      if (ctx.routeMode === "none") return;
+      whenStyleReady(() => {
+        if (!map) return;
+        removeRouteLayers();
+        removeEventMarkers();
+        headMarker?.remove();
+        headMarker = null;
+        if (ctx.routeMode === "none") return;
 
-      const coords =
-        ctx.perTrack && ctx.tracksWithEvents.length
-          ? ctx.tracksWithEvents.flatMap((track) => {
-              const current = ctx.events[ctx.activeEventIndex]?.time;
-              const visible = track.events
-                .filter((e) => !current || e.time <= current)
-                .slice(-ctx.traceLength);
-              return visible.map((e) => e.latlng);
-            })
-          : ctx.routeCoords;
+        const coords =
+          ctx.perTrack && ctx.tracksWithEvents.length
+            ? ctx.tracksWithEvents.flatMap((track) => {
+                const current = ctx.events[ctx.activeEventIndex]?.time;
+                const visible = track.events
+                  .filter((e) => !current || e.time <= current)
+                  .slice(-ctx.traceLength);
+                return visible.map((e) => e.latlng);
+              })
+            : ctx.routeCoords;
 
-      if (coords.length > 1) {
-        addLine(ROUTE_SOURCE, ROUTE_LAYER, coords, "--color-primary");
-      }
-      if (ctx.passedCoords && ctx.passedCoords.length > 1) {
-        addLine(PASSED_SOURCE, PASSED_LAYER, ctx.passedCoords, "--color-foreground");
-      }
+        if (coords.length > 1) {
+          addLine(ROUTE_SOURCE, ROUTE_LAYER, coords, "--color-primary");
+        }
+        if (ctx.passedCoords && ctx.passedCoords.length > 1) {
+          addLine(PASSED_SOURCE, PASSED_LAYER, ctx.passedCoords, "--color-foreground");
+        }
+      });
     },
     drawMarkers(ctx) {
       if (!map || !ctx.perEventMarkers) return;
@@ -137,29 +151,33 @@ export function createMapLibreEngine(): MapEngine {
     },
     drawEmphasizes(ctx) {
       if (!map) return;
-      ctx.emphasizes.forEach((x) => {
-        if (x.type !== "encounter") return;
-        const id = `emphasize-${x.startTime}`;
-        if (map!.getSource(id)) return;
-        map!.addSource(id, {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [x.latLng[1], x.latLng[0]] },
-            properties: {},
-          },
-        });
-        map!.addLayer({
-          id: `${id}-layer`,
-          type: "circle",
-          source: id,
-          paint: {
-            "circle-radius": ctx.circleRadius,
-            "circle-color": "#ef4444",
-            "circle-opacity": 0.25,
-            "circle-stroke-color": "#ef4444",
-            "circle-stroke-width": 1,
-          },
+      whenStyleReady(() => {
+        const activeMap = map;
+        if (!activeMap) return;
+        ctx.emphasizes.forEach((x) => {
+          if (x.type !== "encounter") return;
+          const id = `emphasize-${x.startTime}`;
+          if (activeMap.getSource(id)) return;
+          activeMap.addSource(id, {
+            type: "geojson",
+            data: {
+              type: "Feature",
+              geometry: { type: "Point", coordinates: [x.latLng[1], x.latLng[0]] },
+              properties: {},
+            },
+          });
+          activeMap.addLayer({
+            id: `${id}-layer`,
+            type: "circle",
+            source: id,
+            paint: {
+              "circle-radius": ctx.circleRadius,
+              "circle-color": "#ef4444",
+              "circle-opacity": 0.25,
+              "circle-stroke-color": "#ef4444",
+              "circle-stroke-width": 1,
+            },
+          });
         });
       });
     },
@@ -180,24 +198,29 @@ export function createMapLibreEngine(): MapEngine {
     },
     fitToBounds(points, options) {
       if (!map || !points.length) return;
-      const bounds = new mapLibreGl.LngLatBounds();
-      points.forEach(([lat, lng]) => bounds.extend([lng, lat]));
-      map.fitBounds(bounds, {
-        padding: {
-          left: options?.padding?.left ?? 300,
-          top: options?.padding?.top ?? 40,
-          right: options?.padding?.right ?? 40,
-          bottom: options?.padding?.bottom ?? 40,
-        },
-        maxZoom: options?.maxZoom ?? 18,
-        animate: options?.animate ?? true,
+      whenStyleReady(() => {
+        if (!map || !points.length) return;
+        const bounds = new mapLibreGl.LngLatBounds();
+        points.forEach(([lat, lng]) => bounds.extend([lng, lat]));
+        map.fitBounds(bounds, {
+          padding: {
+            left: options?.padding?.left ?? 300,
+            top: options?.padding?.top ?? 40,
+            right: options?.padding?.right ?? 40,
+            bottom: options?.padding?.bottom ?? 40,
+          },
+          maxZoom: options?.maxZoom ?? 18,
+          animate: options?.animate ?? true,
+        });
       });
     },
     clear() {
-      removeRouteLayers();
-      removeEventMarkers();
-      headMarker?.remove();
-      headMarker = null;
+      whenStyleReady(() => {
+        removeRouteLayers();
+        removeEventMarkers();
+        headMarker?.remove();
+        headMarker = null;
+      });
     },
   };
 }

@@ -61,10 +61,45 @@ export const createDataSlice: StateCreator<TrackerStore, [], [], DataSlice> = (s
       status: "success" as const,
       error: null,
     })),
-  setStatus: (status) => set({ status }),
-  setError: (error) => set({ error, status: error ? "error" : "idle" }),
-  setRouteCoords: (routeCoords) => set({ routeCoords }),
-  setRouteIsLoading: (routeIsLoading) => set({ routeIsLoading }),
-  setEventOsrmIndices: (eventOsrmIndices) => set({ eventOsrmIndices }),
-  setMinutes: (minutes) => set({ minutes }),
+  setStatus: (status) =>
+    set((state) => (state.status === status ? state : { status })),
+  setError: (error) =>
+    set((state) => {
+      if (error) {
+        return state.error === error && state.status === "error"
+          ? state
+          : { error, status: "error" as const };
+      }
+      return state.error === null ? state : { error: null };
+    }),
+  setRouteCoords: (routeCoords) =>
+    set((state) =>
+      state.routeCoords.length === routeCoords.length &&
+      state.routeCoords.every((coord, index) => {
+        const next = routeCoords[index];
+        return coord[0] === next[0] && coord[1] === next[1];
+      })
+        ? state
+        : { routeCoords },
+    ),
+  setRouteIsLoading: (routeIsLoading) =>
+    set((state) =>
+      state.routeIsLoading === routeIsLoading ? state : { routeIsLoading },
+    ),
+  setEventOsrmIndices: (eventOsrmIndices) =>
+    set((state) =>
+      state.eventOsrmIndices.length === eventOsrmIndices.length &&
+      state.eventOsrmIndices.every(
+        (index, position) => index === eventOsrmIndices[position],
+      )
+        ? state
+        : { eventOsrmIndices },
+    ),
+  setMinutes: (minutes) =>
+    set((state) =>
+      state.minutes.length === minutes.length &&
+      state.minutes.every((minute, index) => minute === minutes[index])
+        ? state
+        : { minutes },
+    ),
 });

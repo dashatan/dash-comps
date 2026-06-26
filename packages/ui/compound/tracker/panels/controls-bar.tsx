@@ -2,7 +2,7 @@
 
 import { PERSIAN_LOCALE, TEHRAN_TZ } from "@/lib";
 import { Pause, Play, Settings } from "lucide-react";
-import { Slider } from "@/components/common/slider";
+import TimelineSlider from "@dash/ui/compound/tracker/timeline/timeline-slider";
 import { Select } from "@/components/common/inputs/select";
 import { useCurrentTime, usePlaybackControls, useTrackerStore } from "@/components/compound/tracker/store/hooks";
 import { cn } from "@/lib";
@@ -38,12 +38,14 @@ export default function ControlsBar() {
       {mode === "time" ? (
         <div className="flex min-w-48 items-center gap-2 px-2 text-xs">
           <span>1x</span>
-          <Slider
+          <TimelineSlider
             min={0.1}
             max={3}
             step={0.3}
-            value={[timeMultiplier]}
-            onValueChange={(val) => setTimeMultiplier(val[0])}
+            value={timeMultiplier}
+            onValueChange={(next) => {
+              if (next !== timeMultiplier) setTimeMultiplier(next);
+            }}
             className="w-full"
           />
           <span>3x</span>

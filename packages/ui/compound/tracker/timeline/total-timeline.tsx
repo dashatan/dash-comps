@@ -1,6 +1,6 @@
 "use client";
 
-import { Slider } from "@dash/ui/common/slider";
+import TimelineSlider from "@dash/ui/compound/tracker/timeline/timeline-slider";
 import { PERSIAN_LOCALE, TEHRAN_TZ } from "@/lib";
 import {
   useTimelineState,
@@ -8,7 +8,7 @@ import {
 } from "@dash/ui/compound/tracker/store/hooks";
 import { calculateEvenlySpacedItems } from "@dash/ui/compound/tracker/data/time";
 import { makeTimes } from "@dash/ui/compound/tracker/data/remap";
-import { useResizeDetector } from "react-resize-detector";
+import { useElementWidth } from "@dash/ui/compound/tracker/utils/use-element-width";
 import { useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -21,8 +21,7 @@ export default function TotalTimeline() {
     setMinutes,
   } = useTimelineState();
   const setTimeIndex = useTrackerStore((s) => s.setTimeIndex);
-  const container = useResizeDetector();
-  const width = container.width ?? 0;
+  const { ref: containerRef, width } = useElementWidth();
 
   const evenlySpaced = useMemo(
     () => calculateEvenlySpacedItems(totalTimes, width, 70),
@@ -30,6 +29,9 @@ export default function TotalTimeline() {
   );
 
   if (!totalTimes.length) return null;
+
+  const maxIndex = Math.max(totalTimes.length - 1, 0);
+  const safeTotalTimeIndex = Math.min(Math.max(totalTimeIndex, 0), maxIndex);
 
   function handleDayChange(index: number) {
     setTotalTimeIndex(index);
@@ -49,7 +51,7 @@ export default function TotalTimeline() {
         <ChevronLeft className="size-4" />
       </button>
       <div
-        ref={container.ref}
+        ref={containerRef}
         className="relative h-10 flex-1 overflow-hidden rounded-md border px-4"
       >
         <div className="pointer-events-none absolute inset-0 flex">
@@ -62,14 +64,13 @@ export default function TotalTimeline() {
             />
           ))}
         </div>
-        <Slider
+        <TimelineSlider
           className="relative z-10 h-10"
           min={0}
-          max={Math.max(totalTimes.length - 1, 0)}
-          value={[totalTimeIndex]}
-          onValueChange={(val) => {
-            const next = val[0];
-            if (next !== totalTimeIndex) handleDayChange(next);
+          max={maxIndex}
+          value={safeTotalTimeIndex}
+          onValueChange={(next) => {
+            if (next !== safeTotalTimeIndex) handleDayChange(next);
           }}
         />
         <div className="pointer-events-none absolute inset-x-4 bottom-0 flex justify-between text-[10px]">

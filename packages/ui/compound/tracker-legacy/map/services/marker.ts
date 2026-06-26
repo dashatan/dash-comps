@@ -203,7 +203,6 @@ export class MarkerManager {
    * Attach tooltip functionality to an element
    */
   public attachTooltip(el: HTMLElement, getHtml: () => string, map?: mapLibreGl.Map): void {
-    console.log('attach ')
     const showTooltip = () => {
       this.tooltipManager.showTooltip(el, getHtml, this.positionTooltip.bind(this))
     }
@@ -289,9 +288,12 @@ export class MarkerManager {
    * Update arrow marker rotation
    */
   public updateArrowRotation(arrowElement: HTMLDivElement, angle: number): void {
-    const arrowDiv = arrowElement.querySelector('div')
-    if (arrowDiv) {
-      arrowDiv.style.transform = `rotate(${angle}deg)`
-    }
+    const img = arrowElement.querySelector(
+      ".tracker-arrow-rotator img",
+    ) as HTMLImageElement | null;
+    if (!img) return;
+
+    const rotation = angle + ANIMATION_CONFIG.ARROW_BEARING_OFFSET;
+    img.style.transform = `rotate(${rotation}deg)`;
   }
 }

@@ -29,29 +29,43 @@ export class AnimationService {
    */
   public animatePassedRoute(map: mapLibreGl.Map, routeCoords: Coordinate[], eventOsrmIndices: number[], params: AnimationParams): void {
     if (!map || !routeCoords.length || !eventOsrmIndices.length) return
-    if (!map.isStyleLoaded()) return
 
-    const { duration, fromIndex, toIndex } = params
-    const fromRouteIndex = eventOsrmIndices[fromIndex] ?? 0
-    const toRouteIndex = eventOsrmIndices[toIndex] ?? 0
+    const run = () => {
+      if (!map.isStyleLoaded()) return
 
-    if (fromRouteIndex === undefined || toRouteIndex === undefined) return
+      const { duration, fromIndex, toIndex } = params
+      const fromRouteIndex = eventOsrmIndices[fromIndex] ?? 0
+      const toRouteIndex = eventOsrmIndices[toIndex] ?? 0
 
-    const start = performance.now()
-
-    const animate = (time: number) => {
-      const t = Math.min((time - start) / duration, 1)
-      const interpolatedIndex = interpolate(fromRouteIndex, toRouteIndex, t)
-
-      const passedCoords = this.calculatePassedCoords(routeCoords, interpolatedIndex)
-      this.routeDrawer.updatePassedRoute(map, routeCoords, passedCoords)
-
-      if (t < 1) {
-        requestAnimationFrame(animate)
+      if (fromRouteIndex === toRouteIndex) {
+        const passedCoords = routeCoords.slice(0, toRouteIndex + 1)
+        this.routeDrawer.updatePassedRoute(map, routeCoords, passedCoords)
+        return
       }
+
+      const start = performance.now()
+
+      const animate = (time: number) => {
+        const t = Math.min((time - start) / duration, 1)
+        const interpolatedIndex = interpolate(fromRouteIndex, toRouteIndex, t)
+
+        const passedCoords = this.calculatePassedCoords(routeCoords, interpolatedIndex)
+        this.routeDrawer.updatePassedRoute(map, routeCoords, passedCoords)
+
+        if (t < 1) {
+          requestAnimationFrame(animate)
+        }
+      }
+
+      requestAnimationFrame(animate)
     }
 
-    requestAnimationFrame(animate)
+    if (map.isStyleLoaded()) {
+      run()
+      return
+    }
+
+    map.once("load", run)
   }
 
   /**

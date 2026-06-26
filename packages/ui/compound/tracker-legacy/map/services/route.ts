@@ -104,7 +104,15 @@ export class RouteDrawer {
       firstSymbolLayerId
     )
 
-    // Add passed-route layer if source exists
+    // Add passed-route source/layer (updated during playback animation)
+    map.addSource(SOURCE_IDS.PASSED_ROUTE, {
+      type: "geojson",
+      data: {
+        type: "Feature",
+        geometry: { type: "LineString", coordinates: [] },
+        properties: {},
+      },
+    })
     this.addPassedRouteLayer(map, firstSymbolLayerId)
   }
 
@@ -142,9 +150,12 @@ export class RouteDrawer {
       map.removeSource(SOURCE_IDS.ROUTE)
     }
 
-    // Remove passed-route layer (but keep source for animation)
+    // Remove passed-route layer and source
     if (map.getLayer(LAYER_IDS.PASSED_ROUTE)) {
       map.removeLayer(LAYER_IDS.PASSED_ROUTE)
+    }
+    if (map.getSource(SOURCE_IDS.PASSED_ROUTE)) {
+      map.removeSource(SOURCE_IDS.PASSED_ROUTE)
     }
   }
 
