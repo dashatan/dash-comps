@@ -14,7 +14,7 @@ import {
 } from "@/components/common/map";
 import { useLocationPickerStore } from "@/components/compound/location-picker/context";
 import { Device } from "@/features/resources/types";
-import { MAP_CONFIG } from "@/components/compound/tracker/map/config/constants";
+import { MAP_CONFIG } from "@/components/compound/tracker-legacy/map/config/constants";
 import { isWithinIran } from "@/utils/geographic";
 import { getMapTileUrl, getStoreEnv, useLanguage } from "@/lib";
 import { useTheme } from "next-themes";

@@ -30,7 +30,7 @@ import { useLazyGetRoutingQuery } from "@/features/traffic/services/traffic";
 
 import { useLocationPickerStore } from "@/components/compound/location-picker/context";
 
-import { MAP_CONFIG } from "@/components/compound/tracker/map/config/constants";
+import { MAP_CONFIG } from "@/components/compound/tracker-legacy/map/config/constants";
 
 import useResources from "@/features/resources/utils/useResources";
 

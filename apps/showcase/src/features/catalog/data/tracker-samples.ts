@@ -5,7 +5,7 @@ import type {
   Track,
   TrackPoint,
   TracksInput,
-} from "@/components/compound/tracker-new/types/input";
+} from "@/components/compound/tracker/types/input";
 
 const DAY_MS = 86_400_000;
 const HOUR_MS = 3_600_000;

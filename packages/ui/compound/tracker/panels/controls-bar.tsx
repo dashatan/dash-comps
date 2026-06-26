@@ -1,0 +1,75 @@
+"use client";
+
+import { PERSIAN_LOCALE, TEHRAN_TZ } from "@/lib";
+import { Pause, Play, Settings } from "lucide-react";
+import { Slider } from "@/components/common/slider";
+import { Select } from "@/components/common/inputs/select";
+import { useCurrentTime, usePlaybackControls, useTrackerStore } from "@/components/compound/tracker/store/hooks";
+import { cn } from "@/lib";
+
+export default function ControlsBar() {
+  const currentTime = useCurrentTime();
+  const { play, mode, togglePlay, eventIntervalMs, timeMultiplier, setEventIntervalMs, setTimeMultiplier } =
+    usePlaybackControls();
+  const toggleSettingsPanel = useTrackerStore((s) => s.toggleSettingsPanel);
+  const speedPresets = useTrackerStore((s) => s.options.playback.speed.presets);
+
+  return (
+    <section className="flex w-full select-none items-center gap-2 px-4">
+      <button
+        type="button"
+        className="border-border bg-card hover:bg-muted flex size-10 items-center justify-center rounded-md border"
+        onClick={togglePlay}
+      >
+        {play ? <Pause className="size-4" /> : <Play className="size-4" />}
+      </button>
+      <div className="border-border bg-card min-w-32 rounded-md border px-2 py-2 text-xs">
+        {currentTime
+          ? Intl.DateTimeFormat(PERSIAN_LOCALE, {
+              timeZone: TEHRAN_TZ,
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }).format(currentTime)
+          : "—"}
+      </div>
+      {mode === "time" ? (
+        <div className="flex min-w-48 items-center gap-2 px-2 text-xs">
+          <span>1x</span>
+          <Slider
+            min={0.1}
+            max={3}
+            step={0.3}
+            value={[timeMultiplier]}
+            onValueChange={(val) => setTimeMultiplier(val[0])}
+            className="w-full"
+          />
+          <span>3x</span>
+        </div>
+      ) : (
+        <Select.Single
+          value={eventIntervalMs}
+          onChange={(value) => setEventIntervalMs(value as number)}
+          labelElement={(value) => {
+            const label = speedPresets.find((p) => p.value === value)?.label ?? `${value}ms`;
+            return (
+              <div className="border-border bg-card rounded-md border px-3 py-2 text-xs">{label}</div>
+            );
+          }}
+          options={speedPresets.map((p) => ({ label: p.label, value: p.value }))}
+        />
+      )}
+      <button
+        type="button"
+        className={cn(
+          "border-border bg-card hover:bg-muted ms-auto flex size-10 items-center justify-center rounded-md border",
+        )}
+        onClick={toggleSettingsPanel}
+      >
+        <Settings className="size-5" />
+      </button>
+    </section>
+  );
+}

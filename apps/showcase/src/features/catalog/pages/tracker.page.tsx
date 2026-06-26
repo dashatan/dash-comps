@@ -1,49 +1,59 @@
+import { useEffect } from "react";
 import { useShowcasePage } from "@/features/catalog/i18n";
 import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 import {
-  TrackerNewPlayground,
-  TrackerNewPresets,
-} from "@/features/catalog/ui/tracker-new-showcase";
-import Tracker from "@dash/ui/compound/tracker-new/tracker";
+  TrackerPlayground,
+  TrackerPresets,
+} from "@/features/catalog/ui/tracker-showcase";
+import {
+  fleetTracksSample,
+  TRACKER_MAP_ENV,
+} from "@/features/catalog/data/tracker-samples";
+import { appStore } from "@/store";
+import { Tracker } from "@/components/compound/tracker";
 
 export function TrackerPage() {
   const p = useShowcasePage("tracker");
 
+  useEffect(() => {
+    appStore.getState().setEnv(TRACKER_MAP_ENV);
+  }, []);
+
   const presetLabels = {
-    fleetTitle: p("trackerNew.presets.fleet.title"),
-    fleetDescription: p("trackerNew.presets.fleet.description"),
-    observeTitle: p("trackerNew.presets.observe.title"),
-    observeDescription: p("trackerNew.presets.observe.description"),
-    fullTitle: p("trackerNew.presets.full.title"),
-    fullDescription: p("trackerNew.presets.full.description"),
+    fleetTitle: p("presets.fleet.title"),
+    fleetDescription: p("presets.fleet.description"),
+    observeTitle: p("presets.observe.title"),
+    observeDescription: p("presets.observe.description"),
+    fullTitle: p("presets.full.title"),
+    fullDescription: p("presets.full.description"),
   };
 
   const playgroundLabels = {
-    inputKind: p("trackerNew.playground.inputKind"),
-    tracksInput: p("trackerNew.playground.tracksInput"),
-    eventsInput: p("trackerNew.playground.eventsInput"),
-    mapEngine: p("trackerNew.playground.mapEngine"),
-    routeMode: p("trackerNew.playground.routeMode"),
-    routeNone: p("trackerNew.playground.routeNone"),
-    routeDirect: p("trackerNew.playground.routeDirect"),
-    routeOsrm: p("trackerNew.playground.routeOsrm"),
-    playbackMode: p("trackerNew.playground.playbackMode"),
-    playbackEvent: p("trackerNew.playground.playbackEvent"),
-    playbackTime: p("trackerNew.playground.playbackTime"),
-    eventsPanel: p("trackerNew.playground.eventsPanel"),
-    panelOff: p("trackerNew.playground.panelOff"),
-    panelFleet: p("trackerNew.playground.panelFleet"),
-    panelObserve: p("trackerNew.playground.panelObserve"),
-    panelUnified: p("trackerNew.playground.panelUnified"),
-    traceLength: p("trackerNew.playground.traceLength"),
-    filterIran: p("trackerNew.playground.filterIran"),
-    perTrack: p("trackerNew.playground.perTrack"),
-    timelineTotal: p("trackerNew.playground.timelineTotal"),
-    timelineDay: p("trackerNew.playground.timelineDay"),
-    plateLegend: p("trackerNew.playground.plateLegend"),
-    emphasizes: p("trackerNew.playground.emphasizes"),
-    livePreview: p("trackerNew.playground.livePreview"),
+    inputKind: p("playground.inputKind"),
+    tracksInput: p("playground.tracksInput"),
+    eventsInput: p("playground.eventsInput"),
+    mapEngine: p("playground.mapEngine"),
+    routeMode: p("playground.routeMode"),
+    routeNone: p("playground.routeNone"),
+    routeDirect: p("playground.routeDirect"),
+    routeOsrm: p("playground.routeOsrm"),
+    playbackMode: p("playground.playbackMode"),
+    playbackEvent: p("playground.playbackEvent"),
+    playbackTime: p("playground.playbackTime"),
+    eventsPanel: p("playground.eventsPanel"),
+    panelOff: p("playground.panelOff"),
+    panelFleet: p("playground.panelFleet"),
+    panelObserve: p("playground.panelObserve"),
+    panelUnified: p("playground.panelUnified"),
+    traceLength: p("playground.traceLength"),
+    filterIran: p("playground.filterIran"),
+    perTrack: p("playground.perTrack"),
+    timelineTotal: p("playground.timelineTotal"),
+    timelineDay: p("playground.timelineDay"),
+    plateLegend: p("playground.plateLegend"),
+    emphasizes: p("playground.emphasizes"),
+    livePreview: p("playground.livePreview"),
   };
 
   return (
@@ -60,7 +70,24 @@ export function TrackerPage() {
         </p>
       </ShowcaseSection>
 
-      <Tracker />
+      <div className="border-border bg-muted/10 h-[600px] w-full overflow-hidden rounded-xl border">
+        <Tracker
+          input={fleetTracksSample}
+          options={{ preset: "fleet" }}
+          className="h-full"
+        />
+      </div>
+
+      <ShowcaseSection title={p("presets.title")}>
+        <TrackerPresets labels={presetLabels} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title={p("playground.title")}
+        description={p("playground.description")}
+      >
+        <TrackerPlayground labels={playgroundLabels} />
+      </ShowcaseSection>
     </CatalogPageShell>
   );
 }
