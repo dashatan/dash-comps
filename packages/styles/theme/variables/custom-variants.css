@@ -4,6 +4,7 @@
 @custom-variant laptop (@media (minWidth: 1280px));
 @custom-variant tablet (@media (min-width: 768px));
 @custom-variant mobile (@media (min-width: 480px));
+@custom-variant not-mobile (@media (max-width: 479px));
 
 @theme {
   --container-xl: 1600px;

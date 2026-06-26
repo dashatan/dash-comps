@@ -176,7 +176,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         ref={ref}
         className={cn(
           "border-sidebar-border sticky inset-s-0 top-0 z-5 flex h-full flex-col overflow-x-hidden",
-          "bg-sidebar overflow-y-auto border-l transition-all duration-300 ease-in-out",
+          "bg-sidebar overflow-y-auto border-e transition-all duration-300 ease-in-out",
         )}
         style={{ width, minWidth: width, maxWidth: width }}
       >

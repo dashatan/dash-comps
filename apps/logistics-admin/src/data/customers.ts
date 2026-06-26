@@ -7,6 +7,7 @@ import {
   type EuCountryCode,
   type EuRegion,
 } from "@/data/european-context";
+import { CUSTOMER_COUNT } from "@/data/entity-counts";
 
 export type Customer = {
   id: number;
@@ -38,9 +39,7 @@ const CUSTOMER_NAMES = [
   "Pyrenees Fresh",
 ] as const;
 
-const CUSTOMER_COUNT = 48;
-
-export { CUSTOMER_COUNT };
+export { CUSTOMER_COUNT } from "@/data/entity-counts";
 
 function buildCustomer(id: number): Customer {
   const hub = EU_HUBS[id % EU_HUBS.length];

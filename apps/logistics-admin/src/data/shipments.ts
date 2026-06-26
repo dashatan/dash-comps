@@ -12,8 +12,13 @@ import {
   type EuRegion,
   type ShipmentStatus,
 } from "@/data/european-context";
-import { CUSTOMER_COUNT } from "@/data/customers";
-import { DRIVER_COUNT, VEHICLE_COUNT } from "@/data/fleet";
+import {
+  ASSIGNMENT_COUNT,
+  CUSTOMER_COUNT,
+  DRIVER_COUNT,
+  SHIPMENT_COUNT,
+  VEHICLE_COUNT,
+} from "@/data/entity-counts";
 
 export type Shipment = {
   id: number;
@@ -39,7 +44,7 @@ export type Shipment = {
   onTime: boolean;
 };
 
-export const SHIPMENT_COUNT = 672;
+export { SHIPMENT_COUNT } from "@/data/entity-counts";
 
 function buildShipment(id: number): Shipment {
   const corridor = EU_CORRIDORS[id % EU_CORRIDORS.length];

@@ -11,12 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShipmentsRouteImport } from './routes/shipments'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as ModuleRouteImport } from './routes/$module'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReportsIndexRouteImport } from './routes/reports/index'
+import { Route as FleetIndexRouteImport } from './routes/fleet/index'
 import { Route as ReportsRevenueByRouteRouteImport } from './routes/reports/revenue-by-route'
 import { Route as ReportsFleetUtilizationRouteImport } from './routes/reports/fleet-utilization'
 import { Route as ReportsDeliveryPerformanceRouteImport } from './routes/reports/delivery-performance'
+import { Route as FleetVehiclesRouteImport } from './routes/fleet/vehicles'
+import { Route as FleetDriversRouteImport } from './routes/fleet/drivers'
+import { Route as FleetAssignmentsRouteImport } from './routes/fleet/assignments'
+import { Route as ModuleSubpageRouteImport } from './routes/$module.$subpage'
 
 const ShipmentsRoute = ShipmentsRouteImport.update({
   id: '/shipments',
@@ -28,11 +32,6 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ModuleRoute = ModuleRouteImport.update({
-  id: '/$module',
-  path: '/$module',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -41,6 +40,11 @@ const IndexRoute = IndexRouteImport.update({
 const ReportsIndexRoute = ReportsIndexRouteImport.update({
   id: '/reports/',
   path: '/reports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FleetIndexRoute = FleetIndexRouteImport.update({
+  id: '/fleet/',
+  path: '/fleet/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportsRevenueByRouteRoute = ReportsRevenueByRouteRouteImport.update({
@@ -59,79 +63,127 @@ const ReportsDeliveryPerformanceRoute =
     path: '/reports/delivery-performance',
     getParentRoute: () => rootRouteImport,
   } as any)
+const FleetVehiclesRoute = FleetVehiclesRouteImport.update({
+  id: '/fleet/vehicles',
+  path: '/fleet/vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FleetDriversRoute = FleetDriversRouteImport.update({
+  id: '/fleet/drivers',
+  path: '/fleet/drivers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FleetAssignmentsRoute = FleetAssignmentsRouteImport.update({
+  id: '/fleet/assignments',
+  path: '/fleet/assignments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModuleSubpageRoute = ModuleSubpageRouteImport.update({
+  id: '/$module/$subpage',
+  path: '/$module/$subpage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$module': typeof ModuleRoute
   '/analytics': typeof AnalyticsRoute
   '/shipments': typeof ShipmentsRoute
+  '/$module/$subpage': typeof ModuleSubpageRoute
+  '/fleet/assignments': typeof FleetAssignmentsRoute
+  '/fleet/drivers': typeof FleetDriversRoute
+  '/fleet/vehicles': typeof FleetVehiclesRoute
   '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
   '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
   '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
+  '/fleet/': typeof FleetIndexRoute
   '/reports/': typeof ReportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/$module': typeof ModuleRoute
   '/analytics': typeof AnalyticsRoute
   '/shipments': typeof ShipmentsRoute
+  '/$module/$subpage': typeof ModuleSubpageRoute
+  '/fleet/assignments': typeof FleetAssignmentsRoute
+  '/fleet/drivers': typeof FleetDriversRoute
+  '/fleet/vehicles': typeof FleetVehiclesRoute
   '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
   '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
   '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
+  '/fleet': typeof FleetIndexRoute
   '/reports': typeof ReportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/$module': typeof ModuleRoute
   '/analytics': typeof AnalyticsRoute
   '/shipments': typeof ShipmentsRoute
+  '/$module/$subpage': typeof ModuleSubpageRoute
+  '/fleet/assignments': typeof FleetAssignmentsRoute
+  '/fleet/drivers': typeof FleetDriversRoute
+  '/fleet/vehicles': typeof FleetVehiclesRoute
   '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
   '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
   '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
+  '/fleet/': typeof FleetIndexRoute
   '/reports/': typeof ReportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/$module'
     | '/analytics'
     | '/shipments'
+    | '/$module/$subpage'
+    | '/fleet/assignments'
+    | '/fleet/drivers'
+    | '/fleet/vehicles'
     | '/reports/delivery-performance'
     | '/reports/fleet-utilization'
     | '/reports/revenue-by-route'
+    | '/fleet/'
     | '/reports/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/$module'
     | '/analytics'
     | '/shipments'
+    | '/$module/$subpage'
+    | '/fleet/assignments'
+    | '/fleet/drivers'
+    | '/fleet/vehicles'
     | '/reports/delivery-performance'
     | '/reports/fleet-utilization'
     | '/reports/revenue-by-route'
+    | '/fleet'
     | '/reports'
   id:
     | '__root__'
     | '/'
-    | '/$module'
     | '/analytics'
     | '/shipments'
+    | '/$module/$subpage'
+    | '/fleet/assignments'
+    | '/fleet/drivers'
+    | '/fleet/vehicles'
     | '/reports/delivery-performance'
     | '/reports/fleet-utilization'
     | '/reports/revenue-by-route'
+    | '/fleet/'
     | '/reports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ModuleRoute: typeof ModuleRoute
   AnalyticsRoute: typeof AnalyticsRoute
   ShipmentsRoute: typeof ShipmentsRoute
+  ModuleSubpageRoute: typeof ModuleSubpageRoute
+  FleetAssignmentsRoute: typeof FleetAssignmentsRoute
+  FleetDriversRoute: typeof FleetDriversRoute
+  FleetVehiclesRoute: typeof FleetVehiclesRoute
   ReportsDeliveryPerformanceRoute: typeof ReportsDeliveryPerformanceRoute
   ReportsFleetUtilizationRoute: typeof ReportsFleetUtilizationRoute
   ReportsRevenueByRouteRoute: typeof ReportsRevenueByRouteRoute
+  FleetIndexRoute: typeof FleetIndexRoute
   ReportsIndexRoute: typeof ReportsIndexRoute
 }
 
@@ -151,13 +203,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/$module': {
-      id: '/$module'
-      path: '/$module'
-      fullPath: '/$module'
-      preLoaderRoute: typeof ModuleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -170,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/reports'
       fullPath: '/reports/'
       preLoaderRoute: typeof ReportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fleet/': {
+      id: '/fleet/'
+      path: '/fleet'
+      fullPath: '/fleet/'
+      preLoaderRoute: typeof FleetIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reports/revenue-by-route': {
@@ -193,17 +245,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportsDeliveryPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fleet/vehicles': {
+      id: '/fleet/vehicles'
+      path: '/fleet/vehicles'
+      fullPath: '/fleet/vehicles'
+      preLoaderRoute: typeof FleetVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fleet/drivers': {
+      id: '/fleet/drivers'
+      path: '/fleet/drivers'
+      fullPath: '/fleet/drivers'
+      preLoaderRoute: typeof FleetDriversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fleet/assignments': {
+      id: '/fleet/assignments'
+      path: '/fleet/assignments'
+      fullPath: '/fleet/assignments'
+      preLoaderRoute: typeof FleetAssignmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$module/$subpage': {
+      id: '/$module/$subpage'
+      path: '/$module/$subpage'
+      fullPath: '/$module/$subpage'
+      preLoaderRoute: typeof ModuleSubpageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ModuleRoute: ModuleRoute,
   AnalyticsRoute: AnalyticsRoute,
   ShipmentsRoute: ShipmentsRoute,
+  ModuleSubpageRoute: ModuleSubpageRoute,
+  FleetAssignmentsRoute: FleetAssignmentsRoute,
+  FleetDriversRoute: FleetDriversRoute,
+  FleetVehiclesRoute: FleetVehiclesRoute,
   ReportsDeliveryPerformanceRoute: ReportsDeliveryPerformanceRoute,
   ReportsFleetUtilizationRoute: ReportsFleetUtilizationRoute,
   ReportsRevenueByRouteRoute: ReportsRevenueByRouteRoute,
+  FleetIndexRoute: FleetIndexRoute,
   ReportsIndexRoute: ReportsIndexRoute,
 }
 export const routeTree = rootRouteImport

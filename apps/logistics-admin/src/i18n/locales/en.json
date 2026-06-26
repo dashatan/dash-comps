@@ -1,7 +1,7 @@
 {
   "common": {
-    "comingSoon": "Coming in Phase 2",
-    "comingSoonDescription": "This module is planned for a future release. Explore Overview, Analytics, Reports, and Shipments in the meantime.",
+    "comingSoon": "Coming soon",
+    "comingSoonDescription": "This module is planned for a future release. Explore Overview, Analytics, Reports, Shipments, and Fleet in the meantime.",
     "backToOverview": "Back to Overview",
     "europeanOperations": "European operations",
     "lastUpdated": "Last updated",
@@ -108,12 +108,113 @@
   },
   "placeholder": {
     "title": "Module coming soon",
-    "fleet": "Fleet management for vehicles and drivers across EU depots.",
-    "tracker": "Live map tracking along European corridors.",
-    "customers": "B2B customer accounts and contracts.",
-    "routes": "Corridor planning and route optimisation.",
-    "warehouses": "Warehouse capacity and inventory hubs.",
-    "finance": "Invoicing, payments, and margin analysis.",
-    "settings": "Organisation and integration settings."
+    "modules": {
+      "tracker": "Live Tracker",
+      "customers": "Customers",
+      "routes": "Routes",
+      "warehouses": "Warehouses",
+      "finance": "Finance",
+      "settings": "Settings"
+    },
+    "subpageLabels": {
+      "live": "Live Map",
+      "playback": "Playback",
+      "accounts": "Accounts",
+      "contracts": "Contracts",
+      "corridors": "Corridors",
+      "planning": "Planning",
+      "hubs": "Hubs",
+      "capacity": "Capacity",
+      "invoices": "Invoices",
+      "payments": "Payments",
+      "organisation": "Organisation",
+      "integrations": "Integrations"
+    },
+    "subpages": {
+      "tracker": {
+        "live": "Real-time vehicle positions along EU corridors with event markers.",
+        "playback": "Historical route playback with timeline scrubbing."
+      },
+      "customers": {
+        "accounts": "B2B customer accounts across EU member states.",
+        "contracts": "Service contracts, SLAs, and billing terms."
+      },
+      "routes": {
+        "corridors": "Cross-border corridor catalogue and performance metrics.",
+        "planning": "Route optimisation and hub-to-hub scheduling."
+      },
+      "warehouses": {
+        "hubs": "EU distribution hub registry and throughput.",
+        "capacity": "Storage capacity and utilisation by region."
+      },
+      "finance": {
+        "invoices": "Outbound invoices and payment status in EUR.",
+        "payments": "Settlement tracking and margin reconciliation."
+      },
+      "settings": {
+        "organisation": "Company profile, depots, and regional defaults.",
+        "integrations": "ERP, telematics, and carrier API connections."
+      }
+    }
+  },
+  "fleet": {
+    "title": "Fleet",
+    "subtitle": "European vehicles, drivers, and assignments",
+    "overview": {
+      "fleetSize": "Fleet size",
+      "activeVehicles": "Active vehicles",
+      "driversOnDuty": "Drivers on duty",
+      "openAssignments": "Open assignments",
+      "viewVehicles": "View vehicles",
+      "viewDrivers": "View drivers",
+      "viewAssignments": "View assignments"
+    },
+    "vehicles": {
+      "title": "Vehicles",
+      "subtitle": "EU-registered fleet assets by depot"
+    },
+    "drivers": {
+      "title": "Drivers",
+      "subtitle": "Licensed drivers assigned to EU hubs"
+    },
+    "assignments": {
+      "title": "Assignments",
+      "subtitle": "Vehicle–driver–shipment assignments across corridors"
+    },
+    "columns": {
+      "id": "ID",
+      "plate": "Plate",
+      "type": "Type",
+      "depot": "Depot",
+      "region": "Region",
+      "country": "Country",
+      "capacity": "Capacity",
+      "fuel": "Fuel (L/100km)",
+      "status": "Status",
+      "name": "Name",
+      "licenseCountry": "License country",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "corridor": "Corridor",
+      "shipment": "Shipment",
+      "start": "Start",
+      "end": "End"
+    },
+    "vehicleTypes": {
+      "van": "Van",
+      "rigid": "Rigid truck",
+      "articulated": "Articulated"
+    },
+    "vehicleStatuses": {
+      "active": "Active",
+      "maintenance": "Maintenance",
+      "idle": "Idle"
+    },
+    "assignmentStatuses": {
+      "scheduled": "Scheduled",
+      "active": "Active",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
   }
 }

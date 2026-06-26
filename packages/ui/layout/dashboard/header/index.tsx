@@ -14,13 +14,24 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/common/overlay/sheet";
-import Sidebar, { MobileSidebar } from "@/components/layout/dashboard/sidebar";
+import { MobileSidebar } from "@/components/layout/dashboard/sidebar";
+import { useDashboardLayout } from "@/components/layout/dashboard/context/layout-context";
 import { useState } from "react";
-import { menuItems } from "@/features/dashboard/utils/menu-items";
 
 export default function DashboardHeader() {
   const { preferences } = usePreferences();
+  const { menuItems, footer } = useDashboardLayout();
   const [open, setOpen] = useState(false);
+
+  const mobileMenuItems = menuItems.map((x) => ({
+    ...x,
+    onClick: x.children ? undefined : () => setOpen(false),
+    children: x.children?.map((y) => ({
+      ...y,
+      onClick: y.children ? undefined : () => setOpen(false),
+    })),
+  }));
+
   return (
     <div
       className={cn(
@@ -44,15 +55,8 @@ export default function DashboardHeader() {
           <SheetContent className="p-0">
             <SheetTitle />
             <MobileSidebar
-              // footer={<SidebarFooter />}
-              menuItems={menuItems.map((x) => ({
-                ...x,
-                onClick: x.children ? undefined : () => setOpen(false),
-                children: x?.children?.map((y) => ({
-                  ...y,
-                  onClick: y.children ? undefined : () => setOpen(false),
-                })),
-              }))}
+              menuItems={mobileMenuItems}
+              footer={footer}
               width={SIDEBAR_WIDTH}
             />
           </SheetContent>
