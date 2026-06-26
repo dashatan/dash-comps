@@ -1,4 +1,4 @@
-/** Shared entity counts — avoids circular imports between fleet.ts and shipments.ts */
+/** Shared entity counts — avoids circular imports between fleet and shipments. */
 
 export const CUSTOMER_COUNT = 48;
 export const VEHICLE_COUNT = 86;

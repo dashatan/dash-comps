@@ -6,8 +6,8 @@ import {
   buildVatNumber,
   type EuCountryCode,
   type EuRegion,
-} from "@/data/european-context";
-import { CUSTOMER_COUNT } from "@/data/entity-counts";
+} from "./european-context";
+import { CUSTOMER_COUNT } from "./entity-counts";
 
 export type Customer = {
   id: number;
@@ -39,7 +39,7 @@ const CUSTOMER_NAMES = [
   "Pyrenees Fresh",
 ] as const;
 
-export { CUSTOMER_COUNT } from "@/data/entity-counts";
+export { CUSTOMER_COUNT } from "./entity-counts";
 
 function buildCustomer(id: number): Customer {
   const hub = EU_HUBS[id % EU_HUBS.length];
@@ -62,13 +62,15 @@ function buildCustomer(id: number): Customer {
   };
 }
 
-export const CUSTOMERS: Customer[] = Array.from(
-  { length: CUSTOMER_COUNT },
-  (_, i) => buildCustomer(i + 1),
-);
+export function buildCustomers(): Customer[] {
+  return Array.from({ length: CUSTOMER_COUNT }, (_, i) => buildCustomer(i + 1));
+}
 
-export function getCustomerById(id: number): Customer | undefined {
-  return CUSTOMERS.find((c) => c.id === id);
+export function getCustomerById(
+  customers: Customer[],
+  id: number,
+): Customer | undefined {
+  return customers.find((c) => c.id === id);
 }
 
 export function getCustomerDisplayName(customer: Customer): string {

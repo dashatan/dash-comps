@@ -14,6 +14,8 @@ import { Route as AnalyticsRouteImport } from "./routes/analytics";
 import { Route as IndexRouteImport } from "./routes/index";
 import { Route as ReportsIndexRouteImport } from "./routes/reports/index";
 import { Route as FleetIndexRouteImport } from "./routes/fleet/index";
+import { Route as TrackerPlaybackRouteImport } from "./routes/tracker/playback";
+import { Route as TrackerLiveRouteImport } from "./routes/tracker/live";
 import { Route as ReportsRevenueByRouteRouteImport } from "./routes/reports/revenue-by-route";
 import { Route as ReportsFleetUtilizationRouteImport } from "./routes/reports/fleet-utilization";
 import { Route as ReportsDeliveryPerformanceRouteImport } from "./routes/reports/delivery-performance";
@@ -45,6 +47,16 @@ const ReportsIndexRoute = ReportsIndexRouteImport.update({
 const FleetIndexRoute = FleetIndexRouteImport.update({
   id: "/fleet/",
   path: "/fleet/",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const TrackerPlaybackRoute = TrackerPlaybackRouteImport.update({
+  id: "/tracker/playback",
+  path: "/tracker/playback",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const TrackerLiveRoute = TrackerLiveRouteImport.update({
+  id: "/tracker/live",
+  path: "/tracker/live",
   getParentRoute: () => rootRouteImport,
 } as any);
 const ReportsRevenueByRouteRoute = ReportsRevenueByRouteRouteImport.update({
@@ -95,6 +107,8 @@ export interface FileRoutesByFullPath {
   "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
   "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
   "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
   "/fleet/": typeof FleetIndexRoute;
   "/reports/": typeof ReportsIndexRoute;
 }
@@ -109,6 +123,8 @@ export interface FileRoutesByTo {
   "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
   "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
   "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
   "/fleet": typeof FleetIndexRoute;
   "/reports": typeof ReportsIndexRoute;
 }
@@ -124,6 +140,8 @@ export interface FileRoutesById {
   "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
   "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
   "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
   "/fleet/": typeof FleetIndexRoute;
   "/reports/": typeof ReportsIndexRoute;
 }
@@ -140,6 +158,8 @@ export interface FileRouteTypes {
     | "/reports/delivery-performance"
     | "/reports/fleet-utilization"
     | "/reports/revenue-by-route"
+    | "/tracker/live"
+    | "/tracker/playback"
     | "/fleet/"
     | "/reports/";
   fileRoutesByTo: FileRoutesByTo;
@@ -154,6 +174,8 @@ export interface FileRouteTypes {
     | "/reports/delivery-performance"
     | "/reports/fleet-utilization"
     | "/reports/revenue-by-route"
+    | "/tracker/live"
+    | "/tracker/playback"
     | "/fleet"
     | "/reports";
   id:
@@ -168,6 +190,8 @@ export interface FileRouteTypes {
     | "/reports/delivery-performance"
     | "/reports/fleet-utilization"
     | "/reports/revenue-by-route"
+    | "/tracker/live"
+    | "/tracker/playback"
     | "/fleet/"
     | "/reports/";
   fileRoutesById: FileRoutesById;
@@ -183,6 +207,8 @@ export interface RootRouteChildren {
   ReportsDeliveryPerformanceRoute: typeof ReportsDeliveryPerformanceRoute;
   ReportsFleetUtilizationRoute: typeof ReportsFleetUtilizationRoute;
   ReportsRevenueByRouteRoute: typeof ReportsRevenueByRouteRoute;
+  TrackerLiveRoute: typeof TrackerLiveRoute;
+  TrackerPlaybackRoute: typeof TrackerPlaybackRoute;
   FleetIndexRoute: typeof FleetIndexRoute;
   ReportsIndexRoute: typeof ReportsIndexRoute;
 }
@@ -222,6 +248,20 @@ declare module "@tanstack/react-router" {
       path: "/fleet";
       fullPath: "/fleet/";
       preLoaderRoute: typeof FleetIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/tracker/playback": {
+      id: "/tracker/playback";
+      path: "/tracker/playback";
+      fullPath: "/tracker/playback";
+      preLoaderRoute: typeof TrackerPlaybackRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/tracker/live": {
+      id: "/tracker/live";
+      path: "/tracker/live";
+      fullPath: "/tracker/live";
+      preLoaderRoute: typeof TrackerLiveRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/reports/revenue-by-route": {
@@ -287,6 +327,8 @@ const rootRouteChildren: RootRouteChildren = {
   ReportsDeliveryPerformanceRoute: ReportsDeliveryPerformanceRoute,
   ReportsFleetUtilizationRoute: ReportsFleetUtilizationRoute,
   ReportsRevenueByRouteRoute: ReportsRevenueByRouteRoute,
+  TrackerLiveRoute: TrackerLiveRoute,
+  TrackerPlaybackRoute: TrackerPlaybackRoute,
   FleetIndexRoute: FleetIndexRoute,
   ReportsIndexRoute: ReportsIndexRoute,
 };

@@ -1,8 +1,10 @@
 import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import LineChart from "@/components/common/charts/line";
 import BarChart from "@/components/common/charts/bar";
-import { getDeliveryPerformanceReport } from "@/data/reports";
+import { queryKeys } from "@/core/query-keys";
+import { reportsRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
+import { QueryBoundary } from "@/shared/components/query-boundary";
 import { PageHeader } from "@/shared/page-header";
 
 function SummaryStat({ label, value }: { label: string; value: string }) {
@@ -16,7 +18,6 @@ function SummaryStat({ label, value }: { label: string; value: string }) {
 
 export function DeliveryPerformanceReportPage() {
   const t = useLogisticsT();
-  const report = getDeliveryPerformanceReport();
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -26,52 +27,61 @@ export function DeliveryPerformanceReportPage() {
         breadcrumbLabel={t("reports.title")}
         breadcrumbHref="/reports"
       />
-      <GridContainer aria-label={t("reports.deliveryPerformance.title")}>
-        <GridCard className="col-span-12 grid grid-cols-2 gap-3 @lg:grid-cols-4">
-          <SummaryStat
-            label={t("reports.summary.avgOnTime")}
-            value={`${report.summary.avgOnTimePercent}%`}
-          />
-          <SummaryStat
-            label={t("reports.summary.avgDelivery")}
-            value={`${report.summary.avgDeliveryHours} h`}
-          />
-          <SummaryStat
-            label={t("reports.summary.delayed")}
-            value={String(report.summary.delayedShipments)}
-          />
-          <SummaryStat
-            label={t("reports.summary.hubs")}
-            value={String(report.summary.hubsMonitored)}
-          />
-        </GridCard>
+      <QueryBoundary
+        query={{
+          queryKey: queryKeys.reports.bySlug("delivery-performance"),
+          queryFn: () => reportsRepository.getDeliveryPerformance(),
+        }}
+      >
+        {(report) => (
+          <GridContainer aria-label={t("reports.deliveryPerformance.title")}>
+            <GridCard className="col-span-12 grid grid-cols-2 gap-3 @lg:grid-cols-4">
+              <SummaryStat
+                label={t("reports.summary.avgOnTime")}
+                value={`${report.summary.avgOnTimePercent}%`}
+              />
+              <SummaryStat
+                label={t("reports.summary.avgDelivery")}
+                value={`${report.summary.avgDeliveryHours} h`}
+              />
+              <SummaryStat
+                label={t("reports.summary.delayed")}
+                value={String(report.summary.delayedShipments)}
+              />
+              <SummaryStat
+                label={t("reports.summary.hubs")}
+                value={String(report.summary.hubsMonitored)}
+              />
+            </GridCard>
 
-        <GridCard className="col-span-12 @xl:col-span-7">
-          <GridHeader title={t("analytics.charts.onTimeTrend")} />
-          <div className="min-h-80">
-            <LineChart
-              xAxis={[...report.onTimeTrend.labels]}
-              series={[
-                { name: "On-time %", data: [...report.onTimeTrend.values] },
-              ]}
-              type="smooth"
-            />
-          </div>
-        </GridCard>
+            <GridCard className="col-span-12 @xl:col-span-7">
+              <GridHeader title={t("analytics.charts.onTimeTrend")} />
+              <div className="min-h-80">
+                <LineChart
+                  xAxis={[...report.onTimeTrend.labels]}
+                  series={[
+                    { name: "On-time %", data: [...report.onTimeTrend.values] },
+                  ]}
+                  type="smooth"
+                />
+              </div>
+            </GridCard>
 
-        <GridCard className="col-span-12 @xl:col-span-5">
-          <GridHeader title={t("analytics.charts.delaysByHub")} />
-          <div className="min-h-80">
-            <BarChart
-              xAxis={[...report.byHub.labels]}
-              series={[
-                { name: "On-time %", data: [...report.byHub.primary] },
-                { name: "Avg hours", data: [...report.byHub.secondary] },
-              ]}
-            />
-          </div>
-        </GridCard>
-      </GridContainer>
+            <GridCard className="col-span-12 @xl:col-span-5">
+              <GridHeader title={t("analytics.charts.delaysByHub")} />
+              <div className="min-h-80">
+                <BarChart
+                  xAxis={[...report.byHub.labels]}
+                  series={[
+                    { name: "On-time %", data: [...report.byHub.primary] },
+                    { name: "Avg hours", data: [...report.byHub.secondary] },
+                  ]}
+                />
+              </div>
+            </GridCard>
+          </GridContainer>
+        )}
+      </QueryBoundary>
     </div>
   );
 }

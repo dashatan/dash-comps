@@ -1,31 +1,27 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
+import type { ShipmentDto } from "@dash/logistics-contracts";
 import Badge from "@/components/common/badge";
 import Table, {
   StatusBox,
   TableCellDateElement,
   TableCellNumberField,
   TableCellTextField,
-  type ChangeTag,
   type ColumnProps,
-  type TableData,
 } from "@/components/compound/table";
+import { queryKeys } from "@/core/query-keys";
+import { shipmentsRepository } from "@/infrastructure/http/repositories";
+import { useLogisticsT } from "@/i18n/provider";
+import { PageHeader } from "@/shared/page-header";
+import { useServerTable } from "@/shared/hooks/use-server-table";
 import {
   EU_COUNTRY_CODES,
   EU_REGIONS,
   SHIPMENT_STATUSES,
   formatEur,
   formatKg,
-} from "@/data/european-context";
-import {
-  SHIPMENTS,
-  filterAndSortShipments,
-  paginateShipments,
-  type Shipment,
-} from "@/data/shipments";
-import { useLogisticsT } from "@/i18n/provider";
-import { PageHeader } from "@/shared/page-header";
+} from "@/shared/formatters";
 
 const STATUS_COLORS = {
   pending: "warning",
@@ -35,21 +31,7 @@ const STATUS_COLORS = {
   cancelled: "secondary" as const,
 } as const;
 
-const INITIAL_TABLE_STATE: TableData = {
-  page: 0,
-  rows: 15,
-  offset: 0,
-  limit: 15,
-  first: 0,
-  selected: [],
-  selectAll: false,
-  filters: {},
-  expandedRows: {},
-  showFilter: false,
-  showFilterChips: false,
-};
-
-type LocalizedShipment = Shipment & {
+type LocalizedShipment = ShipmentDto & {
   statusLabel: string;
   regionLabel: string;
   onTimeLabel: string;
@@ -61,11 +43,14 @@ function headerCell(label: string) {
 
 export function ShipmentsPage() {
   const t = useLogisticsT();
-  const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
-  const [loading, setLoading] = useState(false);
+  const { tableState, pageData, total, loading, handleTableChange } =
+    useServerTable<ShipmentDto>({
+      queryKey: queryKeys.shipments.list,
+      fetchPage: shipmentsRepository.list,
+    });
 
   const localizeRow = useCallback(
-    (row: Shipment): LocalizedShipment => ({
+    (row: ShipmentDto): LocalizedShipment => ({
       ...row,
       statusLabel: t(`shipments.statuses.${row.status}`),
       regionLabel: t(`shipments.regions.${row.region}`),
@@ -80,38 +65,8 @@ export function ShipmentsPage() {
   );
 
   const localizedRows = useMemo(
-    () => SHIPMENTS.map(localizeRow),
-    [localizeRow],
-  );
-
-  const filteredRows = useMemo(
-    () => filterAndSortShipments(localizedRows, tableState),
-    [localizedRows, tableState],
-  );
-
-  const pageData = useMemo(
-    () => paginateShipments(filteredRows, tableState),
-    [filteredRows, tableState.page, tableState.rows],
-  );
-
-  const simulateFetch = useCallback(() => {
-    setLoading(true);
-    window.setTimeout(() => setLoading(false), 280);
-  }, []);
-
-  const handleTableChange = useCallback(
-    (data: TableData | Record<string, string>, tag: ChangeTag) => {
-      setTableState(data as TableData);
-      if (
-        tag === "filter" ||
-        tag === "pagination" ||
-        tag === "rows" ||
-        tag === "sort"
-      ) {
-        simulateFetch();
-      }
-    },
-    [simulateFetch],
+    () => pageData.map(localizeRow),
+    [pageData, localizeRow],
   );
 
   const columns: ColumnProps[] = useMemo(
@@ -279,9 +234,9 @@ export function ShipmentsPage() {
       <div className="h-[min(78vh,820px)] w-full overflow-hidden rounded-xl border border-border">
         <Table
           columns={columns}
-          data={pageData as Record<string, unknown>[]}
+          data={localizedRows as Record<string, unknown>[]}
           defaultValues={tableState}
-          totalRecords={filteredRows.length}
+          totalRecords={total}
           loading={loading}
           showActionHeader
           showActionFilters

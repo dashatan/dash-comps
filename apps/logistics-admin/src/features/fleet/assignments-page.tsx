@@ -1,29 +1,27 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
+import { useQueries } from "@tanstack/react-query";
+import type { AssignmentDto } from "@dash/logistics-contracts";
+import {
+  DRIVER_COUNT,
+  VEHICLE_COUNT,
+  getDriverDisplayName,
+} from "@dash/logistics-seed";
 import Badge from "@/components/common/badge";
 import Table, {
   StatusBox,
   TableCellDateElement,
   TableCellNumberField,
   TableCellTextField,
-  type ChangeTag,
   type ColumnProps,
-  type TableData,
 } from "@/components/compound/table";
-import { EU_REGIONS } from "@/data/european-context";
-import {
-  ASSIGNMENTS,
-  ASSIGNMENT_STATUSES,
-  filterAndSortAssignments,
-  getDriverById,
-  getDriverDisplayName,
-  getVehicleById,
-  paginateAssignments,
-  type Assignment,
-} from "@/data/fleet";
+import { queryKeys } from "@/core/query-keys";
+import { fleetRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
+import { useServerTable } from "@/shared/hooks/use-server-table";
+import { ASSIGNMENT_STATUSES, EU_REGIONS } from "@/shared/formatters";
 
 const STATUS_COLORS = {
   scheduled: "warning",
@@ -32,21 +30,7 @@ const STATUS_COLORS = {
   cancelled: "secondary",
 } as const;
 
-const INITIAL_TABLE_STATE: TableData = {
-  page: 0,
-  rows: 15,
-  offset: 0,
-  limit: 15,
-  first: 0,
-  selected: [],
-  selectAll: false,
-  filters: {},
-  expandedRows: {},
-  showFilter: false,
-  showFilterChips: false,
-};
-
-type LocalizedAssignment = Assignment & {
+type LocalizedAssignment = AssignmentDto & {
   vehiclePlate: string;
   driverName: string;
   statusLabel: string;
@@ -60,52 +44,66 @@ function headerCell(label: string) {
 
 export function AssignmentsPage() {
   const t = useLogisticsT();
-  const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
-  const [loading, setLoading] = useState(false);
+  const { tableState, pageData, total, loading, handleTableChange } =
+    useServerTable<AssignmentDto>({
+      queryKey: queryKeys.fleet.assignments,
+      fetchPage: fleetRepository.listAssignments,
+    });
+
+  const [vehiclesLookupQuery, driversLookupQuery] = useQueries({
+    queries: [
+      {
+        queryKey: queryKeys.fleet.vehicles({
+          page: 0,
+          pageSize: VEHICLE_COUNT,
+        }),
+        queryFn: () =>
+          fleetRepository.listVehicles({
+            page: 0,
+            pageSize: VEHICLE_COUNT,
+          }),
+        staleTime: Number.POSITIVE_INFINITY,
+      },
+      {
+        queryKey: queryKeys.fleet.drivers({ page: 0, pageSize: DRIVER_COUNT }),
+        queryFn: () =>
+          fleetRepository.listDrivers({ page: 0, pageSize: DRIVER_COUNT }),
+        staleTime: Number.POSITIVE_INFINITY,
+      },
+    ],
+  });
+
+  const vehiclePlateById = useMemo(() => {
+    const map = new Map<number, string>();
+    for (const vehicle of vehiclesLookupQuery.data?.items ?? []) {
+      map.set(vehicle.id, vehicle.plate);
+    }
+    return map;
+  }, [vehiclesLookupQuery.data]);
+
+  const driverNameById = useMemo(() => {
+    const map = new Map<number, string>();
+    for (const driver of driversLookupQuery.data?.items ?? []) {
+      map.set(driver.id, getDriverDisplayName(driver));
+    }
+    return map;
+  }, [driversLookupQuery.data]);
 
   const localizeRow = useCallback(
-    (row: Assignment): LocalizedAssignment => {
-      const vehicle = getVehicleById(row.vehicleId);
-      const driver = getDriverById(row.driverId);
-      return {
-        ...row,
-        vehiclePlate: vehicle?.plate ?? "—",
-        driverName: driver ? getDriverDisplayName(driver) : "—",
-        statusLabel: t(`fleet.assignmentStatuses.${row.status}`),
-        regionLabel: t(`shipments.regions.${row.region}`),
-        shipmentLabel: row.shipmentId ? `#${row.shipmentId}` : "—",
-      };
-    },
-    [t],
+    (row: AssignmentDto): LocalizedAssignment => ({
+      ...row,
+      vehiclePlate: vehiclePlateById.get(row.vehicleId) ?? "—",
+      driverName: driverNameById.get(row.driverId) ?? "—",
+      statusLabel: t(`fleet.assignmentStatuses.${row.status}`),
+      regionLabel: t(`shipments.regions.${row.region}`),
+      shipmentLabel: row.shipmentId ? `#${row.shipmentId}` : "—",
+    }),
+    [t, vehiclePlateById, driverNameById],
   );
 
   const localizedRows = useMemo(
-    () => ASSIGNMENTS.map(localizeRow),
-    [localizeRow],
-  );
-  const filteredRows = useMemo(
-    () => filterAndSortAssignments(localizedRows, tableState),
-    [localizedRows, tableState],
-  );
-  const pageData = useMemo(
-    () => paginateAssignments(filteredRows, tableState),
-    [filteredRows, tableState.page, tableState.rows],
-  );
-
-  const handleTableChange = useCallback(
-    (data: TableData | Record<string, string>, tag: ChangeTag) => {
-      setTableState(data as TableData);
-      if (
-        tag === "filter" ||
-        tag === "pagination" ||
-        tag === "rows" ||
-        tag === "sort"
-      ) {
-        setLoading(true);
-        window.setTimeout(() => setLoading(false), 280);
-      }
-    },
-    [],
+    () => pageData.map(localizeRow),
+    [pageData, localizeRow],
   );
 
   const columns: ColumnProps[] = useMemo(
@@ -234,9 +232,9 @@ export function AssignmentsPage() {
         <div className="h-[min(78vh,820px)] w-full overflow-hidden rounded-xl border border-border">
           <Table
             columns={columns}
-            data={pageData as Record<string, unknown>[]}
+            data={localizedRows as Record<string, unknown>[]}
             defaultValues={tableState}
-            totalRecords={filteredRows.length}
+            totalRecords={total}
             loading={loading}
             showActionHeader
             showActionFilters

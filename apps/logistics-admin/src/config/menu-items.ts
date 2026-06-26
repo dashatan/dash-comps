@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 
 export const COMING_SOON_MODULES = [
-  "tracker",
   "customers",
   "routes",
   "warehouses",
@@ -88,12 +87,10 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.liveMap",
         path: "/tracker/live",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.playback",
         path: "/tracker/playback",
-        badge: soonBadge,
       },
     ],
   },
@@ -189,8 +186,6 @@ export function isComingSoonModule(module: string): module is ComingSoonModule {
 }
 
 export const COMING_SOON_PATHS = new Set([
-  "/tracker/live",
-  "/tracker/playback",
   "/customers/accounts",
   "/customers/contracts",
   "/routes/corridors",

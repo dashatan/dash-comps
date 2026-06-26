@@ -1,43 +1,28 @@
+import type {
+  DualSeriesDto,
+  NamedValueDto,
+  OverviewKpisDto,
+  RevenueRouteDto,
+} from "@dash/logistics-contracts";
 import {
   EU_HUBS,
   MONTH_LABELS,
   daysAgo,
   type EuRegion,
-} from "@/data/european-context";
-import { getFleetUtilizationPercent } from "@/data/fleet";
-import {
-  SHIPMENTS,
-  getMonthToDateRange,
-  getShipmentsInDateRange,
-} from "@/data/shipments";
-
-export type OverviewKpis = {
-  activeShipments: number;
-  onTimePercent: number;
-  avgDeliveryHours: number;
-  delayedCount: number;
-  fleetUtilizationPercent: number;
-  revenueMtdEur: number;
-  costMtdEur: number;
-  marginPercent: number;
-};
-
-export type TimeSeriesPoint = {
-  label: string;
-  value: number;
-};
-
-export type DualSeries = {
-  labels: readonly string[];
-  primary: readonly number[];
-  secondary: readonly number[];
-};
+} from "./european-context";
+import { getFleetUtilizationPercent } from "./fleet";
+import type { ShipmentDto } from "@dash/logistics-contracts";
+import { getMonthToDateRange, getShipmentsInDateRange } from "./shipments";
+import type { VehicleDto } from "@dash/logistics-contracts";
 
 const DELIVERED_HOURS = [18, 20, 22, 19, 21, 23, 20, 18, 17, 19, 21, 20];
 
-export function getOverviewKpis(): OverviewKpis {
+export function getOverviewKpis(
+  shipments: ShipmentDto[],
+  vehicles: VehicleDto[],
+): OverviewKpisDto {
   const mtd = getMonthToDateRange();
-  const mtdShipments = getShipmentsInDateRange(mtd.start, mtd.end);
+  const mtdShipments = getShipmentsInDateRange(shipments, mtd.start, mtd.end);
   const delivered = mtdShipments.filter(
     (s) => s.status === "delivered" || s.status === "delayed",
   );
@@ -52,7 +37,7 @@ export function getOverviewKpis(): OverviewKpis {
     ? Math.round(((revenueMtdEur - costMtdEur) / revenueMtdEur) * 1000) / 10
     : 0;
 
-  const activeShipments = SHIPMENTS.filter(
+  const activeShipments = shipments.filter(
     (s) => s.status === "in_transit" || s.status === "pending",
   ).length;
 
@@ -60,17 +45,19 @@ export function getOverviewKpis(): OverviewKpis {
     activeShipments,
     onTimePercent,
     avgDeliveryHours: 21.4,
-    delayedCount: SHIPMENTS.filter((s) => s.status === "delayed").length,
-    fleetUtilizationPercent: getFleetUtilizationPercent(),
+    delayedCount: shipments.filter((s) => s.status === "delayed").length,
+    fleetUtilizationPercent: getFleetUtilizationPercent(vehicles),
     revenueMtdEur,
     costMtdEur,
     marginPercent,
   };
 }
 
-export function getShipmentVolumeByStatus(): { name: string; value: number }[] {
+export function getShipmentVolumeByStatus(
+  shipments: ShipmentDto[],
+): NamedValueDto[] {
   const counts = new Map<string, number>();
-  for (const s of SHIPMENTS) {
+  for (const s of shipments) {
     counts.set(s.status, (counts.get(s.status) ?? 0) + 1);
   }
   return Array.from(counts.entries()).map(([name, value]) => ({ name, value }));
@@ -82,9 +69,9 @@ export function getOnTimeTrendSeries(): readonly number[] {
   ];
 }
 
-export function getRevenueCostSeries(): DualSeries {
+export function getRevenueCostSeries(): DualSeriesDto {
   return {
-    labels: MONTH_LABELS,
+    labels: [...MONTH_LABELS],
     primary: [842, 891, 915, 878, 934, 968, 1002, 1045, 1018, 1089, 1124, 1168],
     secondary: [612, 648, 671, 655, 698, 721, 745, 768, 752, 789, 812, 834],
   };
@@ -94,14 +81,14 @@ export function getDailyShipmentVolume(): readonly number[] {
   return [42, 48, 45, 52, 49, 55, 51, 58, 54, 61, 57, 63];
 }
 
-export function getDelaysByHub(): { name: string; value: number }[] {
+export function getDelaysByHub(): NamedValueDto[] {
   return EU_HUBS.slice(0, 8).map((hub, i) => ({
     name: hub.city,
     value: 3 + ((i * 7) % 18),
   }));
 }
 
-export function getRegionalShipmentShare(): { name: string; value: number }[] {
+export function getRegionalShipmentShare(): NamedValueDto[] {
   const regions: EuRegion[] = [
     "benelux",
     "dach",
@@ -117,10 +104,11 @@ export function getRegionalShipmentShare(): { name: string; value: number }[] {
 }
 
 export function getTopRoutesByVolume(
+  shipments: ShipmentDto[],
   limit = 6,
-): { name: string; value: number }[] {
+): NamedValueDto[] {
   const counts = new Map<string, number>();
-  for (const s of SHIPMENTS) {
+  for (const s of shipments) {
     const label = `${s.originCity} → ${s.destinationCity}`;
     counts.set(label, (counts.get(label) ?? 0) + 1);
   }
@@ -130,7 +118,7 @@ export function getTopRoutesByVolume(
     .map(([name, value]) => ({ name, value }));
 }
 
-export function getDeliveryPerformanceByHub(): DualSeries {
+export function getDeliveryPerformanceByHub(): DualSeriesDto {
   const hubs = EU_HUBS.slice(0, 6);
   return {
     labels: hubs.map((h) => h.city),
@@ -140,10 +128,11 @@ export function getDeliveryPerformanceByHub(): DualSeries {
 }
 
 export function getRevenueByRouteTopN(
+  shipments: ShipmentDto[],
   n = 8,
-): { name: string; revenue: number; cost: number }[] {
+): RevenueRouteDto[] {
   const totals = new Map<string, { revenue: number; cost: number }>();
-  for (const s of SHIPMENTS) {
+  for (const s of shipments) {
     const label = `${s.originCity} → ${s.destinationCity}`;
     const current = totals.get(label) ?? { revenue: 0, cost: 0 };
     totals.set(label, {
@@ -157,10 +146,7 @@ export function getRevenueByRouteTopN(
     .slice(0, n);
 }
 
-export function getFleetUtilizationByRegion(): {
-  name: string;
-  value: number;
-}[] {
+export function getFleetUtilizationByRegion(): NamedValueDto[] {
   return [
     { name: "benelux", value: 78 },
     { name: "dach", value: 84 },

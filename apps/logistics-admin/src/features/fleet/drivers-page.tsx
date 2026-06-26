@@ -1,40 +1,21 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
+import type { DriverDto } from "@dash/logistics-contracts";
+import { getDriverDisplayName, getHubById } from "@dash/logistics-seed";
 import Table, {
   TableCellNumberField,
   TableCellTextField,
-  type ChangeTag,
   type ColumnProps,
-  type TableData,
 } from "@/components/compound/table";
-import { EU_COUNTRY_CODES } from "@/data/european-context";
-import {
-  DRIVERS,
-  filterAndSortDrivers,
-  getDriverDisplayName,
-  getHubById,
-  paginateDrivers,
-  type Driver,
-} from "@/data/fleet";
+import { queryKeys } from "@/core/query-keys";
+import { fleetRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
+import { useServerTable } from "@/shared/hooks/use-server-table";
+import { EU_COUNTRY_CODES } from "@/shared/formatters";
 
-const INITIAL_TABLE_STATE: TableData = {
-  page: 0,
-  rows: 15,
-  offset: 0,
-  limit: 15,
-  first: 0,
-  selected: [],
-  selectAll: false,
-  filters: {},
-  expandedRows: {},
-  showFilter: false,
-  showFilterChips: false,
-};
-
-type LocalizedDriver = Driver & {
+type LocalizedDriver = DriverDto & {
   name: string;
   depotCity: string;
 };
@@ -45,11 +26,14 @@ function headerCell(label: string) {
 
 export function DriversPage() {
   const t = useLogisticsT();
-  const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
-  const [loading, setLoading] = useState(false);
+  const { tableState, pageData, total, loading, handleTableChange } =
+    useServerTable<DriverDto>({
+      queryKey: queryKeys.fleet.drivers,
+      fetchPage: fleetRepository.listDrivers,
+    });
 
   const localizeRow = useCallback(
-    (row: Driver): LocalizedDriver => ({
+    (row: DriverDto): LocalizedDriver => ({
       ...row,
       name: getDriverDisplayName(row),
       depotCity: getHubById(row.depotHubId).city,
@@ -57,30 +41,9 @@ export function DriversPage() {
     [],
   );
 
-  const localizedRows = useMemo(() => DRIVERS.map(localizeRow), [localizeRow]);
-  const filteredRows = useMemo(
-    () => filterAndSortDrivers(localizedRows, tableState),
-    [localizedRows, tableState],
-  );
-  const pageData = useMemo(
-    () => paginateDrivers(filteredRows, tableState),
-    [filteredRows, tableState.page, tableState.rows],
-  );
-
-  const handleTableChange = useCallback(
-    (data: TableData | Record<string, string>, tag: ChangeTag) => {
-      setTableState(data as TableData);
-      if (
-        tag === "filter" ||
-        tag === "pagination" ||
-        tag === "rows" ||
-        tag === "sort"
-      ) {
-        setLoading(true);
-        window.setTimeout(() => setLoading(false), 280);
-      }
-    },
-    [],
+  const localizedRows = useMemo(
+    () => pageData.map(localizeRow),
+    [pageData, localizeRow],
   );
 
   const columns: ColumnProps[] = useMemo(
@@ -126,7 +89,6 @@ export function DriversPage() {
       {
         field: "depotCity",
         header: headerCell(t("fleet.columns.depot")),
-        sortable: true,
         width: 140,
         body: (row) => (
           <TableCellTextField value={(row as LocalizedDriver).depotCity} />
@@ -148,9 +110,9 @@ export function DriversPage() {
         <div className="h-[min(78vh,820px)] w-full overflow-hidden rounded-xl border border-border">
           <Table
             columns={columns}
-            data={pageData as Record<string, unknown>[]}
+            data={localizedRows as Record<string, unknown>[]}
             defaultValues={tableState}
-            totalRecords={filteredRows.length}
+            totalRecords={total}
             loading={loading}
             showActionHeader
             showActionFilters

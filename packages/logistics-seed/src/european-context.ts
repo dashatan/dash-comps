@@ -32,22 +32,115 @@ export type EuHub = {
   city: string;
   countryCode: EuCountryCode;
   region: EuRegion;
+  lat: number;
+  lng: number;
 };
 
 export const EU_HUBS: readonly EuHub[] = [
-  { id: "rotterdam", city: "Rotterdam", countryCode: "NL", region: "benelux" },
-  { id: "antwerp", city: "Antwerp", countryCode: "BE", region: "benelux" },
-  { id: "hamburg", city: "Hamburg", countryCode: "DE", region: "dach" },
-  { id: "berlin", city: "Berlin", countryCode: "DE", region: "dach" },
-  { id: "munich", city: "Munich", countryCode: "DE", region: "dach" },
-  { id: "paris", city: "Paris", countryCode: "FR", region: "western_europe" },
-  { id: "lyon", city: "Lyon", countryCode: "FR", region: "western_europe" },
-  { id: "milan", city: "Milan", countryCode: "IT", region: "western_europe" },
-  { id: "barcelona", city: "Barcelona", countryCode: "ES", region: "iberia" },
-  { id: "warsaw", city: "Warsaw", countryCode: "PL", region: "central_europe" },
-  { id: "prague", city: "Prague", countryCode: "CZ", region: "central_europe" },
-  { id: "vienna", city: "Vienna", countryCode: "AT", region: "dach" },
-  { id: "brussels", city: "Brussels", countryCode: "BE", region: "benelux" },
+  {
+    id: "rotterdam",
+    city: "Rotterdam",
+    countryCode: "NL",
+    region: "benelux",
+    lat: 51.9225,
+    lng: 4.4792,
+  },
+  {
+    id: "antwerp",
+    city: "Antwerp",
+    countryCode: "BE",
+    region: "benelux",
+    lat: 51.2194,
+    lng: 4.4025,
+  },
+  {
+    id: "hamburg",
+    city: "Hamburg",
+    countryCode: "DE",
+    region: "dach",
+    lat: 53.5511,
+    lng: 9.9937,
+  },
+  {
+    id: "berlin",
+    city: "Berlin",
+    countryCode: "DE",
+    region: "dach",
+    lat: 52.52,
+    lng: 13.405,
+  },
+  {
+    id: "munich",
+    city: "Munich",
+    countryCode: "DE",
+    region: "dach",
+    lat: 48.1351,
+    lng: 11.582,
+  },
+  {
+    id: "paris",
+    city: "Paris",
+    countryCode: "FR",
+    region: "western_europe",
+    lat: 48.8566,
+    lng: 2.3522,
+  },
+  {
+    id: "lyon",
+    city: "Lyon",
+    countryCode: "FR",
+    region: "western_europe",
+    lat: 45.764,
+    lng: 4.8357,
+  },
+  {
+    id: "milan",
+    city: "Milan",
+    countryCode: "IT",
+    region: "western_europe",
+    lat: 45.4642,
+    lng: 9.19,
+  },
+  {
+    id: "barcelona",
+    city: "Barcelona",
+    countryCode: "ES",
+    region: "iberia",
+    lat: 41.3874,
+    lng: 2.1686,
+  },
+  {
+    id: "warsaw",
+    city: "Warsaw",
+    countryCode: "PL",
+    region: "central_europe",
+    lat: 52.2297,
+    lng: 21.0122,
+  },
+  {
+    id: "prague",
+    city: "Prague",
+    countryCode: "CZ",
+    region: "central_europe",
+    lat: 50.0755,
+    lng: 14.4378,
+  },
+  {
+    id: "vienna",
+    city: "Vienna",
+    countryCode: "AT",
+    region: "dach",
+    lat: 48.2082,
+    lng: 16.3738,
+  },
+  {
+    id: "brussels",
+    city: "Brussels",
+    countryCode: "BE",
+    region: "benelux",
+    lat: 50.8503,
+    lng: 4.3517,
+  },
 ] as const;
 
 export type EuCorridor = {

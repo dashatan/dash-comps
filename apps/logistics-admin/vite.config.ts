@@ -43,6 +43,13 @@ export default defineConfig({
         find: "@/features/users-management/types",
         replacement: path.join(stubsPkg, "features/users-management/types.ts"),
       },
+      {
+        find: "@/features/observe-details/components/tracker/image",
+        replacement: path.join(
+          stubsPkg,
+          "features/observe-details/tracker-image.tsx",
+        ),
+      },
       ...coreAlias("@/lib"),
       ...coreAlias("@dash/core"),
       { find: "@/components", replacement: path.join(root, "packages/ui") },
@@ -55,11 +62,30 @@ export default defineConfig({
         find: "@dash/features",
         replacement: path.join(root, "packages/core/features"),
       },
+      {
+        find: "@dash/logistics-contracts",
+        replacement: path.join(
+          root,
+          "packages/logistics-contracts/src/index.ts",
+        ),
+      },
+      {
+        find: "@dash/logistics-seed",
+        replacement: path.join(root, "packages/logistics-seed/src/index.ts"),
+      },
       { find: "@", replacement: appSrc },
     ],
   },
   build: {
     outDir: "dist",
     emptyOutDir: true,
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:3001",
+        changeOrigin: true,
+      },
+    },
   },
 });

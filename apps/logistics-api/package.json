@@ -1,0 +1,24 @@
+{
+  "name": "@dash/logistics-api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "seed": "tsx src/seed.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dash/logistics-contracts": "workspace:*",
+    "@dash/logistics-seed": "workspace:*",
+    "@hono/node-server": "^2.0.6",
+    "@hono/zod-openapi": "^1.4.0",
+    "better-sqlite3": "^12.11.1",
+    "hono": "^4.12.27",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.4"
+  }
+}

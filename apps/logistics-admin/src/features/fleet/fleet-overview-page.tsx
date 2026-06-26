@@ -1,16 +1,11 @@
 import type { ReactNode } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Truck, Users, ClipboardList, Activity } from "lucide-react";
+import Loading from "@/components/common/loading";
 import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
-import {
-  ASSIGNMENT_COUNT,
-  DRIVER_COUNT,
-  getActiveAssignmentsCount,
-  getDriversOnDutyCount,
-  getFleetUtilizationPercent,
-  VEHICLE_COUNT,
-  VEHICLES,
-} from "@/data/fleet";
+import { queryKeys } from "@/core/query-keys";
+import { fleetRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
 
@@ -40,7 +35,46 @@ function KpiCard({
 
 export function FleetOverviewPage() {
   const t = useLogisticsT();
-  const activeVehicles = VEHICLES.filter((v) => v.status === "active").length;
+  const {
+    data: summary,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: queryKeys.fleet.summary,
+    queryFn: () => fleetRepository.getSummary(),
+  });
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-0 flex-1 flex-col">
+        <PageHeader
+          title={t("fleet.title")}
+          subtitle={t("fleet.subtitle")}
+          breadcrumbLabel={t("fleet.title")}
+          breadcrumbHref="/fleet"
+        />
+        <div className="flex flex-1 items-center justify-center p-12">
+          <Loading label="Loading…" />
+        </div>
+      </div>
+    );
+  }
+
+  if (isError || !summary) {
+    return (
+      <div className="flex min-h-0 flex-1 flex-col">
+        <PageHeader
+          title={t("fleet.title")}
+          subtitle={t("fleet.subtitle")}
+          breadcrumbLabel={t("fleet.title")}
+          breadcrumbHref="/fleet"
+        />
+        <div className="flex flex-1 items-center justify-center p-12 text-sm text-destructive">
+          Failed to load data
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -53,22 +87,22 @@ export function FleetOverviewPage() {
       <GridContainer aria-label={t("fleet.title")}>
         <KpiCard
           label={t("fleet.overview.fleetSize")}
-          value={String(VEHICLE_COUNT)}
+          value={String(summary.vehicleCount)}
           icon={<Truck className="size-5" />}
         />
         <KpiCard
           label={t("fleet.overview.activeVehicles")}
-          value={`${activeVehicles} (${getFleetUtilizationPercent()}%)`}
+          value={`${summary.activeVehicles} (${summary.utilizationPercent}%)`}
           icon={<Activity className="size-5" />}
         />
         <KpiCard
           label={t("fleet.overview.driversOnDuty")}
-          value={String(getDriversOnDutyCount())}
+          value={String(summary.driversOnDuty)}
           icon={<Users className="size-5" />}
         />
         <KpiCard
           label={t("fleet.overview.openAssignments")}
-          value={String(getActiveAssignmentsCount())}
+          value={String(summary.activeAssignments)}
           icon={<ClipboardList className="size-5" />}
         />
 
@@ -101,8 +135,8 @@ export function FleetOverviewPage() {
         <GridCard className="col-span-12 @md:col-span-4">
           <GridHeader title={t("fleet.assignments.title")} />
           <p className="mb-4 text-sm text-muted-foreground">
-            {t("fleet.assignments.subtitle")} ({ASSIGNMENT_COUNT} /{" "}
-            {DRIVER_COUNT} drivers)
+            {t("fleet.assignments.subtitle")} ({summary.assignmentCount} /{" "}
+            {summary.driverCount} drivers)
           </p>
           <Link
             to="/fleet/assignments"

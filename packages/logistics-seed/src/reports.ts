@@ -1,11 +1,17 @@
+import type {
+  DeliveryPerformanceReportDto,
+  FleetUtilizationReportDto,
+  RevenueByRouteReportDto,
+} from "@dash/logistics-contracts";
 import {
   getDeliveryPerformanceByHub,
   getFleetUtilizationByRegion,
   getOnTimeTrendSeries,
   getRevenueByRouteTopN,
   getRevenueCostSeries,
-} from "@/data/analytics";
-import { MONTH_LABELS } from "@/data/european-context";
+} from "./analytics";
+import { MONTH_LABELS } from "./european-context";
+import type { ShipmentDto } from "@dash/logistics-contracts";
 
 export const REPORT_IDS = [
   "delivery-performance",
@@ -15,13 +21,13 @@ export const REPORT_IDS = [
 
 export type ReportId = (typeof REPORT_IDS)[number];
 
-export function getDeliveryPerformanceReport() {
+export function getDeliveryPerformanceReport(): DeliveryPerformanceReportDto {
   const byHub = getDeliveryPerformanceByHub();
   const onTimeTrend = getOnTimeTrendSeries();
   return {
     onTimeTrend: {
-      labels: MONTH_LABELS,
-      values: onTimeTrend,
+      labels: [...MONTH_LABELS],
+      values: [...onTimeTrend],
     },
     byHub,
     summary: {
@@ -33,8 +39,10 @@ export function getDeliveryPerformanceReport() {
   };
 }
 
-export function getRevenueByRouteReport() {
-  const routes = getRevenueByRouteTopN(10);
+export function getRevenueByRouteReport(
+  shipments: ShipmentDto[],
+): RevenueByRouteReportDto {
+  const routes = getRevenueByRouteTopN(shipments, 10);
   const series = getRevenueCostSeries();
   return {
     topRoutes: routes,
@@ -48,7 +56,7 @@ export function getRevenueByRouteReport() {
   };
 }
 
-export function getFleetUtilizationReport() {
+export function getFleetUtilizationReport(): FleetUtilizationReportDto {
   const byRegion = getFleetUtilizationByRegion();
   return {
     byRegion,

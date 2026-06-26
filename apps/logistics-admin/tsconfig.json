@@ -17,6 +17,10 @@
       "@/store": ["../../packages/core/store/index.ts"],
       "@/utils/*": ["../../packages/stubs/utils/*"],
       "@/utils": ["../../packages/stubs/utils/index.ts"],
+      "@dash/logistics-contracts": [
+        "../../packages/logistics-contracts/src/index.ts"
+      ],
+      "@dash/logistics-seed": ["../../packages/logistics-seed/src/index.ts"],
       "@/*": ["src/*"]
     }
   },

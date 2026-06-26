@@ -5,7 +5,8 @@
     "backToOverview": "Back to Overview",
     "europeanOperations": "European operations",
     "lastUpdated": "Last updated",
-    "viewReport": "View report"
+    "viewReport": "View report",
+    "loading": "Loading…"
   },
   "overview": {
     "title": "Overview",
@@ -115,5 +116,75 @@
     "warehouses": "Warehouse capacity and inventory hubs.",
     "finance": "Invoicing, payments, and margin analysis.",
     "settings": "Organisation and integration settings."
+  },
+  "tracker": {
+    "live": {
+      "title": "Live Map",
+      "subtitle": "Real-time vehicle positions along EU corridors with event markers."
+    },
+    "playback": {
+      "title": "Playback",
+      "subtitle": "Historical route playback with checkpoint events and OSRM routing."
+    }
+  },
+  "fleet": {
+    "title": "Fleet",
+    "subtitle": "European vehicles, drivers, and assignments",
+    "overview": {
+      "fleetSize": "Fleet size",
+      "activeVehicles": "Active vehicles",
+      "driversOnDuty": "Drivers on duty",
+      "openAssignments": "Open assignments",
+      "viewVehicles": "View vehicles",
+      "viewDrivers": "View drivers",
+      "viewAssignments": "View assignments"
+    },
+    "vehicles": {
+      "title": "Vehicles",
+      "subtitle": "EU-registered fleet assets by depot"
+    },
+    "drivers": {
+      "title": "Drivers",
+      "subtitle": "Licensed drivers assigned to EU hubs"
+    },
+    "assignments": {
+      "title": "Assignments",
+      "subtitle": "Vehicle–driver–shipment assignments across corridors"
+    },
+    "columns": {
+      "id": "ID",
+      "plate": "Plate",
+      "type": "Type",
+      "depot": "Depot",
+      "region": "Region",
+      "country": "Country",
+      "capacity": "Capacity",
+      "fuel": "Fuel (L/100km)",
+      "status": "Status",
+      "name": "Name",
+      "licenseCountry": "License country",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "corridor": "Corridor",
+      "shipment": "Shipment",
+      "start": "Start",
+      "end": "End"
+    },
+    "vehicleTypes": {
+      "van": "Van",
+      "rigid": "Rigid truck",
+      "articulated": "Articulated"
+    },
+    "vehicleStatuses": {
+      "active": "Active",
+      "maintenance": "Maintenance",
+      "idle": "Idle"
+    },
+    "assignmentStatuses": {
+      "scheduled": "Scheduled",
+      "active": "Active",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
   }
 }

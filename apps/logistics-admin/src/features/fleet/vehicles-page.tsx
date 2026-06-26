@@ -1,31 +1,27 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
+import type { VehicleDto } from "@dash/logistics-contracts";
+import { getHubById } from "@dash/logistics-seed";
 import Badge from "@/components/common/badge";
 import Table, {
   StatusBox,
   TableCellNumberField,
   TableCellTextField,
-  type ChangeTag,
   type ColumnProps,
-  type TableData,
 } from "@/components/compound/table";
+import { queryKeys } from "@/core/query-keys";
+import { fleetRepository } from "@/infrastructure/http/repositories";
+import { useLogisticsT } from "@/i18n/provider";
+import { PageHeader } from "@/shared/page-header";
+import { useServerTable } from "@/shared/hooks/use-server-table";
 import {
   EU_COUNTRY_CODES,
   EU_REGIONS,
-  formatKg,
-} from "@/data/european-context";
-import {
-  VEHICLES,
   VEHICLE_STATUSES,
   VEHICLE_TYPES,
-  filterAndSortVehicles,
-  getHubById,
-  paginateVehicles,
-  type Vehicle,
-} from "@/data/fleet";
-import { useLogisticsT } from "@/i18n/provider";
-import { PageHeader } from "@/shared/page-header";
+  formatKg,
+} from "@/shared/formatters";
 
 const STATUS_COLORS = {
   active: "success",
@@ -33,21 +29,7 @@ const STATUS_COLORS = {
   idle: "info",
 } as const;
 
-const INITIAL_TABLE_STATE: TableData = {
-  page: 0,
-  rows: 15,
-  offset: 0,
-  limit: 15,
-  first: 0,
-  selected: [],
-  selectAll: false,
-  filters: {},
-  expandedRows: {},
-  showFilter: false,
-  showFilterChips: false,
-};
-
-type LocalizedVehicle = Vehicle & {
+type LocalizedVehicle = VehicleDto & {
   depotCity: string;
   typeLabel: string;
   statusLabel: string;
@@ -60,11 +42,14 @@ function headerCell(label: string) {
 
 export function VehiclesPage() {
   const t = useLogisticsT();
-  const [tableState, setTableState] = useState<TableData>(INITIAL_TABLE_STATE);
-  const [loading, setLoading] = useState(false);
+  const { tableState, pageData, total, loading, handleTableChange } =
+    useServerTable<VehicleDto>({
+      queryKey: queryKeys.fleet.vehicles,
+      fetchPage: fleetRepository.listVehicles,
+    });
 
   const localizeRow = useCallback(
-    (row: Vehicle): LocalizedVehicle => ({
+    (row: VehicleDto): LocalizedVehicle => ({
       ...row,
       depotCity: getHubById(row.depotHubId).city,
       typeLabel: t(`fleet.vehicleTypes.${row.type}`),
@@ -74,30 +59,9 @@ export function VehiclesPage() {
     [t],
   );
 
-  const localizedRows = useMemo(() => VEHICLES.map(localizeRow), [localizeRow]);
-  const filteredRows = useMemo(
-    () => filterAndSortVehicles(localizedRows, tableState),
-    [localizedRows, tableState],
-  );
-  const pageData = useMemo(
-    () => paginateVehicles(filteredRows, tableState),
-    [filteredRows, tableState.page, tableState.rows],
-  );
-
-  const handleTableChange = useCallback(
-    (data: TableData | Record<string, string>, tag: ChangeTag) => {
-      setTableState(data as TableData);
-      if (
-        tag === "filter" ||
-        tag === "pagination" ||
-        tag === "rows" ||
-        tag === "sort"
-      ) {
-        setLoading(true);
-        window.setTimeout(() => setLoading(false), 280);
-      }
-    },
-    [],
+  const localizedRows = useMemo(
+    () => pageData.map(localizeRow),
+    [pageData, localizeRow],
   );
 
   const columns: ColumnProps[] = useMemo(
@@ -143,7 +107,6 @@ export function VehiclesPage() {
       {
         field: "depotCity",
         header: headerCell(t("fleet.columns.depot")),
-        sortable: true,
         width: 120,
         body: (row) => (
           <TableCellTextField value={(row as LocalizedVehicle).depotCity} />
@@ -233,9 +196,9 @@ export function VehiclesPage() {
         <div className="h-[min(78vh,820px)] w-full overflow-hidden rounded-xl border border-border">
           <Table
             columns={columns}
-            data={pageData as Record<string, unknown>[]}
+            data={localizedRows as Record<string, unknown>[]}
             defaultValues={tableState}
-            totalRecords={filteredRows.length}
+            totalRecords={total}
             loading={loading}
             showActionHeader
             showActionFilters

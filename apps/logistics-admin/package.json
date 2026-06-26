@@ -8,5 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dash/logistics-contracts": "workspace:*",
+    "@dash/logistics-seed": "workspace:*"
   }
 }

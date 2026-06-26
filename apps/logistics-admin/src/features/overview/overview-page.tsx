@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useQueries } from "@tanstack/react-query";
 import {
   Activity,
   Clock,
@@ -8,18 +9,18 @@ import {
   Truck,
   Wallet,
 } from "lucide-react";
+import Loading from "@/components/common/loading";
 import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import LineChart from "@/components/common/charts/line";
 import AreaChart from "@/components/common/charts/area";
-import { formatEur, MONTH_LABELS } from "@/data/european-context";
+import { queryKeys } from "@/core/query-keys";
 import {
-  getDailyShipmentVolume,
-  getOnTimeTrendSeries,
-  getOverviewKpis,
-  getRevenueCostSeries,
-} from "@/data/analytics";
+  analyticsRepository,
+  overviewRepository,
+} from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
+import { formatEur, MONTH_LABELS } from "@/shared/formatters";
 
 function KpiCard({
   label,
@@ -47,10 +48,81 @@ function KpiCard({
 
 export function OverviewPage() {
   const t = useLogisticsT();
-  const kpis = getOverviewKpis();
-  const revenueCost = getRevenueCostSeries();
-  const onTimeTrend = getOnTimeTrendSeries();
-  const dailyVolume = getDailyShipmentVolume();
+
+  const [kpisQuery, revenueCostQuery, onTimeTrendQuery, dailyVolumeQuery] =
+    useQueries({
+      queries: [
+        {
+          queryKey: queryKeys.overview.kpis,
+          queryFn: () => overviewRepository.getKpis(),
+        },
+        {
+          queryKey: queryKeys.analytics.revenueCost,
+          queryFn: () => analyticsRepository.getRevenueCost(),
+        },
+        {
+          queryKey: queryKeys.analytics.onTimeTrend,
+          queryFn: () => analyticsRepository.getOnTimeTrend(),
+        },
+        {
+          queryKey: queryKeys.analytics.dailyVolume,
+          queryFn: () => analyticsRepository.getDailyVolume(),
+        },
+      ],
+    });
+
+  const isLoading =
+    kpisQuery.isLoading ||
+    revenueCostQuery.isLoading ||
+    onTimeTrendQuery.isLoading ||
+    dailyVolumeQuery.isLoading;
+
+  const isError =
+    kpisQuery.isError ||
+    revenueCostQuery.isError ||
+    onTimeTrendQuery.isError ||
+    dailyVolumeQuery.isError;
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-0 flex-1 flex-col">
+        <PageHeader
+          title={t("overview.title")}
+          subtitle={t("overview.subtitle")}
+          breadcrumbLabel={t("overview.title")}
+        />
+        <div className="flex flex-1 items-center justify-center p-12">
+          <Loading label="Loading…" />
+        </div>
+      </div>
+    );
+  }
+
+  if (
+    isError ||
+    !kpisQuery.data ||
+    !revenueCostQuery.data ||
+    !onTimeTrendQuery.data ||
+    !dailyVolumeQuery.data
+  ) {
+    return (
+      <div className="flex min-h-0 flex-1 flex-col">
+        <PageHeader
+          title={t("overview.title")}
+          subtitle={t("overview.subtitle")}
+          breadcrumbLabel={t("overview.title")}
+        />
+        <div className="flex flex-1 items-center justify-center p-12 text-sm text-destructive">
+          Failed to load data
+        </div>
+      </div>
+    );
+  }
+
+  const kpis = kpisQuery.data;
+  const revenueCost = revenueCostQuery.data;
+  const onTimeTrend = onTimeTrendQuery.data;
+  const dailyVolume = dailyVolumeQuery.data;
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">

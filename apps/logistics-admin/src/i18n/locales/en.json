@@ -5,7 +5,8 @@
     "backToOverview": "Back to Overview",
     "europeanOperations": "European operations",
     "lastUpdated": "Last updated",
-    "viewReport": "View report"
+    "viewReport": "View report",
+    "loading": "Loading…"
   },
   "overview": {
     "title": "Overview",
@@ -155,6 +156,16 @@
         "organisation": "Company profile, depots, and regional defaults.",
         "integrations": "ERP, telematics, and carrier API connections."
       }
+    }
+  },
+  "tracker": {
+    "live": {
+      "title": "Live Map",
+      "subtitle": "Real-time vehicle positions along EU corridors with event markers."
+    },
+    "playback": {
+      "title": "Playback",
+      "subtitle": "Historical route playback with checkpoint events and OSRM routing."
     }
   },
   "fleet": {
