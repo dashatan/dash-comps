@@ -8,7 +8,7 @@ import {
   useDashboardPathname,
   useDashboardRouter,
 } from "@dash/ui/layout/dashboard/navigation/context";
-import type { Breadcrumb } from "@dash/ui/layout/dashboard/types";
+import type { Breadcrumb, Breadcrumbs } from "@dash/ui/layout/dashboard/types";
 import { Home } from "iconsax-reactjs";
 import Button from "@dash/ui/common/buttons";
 import { LogoSection } from "@dash/ui/layout/dashboard/sidebar";
@@ -102,6 +102,28 @@ function getBreadcrumbsFromPath(
   return breadcrumbs;
 }
 
+function buildBreadcrumbsFromStore(
+  breadcrumbs: Breadcrumbs,
+  t: Translation,
+): { items: Breadcrumb[]; title: string } {
+  const parents = breadcrumbs.items ?? [];
+  const title = breadcrumbs.title ?? parents[parents.length - 1]?.label ?? "";
+
+  const items: Breadcrumb[] = [
+    {
+      label: t("breadCrumbs." as TranslationKeys) || "Home",
+      href: "/",
+    },
+    ...parents,
+  ];
+
+  if (title && items[items.length - 1]?.label !== title) {
+    items.push({ label: title });
+  }
+
+  return { items, title };
+}
+
 export default function BreadCrumbs() {
   const router = useDashboardRouter();
   const pathname = useDashboardPathname();
@@ -109,16 +131,27 @@ export default function BreadCrumbs() {
   const { breadcrumbs } = useDashboardSignals();
   const { branding } = useDashboardLayout();
 
-  const items: Breadcrumb[] = breadcrumbs?.items?.length
-    ? breadcrumbs.items
-    : getBreadcrumbsFromPath(pathname, t);
+  const hasStoreBreadcrumbs =
+    Boolean(breadcrumbs?.title) || (breadcrumbs?.items?.length ?? 0) > 0;
 
-  const lastIndex = items.length - 1;
+  const resolved = hasStoreBreadcrumbs
+    ? buildBreadcrumbsFromStore(breadcrumbs, t)
+    : {
+        items: getBreadcrumbsFromPath(pathname, t),
+        title: "",
+      };
+
+  const items: Breadcrumb[] = resolved.items;
   const title =
-    breadcrumbs?.title || (items.length ? items[lastIndex].label : "");
+    breadcrumbs?.title ||
+    resolved.title ||
+    (items.length ? items[items.length - 1].label : "");
   const isMobile = deviceType() === "mobile";
+  const isHomePath = pathname === "/" || pathname === "";
+  const trailItems = isHomePath ? [] : items;
+  const showBackButton = !isHomePath && trailItems.length > 1;
 
-  if (items.length === 1 && isMobile)
+  if (isHomePath && isMobile)
     return (
       <LogoSection
         expand={true}
@@ -130,10 +163,9 @@ export default function BreadCrumbs() {
 
   return (
     <div className="flex items-center gap-3">
-      {items.length > 1 && (
+      {showBackButton && (
         <Button
-          variant="icon"
-          severity="info"
+          variant="text"
           size={32}
           className="p-0 text-sidebar-icon transition-all duration-300 hover:text-sidebar-foreground"
           onClick={() => router.back()}
@@ -142,18 +174,10 @@ export default function BreadCrumbs() {
         </Button>
       )}
       <div>
-        <H2
-          className={cn(
-            "mt-1 w-36 max-w-36 whitespace-nowrap text-sidebar-foreground",
-            "hidden text-xl font-extrabold md:flex",
-          )}
-        >
-          {title}
-        </H2>
-        <div className="mt-1 flex items-stretch gap-2">
-          {items.length > 1 &&
-            items.map((item, i) => {
-              const last = i === lastIndex;
+        {trailItems.length > 0 ? (
+          <div className="mt-1 flex min-w-0 items-stretch gap-2 overflow-x-auto">
+            {trailItems.map((item, i) => {
+              const last = i === trailItems.length - 1;
               return (
                 <div key={i} className="flex items-center gap-2">
                   <span
@@ -194,7 +218,8 @@ export default function BreadCrumbs() {
                 </div>
               );
             })}
-        </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

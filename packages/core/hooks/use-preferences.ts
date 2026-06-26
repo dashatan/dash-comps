@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { useLanguage } from "@/lib/language/client";
 import {
   type Preferences,
@@ -51,10 +51,19 @@ export function usePreferences() {
 
   useEffect(() => {
     if (!isLoaded) return;
-    if (preferences.language && preferences.language !== language) {
+    if (preferences.language) {
       setLanguage(preferences.language as typeof language);
+      previousLanguageRef.current = preferences.language as typeof language;
     }
-  }, [preferences.language, language, setLanguage, isLoaded]);
+  }, [isLoaded, preferences.language, setLanguage]);
+
+  const previousLanguageRef = useRef(language);
+  useEffect(() => {
+    if (!isLoaded) return;
+    if (previousLanguageRef.current === language) return;
+    previousLanguageRef.current = language;
+    updatePreference("language", language);
+  }, [language, isLoaded, updatePreference]);
 
   const updatePreferenceValue = useCallback(
     <K extends keyof Preferences>(key: K, value: Preferences[K]) => {

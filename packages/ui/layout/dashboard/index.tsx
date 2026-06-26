@@ -17,7 +17,6 @@ import { DashboardNavigationProvider } from "@dash/ui/layout/dashboard/navigatio
 import type { DashboardNavigation } from "@dash/ui/layout/dashboard/navigation/types";
 import { useLanguage } from "@dash/core";
 import { getDocumentDirection } from "@dash/core/language/utils";
-import { cn } from "@dash/core";
 
 export type {
   MenuItem,
@@ -89,12 +88,7 @@ export default function DashboardLayout({
         branding={branding}
         isRtl={isRtl}
       >
-        <main
-          className={cn(
-            "flex size-full h-screen overflow-y-auto",
-            isRtl && "flex-row-reverse",
-          )}
-        >
+        <main className="flex size-full h-screen overflow-y-auto">
           <div className="sticky start-0 top-0 hidden mobile:flex">
             <Sidebar menuItems={menuItems} footer={footer} width={width} />
           </div>

@@ -3,11 +3,53 @@ import {
   createDate,
   formatPersianTime,
   cn,
+  useLanguage,
 } from "@dash/core";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CalendarDays, Clock3 } from "lucide-react";
 
+function getClockLocale(language: string): string {
+  switch (language) {
+    case "fa":
+      return "fa-IR-u-nu-latn";
+    case "ar":
+      return "ar-SA";
+    default:
+      return "en-GB";
+  }
+}
+
+function formatClockDate(timestamp: number, language: string): string {
+  if (language === "fa") {
+    return formatPersianDate(timestamp, {
+      yearFormat: "numeric",
+      monthFormat: "numeric",
+      dayFormat: "numeric",
+    });
+  }
+
+  return new Intl.DateTimeFormat(getClockLocale(language), {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(timestamp);
+}
+
+function formatClockTime(timestamp: number, language: string): string {
+  if (language === "fa") {
+    return formatPersianTime(timestamp);
+  }
+
+  return new Intl.DateTimeFormat(getClockLocale(language), {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(timestamp);
+}
+
 export default function Clock() {
+  const { language } = useLanguage();
   const [now, setNow] = useState(() => createDate().getTime());
 
   useEffect(() => {
@@ -16,6 +58,15 @@ export default function Clock() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const formattedDate = useMemo(
+    () => formatClockDate(now, language),
+    [now, language],
+  );
+  const formattedTime = useMemo(
+    () => formatClockTime(now, language),
+    [now, language],
+  );
 
   return (
     <div
@@ -27,17 +78,13 @@ export default function Clock() {
       )}
     >
       <div className="flex items-center gap-4">
-        <span>{formatPersianDate(now)}</span>
+        <span>{formattedDate}</span>
         <CalendarDays size={16} />
       </div>
       <div className="flex items-center gap-4">
-        <Time time={now} />
+        <span>{formattedTime}</span>
         <Clock3 size={16} />
       </div>
     </div>
   );
-}
-
-function Time({ time }: { time: number }) {
-  return <span>{formatPersianTime(time)}</span>;
 }

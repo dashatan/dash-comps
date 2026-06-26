@@ -2,11 +2,11 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Button from "@dash/ui/common/buttons";
 import { useLanguage } from "@dash/core";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDashboardDirection } from "@dash/ui/layout/dashboard/direction/use-dashboard-direction";
 import { getMotionSpinDirection } from "@dash/ui/layout/dashboard/direction/rotation";
+import { HeaderIconButton } from "@dash/ui/layout/dashboard/header/header-icon-button";
 
 const iconVariants = {
   initial: { scale: 0, opacity: 0 },
@@ -29,51 +29,46 @@ export default function ThemeToggle() {
   const isDark = theme === "dark";
 
   return (
-    <div className="mt-1 flex items-center gap-2">
-      <Button
-        variant="outlined"
-        severity="info"
-        size={40}
-        className="relative overflow-hidden rounded-full p-0"
-        onClick={() => setTheme(isDark ? "light" : "dark")}
-        tooltip={isDark ? t("common.lightMode") : t("common.darkMode")}
-        tooltipOptions={{
-          openDelay: 100,
-          closeDelay: 100,
-          side: "bottom",
-          align: "center",
-          className: "text-base font-bold p-2",
-        }}
-      >
-        <AnimatePresence initial={false}>
-          {isDark ? (
-            <motion.div
-              key="sun"
-              {...iconVariants}
-              initial={{ ...iconVariants.initial, rotate: -90 * spin }}
-              animate={{ ...iconVariants.animate, rotate: 0 }}
-              exit={{ ...iconVariants.exit, rotate: 90 * spin }}
-              transition={transition}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <Sun className="text-sidebar-foreground" size={20} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="moon"
-              {...iconVariants}
-              initial={{ ...iconVariants.initial, rotate: 90 * spin }}
-              animate={{ ...iconVariants.animate, rotate: 0 }}
-              exit={{ ...iconVariants.exit, rotate: -90 * spin }}
-              transition={transition}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <Moon className="text-sidebar-foreground" size={20} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </Button>
-    </div>
+    <HeaderIconButton
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      tooltip={isDark ? t("common.lightMode") : t("common.darkMode")}
+      tooltipOptions={{
+        openDelay: 100,
+        closeDelay: 100,
+        side: "bottom",
+        align: "center",
+        className: "text-base font-bold p-2",
+      }}
+      aria-label={isDark ? t("common.lightMode") : t("common.darkMode")}
+    >
+      <AnimatePresence initial={false}>
+        {isDark ? (
+          <motion.div
+            key="sun"
+            {...iconVariants}
+            initial={{ ...iconVariants.initial, rotate: -90 * spin }}
+            animate={{ ...iconVariants.animate, rotate: 0 }}
+            exit={{ ...iconVariants.exit, rotate: 90 * spin }}
+            transition={transition}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <Sun className="text-sidebar-foreground" size={20} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            {...iconVariants}
+            initial={{ ...iconVariants.initial, rotate: 90 * spin }}
+            animate={{ ...iconVariants.animate, rotate: 0 }}
+            exit={{ ...iconVariants.exit, rotate: -90 * spin }}
+            transition={transition}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <Moon className="text-sidebar-foreground" size={20} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </HeaderIconButton>
   );
 }
 

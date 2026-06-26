@@ -3,6 +3,7 @@
 import { cn } from "@dash/core";
 import BreadCrumbs from "@dash/ui/layout/dashboard/header/breadcrumbs";
 import Clock from "@dash/ui/layout/dashboard/header/clock";
+import LanguageSelect from "@dash/ui/layout/dashboard/header/language-select";
 import ThemeToggle from "@dash/ui/layout/dashboard/header/theme-toggle";
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from "@dash/ui/layout/dashboard/types";
 import Button from "@dash/ui/common/buttons";
@@ -38,28 +39,35 @@ export default function DashboardHeader() {
       )}
       style={{ height: HEADER_HEIGHT, minHeight: HEADER_HEIGHT }}
     >
-      <BreadCrumbs />
-      <div className="flex items-center gap-4 mobile:hidden">
-        <ThemeToggle />
-        {menuSettings.showClock && <Clock />}
+      <div className="min-w-0 flex-1">
+        <BreadCrumbs />
       </div>
-      <div className="mobile:hidden">
-        <Sheet open={open} onOpenChange={(o) => setOpen(o)}>
-          <SheetTrigger asChild>
-            <Button variant="icon" severity="info" className="size-12 p-0">
-              <Menu className="text-sidebar-icon" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent className="p-0">
-            <SheetTitle />
-            <Sidebar
-              variant="drawer"
-              menuItems={mobileMenuItems}
-              footer={footer}
-              width={SIDEBAR_WIDTH}
-            />
-          </SheetContent>
-        </Sheet>
+      <div className="flex shrink-0 items-center gap-2">
+        <LanguageSelect />
+        <ThemeToggle />
+        {menuSettings.showClock ? (
+          <div className="hidden mobile:block">
+            <Clock />
+          </div>
+        ) : null}
+        <div className="flex mobile:hidden">
+          <Sheet open={open} onOpenChange={(o) => setOpen(o)}>
+            <SheetTrigger asChild>
+              <Button variant="icon" severity="info" className="size-12 p-0">
+                <Menu className="text-sidebar-icon" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="p-0">
+              <SheetTitle />
+              <Sidebar
+                variant="drawer"
+                menuItems={mobileMenuItems}
+                footer={footer}
+                width={SIDEBAR_WIDTH}
+              />
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </div>
   );
