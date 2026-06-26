@@ -268,7 +268,9 @@
       "invoices": "Invoices",
       "payments": "Payments",
       "organisation": "Organisation",
-      "integrations": "Integrations"
+      "integrations": "Integrations",
+      "appearance": "Appearance",
+      "branding": "Branding"
     },
     "subpages": {
       "tracker": {
@@ -292,6 +294,8 @@
         "payments": "Settlement tracking and margin reconciliation."
       },
       "settings": {
+        "appearance": "Theme, language, typography, and navigation layout.",
+        "branding": "Sidebar app name and logo customization.",
         "organisation": "Company profile, depots, and regional defaults.",
         "integrations": "ERP, telematics, and carrier API connections."
       }
@@ -518,6 +522,104 @@
   },
   "settings": {
     "title": "Settings",
+    "index": {
+      "subtitle": "Configure appearance, branding, organisation, and integrations",
+      "open": "Open settings"
+    },
+    "demo": {
+      "saved": "Changes saved (demo — not persisted to server)",
+      "reset": "Form reset to initial values",
+      "saveAction": "Save changes",
+      "resetAction": "Reset"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": "Theme, language, typography, and navigation layout",
+      "theme": {
+        "title": "Theme",
+        "description": "Light, dark, or follow system preference",
+        "label": "Color mode"
+      },
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      },
+      "language": {
+        "title": "Language",
+        "description": "Interface language and RTL layout",
+        "label": "Display language"
+      },
+      "typography": {
+        "title": "Typography & spacing",
+        "description": "Font family, size, and layout density"
+      },
+      "fontSize": {
+        "label": "Font size"
+      },
+      "fontSizes": {
+        "xs": "Extra small",
+        "sm": "Small",
+        "base": "Default",
+        "lg": "Large",
+        "xl": "Extra large"
+      },
+      "fontFamily": {
+        "label": "Font family"
+      },
+      "fontFamilies": {
+        "default": "Inter (default)",
+        "peyda": "Peyda",
+        "vazir": "Vazir",
+        "yekan": "Yekan",
+        "mono": "Monospace"
+      },
+      "spacing": {
+        "label": "Spacing density"
+      },
+      "spacingOptions": {
+        "compact": "Compact",
+        "normal": "Normal",
+        "comfortable": "Comfortable"
+      },
+      "menu": {
+        "title": "Navigation",
+        "description": "Sidebar behaviour and visible modules",
+        "defaultExpanded": "Expand submenus by default",
+        "showClock": "Show clock in header",
+        "visibleModules": "Visible top-level modules"
+      },
+      "preview": {
+        "title": "Live preview",
+        "description": "Changes apply immediately across the dashboard",
+        "hint": "Adjust controls above — the sidebar, header, and typography update in real time."
+      }
+    },
+    "branding": {
+      "title": "Branding",
+      "subtitle": "Sidebar app name and logo customization",
+      "form": {
+        "title": "App identity",
+        "description": "Name and logo shown in the sidebar and mobile header"
+      },
+      "fields": {
+        "appName": "App name",
+        "logoUrl": "Logo URL",
+        "logoUrlDescription": "Path or URL to an SVG/PNG logo"
+      },
+      "presets": {
+        "title": "Logo presets",
+        "description": "Quick-select bundled logos",
+        "logo": "Logistics logo",
+        "favicon": "Favicon mark"
+      },
+      "preview": {
+        "title": "Live preview",
+        "description": "How branding appears in expanded and collapsed sidebar",
+        "expanded": "Expanded sidebar",
+        "collapsed": "Collapsed rail"
+      }
+    },
     "organisation": {
       "title": "Organisation",
       "subtitle": "Company profile, depots, and regional defaults",
@@ -538,7 +640,8 @@
         "locale": "Locale",
         "defaultCurrency": "Default currency",
         "defaultRegion": "Default region",
-        "depotHubs": "Depot hubs"
+        "depotHubs": "Depot hubs",
+        "depotHubsPlaceholder": "Select distribution hubs"
       }
     },
     "integrations": {
@@ -548,6 +651,16 @@
       "list": {
         "title": "Connected systems",
         "description": "External integrations and last sync status"
+      },
+      "connect": {
+        "title": "Connect integration",
+        "description": "Add a new ERP, telematics, or carrier connection",
+        "provider": "Provider name",
+        "type": "Integration type",
+        "apiEndpoint": "API endpoint",
+        "apiKey": "API key",
+        "action": "Connect",
+        "validation": "Provider name and API endpoint are required"
       }
     },
     "integrationTypes": {

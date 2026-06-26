@@ -148,6 +148,14 @@ export const menuItems: MenuItem[] = [
     Icon: Settings,
     children: [
       {
+        title: "logisticsAdmin.nav.appearance",
+        path: "/settings/appearance",
+      },
+      {
+        title: "logisticsAdmin.nav.branding",
+        path: "/settings/branding",
+      },
+      {
         title: "logisticsAdmin.nav.organisation",
         path: "/settings/organisation",
       },

@@ -13,6 +13,12 @@ export type DateFormatPreferences = {
 export type MenuSettings = {
   visibleMenus: string[];
   defaultExpanded?: boolean;
+  showClock?: boolean;
+};
+
+export type SidebarBranding = {
+  appName: string;
+  logoSrc: string;
 };
 
 /** Form field defaults (e.g. date preset keys like `1m`, `3m`, `1y`). */
@@ -27,6 +33,7 @@ export type Preferences = {
   spacing?: Spacing;
   profileImages: Record<string, string>;
   menuSettings: MenuSettings;
+  sidebarBranding: SidebarBranding;
   dateFormat?: DateFormatPreferences;
   formDefaults?: FormDefaults;
 };
@@ -47,7 +54,11 @@ export type { Env };
 
 export const defaultPreferences: Preferences = {
   profileImages: {},
-  menuSettings: { visibleMenus: [], defaultExpanded: true },
+  menuSettings: { visibleMenus: [], defaultExpanded: true, showClock: true },
+  sidebarBranding: {
+    appName: "Logistics Admin",
+    logoSrc: "/logo.svg",
+  },
   fontSize: "base",
   spacing: "normal",
   dateFormat: {

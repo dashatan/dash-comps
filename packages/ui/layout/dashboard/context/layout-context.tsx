@@ -2,14 +2,21 @@
 
 import { createContext, useContext, type ReactNode } from "react";
 import type {
+  DashboardBranding,
   DashboardMenuSettings,
   MenuItem,
 } from "@dash/ui/layout/dashboard/types";
+
+const defaultBranding: DashboardBranding = {
+  appName: "Logistics Admin",
+  logoSrc: "/logo.svg",
+};
 
 type DashboardLayoutContextValue = {
   menuItems: MenuItem[];
   footer: ReactNode;
   menuSettings: DashboardMenuSettings;
+  branding: DashboardBranding;
   isRtl: boolean;
 };
 
@@ -26,12 +33,14 @@ export function DashboardLayoutProvider({
   menuItems,
   footer,
   menuSettings,
+  branding,
   isRtl,
   children,
 }: {
   menuItems: MenuItem[];
   footer: ReactNode;
   menuSettings?: DashboardMenuSettings;
+  branding?: DashboardBranding;
   isRtl: boolean;
   children: ReactNode;
 }) {
@@ -41,6 +50,7 @@ export function DashboardLayoutProvider({
         menuItems,
         footer,
         menuSettings: { ...defaultMenuSettings, ...menuSettings },
+        branding: { ...defaultBranding, ...branding },
         isRtl,
       }}
     >

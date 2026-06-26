@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import Sidebar from "@dash/ui/layout/dashboard/sidebar";
 import DashboardHeader from "@dash/ui/layout/dashboard/header";
 import {
+  type DashboardBranding,
   type DashboardMenuSettings,
   type MenuItem,
   SIDEBAR_WIDTH_COLLAPSED,
@@ -23,6 +24,7 @@ export type {
   Breadcrumb,
   Breadcrumbs,
   DashboardMenuSettings,
+  DashboardBranding,
 } from "@dash/ui/layout/dashboard/types";
 export type {
   DashboardNavigation,
@@ -62,6 +64,7 @@ export type DashboardLayoutProps = {
   footer: React.ReactNode;
   navigation: DashboardNavigation;
   menuSettings?: DashboardMenuSettings;
+  branding?: DashboardBranding;
 };
 
 export default function DashboardLayout({
@@ -70,6 +73,7 @@ export default function DashboardLayout({
   footer,
   navigation,
   menuSettings,
+  branding,
 }: DashboardLayoutProps) {
   const { expand } = useDashboardSignals();
   const { language } = useLanguage();
@@ -82,6 +86,7 @@ export default function DashboardLayout({
         menuItems={menuItems}
         footer={footer}
         menuSettings={menuSettings}
+        branding={branding}
         isRtl={isRtl}
       >
         <main

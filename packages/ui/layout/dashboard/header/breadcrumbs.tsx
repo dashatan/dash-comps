@@ -12,6 +12,7 @@ import type { Breadcrumb } from "@dash/ui/layout/dashboard/types";
 import { Home } from "iconsax-reactjs";
 import Button from "@dash/ui/common/buttons";
 import { LogoSection } from "@dash/ui/layout/dashboard/sidebar";
+import { useDashboardLayout } from "@dash/ui/layout/dashboard/context/layout-context";
 import {
   DirectionalBackArrow,
   DirectionalChevron,
@@ -106,6 +107,7 @@ export default function BreadCrumbs() {
   const pathname = useDashboardPathname();
   const { t } = useLanguage();
   const { breadcrumbs } = useDashboardSignals();
+  const { branding } = useDashboardLayout();
 
   const items: Breadcrumb[] = breadcrumbs?.items?.length
     ? breadcrumbs.items
@@ -117,7 +119,14 @@ export default function BreadCrumbs() {
   const isMobile = deviceType() === "mobile";
 
   if (items.length === 1 && isMobile)
-    return <LogoSection expand={true} onLogoClick={() => {}} t={t} />;
+    return (
+      <LogoSection
+        expand={true}
+        onLogoClick={() => router.push("/")}
+        appName={branding.appName}
+        logoSrc={branding.logoSrc}
+      />
+    );
 
   return (
     <div className="flex items-center gap-3">

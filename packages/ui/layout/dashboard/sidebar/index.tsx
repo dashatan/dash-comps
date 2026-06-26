@@ -38,25 +38,34 @@ function useTranslatedMenus(
 export const LogoSection = ({
   expand,
   onLogoClick,
-  t,
+  appName,
+  logoSrc,
 }: {
   expand: boolean;
   onLogoClick: () => void;
-  t: (key: TranslationKeys) => string;
+  appName: string;
+  logoSrc: string;
 }) => (
   <div
-    className={cn("my-4 flex cursor-pointer items-center gap-0", {
-      hidden: !expand,
-    })}
+    className={cn(
+      "my-4 flex cursor-pointer items-center gap-0",
+      expand ? "justify-start" : "justify-center",
+    )}
     onClick={onLogoClick}
   >
-    <div className="flex items-center gap-2 p-2 whitespace-nowrap">
+    <div
+      className={cn("flex items-center gap-2 p-2 whitespace-nowrap", {
+        "justify-center": !expand,
+      })}
+    >
       <img
-        src="/logo.svg"
-        alt="Logo"
-        className="size-10 text-sidebar-foreground"
+        src={logoSrc}
+        alt={appName}
+        className="size-10 shrink-0 rounded-lg object-contain"
       />
-      <span className="text-xl text-sidebar-foreground">{t("app.name")}</span>
+      {expand ? (
+        <span className="text-xl text-sidebar-foreground">{appName}</span>
+      ) : null}
     </div>
   </div>
 );
@@ -148,7 +157,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
     const { t, language } = useLanguage();
     const router = useDashboardRouter();
     const { expand, setExpand, loadingMenus, pinned } = useDashboardSignals();
-    const { menuSettings } = useDashboardLayout();
+    const { menuSettings, branding } = useDashboardLayout();
     const visibleMenus = menuSettings.visibleMenus ?? [];
     const defaultExpanded = menuSettings.defaultExpanded;
     const isExpanded = isDrawer ? true : expand;
@@ -206,7 +215,8 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
               <LogoSection
                 expand={isExpanded}
                 onLogoClick={() => router.push("/")}
-                t={t}
+                appName={branding.appName}
+                logoSrc={branding.logoSrc}
               />
               {!isDrawer && (
                 <ToggleButton expand={expand} setExpand={setExpand} />

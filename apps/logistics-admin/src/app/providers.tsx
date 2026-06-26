@@ -10,6 +10,8 @@ import { ErrorHandler } from "@/components/common/errors";
 import { queryClient } from "@/core/query-client";
 import { TRACKER_MAP_ENV } from "@/core/env";
 import { appStore } from "@/store";
+import { PreferencesBootstrap } from "@/app/preferences-bootstrap";
+import { Toaster } from "@/components/common/sonner";
 
 appStore.getState().setEnv(TRACKER_MAP_ENV);
 
@@ -34,7 +36,9 @@ export function AppProviders({ children }: AppProvidersProps) {
         >
           <LogisticsLocaleProvider>
             <LocaleGate>
+              <PreferencesBootstrap />
               <ErrorHandler>{children}</ErrorHandler>
+              <Toaster />
             </LocaleGate>
           </LogisticsLocaleProvider>
         </LanguageProvider>

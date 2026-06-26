@@ -37,3 +37,8 @@ export type DashboardMenuSettings = {
   defaultExpanded?: boolean;
   showClock?: boolean;
 };
+
+export type DashboardBranding = {
+  appName: string;
+  logoSrc: string;
+};

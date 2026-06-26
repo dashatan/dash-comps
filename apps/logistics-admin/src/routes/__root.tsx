@@ -17,15 +17,20 @@ function RootLayout() {
   });
   const navigation = useTanStackDashboardNavigation();
   const menuSettings = useAppStore((state) => state.preferences.menuSettings);
+  const sidebarBranding = useAppStore(
+    (state) => state.preferences.sidebarBranding,
+  );
 
   return (
     <DashboardLayout
       navigation={navigation}
       menuItems={menuItems}
       footer={<DashboardFooter />}
+      branding={sidebarBranding}
       menuSettings={{
         visibleMenus: menuSettings.visibleMenus,
         defaultExpanded: menuSettings.defaultExpanded,
+        showClock: menuSettings.showClock,
       }}
     >
       <ErrorHandler
