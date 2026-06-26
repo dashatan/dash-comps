@@ -1,6 +1,6 @@
 # Vercel deployment (monorepo)
 
-One Git repository, **three Vercel projects**. Each push can trigger all three; ignored-build scripts skip apps with no relevant changes.
+One Git repository, **three Vercel projects**. The existing `dash-comps` project serves the showcase app at https://dash-comps.vercel.app. Each push can trigger all three; ignored-build scripts skip apps with no relevant changes.
 
 ## Projects
 
@@ -8,7 +8,7 @@ One Git repository, **three Vercel projects**. Each push can trigger all three; 
 | -------------------- | ---------------------- | ------------------------------------- |
 | `dash-logistics`     | `apps/logistics-admin` | https://dash-logistics.vercel.app     |
 | `dash-logistics-api` | `apps/logistics-api`   | https://dash-logistics-api.vercel.app |
-| `dash-showcase`      | `apps/showcase`        | https://dash-showcase.vercel.app      |
+| `dash-comps`         | `apps/showcase`        | https://dash-comps.vercel.app         |
 
 Config lives in each app’s `vercel.json` (install, build, rewrites, ignore command).
 
@@ -45,7 +45,7 @@ Scripts in `scripts/vercel/`:
 | --------------------------- | -------------------- |
 | `ignore-logistics-admin.sh` | `dash-logistics`     |
 | `ignore-logistics-api.sh`   | `dash-logistics-api` |
-| `ignore-showcase.sh`        | `dash-showcase`      |
+| `ignore-showcase.sh`        | `dash-comps`         |
 
 Vercel: exit **0** = build, exit **1** = skip.
 

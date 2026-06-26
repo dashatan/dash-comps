@@ -1,3 +1,6 @@
 data/
 *.db
 *.db-*
+
+.vercel
+.env*
