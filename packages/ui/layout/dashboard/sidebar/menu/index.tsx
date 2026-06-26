@@ -1,9 +1,8 @@
-import Skeleton from "@/components/common/skeleton";
-import CollapsedMenuItem from "@/components/layout/dashboard/sidebar/menu/collapsed-menu";
-import ExpandedMenuItem from "@/components/layout/dashboard/sidebar/menu/expanded-menu";
-import { MenuItem } from "@/components/layout/dashboard/types";
-import { cn } from "@/lib";
-import { useState } from "react";
+import Skeleton from "@dash/ui/common/skeleton";
+import CollapsedMenuItem from "@dash/ui/layout/dashboard/sidebar/menu/collapsed-menu";
+import ExpandedMenuItem from "@dash/ui/layout/dashboard/sidebar/menu/expanded-menu";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
+import { cn } from "@dash/core";
 
 export type SidebarMenuProps = {
   items: MenuItem[];

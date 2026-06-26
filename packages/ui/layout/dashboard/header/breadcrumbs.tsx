@@ -1,15 +1,21 @@
-import { H2 } from "@/components/common/typography";
-import { usePathname, useRouter } from "next/navigation";
-import { cn, deviceType } from "@/lib";
-import { useLanguage } from "@/lib";
-import { type Translation } from "@/lib/language/client";
-import { TranslationKeys } from "@/lib/language/locales";
-import useDashboardSignals from "@/components/layout/dashboard/context/useDashboardSignals";
-import type { Breadcrumb } from "@/components/layout/dashboard/types";
-import { ChevronLeft, HomeIcon } from "lucide-react";
-import { ArrowRight, Home } from "iconsax-reactjs";
-import Button from "@/components/common/buttons";
-import { LogoSection } from "@/components/layout/dashboard/sidebar";
+import { H2 } from "@dash/ui/common/typography";
+import { cn, deviceType } from "@dash/core";
+import { useLanguage } from "@dash/core";
+import type { Translation } from "@dash/core/language/client";
+import type { TranslationKeys } from "@dash/core/language/locales";
+import useDashboardSignals from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+import {
+  useDashboardPathname,
+  useDashboardRouter,
+} from "@dash/ui/layout/dashboard/navigation/context";
+import type { Breadcrumb } from "@dash/ui/layout/dashboard/types";
+import { Home } from "iconsax-reactjs";
+import Button from "@dash/ui/common/buttons";
+import { LogoSection } from "@dash/ui/layout/dashboard/sidebar";
+import {
+  DirectionalBackArrow,
+  DirectionalChevron,
+} from "@dash/ui/layout/dashboard/direction/directional-icon";
 
 const breadcrumbPathToNavKey: Record<string, string> = {
   users: "userManagement",
@@ -96,12 +102,11 @@ function getBreadcrumbsFromPath(
 }
 
 export default function BreadCrumbs() {
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useDashboardRouter();
+  const pathname = useDashboardPathname();
   const { t } = useLanguage();
   const { breadcrumbs } = useDashboardSignals();
 
-  // Prefer signal, fallback to path-based
   const items: Breadcrumb[] = breadcrumbs?.items?.length
     ? breadcrumbs.items
     : getBreadcrumbsFromPath(pathname, t);
@@ -124,7 +129,7 @@ export default function BreadCrumbs() {
           className="p-0 text-sidebar-icon transition-all duration-300 hover:text-sidebar-foreground"
           onClick={() => router.back()}
         >
-          <ArrowRight variant="Linear" className="size-8 ltr:rotate-180" />
+          <DirectionalBackArrow className="size-8" />
         </Button>
       )}
       <div>
@@ -170,7 +175,11 @@ export default function BreadCrumbs() {
                     {last ? (
                       ""
                     ) : (
-                      <ChevronLeft className="size-4 text-sidebar-icon ltr:rotate-180" />
+                      <DirectionalChevron
+                        variant="forward"
+                        size={16}
+                        className="size-4 text-sidebar-icon"
+                      />
                     )}
                   </span>
                 </div>

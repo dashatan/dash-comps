@@ -1,29 +1,75 @@
 "use client";
 
-import Sidebar from "./sidebar";
-import DashboardHeader from "./header";
+import type { CSSProperties } from "react";
+import Sidebar from "@dash/ui/layout/dashboard/sidebar";
+import DashboardHeader from "@dash/ui/layout/dashboard/header";
 import {
-  MenuItem,
+  type DashboardMenuSettings,
+  type MenuItem,
   SIDEBAR_WIDTH_COLLAPSED,
   SIDEBAR_WIDTH,
   MIN_SCREEN_WIDTH,
-} from "./types";
-import useDashboardSignals from "@/components/layout/dashboard/context/useDashboardSignals";
-import { DashboardLayoutProvider } from "@/components/layout/dashboard/context/layout-context";
-import { useLanguage } from "@/lib";
-import { getDocumentDirection } from "@/lib/language/utils";
-import { cn } from "@/lib/utils";
+} from "@dash/ui/layout/dashboard/types";
+import useDashboardSignals from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+import { DashboardLayoutProvider } from "@dash/ui/layout/dashboard/context/layout-context";
+import { DashboardNavigationProvider } from "@dash/ui/layout/dashboard/navigation/context";
+import type { DashboardNavigation } from "@dash/ui/layout/dashboard/navigation/types";
+import { useLanguage } from "@dash/core";
+import { getDocumentDirection } from "@dash/core/language/utils";
+import { cn } from "@dash/core";
+
+export type {
+  MenuItem,
+  Breadcrumb,
+  Breadcrumbs,
+  DashboardMenuSettings,
+} from "@dash/ui/layout/dashboard/types";
+export type {
+  DashboardNavigation,
+  DashboardLinkProps,
+} from "@dash/ui/layout/dashboard/navigation/types";
+export {
+  HEADER_HEIGHT,
+  SIDEBAR_WIDTH,
+  SIDEBAR_WIDTH_COLLAPSED,
+  MIN_SCREEN_WIDTH,
+} from "@dash/ui/layout/dashboard/types";
+export { default as useDashboardSignals } from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+export {
+  useDashboardLayout,
+  DashboardLayoutProvider,
+} from "@dash/ui/layout/dashboard/context/layout-context";
+export {
+  DashboardNavigationProvider,
+  useDashboardNavigation,
+  useDashboardPathname,
+  useDashboardRouter,
+  DashboardLink,
+} from "@dash/ui/layout/dashboard/navigation/context";
+export { useTanStackDashboardNavigation } from "@dash/ui/layout/dashboard/adapters/tanstack-router";
+export {
+  DirectionalChevron,
+  DirectionalBackArrow,
+  SidebarToggleIcon,
+} from "@dash/ui/layout/dashboard/direction/directional-icon";
+export { useDashboardDirection } from "@dash/ui/layout/dashboard/direction/use-dashboard-direction";
+export { default as useBreadcrumbs } from "@dash/ui/layout/dashboard/header/useBreadcrumbs";
+export { useDashboardStore } from "@dash/ui/layout/dashboard/store/dashboard-store";
 
 export type DashboardLayoutProps = {
   children: React.ReactNode;
   menuItems: MenuItem[];
   footer: React.ReactNode;
+  navigation: DashboardNavigation;
+  menuSettings?: DashboardMenuSettings;
 };
 
 export default function DashboardLayout({
   children,
   menuItems,
   footer,
+  navigation,
+  menuSettings,
 }: DashboardLayoutProps) {
   const { expand } = useDashboardSignals();
   const { language } = useLanguage();
@@ -31,30 +77,42 @@ export default function DashboardLayout({
   const width = expand ? SIDEBAR_WIDTH : SIDEBAR_WIDTH_COLLAPSED;
 
   return (
-    <DashboardLayoutProvider menuItems={menuItems} footer={footer}>
-      <main
-        className={cn(
-          "flex size-full h-screen overflow-y-auto",
-          isRtl && "flex-row-reverse",
-        )}
+    <DashboardNavigationProvider navigation={navigation}>
+      <DashboardLayoutProvider
+        menuItems={menuItems}
+        footer={footer}
+        menuSettings={menuSettings}
+        isRtl={isRtl}
       >
-        <div className="sticky start-0 top-0 mobile:hidden">
-          <Sidebar menuItems={menuItems} footer={footer} width={width} />
-        </div>
-        <div
-          id="content"
-          className="flex flex-1 flex-col"
-          style={{
-            width: `calc(100% - ${width}px)`,
-            minWidth: MIN_SCREEN_WIDTH,
-          }}
+        <main
+          className={cn(
+            "flex size-full h-screen overflow-y-auto",
+            isRtl && "flex-row-reverse",
+          )}
         >
-          <DashboardHeader />
-          <div className="flex flex-1 flex-col" aria-label="Dashboard content">
-            {children}
+          <div className="sticky start-0 top-0 hidden mobile:flex">
+            <Sidebar menuItems={menuItems} footer={footer} width={width} />
           </div>
-        </div>
-      </main>
-    </DashboardLayoutProvider>
+          <div
+            id="content"
+            className="flex w-full flex-1 flex-col mobile:w-[calc(100%-var(--sidebar-width))]"
+            style={
+              {
+                "--sidebar-width": `${width}px`,
+                minWidth: MIN_SCREEN_WIDTH,
+              } as CSSProperties
+            }
+          >
+            <DashboardHeader />
+            <div
+              className="flex flex-1 flex-col"
+              aria-label="Dashboard content"
+            >
+              {children}
+            </div>
+          </div>
+        </main>
+      </DashboardLayoutProvider>
+    </DashboardNavigationProvider>
   );
 }

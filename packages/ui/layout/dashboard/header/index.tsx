@@ -1,26 +1,24 @@
 "use client";
 
-import { cn } from "@/lib";
-import BreadCrumbs from "./breadcrumbs";
-import Clock from "./clock";
-import ThemeToggle from "./theme-toggle";
-import { usePreferences } from "@/lib";
-import { HEADER_HEIGHT, SIDEBAR_WIDTH } from "../types";
-import Button from "@/components/common/buttons";
+import { cn } from "@dash/core";
+import BreadCrumbs from "@dash/ui/layout/dashboard/header/breadcrumbs";
+import Clock from "@dash/ui/layout/dashboard/header/clock";
+import ThemeToggle from "@dash/ui/layout/dashboard/header/theme-toggle";
+import { HEADER_HEIGHT, SIDEBAR_WIDTH } from "@dash/ui/layout/dashboard/types";
+import Button from "@dash/ui/common/buttons";
 import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
-} from "@/components/common/overlay/sheet";
-import { MobileSidebar } from "@/components/layout/dashboard/sidebar";
-import { useDashboardLayout } from "@/components/layout/dashboard/context/layout-context";
+} from "@dash/ui/common/overlay/sheet";
+import Sidebar from "@dash/ui/layout/dashboard/sidebar";
+import { useDashboardLayout } from "@dash/ui/layout/dashboard/context/layout-context";
 import { useState } from "react";
 
 export default function DashboardHeader() {
-  const { preferences } = usePreferences();
-  const { menuItems, footer } = useDashboardLayout();
+  const { menuItems, footer, menuSettings } = useDashboardLayout();
   const [open, setOpen] = useState(false);
 
   const mobileMenuItems = menuItems.map((x) => ({
@@ -43,9 +41,9 @@ export default function DashboardHeader() {
       <BreadCrumbs />
       <div className="flex items-center gap-4 mobile:hidden">
         <ThemeToggle />
-        {preferences.showClock && <Clock />}
+        {menuSettings.showClock && <Clock />}
       </div>
-      <div className="not-mobile:hidden">
+      <div className="mobile:hidden">
         <Sheet open={open} onOpenChange={(o) => setOpen(o)}>
           <SheetTrigger asChild>
             <Button variant="icon" severity="info" className="size-12 p-0">
@@ -54,7 +52,8 @@ export default function DashboardHeader() {
           </SheetTrigger>
           <SheetContent className="p-0">
             <SheetTitle />
-            <MobileSidebar
+            <Sidebar
+              variant="drawer"
               menuItems={mobileMenuItems}
               footer={footer}
               width={SIDEBAR_WIDTH}

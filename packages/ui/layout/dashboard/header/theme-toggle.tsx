@@ -2,9 +2,11 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Button from "@/components/common/buttons";
-import { useLanguage } from "@/lib";
+import Button from "@dash/ui/common/buttons";
+import { useLanguage } from "@dash/core";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDashboardDirection } from "@dash/ui/layout/dashboard/direction/use-dashboard-direction";
+import { getMotionSpinDirection } from "@dash/ui/layout/dashboard/direction/rotation";
 
 const iconVariants = {
   initial: { scale: 0, opacity: 0 },
@@ -22,6 +24,8 @@ const transition = {
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const { t } = useLanguage();
+  const { isRtl } = useDashboardDirection();
+  const spin = getMotionSpinDirection(isRtl);
   const isDark = theme === "dark";
 
   return (
@@ -46,9 +50,9 @@ export default function ThemeToggle() {
             <motion.div
               key="sun"
               {...iconVariants}
-              initial={{ ...iconVariants.initial, rotate: -90 }}
+              initial={{ ...iconVariants.initial, rotate: -90 * spin }}
               animate={{ ...iconVariants.animate, rotate: 0 }}
-              exit={{ ...iconVariants.exit, rotate: 90 }}
+              exit={{ ...iconVariants.exit, rotate: 90 * spin }}
               transition={transition}
               className="absolute inset-0 flex items-center justify-center"
             >
@@ -58,9 +62,9 @@ export default function ThemeToggle() {
             <motion.div
               key="moon"
               {...iconVariants}
-              initial={{ ...iconVariants.initial, rotate: 90 }}
+              initial={{ ...iconVariants.initial, rotate: 90 * spin }}
               animate={{ ...iconVariants.animate, rotate: 0 }}
-              exit={{ ...iconVariants.exit, rotate: -90 }}
+              exit={{ ...iconVariants.exit, rotate: -90 * spin }}
               transition={transition}
               className="absolute inset-0 flex items-center justify-center"
             >

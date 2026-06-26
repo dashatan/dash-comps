@@ -1,10 +1,7 @@
 import { useAppStore, appStore } from "./app-store";
 
 export { useAppStore, appStore } from "./app-store";
-export {
-  useDashboardStore,
-  default as useDashboardSignals,
-} from "./dashboard-store";
+export { useDashboardStore, useDashboardSignals } from "./dashboard-store";
 export { useObserveStore, setObservesSearchParams } from "./observe-store";
 export { default as storage } from "./storage";
 export type * from "./types";

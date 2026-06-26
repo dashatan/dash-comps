@@ -1,7 +1,7 @@
 "use client";
 
-import { useLanguage } from "@/lib";
-import Button from "@/components/common/buttons";
+import { useLanguage } from "@dash/core";
+import Button from "@dash/ui/common/buttons";
 import { Languages } from "lucide-react";
 
 export default function LanguageToggle() {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
   DndContext,
   closestCenter,
@@ -6,6 +6,8 @@ import {
   useSensor,
   useSensors,
   DragOverlay,
+  type DragEndEvent,
+  type DragStartEvent,
 } from "@dnd-kit/core";
 import {
   arrayMove,
@@ -15,11 +17,13 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, X } from "lucide-react";
-import { MenuItem } from "@/components/layout/dashboard/types";
-import Link from "next/link";
-import { cn } from "@/lib";
-import { isActiveMenu } from "@/components/layout/dashboard/sidebar/menu/utils";
-import { usePathname } from "next/navigation";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
+import { cn } from "@dash/core";
+import { isActiveMenu } from "@dash/ui/layout/dashboard/sidebar/menu/utils";
+import {
+  DashboardLink,
+  useDashboardPathname,
+} from "@dash/ui/layout/dashboard/navigation/context";
 
 function SortableItem({
   id,
@@ -40,7 +44,7 @@ function SortableItem({
     isDragging,
   } = useSortable({ id });
   const [isHandleActive, setIsHandleActive] = useState(false);
-  const pathname = usePathname();
+  const pathname = useDashboardPathname();
   const isActive = isActiveMenu(item, pathname);
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -50,7 +54,7 @@ function SortableItem({
   };
   const cursor = isDragging || isHandleActive ? "grabbing" : "grab";
   return (
-    <Link href={(item.path as any) || "#"}>
+    <DashboardLink href={item.path ?? "#"}>
       <div
         ref={setNodeRef}
         id={`pinned-menu-${item.path?.replace(/\//g, "-") || item.title.replace(/\s+/g, "-").toLowerCase()}`}
@@ -86,7 +90,7 @@ function SortableItem({
           <X size={16} />
         </div>
       </div>
-    </Link>
+    </DashboardLink>
   );
 }
 
@@ -105,17 +109,17 @@ export default function PinnedMenusList({
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
   );
 
-  const handleDragStart = (event: any) => {
-    setActiveId(event.active.id);
+  const handleDragStart = (event: DragStartEvent) => {
+    setActiveId(String(event.active.id));
     document.body.classList.add("dnd-grabbing");
   };
-  const handleDragEnd = (event: any) => {
+  const handleDragEnd = (event: DragEndEvent) => {
     setActiveId(null);
     document.body.classList.remove("dnd-grabbing");
     const { active, over } = event;
     if (active.id !== over?.id) {
       const oldIndex = pinned.findIndex((item) => item.title === active.id);
-      const newIndex = pinned.findIndex((item) => item.title === over.id);
+      const newIndex = pinned.findIndex((item) => item.title === over?.id);
       setPinned(arrayMove(pinned, oldIndex, newIndex));
     }
   };

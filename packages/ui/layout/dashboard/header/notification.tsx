@@ -1,10 +1,10 @@
-import Badge from "@/components/common/badge/badge";
-import { cn } from "@/lib";
+import Badge from "@dash/ui/common/badge/badge";
+import { cn } from "@dash/core";
 import { Bell } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function NotificationBell() {
-  const notifications = [];
+  const notifications: unknown[] = [];
   const [shake, setShake] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function NotificationBell() {
       <div
         className={cn(
           "relative flex cursor-pointer flex-row-reverse items-center",
-          {},
+          shake && "animate-shake",
         )}
       >
         {!!notifications?.length && (

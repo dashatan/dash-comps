@@ -1,11 +1,13 @@
-import Button from "@/components/common/buttons";
-import useDashboardSignals from "@/components/layout/dashboard/context/useDashboardSignals";
-import { isActiveMenu } from "@/components/layout/dashboard/sidebar/menu/utils";
-import { MenuItem } from "@/components/layout/dashboard/types";
-import { cn } from "@/lib";
-import { Pin, Star } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Button from "@dash/ui/common/buttons";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
+import { cn } from "@dash/core";
+import { Star } from "lucide-react";
+import useDashboardSignals from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+import { isActiveMenu } from "@dash/ui/layout/dashboard/sidebar/menu/utils";
+import {
+  DashboardLink,
+  useDashboardPathname,
+} from "@dash/ui/layout/dashboard/navigation/context";
 import { forwardRef } from "react";
 
 export type SubMenusProps = {
@@ -15,7 +17,7 @@ export type SubMenusProps = {
 
 const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
   ({ items, onItemClick }, ref) => {
-    const pathname = usePathname();
+    const pathname = useDashboardPathname();
     const { setPinned, pinned } = useDashboardSignals();
 
     return (
@@ -28,8 +30,8 @@ const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
           const isPinned = !!pinned.find((x) => x.title === item.title);
 
           return (
-            <Link
-              href={(item.path as any) || ""}
+            <DashboardLink
+              href={item.path ?? ""}
               key={item.title}
               id={`submenu-${item.path?.replace(/\//g, "-") || item.title.replace(/\s+/g, "-").toLowerCase()}`}
               className="relative flex h-14 p-2 ps-11 pb-0"
@@ -103,7 +105,7 @@ const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
                   />
                 </Button>
               </div>
-            </Link>
+            </DashboardLink>
           );
         })}
       </div>

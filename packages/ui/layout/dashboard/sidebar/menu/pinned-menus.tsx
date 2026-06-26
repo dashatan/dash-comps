@@ -1,13 +1,12 @@
-import Button from "@/components/common/buttons";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/common/collapsible";
-import useDashboardSignals from "@/components/layout/dashboard/context/useDashboardSignals";
-import { useLanguage } from "@/lib";
-import PlusMinusIcon from "@/components/common/icons/PlusMinusIcon";
-import PinnedMenusList from "./pinned-menus-list";
+} from "@dash/ui/common/collapsible";
+import useDashboardSignals from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+import { useLanguage } from "@dash/core";
+import PlusMinusIcon from "@dash/ui/common/icons/PlusMinusIcon";
+import PinnedMenusList from "@dash/ui/layout/dashboard/sidebar/menu/pinned-menus-list";
 import { useState } from "react";
 
 export default function PinnedMenus() {

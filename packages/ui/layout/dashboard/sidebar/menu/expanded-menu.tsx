@@ -1,17 +1,19 @@
-import { usePathname } from "next/navigation";
 import { useRef, useCallback, useEffect } from "react";
-import Link from "next/link";
-import SubMenus from "@/components/layout/dashboard/sidebar/menu/submenus";
-import { cn } from "@/lib";
-import { ChevronLeft } from "lucide-react";
-import Badge from "@/components/common/badge/badge";
-import { MenuItem } from "@/components/layout/dashboard/types";
+import SubMenus from "@dash/ui/layout/dashboard/sidebar/menu/submenus";
+import { cn } from "@dash/core";
+import Badge from "@dash/ui/common/badge/badge";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/common/collapsible";
-import useDashboardSignals from "@/components/layout/dashboard/context/useDashboardSignals";
+} from "@dash/ui/common/collapsible";
+import useDashboardSignals from "@dash/ui/layout/dashboard/context/useDashboardSignals";
+import {
+  DashboardLink,
+  useDashboardPathname,
+} from "@dash/ui/layout/dashboard/navigation/context";
+import { DirectionalChevron } from "@dash/ui/layout/dashboard/direction/directional-icon";
 
 interface ExpandedMenuItemProps extends MenuItem {
   id?: number;
@@ -20,7 +22,7 @@ interface ExpandedMenuItemProps extends MenuItem {
 export default function ExpandedMenuItem(props: ExpandedMenuItemProps) {
   const { title, path, Icon, children, pathTags, badge, id } = props;
   const { openMenuId, setOpenMenuId } = useDashboardSignals();
-  const pathname = usePathname();
+  const pathname = useDashboardPathname();
   const pathnameBase = pathname?.split("/")[1];
   const pathBase = path?.split("/")?.[1] || pathTags?.[0]?.split("/")?.[1];
   let isActive = pathnameBase === pathBase;
@@ -37,7 +39,7 @@ export default function ExpandedMenuItem(props: ExpandedMenuItemProps) {
     if (isActive) {
       setOpenMenuId(id);
     }
-  }, [isActive]);
+  }, [isActive, id, setOpenMenuId]);
 
   const handleLinkClick = useCallback(
     (e: React.MouseEvent) => {
@@ -46,11 +48,10 @@ export default function ExpandedMenuItem(props: ExpandedMenuItemProps) {
         setOpenMenuId(openMenuId === id ? undefined : id);
       }
       if (props.onClick) {
-        // e.preventDefault()
         props.onClick(props);
       }
     },
-    [hasChildren, id, props],
+    [hasChildren, id, openMenuId, props, setOpenMenuId],
   );
 
   const handleSubMenuClick = useCallback((item: MenuItem) => {
@@ -63,8 +64,8 @@ export default function ExpandedMenuItem(props: ExpandedMenuItemProps) {
     <div className="flex flex-col">
       <Collapsible open={isOpen}>
         <CollapsibleTrigger asChild>
-          <Link
-            href={(!hasChildren && (path as any)) || ""}
+          <DashboardLink
+            href={(!hasChildren && path) || ""}
             onClick={handleLinkClick}
             id={`menu-${path?.replace(/\//g, "-") || title.replace(/\s+/g, "-").toLowerCase()}`}
             className={cn(
@@ -89,17 +90,15 @@ export default function ExpandedMenuItem(props: ExpandedMenuItemProps) {
             {!!badge && <Badge highlight>{badge}</Badge>}
             {hasChildren && (
               <div className="ms-auto flex h-6 w-6 shrink-0 items-center justify-center">
-                <ChevronLeft
-                  className={cn(
-                    "w-4 text-sidebar-foreground transition-transform duration-300 ltr:rotate-180",
-                    {
-                      "ltr:-rotate-90 rtl:-rotate-90": isOpen,
-                    },
-                  )}
+                <DirectionalChevron
+                  variant="menu"
+                  open={isOpen}
+                  size={16}
+                  className="w-4 text-sidebar-foreground"
                 />
               </div>
             )}
-          </Link>
+          </DashboardLink>
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SubMenus

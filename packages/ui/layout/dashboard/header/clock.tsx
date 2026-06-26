@@ -1,6 +1,10 @@
-import { formatPersianDate, createDate, formatPersianTime } from "@/lib";
+import {
+  formatPersianDate,
+  createDate,
+  formatPersianTime,
+  cn,
+} from "@dash/core";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib";
 import { CalendarDays, Clock3 } from "lucide-react";
 
 export default function Clock() {

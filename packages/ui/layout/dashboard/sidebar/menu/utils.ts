@@ -1,4 +1,4 @@
-import { MenuItem } from "@/components/layout/dashboard/types";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
 
 export function isActiveMenu(item: MenuItem, pathname: string) {
   const hasTag =

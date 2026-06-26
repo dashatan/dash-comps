@@ -1,11 +1,22 @@
 "use client";
 
 import { createContext, useContext, type ReactNode } from "react";
-import type { MenuItem } from "@/components/layout/dashboard/types";
+import type {
+  DashboardMenuSettings,
+  MenuItem,
+} from "@dash/ui/layout/dashboard/types";
 
 type DashboardLayoutContextValue = {
   menuItems: MenuItem[];
   footer: ReactNode;
+  menuSettings: DashboardMenuSettings;
+  isRtl: boolean;
+};
+
+const defaultMenuSettings: DashboardMenuSettings = {
+  visibleMenus: [],
+  defaultExpanded: true,
+  showClock: true,
 };
 
 const DashboardLayoutContext =
@@ -14,10 +25,25 @@ const DashboardLayoutContext =
 export function DashboardLayoutProvider({
   menuItems,
   footer,
+  menuSettings,
+  isRtl,
   children,
-}: DashboardLayoutContextValue & { children: ReactNode }) {
+}: {
+  menuItems: MenuItem[];
+  footer: ReactNode;
+  menuSettings?: DashboardMenuSettings;
+  isRtl: boolean;
+  children: ReactNode;
+}) {
   return (
-    <DashboardLayoutContext.Provider value={{ menuItems, footer }}>
+    <DashboardLayoutContext.Provider
+      value={{
+        menuItems,
+        footer,
+        menuSettings: { ...defaultMenuSettings, ...menuSettings },
+        isRtl,
+      }}
+    >
       {children}
     </DashboardLayoutContext.Provider>
   );

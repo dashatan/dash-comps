@@ -1,16 +1,20 @@
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib";
+import { cn } from "@dash/core";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import {
   Popover,
   PopoverAnchor,
   PopoverContent,
-} from "@/components/common/overlay/popover";
-import { ChevronLeft } from "lucide-react";
-import { MenuItem } from "@/components/layout/dashboard/types";
-import SubMenus from "@/components/layout/dashboard/sidebar/menu/submenus";
-import Badge from "@/components/common/badge/badge";
+} from "@dash/ui/common/overlay/popover";
+import type { MenuItem } from "@dash/ui/layout/dashboard/types";
+import SubMenus from "@dash/ui/layout/dashboard/sidebar/menu/submenus";
+import Badge from "@dash/ui/common/badge/badge";
+import {
+  DashboardLink,
+  useDashboardPathname,
+} from "@dash/ui/layout/dashboard/navigation/context";
+import { DirectionalChevron } from "@dash/ui/layout/dashboard/direction/directional-icon";
+import { useDashboardDirection } from "@dash/ui/layout/dashboard/direction/use-dashboard-direction";
+import { getSidebarPopoverSide } from "@dash/ui/layout/dashboard/direction/rotation";
 
 interface CollapsedMenuItemProps extends MenuItem {
   onClick?: (item: MenuItem) => void;
@@ -57,10 +61,12 @@ const isPathActive = (
 
 export default function CollapsedMenuItem(props: CollapsedMenuItemProps) {
   const { title, path, Icon, children, pathTags, badge, onClick } = props;
-  const pathname = usePathname();
+  const pathname = useDashboardPathname();
+  const { isRtl } = useDashboardDirection();
   const ref = useRef<HTMLDivElement>(null);
   const hasChildren = Boolean(children?.length);
-  const { hover, setHover, open } = useHoverState(hasChildren);
+  const { setHover, open } = useHoverState(hasChildren);
+  const popoverSide = getSidebarPopoverSide(isRtl, "menu");
 
   const isActive = isPathActive(pathname, path, pathTags, children);
 
@@ -82,19 +88,15 @@ export default function CollapsedMenuItem(props: CollapsedMenuItemProps) {
       <Popover open={open}>
         <PopoverAnchor className="relative">
           {open && hasChildren && (
-            <ChevronLeft
-              className={cn(
-                "absolute top-1/2 -translate-y-1/2 fill-current text-sidebar-icon transition-all ltr:-right-4 rtl:-left-4",
-                {
-                  "ltr:rotate-180": open,
-                  "rtl:rotate-180": !open,
-                },
-              )}
+            <DirectionalChevron
+              variant="flyout"
+              open={open}
               size={18}
+              className="absolute -end-4 top-1/2 -translate-y-1/2 fill-current text-sidebar-icon"
             />
           )}
-          <Link
-            href={(!onClick && (path as any)) || ""}
+          <DashboardLink
+            href={(!onClick && path) || ""}
             id={`collapsed-menu-${path?.replace(/\//g, "-") || title.replace(/\s+/g, "-").toLowerCase()}`}
             className={cn(
               "flex h-12 cursor-pointer items-center rounded-lg px-2 select-none",
@@ -115,11 +117,11 @@ export default function CollapsedMenuItem(props: CollapsedMenuItemProps) {
               </Badge>
             )}
             {Icon && <Icon size={24} className="text-sidebar-icon" />}
-          </Link>
+          </DashboardLink>
         </PopoverAnchor>
         {hasChildren && (
           <PopoverContent
-            side="left"
+            side={popoverSide}
             className="ms-5 w-72 border border-sidebar-border bg-sidebar shadow-sm"
           >
             <div>
