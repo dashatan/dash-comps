@@ -10,7 +10,7 @@
   },
   "overview": {
     "title": "Overview",
-    "subtitle": "European fleet operations at a glance",
+    "subtitle": "Live KPIs, fleet status, and operational snapshots",
     "kpis": {
       "activeShipments": "Active shipments",
       "onTimePercent": "On-time delivery",
@@ -53,6 +53,10 @@
       "rangeLow": "Low",
       "rangeHigh": "High"
     },
+    "summary": {
+      "regionalShare": "Regional mix",
+      "regionalShareDescription": "Quick view of volume share by operating region"
+    },
     "lists": {
       "topRoutes": {
         "title": "Top corridors",
@@ -90,14 +94,45 @@
   },
   "analytics": {
     "title": "Analytics",
-    "subtitle": "Operations and financial performance across the EU network",
+    "subtitle": "Deep-dive trends, charts, and corridor analysis",
     "charts": {
       "statusVolume": "Shipments by status",
       "onTimeTrend": "On-time delivery (%)",
       "revenueCost": "Revenue vs operating cost",
+      "dailyVolume": "Daily shipment volume",
+      "countryVolume": "EU shipment density",
+      "recentTrend": "30-day shipment trend",
       "delaysByHub": "Delays by hub",
       "regionalShare": "Regional shipment share",
-      "topRoutes": "Top corridors by volume"
+      "topRoutes": "Top corridors by volume",
+      "total": "Total",
+      "descriptions": {
+        "statusVolume": "Current shipment count grouped by lifecycle status",
+        "onTimeTrend": "Rolling on-time delivery rate over the past twelve months",
+        "revenueCost": "Monthly revenue compared to operating cost in EUR thousands",
+        "dailyVolume": "Shipment count per day for the current period",
+        "countryVolume": "Destination-country volume across the European network",
+        "recentTrend": "Daily shipment volume over the last thirty days",
+        "delaysByHub": "Delay incidents recorded at each EU hub this month",
+        "regionalShare": "Share of network volume by European operating region",
+        "topRoutes": "Highest-volume origin–destination corridors this month"
+      }
+    },
+    "lists": {
+      "topRoutes": {
+        "title": "Corridor rankings",
+        "description": "Top corridors by shipment volume for the current period"
+      }
+    },
+    "summary": {
+      "totalShipments": "Total shipments",
+      "totalShipmentsDescription": "All shipments across lifecycle statuses in the dataset",
+      "latestOnTime": "Latest on-time rate",
+      "latestOnTimeDescription": "On-time delivery percentage for the most recent month",
+      "hubDelayTotal": "Hub delay incidents",
+      "hubDelayTotalDescription": "Combined delay count across monitored EU hubs",
+      "topCorridor": "Top corridor",
+      "topCorridorDescription": "Highest-volume origin–destination pair this month"
     }
   },
   "reports": {
