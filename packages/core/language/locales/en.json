@@ -280,12 +280,6 @@
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out"
   },
-  "map": {
-    "geoman": {
-      "polygon": "Draw polygon",
-      "rectangle": "Draw rectangle"
-    }
-  },
   "date": {
     "friday": "Friday",
     "monday": "Monday",
@@ -354,13 +348,6 @@
   "header": {
     "searchPlaceHolder": "Search features..."
   },
-  "observe": {
-    "chosenPlateInfo": "Selected plate information",
-    "isLoading": "Loading observations…",
-    "loadingRoute": "Loading route…",
-    "noData": "No observations in this range",
-    "observesInDateRange": "Observations in date range"
-  },
   "locationPicker": {
     "camerasFromDate": "Cameras active from",
     "coordinates": "Coordinates {coords}",
@@ -376,6 +363,38 @@
     "selectRoads": "Select roads",
     "tabRoutingFromMap": "Routing from map",
     "tabSelectFromMap": "Select from map"
+  },
+  "logisticsAdmin": {
+    "app": {
+      "description": "European fleet operations dashboard",
+      "name": "Logistics Admin"
+    },
+    "nav": {
+      "analytics": "Analytics",
+      "customers": "Customers",
+      "finance": "Finance",
+      "fleet": "Fleet",
+      "overview": "Overview",
+      "reports": "Reports",
+      "routes": "Routes",
+      "settings": "Settings",
+      "shipments": "Shipments",
+      "tracker": "Live Tracker",
+      "warehouses": "Warehouses"
+    }
+  },
+  "map": {
+    "geoman": {
+      "polygon": "Draw polygon",
+      "rectangle": "Draw rectangle"
+    }
+  },
+  "observe": {
+    "chosenPlateInfo": "Selected plate information",
+    "isLoading": "Loading observations…",
+    "loadingRoute": "Loading route…",
+    "noData": "No observations in this range",
+    "observesInDateRange": "Observations in date range"
   },
   "plate": {
     "chooseFromGallery": "Choose from saved plates list",

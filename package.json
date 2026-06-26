@@ -6,9 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @dash/showcase dev",
+    "dev:admin": "pnpm --filter @dash/logistics-admin dev",
     "build": "pnpm --filter @dash/showcase build",
+    "build:admin": "pnpm --filter @dash/logistics-admin build",
     "preview": "pnpm --filter @dash/showcase preview",
+    "preview:admin": "pnpm --filter @dash/logistics-admin preview",
     "typecheck": "node scripts/validate-locales.mjs && pnpm --filter @dash/showcase typecheck",
+    "typecheck:admin": "pnpm --filter @dash/logistics-admin typecheck",
     "sync:locales": "node scripts/sync-locales.mjs",
     "sync:showcase-locales": "node scripts/sync-showcase-locales.mjs",
     "validate:locales": "node scripts/validate-locales.mjs",
@@ -16,6 +20,9 @@
     "capture:table-guide": "node scripts/capture-table-guide-screenshots.mjs"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@geoman-io/leaflet-geoman-free": "^2.19.3",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-collapsible": "^1.1.11",

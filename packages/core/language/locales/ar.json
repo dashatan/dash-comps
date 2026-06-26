@@ -280,12 +280,6 @@
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out"
   },
-  "map": {
-    "geoman": {
-      "polygon": "رسم مضلع",
-      "rectangle": "رسم مستطيل"
-    }
-  },
   "date": {
     "friday": "الجمعة",
     "monday": "الإثنين",
@@ -354,13 +348,6 @@
   "header": {
     "searchPlaceHolder": "البحث في الميزات..."
   },
-  "observe": {
-    "chosenPlateInfo": "معلومات اللوحة المختارة",
-    "isLoading": "جارٍ تحميل الملاحظات…",
-    "loadingRoute": "جارٍ تحميل المسار…",
-    "noData": "لا توجد ملاحظات في هذا النطاق",
-    "observesInDateRange": "الملاحظات في نطاق التاريخ"
-  },
   "locationPicker": {
     "camerasFromDate": "الكاميرات النشطة من",
     "coordinates": "الإحداثيات {coords}",
@@ -376,6 +363,38 @@
     "selectRoads": "اختيار الطرق",
     "tabRoutingFromMap": "التوجيه من الخريطة",
     "tabSelectFromMap": "الاختيار من الخريطة"
+  },
+  "logisticsAdmin": {
+    "app": {
+      "description": "European fleet operations dashboard",
+      "name": "Logistics Admin"
+    },
+    "nav": {
+      "analytics": "Analytics",
+      "customers": "Customers",
+      "finance": "Finance",
+      "fleet": "Fleet",
+      "overview": "Overview",
+      "reports": "Reports",
+      "routes": "Routes",
+      "settings": "Settings",
+      "shipments": "Shipments",
+      "tracker": "Live Tracker",
+      "warehouses": "Warehouses"
+    }
+  },
+  "map": {
+    "geoman": {
+      "polygon": "رسم مضلع",
+      "rectangle": "رسم مستطيل"
+    }
+  },
+  "observe": {
+    "chosenPlateInfo": "معلومات اللوحة المختارة",
+    "isLoading": "جارٍ تحميل الملاحظات…",
+    "loadingRoute": "جارٍ تحميل المسار…",
+    "noData": "لا توجد ملاحظات في هذا النطاق",
+    "observesInDateRange": "الملاحظات في نطاق التاريخ"
   },
   "plate": {
     "chooseFromGallery": "الاختيار من قائمة اللوحات المحفوظة",

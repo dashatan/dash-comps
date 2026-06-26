@@ -280,12 +280,6 @@
     "zoomIn": "بزرگنمایی",
     "zoomOut": "کوچکنمایی"
   },
-  "map": {
-    "geoman": {
-      "polygon": "رسم چندضلعی",
-      "rectangle": "رسم مستطیل"
-    }
-  },
   "date": {
     "friday": "جمعه",
     "monday": "دوشنبه",
@@ -354,13 +348,6 @@
   "header": {
     "searchPlaceHolder": "جستجو در امکانات..."
   },
-  "observe": {
-    "chosenPlateInfo": "اطلاعات پلاک انتخاب‌شده",
-    "isLoading": "در حال بارگذاری ترددها…",
-    "loadingRoute": "در حال بارگذاری مسیر…",
-    "noData": "ترددی در این بازه یافت نشد",
-    "observesInDateRange": "ترددهای بازه زمانی"
-  },
   "locationPicker": {
     "camerasFromDate": "دوربین‌های فعال از",
     "coordinates": "مختصات {coords}",
@@ -376,6 +363,38 @@
     "selectRoads": "انتخاب محورها",
     "tabRoutingFromMap": "مسیریابی از روی نقشه",
     "tabSelectFromMap": "انتخاب از روی نقشه"
+  },
+  "logisticsAdmin": {
+    "app": {
+      "description": "European fleet operations dashboard",
+      "name": "Logistics Admin"
+    },
+    "nav": {
+      "analytics": "Analytics",
+      "customers": "Customers",
+      "finance": "Finance",
+      "fleet": "Fleet",
+      "overview": "Overview",
+      "reports": "Reports",
+      "routes": "Routes",
+      "settings": "Settings",
+      "shipments": "Shipments",
+      "tracker": "Live Tracker",
+      "warehouses": "Warehouses"
+    }
+  },
+  "map": {
+    "geoman": {
+      "polygon": "رسم چندضلعی",
+      "rectangle": "رسم مستطیل"
+    }
+  },
+  "observe": {
+    "chosenPlateInfo": "اطلاعات پلاک انتخاب‌شده",
+    "isLoading": "در حال بارگذاری ترددها…",
+    "loadingRoute": "در حال بارگذاری مسیر…",
+    "noData": "ترددی در این بازه یافت نشد",
+    "observesInDateRange": "ترددهای بازه زمانی"
   },
   "plate": {
     "chooseFromGallery": "انتخاب از فهرست پلاک‌های ذخیره‌شده",

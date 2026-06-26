@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "tsBuildInfoFile": "../../node_modules/.tmp/tsconfig.logistics-admin.tsbuildinfo",
+    "paths": {
+      "@dash/ui/*": ["../../packages/ui/*"],
+      "@dash/core": ["../../packages/core/client.ts"],
+      "@dash/core/*": ["../../packages/core/*"],
+      "@dash/styles/*": ["../../packages/styles/*"],
+      "@dash/stubs/*": ["../../packages/stubs/*"],
+      "@/components/*": ["../../packages/ui/*"],
+      "@/lib": ["../../packages/core/index.ts"],
+      "@/lib/*": ["../../packages/core/*"],
+      "@dash/features/*": ["../../packages/core/features/*"],
+      "@/store/*": ["../../packages/core/store/*"],
+      "@/store": ["../../packages/core/store/index.ts"],
+      "@/utils/*": ["../../packages/stubs/utils/*"],
+      "@/utils": ["../../packages/stubs/utils/index.ts"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src"]
+}

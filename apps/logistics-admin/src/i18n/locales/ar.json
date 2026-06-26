@@ -1,0 +1,119 @@
+{
+  "common": {
+    "comingSoon": "Coming in Phase 2",
+    "comingSoonDescription": "This module is planned for a future release. Explore Overview, Analytics, Reports, and Shipments in the meantime.",
+    "backToOverview": "Back to Overview",
+    "europeanOperations": "European operations",
+    "lastUpdated": "Last updated",
+    "viewReport": "View report"
+  },
+  "overview": {
+    "title": "Overview",
+    "subtitle": "European fleet operations at a glance",
+    "kpis": {
+      "activeShipments": "Active shipments",
+      "onTimePercent": "On-time delivery",
+      "avgDeliveryHours": "Avg delivery time",
+      "delayedCount": "Delayed shipments",
+      "fleetUtilization": "Fleet utilisation",
+      "revenueMtd": "Revenue (MTD)",
+      "costMtd": "Cost (MTD)",
+      "marginPercent": "Gross margin"
+    },
+    "charts": {
+      "revenueCost": "Revenue vs cost (EUR thousands)",
+      "dailyVolume": "Daily shipment volume",
+      "onTimeTrend": "On-time delivery trend"
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Operations and financial performance across the EU network",
+    "charts": {
+      "statusVolume": "Shipments by status",
+      "onTimeTrend": "On-time delivery (%)",
+      "revenueCost": "Revenue vs operating cost",
+      "delaysByHub": "Delays by hub",
+      "regionalShare": "Regional shipment share",
+      "topRoutes": "Top corridors by volume"
+    }
+  },
+  "reports": {
+    "title": "Reports",
+    "subtitle": "Chart-based operational and financial reports",
+    "deliveryPerformance": {
+      "title": "Delivery Performance",
+      "description": "On-time rates and delivery duration by EU hub"
+    },
+    "revenueByRoute": {
+      "title": "Revenue by Route",
+      "description": "Top corridors ranked by revenue and margin"
+    },
+    "fleetUtilization": {
+      "title": "Fleet Utilisation",
+      "description": "Vehicle usage across European regions"
+    },
+    "summary": {
+      "avgOnTime": "Average on-time",
+      "avgDelivery": "Avg delivery",
+      "delayed": "Delayed shipments",
+      "hubs": "Hubs monitored",
+      "totalRevenue": "Total revenue",
+      "totalCost": "Total cost",
+      "topRoute": "Top corridor",
+      "routes": "Corridors analysed",
+      "fleetSize": "Fleet size",
+      "activeVehicles": "Active vehicles",
+      "avgUtilization": "Avg utilisation",
+      "maintenance": "In maintenance"
+    }
+  },
+  "shipments": {
+    "title": "Shipments",
+    "subtitle": "Read-only view of EU shipment records",
+    "columns": {
+      "id": "ID",
+      "trackingNumber": "Tracking no.",
+      "status": "Status",
+      "origin": "Origin",
+      "destination": "Destination",
+      "region": "Region",
+      "country": "Country",
+      "weight": "Weight",
+      "revenue": "Revenue",
+      "cost": "Cost",
+      "scheduled": "Scheduled",
+      "onTime": "On time"
+    },
+    "statuses": {
+      "pending": "Pending",
+      "in_transit": "In transit",
+      "delivered": "Delivered",
+      "delayed": "Delayed",
+      "cancelled": "Cancelled"
+    },
+    "regions": {
+      "benelux": "Benelux",
+      "dach": "DACH",
+      "iberia": "Iberia",
+      "nordics": "Nordics",
+      "central_europe": "Central Europe",
+      "western_europe": "Western Europe"
+    },
+    "onTime": {
+      "yes": "Yes",
+      "no": "No",
+      "na": "—"
+    }
+  },
+  "placeholder": {
+    "title": "Module coming soon",
+    "fleet": "Fleet management for vehicles and drivers across EU depots.",
+    "tracker": "Live map tracking along European corridors.",
+    "customers": "B2B customer accounts and contracts.",
+    "routes": "Corridor planning and route optimisation.",
+    "warehouses": "Warehouse capacity and inventory hubs.",
+    "finance": "Invoicing, payments, and margin analysis.",
+    "settings": "Organisation and integration settings."
+  }
+}
