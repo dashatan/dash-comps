@@ -1,4 +1,7 @@
 {
   "installCommand": "cd ../.. && pnpm install --filter @dash/logistics-api...",
+  "buildCommand": "cd ../.. && pnpm --filter @dash/logistics-api build:vercel",
+  "outputDirectory": "public",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
   "ignoreCommand": "bash ../../scripts/vercel/ignore-logistics-api.sh"
 }

@@ -261,6 +261,9 @@ importers:
         specifier: ^4.4.3
         version: 4.4.3
     devDependencies:
+      esbuild:
+        specifier: ^0.25.12
+        version: 0.25.12
       tsx:
         specifier: ^4.22.4
         version: 4.22.4

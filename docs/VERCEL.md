@@ -33,7 +33,7 @@ Defined in `apps/logistics-admin/vercel.json`. Override in the Vercel dashboard 
 
 ### API (serverless)
 
-- Entry: `apps/logistics-api/src/app.ts` (default export, zero-config Hono)
+- Entry: `apps/logistics-api/api/index.ts` (`hono/vercel`) with `src/app.ts` routes
 - Local dev still uses `pnpm dev:api` (`@hono/node-server` + SQLite meta in `src/index.ts`)
 - Production uses in-memory `LogisticsDataStore` only (no SQLite on serverless)
 

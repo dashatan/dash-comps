@@ -4,3 +4,4 @@ data/
 
 .vercel
 .env*
+api/index.js
