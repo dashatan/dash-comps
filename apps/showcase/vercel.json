@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd ../.. && pnpm install",
+  "installCommand": "cd ../.. && pnpm install --filter @dash/showcase...",
   "buildCommand": "cd ../.. && pnpm --filter @dash/showcase build",
   "outputDirectory": "dist",
   "framework": "vite",

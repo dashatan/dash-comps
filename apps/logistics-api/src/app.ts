@@ -166,3 +166,4 @@ app.get("/api/v1/tracker/playback", (c) => {
 });
 
 export { app };
+export default app;

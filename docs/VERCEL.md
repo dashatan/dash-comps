@@ -18,7 +18,7 @@ Config lives in each app’s `vercel.json` (install, build, rewrites, ignore com
 2. For each project, set **Root Directory** to the path in the table above.
 3. Enable **Include source files outside of the Root Directory** (monorepo).
 4. Set the **project name** exactly as in the table (`dash-logistics` for the admin app).
-5. Use **Node.js 20.x**.
+5. Use **Node.js 24.x** (20.x is deprecated on Vercel).
 6. Leave build/install settings empty in the UI if `vercel.json` is present — the file overrides them.
 
 ### Admin ↔ API
@@ -33,7 +33,7 @@ Defined in `apps/logistics-admin/vercel.json`. Override in the Vercel dashboard 
 
 ### API (serverless)
 
-- Entry: `apps/logistics-api/api/[[...route]].ts` (`hono/vercel`)
+- Entry: `apps/logistics-api/src/app.ts` (default export, zero-config Hono)
 - Local dev still uses `pnpm dev:api` (`@hono/node-server` + SQLite meta in `src/index.ts`)
 - Production uses in-memory `LogisticsDataStore` only (no SQLite on serverless)
 

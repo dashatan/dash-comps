@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd ../.. && pnpm install",
+  "installCommand": "cd ../.. && pnpm install --filter @dash/logistics-admin...",
   "buildCommand": "cd ../.. && pnpm --filter @dash/logistics-admin build",
   "outputDirectory": "dist",
   "framework": "vite",
