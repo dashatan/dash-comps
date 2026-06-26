@@ -11,6 +11,7 @@ import {
   Type,
 } from "lucide-react";
 import { useLanguage, usePreferences } from "@dash/core";
+import type { TranslationKeys } from "@dash/core/language/locales";
 import type { FontFamily, FontSize, Spacing } from "@/store";
 import { GridContainer } from "@/components/common/grid";
 import { Select } from "@/components/common/inputs/select";
@@ -61,7 +62,7 @@ function isMenuVisible(path: string, visibleMenus: string[]): boolean {
 export function AppearancePage() {
   const t = useLogisticsT();
   const { theme, setTheme } = useTheme();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t: tNav } = useLanguage();
   const { preferences, updatePreference, resetPreferences } = usePreferences();
 
   const topLevelMenus = useMemo(
@@ -246,7 +247,7 @@ export function AppearancePage() {
                 <Checkbox.Labeled
                   key={item.path}
                   id={`menu-visible-${item.path}`}
-                  label={t(item.titleKey as Parameters<typeof t>[0])}
+                  label={tNav(item.titleKey as TranslationKeys)}
                   checked={isMenuVisible(
                     item.path,
                     preferences.menuSettings.visibleMenus,

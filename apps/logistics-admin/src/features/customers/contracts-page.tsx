@@ -13,6 +13,7 @@ import { customersRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
 import { useServerTable } from "@/shared/hooks/use-server-table";
+import { AddContractSheet } from "@/features/customers/components/add-contract-sheet";
 
 const ACCOUNT_TIERS = ["standard", "premium", "enterprise"] as const;
 
@@ -154,6 +155,9 @@ export function ContractsPage() {
             loading={loading}
             showActionHeader
             showActionFilters
+            actionHeaderProps={{
+              firstExtraElements: <AddContractSheet />,
+            }}
             dataKey="id"
             onTableChange={handleTableChange}
           />

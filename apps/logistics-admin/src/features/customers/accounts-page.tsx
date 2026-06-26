@@ -13,6 +13,7 @@ import { customersRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { PageHeader } from "@/shared/page-header";
 import { useServerTable } from "@/shared/hooks/use-server-table";
+import { AddAccountSheet } from "@/features/customers/components/add-account-sheet";
 import { EU_COUNTRY_CODES, EU_REGIONS } from "@/shared/formatters";
 
 const ACCOUNT_TIERS = ["standard", "premium", "enterprise"] as const;
@@ -169,6 +170,9 @@ export function AccountsPage() {
             loading={loading}
             showActionHeader
             showActionFilters
+            actionHeaderProps={{
+              firstExtraElements: <AddAccountSheet />,
+            }}
             dataKey="id"
             onTableChange={handleTableChange}
           />

@@ -48,8 +48,8 @@ export function OrganisationPage() {
   });
 
   const hubsQuery = useQuery({
-    queryKey: queryKeys.reference.hubs({ page: 1, pageSize: 100 }),
-    queryFn: () => referenceRepository.listHubs({ page: 1, pageSize: 100 }),
+    queryKey: queryKeys.reference.hubs({ page: 0, pageSize: 100 }),
+    queryFn: () => referenceRepository.listHubs({ page: 0, pageSize: 100 }),
   });
 
   useEffect(() => {
@@ -198,6 +198,7 @@ export function OrganisationPage() {
             <Select.Multi
               options={hubOptions}
               value={form.depotHubIds}
+              loading={hubsQuery.isLoading}
               onChange={(value) => {
                 if (Array.isArray(value)) {
                   updateForm({ depotHubIds: value as string[] });

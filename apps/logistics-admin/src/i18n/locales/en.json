@@ -405,6 +405,28 @@
       "monthly": "Monthly",
       "quarterly": "Quarterly",
       "annual": "Annual"
+    },
+    "forms": {
+      "addAccount": "Add account",
+      "addAccountTitle": "New customer account",
+      "addAccountDescription": "Create a B2B account profile. Demo only — validated locally, not saved to the API.",
+      "addContract": "Add contract",
+      "addContractTitle": "New service contract",
+      "addContractDescription": "Define SLA, billing, and corridor coverage. Demo only — validated locally, not saved to the API.",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "validationFailed": "Please fix the highlighted fields",
+      "accountSubmitted": "Account submitted (demo)",
+      "contractSubmitted": "Contract submitted (demo)",
+      "fields": {
+        "companyName": "Company name",
+        "legalSuffix": "Legal suffix",
+        "city": "City",
+        "phone": "Phone",
+        "customerName": "Customer name",
+        "corridorCount": "Corridor count",
+        "notes": "Notes"
+      }
     }
   },
   "routes": {
