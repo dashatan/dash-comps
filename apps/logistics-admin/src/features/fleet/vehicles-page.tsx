@@ -10,7 +10,11 @@ import Table, {
   type ColumnProps,
   type TableData,
 } from "@/components/compound/table";
-import { EU_COUNTRY_CODES, EU_REGIONS, formatKg } from "@/data/european-context";
+import {
+  EU_COUNTRY_CODES,
+  EU_REGIONS,
+  formatKg,
+} from "@/data/european-context";
 import {
   VEHICLES,
   VEHICLE_STATUSES,
@@ -83,7 +87,12 @@ export function VehiclesPage() {
   const handleTableChange = useCallback(
     (data: TableData | Record<string, string>, tag: ChangeTag) => {
       setTableState(data as TableData);
-      if (tag === "filter" || tag === "pagination" || tag === "rows" || tag === "sort") {
+      if (
+        tag === "filter" ||
+        tag === "pagination" ||
+        tag === "rows" ||
+        tag === "sort"
+      ) {
         setLoading(true);
         window.setTimeout(() => setLoading(false), 280);
       }
@@ -113,7 +122,7 @@ export function VehiclesPage() {
         body: (row) => (
           <TableCellTextField
             value={(row as LocalizedVehicle).plate}
-            className="dir-ltr font-mono text-xs"
+            className="font-mono text-xs dir-ltr"
           />
         ),
       },
@@ -174,7 +183,9 @@ export function VehiclesPage() {
         sortable: true,
         width: 120,
         body: (row) => (
-          <TableCellTextField value={formatKg((row as LocalizedVehicle).capacityKg)} />
+          <TableCellTextField
+            value={formatKg((row as LocalizedVehicle).capacityKg)}
+          />
         ),
       },
       {

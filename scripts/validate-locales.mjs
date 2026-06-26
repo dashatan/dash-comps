@@ -23,7 +23,8 @@ function collectPaths(base, prefix = "") {
 }
 
 function isSortedDeep(value) {
-  if (value === null || typeof value !== "object" || Array.isArray(value)) return true;
+  if (value === null || typeof value !== "object" || Array.isArray(value))
+    return true;
   const keys = Object.keys(value);
   const sorted = [...keys].sort((a, b) => a.localeCompare(b));
   if (keys.some((key, index) => key !== sorted[index])) return false;
@@ -46,7 +47,9 @@ function validateAgainstBase(base, locale, lang) {
 
   if (!isSortedDeep(locale)) {
     ok = false;
-    console.error(`\n[${lang}] locale keys are not alphabetically sorted — run pnpm sync:locales`);
+    console.error(
+      `\n[${lang}] locale keys are not alphabetically sorted — run pnpm sync:locales`,
+    );
   }
 
   return ok;

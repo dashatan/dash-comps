@@ -1,6 +1,9 @@
 import { Alert } from "@/components/common/alert";
 
-export { ErrorHandler, type ErrorFallbackProps } from "@/components/common/errors/error-boundary";
+export {
+  ErrorHandler,
+  type ErrorFallbackProps,
+} from "@/components/common/errors/error-boundary";
 
 export function useDataErrorHandler<T>(props?: {
   data?: T;
@@ -11,7 +14,8 @@ export function useDataErrorHandler<T>(props?: {
   permitted?: boolean;
 }) {
   if (props?.isLoading || props?.isFetching) return <Alert.Loading />;
-  if (props?.isError && props?.error?.status === 403) return <Alert.Forbidden />;
+  if (props?.isError && props?.error?.status === 403)
+    return <Alert.Forbidden />;
   if (!props?.permitted) return <Alert.Forbidden />;
   if (props?.isError) return <Alert.Error message={props?.error?.message} />;
   if (!props?.data) return <Alert.Empty />;

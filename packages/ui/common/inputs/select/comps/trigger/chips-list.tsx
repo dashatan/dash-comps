@@ -1,7 +1,10 @@
 import { cn } from "@/lib";
 import Badge from "@/components/common/badge/badge";
 import Chip from "@/components/common/chips/chip";
-import { SelectItem, SelectTriggerTemplateProps } from "@/components/common/inputs/select/types";
+import {
+  SelectItem,
+  SelectTriggerTemplateProps,
+} from "@/components/common/inputs/select/types";
 import { useRef } from "react";
 import { useVisibleChipCount } from "@/components/common/inputs/select/comps/trigger/use-visible-chip-count";
 

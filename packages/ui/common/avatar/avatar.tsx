@@ -61,9 +61,9 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
     const resolvedSrc = resolveAvatarSrc(src, avatar, user);
     const displayName = resolveDisplayName(user, name);
     const initialsText = getInitials(user, name, initials);
-    const [imageState, setImageState] = useState<"loading" | "loaded" | "error">(
-      resolvedSrc ? "loading" : "error",
-    );
+    const [imageState, setImageState] = useState<
+      "loading" | "loaded" | "error"
+    >(resolvedSrc ? "loading" : "error");
 
     useEffect(() => {
       setImageState(resolvedSrc ? "loading" : "error");
@@ -140,30 +140,30 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
           />
         ) : null}
 
-        {showFallback ? (
-          fallback ?? (
-            <span
-              data-slot="avatar-fallback"
-              className={cn(
-                avatarFallbackVariants({ severity: resolvedSeverity }),
-                fallbackClassName,
-              )}
-            >
-              {Icon ? (
-                <Icon className="size-[55%] shrink-0" aria-hidden />
-              ) : (
-                initialsText
-              )}
-            </span>
-          )
-        ) : null}
+        {showFallback
+          ? (fallback ?? (
+              <span
+                data-slot="avatar-fallback"
+                className={cn(
+                  avatarFallbackVariants({ severity: resolvedSeverity }),
+                  fallbackClassName,
+                )}
+              >
+                {Icon ? (
+                  <Icon className="size-[55%] shrink-0" aria-hidden />
+                ) : (
+                  initialsText
+                )}
+              </span>
+            ))
+          : null}
 
         {isLoading ? (
           <span
             aria-hidden
-            className="bg-background/70 absolute inset-0 flex items-center justify-center backdrop-blur-[1px]"
+            className="absolute inset-0 flex items-center justify-center bg-background/70 backdrop-blur-[1px]"
           >
-            <Loader2 className="text-muted-foreground size-[45%] animate-spin" />
+            <Loader2 className="size-[45%] animate-spin text-muted-foreground" />
           </span>
         ) : null}
 

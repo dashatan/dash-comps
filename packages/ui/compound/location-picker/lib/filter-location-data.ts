@@ -5,7 +5,9 @@ import {
   LocationFilterParams,
 } from "@/components/compound/location-picker/lib/types";
 
-function filterProvincesFromParams(props: FilterTrafficDataParams): Province[] | undefined {
+function filterProvincesFromParams(
+  props: FilterTrafficDataParams,
+): Province[] | undefined {
   const sourcesIds = props.sources?.map((x) => x.id);
   let provinces = props.provinces?.filter((x) =>
     x.source ? x.source.some((y) => sourcesIds?.includes(y)) : false,
@@ -62,7 +64,9 @@ function filterDevicesFromProvinces(
 }
 
 /** Single-pass hierarchy filter (provinces computed once). */
-export function filterLocationData(params: FilterTrafficDataParams): FilteredLocationData {
+export function filterLocationData(
+  params: FilterTrafficDataParams,
+): FilteredLocationData {
   const filteredProvinces = filterProvincesFromParams(params);
   return {
     provinces: filteredProvinces,

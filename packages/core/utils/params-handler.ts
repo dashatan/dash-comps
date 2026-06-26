@@ -96,7 +96,9 @@ function normalizePagination(
 /**
  * Determines ordering direction from sort order
  */
-function getOrderingDirection(sortOrder: number | null | undefined): OrderingDirection {
+function getOrderingDirection(
+  sortOrder: number | null | undefined,
+): OrderingDirection {
   if (sortOrder === null || sortOrder === undefined || sortOrder === 0) {
     return "none";
   }

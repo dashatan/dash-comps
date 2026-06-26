@@ -46,7 +46,12 @@ export function useDateInput(props: DateInputProps): UseDateInputReturn {
   }, [language]);
   const serverTimeDiff = useAppStore((state) => state.serverTimeDiff);
   const currentDate = useMemo(
-    () => new DateObject({ date: props.value?.[0] || clearTime(), calendar, locale }),
+    () =>
+      new DateObject({
+        date: props.value?.[0] || clearTime(),
+        calendar,
+        locale,
+      }),
     [calendar, locale, serverTimeDiff],
   );
 
@@ -72,7 +77,11 @@ export function useDateInput(props: DateInputProps): UseDateInputReturn {
   useEffect(() => {
     if (!props.limitedRange) return;
 
-    const timestamps = limitedRangeToTimestamps(props.limitedRange, calendar, locale);
+    const timestamps = limitedRangeToTimestamps(
+      props.limitedRange,
+      calendar,
+      locale,
+    );
     const prev = props.value || [];
     const isSame =
       Array.isArray(prev) &&
@@ -110,7 +119,9 @@ export function useDateInput(props: DateInputProps): UseDateInputReturn {
 
           setDateObjects(newDateObjects);
           setTimes(newTimes);
-          setActivePreset(matchActivePreset(props.value, presets, calendar, locale));
+          setActivePreset(
+            matchActivePreset(props.value, presets, calendar, locale),
+          );
         } else {
           setDateObjects([]);
           setTimes([]);

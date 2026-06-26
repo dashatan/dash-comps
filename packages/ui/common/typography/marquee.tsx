@@ -12,7 +12,7 @@ export default function Marquee(props: MarqueeProps) {
       {...props}
       ref={containerRef}
       className={cn(
-        "flex h-10 w-full items-center overflow-hidden whitespace-nowrap px-2",
+        "flex h-10 w-full items-center overflow-hidden px-2 whitespace-nowrap",
         "relative cursor-default rounded-md transition-all",
         props.className,
       )}

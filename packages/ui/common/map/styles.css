@@ -77,7 +77,10 @@
   background-color: var(--color-muted);
 }
 
-.sirat-leaflet-map .leaflet-touch .leaflet-control-geosearch.leaflet-geosearch-bar form {
+.sirat-leaflet-map
+  .leaflet-touch
+  .leaflet-control-geosearch.leaflet-geosearch-bar
+  form {
   border: 1px solid var(--color-border);
   box-shadow: none;
 }
@@ -167,7 +170,8 @@
   border: 1px solid var(--color-border);
   background-color: var(--color-card);
   color: var(--color-card-foreground);
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  box-shadow: 0 0 10px 0
+    color-mix(in srgb, var(--color-foreground) 10%, transparent);
   font-family: var(--font-family);
 }
 
@@ -181,7 +185,8 @@
   background-color: var(--color-card);
   color: var(--color-card-foreground);
   font-family: var(--font-family);
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  box-shadow: 0 0 10px 0
+    color-mix(in srgb, var(--color-foreground) 10%, transparent);
 }
 
 .sirat-leaflet-map .sirat-map-popup .leaflet-popup-tip {
@@ -300,7 +305,8 @@
   height: 10px;
   margin: -5px 0 0 -5px;
   background-color: var(--color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
 
 @keyframes sirat-map-selection-pulse {

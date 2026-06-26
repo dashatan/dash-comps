@@ -35,7 +35,8 @@ export type LocationPickerStoreValue = {
   commit: () => LocationPickerCommitPayload;
 };
 
-const LocationPickerStoreContext = createContext<LocationPickerStoreValue | null>(null);
+const LocationPickerStoreContext =
+  createContext<LocationPickerStoreValue | null>(null);
 
 type LocationPickerStoreProviderProps = {
   initialFilters: LocationPickerFilters;
@@ -57,7 +58,10 @@ export function LocationPickerStoreProvider({
   const filteredData = useLocationFilteredData(resources, draft);
 
   const setDraftField = useCallback(
-    <K extends keyof LocationPickerFilters>(key: K, value: LocationPickerFilters[K]) => {
+    <K extends keyof LocationPickerFilters>(
+      key: K,
+      value: LocationPickerFilters[K],
+    ) => {
       setDraft((prev) => ({
         ...prev,
         [key]: value?.length ? value : undefined,
@@ -81,7 +85,10 @@ export function LocationPickerStoreProvider({
 
   const commit = useCallback((): LocationPickerCommitPayload => {
     const { isLoading: _isLoading, ...routingToCommit } = routing;
-    return { filters: draft, routing: { ...routingToCommit, isLoading: false } };
+    return {
+      filters: draft,
+      routing: { ...routingToCommit, isLoading: false },
+    };
   }, [draft, routing]);
 
   const value = useMemo(
@@ -106,7 +113,9 @@ export function LocationPickerStoreProvider({
 export function useLocationPickerStore(): LocationPickerStoreValue {
   const context = useContext(LocationPickerStoreContext);
   if (!context) {
-    throw new Error("useLocationPickerStore must be used within LocationPickerStoreProvider");
+    throw new Error(
+      "useLocationPickerStore must be used within LocationPickerStoreProvider",
+    );
   }
   return context;
 }

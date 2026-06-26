@@ -13,7 +13,12 @@ import {
 import Button from "@/components/common/buttons";
 import PlateCard from "@/components/compound/license-plate/components/plate-card";
 import { Clock, Trash2 } from "lucide-react";
-import { cn, formatPersianDate, formatPersianDateTime, useLanguage } from "@/lib";
+import {
+  cn,
+  formatPersianDate,
+  formatPersianDateTime,
+  useLanguage,
+} from "@/lib";
 import { UseFormReturn } from "react-hook-form";
 
 export function FormHistoryInner<T>(
@@ -62,7 +67,8 @@ export function FormHistoryInner<T>(
   }, [storageKey]);
 
   useEffect(() => {
-    if (form.formState.isSubmitSuccessful && !saveManually) saveItem(form.getValues());
+    if (form.formState.isSubmitSuccessful && !saveManually)
+      saveItem(form.getValues());
   }, [form.formState.isSubmitSuccessful]);
 
   // Save item to history
@@ -123,7 +129,7 @@ export function FormHistoryInner<T>(
   if (!showHistory) return <></>;
   return (
     <div
-      className={`bg-table m-2 overflow-auto rounded-lg border shadow-md ${className}`}
+      className={`m-2 overflow-auto rounded-lg border bg-table shadow-md ${className}`}
     >
       <div className="flex items-center justify-between p-4">
         <h3 className="text-lg font-semibold">{t("form.searchHistory")}</h3>
@@ -149,12 +155,19 @@ export function FormHistoryInner<T>(
       ) : (
         <div className="overflow-x-auto">
           <table className={`w-full text-right text-sm ${tableClassName}`}>
-            <thead className={`bg-table-header text-xs uppercase ${headerClassName}`}>
+            <thead
+              className={`bg-table-header text-xs uppercase ${headerClassName}`}
+            >
               <tr>
-                <th className="w-40 px-6 py-3">{t("form.searchCreationDate")}</th>
+                <th className="w-40 px-6 py-3">
+                  {t("form.searchCreationDate")}
+                </th>
                 {columns.map((col, index) => {
                   return (
-                    <th key={index} className={cn(`px-6 py-3`, col.headerClassName)}>
+                    <th
+                      key={index}
+                      className={cn(`px-6 py-3`, col.headerClassName)}
+                    >
                       {col.label}
                     </th>
                   );
@@ -170,16 +183,19 @@ export function FormHistoryInner<T>(
               {items.map((item) => (
                 <tr
                   key={item.id}
-                  className={`bg-table hover:bg-table-header/50 cursor-pointer border-b last:border-b-0 ${rowClassName}`}
+                  className={`cursor-pointer border-b bg-table last:border-b-0 hover:bg-table-header/50 ${rowClassName}`}
                   onClick={() => loadItemFromHistory(item)}
                 >
-                  <td className="dir-ltr w-40 px-6 py-4">
+                  <td className="w-40 px-6 py-4 dir-ltr">
                     {formatPersianDateTime(item.timestamp)}
                   </td>
                   {columns.map((col, index) => {
                     const { customRenderer, type, field } = col;
                     return (
-                      <td key={index} className={cn(`px-6 py-4`, col.className)}>
+                      <td
+                        key={index}
+                        className={cn(`px-6 py-4`, col.className)}
+                      >
                         {renderColumnValue({
                           item,
                           type,
@@ -199,7 +215,7 @@ export function FormHistoryInner<T>(
                           e.stopPropagation();
                           deleteItem(item.id);
                         }}
-                        className="text-error p-1"
+                        className="p-1 text-error"
                       >
                         <Trash2 size={16} />
                       </Button>
@@ -296,7 +312,11 @@ const renderColumnValue = ({
       return <span className="text-sm">-</span>;
 
     case "custom":
-      return customRenderer ? customRenderer(item) : <span className="text-sm">-</span>;
+      return customRenderer ? (
+        customRenderer(item)
+      ) : (
+        <span className="text-sm">-</span>
+      );
 
     default:
       return <span className="text-sm">{value || "-"}</span>;

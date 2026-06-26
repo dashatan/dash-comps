@@ -11,7 +11,8 @@
   padding: var(--spacing-4);
 }
 
-#tracker-map .leaflet-bar.leaflet-bar-horizontal.leaflet-bar-timecontrol.leaflet-control {
+#tracker-map
+  .leaflet-bar.leaflet-bar-horizontal.leaflet-bar-timecontrol.leaflet-control {
   display: flex;
   flex-direction: column;
   width: 100% !important;

@@ -12,24 +12,31 @@ type RouteEndpointMarkerProps = {
 };
 
 /** Draggable origin/destination pin when not in click-placement mode. */
-export function RouteEndpointMarker({ position, icon, onMove }: RouteEndpointMarkerProps) {
+export function RouteEndpointMarker({
+  position,
+  icon,
+  onMove,
+}: RouteEndpointMarkerProps) {
   const onMoveRef = useRef(onMove);
   onMoveRef.current = onMove;
 
-  useMapPlugin((map) => {
-    if (!position) return;
+  useMapPlugin(
+    (map) => {
+      if (!position) return;
 
-    const marker = L.marker(position, { icon, draggable: true }).addTo(map);
-    marker.on("dragend", (event: L.LeafletEvent) => {
-      const target = event.target as L.Marker;
-      const latLng = target.getLatLng();
-      onMoveRef.current([latLng.lat, latLng.lng]);
-    });
+      const marker = L.marker(position, { icon, draggable: true }).addTo(map);
+      marker.on("dragend", (event: L.LeafletEvent) => {
+        const target = event.target as L.Marker;
+        const latLng = target.getLatLng();
+        onMoveRef.current([latLng.lat, latLng.lng]);
+      });
 
-    return () => {
-      safeRemoveLayer(map, marker);
-    };
-  }, [position, icon]);
+      return () => {
+        safeRemoveLayer(map, marker);
+      };
+    },
+    [position, icon],
+  );
 
   return null;
 }

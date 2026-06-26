@@ -74,7 +74,10 @@ export type MapEngineHandle = {
 
 export interface MapEngine {
   id: "leaflet" | "maplibre";
-  mount: (container: HTMLElement, config: MapEngineConfig) => Promise<MapEngineHandle>;
+  mount: (
+    container: HTMLElement,
+    config: MapEngineConfig,
+  ) => Promise<MapEngineHandle>;
   drawRoute: (ctx: RouteDrawContext) => void;
   drawMarkers: (ctx: MarkerDrawContext) => void;
   drawEmphasizes: (ctx: EmphasizeDrawContext) => void;

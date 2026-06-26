@@ -21,25 +21,29 @@ export type GeoMapDataItem = {
   value: number;
 };
 
-export type GeoMapProps<D extends readonly GeoMapDataItem[] = readonly GeoMapDataItem[]> =
-  Omit<ChartProps<InferChartPayloadFromData<D>>, "options"> & {
-    mapId: string;
-    geoJson: Parameters<typeof echarts.registerMap>[1];
-    data: D;
-    rangeText?: [string, string];
-    rangeColors?: string[];
-    rangeMin?: number;
-    rangeMax?: number;
-    borderColor?: string;
-    roam?: boolean;
-    showLabel?: boolean;
-    aspectScale?: number;
-    nameFormatter?: (name: string) => string;
-    options?: EChartsOption;
-  };
+export type GeoMapProps<
+  D extends readonly GeoMapDataItem[] = readonly GeoMapDataItem[],
+> = Omit<ChartProps<InferChartPayloadFromData<D>>, "options"> & {
+  mapId: string;
+  geoJson: Parameters<typeof echarts.registerMap>[1];
+  data: D;
+  rangeText?: [string, string];
+  rangeColors?: string[];
+  rangeMin?: number;
+  rangeMax?: number;
+  borderColor?: string;
+  roam?: boolean;
+  showLabel?: boolean;
+  aspectScale?: number;
+  nameFormatter?: (name: string) => string;
+  options?: EChartsOption;
+};
 
 function defaultRangeColors() {
-  return [getHexColor("--color-chart-range-2"), getHexColor("--color-chart-range-7")];
+  return [
+    getHexColor("--color-chart-range-2"),
+    getHexColor("--color-chart-range-7"),
+  ];
 }
 
 function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
@@ -91,7 +95,11 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
           if (tooltipItems) {
             const context = buildTooltipFormatterContext(params);
             const title = tooltipTitle?.(seriesData, context);
-            return formatChartTooltipHtml(title, tooltipItems(seriesData, context), context);
+            return formatChartTooltipHtml(
+              title,
+              tooltipItems(seriesData, context),
+              context,
+            );
           }
 
           const value =

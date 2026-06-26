@@ -26,7 +26,9 @@ export function AlertProvider({
   value: AlertContextValue;
   children: React.ReactNode;
 }) {
-  return <AlertContext.Provider value={value}>{children}</AlertContext.Provider>;
+  return (
+    <AlertContext.Provider value={value}>{children}</AlertContext.Provider>
+  );
 }
 
 export function useAlertContext(): AlertContextValue {

@@ -28,7 +28,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       <div className="flex flex-wrap items-center gap-3">{children}</div>
@@ -51,7 +51,7 @@ function LabeledAvatar({
       <div className="text-center">
         <p className="text-sm font-medium">{label}</p>
         {detail ? (
-          <p className="text-muted-foreground text-xs">{detail}</p>
+          <p className="text-xs text-muted-foreground">{detail}</p>
         ) : null}
       </div>
     </div>
@@ -86,7 +86,11 @@ export function AvatarPage() {
         </LabeledAvatar>
         <LabeledAvatar label={p("withPhoto.mina")} detail="lg">
           <Avatar
-            user={{ first_name: "Mina", last_name: "Rahmani", username: "mina" }}
+            user={{
+              first_name: "Mina",
+              last_name: "Rahmani",
+              username: "mina",
+            }}
             src={showcaseAvatarImages.mina}
             size="lg"
             alt={p("withPhoto.mina")}
@@ -115,7 +119,7 @@ export function AvatarPage() {
                 src={showcaseAvatarImages.sara}
                 size={size}
               />
-              <span className="text-muted-foreground text-xs">{size}</span>
+              <span className="text-xs text-muted-foreground">{size}</span>
             </div>
           ))}
         </ShowcaseRow>
@@ -126,7 +130,7 @@ export function AvatarPage() {
                 user={{ first_name: "Reza", last_name: "Karimi" }}
                 size={size}
               />
-              <span className="text-muted-foreground text-xs">{size}</span>
+              <span className="text-xs text-muted-foreground">{size}</span>
             </div>
           ))}
         </ShowcaseRow>
@@ -146,7 +150,10 @@ export function AvatarPage() {
           src={showcaseAvatarImages.ali}
           size={72}
         />
-        <Avatar user={{ first_name: "Reza", last_name: "Karimi" }} size="3.5rem" />
+        <Avatar
+          user={{ first_name: "Reza", last_name: "Karimi" }}
+          size="3.5rem"
+        />
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -250,7 +257,11 @@ export function AvatarPage() {
             size="lg"
             border="none"
           />
-          <Avatar user={{ first_name: "Reza", last_name: "Karimi" }} size="lg" border="none" />
+          <Avatar
+            user={{ first_name: "Reza", last_name: "Karimi" }}
+            size="lg"
+            border="none"
+          />
         </ShowcaseRow>
         <ShowcaseRow label={p("borders.default")}>
           <Avatar
@@ -259,7 +270,12 @@ export function AvatarPage() {
             size="lg"
             border="default"
           />
-          <Avatar user={{ first_name: "Mina", username: "mina" }} size="lg" border="default" severity="secondary" />
+          <Avatar
+            user={{ first_name: "Mina", username: "mina" }}
+            size="lg"
+            border="default"
+            severity="secondary"
+          />
         </ShowcaseRow>
         <ShowcaseRow label={p("borders.ring")}>
           <Avatar
@@ -268,7 +284,12 @@ export function AvatarPage() {
             size="lg"
             border="ring"
           />
-          <Avatar user={{ first_name: "Ali", username: "ali" }} size="lg" border="ring" severity="primary" />
+          <Avatar
+            user={{ first_name: "Ali", username: "ali" }}
+            size="lg"
+            border="ring"
+            severity="primary"
+          />
         </ShowcaseRow>
       </ShowcaseSection>
 
@@ -316,19 +337,27 @@ export function AvatarPage() {
           interactive
           onClick={() => setClicks((count) => count + 1)}
         />
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {p("interactive.clicks", { count: clicks })}
         </p>
       </ShowcaseSection>
 
-      <ShowcaseSection title={p("disabled.title")} description={p("disabled.description")}>
+      <ShowcaseSection
+        title={p("disabled.title")}
+        description={p("disabled.description")}
+      >
         <Avatar
           user={{ first_name: "Ali", username: "ali" }}
           src={showcaseAvatarImages.ali}
           size="lg"
           disabled
         />
-        <Avatar user={{ first_name: "Guest", username: "guest" }} size="lg" disabled severity="muted" />
+        <Avatar
+          user={{ first_name: "Guest", username: "guest" }}
+          size="lg"
+          disabled
+          severity="muted"
+        />
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -373,7 +402,10 @@ export function AvatarPage() {
           size={48}
           showBorder
         />
-        <UserAvatar user={{ first_name: "Reza", last_name: "Karimi" }} size={48} />
+        <UserAvatar
+          user={{ first_name: "Reza", last_name: "Karimi" }}
+          size={48}
+        />
       </ShowcaseSection>
     </CatalogPageShell>
   );

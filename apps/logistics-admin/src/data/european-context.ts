@@ -59,21 +59,99 @@ export type EuCorridor = {
 };
 
 export const EU_CORRIDORS: readonly EuCorridor[] = [
-  { id: "rotterdam-hamburg", originHubId: "rotterdam", destinationHubId: "hamburg", label: "Rotterdam → Hamburg", distanceKm: 468 },
-  { id: "paris-milan", originHubId: "paris", destinationHubId: "milan", label: "Paris → Milan", distanceKm: 851 },
-  { id: "antwerp-berlin", originHubId: "antwerp", destinationHubId: "berlin", label: "Antwerp → Berlin", distanceKm: 785 },
-  { id: "barcelona-lyon", originHubId: "barcelona", destinationHubId: "lyon", label: "Barcelona → Lyon", distanceKm: 643 },
-  { id: "hamburg-warsaw", originHubId: "hamburg", destinationHubId: "warsaw", label: "Hamburg → Warsaw", distanceKm: 683 },
-  { id: "rotterdam-paris", originHubId: "rotterdam", destinationHubId: "paris", label: "Rotterdam → Paris", distanceKm: 438 },
-  { id: "munich-vienna", originHubId: "munich", destinationHubId: "vienna", label: "Munich → Vienna", distanceKm: 403 },
-  { id: "milan-barcelona", originHubId: "milan", destinationHubId: "barcelona", label: "Milan → Barcelona", distanceKm: 978 },
-  { id: "prague-berlin", originHubId: "prague", destinationHubId: "berlin", label: "Prague → Berlin", distanceKm: 350 },
-  { id: "brussels-rotterdam", originHubId: "brussels", destinationHubId: "rotterdam", label: "Brussels → Rotterdam", distanceKm: 148 },
+  {
+    id: "rotterdam-hamburg",
+    originHubId: "rotterdam",
+    destinationHubId: "hamburg",
+    label: "Rotterdam → Hamburg",
+    distanceKm: 468,
+  },
+  {
+    id: "paris-milan",
+    originHubId: "paris",
+    destinationHubId: "milan",
+    label: "Paris → Milan",
+    distanceKm: 851,
+  },
+  {
+    id: "antwerp-berlin",
+    originHubId: "antwerp",
+    destinationHubId: "berlin",
+    label: "Antwerp → Berlin",
+    distanceKm: 785,
+  },
+  {
+    id: "barcelona-lyon",
+    originHubId: "barcelona",
+    destinationHubId: "lyon",
+    label: "Barcelona → Lyon",
+    distanceKm: 643,
+  },
+  {
+    id: "hamburg-warsaw",
+    originHubId: "hamburg",
+    destinationHubId: "warsaw",
+    label: "Hamburg → Warsaw",
+    distanceKm: 683,
+  },
+  {
+    id: "rotterdam-paris",
+    originHubId: "rotterdam",
+    destinationHubId: "paris",
+    label: "Rotterdam → Paris",
+    distanceKm: 438,
+  },
+  {
+    id: "munich-vienna",
+    originHubId: "munich",
+    destinationHubId: "vienna",
+    label: "Munich → Vienna",
+    distanceKm: 403,
+  },
+  {
+    id: "milan-barcelona",
+    originHubId: "milan",
+    destinationHubId: "barcelona",
+    label: "Milan → Barcelona",
+    distanceKm: 978,
+  },
+  {
+    id: "prague-berlin",
+    originHubId: "prague",
+    destinationHubId: "berlin",
+    label: "Prague → Berlin",
+    distanceKm: 350,
+  },
+  {
+    id: "brussels-rotterdam",
+    originHubId: "brussels",
+    destinationHubId: "rotterdam",
+    label: "Brussels → Rotterdam",
+    distanceKm: 148,
+  },
 ] as const;
 
-export const COMPANY_SUFFIXES = ["GmbH", "BV", "SARL", "SpA", "SA", "AB", "s.r.o."] as const;
+export const COMPANY_SUFFIXES = [
+  "GmbH",
+  "BV",
+  "SARL",
+  "SpA",
+  "SA",
+  "AB",
+  "s.r.o.",
+] as const;
 
-export const PHONE_PREFIXES = ["+31", "+49", "+33", "+32", "+48", "+39", "+34", "+43", "+420"] as const;
+export const PHONE_PREFIXES = [
+  "+31",
+  "+49",
+  "+33",
+  "+32",
+  "+48",
+  "+39",
+  "+34",
+  "+43",
+  "+420",
+] as const;
 
 export const SHIPMENT_STATUSES = [
   "pending",
@@ -86,8 +164,18 @@ export const SHIPMENT_STATUSES = [
 export type ShipmentStatus = (typeof SHIPMENT_STATUSES)[number];
 
 export const MONTH_LABELS = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ] as const;
 
 const eurFormatter = new Intl.NumberFormat("en-GB", {
@@ -112,7 +200,9 @@ const kmFormatter = new Intl.NumberFormat("en-GB", {
 });
 
 export function formatEur(amount: number, precise = false): string {
-  return precise ? eurPreciseFormatter.format(amount) : eurFormatter.format(amount);
+  return precise
+    ? eurPreciseFormatter.format(amount)
+    : eurFormatter.format(amount);
 }
 
 export function formatKg(weight: number): string {
@@ -191,7 +281,10 @@ export function buildEuPlate(countryCode: EuCountryCode, seed: number): string {
   }
 }
 
-export function buildVatNumber(countryCode: EuCountryCode, seed: number): string {
+export function buildVatNumber(
+  countryCode: EuCountryCode,
+  seed: number,
+): string {
   const base = 100000000 + (seed % 899999999);
   if (countryCode === "NL") return `NL${base}B01`;
   if (countryCode === "DE") return `DE${base}`;

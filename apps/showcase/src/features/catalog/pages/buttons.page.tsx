@@ -47,7 +47,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       <div className="flex flex-wrap items-center gap-2">{children}</div>
@@ -303,8 +303,15 @@ export function ButtonsPage() {
         delay={0.18}
       >
         <Button label={p("labelProp.saveDraft")} severity="primary" />
-        <Button label={p("labelProp.cancel")} variant="outlined" severity="secondary" />
-        <Button label={p("labelProp.withIcon")} leftIcon={<Plus className="size-4" />} />
+        <Button
+          label={p("labelProp.cancel")}
+          variant="outlined"
+          severity="secondary"
+        />
+        <Button
+          label={p("labelProp.withIcon")}
+          leftIcon={<Plus className="size-4" />}
+        />
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -312,7 +319,9 @@ export function ButtonsPage() {
         description={p("icons.description")}
         delay={0.21}
       >
-        <Button leftIcon={<Plus className="size-4" />}>{p("icons.addItem")}</Button>
+        <Button leftIcon={<Plus className="size-4" />}>
+          {p("icons.addItem")}
+        </Button>
         <Button severity="danger" leftIcon={<Trash2 className="size-4" />}>
           {p("icons.delete")}
         </Button>
@@ -379,7 +388,9 @@ export function ButtonsPage() {
         description={p("tooltip.description")}
         delay={0.33}
       >
-        <Button tooltip={p("tooltip.defaultTooltip")}>{p("tooltip.hoverMe")}</Button>
+        <Button tooltip={p("tooltip.defaultTooltip")}>
+          {p("tooltip.hoverMe")}
+        </Button>
         <Button
           tooltip={p("tooltip.opensRight")}
           tooltipOptions={{ side: "right", align: "center", sideOffset: 8 }}
@@ -444,7 +455,9 @@ export function ButtonsPage() {
         description={p("classNameStyle.description")}
         delay={0.45}
       >
-        <Button className="shadow-lg">{p("classNameStyle.shadowViaClassName")}</Button>
+        <Button className="shadow-lg">
+          {p("classNameStyle.shadowViaClassName")}
+        </Button>
         <Button style={{ minWidth: 200 }} variant="outlined">
           {p("classNameStyle.minWidth200px")}
         </Button>
@@ -456,8 +469,8 @@ export function ButtonsPage() {
         delay={0.48}
         layout="stack"
       >
-        <div className="border-border bg-muted/30 overflow-x-auto rounded-xl border p-4 font-mono text-xs leading-relaxed">
-          <pre className="text-muted-foreground whitespace-pre-wrap">
+        <div className="overflow-x-auto rounded-xl border border-border bg-muted/30 p-4 font-mono text-xs leading-relaxed">
+          <pre className="whitespace-pre-wrap text-muted-foreground">
             {p("propsReference.content")}
           </pre>
         </div>

@@ -14,31 +14,36 @@ export function MapGeoSearch({
   position = "topright",
   markerIcon = createSearchIcon(),
 }: MapGeoSearchProps) {
-  useMapPlugin((map) => {
-    const provider = new OpenStreetMapProvider({
-      searchUrl: nominatimUrl,
-      params: { "accept-language": acceptLanguage },
-    });
+  useMapPlugin(
+    (map) => {
+      const provider = new OpenStreetMapProvider({
+        searchUrl: nominatimUrl,
+        params: { "accept-language": acceptLanguage },
+      });
 
-    // leaflet-geosearch constructor typings are incomplete
-    const control = new (GeoSearchControl as unknown as new (options: object) => L.Control)({
-      provider,
-      style: "bar",
-      searchLabel,
-      marker: { icon: markerIcon },
-      position,
-    });
+      // leaflet-geosearch constructor typings are incomplete
+      const control = new (GeoSearchControl as unknown as new (
+        options: object,
+      ) => L.Control)({
+        provider,
+        style: "bar",
+        searchLabel,
+        marker: { icon: markerIcon },
+        position,
+      });
 
-    map.addControl(control);
+      map.addControl(control);
 
-    return () => {
-      try {
-        map.removeControl(control);
-      } catch {
-        // Map may already be destroyed during React unmount
-      }
-    };
-  }, [nominatimUrl, searchLabel, acceptLanguage, position, markerIcon]);
+      return () => {
+        try {
+          map.removeControl(control);
+        } catch {
+          // Map may already be destroyed during React unmount
+        }
+      };
+    },
+    [nominatimUrl, searchLabel, acceptLanguage, position, markerIcon],
+  );
 
   return null;
 }

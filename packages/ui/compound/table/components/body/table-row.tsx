@@ -1,27 +1,33 @@
-import { forwardRef, memo } from 'react'
-import TD from './TD'
-import { ColumnProps, TableProps } from '../../types'
-import { cn } from '@/lib'
-import { useTableStore, useTableStoreApi } from '../../context'
-import type { TableStoreApi } from '../../store'
+import { forwardRef, memo } from "react";
+import TD from "./TD";
+import { ColumnProps, TableProps } from "../../types";
+import { cn } from "@/lib";
+import { useTableStore, useTableStoreApi } from "../../context";
+import type { TableStoreApi } from "../../store";
 
 export type TableRowProps = Pick<
   TableProps,
-  'rightClickMenu' | 'TDProps' | 'dataKey' | 'columnHover' | 'draggable'
+  "rightClickMenu" | "TDProps" | "dataKey" | "columnHover" | "draggable"
 > & {
-  loading?: boolean
-  data: Record<string, unknown>
-  index: number
-  columns?: ColumnProps[]
-  expanded?: boolean
-  className?: (data: Record<string, unknown>, api: TableStoreApi) => string
+  loading?: boolean;
+  data: Record<string, unknown>;
+  index: number;
+  columns?: ColumnProps[];
+  expanded?: boolean;
+  className?: (data: Record<string, unknown>, api: TableStoreApi) => string;
   /** @deprecated Use `getRowClassName` — `className` collides with Radix `asChild` triggers. */
-  getRowClassName?: (data: Record<string, unknown>, api: TableStoreApi) => string
-  onClick?: (data: Record<string, unknown>, api: TableStoreApi) => void
-  extraElements?: (data: Record<string, unknown>, api: TableStoreApi) => React.ReactNode
-  hoveredColumnIndex?: number | null
-  onColumnHover?: (index: number | null) => void
-}
+  getRowClassName?: (
+    data: Record<string, unknown>,
+    api: TableStoreApi,
+  ) => string;
+  onClick?: (data: Record<string, unknown>, api: TableStoreApi) => void;
+  extraElements?: (
+    data: Record<string, unknown>,
+    api: TableStoreApi,
+  ) => React.ReactNode;
+  hoveredColumnIndex?: number | null;
+  onColumnHover?: (index: number | null) => void;
+};
 
 const TableRow = memo(
   forwardRef<HTMLTableRowElement, TableRowProps>(
@@ -46,25 +52,29 @@ const TableRow = memo(
       },
       ref,
     ) => {
-      const selected = useTableStore((s) => s.selected)
-      const api = useTableStoreApi()
+      const selected = useTableStore((s) => s.selected);
+      const api = useTableStoreApi();
 
-      const rowKey = dataKey ? (data[dataKey as string] as string | number) : undefined
-      const isSelected = rowKey !== undefined && selected?.includes(rowKey)
+      const rowKey = dataKey
+        ? (data[dataKey as string] as string | number)
+        : undefined;
+      const isSelected = rowKey !== undefined && selected?.includes(rowKey);
 
       const dynamicClassName =
         getRowClassName?.(data, api) ??
-        (typeof classNameProp === 'function' ? classNameProp(data, api) : undefined)
+        (typeof classNameProp === "function"
+          ? classNameProp(data, api)
+          : undefined);
 
       return (
         <tr
           ref={ref}
           key={index}
           className={cn(
-            'bg-table hover:bg-table-row group transition-colors duration-200',
-            { '[&_td]:border-b-0': expanded, 'bg-table-row': isSelected },
+            "group bg-table transition-colors duration-200 hover:bg-table-row",
+            { "[&_td]:border-b-0": expanded, "bg-table-row": isSelected },
             dynamicClassName,
-            typeof classNameProp === 'string' ? classNameProp : undefined,
+            typeof classNameProp === "string" ? classNameProp : undefined,
           )}
           onClick={() => onClick?.(data, api)}
           {...props}
@@ -87,9 +97,9 @@ const TableRow = memo(
           ))}
           {extraElements?.(data, api)}
         </tr>
-      )
+      );
     },
   ),
-)
+);
 
-export default TableRow
+export default TableRow;

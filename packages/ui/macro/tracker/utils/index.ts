@@ -2,9 +2,20 @@ import { Traffic } from "@/features/traffic/types";
 import useResources from "@/features/resources/utils/useResources";
 import { timeSecondClear } from "@/components/micro/inputs/date/utils/dateFormatPersian";
 import { createDate } from "@/lib/utils/date-time-helpers";
-import { BreakTimeKeys, TrackerGeoType } from "@/components/macro/tracker/utils/types";
+import {
+  BreakTimeKeys,
+  TrackerGeoType,
+} from "@/components/macro/tracker/utils/types";
 
-export function breakTimes({ into, dates, clearHour }: { into: BreakTimeKeys; dates: number[]; clearHour?: boolean }) {
+export function breakTimes({
+  into,
+  dates,
+  clearHour,
+}: {
+  into: BreakTimeKeys;
+  dates: number[];
+  clearHour?: boolean;
+}) {
   const times: number[] = [];
   let start = createDate(dates[0]);
   start.setSeconds(0);
@@ -74,14 +85,22 @@ export function useNormalizeData(data?: Traffic[]) {
         ],
         type: "GeometryCollection",
       },
-      properties: { color: "red", id: traffic.image, isInterpolated: 1, time: traffic.pass_date_time },
+      properties: {
+        color: "red",
+        id: traffic.image,
+        isInterpolated: 1,
+        time: traffic.pass_date_time,
+      },
       type: "Feature",
     } as TrackerGeoType;
   });
   return res;
 }
 
-export function removeDuplicatesByProperty<T>(array: T[], property: keyof T): T[] {
+export function removeDuplicatesByProperty<T>(
+  array: T[],
+  property: keyof T,
+): T[] {
   const uniqueSet = new Set();
   const uniqueArray: T[] = [];
 
@@ -111,7 +130,12 @@ export function removeDuplicates<T>(array: T[]): T[] {
   return uniqueArray;
 }
 
-export function generateGradientColor(startColor: string, endColor: string, step: number, totalSteps: number) {
+export function generateGradientColor(
+  startColor: string,
+  endColor: string,
+  step: number,
+  totalSteps: number,
+) {
   var R1 = parseInt(startColor.slice(1, 3), 16);
   var G1 = parseInt(startColor.slice(3, 5), 16);
   var B1 = parseInt(startColor.slice(5, 7), 16);
@@ -127,10 +151,17 @@ export function generateGradientColor(startColor: string, endColor: string, step
 }
 
 export function calcAngle(startPoint: Point, endPoint: Point) {
-  return Math.atan2(endPoint[1] - startPoint[1], endPoint[0] - startPoint[0]) * (180 / Math.PI);
+  return (
+    Math.atan2(endPoint[1] - startPoint[1], endPoint[0] - startPoint[0]) *
+    (180 / Math.PI)
+  );
 }
 
-export function calculateEvenlySpacedItems(totalTimes: number[], containerWidth: number, itemWidth: number): number[] {
+export function calculateEvenlySpacedItems(
+  totalTimes: number[],
+  containerWidth: number,
+  itemWidth: number,
+): number[] {
   // If the totalTimes array is empty or containerWidth or itemWidth is zero, return an empty array.
   if (totalTimes.length === 0 || containerWidth === 0 || itemWidth === 0) {
     return [];

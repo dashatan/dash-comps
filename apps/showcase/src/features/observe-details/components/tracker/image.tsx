@@ -4,7 +4,7 @@ type ObserveImageModalProps = {
 
 export default function ObserveImageModal({ index }: ObserveImageModalProps) {
   return (
-    <span className="text-muted-foreground text-xs">
+    <span className="text-xs text-muted-foreground">
       {index != null ? `Image #${index + 1}` : "Image"}
     </span>
   );

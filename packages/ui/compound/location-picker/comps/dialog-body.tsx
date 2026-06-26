@@ -42,7 +42,10 @@ function DialogInner({
   onCommit,
   onClose,
   contentClassName,
-}: Pick<DialogBodyProps, "dateHint" | "onCommit" | "onClose" | "contentClassName">) {
+}: Pick<
+  DialogBodyProps,
+  "dateHint" | "onCommit" | "onClose" | "contentClassName"
+>) {
   const { t } = useLanguage();
   const { routing, commit } = useLocationPickerStore();
   const [activeTab, setActiveTab] = useState(0);
@@ -60,7 +63,7 @@ function DialogInner({
   }
 
   return (
-    <div className={cn("flex-full relative flex size-full", contentClassName)}>
+    <div className={cn("relative flex size-full flex-full", contentClassName)}>
       {activeTab === 1 && routing.isLoading && (
         <div
           className="absolute top-0 left-0 z-5 flex h-full w-full items-center justify-center"
@@ -73,14 +76,18 @@ function DialogInner({
           />
         </div>
       )}
-      <div className={cn("bg-card flex h-full w-92 flex-col rounded-br-lg border")}>
+      <div
+        className={cn("flex h-full w-92 flex-col rounded-br-lg border bg-card")}
+      >
         <Tabs
           tabs={tabs}
           onChange={setActiveTab}
           activeTab={activeTab}
           className={{ container: "justify-center gap-1" }}
         />
-        {activeTab === 0 && <FilterSidebar dateHint={dateHint} onConfirm={handleConfirm} />}
+        {activeTab === 0 && (
+          <FilterSidebar dateHint={dateHint} onConfirm={handleConfirm} />
+        )}
         {activeTab === 1 && <RoutingSidebar onConfirm={handleConfirm} />}
       </div>
       <div className="size-full flex-1">

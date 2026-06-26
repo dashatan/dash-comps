@@ -1,4 +1,7 @@
-import type { TrackerOptions, ResolvedTrackerOptions } from "@/components/compound/tracker/types";
+import type {
+  TrackerOptions,
+  ResolvedTrackerOptions,
+} from "@/components/compound/tracker/types";
 import {
   DEFAULT_CENTER,
   DEFAULT_PLAY_SPEED_PRESETS,
@@ -6,7 +9,10 @@ import {
   TRACKER_PRESETS,
 } from "@/components/compound/tracker/options/presets";
 
-function deepMerge<T extends Record<string, unknown>>(base: T, patch?: Partial<T>): T {
+function deepMerge<T extends Record<string, unknown>>(
+  base: T,
+  patch?: Partial<T>,
+): T {
   if (!patch) return { ...base };
   const result = { ...base } as T;
   for (const key of Object.keys(patch) as (keyof T)[]) {
@@ -31,7 +37,9 @@ function deepMerge<T extends Record<string, unknown>>(base: T, patch?: Partial<T
   return result;
 }
 
-export function resolveTrackerOptions(options?: TrackerOptions): ResolvedTrackerOptions {
+export function resolveTrackerOptions(
+  options?: TrackerOptions,
+): ResolvedTrackerOptions {
   const preset = options?.preset ?? "custom";
   const presetBase =
     preset !== "custom" && preset in TRACKER_PRESETS
@@ -67,7 +75,8 @@ export function resolveTrackerOptions(options?: TrackerOptions): ResolvedTracker
       direct: {
         perTrack: merged.route?.direct?.perTrack ?? true,
         traceLength: merged.route?.direct?.traceLength ?? 15,
-        showIntermediatePoints: merged.route?.direct?.showIntermediatePoints ?? true,
+        showIntermediatePoints:
+          merged.route?.direct?.showIntermediatePoints ?? true,
         lineWeight: merged.route?.direct?.lineWeight ?? 4,
       },
       osrm: {
@@ -90,7 +99,9 @@ export function resolveTrackerOptions(options?: TrackerOptions): ResolvedTracker
         eventIntervalMs: merged.playback?.speed?.eventIntervalMs ?? 1000,
         timeMultiplier: merged.playback?.speed?.timeMultiplier ?? 1,
         timeStepMultiplier: merged.playback?.speed?.timeStepMultiplier ?? 1,
-        presets: merged.playback?.speed?.presets ?? [...DEFAULT_PLAY_SPEED_PRESETS],
+        presets: merged.playback?.speed?.presets ?? [
+          ...DEFAULT_PLAY_SPEED_PRESETS,
+        ],
       },
     },
     timeline: {

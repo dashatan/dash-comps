@@ -12,4 +12,5 @@ export const showcaseTableGuideImages = {
   scroll: `${base}/scroll.jpg`,
 } as const;
 
-export type ShowcaseTableGuideSectionKey = keyof typeof showcaseTableGuideImages;
+export type ShowcaseTableGuideSectionKey =
+  keyof typeof showcaseTableGuideImages;

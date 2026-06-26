@@ -8,15 +8,20 @@ export function AuthPage() {
 
   return (
     <CatalogPageShell slug="auth">
-      <ShowcaseSection title={p("authLayout.title")} className="w-full overflow-hidden p-0">
-        <div className="border-border h-96 w-full overflow-hidden rounded-xl border">
+      <ShowcaseSection
+        title={p("authLayout.title")}
+        className="w-full overflow-hidden p-0"
+      >
+        <div className="h-96 w-full overflow-hidden rounded-xl border border-border">
           <AuthLayout.Root>
             <AuthLayout.Background>
-              <div className="from-primary/25 size-full bg-gradient-to-br to-transparent" />
+              <div className="size-full bg-gradient-to-br from-primary/25 to-transparent" />
             </AuthLayout.Background>
             <AuthLayout.Content>
               <p className="text-lg font-semibold">{p("authLayout.signIn")}</p>
-              <p className="text-muted-foreground text-sm">{p("authLayout.description")}</p>
+              <p className="text-sm text-muted-foreground">
+                {p("authLayout.description")}
+              </p>
             </AuthLayout.Content>
           </AuthLayout.Root>
         </div>

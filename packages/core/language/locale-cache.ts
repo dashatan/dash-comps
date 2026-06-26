@@ -47,6 +47,9 @@ export function setCachedLocale<T>(
   }
 }
 
-export function hasCachedLocale(namespace: string, language: Language): boolean {
+export function hasCachedLocale(
+  namespace: string,
+  language: Language,
+): boolean {
   return getCachedLocale(namespace, language) !== undefined;
 }

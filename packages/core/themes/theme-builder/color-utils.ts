@@ -4,8 +4,8 @@
 export function hslToColorValue(hslValue: string): string {
   try {
     // Parse HSL values - assuming format: "H S% L%"
-    const [h, s, l] = hslValue.split(' ').map((val) => {
-      return parseFloat(val.replace('%', ''));
+    const [h, s, l] = hslValue.split(" ").map((val) => {
+      return parseFloat(val.replace("%", ""));
     });
 
     // Convert HSL to RGB
@@ -37,13 +37,13 @@ export function hslToColorValue(hslValue: string): string {
     // Convert to hex
     const toHex = (x: number) => {
       const hex = Math.round(x * 255).toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
+      return hex.length === 1 ? "0" + hex : hex;
     };
 
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   } catch (error) {
-    console.error('Error converting HSL to color value:', error);
-    return '#000000';
+    console.error("Error converting HSL to color value:", error);
+    return "#000000";
   }
 }
 
@@ -52,11 +52,11 @@ export function hslToColorValue(hslValue: string): string {
  */
 export function colorValueToHsl(
   colorValue: string,
-  originalHsl: string
+  originalHsl: string,
 ): string {
   try {
     // Convert hex to RGB
-    const hex = colorValue.replace('#', '');
+    const hex = colorValue.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16) / 255;
     const g = parseInt(hex.substring(2, 4), 16) / 255;
     const b = parseInt(hex.substring(4, 6), 16) / 255;
@@ -93,7 +93,7 @@ export function colorValueToHsl(
 
     return `${hDeg} ${sPercent}% ${lPercent}%`;
   } catch (error) {
-    console.error('Error converting color value to HSL:', error);
+    console.error("Error converting color value to HSL:", error);
     return originalHsl;
   }
 }
@@ -101,6 +101,6 @@ export function colorValueToHsl(
 /**
  * Get the current theme (light or dark)
  */
-export function getCurrentTheme(): 'light' | 'dark' {
-  return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+export function getCurrentTheme(): "light" | "dark" {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }

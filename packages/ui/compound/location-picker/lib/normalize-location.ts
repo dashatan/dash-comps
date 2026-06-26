@@ -1,4 +1,7 @@
-import { enrichDevices, buildNameLookup } from "@/components/compound/location-picker/lib/enrich-devices";
+import {
+  enrichDevices,
+  buildNameLookup,
+} from "@/components/compound/location-picker/lib/enrich-devices";
 import { filterLocationDataFromSelection } from "@/components/compound/location-picker/lib/filter-location-data";
 import {
   FilteredLocationData,

@@ -1,5 +1,8 @@
 import type { NormalizedEvent } from "@/components/compound/tracker/types/normalized";
-import { chunkArray, makeOsrmCoordString } from "@/components/compound/tracker/utils/geo";
+import {
+  chunkArray,
+  makeOsrmCoordString,
+} from "@/components/compound/tracker/utils/geo";
 import { getStoreEnv } from "@/lib";
 
 const DEFAULT_OSRM_URL = "https://router.project-osrm.org";

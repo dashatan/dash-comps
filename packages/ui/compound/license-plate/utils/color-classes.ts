@@ -11,7 +11,8 @@ export const colors: { [key: string]: string } = {
 
 export const getPlateForegroundColorVariable = (colorCode?: PlateColorCode) => {
   const lightColors = ["protocol", "navy", "police"] as PlateColorCode[];
-  if (colorCode && lightColors.includes(colorCode)) return "var(--color-gray-100)";
+  if (colorCode && lightColors.includes(colorCode))
+    return "var(--color-gray-100)";
   return "var(--color-plate-foreground)";
 };
 

@@ -13,7 +13,10 @@ export function mapEventsToOsrmIndices(
     let minDist = Infinity;
     let minIndex = lastMinIndex;
     for (let i = lastMinIndex; i < osrmRoute.length; i++) {
-      const d = Math.hypot(event.latlng[0] - osrmRoute[i][0], event.latlng[1] - osrmRoute[i][1]);
+      const d = Math.hypot(
+        event.latlng[0] - osrmRoute[i][0],
+        event.latlng[1] - osrmRoute[i][1],
+      );
       if (d < minDist) {
         minDist = d;
         minIndex = i;
@@ -25,7 +28,9 @@ export function mapEventsToOsrmIndices(
   return osrmIndices;
 }
 
-export function makeOsrmCoordString(events: { latlng: [number, number] }[]): string | undefined {
+export function makeOsrmCoordString(
+  events: { latlng: [number, number] }[],
+): string | undefined {
   const valid = events.filter(
     (e) =>
       Array.isArray(e.latlng) &&

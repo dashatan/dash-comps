@@ -2,12 +2,17 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Layers, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/common/buttons";
-import { catalogCategories, catalogCategoryGroups } from "@/features/catalog/registry";
+import {
+  catalogCategories,
+  catalogCategoryGroups,
+} from "@/features/catalog/registry";
 import { useShowcaseShell } from "@/features/catalog/i18n";
 import { cn } from "@/lib";
 
-const commonCount = catalogCategoryGroups.find((g) => g.group === "common")?.items.length ?? 0;
-const compoundCount = catalogCategoryGroups.find((g) => g.group === "compound")?.items.length ?? 0;
+const commonCount =
+  catalogCategoryGroups.find((g) => g.group === "common")?.items.length ?? 0;
+const compoundCount =
+  catalogCategoryGroups.find((g) => g.group === "compound")?.items.length ?? 0;
 
 export function HomeHero() {
   const { appName, home } = useShowcaseShell();
@@ -20,20 +25,25 @@ export function HomeHero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,color-mix(in_oklch,var(--foreground)_6%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklch,var(--foreground)_6%,transparent)_1px,transparent_1px)] [background-size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]"
+        className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,color-mix(in_oklch,var(--foreground)_6%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklch,var(--foreground)_6%,transparent)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)] [background-size:3rem_3rem] opacity-[0.35]"
       />
 
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -top-24 -end-16 size-72 rounded-full bg-primary/25 blur-3xl"
+        className="pointer-events-none absolute -end-16 -top-24 size-72 rounded-full bg-primary/25 blur-3xl"
         animate={{ scale: [1, 1.12, 1], opacity: [0.35, 0.6, 0.35] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -bottom-20 -start-10 size-56 rounded-full bg-secondary/30 blur-3xl"
+        className="pointer-events-none absolute -start-10 -bottom-20 size-56 rounded-full bg-secondary/30 blur-3xl"
         animate={{ scale: [1.1, 0.95, 1.1], opacity: [0.25, 0.45, 0.25] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       />
 
       <div className="relative z-10 flex flex-col gap-10 p-8 md:p-12 lg:p-14">
@@ -48,7 +58,7 @@ export function HomeHero() {
             {home.badge}
           </div>
 
-          <p className="text-muted-foreground mb-3 text-sm font-medium tracking-widest uppercase">
+          <p className="mb-3 text-sm font-medium tracking-widest text-muted-foreground uppercase">
             {appName}
           </p>
 
@@ -59,7 +69,7 @@ export function HomeHero() {
             </span>
           </h1>
 
-          <p className="text-muted-foreground mt-5 text-base leading-relaxed md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             {home.description}
           </p>
 
@@ -125,12 +135,12 @@ function HeroStat({
   return (
     <div
       className={cn(
-        "border-border/60 bg-card/40 flex items-center gap-3 rounded-2xl border px-4 py-3.5 backdrop-blur-sm",
+        "flex items-center gap-3 rounded-2xl border border-border/60 bg-card/40 px-4 py-3.5 backdrop-blur-sm",
         "bg-linear-to-br",
         accent,
       )}
     >
-      <div className="bg-background/70 text-primary flex size-9 shrink-0 items-center justify-center rounded-xl border border-border/50 shadow-sm">
+      <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-border/50 bg-background/70 text-primary shadow-sm">
         <Icon className="size-4" />
       </div>
       <p className="text-sm font-semibold tracking-tight">{label}</p>

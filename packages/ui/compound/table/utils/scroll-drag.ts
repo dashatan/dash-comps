@@ -1,5 +1,5 @@
 export function isRtlElement(element: HTMLElement): boolean {
-  return getComputedStyle(element).direction === 'rtl'
+  return getComputedStyle(element).direction === "rtl";
 }
 
 /**
@@ -14,6 +14,6 @@ export function applyDragScroll(
   deltaX: number,
   deltaY: number,
 ): void {
-  element.scrollLeft = startScrollLeft - deltaX
-  element.scrollTop = startScrollTop - deltaY
+  element.scrollLeft = startScrollLeft - deltaX;
+  element.scrollTop = startScrollTop - deltaY;
 }

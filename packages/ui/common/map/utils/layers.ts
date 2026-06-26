@@ -73,5 +73,10 @@ function firstLatLngRing(
 }
 
 function isLatLngPoint(value: unknown): value is L.LatLng {
-  return typeof value === "object" && value !== null && "lat" in value && "lng" in value;
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "lat" in value &&
+    "lng" in value
+  );
 }

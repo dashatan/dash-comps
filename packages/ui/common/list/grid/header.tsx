@@ -18,7 +18,10 @@ function GridHeaderInner<T extends object>({
   sortOrder = 0,
   onSort,
 }: GridHeaderProps<T>) {
-  const gridTemplateColumns = useMemo(() => getGridTemplateColumns(columns), [columns]);
+  const gridTemplateColumns = useMemo(
+    () => getGridTemplateColumns(columns),
+    [columns],
+  );
 
   return (
     <div

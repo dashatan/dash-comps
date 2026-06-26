@@ -34,7 +34,6 @@ export type CardMediaPosition = NonNullable<
   VariantProps<typeof cardMediaVariants>["position"]
 >;
 
-
 /** @deprecated Use `appearance` instead */
 export type CardLegacyVariant = "default" | "outline" | "ghost";
 

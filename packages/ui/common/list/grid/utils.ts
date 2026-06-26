@@ -19,7 +19,10 @@ export function getGridStyle(options?: {
   headerHeight?: number | string;
 }): CSSProperties {
   return {
-    [GRID_ROW_HEIGHT_VAR]: formatGridHeight(options?.rowHeight, DEFAULT_GRID_ROW_HEIGHT),
+    [GRID_ROW_HEIGHT_VAR]: formatGridHeight(
+      options?.rowHeight,
+      DEFAULT_GRID_ROW_HEIGHT,
+    ),
     [GRID_HEADER_HEIGHT_VAR]: formatGridHeight(
       options?.headerHeight,
       DEFAULT_GRID_HEADER_HEIGHT,
@@ -34,7 +37,9 @@ export function formatGridColumnWidth(width?: number | string): string {
   return typeof width === "number" ? `${width}px` : width;
 }
 
-export function getGridTemplateColumns(columns: Pick<GridColumn, "width">[]): string {
+export function getGridTemplateColumns(
+  columns: Pick<GridColumn, "width">[],
+): string {
   if (columns.length === 0) return "";
   if (columns.every((column) => column.width == null)) {
     return `repeat(${columns.length}, minmax(0, 1fr))`;

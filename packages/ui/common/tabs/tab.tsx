@@ -28,7 +28,9 @@ export type TabsProps = {
 };
 
 export default function Tabs(props: TabsProps) {
-  const [active, setActive] = useState(props.defaultActiveTab ?? props.activeTab ?? 0);
+  const [active, setActive] = useState(
+    props.defaultActiveTab ?? props.activeTab ?? 0,
+  );
   const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -70,7 +72,8 @@ export default function Tabs(props: TabsProps) {
   // Check scroll state
   const checkScrollState = () => {
     if (scrollContainerRef.current && enableScroll) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > -(scrollWidth - clientWidth - 1));
       setCanScrollRight(scrollLeft < 0);
     }
@@ -155,7 +158,7 @@ export default function Tabs(props: TabsProps) {
     <div
       ref={containerRef}
       className={cn(
-        "bg-tab-background border-tab-border relative grid h-12",
+        "relative grid h-12 border-tab-border bg-tab-background",
         "w-fit overflow-hidden rounded-sm border p-1 select-none",
         enableScroll && "m-6",
         props.className?.container,
@@ -167,7 +170,7 @@ export default function Tabs(props: TabsProps) {
       {/* Sliding background */}
       <div
         className={cn(
-          "bg-tab-active-background absolute top-1 bottom-1 rounded-xs transition-all duration-100 ease-out",
+          "absolute top-1 bottom-1 rounded-xs bg-tab-active-background transition-all duration-100 ease-out",
           props.className?.slider,
         )}
         style={{
@@ -208,16 +211,22 @@ export default function Tabs(props: TabsProps) {
 
   if (enableScroll) {
     return (
-      <div ref={resizeRef} className="relative max-h-fit min-w-0 flex-1 select-none">
+      <div
+        ref={resizeRef}
+        className="relative max-h-fit min-w-0 flex-1 select-none"
+      >
         {canScrollLeft && (
           <Button
             variant="contained"
             severity="info"
             size={32}
             rounded="full"
-            className="bg-muted/90 hover:bg-muted absolute top-1/2 left-1 z-5 -translate-y-1/2"
+            className="absolute top-1/2 left-1 z-5 -translate-y-1/2 bg-muted/90 hover:bg-muted"
             onClick={() =>
-              scrollContainerRef.current?.scrollBy({ left: -200, behavior: "smooth" })
+              scrollContainerRef.current?.scrollBy({
+                left: -200,
+                behavior: "smooth",
+              })
             }
             icon={<ArrowLeft2 className="text-tab size-4" />}
           />
@@ -228,9 +237,12 @@ export default function Tabs(props: TabsProps) {
             severity="info"
             size={32}
             rounded="full"
-            className="hover:bg-muted bg-muted/90 absolute top-1/2 right-1 z-5 -translate-y-1/2"
+            className="absolute top-1/2 right-1 z-5 -translate-y-1/2 bg-muted/90 hover:bg-muted"
             onClick={() =>
-              scrollContainerRef.current?.scrollBy({ left: 200, behavior: "smooth" })
+              scrollContainerRef.current?.scrollBy({
+                left: 200,
+                behavior: "smooth",
+              })
             }
             icon={<ArrowRight2 className="text-tab size-4" />}
           />
@@ -238,7 +250,7 @@ export default function Tabs(props: TabsProps) {
         <div
           ref={scrollContainerRef}
           className={cn(
-            "hide-scrollbar relative max-h-fit overflow-x-auto",
+            "relative max-h-fit hide-scrollbar overflow-x-auto",
             props.className?.scrollContainer,
           )}
           onMouseDown={handleMouseDown}

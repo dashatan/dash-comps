@@ -12,7 +12,9 @@ const DISPLAY_PRIORITY: DisplayValueKey[] = [
   "sources",
 ];
 
-function resolveValueType(selection: LocationPickerFilters): DisplayValueKey | undefined {
+function resolveValueType(
+  selection: LocationPickerFilters,
+): DisplayValueKey | undefined {
   for (const key of DISPLAY_PRIORITY) {
     if (selection[key]?.length) return key;
   }
@@ -45,7 +47,9 @@ export function resolveDisplayValue(
   selection: LocationPickerFilters,
 ): ResolvedDisplayValue {
   const valueType = resolveValueType(selection);
-  const value = valueType ? selectedEntities(resources, selection, valueType) : undefined;
+  const value = valueType
+    ? selectedEntities(resources, selection, valueType)
+    : undefined;
   const chips =
     value?.map((item) => ({ value: item.id, label: item.name })) ?? [];
 

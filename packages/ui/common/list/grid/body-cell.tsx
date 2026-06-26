@@ -38,11 +38,11 @@ function GridBodyCellInner<T extends object>({
   } else if (column.field != null) {
     const value = data[column.field];
     Body =
-      value != null && value !== "" ? (
-        typeof value === "string" || typeof value === "number" ? value : String(value)
-      ) : (
-        "—"
-      );
+      value != null && value !== ""
+        ? typeof value === "string" || typeof value === "number"
+          ? value
+          : String(value)
+        : "—";
   }
 
   return (
@@ -63,7 +63,7 @@ function GridBodyCellInner<T extends object>({
     >
       <div
         className={cn(
-          "text-foreground flex h-full w-full min-w-0 items-center text-right text-xs font-semibold",
+          "flex h-full w-full min-w-0 items-center text-right text-xs font-semibold text-foreground",
           column.className?.content,
           bodyClassName?.content,
         )}

@@ -1,8 +1,4 @@
-import {
-  GridCard,
-  GridContainer,
-  GridHeader,
-} from "@/components/common/grid";
+import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import BarChart from "@/components/common/charts/bar";
 import LineChart from "@/components/common/charts/line";
 import AreaChart from "@/components/common/charts/area";
@@ -79,7 +75,9 @@ export function AnalyticsPage() {
           <div className="min-h-72">
             <BarChart
               xAxis={delaysByHub.map((d) => d.name)}
-              series={[{ name: "Delays", data: delaysByHub.map((d) => d.value) }]}
+              series={[
+                { name: "Delays", data: delaysByHub.map((d) => d.value) },
+              ]}
               horizontal
             />
           </div>
@@ -97,7 +95,9 @@ export function AnalyticsPage() {
           <div className="min-h-80">
             <BarChart
               xAxis={topRoutes.map((r) => r.name)}
-              series={[{ name: "Shipments", data: topRoutes.map((r) => r.value) }]}
+              series={[
+                { name: "Shipments", data: topRoutes.map((r) => r.value) },
+              ]}
               horizontal
             />
           </div>

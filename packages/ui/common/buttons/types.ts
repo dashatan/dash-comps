@@ -1,4 +1,9 @@
-export type ButtonVariant = "contained" | "outlined" | "text" | "icon" | "icon-button";
+export type ButtonVariant =
+  | "contained"
+  | "outlined"
+  | "text"
+  | "icon"
+  | "icon-button";
 export type ButtonSeverity =
   | "primary"
   | "secondary"

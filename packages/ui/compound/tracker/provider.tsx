@@ -83,15 +83,15 @@ function RouteSync({
             const current = store.getState();
             if (current.routeMode !== "osrm") return;
             current.setRouteCoords(coords);
-            current.setEventOsrmIndices(
-              mapEventsToOsrmIndices(events, coords),
-            );
+            current.setEventOsrmIndices(mapEventsToOsrmIndices(events, coords));
             current.setRouteIsLoading(false);
           })
           .catch((err) => {
             store.getState().setError({
               message:
-                err instanceof Error ? err.message : "Failed to load OSRM route",
+                err instanceof Error
+                  ? err.message
+                  : "Failed to load OSRM route",
               cause: err,
             });
             store.getState().setRouteIsLoading(false);
@@ -125,7 +125,9 @@ function applyResolvedSettings(
   state.setMode(resolvedOptions.playback.mode);
   state.setEventIntervalMs(resolvedOptions.playback.speed.eventIntervalMs);
   state.setTimeMultiplier(resolvedOptions.playback.speed.timeMultiplier);
-  state.setTimeStepMultiplier(resolvedOptions.playback.speed.timeStepMultiplier);
+  state.setTimeStepMultiplier(
+    resolvedOptions.playback.speed.timeStepMultiplier,
+  );
   state.setEngineKey(resolvedOptions.map.engine);
   state.setLoop(resolvedOptions.playback.loop);
   if (state.initToFirstEvent !== resolvedOptions.playback.initToFirstEvent) {

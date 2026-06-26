@@ -15,8 +15,9 @@ export type ChartDataPayload<P> = P extends number
       ? P
       : unknown;
 
-export type SeriesDataPointUnion<S extends readonly { data?: readonly unknown[] }[]> =
-  NonNullable<S[number]["data"]>[number];
+export type SeriesDataPointUnion<
+  S extends readonly { data?: readonly unknown[] }[],
+> = NonNullable<S[number]["data"]>[number];
 
 /** Infer tooltip type from chart `series` entries that expose `data`. */
 export type InferChartPayloadFromSeries<
@@ -26,6 +27,5 @@ export type InferChartPayloadFromSeries<
 export type DataPointUnion<D extends readonly unknown[]> = D[number];
 
 /** Infer tooltip type from a top-level `data` array (pie, map, doughnut, …). */
-export type InferChartPayloadFromData<D extends readonly unknown[]> = ChartDataPayload<
-  DataPointUnion<D>
->;
+export type InferChartPayloadFromData<D extends readonly unknown[]> =
+  ChartDataPayload<DataPointUnion<D>>;

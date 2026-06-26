@@ -4,7 +4,11 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-simple-map-screenshoter";
 import { useFormContext } from "react-hook-form";
 import { carMarkerSvg } from "../icons/car";
-import { carIconClassName, pointClassName, polylineClassName } from "../../utils/classes";
+import {
+  carIconClassName,
+  pointClassName,
+  polylineClassName,
+} from "../../utils/classes";
 import {
   Track,
   TrackerState,
@@ -106,7 +110,10 @@ export default function TrackerMap() {
   function adjustMapView({ map, points }: { map: L.Map; points?: Point[] }) {
     if (!map || !points?.length) return;
     const bounds = L.latLngBounds(points);
-    map.fitBounds(bounds, { paddingTopLeft: [400, 100], paddingBottomRight: [100, 400] });
+    map.fitBounds(bounds, {
+      paddingTopLeft: [400, 100],
+      paddingBottomRight: [100, 400],
+    });
   }
 
   function drawLine({
@@ -123,7 +130,9 @@ export default function TrackerMap() {
     tracksWithEvents?.forEach((e, trackIndex) => {
       if (!e.events?.length) return;
 
-      const events = e.events.filter((x) => x.time <= time).slice(-traceCount.value);
+      const events = e.events
+        .filter((x) => x.time <= time)
+        .slice(-traceCount.value);
       if (!events.length) return;
 
       const color = getColor(colors[trackIndex]);
@@ -172,7 +181,13 @@ export default function TrackerMap() {
     });
   }
 
-  return <div ref={mapContainer} id="tracker-map" className="z-2 h-full w-full"></div>;
+  return (
+    <div
+      ref={mapContainer}
+      id="tracker-map"
+      className="z-2 h-full w-full"
+    ></div>
+  );
 }
 
 function makeTooltip(point: TrackPoint) {

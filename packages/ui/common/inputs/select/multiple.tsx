@@ -24,7 +24,9 @@ export default function MultiSelect({
     | any[]
     | undefined;
 
-  const [internalSelected, setInternalSelected] = useState<any[]>(externalSelected ?? []);
+  const [internalSelected, setInternalSelected] = useState<any[]>(
+    externalSelected ?? [],
+  );
 
   const selectedKey = JSON.stringify(externalSelected ?? []);
 
@@ -77,7 +79,9 @@ export default function MultiSelect({
       if (text) {
         const textNormalized = text.trim();
         const newData = options.filter((item) =>
-          `${item.label || ""} ${item?.description || ""}`.includes(textNormalized),
+          `${item.label || ""} ${item?.description || ""}`.includes(
+            textNormalized,
+          ),
         );
         setData(newData);
       } else {
@@ -115,7 +119,7 @@ export default function MultiSelect({
             className={cn(
               "flex items-center gap-2",
               props.virtualized &&
-                "hover:bg-input-hover/50 me-2 cursor-pointer rounded-md p-3",
+                "me-2 cursor-pointer rounded-md p-3 hover:bg-input-hover/50",
             )}
             onClick={() => handleChange(option)}
           >
@@ -146,7 +150,9 @@ export default function MultiSelect({
         <List
           onChange={handleChange}
           onReachBottom={props.onReachBottom}
-          itemTemplate={(option) => renderOption(option, props.itemTemplate?.(option))}
+          itemTemplate={(option) =>
+            renderOption(option, props.itemTemplate?.(option))
+          }
           itemClassName={props.className?.dropdown?.item}
           className={props.className?.dropdown?.body}
           data={data}

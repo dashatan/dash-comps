@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { ColorPicker } from './color-picker';
-import { ColorVar } from './types';
+import * as React from "react";
+import { ColorPicker } from "./color-picker";
+import { ColorVar } from "./types";
 
 interface ColorCategoryProps {
   colors: ColorVar[];

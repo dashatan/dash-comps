@@ -1,17 +1,20 @@
-import BasicCheckbox, { BasicCheckboxProps } from './basic'
-import LabeledCheckbox, { LabeledCheckboxProps } from './labeled'
-import CardCheckbox, { CardCheckboxProps } from './card'
+import BasicCheckbox, { BasicCheckboxProps } from "./basic";
+import LabeledCheckbox, { LabeledCheckboxProps } from "./labeled";
+import CardCheckbox, { CardCheckboxProps } from "./card";
 
 export namespace Checkbox {
-  export const Basic = BasicCheckbox
-  export const Labeled = LabeledCheckbox
-  export const Card = CardCheckbox
+  export const Basic = BasicCheckbox;
+  export const Labeled = LabeledCheckbox;
+  export const Card = CardCheckbox;
 }
 
-export type { BasicCheckboxProps } from './basic'
-export type { LabeledCheckboxProps } from './labeled'
-export type { CardCheckboxProps } from './card'
+export type { BasicCheckboxProps } from "./basic";
+export type { LabeledCheckboxProps } from "./labeled";
+export type { CardCheckboxProps } from "./card";
 
-export default LabeledCheckbox
+export default LabeledCheckbox;
 
-export type CheckboxProps = BasicCheckboxProps | LabeledCheckboxProps | CardCheckboxProps
+export type CheckboxProps =
+  | BasicCheckboxProps
+  | LabeledCheckboxProps
+  | CardCheckboxProps;

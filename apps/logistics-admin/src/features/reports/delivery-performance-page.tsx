@@ -1,8 +1,4 @@
-import {
-  GridCard,
-  GridContainer,
-  GridHeader,
-} from "@/components/common/grid";
+import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import LineChart from "@/components/common/charts/line";
 import BarChart from "@/components/common/charts/bar";
 import { getDeliveryPerformanceReport } from "@/data/reports";
@@ -11,8 +7,8 @@ import { PageHeader } from "@/shared/page-header";
 
 function SummaryStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-border bg-muted/20 rounded-lg border px-4 py-3">
-      <p className="text-muted-foreground text-xs">{label}</p>
+    <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+      <p className="text-xs text-muted-foreground">{label}</p>
       <p className="text-lg font-semibold tabular-nums">{value}</p>
     </div>
   );
@@ -55,7 +51,9 @@ export function DeliveryPerformanceReportPage() {
           <div className="min-h-80">
             <LineChart
               xAxis={[...report.onTimeTrend.labels]}
-              series={[{ name: "On-time %", data: [...report.onTimeTrend.values] }]}
+              series={[
+                { name: "On-time %", data: [...report.onTimeTrend.values] },
+              ]}
               type="smooth"
             />
           </div>

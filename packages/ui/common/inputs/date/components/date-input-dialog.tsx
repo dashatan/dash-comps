@@ -55,8 +55,13 @@ export function DateInputDialog({
       const allowed =
         !inputProps.limitedRange ||
         isInAllowedLimitedRange(date, inputProps.limitedRange);
-      const serverToday = new DateObject({ date: clearTime(), locale, calendar });
-      const isServerToday = serverToday != null && isSameDate(date, serverToday);
+      const serverToday = new DateObject({
+        date: clearTime(),
+        locale,
+        calendar,
+      });
+      const isServerToday =
+        serverToday != null && isSameDate(date, serverToday);
       const isServerMonth =
         serverToday != null &&
         date.year === serverToday.year &&
@@ -85,7 +90,7 @@ export function DateInputDialog({
     <div className="flex h-fit w-fit flex-col items-center overflow-auto">
       <div
         className={cn(
-          "flex-full flex flex-col items-center justify-center",
+          "flex flex-full flex-col items-center justify-center",
           inputProps.className?.content,
         )}
       >
@@ -107,7 +112,8 @@ export function DateInputDialog({
             locale={locale}
             highlightToday={false}
             currentDate={
-              dateObjects[0] || new DateObject({ date: clearTime(), locale, calendar })
+              dateObjects[0] ||
+              new DateObject({ date: clearTime(), locale, calendar })
             }
             className={cn("shadow-none!", inputProps.className?.calendar)}
             monthYearSeparator=","
@@ -169,7 +175,9 @@ function TimeSection({
   t,
   times,
   setTimes,
-}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & { dialogId: string }) {
+}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & {
+  dialogId: string;
+}) {
   return (
     <div
       id={`${dialogId}-time-section`}
@@ -193,7 +201,9 @@ function RangeTimeSection({
   t,
   times,
   setTimes,
-}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & { dialogId: string }) {
+}: Pick<DateInputViewProps, "t" | "times" | "setTimes"> & {
+  dialogId: string;
+}) {
   function handleChange(
     val: {
       string: string;
@@ -211,7 +221,7 @@ function RangeTimeSection({
   return (
     <div
       id={`${dialogId}-range-time-section`}
-      className="flex-full flex w-fit items-end justify-between gap-1 border-t px-4"
+      className="flex w-fit flex-full items-end justify-between gap-1 border-t px-4"
     >
       <div className="flex flex-col gap-1 py-2">
         <span className="text-sm font-medium">{t("common.fromTime")}</span>

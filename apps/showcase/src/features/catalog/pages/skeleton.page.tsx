@@ -29,7 +29,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       {children}

@@ -1,4 +1,10 @@
-import type { Coordinate, FitBoundsOptions, MapEngine, MapEngineConfig, MapEngineHandle } from "@/components/compound/tracker/map/types";
+import type {
+  Coordinate,
+  FitBoundsOptions,
+  MapEngine,
+  MapEngineConfig,
+  MapEngineHandle,
+} from "@/components/compound/tracker/map/types";
 
 export type MapEngineFactory = () => Promise<MapEngine>;
 

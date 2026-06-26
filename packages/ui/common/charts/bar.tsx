@@ -14,7 +14,9 @@ export type BarSeriesLabel = {
     | "insideRight"
     | "insideTop"
     | "insideBottom";
-  formatter?: string | ((params: { value?: number | string; data?: unknown }) => string);
+  formatter?:
+    | string
+    | ((params: { value?: number | string; data?: unknown }) => string);
   color?: string;
   fontSize?: number;
   distance?: number;
@@ -91,7 +93,8 @@ function BarChartInner<const S extends readonly BarSeriesInput[]>({
           color: getHexColor("--color-card-foreground"),
           borderColor: getHexColor("--color-border"),
           borderWidth: 0,
-          formatter: (params) => negativeFormatter(params.value as number | string),
+          formatter: (params) =>
+            negativeFormatter(params.value as number | string),
         },
       },
       formatter: (params: unknown) => {
@@ -205,7 +208,9 @@ function BarChartInner<const S extends readonly BarSeriesInput[]>({
     ...(opts?.dataZoom && { dataZoom: opts.dataZoom }),
   };
 
-  return <BaseChart<InferChartPayloadFromSeries<S>> options={options} {...props} />;
+  return (
+    <BaseChart<InferChartPayloadFromSeries<S>> options={options} {...props} />
+  );
 }
 
 export const BarChart = BarChartInner;

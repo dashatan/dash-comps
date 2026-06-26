@@ -12,7 +12,8 @@ const HOUR_MS = 3_600_000;
 
 export const TRACKER_MAP_ENV = {
   MAP_TILE_LIGHT: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  MAP_TILE_DARK: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  MAP_TILE_DARK:
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
   OSRM_URL: "https://router.project-osrm.org",
 } as const;
 
@@ -103,19 +104,43 @@ type Waypoint = {
 function buildObserveEvents(): ObserveEvent[] {
   /** Paris → Belgium → Netherlands → Germany → Czechia */
   const waypoints: Waypoint[] = [
-    { latlng: [48.8566, 2.3522], province: "Paris, France", road: "Boulevard Périphérique" },
+    {
+      latlng: [48.8566, 2.3522],
+      province: "Paris, France",
+      road: "Boulevard Périphérique",
+    },
     { latlng: [49.2583, 2.4833], province: "Picardy, France", road: "A1" },
     { latlng: [49.8942, 2.2958], province: "Somme, France", road: "A1" },
     { latlng: [50.291, 3.239], province: "Nord, France", road: "A1" },
     { latlng: [50.6292, 3.0573], province: "Lille, France", road: "A1" },
     { latlng: [50.8503, 4.3517], province: "Brussels, Belgium", road: "E40" },
     { latlng: [51.2194, 4.4025], province: "Antwerp, Belgium", road: "E19" },
-    { latlng: [51.5719, 4.7683], province: "North Brabant, Netherlands", road: "A16" },
-    { latlng: [51.9244, 4.4777], province: "Rotterdam, Netherlands", road: "A13" },
+    {
+      latlng: [51.5719, 4.7683],
+      province: "North Brabant, Netherlands",
+      road: "A16",
+    },
+    {
+      latlng: [51.9244, 4.4777],
+      province: "Rotterdam, Netherlands",
+      road: "A13",
+    },
     { latlng: [52.0907, 5.1214], province: "Utrecht, Netherlands", road: "A2" },
-    { latlng: [52.3676, 4.9041], province: "Amsterdam, Netherlands", road: "A10" },
-    { latlng: [52.2215, 6.8937], province: "Overijssel, Netherlands", road: "A1" },
-    { latlng: [52.0907, 6.8775], province: "Enschede, Netherlands", road: "A35" },
+    {
+      latlng: [52.3676, 4.9041],
+      province: "Amsterdam, Netherlands",
+      road: "A10",
+    },
+    {
+      latlng: [52.2215, 6.8937],
+      province: "Overijssel, Netherlands",
+      road: "A1",
+    },
+    {
+      latlng: [52.0907, 6.8775],
+      province: "Enschede, Netherlands",
+      road: "A35",
+    },
     { latlng: [51.9607, 7.6261], province: "Münster, Germany", road: "A1" },
     { latlng: [51.4556, 7.0116], province: "Essen, Germany", road: "A40" },
     { latlng: [50.9375, 6.9603], province: "Cologne, Germany", road: "A4" },

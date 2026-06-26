@@ -357,7 +357,10 @@ export function FormPage() {
   const selectedProductImage = showcaseCarouselImages.product[selectedProduct];
 
   const multiCategoryOptions: SelectItem[] = [
-    { label: p("selectionFields.categories.accessories"), value: "accessories" },
+    {
+      label: p("selectionFields.categories.accessories"),
+      value: "accessories",
+    },
     { label: p("selectionFields.categories.audio"), value: "audio" },
     { label: p("selectionFields.categories.furniture"), value: "furniture" },
     { label: p("selectionFields.categories.decor"), value: "decor" },
@@ -591,7 +594,9 @@ export function FormPage() {
           <Form
             form={specializedForm}
             className="grid w-full gap-4 lg:grid-cols-3"
-            onSubmit={() => toast.success(p("specializedFields.submittedToast"))}
+            onSubmit={() =>
+              toast.success(p("specializedFields.submittedToast"))
+            }
           >
             <FormField
               type="date"
@@ -701,8 +706,10 @@ export function FormPage() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent" />
             <div className="relative flex h-full flex-col justify-end p-6">
-              <p className="text-sm font-medium">{p("validation.imageCaption")}</p>
-              <p className="text-muted-foreground mt-1 text-sm">
+              <p className="text-sm font-medium">
+                {p("validation.imageCaption")}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
                 {p("validation.imageHint")}
               </p>
             </div>
@@ -791,7 +798,7 @@ export function FormPage() {
               <p className="mt-1 text-xl font-semibold">
                 {p(`products.${selectedProduct}.title`)}
               </p>
-              <p className="text-muted-foreground mt-1 text-sm">
+              <p className="mt-1 text-sm text-muted-foreground">
                 {p(`products.${selectedProduct}.description`)}
               </p>
             </div>
@@ -803,7 +810,9 @@ export function FormPage() {
             onSubmit={(values) =>
               toast.success(
                 p("productListing.successToast", {
-                  title: values.title || p(`products.${values.product ?? "watch"}.title`),
+                  title:
+                    values.title ||
+                    p(`products.${values.product ?? "watch"}.title`),
                 }),
               )
             }
@@ -879,8 +888,10 @@ export function FormPage() {
                   loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-background/95 to-transparent p-3">
-                  <p className="text-sm font-medium">{p(`products.${key}.title`)}</p>
-                  <p className="text-muted-foreground text-xs">
+                  <p className="text-sm font-medium">
+                    {p(`products.${key}.title`)}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
                     {p(`products.${key}.subtitle`)}
                   </p>
                 </div>

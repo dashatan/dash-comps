@@ -70,7 +70,8 @@ const CardRoot = forwardRef<HTMLDivElement, CardProps>(
     ref,
   ) => {
     const resolvedSize = resolveLegacySize(size);
-    const resolvedAppearance = appearance ?? resolveLegacyAppearance(variant) ?? "soft";
+    const resolvedAppearance =
+      appearance ?? resolveLegacyAppearance(variant) ?? "soft";
     const isInteractive = interactive ?? Boolean(onClick);
 
     const contextValue = useMemo(

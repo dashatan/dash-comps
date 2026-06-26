@@ -1,11 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Truck, Users, ClipboardList, Activity } from "lucide-react";
-import {
-  GridCard,
-  GridContainer,
-  GridHeader,
-} from "@/components/common/grid";
+import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import {
   ASSIGNMENT_COUNT,
   DRIVER_COUNT,
@@ -31,10 +27,10 @@ function KpiCard({
     <GridCard className="col-span-12 @lg:col-span-6 @2xl:col-span-3">
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
-          <span className="text-muted-foreground text-xs">{label}</span>
+          <span className="text-xs text-muted-foreground">{label}</span>
           <span className="text-2xl font-semibold tabular-nums">{value}</span>
         </div>
-        <div className="bg-muted text-muted-foreground flex size-10 items-center justify-center rounded-lg">
+        <div className="flex size-10 items-center justify-center rounded-lg bg-muted text-muted-foreground">
           {icon}
         </div>
       </div>
@@ -78,12 +74,12 @@ export function FleetOverviewPage() {
 
         <GridCard className="col-span-12 @md:col-span-4">
           <GridHeader title={t("fleet.vehicles.title")} />
-          <p className="text-muted-foreground mb-4 text-sm">
+          <p className="mb-4 text-sm text-muted-foreground">
             {t("fleet.vehicles.subtitle")}
           </p>
           <Link
             to="/fleet/vehicles"
-            className="bg-primary text-primary-foreground inline-flex rounded-md px-4 py-2 text-sm font-medium"
+            className="inline-flex rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             {t("fleet.overview.viewVehicles")}
           </Link>
@@ -91,12 +87,12 @@ export function FleetOverviewPage() {
 
         <GridCard className="col-span-12 @md:col-span-4">
           <GridHeader title={t("fleet.drivers.title")} />
-          <p className="text-muted-foreground mb-4 text-sm">
+          <p className="mb-4 text-sm text-muted-foreground">
             {t("fleet.drivers.subtitle")}
           </p>
           <Link
             to="/fleet/drivers"
-            className="bg-primary text-primary-foreground inline-flex rounded-md px-4 py-2 text-sm font-medium"
+            className="inline-flex rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             {t("fleet.overview.viewDrivers")}
           </Link>
@@ -104,12 +100,13 @@ export function FleetOverviewPage() {
 
         <GridCard className="col-span-12 @md:col-span-4">
           <GridHeader title={t("fleet.assignments.title")} />
-          <p className="text-muted-foreground mb-4 text-sm">
-            {t("fleet.assignments.subtitle")} ({ASSIGNMENT_COUNT} / {DRIVER_COUNT} drivers)
+          <p className="mb-4 text-sm text-muted-foreground">
+            {t("fleet.assignments.subtitle")} ({ASSIGNMENT_COUNT} /{" "}
+            {DRIVER_COUNT} drivers)
           </p>
           <Link
             to="/fleet/assignments"
-            className="bg-primary text-primary-foreground inline-flex rounded-md px-4 py-2 text-sm font-medium"
+            className="inline-flex rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             {t("fleet.overview.viewAssignments")}
           </Link>

@@ -15,27 +15,30 @@ export function MapPolyline({
 }: MapPolylineProps) {
   const lineRef = useRef<L.Polyline | null>(null);
 
-  useMapPlugin((map) => {
-    safeRemoveLayer(map, lineRef.current);
-    lineRef.current = null;
-
-    if (points.length < 2) return;
-
-    lineRef.current = L.polyline(points, {
-      weight: 6,
-      ...pathOptions,
-      className: className ?? pathOptions?.className,
-    }).addTo(map);
-
-    if (fitBounds) {
-      map.fitBounds(L.latLngBounds(points), { padding: fitBoundsPadding });
-    }
-
-    return () => {
+  useMapPlugin(
+    (map) => {
       safeRemoveLayer(map, lineRef.current);
       lineRef.current = null;
-    };
-  }, [points, pathOptions, className, fitBounds, fitBoundsPadding]);
+
+      if (points.length < 2) return;
+
+      lineRef.current = L.polyline(points, {
+        weight: 6,
+        ...pathOptions,
+        className: className ?? pathOptions?.className,
+      }).addTo(map);
+
+      if (fitBounds) {
+        map.fitBounds(L.latLngBounds(points), { padding: fitBoundsPadding });
+      }
+
+      return () => {
+        safeRemoveLayer(map, lineRef.current);
+        lineRef.current = null;
+      };
+    },
+    [points, pathOptions, className, fitBounds, fitBoundsPadding],
+  );
 
   return null;
 }

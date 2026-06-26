@@ -39,7 +39,10 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
       const letter = letters[i];
       const letterKeys = letterToKeyboardMap[letter.name];
 
-      if (letterKeys && letterKeys.some((k) => k.toLowerCase() === normalizedKey)) {
+      if (
+        letterKeys &&
+        letterKeys.some((k) => k.toLowerCase() === normalizedKey)
+      ) {
         return i;
       }
     }
@@ -69,7 +72,10 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
   //   };
   // }, [letters]);
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>, index: number) => {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLDivElement>,
+    index: number,
+  ) => {
     event.stopPropagation();
     event.preventDefault();
 
@@ -117,7 +123,12 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
         onChange(null, undefined, event.shiftKey ? "prev" : "next");
         break;
       default:
-        if (event.key.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey) {
+        if (
+          event.key.length === 1 &&
+          !event.ctrlKey &&
+          !event.altKey &&
+          !event.metaKey
+        ) {
           const foundIndex = findLetterByKey(event.key);
           if (foundIndex !== null) {
             setFocusedIndex(foundIndex);
@@ -129,7 +140,7 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
 
   return (
     <div
-      className="bg-card flex-full z-2 h-auto max-h-80 overflow-y-auto rounded-md border"
+      className="z-2 h-auto max-h-80 flex-full overflow-y-auto rounded-md border bg-card"
       style={{ width }}
     >
       <div className="flex w-full flex-col p-2">
@@ -138,7 +149,9 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
             const colorCode = lettersColorCodes.find(
               (x) => x.letter === letter.name,
             )?.colorCode;
-            const dsc = lettersDescriptions.find((x) => x.letter === letter.name)?.dsc;
+            const dsc = lettersDescriptions.find(
+              (x) => x.letter === letter.name,
+            )?.dsc;
             return (
               <div
                 key={letter.name}
@@ -151,9 +164,9 @@ export default function LettersBox({ onChange, width }: LettersBoxProps) {
                 onFocus={() => setFocusedIndex(index)}
                 className={cn(
                   "flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden whitespace-nowrap",
-                  "bg-muted text-muted-foreground rounded-md transition",
-                  "focus-visible:ring-foreground focus-visible:ring-offset-card focus-visible:z-1 focus-visible:ring-2 focus-visible:ring-offset-2",
-                  "hover:ring-foreground hover:ring-offset-card hover:z-1 hover:ring-2 hover:ring-offset-2",
+                  "rounded-md bg-muted text-muted-foreground transition",
+                  "focus-visible:z-1 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-card",
+                  "hover:z-1 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-card",
                   "outline-none",
                   colorCode ? colors[colorCode] : "",
                 )}

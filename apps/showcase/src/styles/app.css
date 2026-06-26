@@ -33,9 +33,17 @@
 
 /* Compact doc-style code preview (Shiki) */
 .code-preview {
-  --cp-chrome-bg: color-mix(in oklab, var(--background) 92%, var(--foreground) 8%);
+  --cp-chrome-bg: color-mix(
+    in oklab,
+    var(--background) 92%,
+    var(--foreground) 8%
+  );
   --cp-tab-fg: var(--foreground);
-  --cp-editor-bg: color-mix(in oklab, var(--background) 96%, var(--foreground) 4%);
+  --cp-editor-bg: color-mix(
+    in oklab,
+    var(--background) 96%,
+    var(--foreground) 4%
+  );
   --cp-gutter-fg: color-mix(in oklab, var(--muted-foreground) 85%, transparent);
   --cp-gutter-border: var(--border);
   --cp-border: var(--border);

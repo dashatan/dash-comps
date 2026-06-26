@@ -46,13 +46,19 @@ function TrackerPreview() {
             className="opacity-90"
           />
           <circle cx="40" cy="150" r="6" fill="currentColor" />
-          <circle cx="370" cy="60" r="6" fill="currentColor" className="text-success" />
+          <circle
+            cx="370"
+            cy="60"
+            r="6"
+            fill="currentColor"
+            className="text-success"
+          />
         </svg>
-        <div className="absolute start-3 bottom-3 end-3 flex items-center justify-between gap-2">
-          <div className="bg-background/80 rounded-lg border border-border/60 px-2.5 py-1.5 text-[0.65rem] font-medium backdrop-blur-sm">
+        <div className="absolute start-3 end-3 bottom-3 flex items-center justify-between gap-2">
+          <div className="rounded-lg border border-border/60 bg-background/80 px-2.5 py-1.5 text-[0.65rem] font-medium backdrop-blur-sm">
             Live route replay
           </div>
-          <div className="bg-primary text-primary-foreground rounded-full px-2 py-1 text-[0.6rem] font-semibold">
+          <div className="rounded-full bg-primary px-2 py-1 text-[0.6rem] font-semibold text-primary-foreground">
             12 events
           </div>
         </div>
@@ -63,7 +69,12 @@ function TrackerPreview() {
 
 function LocationPickerPreview() {
   return (
-    <div className={cn(previewFrameClass, "min-h-52 flex-col items-stretch gap-2 p-2")}>
+    <div
+      className={cn(
+        previewFrameClass,
+        "min-h-52 flex-col items-stretch gap-2 p-2",
+      )}
+    >
       <div
         className="h-28 w-full rounded-lg bg-cover bg-center"
         style={{ backgroundImage: "url(/location-picker/trigger-devices.jpg)" }}
@@ -72,7 +83,7 @@ function LocationPickerPreview() {
         {["Devices", "Routes", "Filters"].map((label) => (
           <div
             key={label}
-            className="bg-muted/50 text-muted-foreground rounded-md border border-border/50 px-2 py-2 text-center text-[0.6rem] font-medium"
+            className="rounded-md border border-border/50 bg-muted/50 px-2 py-2 text-center text-[0.6rem] font-medium text-muted-foreground"
           >
             {label}
           </div>
@@ -92,7 +103,7 @@ function TablePreview() {
   return (
     <div className={cn(previewFrameClass, "items-stretch p-2")}>
       <div className="w-full overflow-hidden rounded-lg border border-border/50 text-[0.65rem]">
-        <div className="bg-muted/40 grid grid-cols-3 gap-2 border-b border-border/50 px-3 py-2 font-semibold">
+        <div className="grid grid-cols-3 gap-2 border-b border-border/50 bg-muted/40 px-3 py-2 font-semibold">
           <span>Name</span>
           <span>Status</span>
           <span className="text-end">Units</span>
@@ -134,19 +145,21 @@ function DashboardPreview() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="bg-card rounded-lg border border-border/50 p-2"
+            className="rounded-lg border border-border/50 bg-card p-2"
           >
-            <p className="text-muted-foreground text-[0.55rem]">{stat.label}</p>
+            <p className="text-[0.55rem] text-muted-foreground">{stat.label}</p>
             <p className="mt-1 text-sm font-bold tabular-nums">{stat.value}</p>
-            <p className="text-success text-[0.55rem] font-medium">{stat.trend}</p>
+            <p className="text-[0.55rem] font-medium text-success">
+              {stat.trend}
+            </p>
           </div>
         ))}
       </div>
-      <div className="bg-muted/30 flex h-16 items-end gap-1 rounded-lg border border-border/40 p-2">
+      <div className="flex h-16 items-end gap-1 rounded-lg border border-border/40 bg-muted/30 p-2">
         {[35, 58, 42, 72, 48, 80, 65].map((h, i) => (
           <div
             key={i}
-            className="bg-primary/70 flex-1 rounded-sm"
+            className="flex-1 rounded-sm bg-primary/70"
             style={{ height: `${h}%` }}
           />
         ))}
@@ -159,15 +172,19 @@ function LicensePlatePreview() {
   return (
     <div className={cn(previewFrameClass, "p-3")}>
       <div className="flex w-fit overflow-hidden rounded-lg border-2 border-foreground/80 bg-white text-black shadow-md">
-        <div className="bg-[#003399] flex w-8 shrink-0 flex-col items-center justify-center gap-0.5 py-2 text-white">
+        <div className="flex w-8 shrink-0 flex-col items-center justify-center gap-0.5 bg-[#003399] py-2 text-white">
           <span className="text-[0.45rem] font-bold">IR</span>
           <span className="text-[0.4rem]">IRN</span>
         </div>
         <div className="flex flex-1 items-center justify-center gap-1 px-2 py-2.5 text-lg font-bold tracking-wider">
           <span>12</span>
-          <span className="rounded bg-amber-400 px-1.5 text-sm text-black">ب</span>
+          <span className="rounded bg-amber-400 px-1.5 text-sm text-black">
+            ب
+          </span>
           <span>345</span>
-          <span className="text-muted-foreground ms-1 text-xs font-normal">| 67</span>
+          <span className="ms-1 text-xs font-normal text-muted-foreground">
+            | 67
+          </span>
         </div>
       </div>
     </div>
@@ -179,14 +196,14 @@ function FormPreview() {
     <div className={cn(previewFrameClass, "items-stretch gap-2 p-3")}>
       <div className="space-y-2">
         <div className="space-y-1">
-          <div className="bg-muted/60 h-2 w-12 rounded" />
-          <div className="bg-input h-8 rounded-md border border-border/60" />
+          <div className="h-2 w-12 rounded bg-muted/60" />
+          <div className="h-8 rounded-md border border-border/60 bg-input" />
         </div>
         <div className="space-y-1">
-          <div className="bg-muted/60 h-2 w-16 rounded" />
-          <div className="bg-input h-8 rounded-md border border-border/60" />
+          <div className="h-2 w-16 rounded bg-muted/60" />
+          <div className="h-8 rounded-md border border-border/60 bg-input" />
         </div>
-        <div className="bg-primary mt-1 h-8 rounded-md" />
+        <div className="mt-1 h-8 rounded-md bg-primary" />
       </div>
     </div>
   );

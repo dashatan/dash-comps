@@ -105,11 +105,16 @@ export function ListPage() {
   );
 
   const buttonSample = useMemo<ButtonItem[]>(
-    () => [
-      { name: p("sample.status"), value: p("sample.confirmed"), hasValue: true },
-      { name: p("sample.tier"), value: p("sample.longTier"), hasValue: true },
-      { name: p("sample.notes"), hasValue: false },
-    ] as ButtonItem[],
+    () =>
+      [
+        {
+          name: p("sample.status"),
+          value: p("sample.confirmed"),
+          hasValue: true,
+        },
+        { name: p("sample.tier"), value: p("sample.longTier"), hasValue: true },
+        { name: p("sample.notes"), hasValue: false },
+      ] as ButtonItem[],
     [p],
   );
 
@@ -124,10 +129,7 @@ export function ListPage() {
   );
 
   const twoColOdd = useMemo(
-    () => [
-      ...twoColEven,
-      { name: p("sample.notes"), value: p("sample.dash") },
-    ],
+    () => [...twoColEven, { name: p("sample.notes"), value: p("sample.dash") }],
     [p, twoColEven],
   );
 
@@ -145,8 +147,18 @@ export function ListPage() {
 
   const gridColumns = useMemo<GridColumn<GridRow>[]>(
     () => [
-      { field: "name", header: p("gridList.columns.name"), sortable: true, width: "1.5fr" },
-      { field: "role", header: p("gridList.columns.role"), sortable: true, width: "1.2fr" },
+      {
+        field: "name",
+        header: p("gridList.columns.name"),
+        sortable: true,
+        width: "1.5fr",
+      },
+      {
+        field: "role",
+        header: p("gridList.columns.role"),
+        sortable: true,
+        width: "1.2fr",
+      },
       {
         field: "score",
         header: p("gridList.columns.score"),
@@ -156,7 +168,8 @@ export function ListPage() {
           <span
             className={cn("font-semibold", {
               "text-emerald-600 dark:text-emerald-400": row.score >= 80,
-              "text-amber-600 dark:text-amber-400": row.score >= 70 && row.score < 80,
+              "text-amber-600 dark:text-amber-400":
+                row.score >= 70 && row.score < 80,
               "text-red-600 dark:text-red-400": row.score < 70,
             })}
           >
@@ -242,9 +255,17 @@ export function ListPage() {
           <ShowcaseRow label={p("chipsList.rows.withIcons")}>
             <List.Chips
               list={[
-                { name: p("chipsList.tagA"), isActive: true, icon: <Star className="size-3" /> },
+                {
+                  name: p("chipsList.tagA"),
+                  isActive: true,
+                  icon: <Star className="size-3" />,
+                },
                 { name: p("chipsList.tagB"), icon: <Tag className="size-3" /> },
-                { name: p("chipsList.tagC"), isActive: true, icon: <Star className="size-3" /> },
+                {
+                  name: p("chipsList.tagC"),
+                  isActive: true,
+                  icon: <Star className="size-3" />,
+                },
               ]}
             />
           </ShowcaseRow>

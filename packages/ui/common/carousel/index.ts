@@ -51,7 +51,10 @@ export type {
   CarouselTransition,
 } from "@/components/common/carousel/types";
 
-export { CarouselProvider, useCarouselContext } from "@/components/common/carousel/context";
+export {
+  CarouselProvider,
+  useCarouselContext,
+} from "@/components/common/carousel/context";
 export { useCarousel } from "@/components/common/carousel/use-carousel";
 export {
   clampCarouselIndex,

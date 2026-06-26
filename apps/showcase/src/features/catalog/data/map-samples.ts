@@ -4,7 +4,8 @@ export const MAP_TILE_LIGHT =
 export const MAP_TILE_DARK =
   "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" as const;
 
-export const NOMINATIM_URL = "https://nominatim.openstreetmap.org/search" as const;
+export const NOMINATIM_URL =
+  "https://nominatim.openstreetmap.org/search" as const;
 
 export type CountryPresetId =
   | "iran"

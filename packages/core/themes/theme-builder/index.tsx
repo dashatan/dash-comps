@@ -83,7 +83,7 @@ export function ThemeBuilder() {
       <Button
         variant="outlined"
         size={32}
-        className="hover:bg-primary hover:text-primary-foreground rounded-full transition-colors"
+        className="rounded-full transition-colors hover:bg-primary hover:text-primary-foreground"
         onClick={() => setIsOpen(true)}
       >
         <Settings className="h-5 w-5" />
@@ -92,17 +92,17 @@ export function ThemeBuilder() {
       {/* Slide-in Panel */}
       <div
         ref={panelRef}
-        className={`bg-card border-border fixed top-0 left-0 z-7 h-screen w-96 max-w-full transform border-r transition-transform duration-300 ${
+        className={`fixed top-0 left-0 z-7 h-screen w-96 max-w-full transform border-r border-border bg-card transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } overflow-y-auto`}
       >
         <div className="flex h-full flex-col">
-          <div className="border-border border-b p-6">
+          <div className="border-b border-border p-6">
             <div className="flex items-center justify-between">
               <Button
                 variant="text"
                 size={32}
-                className="hover:text-destructive rounded-full"
+                className="rounded-full hover:text-destructive"
                 onClick={() => setIsOpen(false)}
                 aria-label={t("common.close")}
               >
@@ -149,7 +149,7 @@ export function ThemeBuilder() {
             </Tabs> */}
           </div>
 
-          <div className="border-border border-t p-6">
+          <div className="border-t border-border p-6">
             <Button
               variant="outlined"
               className="w-full"

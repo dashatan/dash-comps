@@ -163,7 +163,15 @@ export function useCarousel({
     intervalRef.current = window.setInterval(() => {
       setIndex(indexRef.current + scrollStep);
     }, duration);
-  }, [autoPlay, clearTimer, duration, perView, scrollStep, setIndex, slideCount]);
+  }, [
+    autoPlay,
+    clearTimer,
+    duration,
+    perView,
+    scrollStep,
+    setIndex,
+    slideCount,
+  ]);
 
   useEffect(() => {
     if (count > 0) {

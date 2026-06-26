@@ -1,7 +1,11 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import type { CardAppearance, CardSeverity, CardSize } from "@/components/common/card/types";
+import type {
+  CardAppearance,
+  CardSeverity,
+  CardSize,
+} from "@/components/common/card/types";
 
 export type CardContextValue = {
   size: CardSize;

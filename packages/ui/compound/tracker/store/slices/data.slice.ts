@@ -1,5 +1,8 @@
 import type { StateCreator } from "zustand";
-import type { Emphasize, Track } from "@/components/compound/tracker/types/input";
+import type {
+  Emphasize,
+  Track,
+} from "@/components/compound/tracker/types/input";
 import type {
   NormalizedEvent,
   NormalizedTrackerData,
@@ -33,7 +36,9 @@ export type DataSlice = {
   setMinutes: (minutes: number[]) => void;
 };
 
-export const createDataSlice: StateCreator<TrackerStore, [], [], DataSlice> = (set) => ({
+export const createDataSlice: StateCreator<TrackerStore, [], [], DataSlice> = (
+  set,
+) => ({
   status: "idle",
   error: null,
   events: [],

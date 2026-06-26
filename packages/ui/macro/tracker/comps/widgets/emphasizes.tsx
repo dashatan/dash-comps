@@ -1,4 +1,4 @@
-import { TableCellDateElement as DateElement } from '@/components/compound/table/components/shared'
+import { TableCellDateElement as DateElement } from "@/components/compound/table/components/shared";
 import {
   eventIndex,
   minutes,
@@ -6,7 +6,10 @@ import {
   totalTimeIndex,
 } from "@/components/macro/tracker";
 import { makeTimes } from "@/components/macro/tracker/utils/remap";
-import { Emphasize, TrackerState } from "@/components/macro/tracker/utils/types";
+import {
+  Emphasize,
+  TrackerState,
+} from "@/components/macro/tracker/utils/types";
 import { Divider } from "@/components/micro/divider";
 import {
   timeHourClear,
@@ -69,13 +72,18 @@ export default function EmphasizesPanel(props: EmphasizesPanelProps) {
   }
 
   return (
-    <div className="animate-fade animate-duration-300 dir-rtl flex w-80 flex-col rounded-md bg-gray-50 p-2">
-      <div id="header" className="flex h-10 w-full items-center justify-between">
+    <div className="flex w-80 animate-fade flex-col rounded-md bg-gray-50 p-2 animate-duration-300 dir-rtl">
+      <div
+        id="header"
+        className="flex h-10 w-full items-center justify-between"
+      >
         <div className="text-primary-500 flex gap-2">
           {props.icon}
           <div className="flex flex-col">
             <span className="text-sm font-semibold">{props.title}</span>
-            <span className="text-xs font-semibold text-gray-500">{props.subtitle}</span>
+            <span className="text-xs font-semibold text-gray-500">
+              {props.subtitle}
+            </span>
           </div>
         </div>
         <div
@@ -115,11 +123,11 @@ export default function EmphasizesPanel(props: EmphasizesPanelProps) {
                     <div className="text-xs font-semibold">
                       {emphasize.title || emphasize.latLng.join(" _ ")}
                     </div>
-                    <div className="text-2xs flex gap-1 font-semibold text-gray-500">
+                    <div className="flex gap-1 text-2xs font-semibold text-gray-500">
                       <span>از تاریخ: </span>
                       <DateElement val={emphasize.startTime} />
                     </div>
-                    <div className="text-2xs flex gap-2 font-semibold text-gray-500">
+                    <div className="flex gap-2 text-2xs font-semibold text-gray-500">
                       <span>تا تاریخ: </span>
                       <DateElement val={emphasize.endTime} />
                     </div>

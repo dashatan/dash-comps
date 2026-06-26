@@ -9,7 +9,15 @@ type ImageProps = ImgHTMLAttributes<HTMLImageElement> & {
   priority?: boolean;
 };
 
-export default function Image({ src, alt, fill, width, height, style, ...rest }: ImageProps) {
+export default function Image({
+  src,
+  alt,
+  fill,
+  width,
+  height,
+  style,
+  ...rest
+}: ImageProps) {
   return (
     <img
       src={src}
@@ -18,7 +26,14 @@ export default function Image({ src, alt, fill, width, height, style, ...rest }:
       height={height}
       style={
         fill
-          ? { ...style, position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }
+          ? {
+              ...style,
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }
           : style
       }
       {...rest}

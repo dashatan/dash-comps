@@ -2,7 +2,10 @@
 
 import MapControlButton from "@/components/common/map/controls/control-button";
 import MapControlButtonGroup from "@/components/common/map/controls/control-button-group";
-import { useLeafletMap, useLeafletMapReady } from "@/components/common/map/context";
+import {
+  useLeafletMap,
+  useLeafletMapReady,
+} from "@/components/common/map/context";
 import { cn, useLanguage } from "@/lib";
 import { Minus, Plus } from "lucide-react";
 
@@ -25,10 +28,16 @@ export function MapZoomControls({ className }: MapZoomControlsProps) {
       )}
     >
       <MapControlButtonGroup>
-        <MapControlButton onClick={() => map.zoomIn()} tooltip={t("common.zoomIn")}>
+        <MapControlButton
+          onClick={() => map.zoomIn()}
+          tooltip={t("common.zoomIn")}
+        >
           <Plus className="size-6" />
         </MapControlButton>
-        <MapControlButton onClick={() => map.zoomOut()} tooltip={t("common.zoomOut")}>
+        <MapControlButton
+          onClick={() => map.zoomOut()}
+          tooltip={t("common.zoomOut")}
+        >
           <Minus className="size-6" />
         </MapControlButton>
       </MapControlButtonGroup>

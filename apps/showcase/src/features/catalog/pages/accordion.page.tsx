@@ -210,10 +210,14 @@ export function AccordionPage() {
           >
             {p("controlled.openSecond")}
           </Button>
-          <Button size="sm" variant="text" onClick={() => setControlledValue("")}>
+          <Button
+            size="sm"
+            variant="text"
+            onClick={() => setControlledValue("")}
+          >
             {p("controlled.collapseAll")}
           </Button>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             {p("controlled.current", {
               value: controlledValue || p("controlled.none"),
             })}
@@ -303,12 +307,12 @@ export function AccordionPage() {
             <AccordionTrigger>{p("richContent.trigger")}</AccordionTrigger>
             <AccordionContent className="space-y-3 p-4">
               <p>{p("richContent.intro")}</p>
-              <ul className="text-muted-foreground list-disc space-y-1 ps-5">
+              <ul className="list-disc space-y-1 ps-5 text-muted-foreground">
                 <li>{p("richContent.listItem1")}</li>
                 <li>{p("richContent.listItem2")}</li>
                 <li>{p("richContent.listItem3")}</li>
               </ul>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-sm text-muted-foreground">
                 {p("richContent.outro")}
               </p>
             </AccordionContent>

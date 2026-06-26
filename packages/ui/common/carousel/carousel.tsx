@@ -31,9 +31,7 @@ import type {
   CarouselRootProps,
 } from "@/components/common/carousel/types";
 import { useCarousel } from "@/components/common/carousel/use-carousel";
-import {
-  normalizeSlidesPerView,
-} from "@/components/common/carousel/utils";
+import { normalizeSlidesPerView } from "@/components/common/carousel/utils";
 import {
   resolveFallbackSlideWidthPercent,
   resolveFallbackTrackOffset,
@@ -310,14 +308,19 @@ const CarouselContent = forwardRef<HTMLDivElement, CarouselContentProps>(
     } = useCarouselContext();
 
     const { measureViewport, viewportWidth } = useViewportWidth();
-    const [slideHeights, setSlideHeights] = useState<Record<number, number>>({});
+    const [slideHeights, setSlideHeights] = useState<Record<number, number>>(
+      {},
+    );
 
-    const registerSlideHeight = useCallback((slideIndex: number, height: number) => {
-      setSlideHeights((prev) => {
-        if (prev[slideIndex] === height) return prev;
-        return { ...prev, [slideIndex]: height };
-      });
-    }, []);
+    const registerSlideHeight = useCallback(
+      (slideIndex: number, height: number) => {
+        setSlideHeights((prev) => {
+          if (prev[slideIndex] === height) return prev;
+          return { ...prev, [slideIndex]: height };
+        });
+      },
+      [],
+    );
 
     const gapPx = GAP_PX[gap ?? "none"];
     const effectiveSlidesPerView = transition === "fade" ? 1 : slidesPerView;
@@ -371,7 +374,8 @@ const CarouselContent = forwardRef<HTMLDivElement, CarouselContentProps>(
     ]);
 
     const dynamicHeight = useMemo(() => {
-      if (viewportHeight !== undefined || transition === "fade") return undefined;
+      if (viewportHeight !== undefined || transition === "fade")
+        return undefined;
 
       const perView = normalizeSlidesPerView(effectiveSlidesPerView);
       const lastVisibleIndex =
@@ -512,14 +516,7 @@ type CarouselItemInternalProps = CarouselItemProps & {
 
 const CarouselItem = forwardRef<HTMLDivElement, CarouselItemInternalProps>(
   (
-    {
-      className,
-      index = 0,
-      style,
-      children,
-      registerSlideHeight,
-      ...props
-    },
+    { className, index = 0, style, children, registerSlideHeight, ...props },
     ref,
   ) => {
     const {
@@ -572,13 +569,7 @@ const CarouselItem = forwardRef<HTMLDivElement, CarouselItemInternalProps>(
       const observer = new ResizeObserver(report);
       observer.observe(node);
       return () => observer.disconnect();
-    }, [
-      transition,
-      hasFixedHeight,
-      registerSlideHeight,
-      index,
-      children,
-    ]);
+    }, [transition, hasFixedHeight, registerSlideHeight, index, children]);
 
     return (
       <div
@@ -595,9 +586,7 @@ const CarouselItem = forwardRef<HTMLDivElement, CarouselItemInternalProps>(
             visible: isActive,
             fixedHeight: hasFixedHeight && transition === "slide",
           }),
-          hasFixedHeight &&
-            transition === "slide" &&
-            "*:h-full *:min-h-0",
+          hasFixedHeight && transition === "slide" && "*:h-full *:min-h-0",
           className,
         )}
         style={style}
@@ -640,14 +629,7 @@ function CarouselControls({
 
 const CarouselPrevious = forwardRef<HTMLButtonElement, CarouselPreviousProps>(
   (
-    {
-      className,
-      variant,
-      size,
-      rounded,
-      label = "Previous slide",
-      ...props
-    },
+    { className, variant, size, rounded, label = "Previous slide", ...props },
     ref,
   ) => {
     const { api, controlsVariant, controlsSize, rtl } = useCarouselContext();
@@ -683,14 +665,7 @@ CarouselPrevious.displayName = "CarouselPrevious";
 
 const CarouselNext = forwardRef<HTMLButtonElement, CarouselNextProps>(
   (
-    {
-      className,
-      variant,
-      size,
-      rounded,
-      label = "Next slide",
-      ...props
-    },
+    { className, variant, size, rounded, label = "Next slide", ...props },
     ref,
   ) => {
     const { api, controlsVariant, controlsSize, rtl } = useCarouselContext();
@@ -740,7 +715,8 @@ const CarouselIndicators = forwardRef<HTMLDivElement, CarouselIndicatorsProps>(
     const resolvedVariant = variant ?? indicatorVariant;
     const resolvedPosition = position ?? indicatorPosition;
     const resolvedClassNameFn = indicatorClassName ?? legacyIndicatorClassName;
-    const isOverlay = resolvedPosition === "bottom" || resolvedPosition === "overlay";
+    const isOverlay =
+      resolvedPosition === "bottom" || resolvedPosition === "overlay";
 
     if (count <= 1) return null;
 

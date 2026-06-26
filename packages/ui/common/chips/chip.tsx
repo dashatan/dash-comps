@@ -18,7 +18,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
         {...props}
         className={cn(
           "flex min-h-6 min-w-fit items-center justify-between gap-2 rounded-md p-1.5",
-          "bg-muted text-muted-foreground cursor-default text-xs",
+          "cursor-default bg-muted text-xs text-muted-foreground",
           className,
         )}
       >
@@ -27,7 +27,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
         {children}
         {onRemove && (
           <div
-            className="bg-muted hover:bg-muted-foreground/20 flex h-4 w-4 cursor-pointer items-center justify-center rounded-full transition-all"
+            className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full bg-muted transition-all hover:bg-muted-foreground/20"
             onClick={(e) => {
               e.stopPropagation();
               onRemove();

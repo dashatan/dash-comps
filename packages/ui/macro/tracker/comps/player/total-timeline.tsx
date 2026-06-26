@@ -75,11 +75,11 @@ function TrackerTotalTimeLineInner() {
       <div
         ref={container.ref}
         className={classNames(
-          "flex-full dir-ltr relative me-auto flex h-10 flex-col overflow-hidden rounded-md border border-gray-200 bg-gray-100 px-6",
+          "relative me-auto flex h-10 flex-full flex-col overflow-hidden rounded-md border border-gray-200 bg-gray-100 px-6 dir-ltr",
         )}
       >
-        <div className="flex-full dir-ltr pointer-events-none absolute inset-x-0 inset-y-0 z-0 flex w-full">
-          <div className="flex-full dir-ltr relative flex h-full">
+        <div className="pointer-events-none absolute inset-x-0 inset-y-0 z-0 flex w-full flex-full dir-ltr">
+          <div className="relative flex h-full flex-full dir-ltr">
             {daySegments.map(({ index: i, hasEvent }) => {
               return (
                 <div
@@ -118,7 +118,7 @@ function TrackerTotalTimeLineInner() {
 
         <div
           className={classNames(
-            "font-main pointer-events-auto absolute -top-0.5 flex h-10 items-end justify-between text-xs",
+            "pointer-events-auto absolute -top-0.5 flex h-10 items-end justify-between font-main text-xs",
           )}
           style={{ width: container.width, padding: `0 ${thumbWidth / 2}px` }}
         >
@@ -127,7 +127,7 @@ function TrackerTotalTimeLineInner() {
               <div
                 key={i}
                 className={classNames(
-                  "dir-ltr relative flex max-w-px flex-col items-center justify-end",
+                  "relative flex max-w-px flex-col items-center justify-end dir-ltr",
                 )}
                 style={{ width: tickWidth }}
               >

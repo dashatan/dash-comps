@@ -1,5 +1,8 @@
 import { FilterTrafficDataParams } from "@/features/traffic/normalizations/filter";
-import { LocationFilterParams, LocationResources } from "@/components/compound/location-picker/lib/types";
+import {
+  LocationFilterParams,
+  LocationResources,
+} from "@/components/compound/location-picker/lib/types";
 import { LocationPickerFilters } from "@/components/compound/location-picker/types";
 import { Device } from "@/features/resources/types";
 

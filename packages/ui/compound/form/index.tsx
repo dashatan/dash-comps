@@ -42,7 +42,9 @@ import Checkbox, { CheckboxProps } from "@/components/common/inputs/checkbox";
 import OTPInput from "@/components/common/inputs/otp";
 import { OTPInputProps } from "@/components/common/inputs/otp/types";
 import { cn } from "@/lib";
-import PhoneInput, { PhoneInputProps } from "@/components/common/inputs/text/phone";
+import PhoneInput, {
+  PhoneInputProps,
+} from "@/components/common/inputs/text/phone";
 import { DateInputProps, DateInput } from "@/components/common/inputs/date";
 import { useCallback, useMemo } from "react";
 import {
@@ -52,7 +54,10 @@ import {
 } from "@/components/compound/license-plate/types";
 import PlateInput from "@/components/compound/license-plate";
 
-type PlateFormFieldProps = Omit<PlateInputProps, "type" | "onChange" | "defaultValue"> & {
+type PlateFormFieldProps = Omit<
+  PlateInputProps,
+  "type" | "onChange" | "defaultValue"
+> & {
   variant: PlateType;
   value?: PlateValue;
   onChange?: (val?: PlateValue) => void;
@@ -165,7 +170,8 @@ export function Form<T extends FieldValues>({
 }
 
 function FormFieldComponent<T extends FieldValues>(props: FormFieldProps<T>) {
-  const { name, type, label, status, message, defaultValue, id, ...restProps } = props;
+  const { name, type, label, status, message, defaultValue, id, ...restProps } =
+    props;
   const form = useFormContext<T>();
   const Component = inputComponents[type];
 
@@ -202,4 +208,6 @@ function FormFieldComponent<T extends FieldValues>(props: FormFieldProps<T>) {
   );
 }
 
-export const FormField = React.memo(FormFieldComponent) as typeof FormFieldComponent;
+export const FormField = React.memo(
+  FormFieldComponent,
+) as typeof FormFieldComponent;

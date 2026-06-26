@@ -20,7 +20,10 @@ export function getMapCenterWithPixelOffset(
   return map.unproject(centerPoint, zoom);
 }
 
-export function toMarkerLatLng(item: { lat: string | number; long: string | number }): L.LatLng {
+export function toMarkerLatLng(item: {
+  lat: string | number;
+  long: string | number;
+}): L.LatLng {
   return L.latLng(parseFloat(String(item.lat)), parseFloat(String(item.long)));
 }
 

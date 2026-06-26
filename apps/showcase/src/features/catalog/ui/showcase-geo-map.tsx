@@ -68,7 +68,11 @@ export function ShowcaseGeoMap<const D extends readonly GeoMapDataItem[]>({
   if (!geoJson) {
     return (
       <div
-        className={cn("animate-pulse rounded-lg bg-muted/60", heightClass, className)}
+        className={cn(
+          "animate-pulse rounded-lg bg-muted/60",
+          heightClass,
+          className,
+        )}
       />
     );
   }

@@ -34,11 +34,21 @@ export default function LocationPicker<T extends FieldValues = FieldValues>({
   const committedRaw = useWatch({ control: form.control, name: namePath });
   const routingRaw = useWatch({ control: form.control, name: routingPath });
 
-  const committed = useMemo(() => pickLocationFilters(committedRaw), [committedRaw]);
-  const initialRouting = useMemo(() => toRoutingState(routingRaw), [routingRaw]);
+  const committed = useMemo(
+    () => pickLocationFilters(committedRaw),
+    [committedRaw],
+  );
+  const initialRouting = useMemo(
+    () => toRoutingState(routingRaw),
+    [routingRaw],
+  );
 
   const dateHint = useMemo((): LocationPickerDateHint | undefined => {
-    if (String(name) !== "filters" || !committedRaw || typeof committedRaw !== "object") {
+    if (
+      String(name) !== "filters" ||
+      !committedRaw ||
+      typeof committedRaw !== "object"
+    ) {
       return props.dateHint;
     }
     const block = committedRaw as { date?: number[]; deviceDateRange?: string };

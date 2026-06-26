@@ -1,5 +1,10 @@
 import type { TreeSelectItem } from "@/components/common/inputs/select/types";
-import type { Device, Province, Road, Source } from "@/features/resources/types";
+import type {
+  Device,
+  Province,
+  Road,
+  Source,
+} from "@/features/resources/types";
 
 export const showcaseSources: Source[] = [
   { id: 1, name: "National traffic network" },

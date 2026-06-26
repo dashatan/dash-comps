@@ -20,7 +20,10 @@ export function AppProviders({ children }: AppProvidersProps) {
       themes={["light", "dark"]}
       disableTransitionOnChange={false}
     >
-      <LanguageProvider fallbackLocale={FALLBACK_LOCALE} localeLoaders={localeLoaders}>
+      <LanguageProvider
+        fallbackLocale={FALLBACK_LOCALE}
+        localeLoaders={localeLoaders}
+      >
         <ShowcaseLocaleProvider>
           <LocaleGate>
             <ErrorHandler>{children}</ErrorHandler>

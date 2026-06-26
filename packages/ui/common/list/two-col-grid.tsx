@@ -25,12 +25,16 @@ export default function TwoColGridList(props: TwoColGridListProps) {
           <div
             key={index}
             className={cn(
-              "border-border flex min-h-10 w-full flex-col justify-center gap-1 rounded-md border px-3 py-1",
+              "flex min-h-10 w-full flex-col justify-center gap-1 rounded-md border border-border px-3 py-1",
               { "col-span-2": lastIsOdd },
             )}
           >
-            <div className="text-muted-foreground text-xs font-medium">{item.name}</div>
-            <div className="text-foreground text-xs font-semibold">{item.value}</div>
+            <div className="text-xs font-medium text-muted-foreground">
+              {item.name}
+            </div>
+            <div className="text-xs font-semibold text-foreground">
+              {item.value}
+            </div>
           </div>
         );
       })}

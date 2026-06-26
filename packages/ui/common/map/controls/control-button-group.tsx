@@ -7,7 +7,7 @@ export default function MapControlButtonGroup(props: DIV) {
     <div
       {...props}
       className={cn(
-        "font-main bg-accent text-accent-foreground flex w-full cursor-pointer flex-col items-center justify-center gap-px overflow-hidden rounded-lg border",
+        "flex w-full cursor-pointer flex-col items-center justify-center gap-px overflow-hidden rounded-lg border bg-accent font-main text-accent-foreground",
         props.className,
       )}
     />

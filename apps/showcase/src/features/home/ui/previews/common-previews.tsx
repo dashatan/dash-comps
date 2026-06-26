@@ -47,7 +47,12 @@ function ButtonsPreview() {
       <Button variant="outlined" severity="secondary" size="sm">
         Outlined
       </Button>
-      <Button variant="text" severity="success" size="sm" leftIcon={<Plus className="size-3.5" />}>
+      <Button
+        variant="text"
+        severity="success"
+        size="sm"
+        leftIcon={<Plus className="size-3.5" />}
+      >
         Add
       </Button>
       <Button
@@ -124,7 +129,11 @@ function CardsPreview() {
 }
 
 function CarouselPreview() {
-  const slides = ["/carousel/hero-travel.jpg", "/carousel/hero-food.jpg", "/carousel/hero-team.jpg"];
+  const slides = [
+    "/carousel/hero-travel.jpg",
+    "/carousel/hero-food.jpg",
+    "/carousel/hero-team.jpg",
+  ];
 
   return (
     <div className={cn(previewFrameClass, "p-2")}>
@@ -189,7 +198,7 @@ function TabsPreview() {
         activeTab={activeIndex}
         onTabClick={(_event, index) => setActiveIndex(index)}
       />
-      <div className="bg-muted/40 text-muted-foreground rounded-lg px-3 py-6 text-center text-xs">
+      <div className="rounded-lg bg-muted/40 px-3 py-6 text-center text-xs text-muted-foreground">
         {previews[activeIndex]}
       </div>
     </div>

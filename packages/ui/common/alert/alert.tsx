@@ -7,7 +7,10 @@ import DataErrorAlert from "@/components/common/alert/data-error";
 import EmptyAlert from "@/components/common/alert/empty";
 import LoadingAlert from "@/components/common/alert/loading";
 import PermissionAlert from "@/components/common/alert/permission";
-import { AlertProvider, useAlertContext } from "@/components/common/alert/context";
+import {
+  AlertProvider,
+  useAlertContext,
+} from "@/components/common/alert/context";
 import type {
   AlertActionsProps,
   AlertContentProps,
@@ -83,12 +86,25 @@ const AlertRoot = forwardRef<HTMLDivElement, AlertProps>(
 AlertRoot.displayName = "Alert";
 
 const AlertIcon = forwardRef<HTMLDivElement, AlertIconProps>(
-  ({ className, children, animate = true, size, severity, appearance, ...props }, ref) => {
+  (
+    {
+      className,
+      children,
+      animate = true,
+      size,
+      severity,
+      appearance,
+      ...props
+    },
+    ref,
+  ) => {
     const context = useAlertContext();
     const resolvedSize = size ?? context.size;
     const resolvedSeverity = severity ?? context.severity;
     const resolvedAppearance = appearance ?? context.appearance;
-    const animationClass = animate ? resolveAlertAnimation(context.animation) : "";
+    const animationClass = animate
+      ? resolveAlertAnimation(context.animation)
+      : "";
 
     return (
       <div
@@ -138,7 +154,10 @@ const AlertTitle = forwardRef<HTMLHeadingElement, AlertTitleProps>(
 
 AlertTitle.displayName = "AlertTitle";
 
-const AlertDescription = forwardRef<HTMLParagraphElement, AlertDescriptionProps>(
+const AlertDescription = forwardRef<
+  HTMLParagraphElement,
+  AlertDescriptionProps
+>(
   (
     {
       className,
@@ -155,7 +174,9 @@ const AlertDescription = forwardRef<HTMLParagraphElement, AlertDescriptionProps>
     const resolvedSize = size ?? context.size;
     const resolvedSeverity = severity ?? context.severity;
     const resolvedAppearance = appearance ?? context.appearance;
-    const animationClass = animate ? resolveAlertAnimation(context.animation) : "";
+    const animationClass = animate
+      ? resolveAlertAnimation(context.animation)
+      : "";
 
     return (
       <p
@@ -190,7 +211,10 @@ const AlertContent = forwardRef<HTMLDivElement, AlertContentProps>(
         ref={ref}
         data-slot="alert-content"
         className={cn(
-          alertBodyVariants({ layout: layout === "row" ? "start" : layout, size }),
+          alertBodyVariants({
+            layout: layout === "row" ? "start" : layout,
+            size,
+          }),
           layout === "row" ? "min-w-0 flex-1" : "w-full",
           className,
         )}

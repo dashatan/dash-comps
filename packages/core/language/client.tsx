@@ -67,10 +67,7 @@ export const LanguageContext = createContext<LanguageContextType | undefined>(
 const defaultLocaleLoaders = localeLoaders;
 
 export function LanguageProvider(props: LanguageProviderProps) {
-  const {
-    children,
-    defaultLanguage = DEFAULT_LANGUAGE,
-  } = props;
+  const { children, defaultLanguage = DEFAULT_LANGUAGE } = props;
 
   const isLazy = !("translations" in props && props.translations);
 
@@ -108,9 +105,7 @@ export function LanguageProvider(props: LanguageProviderProps) {
     ? (props.fallbackLocale ?? FALLBACK_LOCALE)
     : (props.translations.en ?? FALLBACK_LOCALE);
 
-  const loaders = isLazy
-    ? (props.localeLoaders ?? defaultLocaleLoaders)
-    : null;
+  const loaders = isLazy ? (props.localeLoaders ?? defaultLocaleLoaders) : null;
 
   const syncTranslations = !isLazy ? props.translations : undefined;
 
@@ -139,7 +134,9 @@ export function LanguageProvider(props: LanguageProviderProps) {
       try {
         const [active, fallback] = await Promise.all([
           activeLoaders[language](),
-          language === "en" ? Promise.resolve(fallbackLocale) : activeLoaders.en(),
+          language === "en"
+            ? Promise.resolve(fallbackLocale)
+            : activeLoaders.en(),
         ]);
         if (cancelled) return;
         setCachedLocale(CORE_LOCALE_CACHE_NAMESPACE, language, active);

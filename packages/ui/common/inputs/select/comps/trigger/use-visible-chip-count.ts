@@ -27,9 +27,8 @@ export function useVisibleChipCount(
     const measureLayer = measureRef.current;
     if (!container || !measureLayer) return;
 
-    const chipElements = measureLayer.querySelectorAll<HTMLElement>(
-      "[data-select-chip]",
-    );
+    const chipElements =
+      measureLayer.querySelectorAll<HTMLElement>("[data-select-chip]");
     if (!chipElements.length) {
       setVisibleCount(0);
       return;

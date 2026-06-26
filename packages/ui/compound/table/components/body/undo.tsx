@@ -24,7 +24,11 @@ export default function Undo(props: Props) {
       <span className="font-semibold text-gray-100">{props.message}</span>
       <div className="flex items-center gap-2">
         {props.onUndo && (
-          <Button variant="text" label={t("common.undo")} onClick={props.onUndo} />
+          <Button
+            variant="text"
+            label={t("common.undo")}
+            onClick={props.onUndo}
+          />
         )}
         {props.onDelete && (
           <Button
@@ -35,7 +39,10 @@ export default function Undo(props: Props) {
           />
         )}
         {props.onClose && (
-          <X className="w-10 cursor-pointer text-gray-100" onClick={props.onClose} />
+          <X
+            className="w-10 cursor-pointer text-gray-100"
+            onClick={props.onClose}
+          />
         )}
         {props.timer && (
           <div

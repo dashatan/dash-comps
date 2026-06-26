@@ -5,7 +5,12 @@ import {
   makeTracksWithEvents,
   totalTimeLineDaysWithEventIndexes,
 } from "@/components/macro/tracker/utils/remap";
-import { TimeLine, Track, TrackerEvent, TrackWithEvents } from "@/components/macro/tracker/utils/types";
+import {
+  TimeLine,
+  Track,
+  TrackerEvent,
+  TrackWithEvents,
+} from "@/components/macro/tracker/utils/types";
 
 export type remapWorkerDataType = {
   tracks?: Track[];

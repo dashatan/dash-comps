@@ -11,7 +11,11 @@ export function useProfileImage(user: ProfileUser | undefined): string | null {
   return useMemo(() => {
     if (!user) return null;
 
-    const hash = generateProfileImageHash(user.first_name, user.last_name, user.username);
+    const hash = generateProfileImageHash(
+      user.first_name,
+      user.last_name,
+      user.username,
+    );
     return profileImages[hash] || null;
   }, [user, profileImages]);
 }

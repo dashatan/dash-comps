@@ -61,14 +61,18 @@ export function CarouselProvider({
   children: React.ReactNode;
 }) {
   return (
-    <CarouselContext.Provider value={value}>{children}</CarouselContext.Provider>
+    <CarouselContext.Provider value={value}>
+      {children}
+    </CarouselContext.Provider>
   );
 }
 
 export function useCarouselContext(): CarouselContextValue {
   const context = useContext(CarouselContext);
   if (!context) {
-    throw new Error("Carousel compound components must be used within Carousel.");
+    throw new Error(
+      "Carousel compound components must be used within Carousel.",
+    );
   }
   return context;
 }

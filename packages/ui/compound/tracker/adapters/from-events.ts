@@ -1,10 +1,19 @@
-import type { EventsInput, ObserveEvent } from "@/components/compound/tracker/types/input";
-import type { NormalizedEvent, NormalizedTrackerData } from "@/components/compound/tracker/types/normalized";
+import type {
+  EventsInput,
+  ObserveEvent,
+} from "@/components/compound/tracker/types/input";
+import type {
+  NormalizedEvent,
+  NormalizedTrackerData,
+} from "@/components/compound/tracker/types/normalized";
 import { makeTotalTimesIncludingEvents } from "@/components/compound/tracker/data/remap";
 import { createTimeline } from "@/components/compound/tracker/data/remap";
 import { totalTimeLineDaysWithEventIndexes } from "@/components/compound/tracker/data/remap";
 
-export function normalizeObserveEvent(event: ObserveEvent, index: number): NormalizedEvent {
+export function normalizeObserveEvent(
+  event: ObserveEvent,
+  index: number,
+): NormalizedEvent {
   return {
     id: event.id ?? index,
     time: event.time,

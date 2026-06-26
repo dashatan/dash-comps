@@ -35,12 +35,12 @@ export function ShowcaseSection({
       <div className="mb-4 w-full min-w-0">
         <h3 className="text-lg font-semibold">{title}</h3>
         {description ? (
-          <p className="text-muted-foreground mt-1 text-sm">{description}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
         ) : null}
       </div>
       <div
         className={cn(
-          "border-border bg-card w-full min-w-0 rounded-2xl border p-6",
+          "w-full min-w-0 rounded-2xl border border-border bg-card p-6",
           contentLayoutClasses[layout],
           contentClassName,
         )}
@@ -57,14 +57,20 @@ type ComponentPageHeaderProps = {
   label?: string;
 };
 
-export function ComponentPageHeader({ title, description, label }: ComponentPageHeaderProps) {
+export function ComponentPageHeader({
+  title,
+  description,
+  label,
+}: ComponentPageHeaderProps) {
   const { catalog } = useShowcaseShell();
   const resolvedLabel = label ?? catalog.componentLabel;
   return (
     <header className="mb-8 w-full min-w-0">
-      <p className="text-primary text-sm font-medium tracking-wide uppercase">{resolvedLabel}</p>
+      <p className="text-sm font-medium tracking-wide text-primary uppercase">
+        {resolvedLabel}
+      </p>
       <h2 className="mt-1 text-3xl font-bold tracking-tight">{title}</h2>
-      <p className="text-muted-foreground mt-2 text-base">{description}</p>
+      <p className="mt-2 text-base text-muted-foreground">{description}</p>
     </header>
   );
 }

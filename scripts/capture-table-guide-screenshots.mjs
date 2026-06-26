@@ -86,7 +86,10 @@ async function main() {
     await snapToolbar(page, "toolbar.jpg");
 
     await resetTablePage(page);
-    await page.locator("#table-container thead th").filter({ hasText: "Name" }).click();
+    await page
+      .locator("#table-container thead th")
+      .filter({ hasText: "Name" })
+      .click();
     await page.waitForTimeout(500);
     await snapTable(page, "sorting.jpg");
 
@@ -113,7 +116,10 @@ async function main() {
 
     await page.setViewportSize({ width: 1560, height: 900 });
     await resetTablePage(page);
-    await page.locator("#table-container tbody tr").first().click({ button: "right" });
+    await page
+      .locator("#table-container tbody tr")
+      .first()
+      .click({ button: "right" });
     await page.getByRole("menuitem", { name: /side panel/i }).click();
     await page.waitForTimeout(500);
     await snapTable(page, "side-panel.jpg");

@@ -14,7 +14,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       {children}
@@ -24,7 +24,7 @@ function ShowcaseRow({
 
 function StepBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="bg-primary/10 text-primary rounded-full px-2 py-0.5 text-sm font-semibold">
+    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-sm font-semibold text-primary">
       {children}
     </span>
   );
@@ -235,9 +235,7 @@ export function StepsPage() {
             },
             {
               name: (
-                <StepBadge>
-                  {p("customNames.steps.badges.published")}
-                </StepBadge>
+                <StepBadge>{p("customNames.steps.badges.published")}</StepBadge>
               ),
               title: p("customNames.steps.published.title"),
               subtitle: p("customNames.steps.published.subtitle"),
@@ -272,7 +270,7 @@ export function StepsPage() {
           >
             {p("controlled.next")}
           </Button>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             {p("controlled.info", {
               step: activeStep + 1,
               total: controlledSteps.length,

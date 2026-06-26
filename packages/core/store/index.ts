@@ -1,7 +1,10 @@
 import { useAppStore, appStore } from "./app-store";
 
 export { useAppStore, appStore } from "./app-store";
-export { useDashboardStore, default as useDashboardSignals } from "./dashboard-store";
+export {
+  useDashboardStore,
+  default as useDashboardSignals,
+} from "./dashboard-store";
 export { useObserveStore, setObservesSearchParams } from "./observe-store";
 export { default as storage } from "./storage";
 export type * from "./types";
@@ -20,7 +23,10 @@ type LegacyRootState = {
 };
 
 type LegacyAction =
-  | { type: "app/setPreferences"; payload: Partial<import("./types").Preferences> }
+  | {
+      type: "app/setPreferences";
+      payload: Partial<import("./types").Preferences>;
+    }
   | {
       type: "app/updatePreference";
       payload: {
@@ -31,7 +37,7 @@ type LegacyAction =
   | { type: "app/resetPreferences" }
   | { type: "app/updateProfileImages"; payload: Record<string, string> };
 
-export const useAppSelector = <T,>(selector: (state: LegacyRootState) => T): T =>
+export const useAppSelector = <T>(selector: (state: LegacyRootState) => T): T =>
   useAppStore((state) =>
     selector({
       root: {
@@ -49,7 +55,9 @@ export const useAppDispatch = () => {
   const setPreferencesAction = useAppStore((state) => state.setPreferences);
   const updatePreferenceAction = useAppStore((state) => state.updatePreference);
   const resetPreferencesAction = useAppStore((state) => state.resetPreferences);
-  const updateProfileImagesAction = useAppStore((state) => state.updateProfileImages);
+  const updateProfileImagesAction = useAppStore(
+    (state) => state.updateProfileImages,
+  );
 
   return (action: LegacyAction) => {
     switch (action.type) {
@@ -71,13 +79,15 @@ export const useAppDispatch = () => {
   };
 };
 
-export function setPreferences(preferences: Partial<import("./types").Preferences>) {
+export function setPreferences(
+  preferences: Partial<import("./types").Preferences>,
+) {
   return { type: "app/setPreferences" as const, payload: preferences };
 }
 
-export function updatePreference<K extends keyof import("./types").Preferences>(
-  payload: { key: K; value: import("./types").Preferences[K] },
-) {
+export function updatePreference<
+  K extends keyof import("./types").Preferences,
+>(payload: { key: K; value: import("./types").Preferences[K] }) {
   return { type: "app/updatePreference" as const, payload };
 }
 

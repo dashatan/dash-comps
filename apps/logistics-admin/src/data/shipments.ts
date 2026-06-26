@@ -1,4 +1,7 @@
-import type { NumberRangeFilterValue, TableData } from "@/components/compound/table/types";
+import type {
+  NumberRangeFilterValue,
+  TableData,
+} from "@/components/compound/table/types";
 import {
   EU_CORRIDORS,
   EU_HUBS,
@@ -59,14 +62,21 @@ function buildShipment(id: number): Shipment {
   const scheduledAt = daysAgo(45 - (id % 45));
   const isDelivered = status === "delivered";
   const isDelayed = status === "delayed";
-  const deliveredAt = isDelivered || isDelayed
-    ? scheduledAt + (isDelayed ? 36 : 22) * 3_600_000
-    : status === "in_transit"
-      ? null
-      : status === "pending"
+  const deliveredAt =
+    isDelivered || isDelayed
+      ? scheduledAt + (isDelayed ? 36 : 22) * 3_600_000
+      : status === "in_transit"
         ? null
-        : null;
-  const onTime = isDelivered ? id % 9 !== 0 : isDelayed ? false : status === "cancelled" ? false : true;
+        : status === "pending"
+          ? null
+          : null;
+  const onTime = isDelivered
+    ? id % 9 !== 0
+    : isDelayed
+      ? false
+      : status === "cancelled"
+        ? false
+        : true;
 
   return {
     id,
@@ -109,7 +119,10 @@ function asNumberRange(value: unknown): NumberRangeFilterValue | undefined {
   return [value[0] as number | undefined, value[1] as number | undefined];
 }
 
-export function filterAndSortShipments(rows: Shipment[], state: TableData): Shipment[] {
+export function filterAndSortShipments(
+  rows: Shipment[],
+  state: TableData,
+): Shipment[] {
   let result = [...rows];
 
   const tracking = state.filters?.trackingNumber as string | undefined;
@@ -145,9 +158,14 @@ export function filterAndSortShipments(rows: Shipment[], state: TableData): Ship
     if (max !== undefined) result = result.filter((r) => r.revenueEur <= max);
   }
 
-  const scheduledAfter = state.filters?.scheduledAt as number | number[] | undefined;
+  const scheduledAfter = state.filters?.scheduledAt as
+    | number
+    | number[]
+    | undefined;
   if (scheduledAfter !== undefined) {
-    const ts = Array.isArray(scheduledAfter) ? scheduledAfter[0] : scheduledAfter;
+    const ts = Array.isArray(scheduledAfter)
+      ? scheduledAfter[0]
+      : scheduledAfter;
     if (typeof ts === "number") {
       result = result.filter((r) => r.scheduledAt >= ts);
     }
@@ -194,15 +212,22 @@ export function paginateShipments<T>(rows: T[], state: TableData): T[] {
 }
 
 export function getActiveShipments(): Shipment[] {
-  return SHIPMENTS.filter((s) => s.status === "in_transit" || s.status === "pending");
+  return SHIPMENTS.filter(
+    (s) => s.status === "in_transit" || s.status === "pending",
+  );
 }
 
 export function getDelayedShipments(): Shipment[] {
   return SHIPMENTS.filter((s) => s.status === "delayed");
 }
 
-export function getShipmentsInDateRange(startMs: number, endMs: number): Shipment[] {
-  return SHIPMENTS.filter((s) => s.scheduledAt >= startMs && s.scheduledAt <= endMs);
+export function getShipmentsInDateRange(
+  startMs: number,
+  endMs: number,
+): Shipment[] {
+  return SHIPMENTS.filter(
+    (s) => s.scheduledAt >= startMs && s.scheduledAt <= endMs,
+  );
 }
 
 export function getMonthToDateRange(): { start: number; end: number } {

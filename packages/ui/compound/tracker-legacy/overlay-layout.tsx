@@ -122,8 +122,9 @@ export function TrackerShell({
     if (!container) return;
 
     const containerRect = container.getBoundingClientRect();
-    const panelInsets = Array.from(panelsRef.current.values()).map(({ side, element }) =>
-      insetForPanel(side, containerRect, element.getBoundingClientRect()),
+    const panelInsets = Array.from(panelsRef.current.values()).map(
+      ({ side, element }) =>
+        insetForPanel(side, containerRect, element.getBoundingClientRect()),
     );
 
     setMapOverlayInsets(mergeInsets(panelInsets));
@@ -183,7 +184,10 @@ export function TrackerShell({
           shellRef.current = node;
           mergeContainerRef(containerRef, node);
         }}
-        className={cn("relative h-full min-h-0 w-full overflow-hidden", className)}
+        className={cn(
+          "relative h-full min-h-0 w-full overflow-hidden",
+          className,
+        )}
       >
         {children}
       </div>
@@ -249,7 +253,11 @@ export function TrackerOverlayPanel({
   return (
     <div
       ref={panelRef}
-      className={cn("z-10 flex min-h-0 flex-col", OVERLAY_SIDE_CLASS[side], className)}
+      className={cn(
+        "z-10 flex min-h-0 flex-col",
+        OVERLAY_SIDE_CLASS[side],
+        className,
+      )}
       style={style}
     >
       {children}

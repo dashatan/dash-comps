@@ -28,7 +28,9 @@ export default function ObservesTrackerMap() {
   const routeIsLoading = useTrackerStore((state) => state.routeIsLoading);
   const mapTiles = useTrackerStore((state) => state.mapTiles);
   const mapOverlayInsets = useTrackerStore((state) => state.mapOverlayInsets);
-  const setActiveEventIndex = useTrackerStore((state) => state.setActiveEventIndex);
+  const setActiveEventIndex = useTrackerStore(
+    (state) => state.setActiveEventIndex,
+  );
 
   const mapInitializer = MapInitializer.getInstance();
   const routeDrawer = RouteDrawer.getInstance();
@@ -47,7 +49,8 @@ export default function ObservesTrackerMap() {
     eventOsrmIndices,
   } = useMapState();
 
-  const currentTileUrl = resolvedTheme === "dark" ? mapTiles.dark : mapTiles.light;
+  const currentTileUrl =
+    resolvedTheme === "dark" ? mapTiles.dark : mapTiles.light;
   const tilesConfigured = Boolean(currentTileUrl);
 
   useEffect(() => {
@@ -150,7 +153,13 @@ export default function ObservesTrackerMap() {
 
   function handleArrowAnimation() {
     const map = mapRef.current;
-    if (!map || !events.length || !eventOsrmIndices.length || !routeCoords.length) return;
+    if (
+      !map ||
+      !events.length ||
+      !eventOsrmIndices.length ||
+      !routeCoords.length
+    )
+      return;
 
     animationService.cancelAnimation(arrowAnimFrameRef);
     animationService.cleanupMarker(movingMarkerRef, mapRef.current);
@@ -189,7 +198,11 @@ export default function ObservesTrackerMap() {
       t,
       dateLocale,
     );
-    markerManager.attachTooltip(element, tooltipGenerator, mapRef.current ?? undefined);
+    markerManager.attachTooltip(
+      element,
+      tooltipGenerator,
+      mapRef.current ?? undefined,
+    );
 
     movingMarkerRef.current = marker;
 
@@ -213,13 +226,13 @@ export default function ObservesTrackerMap() {
       className="flex h-full w-full items-start justify-center"
     >
       {!tilesConfigured && (
-        <div className="bg-background/70 font-family mobile:translate-x-0 z-6 flex h-16 translate-x-40 items-center justify-center gap-2 rounded-md p-4 text-lg">
+        <div className="z-6 flex h-16 translate-x-40 items-center justify-center gap-2 rounded-md bg-background/70 p-4 font-family text-lg mobile:translate-x-0">
           <Loader2 className="animate-spin" />
           <span>{t("common.loading")}</span>
         </div>
       )}
       {tilesConfigured && routeIsLoading && (
-        <div className="bg-background/70 font-family mobile:translate-x-0 z-6 flex h-16 translate-x-40 items-center justify-center gap-2 rounded-md p-4 text-lg">
+        <div className="z-6 flex h-16 translate-x-40 items-center justify-center gap-2 rounded-md bg-background/70 p-4 font-family text-lg mobile:translate-x-0">
           <Loader2 className="animate-spin" />
           <span>{t("observe.loadingRoute")}</span>
         </div>

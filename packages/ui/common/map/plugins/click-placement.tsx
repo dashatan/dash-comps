@@ -19,38 +19,41 @@ export function MapClickPlacement({
   const onPlaceRef = useRef(onPlace);
   onPlaceRef.current = onPlace;
 
-  useMapPlugin((map) => {
-    if (!active) {
-      removeMarker(floatingRef, map);
-      return;
-    }
-
-    removeMarker(floatingRef, map);
-
-    const handleMouseMove = (e: L.LeafletMouseEvent) => {
-      if (!floatingRef.current) {
-        floatingRef.current = L.marker(e.latlng, { icon }).addTo(map);
-      } else {
-        floatingRef.current.setLatLng(e.latlng);
+  useMapPlugin(
+    (map) => {
+      if (!active) {
+        removeMarker(floatingRef, map);
+        return;
       }
-    };
 
-    const handleClick = (e: L.LeafletMouseEvent) => {
-      onPlaceRef.current([e.latlng.lat, e.latlng.lng]);
       removeMarker(floatingRef, map);
-      map.off("mousemove", handleMouseMove);
-      map.off("click", handleClick);
-    };
 
-    map.on("mousemove", handleMouseMove);
-    map.on("click", handleClick);
+      const handleMouseMove = (e: L.LeafletMouseEvent) => {
+        if (!floatingRef.current) {
+          floatingRef.current = L.marker(e.latlng, { icon }).addTo(map);
+        } else {
+          floatingRef.current.setLatLng(e.latlng);
+        }
+      };
 
-    return () => {
-      map.off("mousemove", handleMouseMove);
-      map.off("click", handleClick);
-      removeMarker(floatingRef, map);
-    };
-  }, [active, icon, onPlace]);
+      const handleClick = (e: L.LeafletMouseEvent) => {
+        onPlaceRef.current([e.latlng.lat, e.latlng.lng]);
+        removeMarker(floatingRef, map);
+        map.off("mousemove", handleMouseMove);
+        map.off("click", handleClick);
+      };
+
+      map.on("mousemove", handleMouseMove);
+      map.on("click", handleClick);
+
+      return () => {
+        map.off("mousemove", handleMouseMove);
+        map.off("click", handleClick);
+        removeMarker(floatingRef, map);
+      };
+    },
+    [active, icon, onPlace],
+  );
 
   return null;
 }

@@ -14,7 +14,11 @@ export function useLocationFilteredData(
   const filters = selection ?? {};
 
   return useMemo(() => {
-    const params = buildFilterParams(resources, resources.enrichedDevices, filters);
+    const params = buildFilterParams(
+      resources,
+      resources.enrichedDevices,
+      filters,
+    );
     return filterLocationData(params);
   }, [
     resources.sources,

@@ -74,7 +74,9 @@ function DropZonePreview({
       )}
     >
       {background}
-      <div className="text-foreground z-1 px-2 text-center text-sm">{message}</div>
+      <div className="z-1 px-2 text-center text-sm text-foreground">
+        {message}
+      </div>
     </div>
   );
 }
@@ -89,9 +91,7 @@ function SelectedFilesList({
   const names = getFileNames(files);
 
   if (names.length === 0) {
-    return (
-      <p className="text-sm text-muted-foreground">{emptyLabel}</p>
-    );
+    return <p className="text-sm text-muted-foreground">{emptyLabel}</p>;
   }
 
   return (
@@ -255,7 +255,9 @@ export function FileUploaderPage() {
       >
         <FileUploader
           maxSize={MAX_FILE_SIZE_MB}
-          onSizeError={() => toast.error(p("sizeLimits.sizeError", { max: MAX_FILE_SIZE_MB }))}
+          onSizeError={() =>
+            toast.error(p("sizeLimits.sizeError", { max: MAX_FILE_SIZE_MB }))
+          }
           handleChange={(file) => {
             if (file instanceof File) {
               toast.success(p("sizeLimits.success", { name: file.name }));
@@ -350,7 +352,9 @@ export function FileUploaderPage() {
                 <>
                   <span>{t("common.dragAndDropFileHere")}</span>{" "}
                   <span>{t("common.or")}</span>{" "}
-                  <span className="font-bold underline">{t("common.chooseAFile")}</span>
+                  <span className="font-bold underline">
+                    {t("common.chooseAFile")}
+                  </span>
                 </>
               }
             />
@@ -427,7 +431,9 @@ export function FileUploaderPage() {
             background={
               <UploadingBackgroundImage className="absolute top-5/12 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             }
-            message={p("uploadFlow.uploading", { name: uploadedFile?.name ?? "" })}
+            message={p("uploadFlow.uploading", {
+              name: uploadedFile?.name ?? "",
+            })}
           />
         ) : null}
 

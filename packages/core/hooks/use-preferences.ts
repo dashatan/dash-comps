@@ -42,7 +42,12 @@ export function usePreferences() {
     if (!isLoaded) return;
     applyFontSettings(preferences.fontSize, preferences.fontFamily);
     applySpacingSettings(preferences.spacing);
-  }, [preferences.fontSize, preferences.fontFamily, preferences.spacing, isLoaded]);
+  }, [
+    preferences.fontSize,
+    preferences.fontFamily,
+    preferences.spacing,
+    isLoaded,
+  ]);
 
   useEffect(() => {
     if (!isLoaded) return;

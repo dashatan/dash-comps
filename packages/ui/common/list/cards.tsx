@@ -24,17 +24,20 @@ export default function CardsList(props: CardsListProps) {
         return (
           <div
             key={index}
-            className="bg-card hover:bg-card-hover flex cursor-default flex-col gap-1 rounded-md border p-2"
+            className="flex cursor-default flex-col gap-1 rounded-md border bg-card p-2 hover:bg-card-hover"
           >
             <div className="flex items-center gap-2">
               {props.indicator && (
                 <div
-                  className={cn("bg-primary -mt-px min-h-2 min-w-2 rounded-sm", {
-                    "bg-error": !item.hasValue,
-                  })}
+                  className={cn(
+                    "-mt-px min-h-2 min-w-2 rounded-sm bg-primary",
+                    {
+                      "bg-error": !item.hasValue,
+                    },
+                  )}
                 />
               )}
-              <div className="text-hint text-sm font-medium text-nowrap @sm:text-xs">
+              <div className="text-sm font-medium text-nowrap text-hint @sm:text-xs">
                 {item.name}
               </div>
             </div>

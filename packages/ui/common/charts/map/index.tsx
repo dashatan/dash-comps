@@ -37,28 +37,31 @@ export type MapProps<D extends readonly MapData[] = readonly MapData[]> = Omit<
   ChartProps<InferChartPayloadFromData<D>>,
   "options"
 > & {
-    data?: D;
-    height?: string;
-    width?: string;
-    onMapClick?: (params: MapAreaClickParams) => void;
-    rangeText?: string[];
-    rangeColors?: string[];
-    rangeMin?: number;
-    rangeMax?: number;
-    borderColor?: string;
-    options?: EChartsOption;
-    disableDefaultTooltip?: boolean;
-    left?: string | number;
-    bottom?: string | number;
-    right?: string | number;
-    top?: string | number;
-    roam?: boolean;
-    showLabel?: boolean;
-    aspectScale?: string | number;
-  };
+  data?: D;
+  height?: string;
+  width?: string;
+  onMapClick?: (params: MapAreaClickParams) => void;
+  rangeText?: string[];
+  rangeColors?: string[];
+  rangeMin?: number;
+  rangeMax?: number;
+  borderColor?: string;
+  options?: EChartsOption;
+  disableDefaultTooltip?: boolean;
+  left?: string | number;
+  bottom?: string | number;
+  right?: string | number;
+  top?: string | number;
+  roam?: boolean;
+  showLabel?: boolean;
+  aspectScale?: string | number;
+};
 
 function defaultRangeColors() {
-  return [getHexColor("--color-chart-range-2"), getHexColor("--color-chart-range-7")];
+  return [
+    getHexColor("--color-chart-range-2"),
+    getHexColor("--color-chart-range-7"),
+  ];
 }
 
 const NONE_INTERACTIVE_NAMES = new Set<string>(noneIntractableProvinces);
@@ -148,7 +151,11 @@ function MapInner<const D extends readonly MapData[]>(
               if (region == null) return "";
               if (noneIntractableProvinces.includes(region)) return "";
 
-              if (tooltipItems && rawData != null && typeof rawData === "object") {
+              if (
+                tooltipItems &&
+                rawData != null &&
+                typeof rawData === "object"
+              ) {
                 const seriesData = rawData as InferChartPayloadFromData<D>;
                 const context = buildTooltipFormatterContext(params);
                 const title = tooltipTitle?.(seriesData, context);
@@ -172,7 +179,9 @@ function MapInner<const D extends readonly MapData[]>(
           rangeMin !== undefined
             ? rangeMin
             : Math.min(...mapData.map((item) => item.value)) || 0,
-        max: rangeMax ? rangeMax : Math.max(...mapData.map((item) => item.value)) || 100,
+        max: rangeMax
+          ? rangeMax
+          : Math.max(...mapData.map((item) => item.value)) || 100,
         text: rangeText,
         realtime: true,
         calculable: false,
@@ -215,7 +224,10 @@ function MapInner<const D extends readonly MapData[]>(
               textBorderColor: "rgba(0, 0, 0, 0.5)",
               fontSize: 10,
               formatter: (params: DefaultLabelFormatterCallbackParams) => {
-                const region = dataNameInRecord<MapDataName>(params.data, mapFaName);
+                const region = dataNameInRecord<MapDataName>(
+                  params.data,
+                  mapFaName,
+                );
                 return region ? mapFaName[region] : "";
               },
               ...firstSeries?.emphasis?.label,
@@ -234,7 +246,10 @@ function MapInner<const D extends readonly MapData[]>(
             textBorderColor: "rgba(0, 0, 0, 0.5)",
             fontSize: 10,
             formatter: (params: DefaultLabelFormatterCallbackParams) => {
-              const region = dataNameInRecord<MapDataName>(params.data, mapFaName);
+              const region = dataNameInRecord<MapDataName>(
+                params.data,
+                mapFaName,
+              );
               return region ? mapFaName[region] : "";
             },
             ...firstSeries?.label,
@@ -282,7 +297,9 @@ function MapInner<const D extends readonly MapData[]>(
   );
 }
 
-const Map = forwardRef(MapInner) as <const D extends readonly MapData[] = readonly MapData[]>(
+const Map = forwardRef(MapInner) as <
+  const D extends readonly MapData[] = readonly MapData[],
+>(
   props: MapProps<D> & { ref?: Ref<EChartsReact> },
 ) => ReturnType<typeof MapInner>;
 

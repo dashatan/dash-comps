@@ -20,7 +20,7 @@ function GridBodyRowInner<T extends object>({
   onCellClick,
 }: GridBodyRowProps<T>) {
   return (
-    <div className="bg-table hover:bg-table-row col-span-full grid w-full grid-cols-subgrid transition-colors">
+    <div className="col-span-full grid w-full grid-cols-subgrid bg-table transition-colors hover:bg-table-row">
       {columns.map((column, columnIndex) => (
         <GridBodyCell
           key={column.field != null ? String(column.field) : columnIndex}

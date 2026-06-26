@@ -42,7 +42,7 @@ function GridHeaderCellInner<T extends object>({
       <div
         className={cn(
           "h-full w-full overflow-hidden px-3 text-right whitespace-nowrap",
-          "bg-table-header text-foreground text-xs font-medium transition duration-200",
+          "bg-table-header text-xs font-medium text-foreground transition duration-200",
           "flex items-center justify-center",
           headerClassName?.l1,
         )}
@@ -57,7 +57,9 @@ function GridHeaderCellInner<T extends object>({
           onClick={handleClick}
         >
           {column.header}
-          {column.sortable && <SortIcon sortOrder={sortOrder} sorted={sorted} />}
+          {column.sortable && (
+            <SortIcon sortOrder={sortOrder} sorted={sorted} />
+          )}
         </div>
       </div>
     </div>

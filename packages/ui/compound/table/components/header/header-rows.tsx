@@ -1,19 +1,22 @@
-import { cn } from '@/lib'
-import { TH } from './TH'
-import { Filter } from './filter-row'
-import { ColumnProps, TableProps } from '../../types'
-import { useEffect, useState } from 'react'
-import { useTableStore } from '../../context'
+import { cn } from "@/lib";
+import { TH } from "./TH";
+import { Filter } from "./filter-row";
+import { ColumnProps, TableProps } from "../../types";
+import { useEffect, useState } from "react";
+import { useTableStore } from "../../context";
 
-export type HeaderRowsProps = Pick<TableProps, 'actionHeaderProps' | 'loading' | 'THProps' | 'columnHover'> & {
-  columns?: ColumnProps[]
-  hoveredColumnIndex?: number | null
-  onColumnHover?: (index: number | null) => void
-  onColumnResizeStart?: (e: React.PointerEvent, index: number) => void
-  onColumnResizeReset?: (index: number) => void
-}
+export type HeaderRowsProps = Pick<
+  TableProps,
+  "actionHeaderProps" | "loading" | "THProps" | "columnHover"
+> & {
+  columns?: ColumnProps[];
+  hoveredColumnIndex?: number | null;
+  onColumnHover?: (index: number | null) => void;
+  onColumnResizeStart?: (e: React.PointerEvent, index: number) => void;
+  onColumnResizeReset?: (index: number) => void;
+};
 
-const FILTER_ROW_EXIT_MS = 100
+const FILTER_ROW_EXIT_MS = 100;
 
 export function HeaderRows({
   actionHeaderProps,
@@ -26,24 +29,25 @@ export function HeaderRows({
   onColumnResizeReset,
   columns,
 }: HeaderRowsProps) {
-  const showFilter = useTableStore((s) => s.showFilter) && !actionHeaderProps?.hideFilter
+  const showFilter =
+    useTableStore((s) => s.showFilter) && !actionHeaderProps?.hideFilter;
 
-  const [filterRowVisible, setFilterRowVisible] = useState(showFilter)
-  const [filterRowExiting, setFilterRowExiting] = useState(false)
+  const [filterRowVisible, setFilterRowVisible] = useState(showFilter);
+  const [filterRowExiting, setFilterRowExiting] = useState(false);
 
   useEffect(() => {
     if (showFilter) {
-      setFilterRowExiting(false)
-      setFilterRowVisible(true)
+      setFilterRowExiting(false);
+      setFilterRowVisible(true);
     } else if (filterRowVisible) {
-      setFilterRowExiting(true)
+      setFilterRowExiting(true);
       const t = setTimeout(() => {
-        setFilterRowVisible(false)
-        setFilterRowExiting(false)
-      }, FILTER_ROW_EXIT_MS)
-      return () => clearTimeout(t)
+        setFilterRowVisible(false);
+        setFilterRowExiting(false);
+      }, FILTER_ROW_EXIT_MS);
+      return () => clearTimeout(t);
     }
-  }, [showFilter, filterRowVisible])
+  }, [showFilter, filterRowVisible]);
 
   return (
     <>
@@ -65,12 +69,16 @@ export function HeaderRows({
         ))}
       </tr>
       {filterRowVisible && (
-        <tr className={cn(filterRowExiting ? 'filter-row-exit' : 'filter-row-enter')}>
+        <tr
+          className={cn(
+            filterRowExiting ? "filter-row-exit" : "filter-row-enter",
+          )}
+        >
           {columns?.map((col, index) => (
             <Filter key={index} col={col} loading={loading} />
           ))}
         </tr>
       )}
     </>
-  )
+  );
 }

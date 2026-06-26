@@ -22,8 +22,13 @@ export default function TrackerSetting() {
 
   return (
     <div className="flex w-80 animate-fade flex-col overflow-auto rounded-md bg-gray-50 p-4 animate-duration-300 dir-rtl">
-      <div id="header" className="mb-4 flex h-10 w-full items-center justify-between border-b border-gray-200 pb-2">
-        <span className="flex h-6 items-start text-lg font-bold text-gray-500">تنظیمات</span>
+      <div
+        id="header"
+        className="mb-4 flex h-10 w-full items-center justify-between border-b border-gray-200 pb-2"
+      >
+        <span className="flex h-6 items-start text-lg font-bold text-gray-500">
+          تنظیمات
+        </span>
         <div
           className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200"
           onClick={() => {
@@ -37,7 +42,9 @@ export default function TrackerSetting() {
       <div id="body" className="flex flex-col gap-4">
         {/* -------------------------------- auto pane ------------------------------- */}
         <div className="flex w-full items-center justify-between">
-          <span className="font-semibold text-gray-500">اجرا بر اساس زمان:</span>
+          <span className="font-semibold text-gray-500">
+            اجرا بر اساس زمان:
+          </span>
           <div className="flex w-20 items-center justify-center">
             <Switch
               active={!eventBasedPlay.value}
@@ -49,7 +56,9 @@ export default function TrackerSetting() {
         </div>
         <FadeAble isVisible={!eventBasedPlay.value}>
           <div className="flex w-full items-center justify-between gap-2 text-nowrap">
-            <span className="flex-1 font-semibold text-gray-500">چند برابر کردن سرعت اجرا:</span>
+            <span className="flex-1 font-semibold text-gray-500">
+              چند برابر کردن سرعت اجرا:
+            </span>
             <input
               type="number"
               className="h-10 w-20 rounded-md border border-gray-300 px-2 text-gray-700"
@@ -76,7 +85,9 @@ export default function TrackerSetting() {
         </div>
         <Divider className="my-1" />
         <div className="flex w-full items-center justify-between">
-          <span className="font-semibold text-gray-500">جابه‌جایی نقشه با متحرک:</span>
+          <span className="font-semibold text-gray-500">
+            جابه‌جایی نقشه با متحرک:
+          </span>
           <div className="flex w-20 items-center justify-center">
             <Switch
               active={autoPaneMap.value}
@@ -88,7 +99,9 @@ export default function TrackerSetting() {
         </div>
         <FadeAble isVisible={autoPaneMap.value}>
           <div className="flex w-full items-center justify-between gap-2 text-nowrap">
-            <span className="flex-1 font-semibold text-gray-500">حداکثر زوم در جابجایی:</span>
+            <span className="flex-1 font-semibold text-gray-500">
+              حداکثر زوم در جابجایی:
+            </span>
             <input
               type="number"
               className="h-10 w-20 rounded-md border border-gray-300 px-2 text-gray-700"

@@ -24,8 +24,8 @@ function FilterSidebarComponent({ dateHint, onConfirm }: FilterSidebarProps) {
   const { date, deviceDateRange } = dateHint ?? {};
 
   return (
-    <div className="flex-full flex flex-col">
-      <div className="flex-full w-full overflow-auto p-4">
+    <div className="flex flex-full flex-col">
+      <div className="w-full flex-full overflow-auto p-4">
         <div className="flex flex-col gap-6">
           <Select.MultiTree
             label={t("plate.searchSources")}
@@ -37,7 +37,9 @@ function FilterSidebarComponent({ dateHint, onConfirm }: FilterSidebarProps) {
           />
           <Select.Multi
             label={t("locationPicker.selectProvinces")}
-            options={provinces?.map((x) => ({ label: x.name, value: x.id })) || []}
+            options={
+              provinces?.map((x) => ({ label: x.name, value: x.id })) || []
+            }
             loading={!provinces}
             value={draft.provinces ?? EMPTY_SELECTION}
             onChange={(value) => setDraftField("provinces", value as number[])}
@@ -53,7 +55,9 @@ function FilterSidebarComponent({ dateHint, onConfirm }: FilterSidebarProps) {
           />
           <Select.Multi
             label={t("locationPicker.selectDevices")}
-            options={devices?.map((x) => ({ label: x.name, value: x.id })) || []}
+            options={
+              devices?.map((x) => ({ label: x.name, value: x.id })) || []
+            }
             loading={!devices}
             value={draft.devices ?? EMPTY_SELECTION}
             onChange={(value) => setDraftField("devices", value as number[])}
@@ -64,7 +68,7 @@ function FilterSidebarComponent({ dateHint, onConfirm }: FilterSidebarProps) {
 
       {deviceDateRange === "custom" && date && (
         <div className="mt-4 flex items-start gap-1 px-4">
-          <Info className="text-error -mt-1 scale-[0.8]" />
+          <Info className="-mt-1 scale-[0.8] text-error" />
           <div className="flex flex-wrap items-center gap-1 text-xs whitespace-nowrap">
             {t("locationPicker.camerasFromDate")}
             <div className="text-primary">

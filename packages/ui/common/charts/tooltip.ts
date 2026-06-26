@@ -2,7 +2,10 @@ import type {
   DefaultLabelFormatterCallbackParams,
   TooltipComponentFormatterCallbackParams,
 } from "echarts";
-import { tooltipCallbackParamsFirst, tooltipFormatterParamsData } from "./echarts-utils";
+import {
+  tooltipCallbackParamsFirst,
+  tooltipFormatterParamsData,
+} from "./echarts-utils";
 
 const svgAttrs =
   'xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
@@ -215,16 +218,28 @@ export function createTooltipItemsFormatter<T>(config: ChartTooltipConfig<T>) {
       if (rawData != null && typeof rawData === "object") {
         const data = rawData as T;
         const title = resolveTooltipTitle(data, context, tooltipTitle);
-        return formatChartTooltipHtml(title, tooltipItems(data, context), context);
+        return formatChartTooltipHtml(
+          title,
+          tooltipItems(data, context),
+          context,
+        );
       }
       const title = resolveTooltipTitle(undefined, context, tooltipTitle);
-      return formatChartTooltipHtml(title, axisTooltipItemsFromParams(params), context);
+      return formatChartTooltipHtml(
+        title,
+        axisTooltipItemsFromParams(params),
+        context,
+      );
     }
 
     const data = getTooltipItemData<T>(params);
     if (data != null) {
       const title = resolveTooltipTitle(data, context, tooltipTitle);
-      return formatChartTooltipHtml(title, tooltipItems(data, context), context);
+      return formatChartTooltipHtml(
+        title,
+        tooltipItems(data, context),
+        context,
+      );
     }
 
     const first = tooltipCallbackParamsFirst(params);

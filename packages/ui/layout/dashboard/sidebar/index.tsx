@@ -46,13 +46,19 @@ export const LogoSection = ({
   t: (key: TranslationKeys) => string;
 }) => (
   <div
-    className={cn("my-4 flex cursor-pointer items-center gap-0", { hidden: !expand })}
+    className={cn("my-4 flex cursor-pointer items-center gap-0", {
+      hidden: !expand,
+    })}
     onClick={onLogoClick}
   >
     <div className="flex items-center gap-2 p-2 whitespace-nowrap">
       {/* <span className='text-sidebar-foreground text-2xl font-bold'>{t('app.name')}</span> */}
-      <img src="/logo.svg" alt="Logo" className="text-sidebar-foreground size-10" />
-      <span className="text-sidebar-foreground text-xl">{t("app.name")}</span>
+      <img
+        src="/logo.svg"
+        alt="Logo"
+        className="size-10 text-sidebar-foreground"
+      />
+      <span className="text-xl text-sidebar-foreground">{t("app.name")}</span>
     </div>
   </div>
 );
@@ -67,7 +73,7 @@ const ToggleButton = ({
 }) => (
   <div
     className={cn(
-      "text-sidebar-icon bg-sidebar cursor-pointer rounded-full border-none transition-all",
+      "cursor-pointer rounded-full border-none bg-sidebar text-sidebar-icon transition-all",
       // 'hover:r-sidebar-icon hover:ring-offset-sidebar hover:ring-2 hover:ring-offset-2'
     )}
     onClick={() => setExpand(!expand)}
@@ -98,14 +104,17 @@ const SearchBar = ({
   return (
     <div
       className={cn(
-        "bg-input flex min-h-12 w-full cursor-text items-center rounded-lg border",
+        "flex min-h-12 w-full cursor-text items-center rounded-lg border bg-input",
         { hidden: !expand },
       )}
       onClick={() => {
         searchInputRef?.current?.focus();
       }}
     >
-      <SearchNormal1 className="text-sidebar-icon ms-4 me-2 min-w-6" size={24} />
+      <SearchNormal1
+        className="ms-4 me-2 min-w-6 text-sidebar-icon"
+        size={24}
+      />
       <BasicTextInput
         ref={searchInputRef}
         placeholder={t("common.sidebarSearchInput")}
@@ -120,9 +129,12 @@ const SearchBar = ({
         size={24}
         variant="icon"
         severity="info"
-        className={cn("pointer-events-none ms-auto me-2 opacity-0 transition-all", {
-          "pointer-events-auto opacity-100": !!searchText?.length,
-        })}
+        className={cn(
+          "pointer-events-none ms-auto me-2 opacity-0 transition-all",
+          {
+            "pointer-events-auto opacity-100": !!searchText?.length,
+          },
+        )}
         onClick={() => {
           setSearchText(undefined);
         }}
@@ -144,21 +156,35 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
     const { t, language } = useLanguage();
     const router = useRouter();
     const { expand, setExpand, loadingMenus, pinned } = useDashboardSignals();
-    const visibleMenus = useAppStore((state) => state.preferences.menuSettings.visibleMenus);
-    const defaultExpanded = useAppStore((state) => state.preferences.menuSettings.defaultExpanded);
+    const visibleMenus = useAppStore(
+      (state) => state.preferences.menuSettings.visibleMenus,
+    );
+    const defaultExpanded = useAppStore(
+      (state) => state.preferences.menuSettings.defaultExpanded,
+    );
 
     const items = useMemo(() => {
       if (!visibleMenus.length) return menuItems;
-      return menuItems.filter((item) => visibleMenus.includes(item.path || item.title));
+      return menuItems.filter((item) =>
+        visibleMenus.includes(item.path || item.title),
+      );
     }, [menuItems, visibleMenus]);
     // Translate menu items
-    const translatedMenus = useTranslatedMenus(items, t, language) as MenuItem[];
+    const translatedMenus = useTranslatedMenus(
+      items,
+      t,
+      language,
+    ) as MenuItem[];
     const [menus, setMenus] = useState<MenuItem[]>(translatedMenus);
     const [searchText, setSearchText] = useState<string>();
 
     // Search handler
     function handleSearch(text?: string) {
-      const newMenus = nestedSearch(translatedMenus, "title", text) as MenuItem[];
+      const newMenus = nestedSearch(
+        translatedMenus,
+        "title",
+        text,
+      ) as MenuItem[];
       setMenus(newMenus);
     }
 
@@ -175,13 +201,13 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
       <div
         ref={ref}
         className={cn(
-          "border-sidebar-border sticky inset-s-0 top-0 z-5 flex h-full flex-col overflow-x-hidden",
-          "bg-sidebar overflow-y-auto border-e transition-all duration-300 ease-in-out",
+          "sticky inset-s-0 top-0 z-5 flex h-full flex-col overflow-x-hidden border-sidebar-border",
+          "overflow-y-auto border-e bg-sidebar transition-all duration-300 ease-in-out",
         )}
         style={{ width, minWidth: width, maxWidth: width }}
       >
         <div className="flex-1 p-4 pt-0">
-          <div className="bg-sidebar sticky top-0 z-6 pb-2">
+          <div className="sticky top-0 z-6 bg-sidebar pb-2">
             <div
               className={cn("flex h-20 w-full items-center justify-between", {
                 "justify-center pt-4": !expand,
@@ -210,7 +236,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             type={expand ? "expanded" : "collapsed"}
           />
         </div>
-        <div className={cn("bg-sidebar sticky bottom-0 z-6 mt-auto px-4 py-2")}>
+        <div className={cn("sticky bottom-0 z-6 mt-auto bg-sidebar px-4 py-2")}>
           {footer}
         </div>
       </div>
@@ -225,11 +251,15 @@ export function MobileSidebar({ menuItems, footer, width }: SidebarProps) {
   const { t, language } = useLanguage();
   const router = useRouter();
   const { loadingMenus, pinned } = useDashboardSignals();
-  const visibleMenus = useAppStore((state) => state.preferences.menuSettings.visibleMenus);
+  const visibleMenus = useAppStore(
+    (state) => state.preferences.menuSettings.visibleMenus,
+  );
 
   const items = useMemo(() => {
     if (!visibleMenus.length) return menuItems;
-    return menuItems.filter((item) => visibleMenus.includes(item.path || item.title));
+    return menuItems.filter((item) =>
+      visibleMenus.includes(item.path || item.title),
+    );
   }, [menuItems, visibleMenus]);
   // Translate menu items
   const translatedMenus = useTranslatedMenus(items, t, language) as MenuItem[];
@@ -250,14 +280,18 @@ export function MobileSidebar({ menuItems, footer, width }: SidebarProps) {
   return (
     <div
       className={cn(
-        "bg-sidebar z-5 flex h-full flex-col overflow-x-hidden overflow-y-auto",
+        "z-5 flex h-full flex-col overflow-x-hidden overflow-y-auto bg-sidebar",
       )}
       style={{ width, minWidth: width, maxWidth: width }}
     >
       <div className="flex-1 p-4 pt-0">
-        <div className="bg-sidebar sticky top-0 z-6 pb-2">
+        <div className="sticky top-0 z-6 bg-sidebar pb-2">
           <div className={cn("flex h-20 w-full items-center justify-between")}>
-            <LogoSection expand={true} onLogoClick={() => router.push("/")} t={t} />
+            <LogoSection
+              expand={true}
+              onLogoClick={() => router.push("/")}
+              t={t}
+            />
           </div>
           <SearchBar
             expand={true}
@@ -270,7 +304,7 @@ export function MobileSidebar({ menuItems, footer, width }: SidebarProps) {
         <Divider />
         <SidebarMenu loading={loadingMenus} items={menus} type="expanded" />
       </div>
-      <div className={cn("bg-sidebar sticky bottom-0 z-6 mt-auto px-4 py-2")}>
+      <div className={cn("sticky bottom-0 z-6 mt-auto bg-sidebar px-4 py-2")}>
         {footer}
       </div>
     </div>

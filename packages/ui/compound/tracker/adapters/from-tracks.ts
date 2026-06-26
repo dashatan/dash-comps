@@ -2,10 +2,19 @@ import type { TracksInput } from "@/components/compound/tracker/types/input";
 import type { NormalizedTrackerData } from "@/components/compound/tracker/types/normalized";
 import type { RemapWorkerOutput } from "@/components/compound/tracker/data/remap";
 
-export function detectInputKind(input: { kind?: string; tracks?: unknown; events?: unknown }) {
+export function detectInputKind(input: {
+  kind?: string;
+  tracks?: unknown;
+  events?: unknown;
+}) {
   if (input.kind === "tracks" || input.kind === "events") return input.kind;
-  if ("tracks" in input && Array.isArray((input as TracksInput).tracks)) return "tracks";
-  if ("events" in input && Array.isArray((input as { events: unknown[] }).events)) return "events";
+  if ("tracks" in input && Array.isArray((input as TracksInput).tracks))
+    return "tracks";
+  if (
+    "events" in input &&
+    Array.isArray((input as { events: unknown[] }).events)
+  )
+    return "events";
   return "events";
 }
 
@@ -19,7 +28,10 @@ export type TracksAdapterResult = {
   tracks: TracksInput["tracks"];
 };
 
-export function adaptTracksInput(input: TracksInput, extendDateRangeToEvents: boolean): TracksAdapterResult {
+export function adaptTracksInput(
+  input: TracksInput,
+  extendDateRangeToEvents: boolean,
+): TracksAdapterResult {
   return {
     workerInput: {
       tracks: input.tracks,

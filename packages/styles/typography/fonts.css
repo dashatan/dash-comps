@@ -29,6 +29,7 @@
   --font-peyda: "Peyda", system-ui, sans-serif;
   --font-vazir: "Vazir", system-ui, sans-serif;
   --font-yekan: "Vazirmatn FD", system-ui, sans-serif;
-  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-geist-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }

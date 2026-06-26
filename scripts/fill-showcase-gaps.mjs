@@ -8,17 +8,29 @@ const root = path.join(__dirname, "..");
 const localesDir = path.join(root, "apps/showcase/src/i18n/locales");
 const pagesDir = path.join(root, "apps/showcase/src/features/catalog/pages");
 
-const ACRONYMS = new Set(["a11y", "mrr", "saas", "api", "otp", "id", "ui", "ux"]);
+const ACRONYMS = new Set([
+  "a11y",
+  "mrr",
+  "saas",
+  "api",
+  "otp",
+  "id",
+  "ui",
+  "ux",
+]);
 
 function get(obj, dotPath) {
-  return dotPath.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
+  return dotPath
+    .split(".")
+    .reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
 }
 
 function set(obj, dotPath, value) {
   const keys = dotPath.split(".");
   let cur = obj;
   for (let i = 0; i < keys.length - 1; i++) {
-    if (!(keys[i] in cur) || typeof cur[keys[i]] !== "object") cur[keys[i]] = {};
+    if (!(keys[i] in cur) || typeof cur[keys[i]] !== "object")
+      cur[keys[i]] = {};
     cur = cur[keys[i]];
   }
   cur[keys[keys.length - 1]] = value;
@@ -64,25 +76,30 @@ function titleCase(key) {
 const PAGE_OVERRIDES = {
   accordion: {
     singleCollapsible: {
-      description: "Only one section open at a time; opening another closes the rest.",
+      description:
+        "Only one section open at a time; opening another closes the rest.",
     },
     multipleOpen: {
       description: "Multiple sections can stay open simultaneously.",
       composition: {
         trigger: "Composition",
-        content: "Combine AccordionItem, AccordionTrigger, and AccordionContent for flexible layouts.",
+        content:
+          "Combine AccordionItem, AccordionTrigger, and AccordionContent for flexible layouts.",
       },
     },
     singleExclusive: {
       title: "Single exclusive",
-      description: "One section must always remain open — collapsible is disabled.",
+      description:
+        "One section must always remain open — collapsible is disabled.",
       account: {
         trigger: "Account settings",
-        content: "Manage profile details, email preferences, and connected accounts.",
+        content:
+          "Manage profile details, email preferences, and connected accounts.",
       },
       billing: {
         trigger: "Billing",
-        content: "View invoices, update payment methods, and download receipts.",
+        content:
+          "View invoices, update payment methods, and download receipts.",
       },
       notifications: {
         trigger: "Notifications",
@@ -94,7 +111,8 @@ const PAGE_OVERRIDES = {
       description: "Use defaultValue to open a section on first render.",
       shipping: {
         trigger: "Shipping policy",
-        content: "Orders ship within 2 business days. Tracking is emailed once dispatched.",
+        content:
+          "Orders ship within 2 business days. Tracking is emailed once dispatched.",
       },
       returns: {
         trigger: "Returns & refunds",
@@ -102,23 +120,27 @@ const PAGE_OVERRIDES = {
       },
       support: {
         trigger: "Support hours",
-        content: "Live chat is available weekdays 9:00–18:00. Weekend requests are answered Monday.",
+        content:
+          "Live chat is available weekdays 9:00–18:00. Weekend requests are answered Monday.",
       },
     },
     defaultOpenMultiple: {
       title: "Default open (multiple)",
-      description: "Pass an array to defaultValue when type=\"multiple\".",
+      description: 'Pass an array to defaultValue when type="multiple".',
       tokens: {
         trigger: "Design tokens",
-        content: "Semantic colors, spacing, and typography variables shared across components.",
+        content:
+          "Semantic colors, spacing, and typography variables shared across components.",
       },
       a11y: {
         trigger: "Accessibility",
-        content: "Keyboard navigation, focus rings, and ARIA attributes from Radix primitives.",
+        content:
+          "Keyboard navigation, focus rings, and ARIA attributes from Radix primitives.",
       },
       motion: {
         trigger: "Motion",
-        content: "Height animations use CSS variables for smooth expand and collapse.",
+        content:
+          "Height animations use CSS variables for smooth expand and collapse.",
       },
     },
     controlled: {
@@ -135,7 +157,8 @@ const PAGE_OVERRIDES = {
       },
       security: {
         trigger: "Security",
-        content: "Change password, enable two-factor authentication, and review sessions.",
+        content:
+          "Change password, enable two-factor authentication, and review sessions.",
       },
     },
     disabledItems: {
@@ -156,13 +179,15 @@ const PAGE_OVERRIDES = {
     },
     singleItem: {
       title: "Single item",
-      description: "An accordion with one item still exposes full keyboard support.",
+      description:
+        "An accordion with one item still exposes full keyboard support.",
       trigger: "Only section",
       content: "Useful for FAQ entries or compact disclosure panels.",
     },
     richContent: {
       title: "Rich content",
-      description: "AccordionContent accepts any React nodes — lists, paragraphs, and actions.",
+      description:
+        "AccordionContent accepts any React nodes — lists, paragraphs, and actions.",
       trigger: "Release notes",
       intro: "Version 2.1 includes the following highlights:",
       listItem1: "New chart layouts and tooltip formatters",
@@ -175,14 +200,16 @@ const PAGE_OVERRIDES = {
     actions: { submit: "Submit", reset: "Reset", search: "Search" },
     basicUsage: {
       title: "Basic usage",
-      description: "Minimal Form + FormField + FormActions wiring with react-hook-form.",
+      description:
+        "Minimal Form + FormField + FormActions wiring with react-hook-form.",
       titleLabel: "Title",
       agreeLabel: "I agree to the terms",
       submittedToast: "Submitted: {{title}}",
     },
     textFields: {
       title: "Text fields",
-      description: "Text, password, phone, and textarea inputs inside FormField.",
+      description:
+        "Text, password, phone, and textarea inputs inside FormField.",
       username: "Username",
       password: "Password",
       phone: "Phone",
@@ -196,7 +223,11 @@ const PAGE_OVERRIDES = {
       weight: "Weight (kg)",
       priceRange: "Price range",
       submittedToast: "Numeric fields saved.",
-      presets: { light: "Light (0–5 kg)", medium: "Medium (5–20 kg)", heavy: "Heavy (20–100 kg)" },
+      presets: {
+        light: "Light (0–5 kg)",
+        medium: "Medium (5–20 kg)",
+        heavy: "Heavy (20–100 kg)",
+      },
     },
     selectionFields: {
       title: "Selection fields",
@@ -214,7 +245,11 @@ const PAGE_OVERRIDES = {
         furniture: "Furniture",
         decor: "Decor",
       },
-      shipping: { standard: "Standard", express: "Express", pickup: "Store pickup" },
+      shipping: {
+        standard: "Standard",
+        express: "Express",
+        pickup: "Store pickup",
+      },
     },
     toggleFields: {
       title: "Toggle fields",
@@ -345,7 +380,8 @@ function inferTranslation(slug, keyPath) {
   if (leaf === "export") return "Export";
   if (leaf === "done") return "Done";
   if (leaf === "pending") return "Pending";
-  if (leaf === "alt" || leaf === "imageAlt") return `${titleCase(section)} image`;
+  if (leaf === "alt" || leaf === "imageAlt")
+    return `${titleCase(section)} image`;
 
   if (leaf === "title") return titleCase(section);
   if (leaf === "description") {
@@ -357,23 +393,36 @@ function inferTranslation(slug, keyPath) {
     const subject = titleCase(parts[parts.length - 2] ?? section).toLowerCase();
     return `Details about ${subject}.`;
   }
-  if (leaf === "intro") return `Overview of ${titleCase(section).toLowerCase()}.`;
+  if (leaf === "intro")
+    return `Overview of ${titleCase(section).toLowerCase()}.`;
   if (leaf === "outro") return "Additional notes and references.";
-  if (/^listItem\d+$/.test(leaf)) return `Bullet point ${leaf.replace("listItem", "")}.`;
-  if (leaf === "message" || leaf.endsWith("Message")) return "Sample message text.";
+  if (/^listItem\d+$/.test(leaf))
+    return `Bullet point ${leaf.replace("listItem", "")}.`;
+  if (leaf === "message" || leaf.endsWith("Message"))
+    return "Sample message text.";
   if (leaf.includes("Toast") || leaf.includes("toast")) {
-    if (leaf.includes("success") || keyPath.includes("submitted")) return "Saved successfully.";
-    if (leaf.includes("invalid") || leaf.includes("error")) return "Something went wrong.";
+    if (leaf.includes("success") || keyPath.includes("submitted"))
+      return "Saved successfully.";
+    if (leaf.includes("invalid") || leaf.includes("error"))
+      return "Something went wrong.";
     return "Done.";
   }
-  if (leaf === "current" && keyPath.includes("controlled")) return "Current: {{value}}";
+  if (leaf === "current" && keyPath.includes("controlled"))
+    return "Current: {{value}}";
   if (leaf === "none") return "none";
-  if (leaf === "label" || leaf.endsWith("Label")) return titleCase(leaf.replace(/Label$/, "") || section);
-  if (parts.includes("series") || parts.includes("frames") || parts.includes("titles")) {
+  if (leaf === "label" || leaf.endsWith("Label"))
+    return titleCase(leaf.replace(/Label$/, "") || section);
+  if (
+    parts.includes("series") ||
+    parts.includes("frames") ||
+    parts.includes("titles")
+  ) {
     return titleCase(leaf);
   }
-  if (parts.includes("descriptions")) return `${titleCase(parts[parts.length - 1] ?? section)} dashboard sample.`;
-  if (leaf === "info" && keyPath.includes("step")) return "Step {{step}} of {{total}}";
+  if (parts.includes("descriptions"))
+    return `${titleCase(parts[parts.length - 1] ?? section)} dashboard sample.`;
+  if (leaf === "info" && keyPath.includes("step"))
+    return "Step {{step}} of {{total}}";
 
   return titleCase(leaf);
 }
@@ -390,7 +439,9 @@ const fbfb767 = JSON.parse(
   }),
 );
 
-const en = JSON.parse(fs.readFileSync(path.join(localesDir, "en.json"), "utf8"));
+const en = JSON.parse(
+  fs.readFileSync(path.join(localesDir, "en.json"), "utf8"),
+);
 if (!en.pages) en.pages = {};
 
 for (const [slug, data] of Object.entries(PAGE_OVERRIDES)) {
@@ -399,7 +450,9 @@ for (const [slug, data] of Object.entries(PAGE_OVERRIDES)) {
 }
 
 let filled = 0;
-for (const file of fs.readdirSync(pagesDir).filter((f) => f.endsWith(".page.tsx"))) {
+for (const file of fs
+  .readdirSync(pagesDir)
+  .filter((f) => f.endsWith(".page.tsx"))) {
   const slug = file.replace(".page.tsx", "");
   const src = fs.readFileSync(path.join(pagesDir, file), "utf8");
   const re = /p\(["']([^"']+)["']/g;
@@ -416,5 +469,9 @@ for (const file of fs.readdirSync(pagesDir).filter((f) => f.endsWith(".page.tsx"
   }
 }
 
-fs.writeFileSync(path.join(localesDir, "en.json"), `${JSON.stringify(en, null, 2)}\n`, "utf8");
+fs.writeFileSync(
+  path.join(localesDir, "en.json"),
+  `${JSON.stringify(en, null, 2)}\n`,
+  "utf8",
+);
 console.log(`Filled ${filled} placeholder translations in en.json`);

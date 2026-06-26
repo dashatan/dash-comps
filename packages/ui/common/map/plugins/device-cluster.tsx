@@ -14,41 +14,51 @@ import {
 } from "@/components/common/map/utils/markers";
 import type { MapDeviceClusterProps } from "@/components/common/map/types";
 
-export function MapDeviceCluster({ devices, icon, onMarkerClick }: MapDeviceClusterProps) {
+export function MapDeviceCluster({
+  devices,
+  icon,
+  onMarkerClick,
+}: MapDeviceClusterProps) {
   const { t } = useLanguage();
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
   const onMarkerClickRef = useRef(onMarkerClick);
   onMarkerClickRef.current = onMarkerClick;
 
-  useMapPlugin((map) => {
-    if (clusterRef.current) {
-      safeRemoveLayer(map, clusterRef.current);
-      clusterRef.current = null;
-    }
-
-    const cluster = createMarkerClusterGroup();
-
-    devices.forEach((device) => {
-      const marker = L.marker([parseFloat(device.lat), parseFloat(device.long)], { icon });
-      marker.bindTooltip(deviceTooltipContent(device, t), tooltipConfig);
-
-      if (onMarkerClickRef.current) {
-        marker.on("click", () => {
-          onMarkerClickRef.current?.(device.id, marker.getLatLng());
-        });
+  useMapPlugin(
+    (map) => {
+      if (clusterRef.current) {
+        safeRemoveLayer(map, clusterRef.current);
+        clusterRef.current = null;
       }
 
-      cluster.addLayer(marker);
-    });
+      const cluster = createMarkerClusterGroup();
 
-    map.addLayer(cluster);
-    clusterRef.current = cluster;
+      devices.forEach((device) => {
+        const marker = L.marker(
+          [parseFloat(device.lat), parseFloat(device.long)],
+          { icon },
+        );
+        marker.bindTooltip(deviceTooltipContent(device, t), tooltipConfig);
 
-    return () => {
-      safeRemoveLayer(map, cluster);
-      clusterRef.current = null;
-    };
-  }, [devices, icon, onMarkerClick, t]);
+        if (onMarkerClickRef.current) {
+          marker.on("click", () => {
+            onMarkerClickRef.current?.(device.id, marker.getLatLng());
+          });
+        }
+
+        cluster.addLayer(marker);
+      });
+
+      map.addLayer(cluster);
+      clusterRef.current = cluster;
+
+      return () => {
+        safeRemoveLayer(map, cluster);
+        clusterRef.current = null;
+      };
+    },
+    [devices, icon, onMarkerClick, t],
+  );
 
   return null;
 }

@@ -26,7 +26,11 @@
   transition: all 0.2s ease-in-out;
 }
 .rmdp-header-values span:hover {
-  color: color-mix(in srgb, var(--color-foreground) 80%, transparent) !important;
+  color: color-mix(
+    in srgb,
+    var(--color-foreground) 80%,
+    transparent
+  ) !important;
 }
 
 /* Arrow container styles */
@@ -41,7 +45,11 @@
   transition: all 0.2s ease-in-out;
 }
 .rmdp-arrow-container:hover {
-  background-color: color-mix(in srgb, var(--color-muted) 10%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-muted) 10%,
+    transparent
+  ) !important;
   box-shadow: none !important;
 }
 .rmdp-arrow-container .rmdp-arrow {
@@ -99,8 +107,13 @@
   background-color: var(--color-primary) !important;
   color: var(--color-primary-foreground) !important;
 }
-.rmdp-day:not(.rmdp-disabled, .rmdp-day-hidden, .rmdp-selected, .rmdp-today) span:hover {
-  background-color: color-mix(in srgb, var(--color-muted) 20%, transparent) !important;
+.rmdp-day:not(.rmdp-disabled, .rmdp-day-hidden, .rmdp-selected, .rmdp-today)
+  span:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--color-muted) 20%,
+    transparent
+  ) !important;
   color: var(--color-foreground) !important;
   border: 1px solid var(--color-muted);
 }
@@ -117,7 +130,11 @@
 }
 
 .rmdp-day.rmdp-range {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    transparent
+  ) !important;
   color: var(--color-foreground) !important;
   box-shadow: none !important;
   border-radius: unset !important;
@@ -191,11 +208,19 @@
 }
 
 .rmdp-ym .rmdp-day span:hover {
-  background-color: color-mix(in srgb, var(--color-muted) 10%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-muted) 10%,
+    transparent
+  ) !important;
   border: none !important;
 }
 .rmdp-ym .rmdp-day.rmdp-selected {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    transparent
+  ) !important;
   color: var(--color-primary-foreground) !important;
   font-weight: var(--font-weight-semibold);
   border: 2px solid var(--color-primary) !important;
@@ -208,7 +233,11 @@
 }
 
 .rmdp-ym .rmdp-day.rmdp-today:hover {
-  background-color: color-mix(in srgb, var(--color-muted) 20%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-muted) 20%,
+    transparent
+  ) !important;
 }
 .rmdp-ym .rmdp-day.rmdp-today span,
 .rmdp-ym .rmdp-day span.rmdp-today {

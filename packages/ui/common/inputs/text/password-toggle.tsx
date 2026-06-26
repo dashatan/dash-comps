@@ -24,7 +24,9 @@ const passwordToggleVariants = cva(
   },
 );
 
-export interface PasswordToggleProps extends VariantProps<typeof passwordToggleVariants> {
+export interface PasswordToggleProps extends VariantProps<
+  typeof passwordToggleVariants
+> {
   /** Whether the password is visible */
   active?: boolean;
   /** Callback when visibility changes */

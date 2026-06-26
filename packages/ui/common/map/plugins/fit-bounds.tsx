@@ -9,17 +9,20 @@ export function MapFitBounds({
   padding = [50, 50],
   enabled = true,
 }: MapFitBoundsProps) {
-  useMapPlugin((map) => {
-    if (!enabled) return;
+  useMapPlugin(
+    (map) => {
+      if (!enabled) return;
 
-    const latLngBounds = Array.isArray(bounds)
-      ? L.latLngBounds(bounds)
-      : bounds;
+      const latLngBounds = Array.isArray(bounds)
+        ? L.latLngBounds(bounds)
+        : bounds;
 
-    if (!latLngBounds.isValid()) return;
+      if (!latLngBounds.isValid()) return;
 
-    map.fitBounds(latLngBounds, { padding });
-  }, [bounds, padding, enabled]);
+      map.fitBounds(latLngBounds, { padding });
+    },
+    [bounds, padding, enabled],
+  );
 
   return null;
 }

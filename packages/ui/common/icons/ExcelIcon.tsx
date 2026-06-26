@@ -6,7 +6,9 @@ export default function ExcelIcon({
   color?: string;
 }) {
   // Extract color from className if no color prop is provided
-  const extractColorFromClassName = (className?: string): string | undefined => {
+  const extractColorFromClassName = (
+    className?: string,
+  ): string | undefined => {
     if (!className) return undefined;
 
     // Common color patterns in className
@@ -29,7 +31,8 @@ export default function ExcelIcon({
   };
 
   // Use provided color or extract from className
-  const iconColor = color || extractColorFromClassName(className) || "var(--color-icon)";
+  const iconColor =
+    color || extractColorFromClassName(className) || "var(--color-icon)";
 
   return (
     <svg
@@ -39,7 +42,11 @@ export default function ExcelIcon({
       viewBox="0 0 24 24"
       className={className}
     >
-      <g id="Group_30175" data-name="Group 30175" transform="translate(-880 -216)">
+      <g
+        id="Group_30175"
+        data-name="Group 30175"
+        transform="translate(-880 -216)"
+      >
         <rect
           id="Rectangle_14325"
           data-name="Rectangle 14325"
@@ -48,7 +55,11 @@ export default function ExcelIcon({
           transform="translate(880 216)"
           fill="none"
         />
-        <g id="Group_30156" data-name="Group 30156" transform="translate(1.563 -6.438)">
+        <g
+          id="Group_30156"
+          data-name="Group 30156"
+          transform="translate(1.563 -6.438)"
+        >
           <path
             id="Path_2416"
             data-name="Path 2416"
@@ -156,7 +167,11 @@ export default function ExcelIcon({
             strokeMiterlimit="10"
             strokeWidth="1.5"
           />
-          <g id="Group_6072" data-name="Group 6072" transform="translate(880 224)">
+          <g
+            id="Group_6072"
+            data-name="Group 6072"
+            transform="translate(880 224)"
+          >
             <path
               id="Path_2418"
               data-name="Path 2418"

@@ -29,7 +29,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       {children}
@@ -98,10 +98,7 @@ function PaginationDemo({
     onPageChange(Math.min(totalPages, Math.max(1, next)));
   };
 
-  const handleClick = (
-    event: MouseEvent<HTMLAnchorElement>,
-    next: number,
-  ) => {
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>, next: number) => {
     event.preventDefault();
     go(next);
   };
@@ -182,7 +179,7 @@ export function PaginationPage() {
           totalPages={controlledTotal}
           onPageChange={setPage}
         />
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {p("controlled.info", { page, total: controlledTotal })}
         </p>
       </ShowcaseSection>
@@ -228,13 +225,15 @@ export function PaginationPage() {
       <ShowcaseSection title={p("pageLinks.title")} delay={0.15}>
         <Pagination>
           <PaginationContent>
-            {Array.from({ length: 5 }, (_, index) => index + 1).map((number) => (
-              <PaginationItem key={number}>
-                <PaginationLink href="#" isActive={number === 3}>
-                  {number}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
+            {Array.from({ length: 5 }, (_, index) => index + 1).map(
+              (number) => (
+                <PaginationItem key={number}>
+                  <PaginationLink href="#" isActive={number === 3}>
+                    {number}
+                  </PaginationLink>
+                </PaginationItem>
+              ),
+            )}
           </PaginationContent>
         </Pagination>
       </ShowcaseSection>

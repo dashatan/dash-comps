@@ -35,7 +35,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       {children}
@@ -45,7 +45,7 @@ function ShowcaseRow({
 
 function StyleTag({ children }: { children: string }) {
   return (
-    <span className="text-muted-foreground font-mono text-xs">{children}</span>
+    <span className="font-mono text-xs text-muted-foreground">{children}</span>
   );
 }
 
@@ -118,7 +118,7 @@ export function TypographyPage() {
           <H4 className="w-64 truncate">{p("headingOverrides.truncatedH4")}</H4>
         </ShowcaseRow>
         <ShowcaseRow label="uppercase tracking-wide">
-          <H3 className="text-muted-foreground text-sm tracking-wide uppercase">
+          <H3 className="text-sm tracking-wide text-muted-foreground uppercase">
             {p("headingOverrides.uppercaseH3")}
           </H3>
         </ShowcaseRow>
@@ -130,7 +130,10 @@ export function TypographyPage() {
         layout="stack"
         contentClassName="items-start"
       >
-        <H2 id="typography-demo-heading" aria-label={p("htmlAttributes.ariaLabel")}>
+        <H2
+          id="typography-demo-heading"
+          aria-label={p("htmlAttributes.ariaLabel")}
+        >
           {p("headings.h2")}
         </H2>
         <StyleTag>id=&quot;typography-demo-heading&quot; · aria-label</StyleTag>
@@ -142,17 +145,17 @@ export function TypographyPage() {
         layout="stack"
       >
         <ShowcaseRow label={p("marquee.rows.static")}>
-          <Marquee className="border-border w-48 rounded border px-3 text-sm font-semibold">
+          <Marquee className="w-48 rounded border border-border px-3 text-sm font-semibold">
             {p("marquee.short")}
           </Marquee>
         </ShowcaseRow>
         <ShowcaseRow label={p("marquee.rows.scrolling")}>
-          <Marquee className="border-border w-48 rounded border px-3 text-sm font-semibold">
+          <Marquee className="w-48 rounded border border-border px-3 text-sm font-semibold">
             {p("marquee.long")}
           </Marquee>
         </ShowcaseRow>
         <ShowcaseRow label={p("marquee.rows.styled")}>
-          <Marquee className="border-border text-foreground flex min-h-10 w-48 items-center justify-center overflow-hidden rounded border text-center text-sm font-semibold">
+          <Marquee className="flex min-h-10 w-48 items-center justify-center overflow-hidden rounded border border-border text-center text-sm font-semibold text-foreground">
             {p("marquee.styled")}
           </Marquee>
         </ShowcaseRow>
@@ -166,12 +169,14 @@ export function TypographyPage() {
       >
         <div className="flex w-full min-w-0 flex-col gap-2">
           <H2>{p("inContext.panelTitle")}</H2>
-          <H4 className="text-muted-foreground">{p("inContext.panelSubtitle")}</H4>
+          <H4 className="text-muted-foreground">
+            {p("inContext.panelSubtitle")}
+          </H4>
           <P>{p("inContext.panelBody")}</P>
         </div>
-        <div className="border-border flex w-full min-w-0 items-center justify-between gap-4 border-t pt-4">
+        <div className="flex w-full min-w-0 items-center justify-between gap-4 border-t border-border pt-4">
           <P className="font-semibold">{p("inContext.rowLabel")}</P>
-          <Marquee className="border-border text-foreground flex min-h-10 w-48 shrink-0 items-center justify-center overflow-hidden rounded border text-center text-sm font-semibold">
+          <Marquee className="flex min-h-10 w-48 shrink-0 items-center justify-center overflow-hidden rounded border border-border text-center text-sm font-semibold text-foreground">
             {p("inContext.rowValue")}
           </Marquee>
         </div>

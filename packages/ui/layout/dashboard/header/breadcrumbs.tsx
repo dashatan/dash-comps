@@ -107,7 +107,8 @@ export default function BreadCrumbs() {
     : getBreadcrumbsFromPath(pathname, t);
 
   const lastIndex = items.length - 1;
-  const title = breadcrumbs?.title || (items.length ? items[lastIndex].label : "");
+  const title =
+    breadcrumbs?.title || (items.length ? items[lastIndex].label : "");
   const isMobile = deviceType() === "mobile";
 
   if (items.length === 1 && isMobile)
@@ -120,7 +121,7 @@ export default function BreadCrumbs() {
           variant="icon"
           severity="info"
           size={32}
-          className="text-sidebar-icon hover:text-sidebar-foreground p-0 transition-all duration-300"
+          className="p-0 text-sidebar-icon transition-all duration-300 hover:text-sidebar-foreground"
           onClick={() => router.back()}
         >
           <ArrowRight variant="Linear" className="size-8 ltr:rotate-180" />
@@ -129,7 +130,7 @@ export default function BreadCrumbs() {
       <div>
         <H2
           className={cn(
-            "text-sidebar-foreground mt-1 w-36 max-w-36 whitespace-nowrap",
+            "mt-1 w-36 max-w-36 whitespace-nowrap text-sidebar-foreground",
             "hidden text-xl font-extrabold md:flex",
           )}
         >
@@ -148,9 +149,10 @@ export default function BreadCrumbs() {
                     className={cn(
                       "flex h-full items-center justify-center text-sm font-semibold transition-all duration-300",
                       {
-                        "text-sidebar-icon hover:text-sidebar-foreground cursor-pointer":
+                        "cursor-pointer text-sidebar-icon hover:text-sidebar-foreground":
                           !last && item.href,
-                        "text-sidebar-foreground cursor-default": last || !item.href,
+                        "cursor-default text-sidebar-foreground":
+                          last || !item.href,
                       },
                     )}
                   >
@@ -158,17 +160,17 @@ export default function BreadCrumbs() {
                       <Home
                         variant="Bold"
                         size={20}
-                        className="text-sidebar-icon hover:text-sidebar-foreground -mt-1 transition-all duration-300"
+                        className="-mt-1 text-sidebar-icon transition-all duration-300 hover:text-sidebar-foreground"
                       />
                     ) : (
                       <span>{item.label}</span>
                     )}
                   </span>
-                  <span className="text-sidebar-foreground cursor-default">
+                  <span className="cursor-default text-sidebar-foreground">
                     {last ? (
                       ""
                     ) : (
-                      <ChevronLeft className="text-sidebar-icon size-4 ltr:rotate-180" />
+                      <ChevronLeft className="size-4 text-sidebar-icon ltr:rotate-180" />
                     )}
                   </span>
                 </div>

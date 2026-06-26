@@ -41,8 +41,12 @@ function GridInner<T extends object>({
     () => getGridStyle({ rowHeight, headerHeight }),
     [rowHeight, headerHeight],
   );
-  const [sortField, setSortField] = useState<string | null>(defaultSort?.field ?? null);
-  const [sortOrder, setSortOrder] = useState<1 | 0 | -1>(defaultSort?.order ?? 0);
+  const [sortField, setSortField] = useState<string | null>(
+    defaultSort?.field ?? null,
+  );
+  const [sortOrder, setSortOrder] = useState<1 | 0 | -1>(
+    defaultSort?.order ?? 0,
+  );
 
   const handleSort = useCallback(
     (column: GridColumn<T>) => {
@@ -69,19 +73,24 @@ function GridInner<T extends object>({
     if (!sortField || sortOrder === 0) return data;
 
     const field = sortField as keyof T;
-    return [...data].sort((a, b) => compareRowValues(a[field], b[field], sortOrder));
+    return [...data].sort((a, b) =>
+      compareRowValues(a[field], b[field], sortOrder),
+    );
   }, [data, sortField, sortOrder]);
 
   return (
     <div
       className={cn(
-        "flex-full relative flex h-full w-full flex-col overflow-hidden rounded-md border",
+        "relative flex h-full w-full flex-full flex-col overflow-hidden rounded-md border",
         className?.container,
       )}
       style={gridStyle}
     >
       <div
-        className={cn("flex-full flex min-h-0 flex-col overflow-auto", className?.body)}
+        className={cn(
+          "flex min-h-0 flex-full flex-col overflow-auto",
+          className?.body,
+        )}
       >
         <div className="flex min-w-full flex-col">
           <div className={cn("sticky top-0 z-10 shrink-0", className?.header)}>

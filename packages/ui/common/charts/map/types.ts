@@ -285,9 +285,12 @@ export const noneIntractableProvinces: string[] = [
   "Gulf of Oman",
 ];
 
-export const mapInitialData: Array<{ name: MapDataName; label: string; value: number }> =
-  allProvinces.map((province) => ({
-    name: province as MapDataName,
-    label: mapFaName[province],
-    value: 0,
-  }));
+export const mapInitialData: Array<{
+  name: MapDataName;
+  label: string;
+  value: number;
+}> = allProvinces.map((province) => ({
+  name: province as MapDataName,
+  label: mapFaName[province],
+  value: 0,
+}));

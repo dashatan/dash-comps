@@ -144,7 +144,11 @@ export function LoadingIndicator({
     case "ripple":
       return (
         <span
-          className={cn("loading-ripple relative inline-flex", colorClass, className)}
+          className={cn(
+            "loading-ripple relative inline-flex",
+            colorClass,
+            className,
+          )}
           style={{ width: sizePx, height: sizePx }}
           aria-hidden="true"
         >
@@ -166,7 +170,10 @@ export function LoadingIndicator({
             colorClass,
             className,
           )}
-          style={{ width: sizePx * 2.5, height: Math.max(3, Math.round(sizePx / 8)) }}
+          style={{
+            width: sizePx * 2.5,
+            height: Math.max(3, Math.round(sizePx / 8)),
+          }}
           aria-hidden="true"
         >
           <span className="loading-line-indeterminate absolute inset-y-0 w-1/3 rounded-full bg-current" />

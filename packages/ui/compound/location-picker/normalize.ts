@@ -9,7 +9,8 @@ export default function useNormalizeLocation(selection: LocationPickerFilters) {
   const { provinces, devices, roads, sources } = useResources();
 
   return useMemo(
-    () => normalizeLocationPure({ provinces, devices, roads, sources }, selection),
+    () =>
+      normalizeLocationPure({ provinces, devices, roads, sources }, selection),
     [
       provinces,
       devices,

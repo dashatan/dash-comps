@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib";
 // import { useRouter, useSearchParams } from "next/navigation";
-import { ReactNode, startTransition, useCallback, useEffect, useState } from "react";
+import {
+  ReactNode,
+  startTransition,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import Tabs from "./tab";
 
 export type TabbedContentTab = {
@@ -83,10 +89,13 @@ export function TabbedContent(props: TabbedContentProps) {
   const tabCount = props.tabs?.length ?? 0;
 
   return (
-    <div className={cn("flex-full flex flex-col", props.className?.container)}>
+    <div className={cn("flex flex-full flex-col", props.className?.container)}>
       <div className="flex h-20 shrink-0 items-center justify-between gap-4 px-4">
         <Tabs
-          tabs={props.tabs?.map((tab) => ({ name: tab.name, content: tab.header }))}
+          tabs={props.tabs?.map((tab) => ({
+            name: tab.name,
+            content: tab.header,
+          }))}
           activeTab={active}
           onTabClick={handleTabClick}
           disabled={props.disabled}
@@ -101,7 +110,9 @@ export function TabbedContent(props: TabbedContentProps) {
         {props.sideElements}
         {activeTab?.sideElements}
       </div>
-      {!activeTab?.hideDivider && <div className="bg-border h-px w-full shrink-0" />}
+      {!activeTab?.hideDivider && (
+        <div className="h-px w-full shrink-0 bg-border" />
+      )}
       {props.headerElements && (
         <div className={cn("shrink-0", props.className?.header)}>
           {props.headerElements}
@@ -109,7 +120,7 @@ export function TabbedContent(props: TabbedContentProps) {
       )}
       <div
         className={cn(
-          "flex-full relative overflow-hidden",
+          "relative flex-full overflow-hidden",
           !props.keepMounted && "overflow-auto",
           props.className?.content,
         )}
@@ -131,12 +142,14 @@ export function TabbedContent(props: TabbedContentProps) {
                 )}
                 aria-hidden={index !== active}
               >
-                <div className="flex-full flex flex-col">{tab.content}</div>
+                <div className="flex flex-full flex-col">{tab.content}</div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="flex-full flex flex-col overflow-auto">{activeTab?.content}</div>
+          <div className="flex flex-full flex-col overflow-auto">
+            {activeTab?.content}
+          </div>
         )}
       </div>
     </div>

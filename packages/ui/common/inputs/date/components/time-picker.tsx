@@ -64,7 +64,7 @@ export default function TimePicker({
   }
 
   return (
-    <div className="dir-ltr flex w-full items-center justify-between">
+    <div className="flex w-full items-center justify-between dir-ltr">
       <TimeInput
         value={time.hour}
         max={23}
@@ -113,8 +113,8 @@ function TimeInput({ disabled, ...props }: TimeInputProps) {
       ref={ref}
       disabled={disabled}
       className={cn(
-        "dir-ltr h-10 w-10 overflow-hidden rounded-md border text-center",
-        "focus:border-input-border focus:ring-input-border transition-colors focus:ring-1",
+        "h-10 w-10 overflow-hidden rounded-md border text-center dir-ltr",
+        "transition-colors focus:border-input-border focus:ring-1 focus:ring-input-border",
         disabled && "cursor-not-allowed opacity-50",
         props.className,
       )}

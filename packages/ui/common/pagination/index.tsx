@@ -13,7 +13,9 @@ import { Button, buttonVariants } from "@/components/common/buttons";
 import { VariantProps } from "class-variance-authority";
 import { paginationVariants } from "./variants";
 
-export interface PaginationProps extends VariantProps<typeof paginationVariants> {
+export interface PaginationProps extends VariantProps<
+  typeof paginationVariants
+> {
   asChild?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -41,18 +43,19 @@ export interface PaginationContentProps extends React.HTMLAttributes<HTMLUListEl
   asChild?: boolean;
 }
 
-const PaginationContent = React.forwardRef<HTMLUListElement, PaginationContentProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <ul
-        ref={ref}
-        data-slot="pagination-content"
-        className={cn("flex flex-row items-center gap-1", className)}
-        {...props}
-      />
-    );
-  },
-);
+const PaginationContent = React.forwardRef<
+  HTMLUListElement,
+  PaginationContentProps
+>(({ className, ...props }, ref) => {
+  return (
+    <ul
+      ref={ref}
+      data-slot="pagination-content"
+      className={cn("flex flex-row items-center gap-1", className)}
+      {...props}
+    />
+  );
+});
 PaginationContent.displayName = "PaginationContent";
 
 export interface PaginationItemProps extends React.HTMLAttributes<HTMLLIElement> {
@@ -108,21 +111,22 @@ export interface PaginationFirstProps extends React.ComponentProps<
   asChild?: boolean;
 }
 
-const PaginationFirst = React.forwardRef<HTMLAnchorElement, PaginationFirstProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <PaginationLink
-        ref={ref}
-        aria-label="Go to first page"
-        size="sm"
-        className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
-        {...props}
-      >
-        <ChevronsLeftIcon size={16} />
-      </PaginationLink>
-    );
-  },
-);
+const PaginationFirst = React.forwardRef<
+  HTMLAnchorElement,
+  PaginationFirstProps
+>(({ className, ...props }, ref) => {
+  return (
+    <PaginationLink
+      ref={ref}
+      aria-label="Go to first page"
+      size="sm"
+      className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
+      {...props}
+    >
+      <ChevronsLeftIcon size={16} />
+    </PaginationLink>
+  );
+});
 PaginationFirst.displayName = "PaginationFirst";
 
 export interface PaginationPreviousProps extends React.ComponentProps<
@@ -130,24 +134,27 @@ export interface PaginationPreviousProps extends React.ComponentProps<
 > {
   asChild?: boolean;
 }
-const PaginationPrevious = React.forwardRef<HTMLAnchorElement, PaginationPreviousProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <PaginationLink
-        ref={ref}
-        aria-label="Go to previous page"
-        size="sm"
-        className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
-        {...props}
-      >
-        <ChevronLeftIcon size={16} />
-      </PaginationLink>
-    );
-  },
-);
+const PaginationPrevious = React.forwardRef<
+  HTMLAnchorElement,
+  PaginationPreviousProps
+>(({ className, ...props }, ref) => {
+  return (
+    <PaginationLink
+      ref={ref}
+      aria-label="Go to previous page"
+      size="sm"
+      className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
+      {...props}
+    >
+      <ChevronLeftIcon size={16} />
+    </PaginationLink>
+  );
+});
 PaginationPrevious.displayName = "PaginationPrevious";
 
-export interface PaginationNextProps extends React.ComponentProps<typeof PaginationLink> {
+export interface PaginationNextProps extends React.ComponentProps<
+  typeof PaginationLink
+> {
   asChild?: boolean;
 }
 
@@ -168,7 +175,9 @@ const PaginationNext = React.forwardRef<HTMLAnchorElement, PaginationNextProps>(
 );
 PaginationNext.displayName = "PaginationNext";
 
-export interface PaginationLastProps extends React.ComponentProps<typeof PaginationLink> {
+export interface PaginationLastProps extends React.ComponentProps<
+  typeof PaginationLink
+> {
   asChild?: boolean;
 }
 
@@ -193,22 +202,23 @@ export interface PaginationEllipsisProps extends React.HTMLAttributes<HTMLSpanEl
   asChild?: boolean;
 }
 
-const PaginationEllipsis = React.forwardRef<HTMLSpanElement, PaginationEllipsisProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <span
-        ref={ref}
-        aria-hidden
-        data-slot="pagination-ellipsis"
-        className={cn("flex size-9 items-center justify-center", className)}
-        {...props}
-      >
-        <MoreHorizontalIcon className="size-4" />
-        <span className="sr-only">More pages</span>
-      </span>
-    );
-  },
-);
+const PaginationEllipsis = React.forwardRef<
+  HTMLSpanElement,
+  PaginationEllipsisProps
+>(({ className, ...props }, ref) => {
+  return (
+    <span
+      ref={ref}
+      aria-hidden
+      data-slot="pagination-ellipsis"
+      className={cn("flex size-9 items-center justify-center", className)}
+      {...props}
+    >
+      <MoreHorizontalIcon className="size-4" />
+      <span className="sr-only">More pages</span>
+    </span>
+  );
+});
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
 export {

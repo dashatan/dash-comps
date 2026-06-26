@@ -1,8 +1,20 @@
 import { breakTimes, calcAngle } from "@/components/macro/tracker/utils";
-import { TimeLine, Track, TrackerEvent, TrackWithEvents } from "@/components/macro/tracker/utils/types";
-import { PERSIAN_LOCALE, timeHourClear, timeSecondClear } from "@/components/micro/inputs/date/utils/dateFormatPersian";
+import {
+  TimeLine,
+  Track,
+  TrackerEvent,
+  TrackWithEvents,
+} from "@/components/macro/tracker/utils/types";
+import {
+  PERSIAN_LOCALE,
+  timeHourClear,
+  timeSecondClear,
+} from "@/components/micro/inputs/date/utils/dateFormatPersian";
 
-export const df = Intl.DateTimeFormat(PERSIAN_LOCALE, { dateStyle: "short", timeStyle: "short" });
+export const df = Intl.DateTimeFormat(PERSIAN_LOCALE, {
+  dateStyle: "short",
+  timeStyle: "short",
+});
 
 export function makeEvents(tracks?: Track[]) {
   let events: TrackerEvent[] = [];
@@ -58,12 +70,16 @@ export function makeTotalTimes(dates?: number[]) {
 }
 
 /** Build totalTimes so the range includes both given dates and all event days. */
-export function makeTotalTimesIncludingEvents(dates?: number[], events?: TrackerEvent[]) {
+export function makeTotalTimesIncludingEvents(
+  dates?: number[],
+  events?: TrackerEvent[],
+) {
   if (!events?.length) return makeTotalTimes(dates);
   const firstEventDay = timeHourClear(events[0].time).getTime();
   const lastEventDay = timeHourClear(events[events.length - 1].time).getTime();
   const d = dates?.map((x) => timeHourClear(x).getTime());
-  const startDay = d?.[0] != null ? Math.min(d[0], firstEventDay) : firstEventDay;
+  const startDay =
+    d?.[0] != null ? Math.min(d[0], firstEventDay) : firstEventDay;
   const endDay = d?.[1] != null ? Math.max(d[1], lastEventDay) : lastEventDay;
   return makeTotalTimes([startDay, endDay]);
 }
@@ -87,10 +103,15 @@ export function createTimeline(totalTimes: number[], events: TrackerEvent[]) {
   });
 }
 
-export function totalTimeLineDaysWithEventIndexes(totalTimes: number[], events?: TrackerEvent[]) {
+export function totalTimeLineDaysWithEventIndexes(
+  totalTimes: number[],
+  events?: TrackerEvent[],
+) {
   const indexes: number[] = [];
   totalTimes.forEach((time, i) => {
-    const eventIndex = events?.findIndex((x) => timeHourClear(x.time).getTime() === timeHourClear(time).getTime());
+    const eventIndex = events?.findIndex(
+      (x) => timeHourClear(x.time).getTime() === timeHourClear(time).getTime(),
+    );
     if (eventIndex !== undefined && eventIndex >= 0) indexes.push(i);
   });
   return indexes;

@@ -70,7 +70,9 @@ const colorFieldVariants = cva("size-7 rounded-full border-2 ", {
   },
 });
 
-export interface ColorFieldProps extends VariantProps<typeof colorFieldVariants> {
+export interface ColorFieldProps extends VariantProps<
+  typeof colorFieldVariants
+> {
   className?: string;
 }
 

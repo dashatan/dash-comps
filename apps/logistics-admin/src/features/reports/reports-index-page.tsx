@@ -46,7 +46,7 @@ export function ReportsIndexPage() {
             />
             <Link
               to={report.to}
-              className="bg-primary text-primary-foreground mt-auto inline-flex w-fit rounded-md px-4 py-2 text-sm font-medium"
+              className="mt-auto inline-flex w-fit rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
             >
               {t("common.viewReport")}
             </Link>

@@ -3,7 +3,7 @@ import { cn } from "@/lib";
 
 export default function ActionMenuList({ onChange, options }: ActionMenuProps) {
   return (
-    <div className="bg-popover border-popover-border z-5 flex min-w-28 flex-col overflow-hidden rounded-md border p-1">
+    <div className="border-popover-border z-5 flex min-w-28 flex-col overflow-hidden rounded-md border bg-popover p-1">
       {options?.map((option, index) => {
         if (option.hide) return <></>;
         return (

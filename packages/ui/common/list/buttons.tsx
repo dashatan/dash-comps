@@ -23,23 +23,28 @@ export default function ButtonsList(props: ButtonListProps) {
         return (
           <div
             key={index}
-            className={cn("flex items-center justify-between", props.itemClassName)}
+            className={cn(
+              "flex items-center justify-between",
+              props.itemClassName,
+            )}
           >
             <div className="flex items-center gap-2">
               {props.indicator && (
                 <div
-                  className={cn("bg-foreground size-2 rounded-sm", {
+                  className={cn("size-2 rounded-sm bg-foreground", {
                     "bg-primary": item.hasValue,
                     "bg-error": !item.hasValue,
                   })}
                 />
               )}
-              <div className="text-foreground text-sm font-semibold">{item.name}</div>
+              <div className="text-sm font-semibold text-foreground">
+                {item.name}
+              </div>
             </div>
             {props.loading ? (
               <Skeleton className="h-10 w-40" />
             ) : (
-              <Marquee className="border-border text-foreground flex min-h-10 max-w-40 min-w-40 items-center justify-center overflow-hidden rounded border text-center text-sm font-semibold">
+              <Marquee className="flex min-h-10 max-w-40 min-w-40 items-center justify-center overflow-hidden rounded border border-border text-center text-sm font-semibold text-foreground">
                 {item.value ?? t("common.uncertain")}
               </Marquee>
             )}

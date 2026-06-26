@@ -42,10 +42,7 @@ export type AvatarStatusPosition = NonNullable<
 
 export type AvatarInitialsMode = "single" | "dual";
 
-export type AvatarProps = Omit<
-  HTMLAttributes<HTMLSpanElement>,
-  "children"
-> &
+export type AvatarProps = Omit<HTMLAttributes<HTMLSpanElement>, "children"> &
   Omit<VariantProps<typeof avatarVariants>, "size"> & {
     size?: AvatarSize;
     src?: string | null;

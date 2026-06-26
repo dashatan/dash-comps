@@ -11,7 +11,13 @@ import Table, {
   type ColumnProps,
   type TableData,
 } from "@/components/compound/table";
-import { EU_COUNTRY_CODES, EU_REGIONS, SHIPMENT_STATUSES, formatEur, formatKg } from "@/data/european-context";
+import {
+  EU_COUNTRY_CODES,
+  EU_REGIONS,
+  SHIPMENT_STATUSES,
+  formatEur,
+  formatKg,
+} from "@/data/european-context";
 import {
   SHIPMENTS,
   filterAndSortShipments,
@@ -131,7 +137,7 @@ export function ShipmentsPage() {
           <TableCellTextField
             value={(row as LocalizedShipment).trackingNumber}
             justify="start"
-            className="dir-ltr font-mono text-xs"
+            className="font-mono text-xs dir-ltr"
           />
         ),
       },
@@ -187,7 +193,9 @@ export function ShipmentsPage() {
           value: region,
         })),
         body: (row) => (
-          <Badge severity="info">{(row as LocalizedShipment).regionLabel}</Badge>
+          <Badge severity="info">
+            {(row as LocalizedShipment).regionLabel}
+          </Badge>
         ),
       },
       {

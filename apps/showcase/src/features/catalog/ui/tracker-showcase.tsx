@@ -29,9 +29,13 @@ function TrackerFrame({
 }) {
   return (
     <div className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</p>
-      {description ? <p className="text-muted-foreground text-xs">{description}</p> : null}
-      <div className="border-border bg-muted/10 h-[600px] w-full overflow-hidden rounded-xl border">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+        {label}
+      </p>
+      {description ? (
+        <p className="text-xs text-muted-foreground">{description}</p>
+      ) : null}
+      <div className="h-[600px] w-full overflow-hidden rounded-xl border border-border bg-muted/10">
         {children}
       </div>
     </div>
@@ -121,7 +125,11 @@ export function TrackerPresets({ labels }: { labels: Record<string, string> }) {
   );
 }
 
-export function TrackerPlayground({ labels }: { labels: Record<string, string> }) {
+export function TrackerPlayground({
+  labels,
+}: {
+  labels: Record<string, string>;
+}) {
   const [state, setState] = useState<PlaygroundState>(DEFAULT_PLAYGROUND);
 
   useEffect(() => {
@@ -129,7 +137,8 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
   }, []);
 
   const input = useMemo(
-    (): TrackerInput => (state.inputKind === "tracks" ? fleetTracksSample : observeEventsSample),
+    (): TrackerInput =>
+      state.inputKind === "tracks" ? fleetTracksSample : observeEventsSample,
     [state.inputKind],
   );
 
@@ -154,20 +163,29 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
       },
       geo: {
         filterIran: state.filterIran,
-        emphasize: { enabled: state.emphasizes, mapCircles: true, timelineBands: true },
+        emphasize: {
+          enabled: state.emphasizes,
+          mapCircles: true,
+          timelineBands: true,
+        },
       },
-      data: { useWorker: state.inputKind === "tracks", inputKind: state.inputKind },
+      data: {
+        useWorker: state.inputKind === "tracks",
+        inputKind: state.inputKind,
+      },
     }),
     [state],
   );
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="border-border bg-muted/20 grid gap-4 rounded-xl border p-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 rounded-xl border border-border bg-muted/20 p-4 md:grid-cols-2 lg:grid-cols-3">
         <PlaygroundSelect
           label={labels.inputKind}
           value={state.inputKind}
-          onChange={(value) => setState((s) => ({ ...s, inputKind: value as "tracks" | "events" }))}
+          onChange={(value) =>
+            setState((s) => ({ ...s, inputKind: value as "tracks" | "events" }))
+          }
           options={[
             { label: labels.tracksInput, value: "tracks" },
             { label: labels.eventsInput, value: "events" },
@@ -177,7 +195,10 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
           label={labels.mapEngine}
           value={state.mapEngine ?? "maplibre"}
           onChange={(value) =>
-            setState((s) => ({ ...s, mapEngine: value as PlaygroundState["mapEngine"] }))
+            setState((s) => ({
+              ...s,
+              mapEngine: value as PlaygroundState["mapEngine"],
+            }))
           }
           options={[
             { label: "MapLibre", value: "maplibre" },
@@ -188,7 +209,10 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
           label={labels.routeMode}
           value={state.routeMode ?? "direct"}
           onChange={(value) =>
-            setState((s) => ({ ...s, routeMode: value as PlaygroundState["routeMode"] }))
+            setState((s) => ({
+              ...s,
+              routeMode: value as PlaygroundState["routeMode"],
+            }))
           }
           options={[
             { label: labels.routeNone, value: "none" },
@@ -200,7 +224,10 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
           label={labels.playbackMode}
           value={state.playbackMode ?? "event"}
           onChange={(value) =>
-            setState((s) => ({ ...s, playbackMode: value as PlaygroundState["playbackMode"] }))
+            setState((s) => ({
+              ...s,
+              playbackMode: value as PlaygroundState["playbackMode"],
+            }))
           }
           options={[
             { label: labels.playbackEvent, value: "event" },
@@ -213,7 +240,9 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
           onChange={(value) =>
             setState((s) => ({
               ...s,
-              eventsPanel: (value === "false" ? false : value) as PlaygroundState["eventsPanel"],
+              eventsPanel: (value === "false"
+                ? false
+                : value) as PlaygroundState["eventsPanel"],
             }))
           }
           options={[
@@ -235,12 +264,17 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
           />
         </PlaygroundRow>
         <PlaygroundRow label={labels.perTrack}>
-          <Switch active={state.perTrack} onChange={(perTrack) => setState((s) => ({ ...s, perTrack }))} />
+          <Switch
+            active={state.perTrack}
+            onChange={(perTrack) => setState((s) => ({ ...s, perTrack }))}
+          />
         </PlaygroundRow>
         <PlaygroundRow label={labels.timelineTotal}>
           <Switch
             active={state.timelineTotal}
-            onChange={(timelineTotal) => setState((s) => ({ ...s, timelineTotal }))}
+            onChange={(timelineTotal) =>
+              setState((s) => ({ ...s, timelineTotal }))
+            }
           />
         </PlaygroundRow>
         <PlaygroundRow label={labels.timelineDay}>
@@ -274,7 +308,13 @@ export function TrackerPlayground({ labels }: { labels: Record<string, string> }
   );
 }
 
-function PlaygroundRow({ label, children }: { label: string; children: React.ReactNode }) {
+function PlaygroundRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex items-center justify-between gap-2 text-sm">
       <span>{label}</span>
@@ -296,9 +336,9 @@ function PlaygroundSelect({
 }) {
   return (
     <label className="flex flex-col gap-1 text-sm">
-      <span className="text-muted-foreground text-xs">{label}</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
       <select
-        className="border-border bg-background rounded-md border px-2 py-1.5 text-sm"
+        className="rounded-md border border-border bg-background px-2 py-1.5 text-sm"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >
@@ -323,10 +363,10 @@ function PlaygroundNumber({
 }) {
   return (
     <label className="flex flex-col gap-1 text-sm">
-      <span className="text-muted-foreground text-xs">{label}</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
       <input
         type="number"
-        className="border-border bg-background rounded-md border px-2 py-1.5 text-sm"
+        className="rounded-md border border-border bg-background px-2 py-1.5 text-sm"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
       />

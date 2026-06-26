@@ -42,7 +42,7 @@ function DashboardViewport({
   height?: string;
 }) {
   return (
-    <div className={cn("flex w-full min-h-0 flex-col", height, className)}>
+    <div className={cn("flex min-h-0 w-full flex-col", height, className)}>
       {children}
     </div>
   );
@@ -227,10 +227,7 @@ export function GridPage() {
                 alt={p("asymmetric.chartTitle")}
               />
             </GridCard>
-            <GridCard
-              variant="elevated"
-              className={cn(span.third, "min-h-0")}
-            >
+            <GridCard variant="elevated" className={cn(span.third, "min-h-0")}>
               <GridHeader
                 Icon={<TrendingUp className="size-5" />}
                 title={p("widgets.revenue.title")}
@@ -544,10 +541,7 @@ export function GridPage() {
                 alt={p("fullDashboard.analyticsTitle")}
               />
             </GridCard>
-            <GridCard
-              variant="elevated"
-              className={cn(span.third, "min-h-0")}
-            >
+            <GridCard variant="elevated" className={cn(span.third, "min-h-0")}>
               <GridHeader
                 Icon={<Activity className="size-5" />}
                 title={p("fullDashboard.activityTitle")}

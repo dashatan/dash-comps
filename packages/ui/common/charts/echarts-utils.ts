@@ -6,7 +6,9 @@ import type {
 } from "echarts";
 
 /** First series entry whether `option.series` is a single object or an array (ECharts allows both). */
-export function firstSeriesFromOptions(series: EChartsOption["series"]): SeriesOption | undefined {
+export function firstSeriesFromOptions(
+  series: EChartsOption["series"],
+): SeriesOption | undefined {
   if (series == null) return undefined;
   return Array.isArray(series) ? series[0] : series;
 }
@@ -26,14 +28,20 @@ export type LooseSeriesOptionMerge = {
   select?: Record<string, unknown>;
 };
 
-export function firstSeriesLooseMerge(series: EChartsOption["series"]): LooseSeriesOptionMerge | undefined {
+export function firstSeriesLooseMerge(
+  series: EChartsOption["series"],
+): LooseSeriesOptionMerge | undefined {
   const first = firstSeriesFromOptions(series);
   return first as LooseSeriesOptionMerge | undefined;
 }
 
 /** ECharts-only numeric fields (e.g. map `aspectScale`): coerce string props; reject NaN / 0 like `value || fallback`. */
-export function resolveNumericChartOption(value: string | number | undefined, fallback = 1): number {
-  const n = typeof value === "string" ? Number.parseFloat(value) : (value ?? fallback);
+export function resolveNumericChartOption(
+  value: string | number | undefined,
+  fallback = 1,
+): number {
+  const n =
+    typeof value === "string" ? Number.parseFloat(value) : (value ?? fallback);
   return n && Number.isFinite(n) ? n : fallback;
 }
 
@@ -43,7 +51,9 @@ export function tooltipCallbackParamsFirst(
   return Array.isArray(params) ? params[0] : params;
 }
 
-export function tooltipFormatterParamsData(params: TooltipComponentFormatterCallbackParams): unknown {
+export function tooltipFormatterParamsData(
+  params: TooltipComponentFormatterCallbackParams,
+): unknown {
   return tooltipCallbackParamsFirst(params)?.data;
 }
 

@@ -1,17 +1,10 @@
 import Cookies from "js-cookie";
-import {
-  DEFAULT_LANGUAGE,
-  isValidLanguage,
-  type Language,
-} from "./utils";
+import { DEFAULT_LANGUAGE, isValidLanguage, type Language } from "./utils";
 
 export function detectBrowserLanguage(): Language {
   if (typeof navigator === "undefined") return DEFAULT_LANGUAGE;
 
-  const candidates = [
-    navigator.language,
-    ...(navigator.languages ?? []),
-  ];
+  const candidates = [navigator.language, ...(navigator.languages ?? [])];
 
   for (const tag of candidates) {
     const code = tag.split("-")[0]?.toLowerCase();
@@ -24,7 +17,9 @@ export function detectBrowserLanguage(): Language {
 /**
  * Priority: cookie → localStorage → browser → defaultLanguage prop.
  */
-export function resolveInitialLanguage(defaultLanguage: Language = DEFAULT_LANGUAGE): Language {
+export function resolveInitialLanguage(
+  defaultLanguage: Language = DEFAULT_LANGUAGE,
+): Language {
   if (typeof window === "undefined") return defaultLanguage;
 
   const cookieLang = Cookies.get("language");

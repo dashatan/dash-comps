@@ -37,7 +37,7 @@ const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
             >
               <div
                 className={cn(
-                  "bg-sidebar-border absolute start-6 top-0 h-full w-0.5 translate-x-px",
+                  "absolute start-6 top-0 h-full w-0.5 translate-x-px bg-sidebar-border",
                   {
                     "top-auto bottom-0 h-1/2": first,
                     "h-1/2": last,
@@ -47,23 +47,27 @@ const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
               ></div>
               <div
                 className={cn(
-                  "bg-sidebar-border absolute start-4.5 top-1/2 flex size-3 -translate-y-1/2 items-center justify-center rounded-full transition-all",
+                  "absolute start-4.5 top-1/2 flex size-3 -translate-y-1/2 items-center justify-center rounded-full bg-sidebar-border transition-all",
                   {
-                    "bg-sidebar-primary/50 start-3 size-6 opacity-100": isActive,
+                    "start-3 size-6 bg-sidebar-primary/50 opacity-100":
+                      isActive,
                   },
                 )}
               >
                 <div
-                  className={cn("bg-sidebar-border size-3 rounded-full transition-all", {
-                    "bg-sidebar-primary": isActive,
-                  })}
+                  className={cn(
+                    "size-3 rounded-full bg-sidebar-border transition-all",
+                    {
+                      "bg-sidebar-primary": isActive,
+                    },
+                  )}
                 ></div>
               </div>
 
               <div
                 className={cn(
                   "w-full cursor-pointer rounded-lg p-4 text-start text-base font-medium transition-all select-none",
-                  "text-sidebar-foreground group z-1 flex items-center justify-between",
+                  "group z-1 flex items-center justify-between text-sidebar-foreground",
                   {
                     "bg-sidebar-accent": isActive,
                     "hover:bg-sidebar-accent": !isActive,

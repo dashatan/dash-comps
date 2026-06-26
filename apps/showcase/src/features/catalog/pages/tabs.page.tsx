@@ -53,7 +53,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       {children}
@@ -63,7 +63,7 @@ function ShowcaseRow({
 
 function TabbedContentFrame({ children }: { children: ReactNode }) {
   return (
-    <div className="border-border bg-background flex h-[28rem] w-full min-h-0 flex-col overflow-hidden rounded-xl border shadow-sm">
+    <div className="flex h-[28rem] min-h-0 w-full flex-col overflow-hidden rounded-xl border border-border bg-background shadow-sm">
       {children}
     </div>
   );
@@ -81,17 +81,17 @@ function StatCard({
   icon: ReactNode;
 }) {
   return (
-    <div className="border-border bg-muted/25 flex flex-col gap-2 rounded-xl border p-4">
+    <div className="flex flex-col gap-2 rounded-xl border border-border bg-muted/25 p-4">
       <div className="flex items-center justify-between gap-2">
-        <span className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+        <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
           {label}
         </span>
-        <span className="text-primary bg-primary/10 flex size-8 items-center justify-center rounded-lg">
+        <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
           {icon}
         </span>
       </div>
       <span className="text-2xl font-bold tracking-tight">{value}</span>
-      <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 text-xs font-semibold">
+      <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
         <TrendingUp className="size-3.5" />
         {trend}
       </span>
@@ -124,35 +124,41 @@ function OverviewPanel({ p }: { p: TabsTranslate }) {
       </div>
 
       <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-5">
-        <div className="border-border relative overflow-hidden rounded-xl border lg:col-span-3">
+        <div className="relative overflow-hidden rounded-xl border border-border lg:col-span-3">
           <img
             src="/banners/workspace.jpg"
             alt={p("panels.overview.bannerAlt")}
             className="h-full min-h-36 w-full object-cover"
             loading="lazy"
           />
-          <div className="from-background/10 via-background/40 to-background/90 absolute inset-0 bg-linear-to-t" />
+          <div className="absolute inset-0 bg-linear-to-t from-background/10 via-background/40 to-background/90" />
           <div className="absolute inset-x-0 bottom-0 p-4">
-            <p className="text-sm font-semibold">{p("panels.overview.bannerTitle")}</p>
-            <p className="text-muted-foreground text-xs">
+            <p className="text-sm font-semibold">
+              {p("panels.overview.bannerTitle")}
+            </p>
+            <p className="text-xs text-muted-foreground">
               {p("panels.overview.bannerSubtitle")}
             </p>
           </div>
         </div>
 
-        <div className="border-border bg-muted/20 flex flex-col rounded-xl border p-4 lg:col-span-2">
-          <p className="mb-3 text-sm font-semibold">{p("panels.overview.activityTitle")}</p>
+        <div className="flex flex-col rounded-xl border border-border bg-muted/20 p-4 lg:col-span-2">
+          <p className="mb-3 text-sm font-semibold">
+            {p("panels.overview.activityTitle")}
+          </p>
           <ul className="flex flex-col gap-3">
             {[0, 1, 2].map((index) => (
               <li
                 key={index}
-                className="border-border bg-background flex items-start gap-3 rounded-lg border p-3"
+                className="flex items-start gap-3 rounded-lg border border-border bg-background p-3"
               >
-                <span className="bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-full">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <Activity className="size-4" />
                 </span>
                 <span className="text-sm leading-snug">
-                  {p(`panels.overview.activities.${index}` as "panels.overview.activities.0")}
+                  {p(
+                    `panels.overview.activities.${index}` as "panels.overview.activities.0",
+                  )}
                 </span>
               </li>
             ))}
@@ -195,31 +201,41 @@ function AnalyticsPanel({ p }: { p: TabsTranslate }) {
       </div>
 
       <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-5">
-        <div className="border-border bg-muted/20 flex flex-col rounded-xl border p-4 lg:col-span-3">
-          <p className="mb-4 text-sm font-semibold">{p("panels.analytics.chartTitle")}</p>
+        <div className="flex flex-col rounded-xl border border-border bg-muted/20 p-4 lg:col-span-3">
+          <p className="mb-4 text-sm font-semibold">
+            {p("panels.analytics.chartTitle")}
+          </p>
           <div className="flex h-44 items-end gap-2">
             {ANALYTICS_BARS.map((height, index) => (
               <div
                 key={index}
-                className="bg-primary/75 hover:bg-primary min-h-4 flex-1 rounded-t-md transition-colors"
+                className="min-h-4 flex-1 rounded-t-md bg-primary/75 transition-colors hover:bg-primary"
                 style={{ height: `${height}%` }}
               />
             ))}
           </div>
         </div>
 
-        <div className="border-border bg-muted/20 flex flex-col rounded-xl border p-4 lg:col-span-2">
-          <p className="mb-4 text-sm font-semibold">{p("panels.analytics.sourcesTitle")}</p>
+        <div className="flex flex-col rounded-xl border border-border bg-muted/20 p-4 lg:col-span-2">
+          <p className="mb-4 text-sm font-semibold">
+            {p("panels.analytics.sourcesTitle")}
+          </p>
           <div className="flex flex-col gap-4">
             {sources.map(({ key, percent }) => (
               <div key={key} className="flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-sm">
-                  <span>{p(`panels.analytics.sources.${key}` as "panels.analytics.sources.direct")}</span>
-                  <span className="text-muted-foreground text-xs">{percent}%</span>
+                  <span>
+                    {p(
+                      `panels.analytics.sources.${key}` as "panels.analytics.sources.direct",
+                    )}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {percent}%
+                  </span>
                 </div>
-                <div className="bg-muted h-2 overflow-hidden rounded-full">
+                <div className="h-2 overflow-hidden rounded-full bg-muted">
                   <div
-                    className="bg-primary h-full rounded-full"
+                    className="h-full rounded-full bg-primary"
                     style={{ width: `${percent}%` }}
                   />
                 </div>
@@ -242,10 +258,10 @@ function SettingRow({
   enabled: boolean;
 }) {
   return (
-    <div className="border-border flex items-center justify-between gap-4 border-b py-4 last:border-b-0">
+    <div className="flex items-center justify-between gap-4 border-b border-border py-4 last:border-b-0">
       <div className="min-w-0">
         <p className="text-sm font-medium">{label}</p>
-        <p className="text-muted-foreground text-xs">{description}</p>
+        <p className="text-xs text-muted-foreground">{description}</p>
       </div>
       <div
         className={cn(
@@ -255,7 +271,7 @@ function SettingRow({
       >
         <div
           className={cn(
-            "bg-background absolute top-0.5 size-5 rounded-full shadow-sm transition-transform",
+            "absolute top-0.5 size-5 rounded-full bg-background shadow-sm transition-transform",
             enabled ? "translate-x-5" : "translate-x-0.5",
           )}
         />
@@ -269,21 +285,27 @@ function SettingsPanel({ p }: { p: TabsTranslate }) {
 
   return (
     <div className="flex h-full flex-col overflow-auto p-5">
-      <div className="border-border bg-muted/20 rounded-xl border p-5">
+      <div className="rounded-xl border border-border bg-muted/20 p-5">
         <div className="mb-4 flex items-center gap-3">
-          <span className="bg-primary/10 text-primary flex size-10 items-center justify-center rounded-xl">
+          <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
             <Settings2 className="size-5" />
           </span>
           <div>
             <p className="font-semibold">{p("panels.settings.title")}</p>
-            <p className="text-muted-foreground text-sm">{p("panels.settings.subtitle")}</p>
+            <p className="text-sm text-muted-foreground">
+              {p("panels.settings.subtitle")}
+            </p>
           </div>
         </div>
         {items.map((key, index) => (
           <SettingRow
             key={key}
-            label={p(`panels.settings.items.${key}.label` as "panels.settings.items.notifications.label")}
-            description={p(`panels.settings.items.${key}.description` as "panels.settings.items.notifications.description")}
+            label={p(
+              `panels.settings.items.${key}.label` as "panels.settings.items.notifications.label",
+            )}
+            description={p(
+              `panels.settings.items.${key}.description` as "panels.settings.items.notifications.description",
+            )}
             enabled={index !== 1}
           />
         ))}
@@ -293,7 +315,9 @@ function SettingsPanel({ p }: { p: TabsTranslate }) {
         <Shield className="mt-0.5 size-4 shrink-0 text-amber-600 dark:text-amber-400" />
         <div>
           <p className="text-sm font-medium">{p("panels.settings.tipTitle")}</p>
-          <p className="text-muted-foreground text-xs">{p("panels.settings.tipBody")}</p>
+          <p className="text-xs text-muted-foreground">
+            {p("panels.settings.tipBody")}
+          </p>
         </div>
       </div>
     </div>
@@ -309,19 +333,25 @@ function ScrollableTabPanel({ p, index }: { p: TabsTranslate; index: number }) {
       <div className={cn("flex items-center gap-4 rounded-xl p-5", accent)}>
         <span className="text-3xl font-bold tabular-nums">{index + 1}</span>
         <div>
-          <p className="font-semibold">{p("panels.scrollable.title", { n: index + 1 })}</p>
-          <p className="text-sm opacity-80">{p("panels.scrollable.subtitle", { n: index + 1 })}</p>
+          <p className="font-semibold">
+            {p("panels.scrollable.title", { n: index + 1 })}
+          </p>
+          <p className="text-sm opacity-80">
+            {p("panels.scrollable.subtitle", { n: index + 1 })}
+          </p>
         </div>
       </div>
 
-      <div className="border-border bg-muted/20 rounded-xl border p-5">
+      <div className="rounded-xl border border-border bg-muted/20 p-5">
         <div className="mb-2 flex items-center justify-between text-sm">
           <span>{p("panels.scrollable.metricLabel")}</span>
-          <span className="font-semibold">{p("panels.scrollable.metricValue", { percent: progress })}</span>
+          <span className="font-semibold">
+            {p("panels.scrollable.metricValue", { percent: progress })}
+          </span>
         </div>
-        <div className="bg-muted h-3 overflow-hidden rounded-full">
+        <div className="h-3 overflow-hidden rounded-full bg-muted">
           <div
-            className="bg-primary h-full rounded-full transition-all"
+            className="h-full rounded-full bg-primary transition-all"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -330,7 +360,7 @@ function ScrollableTabPanel({ p, index }: { p: TabsTranslate; index: number }) {
       <img
         src={`/grid/widget-${["analytics", "traffic", "campaign", "team-kpi", "storefront"][index % 5]}.jpg`}
         alt={p("panels.scrollable.imageAlt", { n: index + 1 })}
-        className="border-border min-h-32 flex-1 rounded-xl border object-cover"
+        className="min-h-32 flex-1 rounded-xl border border-border object-cover"
         loading="lazy"
       />
     </div>
@@ -350,20 +380,20 @@ function PreservedInputPanel({
 
   return (
     <div className="flex h-full flex-col gap-4 overflow-auto p-5">
-      <div className="border-border bg-muted/20 rounded-xl border p-5">
+      <div className="rounded-xl border border-border bg-muted/20 p-5">
         <div className="mb-3 flex items-center gap-3">
-          <span className="bg-primary/10 text-primary flex size-9 items-center justify-center rounded-lg">
+          <span className="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Bell className="size-4" />
           </span>
           <p className="text-sm font-medium">{label}</p>
         </div>
         <textarea
-          className="border-border bg-background min-h-28 w-full resize-none rounded-lg border px-3 py-2 text-sm"
+          className="min-h-28 w-full resize-none rounded-lg border border-border bg-background px-3 py-2 text-sm"
           value={value}
           onChange={(event) => setValue(event.target.value)}
           placeholder={placeholder}
         />
-        <p className="text-muted-foreground mt-2 text-xs">{hint}</p>
+        <p className="mt-2 text-xs text-muted-foreground">{hint}</p>
       </div>
     </div>
   );
@@ -374,10 +404,14 @@ function SegmentPreview({ p, index }: { p: TabsTranslate; index: number }) {
   const key = keys[index] ?? "daily";
 
   return (
-    <div className="border-border bg-muted/20 mt-3 rounded-xl border p-5">
-      <p className="font-semibold">{p(`panels.segments.${key}.title` as "panels.segments.daily.title")}</p>
-      <p className="text-muted-foreground mt-1 text-sm">
-        {p(`panels.segments.${key}.description` as "panels.segments.daily.description")}
+    <div className="mt-3 rounded-xl border border-border bg-muted/20 p-5">
+      <p className="font-semibold">
+        {p(`panels.segments.${key}.title` as "panels.segments.daily.title")}
+      </p>
+      <p className="mt-1 text-sm text-muted-foreground">
+        {p(
+          `panels.segments.${key}.description` as "panels.segments.daily.description",
+        )}
       </p>
     </div>
   );
@@ -388,8 +422,10 @@ function StandalonePreview({ p, index }: { p: TabsTranslate; index: number }) {
   const key = keys[index] ?? "overview";
 
   return (
-    <div className="border-border bg-muted/20 rounded-xl border p-5">
-      <p className="text-sm">{p(`panels.standalone.${key}` as "panels.standalone.overview")}</p>
+    <div className="rounded-xl border border-border bg-muted/20 p-5">
+      <p className="text-sm">
+        {p(`panels.standalone.${key}` as "panels.standalone.overview")}
+      </p>
     </div>
   );
 }
@@ -518,7 +554,7 @@ export function TabsPage() {
             onChange={setActiveIndex}
           />
         </TabbedContentFrame>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {p("onChange.activeIndex", { index: activeIndex })}
         </p>
       </ShowcaseSection>
@@ -626,7 +662,7 @@ export function TabsPage() {
             className={TABBED_SHELL_CLASS}
             defaultActiveTab={0}
             headerElements={
-              <div className="bg-primary/5 text-primary border-primary/15 flex items-center gap-2 border-b px-4 py-2.5 text-sm font-medium">
+              <div className="flex items-center gap-2 border-b border-primary/15 bg-primary/5 px-4 py-2.5 text-sm font-medium text-primary">
                 <Sparkles className="size-4" />
                 {p("headerElements.banner")}
               </div>
@@ -702,7 +738,7 @@ export function TabsPage() {
             onTabClick={(_event, index) => setStandaloneIndex(index)}
           />
           <StandalonePreview p={p} index={standaloneIndex} />
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             {p("standalone.activeIndex", { index: standaloneIndex })}
           </p>
         </ShowcaseRow>
@@ -771,7 +807,7 @@ export function TabsPage() {
             scrollTo="value"
           />
         </ShowcaseRow>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {p("tabScroller.selected", { value: scrollerValue })}
         </p>
       </ShowcaseSection>

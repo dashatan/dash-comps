@@ -52,7 +52,8 @@ export const showcaseCarouselThumbImages = Object.values(
   showcaseCarouselImages.thumb,
 );
 
-export type ShowcaseCarouselProductKey = keyof typeof showcaseCarouselImages.product;
+export type ShowcaseCarouselProductKey =
+  keyof typeof showcaseCarouselImages.product;
 
 export const showcaseCarouselProductKeys = Object.keys(
   showcaseCarouselImages.product,
@@ -70,7 +71,8 @@ export const showcaseCarouselCardKeys = Object.keys(
   showcaseCarouselImages.card,
 ) as ShowcaseCarouselCardKey[];
 
-export type ShowcaseCarouselThumbKey = keyof typeof showcaseCarouselImages.thumb;
+export type ShowcaseCarouselThumbKey =
+  keyof typeof showcaseCarouselImages.thumb;
 
 export const showcaseCarouselThumbKeys = Object.keys(
   showcaseCarouselImages.thumb,

@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { LocationPickerDialogBody } from "@/components/compound/location-picker/comps/dialog-body";
 import { LocationPickerCore } from "@/components/compound/location-picker";
@@ -29,7 +35,8 @@ import { cn } from "@/lib";
 
 const MAP_ENV = {
   MAP_TILE_LIGHT: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  MAP_TILE_DARK: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  MAP_TILE_DARK:
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
   NOMINATIM_URL: "https://nominatim.openstreetmap.org/search",
   OSRM_URL: "https://router.project-osrm.org",
 } as const;
@@ -93,7 +100,7 @@ function StateImage({
 
 function CommitPreview({ payload }: { payload: LocationPickerCommitPayload }) {
   return (
-    <pre className="bg-muted/50 w-full overflow-x-auto rounded-lg border border-border p-3 text-xs">
+    <pre className="w-full overflow-x-auto rounded-lg border border-border bg-muted/50 p-3 text-xs">
       {JSON.stringify(payload, null, 2)}
     </pre>
   );
@@ -111,7 +118,9 @@ function PickerDemo({
   label?: string;
   width?: number;
   dateHint?: typeof DATE_HINT_SAMPLE;
-  labelContainerProps?: React.ComponentProps<typeof LocationPickerCore>["labelContainerProps"];
+  labelContainerProps?: React.ComponentProps<
+    typeof LocationPickerCore
+  >["labelContainerProps"];
   onCommit?: (payload: LocationPickerCommitPayload) => void;
 }) {
   const [filters, setFilters] = useState(committed);
@@ -155,9 +164,8 @@ function DialogPreviewPanel({
     [previewKey],
   );
 
-  const [lastCommit, setLastCommit] = useState<LocationPickerCommitPayload | null>(
-    null,
-  );
+  const [lastCommit, setLastCommit] =
+    useState<LocationPickerCommitPayload | null>(null);
 
   if (!config) return null;
 
@@ -320,7 +328,9 @@ export function LocationPickerPage() {
           </ShowcaseRow>
           <ShowcaseRow label={p("interactive.output")}>
             <CommitPreview
-              payload={playgroundCommit ?? { filters: EMPTY_FILTERS, routing: {} }}
+              payload={
+                playgroundCommit ?? { filters: EMPTY_FILTERS, routing: {} }
+              }
             />
           </ShowcaseRow>
         </div>
@@ -463,7 +473,7 @@ export function LocationPickerPage() {
             </FormProvider>
           </ShowcaseRow>
           <ShowcaseRow label={p("formIntegration.output")}>
-            <pre className="bg-muted/50 w-full overflow-x-auto rounded-lg border border-border p-3 text-xs">
+            <pre className="w-full overflow-x-auto rounded-lg border border-border bg-muted/50 p-3 text-xs">
               {JSON.stringify(
                 { filters: formFilters, routing: formRouting },
                 null,

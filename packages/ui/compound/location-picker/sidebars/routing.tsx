@@ -30,7 +30,7 @@ function RouteMetric({
   className?: string;
 }) {
   return (
-    <span className={cn("dir-ltr inline-flex items-center gap-1", className)}>
+    <span className={cn("inline-flex items-center gap-1 dir-ltr", className)}>
       {prefix ? <span>{prefix}</span> : null}
       <span>{(value ?? 0).toLocaleString()}</span>
     </span>
@@ -67,15 +67,17 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
         <div className="flex flex-1 gap-1">
           <div className="flex flex-1 flex-col gap-4 pe-4">
             <div className="flex items-center gap-2">
-              <div className="border-warning flex size-5 min-w-5 items-center justify-center rounded-full border-2">
+              <div className="flex size-5 min-w-5 items-center justify-center rounded-full border-2 border-warning">
                 {addingOrigin && (
-                  <div className="bg-warning size-2 min-h-2 min-w-2 rounded-full" />
+                  <div className="size-2 min-h-2 min-w-2 rounded-full bg-warning" />
                 )}
               </div>
               <div className="w-full cursor-pointer" onClick={getOrigin}>
                 <TextInput
                   label={t("common.selectOrigin")}
-                  value={ol?.map((coord: number) => coord.toFixed(2)).join(" , ")}
+                  value={ol
+                    ?.map((coord: number) => coord.toFixed(2))
+                    .join(" , ")}
                   disabled
                   className="pointer-events-none cursor-pointer text-sm font-semibold"
                   status={addingOrigin ? "warning" : undefined}
@@ -83,15 +85,17 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="border-primary flex size-5 min-w-5 items-center justify-center rounded-lg border-2">
+              <div className="flex size-5 min-w-5 items-center justify-center rounded-lg border-2 border-primary">
                 {addingDestination && (
-                  <div className="bg-primary size-2 min-h-2 min-w-2 rounded-full" />
+                  <div className="size-2 min-h-2 min-w-2 rounded-full bg-primary" />
                 )}
               </div>
               <div className="w-full cursor-pointer" onClick={getDestination}>
                 <TextInput
                   label={t("common.selectDestination")}
-                  value={dl?.map((coord: number) => coord.toFixed(2)).join(" , ")}
+                  value={dl
+                    ?.map((coord: number) => coord.toFixed(2))
+                    .join(" , ")}
                   disabled
                   className="pointer-events-none cursor-pointer text-sm font-semibold"
                   status={addingDestination ? "primary" : undefined}
@@ -115,7 +119,7 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
               <div
                 key={index}
                 className={cn(
-                  "hover:bg-primary/10 bg-card flex cursor-pointer gap-4 rounded-lg border px-4 py-2 transition-all",
+                  "flex cursor-pointer gap-4 rounded-lg border bg-card px-4 py-2 transition-all hover:bg-primary/10",
                   {
                     "border-primary/50 bg-primary/10 hover:bg-primary/20":
                       selectedRoute === index,
@@ -130,15 +134,15 @@ function RoutingSidebarComponent({ onConfirm }: RoutingSidebarProps) {
                 }}
               >
                 <div className="flex flex-col gap-3">
-                  <div className="text-foreground flex items-center gap-2 text-sm font-semibold">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                     <div>{title}</div>
                   </div>
-                  <div className="text-foreground/80 flex flex-wrap items-center gap-2 text-xs font-semibold text-nowrap">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-nowrap text-foreground/80">
                     <Chip label={originName} />
                     <ArrowLeft size={20} />
                     <Chip label={destinationName} />
                   </div>
-                  <div className="text-foreground/50 mt-4 flex items-center gap-3 text-xs font-semibold">
+                  <div className="mt-4 flex items-center gap-3 text-xs font-semibold text-foreground/50">
                     <div className="flex items-center">
                       <Routing size={21} />
                       <RouteMetric

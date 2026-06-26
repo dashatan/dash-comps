@@ -1,11 +1,19 @@
 import { actionButtonClassNames } from "@/components/macro/tracker/utils/classes";
-import { PERSIAN_LOCALE, TEHRAN_TZ, timeHourClear, timeSecondClear } from "@/components/micro/inputs/date/utils/dateFormatPersian";
+import {
+  PERSIAN_LOCALE,
+  TEHRAN_TZ,
+  timeHourClear,
+  timeSecondClear,
+} from "@/components/micro/inputs/date/utils/dateFormatPersian";
 import { classNames } from "@/utils";
 import { Pause, Play, Settings } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Slider } from "@/components/micro/slider";
 import { useFormContext } from "react-hook-form";
-import { TrackerEvent, TrackerState } from "@/components/macro/tracker/utils/types";
+import {
+  TrackerEvent,
+  TrackerState,
+} from "@/components/macro/tracker/utils/types";
 import TrackerTotalTimeLine from "@/components/macro/tracker/comps/player/total-timeline";
 import {
   eventBasedPlay,
@@ -94,7 +102,10 @@ export default function TrackerControls() {
         eventIndex.value = EventIndex;
         return;
       }
-      const newTimes = makeTimes([timeline[newTotalTimeIndex], timeline[newTotalTimeIndex + 1]]);
+      const newTimes = makeTimes([
+        timeline[newTotalTimeIndex],
+        timeline[newTotalTimeIndex + 1],
+      ]);
       const newTimeIndex = newTimes.filter((x) => x <= event.time).length;
       totalTimeIndex.value = newTotalTimeIndex;
       timeIndex.value = newTimeIndex;
@@ -103,11 +114,28 @@ export default function TrackerControls() {
   }
 
   return (
-    <section id="control" className="flex w-full select-none items-center gap-2 px-4">
-      <div ref={playButtonRef} className={classNames(actionButtonClassNames, "order-1")} onClick={() => setPlay((x) => !x)}>
-        {!play ? <Play className="w-4 fill-gray-600 text-gray-600" /> : <Pause className="w-4 fill-gray-600 text-gray-600" />}
+    <section
+      id="control"
+      className="flex w-full items-center gap-2 px-4 select-none"
+    >
+      <div
+        ref={playButtonRef}
+        className={classNames(actionButtonClassNames, "order-1")}
+        onClick={() => setPlay((x) => !x)}
+      >
+        {!play ? (
+          <Play className="w-4 fill-gray-600 text-gray-600" />
+        ) : (
+          <Pause className="w-4 fill-gray-600 text-gray-600" />
+        )}
       </div>
-      <div ref={DateButtonRef} className={classNames(actionButtonClassNames, "order-2 min-w-32 px-2 font-main text-xs")}>
+      <div
+        ref={DateButtonRef}
+        className={classNames(
+          actionButtonClassNames,
+          "order-2 min-w-32 px-2 font-main text-xs",
+        )}
+      >
         {Intl.DateTimeFormat(PERSIAN_LOCALE, {
           timeZone: TEHRAN_TZ,
           year: "numeric",
@@ -117,7 +145,12 @@ export default function TrackerControls() {
           minute: "2-digit",
         }).format(activeTime)}
       </div>
-      <div className={classNames(actionButtonClassNames, "order-3 flex min-w-48 gap-2 px-2 font-main text-xs")}>
+      <div
+        className={classNames(
+          actionButtonClassNames,
+          "order-3 flex min-w-48 gap-2 px-2 font-main text-xs",
+        )}
+      >
         <span>1x</span>
         <Slider
           min={0.1}

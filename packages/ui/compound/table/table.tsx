@@ -245,7 +245,8 @@ export function TableComponent({
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
-      if (!draggable || !scrollRef.current || isDragScrollTarget(e.target)) return;
+      if (!draggable || !scrollRef.current || isDragScrollTarget(e.target))
+        return;
       if (e.target instanceof HTMLElement && e.target.closest("thead")) return;
       setIsDragging(true);
       dragStart.current = {
@@ -290,7 +291,9 @@ export function TableComponent({
       }
     });
     colRefs.current[index] =
-      scrollRef.current?.querySelector("table col:nth-child(" + (index + 1) + ")") ??
+      scrollRef.current?.querySelector(
+        "table col:nth-child(" + (index + 1) + ")",
+      ) ??
       colRefs.current[index] ??
       null;
   }

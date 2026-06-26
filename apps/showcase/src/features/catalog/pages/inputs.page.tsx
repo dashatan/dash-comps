@@ -189,9 +189,17 @@ export function InputsPage() {
   ] as const;
 
   const radioOptionsWithIcon = [
-    { name: "a", label: p("labels.dollar"), icon: <DollarSign className="size-4" /> },
+    {
+      name: "a",
+      label: p("labels.dollar"),
+      icon: <DollarSign className="size-4" />,
+    },
     { name: "b", label: p("labels.euro"), icon: <Euro className="size-4" /> },
-    { name: "c", label: p("labels.pound"), icon: <PoundSterling className="size-4" /> },
+    {
+      name: "c",
+      label: p("labels.pound"),
+      icon: <PoundSterling className="size-4" />,
+    },
   ] as const;
 
   const [text, setText] = useState(p("values.hello"));
@@ -474,7 +482,10 @@ export function InputsPage() {
         title={p("checkboxLabeled.title")}
         description={p("checkboxLabeled.description")}
       >
-        <Checkbox.Labeled label={p("checkboxLabeled.labels.labelRight")} checked />
+        <Checkbox.Labeled
+          label={p("checkboxLabeled.labels.labelRight")}
+          checked
+        />
         <Checkbox.Labeled
           label={p("checkboxLabeled.labels.labelLeft")}
           labelPosition="left"
@@ -627,7 +638,9 @@ export function InputsPage() {
         <ShowcaseRow label={p("otpInput.rows.copyPaste")} direction="vertical">
           <OtpPasteDemo
             sample={OTP_PASTE_SAMPLES.numeric}
-            copyLabel={p("buttons.copySample", { sample: OTP_PASTE_SAMPLES.numeric })}
+            copyLabel={p("buttons.copySample", {
+              sample: OTP_PASTE_SAMPLES.numeric,
+            })}
           >
             <OTPInput
               label={p("otpInput.labels.pasteFocus")}
@@ -845,7 +858,11 @@ export function InputsPage() {
             withPreset
             presets={[
               { key: "1m", label: p("dateInput.presets.oneMonth"), months: 1 },
-              { key: "3m", label: p("dateInput.presets.threeMonths"), months: 3 },
+              {
+                key: "3m",
+                label: p("dateInput.presets.threeMonths"),
+                months: 3,
+              },
             ]}
             width={DEMO_WIDTH}
           />

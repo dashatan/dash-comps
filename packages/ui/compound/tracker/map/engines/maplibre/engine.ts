@@ -1,8 +1,14 @@
 import mapLibreGl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import type { MapEngine, MapEngineHandle } from "@/components/compound/tracker/map/types";
+import type {
+  MapEngine,
+  MapEngineHandle,
+} from "@/components/compound/tracker/map/types";
 import { getHexColor } from "@dash/core/utils";
-import { calculateBearing, interpolate } from "@/components/compound/tracker/utils/bearing";
+import {
+  calculateBearing,
+  interpolate,
+} from "@/components/compound/tracker/utils/bearing";
 
 const ROUTE_SOURCE = "tracker-route";
 const ROUTE_LAYER = "tracker-route-layer";
@@ -42,7 +48,12 @@ export function createMapLibreEngine(): MapEngine {
     });
   };
 
-  const addLine = (id: string, layerId: string, coords: [number, number][], colorVar: string) => {
+  const addLine = (
+    id: string,
+    layerId: string,
+    coords: [number, number][],
+    colorVar: string,
+  ) => {
     if (!map || coords.length < 2) return;
     const color = getHexColor(colorVar);
     map.addSource(id, {
@@ -76,7 +87,12 @@ export function createMapLibreEngine(): MapEngine {
       });
 
       if (config.controls?.zoom) {
-        map.addControl(new mapLibreGl.NavigationControl({ showCompass: config.controls.compass }), "top-right");
+        map.addControl(
+          new mapLibreGl.NavigationControl({
+            showCompass: config.controls.compass,
+          }),
+          "top-right",
+        );
       }
 
       const handle: MapEngineHandle = {
@@ -117,7 +133,12 @@ export function createMapLibreEngine(): MapEngine {
           addLine(ROUTE_SOURCE, ROUTE_LAYER, coords, "--color-primary");
         }
         if (ctx.passedCoords && ctx.passedCoords.length > 1) {
-          addLine(PASSED_SOURCE, PASSED_LAYER, ctx.passedCoords, "--color-foreground");
+          addLine(
+            PASSED_SOURCE,
+            PASSED_LAYER,
+            ctx.passedCoords,
+            "--color-foreground",
+          );
         }
       });
     },
@@ -162,7 +183,10 @@ export function createMapLibreEngine(): MapEngine {
             type: "geojson",
             data: {
               type: "Feature",
-              geometry: { type: "Point", coordinates: [x.latLng[1], x.latLng[0]] },
+              geometry: {
+                type: "Point",
+                coordinates: [x.latLng[1], x.latLng[0]],
+              },
               properties: {},
             },
           });

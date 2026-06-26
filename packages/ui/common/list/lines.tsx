@@ -31,14 +31,16 @@ export default function LinesList(props: LinesListProps) {
                   })}
                 />
               )}
-              <div className="text-foreground text-sm font-medium text-nowrap">
+              <div className="text-sm font-medium text-nowrap text-foreground">
                 {item.name}
               </div>
             </div>
-            <div className="bg-border h-px w-full" />
+            <div className="h-px w-full bg-border" />
             <div
               className="flex items-center justify-center text-sm text-nowrap"
-              title={item.value && typeof item.value === "string" ? item.value : ""}
+              title={
+                item.value && typeof item.value === "string" ? item.value : ""
+              }
             >
               <span className="truncate">{item.value ?? "—"}</span>
             </div>

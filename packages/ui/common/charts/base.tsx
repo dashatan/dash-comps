@@ -3,7 +3,11 @@ import { EChartsOption } from "echarts";
 import type { ECharts, TitleComponentOption } from "echarts";
 import { useTheme } from "next-themes";
 import { forwardRef, useEffect, useRef, useState, type Ref } from "react";
-import { createSeriesConfig, createTooltipFormatter, getTheme } from "./helpers";
+import {
+  createSeriesConfig,
+  createTooltipFormatter,
+  getTheme,
+} from "./helpers";
 import EChartsReact from "echarts-for-react";
 import { cn } from "@/lib";
 import {
@@ -157,7 +161,8 @@ function BaseChartInner<T = unknown>(
                     color: theme.textColor,
                     fontSize: 12,
 
-                    ...((opts.tooltip as { textStyle?: object })?.textStyle || {}),
+                    ...((opts.tooltip as { textStyle?: object })?.textStyle ||
+                      {}),
                   },
                   extraCssText: "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);",
                   formatter: createTooltipFormatter(theme),
@@ -165,13 +170,18 @@ function BaseChartInner<T = unknown>(
             ...opts.tooltip,
             ...(tooltipItems && {
               ...CHART_TOOLTIP_HTML_STYLE,
-              formatter: createTooltipItemsFormatter({ tooltipItems, tooltipTitle }),
+              formatter: createTooltipItemsFormatter({
+                tooltipItems,
+                tooltipTitle,
+              }),
             }),
           }
         : undefined,
     series: opts.series
       ? Array.isArray(opts.series)
-        ? opts.series.map((series, index) => createSeriesConfig(series, index, theme))
+        ? opts.series.map((series, index) =>
+            createSeriesConfig(series, index, theme),
+          )
         : createSeriesConfig(opts.series, 0, theme)
       : undefined,
   };
@@ -183,7 +193,7 @@ function BaseChartInner<T = unknown>(
       ref={containerRef}
       style={{ height, width, ...style }}
       className={cn(
-        "flex-full flex-flex-col min-h-0 w-full",
+        "flex-flex-col min-h-0 w-full flex-full",
         fillsContainer ? "h-full" : "@desktop:min-h-auto h-auto @sm:min-h-60",
         containerClassName,
       )}

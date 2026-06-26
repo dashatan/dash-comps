@@ -1,8 +1,4 @@
-import {
-  GridCard,
-  GridContainer,
-  GridHeader,
-} from "@/components/common/grid";
+import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import AreaChart from "@/components/common/charts/area";
 import BarChart from "@/components/common/charts/bar";
 import { formatEur } from "@/data/european-context";
@@ -12,8 +8,8 @@ import { PageHeader } from "@/shared/page-header";
 
 function SummaryStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-border bg-muted/20 rounded-lg border px-4 py-3">
-      <p className="text-muted-foreground text-xs">{label}</p>
+    <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+      <p className="text-xs text-muted-foreground">{label}</p>
       <p className="text-lg font-semibold tabular-nums">{value}</p>
     </div>
   );
@@ -57,7 +53,10 @@ export function RevenueByRouteReportPage() {
             <AreaChart
               xAxis={[...report.monthlyTrend.labels]}
               series={[
-                { name: "Revenue (k€)", data: [...report.monthlyTrend.primary] },
+                {
+                  name: "Revenue (k€)",
+                  data: [...report.monthlyTrend.primary],
+                },
                 { name: "Cost (k€)", data: [...report.monthlyTrend.secondary] },
               ]}
             />
@@ -70,7 +69,10 @@ export function RevenueByRouteReportPage() {
             <BarChart
               xAxis={report.topRoutes.map((r) => r.name)}
               series={[
-                { name: "Revenue (€)", data: report.topRoutes.map((r) => r.revenue) },
+                {
+                  name: "Revenue (€)",
+                  data: report.topRoutes.map((r) => r.revenue),
+                },
                 { name: "Cost (€)", data: report.topRoutes.map((r) => r.cost) },
               ]}
               horizontal

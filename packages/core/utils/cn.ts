@@ -30,7 +30,9 @@ export function nestedSearch<T extends Record<string, unknown>>(
 ): T[] {
   if (!text) return items;
 
-  return items.flatMap((item) => searchChildren(text, item, searchKey || "label"));
+  return items.flatMap((item) =>
+    searchChildren(text, item, searchKey || "label"),
+  );
 
   function searchChildren(searchText: string, menu: T, key: string): T[] {
     const hasText = `${menu[key]}`.includes(searchText);
@@ -38,7 +40,9 @@ export function nestedSearch<T extends Record<string, unknown>>(
 
     const children = menu.children as T[] | undefined;
     if (!hasText && children?.length) {
-      const filteredChildren = children.flatMap((child) => searchChildren(searchText, child, key));
+      const filteredChildren = children.flatMap((child) =>
+        searchChildren(searchText, child, key),
+      );
       if (!filteredChildren.length) return [];
       return [{ ...menu, children: filteredChildren } as T];
     }

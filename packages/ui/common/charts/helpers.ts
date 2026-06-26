@@ -6,7 +6,8 @@ export const getTheme = () => {
 
   return {
     fontFamily:
-      style.getPropertyValue("--font-family").trim() || "Inter, system-ui, sans-serif",
+      style.getPropertyValue("--font-family").trim() ||
+      "Inter, system-ui, sans-serif",
     backgroundColor: style.getPropertyValue("--card").trim(),
     textColor: style.getPropertyValue("--foreground").trim(),
     borderColor: style.getPropertyValue("--border").trim(),

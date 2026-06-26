@@ -66,7 +66,10 @@ export function calculateEvenlySpacedItems(
     return [];
   }
   const maxItems = Math.floor(containerWidth / itemWidth);
-  const step = Math.max(1, Math.ceil((totalTimes.length - 2) / Math.max(maxItems - 2, 1)));
+  const step = Math.max(
+    1,
+    Math.ceil((totalTimes.length - 2) / Math.max(maxItems - 2, 1)),
+  );
   const result = [totalTimes[0]];
   for (let i = step; i < totalTimes.length - 1; i += step) {
     result.push(totalTimes[i]);

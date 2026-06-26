@@ -1,1 +1,1 @@
-export * as TabScroller from './tab-scroller'
+export * as TabScroller from "./tab-scroller";

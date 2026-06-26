@@ -6,7 +6,10 @@ import {
   getCellWaveStyle,
 } from "@/components/common/inputs/otp/paste-wave";
 import { otpInputVariants } from "@/components/common/inputs/otp/variants";
-import type { OTPInputProps, OTPInputSize } from "@/components/common/inputs/otp/types";
+import type {
+  OTPInputProps,
+  OTPInputSize,
+} from "@/components/common/inputs/otp/types";
 
 const otpDigitSizeClasses: Record<OTPInputSize, string> = {
   sm: "text-base leading-9",

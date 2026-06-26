@@ -1,20 +1,32 @@
-'use client'
+"use client";
 
-import { createContext, useContext, useMemo, useRef, useEffect, type ReactNode } from 'react'
-import { useStore } from 'zustand'
-import { createTableStore, type TableOnChange, type TableStore, type TableStoreApi } from './store'
-import { TableData, tableDefaultState } from './types'
+import {
+  createContext,
+  useContext,
+  useMemo,
+  useRef,
+  useEffect,
+  type ReactNode,
+} from "react";
+import { useStore } from "zustand";
+import {
+  createTableStore,
+  type TableOnChange,
+  type TableStore,
+  type TableStoreApi,
+} from "./store";
+import { TableData, tableDefaultState } from "./types";
 
-type TableStoreContextValue = TableStore
+type TableStoreContextValue = TableStore;
 
-const TableStoreContext = createContext<TableStoreContextValue | null>(null)
+const TableStoreContext = createContext<TableStoreContextValue | null>(null);
 
 function buildInitialState(
   defaultValues?: Partial<TableData>,
   totalRecords?: number,
 ): Partial<TableData> {
   const hasFilter =
-    defaultValues?.filters && Object.keys(defaultValues.filters).length > 0
+    defaultValues?.filters && Object.keys(defaultValues.filters).length > 0;
 
   return {
     ...tableDefaultState,
@@ -22,15 +34,15 @@ function buildInitialState(
     showFilter: hasFilter ? true : defaultValues?.showFilter,
     showFilterChips: hasFilter ? true : defaultValues?.showFilterChips,
     totalRecords: totalRecords ?? defaultValues?.totalRecords ?? 0,
-  }
+  };
 }
 
 export type TableStoreProviderProps = {
-  children: ReactNode
-  defaultValues?: Partial<TableData>
-  totalRecords?: number
-  onTableChange?: TableOnChange
-}
+  children: ReactNode;
+  defaultValues?: Partial<TableData>;
+  totalRecords?: number;
+  onTableChange?: TableOnChange;
+};
 
 export function TableStoreProvider({
   children,
@@ -38,68 +50,73 @@ export function TableStoreProvider({
   totalRecords,
   onTableChange,
 }: TableStoreProviderProps) {
-  const onChangeRef = useRef(onTableChange)
-  onChangeRef.current = onTableChange
+  const onChangeRef = useRef(onTableChange);
+  onChangeRef.current = onTableChange;
 
   const defaultValuesSignature = useMemo(
     () => (defaultValues ? JSON.stringify(defaultValues) : null),
     [defaultValues],
-  )
+  );
 
-  const storeRef = useRef<TableStore | null>(null)
+  const storeRef = useRef<TableStore | null>(null);
   if (!storeRef.current) {
     storeRef.current = createTableStore(
       buildInitialState(defaultValues, totalRecords),
       (data, tag) => onChangeRef.current?.(data, tag),
-    )
+    );
   }
 
   useEffect(() => {
-    if (!defaultValuesSignature) return
-    const parsed = JSON.parse(defaultValuesSignature) as Partial<TableData>
-    storeRef.current?.getState().reset(buildInitialState(parsed, parsed.totalRecords))
-  }, [defaultValuesSignature])
+    if (!defaultValuesSignature) return;
+    const parsed = JSON.parse(defaultValuesSignature) as Partial<TableData>;
+    storeRef.current
+      ?.getState()
+      .reset(buildInitialState(parsed, parsed.totalRecords));
+  }, [defaultValuesSignature]);
 
   useEffect(() => {
     if (totalRecords !== undefined) {
-      storeRef.current?.getState().setTotalRecords(totalRecords)
+      storeRef.current?.getState().setTotalRecords(totalRecords);
     }
-  }, [totalRecords])
+  }, [totalRecords]);
 
   const selectedSignature = useMemo(
-    () => (defaultValues?.selected ? JSON.stringify(defaultValues.selected) : null),
+    () =>
+      defaultValues?.selected ? JSON.stringify(defaultValues.selected) : null,
     [defaultValues?.selected],
-  )
+  );
 
   useEffect(() => {
     if (selectedSignature) {
-      const parsed = JSON.parse(selectedSignature) as TableData['selected']
-      storeRef.current?.getState().setSelected(parsed)
+      const parsed = JSON.parse(selectedSignature) as TableData["selected"];
+      storeRef.current?.getState().setSelected(parsed);
     }
-  }, [selectedSignature])
+  }, [selectedSignature]);
 
   return (
     <TableStoreContext.Provider value={storeRef.current}>
       {children}
     </TableStoreContext.Provider>
-  )
+  );
 }
 
 export function useTableStoreContext() {
-  const store = useContext(TableStoreContext)
+  const store = useContext(TableStoreContext);
   if (!store) {
-    throw new Error('useTableStore must be used within TableStoreProvider')
+    throw new Error("useTableStore must be used within TableStoreProvider");
   }
-  return store
+  return store;
 }
 
-export function useTableStore<T>(selector: (state: ReturnType<TableStore['getState']>) => T): T {
-  const store = useTableStoreContext()
-  return useStore(store, selector)
+export function useTableStore<T>(
+  selector: (state: ReturnType<TableStore["getState"]>) => T,
+): T {
+  const store = useTableStoreContext();
+  return useStore(store, selector);
 }
 
 export function useTableStoreApi(): TableStoreApi {
-  const store = useTableStoreContext()
+  const store = useTableStoreContext();
   return useMemo(
     () => ({
       getSnapshot: () => store.getState().getSnapshot(),
@@ -111,14 +128,17 @@ export function useTableStoreApi(): TableStoreApi {
       setFilters: (filters) => store.getState().setFilters(filters),
       setPage: (page) => store.getState().setPage(page),
       setRows: (rows) => store.getState().setRows(rows),
-      setSort: (sortField, sortOrder) => store.getState().setSort(sortField, sortOrder),
+      setSort: (sortField, sortOrder) =>
+        store.getState().setSort(sortField, sortOrder),
       toggleFilterRow: () => store.getState().toggleFilterRow(),
-      toggleExpandedRow: (key, open) => store.getState().toggleExpandedRow(key, open),
-      setActiveColumns: (activeColumns) => store.getState().setActiveColumns(activeColumns),
+      toggleExpandedRow: (key, open) =>
+        store.getState().toggleExpandedRow(key, open),
+      setActiveColumns: (activeColumns) =>
+        store.getState().setActiveColumns(activeColumns),
       setSidePanelData: (data) => store.getState().setSidePanelData(data),
       setTotalRecords: (total) => store.getState().setTotalRecords(total),
       emit: (tag) => store.getState().emit(tag),
     }),
     [store],
-  )
+  );
 }

@@ -18,7 +18,9 @@ export default function Providers({
 }: ProvidersProps) {
   return (
     <ThemeProvider theme={theme}>
-      <ServerLanguageProvider language={language}>{children}</ServerLanguageProvider>
+      <ServerLanguageProvider language={language}>
+        {children}
+      </ServerLanguageProvider>
     </ThemeProvider>
   );
 }

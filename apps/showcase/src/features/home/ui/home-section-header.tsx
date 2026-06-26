@@ -28,12 +28,14 @@ export function HomeSectionHeader({
           initial={{ opacity: 0, x: -8 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-primary mb-2 text-xs font-semibold tracking-[0.2em] uppercase"
+          className="mb-2 text-xs font-semibold tracking-[0.2em] text-primary uppercase"
         >
           {eyebrow}
         </motion.p>
-        <h2 className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">{title}</h2>
-        <p className="text-muted-foreground mt-3 text-sm leading-relaxed md:text-base">
+        <h2 className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">
+          {title}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
           {description}
         </p>
       </div>

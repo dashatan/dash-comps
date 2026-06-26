@@ -53,7 +53,8 @@ function LineChartInner<const S extends readonly LineSeriesInput[]>({
           color: getHexColor("--color-card-foreground"),
           borderColor: getHexColor("--color-border"),
           borderWidth: 0,
-          formatter: (params) => negativeFormatter(params.value as number | string),
+          formatter: (params) =>
+            negativeFormatter(params.value as number | string),
         },
       },
       ...tooltip,
@@ -64,7 +65,9 @@ function LineChartInner<const S extends readonly LineSeriesInput[]>({
       type: "category",
       data: xAxis,
       axisLabel: { fontSize },
-      ...(xAxisOption && !Array.isArray(xAxisOption) ? (xAxisOption as object) : {}),
+      ...(xAxisOption && !Array.isArray(xAxisOption)
+        ? (xAxisOption as object)
+        : {}),
     },
     yAxis: {
       type: "value",
@@ -86,7 +89,10 @@ function LineChartInner<const S extends readonly LineSeriesInput[]>({
   };
 
   return (
-    <BaseChart<InferChartPayloadFromSeries<S>> options={defaultOptions} {...props} />
+    <BaseChart<InferChartPayloadFromSeries<S>>
+      options={defaultOptions}
+      {...props}
+    />
   );
 }
 

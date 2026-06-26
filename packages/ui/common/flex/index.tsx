@@ -1,28 +1,28 @@
-import { cn } from '@/lib'
-import { ReactNode, forwardRef } from 'react'
+import { cn } from "@/lib";
+import { ReactNode, forwardRef } from "react";
 
 export interface FlexContainerProps {
   /** Main content of the flex container */
-  children?: ReactNode
+  children?: ReactNode;
   /** Custom class names for different levels of the flex container */
   className?: {
     /** Class name for the outer container */
-    container?: string
+    container?: string;
     /** Class name for the inner flex container */
-    flex?: string
-  }
+    flex?: string;
+  };
   /** Optional aria-label for accessibility */
-  'aria-label'?: string
+  "aria-label"?: string;
   /** Flex direction for the container */
-  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  direction?: "row" | "column" | "row-reverse" | "column-reverse";
   /** Justify content alignment */
-  justify?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'
+  justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
   /** Align items alignment */
-  align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch'
+  align?: "start" | "end" | "center" | "baseline" | "stretch";
   /** Flex wrap behavior */
-  wrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
+  wrap?: "nowrap" | "wrap" | "wrap-reverse";
   /** Gap between flex items */
-  gap?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
+  gap?: "none" | "sm" | "md" | "lg" | "xl";
 }
 
 /**
@@ -31,91 +31,103 @@ export interface FlexContainerProps {
  * @returns A responsive flex layout
  */
 export const FlexContainer = forwardRef<HTMLDivElement, FlexContainerProps>(
-  ({ className, children, 'aria-label': ariaLabel, direction = 'row', justify = 'start', align = 'start', wrap = 'wrap', gap = 'md' }, ref) => {
+  (
+    {
+      className,
+      children,
+      "aria-label": ariaLabel,
+      direction = "row",
+      justify = "start",
+      align = "start",
+      wrap = "wrap",
+      gap = "md",
+    },
+    ref,
+  ) => {
     const directionClasses = {
-      row: 'flex-row',
-      column: 'flex-col',
-      'row-reverse': 'flex-row-reverse',
-      'column-reverse': 'flex-col-reverse',
-    }
+      row: "flex-row",
+      column: "flex-col",
+      "row-reverse": "flex-row-reverse",
+      "column-reverse": "flex-col-reverse",
+    };
 
     const justifyClasses = {
-      start: 'justify-start',
-      end: 'justify-end',
-      center: 'justify-center',
-      between: 'justify-between',
-      around: 'justify-around',
-      evenly: 'justify-evenly',
-    }
+      start: "justify-start",
+      end: "justify-end",
+      center: "justify-center",
+      between: "justify-between",
+      around: "justify-around",
+      evenly: "justify-evenly",
+    };
 
     const alignClasses = {
-      start: 'items-start',
-      end: 'items-end',
-      center: 'items-center',
-      baseline: 'items-baseline',
-      stretch: 'items-stretch',
-    }
+      start: "items-start",
+      end: "items-end",
+      center: "items-center",
+      baseline: "items-baseline",
+      stretch: "items-stretch",
+    };
 
     const wrapClasses = {
-      nowrap: 'flex-nowrap',
-      wrap: 'flex-wrap',
-      'wrap-reverse': 'flex-wrap-reverse',
-    }
+      nowrap: "flex-nowrap",
+      wrap: "flex-wrap",
+      "wrap-reverse": "flex-wrap-reverse",
+    };
 
     const gapClasses = {
-      none: 'gap-0',
-      sm: 'gap-2',
-      md: 'gap-4',
-      lg: 'gap-6',
-      xl: 'gap-8',
-    }
+      none: "gap-0",
+      sm: "gap-2",
+      md: "gap-4",
+      lg: "gap-6",
+      xl: "gap-8",
+    };
 
     return (
       <div
         ref={ref}
         className={cn(
-          'flex w-full flex-1',
+          "flex w-full flex-1",
           directionClasses[direction],
           justifyClasses[justify],
           alignClasses[align],
           wrapClasses[wrap],
           gapClasses[gap],
-          className?.container
+          className?.container,
         )}
-        role='group'
+        role="group"
         aria-label={ariaLabel}
       >
         <div
           className={cn(
-            'flex w-full flex-1',
+            "flex w-full flex-1",
             directionClasses[direction],
             justifyClasses[justify],
             alignClasses[align],
             wrapClasses[wrap],
             gapClasses[gap],
-            'max-w-[1920px] p-4',
-            className?.flex
+            "max-w-[1920px] p-4",
+            className?.flex,
           )}
-          role='group'
+          role="group"
         >
           {children}
         </div>
       </div>
-    )
-  }
-)
+    );
+  },
+);
 
-FlexContainer.displayName = 'FlexContainer'
+FlexContainer.displayName = "FlexContainer";
 
 export interface FlexCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Optional variant for different card styles */
-  variant?: 'default' | 'elevated' | 'outlined'
+  variant?: "default" | "elevated" | "outlined";
   /** Flex basis for the card (how much space it should take) */
-  basis?: 'auto' | 'full' | '1/2' | '1/3' | '1/4' | '1/5' | '1/6' | 'none'
+  basis?: "auto" | "full" | "1/2" | "1/3" | "1/4" | "1/5" | "1/6" | "none";
   /** Flex grow behavior */
-  grow?: boolean
+  grow?: boolean;
   /** Flex shrink behavior */
-  shrink?: boolean
+  shrink?: boolean;
 }
 
 /**
@@ -124,54 +136,66 @@ export interface FlexCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns A card component within the flex container
  */
 export const FlexCard = forwardRef<HTMLDivElement, FlexCardProps>(
-  ({ variant = 'default', basis = 'auto', grow = false, shrink = true, className, ...props }, ref) => {
+  (
+    {
+      variant = "default",
+      basis = "auto",
+      grow = false,
+      shrink = true,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
     const basisClasses = {
-      none: 'flex-none',
-      auto: 'flex-auto',
-      full: 'flex-1',
-      '1/2': 'flex-[0_0_50%]',
-      '1/3': 'flex-[0_0_33.333333%]',
-      '1/4': 'flex-[0_0_25%]',
-      '1/5': 'flex-[0_0_20%]',
-      '1/6': 'flex-[0_0_16.666667%]',
-    }
+      none: "flex-none",
+      auto: "flex-auto",
+      full: "flex-1",
+      "1/2": "flex-[0_0_50%]",
+      "1/3": "flex-[0_0_33.333333%]",
+      "1/4": "flex-[0_0_25%]",
+      "1/5": "flex-[0_0_20%]",
+      "1/6": "flex-[0_0_16.666667%]",
+    };
 
     return (
       <div
         ref={ref}
         {...props}
         className={cn(
-          'dir-rtl flex w-full flex-col gap-6 overflow-hidden rounded-xl border p-4',
+          "flex w-full flex-col gap-6 overflow-hidden rounded-xl border p-4 dir-rtl",
           basisClasses[basis],
-          grow && 'grow',
-          !shrink && 'shrink-0',
-          variant === 'default' && 'border-border bg-card text-card-foreground',
-          variant === 'elevated' && 'border-border bg-popover text-popover-foreground shadow-sm',
-          variant === 'outlined' && 'border-primary text-foreground border-2 bg-transparent',
-          className
+          grow && "grow",
+          !shrink && "shrink-0",
+          variant === "default" && "border-border bg-card text-card-foreground",
+          variant === "elevated" &&
+            "border-border bg-popover text-popover-foreground shadow-sm",
+          variant === "outlined" &&
+            "border-2 border-primary bg-transparent text-foreground",
+          className,
         )}
       />
-    )
-  }
-)
+    );
+  },
+);
 
-FlexCard.displayName = 'FlexCard'
+FlexCard.displayName = "FlexCard";
 
 export interface FlexHeaderProps {
   /** Predefined icon */
-  Icon?: ReactNode
+  Icon?: ReactNode;
   /** Main header text */
-  title: string
+  title: string;
   /** Optional subtitle text */
-  subtitle?: string
+  subtitle?: string;
   /** Optional additional text to display next to title */
-  additionalText?: string
+  additionalText?: string;
   /** Header alignment */
-  align?: 'left' | 'center' | 'right'
+  align?: "left" | "center" | "right";
   /** Custom class name for the header */
-  className?: string
+  className?: string;
   /** Extra elements to display in the header */
-  extraElements?: ReactNode
+  extraElements?: ReactNode;
 }
 
 /**
@@ -180,46 +204,68 @@ export interface FlexHeaderProps {
  * @returns A header component with icon and text
  */
 export const FlexHeader = forwardRef<HTMLDivElement, FlexHeaderProps>(
-  ({ Icon, title, subtitle, additionalText, align = 'left', className, extraElements }, ref) => {
+  (
+    {
+      Icon,
+      title,
+      subtitle,
+      additionalText,
+      align = "left",
+      className,
+      extraElements,
+    },
+    ref,
+  ) => {
     const alignClasses = {
-      left: 'items-start',
-      center: 'items-center',
-      right: 'items-end',
-    }
+      left: "items-start",
+      center: "items-center",
+      right: "items-end",
+    };
 
     return (
-      <div ref={ref} className={cn('flex items-center gap-4', alignClasses[align], className)}>
-        <div className='border-border bg-card text-sidebar-icon flex h-10 w-10 items-center justify-center rounded-lg border'>{Icon}</div>
-        <div className='flex flex-col'>
-          <div className='flex items-center gap-1'>
-            <span className='text-foreground font-semibold'>{title}</span>
+      <div
+        ref={ref}
+        className={cn(
+          "flex items-center gap-4",
+          alignClasses[align],
+          className,
+        )}
+      >
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-sidebar-icon">
+          {Icon}
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-1">
+            <span className="font-semibold text-foreground">{title}</span>
             {additionalText && (
-              <span className='text-muted-foreground text-sm font-semibold'>
-                {'( '}
+              <span className="text-sm font-semibold text-muted-foreground">
+                {"( "}
                 {additionalText}
-                {' )'}
+                {" )"}
               </span>
             )}
           </div>
-          {subtitle && <div className='text-muted-foreground text-xs'>{subtitle}</div>}
+          {subtitle && (
+            <div className="text-xs text-muted-foreground">{subtitle}</div>
+          )}
         </div>
-        <div className='ms-auto flex items-center gap-2'>{extraElements}</div>
+        <div className="ms-auto flex items-center gap-2">{extraElements}</div>
       </div>
-    )
-  }
-)
+    );
+  },
+);
 
-FlexHeader.displayName = 'FlexHeader'
+FlexHeader.displayName = "FlexHeader";
 
 export interface FlexItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Flex basis for the item */
-  basis?: 'auto' | 'full' | '1/2' | '1/3' | '1/4' | '1/5' | '1/6' | 'none'
+  basis?: "auto" | "full" | "1/2" | "1/3" | "1/4" | "1/5" | "1/6" | "none";
   /** Flex grow behavior */
-  grow?: boolean
+  grow?: boolean;
   /** Flex shrink behavior */
-  shrink?: boolean
+  shrink?: boolean;
   /** Order of the item */
-  order?: number
+  order?: number;
 }
 
 /**
@@ -227,25 +273,37 @@ export interface FlexItemProps extends React.HTMLAttributes<HTMLDivElement> {
  * @param props - FlexItem component props
  * @returns A flex item component
  */
-export const FlexItem = forwardRef<HTMLDivElement, FlexItemProps>(({ basis = 'auto', grow = false, shrink = true, order, className, ...props }, ref) => {
-  const basisClasses = {
-    none: 'flex-none',
-    auto: 'flex-auto',
-    full: 'flex-1',
-    '1/2': 'flex-[0_0_50%]',
-    '1/3': 'flex-[0_0_33.333333%]',
-    '1/4': 'flex-[0_0_25%]',
-    '1/5': 'flex-[0_0_20%]',
-    '1/6': 'flex-[0_0_16.666667%]',
-  }
+export const FlexItem = forwardRef<HTMLDivElement, FlexItemProps>(
+  (
+    { basis = "auto", grow = false, shrink = true, order, className, ...props },
+    ref,
+  ) => {
+    const basisClasses = {
+      none: "flex-none",
+      auto: "flex-auto",
+      full: "flex-1",
+      "1/2": "flex-[0_0_50%]",
+      "1/3": "flex-[0_0_33.333333%]",
+      "1/4": "flex-[0_0_25%]",
+      "1/5": "flex-[0_0_20%]",
+      "1/6": "flex-[0_0_16.666667%]",
+    };
 
-  return (
-    <div
-      ref={ref}
-      {...props}
-      className={cn('flex', basisClasses[basis], grow && 'flex-grow', !shrink && 'flex-shrink-0', order !== undefined && `order-${order}`, className)}
-    />
-  )
-})
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={cn(
+          "flex",
+          basisClasses[basis],
+          grow && "flex-grow",
+          !shrink && "flex-shrink-0",
+          order !== undefined && `order-${order}`,
+          className,
+        )}
+      />
+    );
+  },
+);
 
-FlexItem.displayName = 'FlexItem'
+FlexItem.displayName = "FlexItem";

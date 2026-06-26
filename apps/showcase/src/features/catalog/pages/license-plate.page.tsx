@@ -100,7 +100,7 @@ function ShowcaseRow({
 
 function ValuePreview({ value }: { value: PlateValue | undefined }) {
   return (
-    <pre className="bg-muted/50 w-full overflow-x-auto rounded-lg border border-border p-3 text-xs">
+    <pre className="w-full overflow-x-auto rounded-lg border border-border bg-muted/50 p-3 text-xs">
       {JSON.stringify(value ?? null, null, 2)}
     </pre>
   );
@@ -126,7 +126,12 @@ export function LicensePlatePage() {
       >
         <div className="grid w-full gap-6 lg:grid-cols-2">
           <ShowcaseRow label={p("variants.car")}>
-            <PlateInput variant="car" value={car} onChange={setCar} width={CAR_PLATE_WIDTH} />
+            <PlateInput
+              variant="car"
+              value={car}
+              onChange={setCar}
+              width={CAR_PLATE_WIDTH}
+            />
           </ShowcaseRow>
           <ShowcaseRow label={p("variants.motorcycle")}>
             <PlateInput
@@ -335,7 +340,7 @@ export function LicensePlatePage() {
           <PlateCard value={specialLetterValues.police} />
           <PlateCard value={specialLetterValues.protocol} />
         </div>
-        <p className="text-muted-foreground text-sm">{p("plateCard.hint")}</p>
+        <p className="text-sm text-muted-foreground">{p("plateCard.hint")}</p>
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -364,8 +369,12 @@ export function LicensePlatePage() {
         delay={0.35}
         layout="stack"
       >
-        <PlateInput variant="car" value={STANDARD_CAR_PLATE} width={CAR_PLATE_WIDTH} />
-        <ul className="text-muted-foreground list-inside list-disc space-y-1 text-sm">
+        <PlateInput
+          variant="car"
+          value={STANDARD_CAR_PLATE}
+          width={CAR_PLATE_WIDTH}
+        />
+        <ul className="list-inside list-disc space-y-1 text-sm text-muted-foreground">
           <li>{p("clipboard.hover")}</li>
           <li>{p("clipboard.copyShortcut")}</li>
           <li>{p("clipboard.pasteShortcut")}</li>

@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { getMapTileUrl } from "@/lib";
-import { registerMapEngine, loadMapEngine, mountMapEngine } from "@/components/compound/tracker/map/registry";
+import {
+  registerMapEngine,
+  loadMapEngine,
+  mountMapEngine,
+} from "@/components/compound/tracker/map/registry";
 import { createLeafletEngine } from "@/components/compound/tracker/map/engines/leaflet/engine";
 import { createMapLibreEngine } from "@/components/compound/tracker/map/engines/maplibre/engine";
 import type { MapEngine } from "@/components/compound/tracker/map/types";
@@ -35,7 +39,9 @@ export default function MapHost() {
   const setActiveEventIndex = useTrackerStore((s) => s.setActiveEventIndex);
   const tracksWithEvents = useTracksWithEventsFiltered();
   const emphasizeRadius = useTrackerStore((s) => s.emphasizeRadius);
-  const perEventMarkers = useTrackerStore((s) => s.options.markers.perEventMarkers);
+  const perEventMarkers = useTrackerStore(
+    (s) => s.options.markers.perEventMarkers,
+  );
   const headStyle = useTrackerStore((s) => s.options.markers.headStyle);
 
   useEffect(() => {
@@ -49,7 +55,9 @@ export default function MapHost() {
       const engine = await loadMapEngine(ctx.mapEngine);
       if (cancelled || !containerRef.current) return;
 
-      const tileUrl = getMapTileUrl(resolvedTheme === "dark" ? "dark" : "light");
+      const tileUrl = getMapTileUrl(
+        resolvedTheme === "dark" ? "dark" : "light",
+      );
       const handle = await mountMapEngine(engine, containerRef.current, {
         center: options.map.center,
         zoom: options.map.defaultZoom,
@@ -71,16 +79,29 @@ export default function MapHost() {
       handleRef.current = null;
       engineRef.current = null;
     };
-  }, [ctx.mapEngine, resolvedTheme, options.map.center, options.map.defaultZoom, options.map.rtlSupport, options.map.controls]);
+  }, [
+    ctx.mapEngine,
+    resolvedTheme,
+    options.map.center,
+    options.map.defaultZoom,
+    options.map.rtlSupport,
+    options.map.controls,
+  ]);
 
   useEffect(() => {
     const engine = engineRef.current;
     if (!engine || !ctx.events.length) return;
 
-    const trackColors = tracksWithEvents.map((_, i) => getColor(colors[i]) ?? "blue");
+    const trackColors = tracksWithEvents.map(
+      (_, i) => getColor(colors[i]) ?? "blue",
+    );
 
     let passedCoords: [number, number][] | undefined;
-    if (ctx.routeMode === "osrm" && ctx.routeCoords.length && ctx.eventOsrmIndices.length) {
+    if (
+      ctx.routeMode === "osrm" &&
+      ctx.routeCoords.length &&
+      ctx.eventOsrmIndices.length
+    ) {
       const fromIdx = ctx.eventOsrmIndices[prevEventIndex.current] ?? 0;
       const toIdx = ctx.eventOsrmIndices[ctx.activeEventIndex] ?? fromIdx;
       passedCoords = ctx.routeCoords.slice(0, fromIdx + 1);
@@ -194,7 +215,7 @@ export default function MapHost() {
   return (
     <div ref={containerRef} className="relative h-full w-full">
       {ctx.routeIsLoading && (
-        <div className="bg-background/70 absolute inset-0 z-10 flex items-center justify-center gap-2">
+        <div className="absolute inset-0 z-10 flex items-center justify-center gap-2 bg-background/70">
           <Loader2 className="animate-spin" />
           <span>Loading route...</span>
         </div>

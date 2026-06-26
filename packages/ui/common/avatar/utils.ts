@@ -1,4 +1,9 @@
-import type { AvatarInitialsMode, AvatarSeverity, AvatarUser, PresetAvatarSize } from "@/components/common/avatar/types";
+import type {
+  AvatarInitialsMode,
+  AvatarSeverity,
+  AvatarUser,
+  PresetAvatarSize,
+} from "@/components/common/avatar/types";
 
 const PRESET_AVATAR_SIZES = [
   "xs",
@@ -28,7 +33,10 @@ export function resolveAvatarSrc(
   return resolved || undefined;
 }
 
-export function resolveDisplayName(user?: AvatarUser, name?: string): string | undefined {
+export function resolveDisplayName(
+  user?: AvatarUser,
+  name?: string,
+): string | undefined {
   if (name) return name;
 
   const parts = [user?.first_name, user?.last_name].filter(Boolean);

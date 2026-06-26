@@ -7,7 +7,10 @@ import ProtocolPlate from "./components/protocol";
 import SimplePlate from "./components/simple";
 import { forwardRef, useState, useCallback, useEffect } from "react";
 import { cn } from "@/lib";
-import { PlateValue, PlateInputProps } from "@/components/compound/license-plate/types";
+import {
+  PlateValue,
+  PlateInputProps,
+} from "@/components/compound/license-plate/types";
 
 /* ---------------------------------- Types --------------------------------- */
 
@@ -121,7 +124,10 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
         style={{ width }}
       >
         {label && (
-          <label htmlFor={inputId} className="text-foreground text-sm font-medium">
+          <label
+            htmlFor={inputId}
+            className="text-sm font-medium text-foreground"
+          >
             {label}
             {required && <span className="text-destructive">*</span>}
           </label>
@@ -141,7 +147,7 @@ const PlateInput = forwardRef<HTMLDivElement, PlateInputProps>(
             <button
               type="button"
               onClick={handleClear}
-              className="text-muted-foreground hover:text-foreground flex h-full shrink-0 items-center px-1 transition-colors"
+              className="flex h-full shrink-0 items-center px-1 text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Clear plate"
             >
               <X className="size-4" />

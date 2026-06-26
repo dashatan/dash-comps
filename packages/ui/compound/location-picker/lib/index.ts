@@ -1,6 +1,12 @@
-export { buildNameLookup, enrichDevices } from "@/components/compound/location-picker/lib/enrich-devices";
+export {
+  buildNameLookup,
+  enrichDevices,
+} from "@/components/compound/location-picker/lib/enrich-devices";
 export type { NameLookup } from "@/components/compound/location-picker/lib/enrich-devices";
-export { buildFilterParams, toLocationFilterParams } from "@/components/compound/location-picker/lib/build-filter-params";
+export {
+  buildFilterParams,
+  toLocationFilterParams,
+} from "@/components/compound/location-picker/lib/build-filter-params";
 export {
   filterLocationData,
   filterLocationDataFromSelection,

@@ -1,6 +1,11 @@
 import { create } from "zustand";
 import type mapLibreGl from "maplibre-gl";
-import { playSpeedOptions, type Event, type MapOverlayInsets, EMPTY_MAP_OVERLAY_INSETS } from "./types";
+import {
+  playSpeedOptions,
+  type Event,
+  type MapOverlayInsets,
+  EMPTY_MAP_OVERLAY_INSETS,
+} from "./types";
 
 type TrackerStoreState = {
   map: mapLibreGl.Map | null;
@@ -72,7 +77,10 @@ export const useTrackerStore = create<TrackerStoreState>((set, get) => ({
   setMapOverlayInsets: (mapOverlayInsets) => set({ mapOverlayInsets }),
   incrementActiveEventIndex: () =>
     set((state) => ({
-      activeEventIndex: Math.min(state.activeEventIndex + 1, state.events.length - 1),
+      activeEventIndex: Math.min(
+        state.activeEventIndex + 1,
+        state.events.length - 1,
+      ),
     })),
   decrementActiveEventIndex: () =>
     set((state) => ({

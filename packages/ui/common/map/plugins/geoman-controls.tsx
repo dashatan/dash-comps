@@ -9,7 +9,10 @@ import MapControlButtonGroup from "@/components/common/map/controls/control-butt
 import { useGeomanCreate } from "@/components/common/map/hooks/use-geoman-create";
 import { useGeomanDraw } from "@/components/common/map/hooks/use-geoman-draw";
 import { useLeafletMapReady } from "@/components/common/map/context";
-import type { GeomanCreateEvent, GeomanShape } from "@/components/common/map/types";
+import type {
+  GeomanCreateEvent,
+  GeomanShape,
+} from "@/components/common/map/types";
 import { cn, useLanguage } from "@/lib";
 import type { TranslationKeys } from "@/lib/language/locales";
 import type L from "leaflet";
@@ -71,9 +74,14 @@ export function MapGeomanControls({
           return (
             <MapControlButton
               key={shape}
-              onClick={() => setActiveShape((prev) => (prev === shape ? undefined : shape))}
+              onClick={() =>
+                setActiveShape((prev) => (prev === shape ? undefined : shape))
+              }
               tooltip={t(tooltip)}
-              className={cn(isActive && "bg-primary text-primary-foreground hover:bg-primary")}
+              className={cn(
+                isActive &&
+                  "bg-primary text-primary-foreground hover:bg-primary",
+              )}
             >
               <Icon className="size-6" />
             </MapControlButton>

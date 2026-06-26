@@ -9,7 +9,10 @@ type AppStoreState = {
   serverTimeDiff: number;
   setEnv: (env: Env) => void;
   setPreferences: (preferences: Partial<Preferences>) => void;
-  updatePreference: <K extends keyof Preferences>(key: K, value: Preferences[K]) => void;
+  updatePreference: <K extends keyof Preferences>(
+    key: K,
+    value: Preferences[K],
+  ) => void;
   resetPreferences: () => void;
   updateProfileImages: (images: Record<string, string>) => void;
   setPreferencesLoaded: (loaded: boolean) => void;

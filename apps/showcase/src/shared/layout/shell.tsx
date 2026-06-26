@@ -15,7 +15,9 @@ type AppShellProps = {
 
 export function AppShell({ children }: AppShellProps) {
   const { expand } = useDashboardSignals();
-  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
   const sidebarWidth = expand ? SIDEBAR_WIDTH : SIDEBAR_WIDTH_COLLAPSED;
 
   useLayoutEffect(() => {
@@ -24,9 +26,9 @@ export function AppShell({ children }: AppShellProps) {
   }, [pathname]);
 
   return (
-    <div className="bg-background text-foreground flex h-dvh w-full overflow-hidden">
+    <div className="flex h-dvh w-full overflow-hidden bg-background text-foreground">
       <aside
-        className="bg-sidebar text-sidebar-foreground hidden h-full shrink-0 overflow-hidden border-e border-sidebar-border md:flex md:flex-col"
+        className="hidden h-full shrink-0 overflow-hidden border-e border-sidebar-border bg-sidebar text-sidebar-foreground md:flex md:flex-col"
         style={{ width: sidebarWidth }}
       >
         <ShowcaseSidebar />

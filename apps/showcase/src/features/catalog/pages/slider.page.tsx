@@ -9,7 +9,7 @@ import { CatalogPageShell } from "@/features/catalog/ui/catalog-page-shell";
 import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 
 function ValueHint({ children }: { children: ReactNode }) {
-  return <p className="text-muted-foreground text-sm">{children}</p>;
+  return <p className="text-sm text-muted-foreground">{children}</p>;
 }
 
 export function SliderPage() {
@@ -28,9 +28,7 @@ export function SliderPage() {
     20, 80,
   ]);
   const [colorRange, setColorRange] = useState<[number, number]>([30, 70]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([
-    2500, 7500,
-  ]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([2500, 7500]);
 
   const customSteps = useMemo<RangeSliderStep[]>(
     () => [
@@ -47,7 +45,9 @@ export function SliderPage() {
     <CatalogPageShell slug="slider">
       <ShowcaseSection title={p("single.controlled.title")} layout="stack">
         <Slider value={value} onValueChange={setValue} max={100} step={1} />
-        <ValueHint>{p("single.controlled.info", { value: value[0] })}</ValueHint>
+        <ValueHint>
+          {p("single.controlled.info", { value: value[0] })}
+        </ValueHint>
       </ShowcaseSection>
 
       <ShowcaseSection

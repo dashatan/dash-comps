@@ -1,16 +1,25 @@
 import TrackerContainer from "@/components/macro/tracker/comps";
-import { TrackerProps, TrackerState } from "@/components/macro/tracker/utils/types";
+import {
+  TrackerProps,
+  TrackerState,
+} from "@/components/macro/tracker/utils/types";
 import { makeTimes } from "@/components/macro/tracker/utils/remap";
 import { useEffect, useRef, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import "./styles.css";
 import DataAlert from "@/components/micro/alert";
-import { remapWorkerDataType, remapWorkerReturnType } from "@/components/macro/tracker/utils/remapWorker";
+import {
+  remapWorkerDataType,
+  remapWorkerReturnType,
+} from "@/components/macro/tracker/utils/remapWorker";
 import { signal } from "@preact/signals-react";
 import { isWithinIran } from "@/utils/geographic";
 import { useSignals } from "@preact/signals-react/runtime";
 import { words } from "@/utils/words";
-import { timeHourClear, timeSecondClear } from "@/components/micro/inputs/date/utils/dateFormatPersian";
+import {
+  timeHourClear,
+  timeSecondClear,
+} from "@/components/micro/inputs/date/utils/dateFormatPersian";
 
 export const totalTimeIndex = signal(0);
 export const timeIndex = signal(0);
@@ -26,7 +35,13 @@ export const eventBasedPlay = signal(true);
 export const emphasizeRadius = signal(120);
 export const filterIran = signal(true);
 
-export default function TrackerProvider({ dates, tracks, emphasizes, emphasizesPanel, settings }: TrackerProps) {
+export default function TrackerProvider({
+  dates,
+  tracks,
+  emphasizes,
+  emphasizesPanel,
+  settings,
+}: TrackerProps) {
   useSignals();
   const worker = new Worker(new URL("./utils/remapWorker.ts", import.meta.url));
   const [isSuccess, setIsSuccess] = useState<boolean | undefined>(false);
@@ -63,11 +78,15 @@ export default function TrackerProvider({ dates, tracks, emphasizes, emphasizesP
     const totalIdx = totalTimes.findIndex(
       (x) =>
         x === firstEventTime ||
-        timeSecondClear(x).getTime() === timeSecondClear(firstEventTime).getTime() ||
+        timeSecondClear(x).getTime() ===
+          timeSecondClear(firstEventTime).getTime() ||
         timeHourClear(x).getTime() === timeHourClear(firstEventTime).getTime(),
     );
     if (totalIdx < 0) return;
-    const newTimes = makeTimes([totalTimes[totalIdx], totalTimes[totalIdx + 1]]);
+    const newTimes = makeTimes([
+      totalTimes[totalIdx],
+      totalTimes[totalIdx + 1],
+    ]);
     const timeSlot = newTimes.findIndex((t) => t >= firstEventTime);
     if (timeSlot < 0) return;
     totalTimeIndex.value = totalIdx;
@@ -82,7 +101,8 @@ export default function TrackerProvider({ dates, tracks, emphasizes, emphasizesP
 
     worker.postMessage({ dates, tracks } as remapWorkerDataType);
     worker.onmessage = (event) => {
-      const { events, timeline, tracksWithEvents, totalTimes, daysWithEvent } = event.data as remapWorkerReturnType;
+      const { events, timeline, tracksWithEvents, totalTimes, daysWithEvent } =
+        event.data as remapWorkerReturnType;
       state.setValue("events", events);
       state.setValue("tracks", tracks);
       state.setValue("tracksWithEvents", tracksWithEvents);
@@ -96,8 +116,10 @@ export default function TrackerProvider({ dates, tracks, emphasizes, emphasizesP
     worker.onerror = () => setIsError(true);
   }
 
-  if (isError) return <DataAlert type="error" message={words.ERROR_BUILDING_TRACKS} />;
-  if (loading && !isSuccess) return <DataAlert type="loading" message={words.HANDLING_TRACKS} />;
+  if (isError)
+    return <DataAlert type="error" message={words.ERROR_BUILDING_TRACKS} />;
+  if (loading && !isSuccess)
+    return <DataAlert type="loading" message={words.HANDLING_TRACKS} />;
   if (!isSuccess) return <DataAlert type="loading" />;
 
   return (

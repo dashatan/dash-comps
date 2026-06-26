@@ -4,7 +4,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "@geoman-io/leaflet-geoman-free";
 import { extractPolygonPoints } from "@/components/common/map/utils/layers";
-import type { GeomanCreateEvent, GeomanShape } from "@/components/common/map/types";
+import type {
+  GeomanCreateEvent,
+  GeomanShape,
+} from "@/components/common/map/types";
 import { useLeafletMap } from "@/components/common/map/context";
 
 /**

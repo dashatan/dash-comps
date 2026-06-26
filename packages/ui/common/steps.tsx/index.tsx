@@ -16,8 +16,12 @@ export default function Steps({ active, steps }: StepsProps) {
   return (
     <div className="flex w-full flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <div className="text-foreground text-lg font-bold">{activeStep?.title}</div>
-        <div className="text-muted-foreground text-lg">{activeStep?.subtitle}</div>
+        <div className="text-lg font-bold text-foreground">
+          {activeStep?.title}
+        </div>
+        <div className="text-lg text-muted-foreground">
+          {activeStep?.subtitle}
+        </div>
       </div>
       <div className="flex h-10 w-full items-center justify-between">
         {steps?.map((step, i, a) => {
@@ -26,15 +30,19 @@ export default function Steps({ active, steps }: StepsProps) {
           return (
             <Fragment key={i}>
               <div
-                className={cn("flex cursor-pointer items-center gap-2 text-nowrap")}
+                className={cn(
+                  "flex cursor-pointer items-center gap-2 text-nowrap",
+                )}
                 key={i}
               >
                 <div
                   className={cn(
                     "flex size-9 items-center justify-center rounded-full pt-1 text-lg font-bold",
                     {
-                      "bg-primary/10 border-primary text-primary border": isActive,
-                      "border-border text-muted-foreground border opacity-60": !isActive,
+                      "border border-primary bg-primary/10 text-primary":
+                        isActive,
+                      "border border-border text-muted-foreground opacity-60":
+                        !isActive,
                     },
                   )}
                 >
@@ -50,7 +58,7 @@ export default function Steps({ active, steps }: StepsProps) {
                 </div>
               </div>
               {!isLast && (
-                <div className="bg-muted mx-2 h-0.5 w-full min-w-10 flex-1 rounded-sm" />
+                <div className="mx-2 h-0.5 w-full min-w-10 flex-1 rounded-sm bg-muted" />
               )}
             </Fragment>
           );

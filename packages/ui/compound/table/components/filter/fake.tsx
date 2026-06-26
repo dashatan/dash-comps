@@ -1,3 +1,5 @@
 export function FakeInput() {
-  return <div className='bg-muted/50 h-10 w-full rounded-lg border opacity-50'></div>
+  return (
+    <div className="h-10 w-full rounded-lg border bg-muted/50 opacity-50"></div>
+  );
 }

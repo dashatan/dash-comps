@@ -69,7 +69,9 @@ function ChartFrame({
           {label}
         </p>
         {description ? (
-          <p className="mt-0.5 text-xs text-muted-foreground/80">{description}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground/80">
+            {description}
+          </p>
         ) : null}
       </div>
       <div className={cn("w-full min-w-[240px]", heightClass)}>{children}</div>
@@ -130,8 +132,14 @@ export function ChartsPage() {
               xAxis={months}
               series={[
                 { name: p("useCases.series.mrr"), data: showcaseSaasMrr.mrr },
-                { name: p("useCases.series.newLogos"), data: showcaseSaasMrr.newLogos },
-                { name: p("useCases.series.churn"), data: showcaseSaasMrr.churn },
+                {
+                  name: p("useCases.series.newLogos"),
+                  data: showcaseSaasMrr.newLogos,
+                },
+                {
+                  name: p("useCases.series.churn"),
+                  data: showcaseSaasMrr.churn,
+                },
               ]}
               barWidth="42%"
               borderRadius={6}
@@ -148,9 +156,21 @@ export function ChartsPage() {
                 title={p("useCases.titles.ecommerce")}
                 xAxis={[...showcaseWeekLabels]}
                 series={[
-                  { name: p("useCases.series.electronics"), data: showcaseEcommerceOrders.electronics, stack: "orders" },
-                  { name: p("useCases.series.fashion"), data: showcaseEcommerceOrders.fashion, stack: "orders" },
-                  { name: p("useCases.series.home"), data: showcaseEcommerceOrders.home, stack: "orders" },
+                  {
+                    name: p("useCases.series.electronics"),
+                    data: showcaseEcommerceOrders.electronics,
+                    stack: "orders",
+                  },
+                  {
+                    name: p("useCases.series.fashion"),
+                    data: showcaseEcommerceOrders.fashion,
+                    stack: "orders",
+                  },
+                  {
+                    name: p("useCases.series.home"),
+                    data: showcaseEcommerceOrders.home,
+                    stack: "orders",
+                  },
                 ]}
               />
             </ChartFrame>
@@ -179,9 +199,18 @@ export function ChartsPage() {
                 title={p("useCases.titles.admissions")}
                 xAxis={[...showcaseWeekLabels]}
                 series={[
-                  { name: p("useCases.series.emergency"), data: showcaseHospitalAdmissions.emergency },
-                  { name: p("useCases.series.surgery"), data: showcaseHospitalAdmissions.surgery },
-                  { name: p("useCases.series.pediatrics"), data: showcaseHospitalAdmissions.pediatrics },
+                  {
+                    name: p("useCases.series.emergency"),
+                    data: showcaseHospitalAdmissions.emergency,
+                  },
+                  {
+                    name: p("useCases.series.surgery"),
+                    data: showcaseHospitalAdmissions.surgery,
+                  },
+                  {
+                    name: p("useCases.series.pediatrics"),
+                    data: showcaseHospitalAdmissions.pediatrics,
+                  },
                 ]}
                 type="smooth"
                 colors={["#ef4444", "#3b82f6", "#22c55e"]}
@@ -192,8 +221,14 @@ export function ChartsPage() {
                 title={p("useCases.titles.latency")}
                 xAxis={showcaseServerLatency.labels.slice(0, 12)}
                 series={[
-                  { name: p("useCases.series.api"), data: showcaseServerLatency.api.slice(0, 12) },
-                  { name: p("useCases.series.database"), data: showcaseServerLatency.db.slice(0, 12) },
+                  {
+                    name: p("useCases.series.api"),
+                    data: showcaseServerLatency.api.slice(0, 12),
+                  },
+                  {
+                    name: p("useCases.series.database"),
+                    data: showcaseServerLatency.db.slice(0, 12),
+                  },
                 ]}
                 showArea={false}
                 animation={false}
@@ -210,13 +245,22 @@ export function ChartsPage() {
         className="w-full"
       >
         <ChartStack>
-          <ChartFrame label={p("layouts.frames.fullBleed")} heightClass="h-[22rem]">
+          <ChartFrame
+            label={p("layouts.frames.fullBleed")}
+            heightClass="h-[22rem]"
+          >
             <LineChart
               title={p("layouts.titles.annualRevenue")}
               xAxis={months}
               series={[
-                { name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue },
-                { name: p("bar.series.expenses"), data: showcaseRevenueSeries.expenses },
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue,
+                },
+                {
+                  name: p("bar.series.expenses"),
+                  data: showcaseRevenueSeries.expenses,
+                },
               ]}
               type="smooth"
             />
@@ -246,7 +290,10 @@ export function ChartsPage() {
               <BarChart
                 xAxis={quarters}
                 series={[
-                  { name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 4) },
+                  {
+                    name: p("bar.series.revenue"),
+                    data: showcaseRevenueSeries.revenue.slice(0, 4),
+                  },
                 ]}
                 barWidth="35%"
                 showLegend={false}
@@ -260,10 +307,30 @@ export function ChartsPage() {
               title={p("area.chartTitles.energy")}
               xAxis={months}
               series={[
-                { name: p("area.series.solar"), data: showcaseEnergyMix.solar, stack: "mix", smooth: true },
-                { name: p("area.series.wind"), data: showcaseEnergyMix.wind, stack: "mix", smooth: true },
-                { name: p("area.series.hydro"), data: showcaseEnergyMix.hydro, stack: "mix", smooth: true },
-                { name: p("area.series.gas"), data: showcaseEnergyMix.gas, stack: "mix", smooth: true },
+                {
+                  name: p("area.series.solar"),
+                  data: showcaseEnergyMix.solar,
+                  stack: "mix",
+                  smooth: true,
+                },
+                {
+                  name: p("area.series.wind"),
+                  data: showcaseEnergyMix.wind,
+                  stack: "mix",
+                  smooth: true,
+                },
+                {
+                  name: p("area.series.hydro"),
+                  data: showcaseEnergyMix.hydro,
+                  stack: "mix",
+                  smooth: true,
+                },
+                {
+                  name: p("area.series.gas"),
+                  data: showcaseEnergyMix.gas,
+                  stack: "mix",
+                  smooth: true,
+                },
               ]}
             />
           </ChartFrame>
@@ -282,15 +349,26 @@ export function ChartsPage() {
               title={p("bar.chartTitles.revenue")}
               xAxis={months}
               series={[
-                { name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue },
-                { name: p("bar.series.expenses"), data: showcaseRevenueSeries.expenses },
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue,
+                },
+                {
+                  name: p("bar.series.expenses"),
+                  data: showcaseRevenueSeries.expenses,
+                },
               ]}
             />
           </ChartFrame>
           <ChartFrame label={p("bar.frames.narrowBars")} heightClass="h-72">
             <BarChart
               xAxis={halfYearMonths}
-              series={[{ name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 6) }]}
+              series={[
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 6),
+                },
+              ]}
               barWidth="28%"
               barCategoryGap="40%"
               showLegend={false}
@@ -299,7 +377,12 @@ export function ChartsPage() {
           <ChartFrame label={p("bar.frames.wideBars")} heightClass="h-72">
             <BarChart
               xAxis={halfYearMonths}
-              series={[{ name: p("bar.series.profit"), data: showcaseRevenueSeries.profit.slice(0, 6) }]}
+              series={[
+                {
+                  name: p("bar.series.profit"),
+                  data: showcaseRevenueSeries.profit.slice(0, 6),
+                },
+              ]}
               barWidth="78%"
               showLegend={false}
               borderRadius={10}
@@ -309,7 +392,12 @@ export function ChartsPage() {
             <BarChart
               title={p("bar.chartTitles.products")}
               xAxis={[...showcaseProductSales.labels]}
-              series={[{ name: p("bar.series.unitsSold"), data: showcaseProductSales.units }]}
+              series={[
+                {
+                  name: p("bar.series.unitsSold"),
+                  data: showcaseProductSales.units,
+                },
+              ]}
               horizontal
             />
           </ChartFrame>
@@ -318,10 +406,26 @@ export function ChartsPage() {
               title={p("bar.chartTitles.channels")}
               xAxis={halfYearMonths}
               series={[
-                { name: p("bar.series.organic"), data: showcaseChannelSeries.organic, stack: "leads" },
-                { name: p("bar.series.paid"), data: showcaseChannelSeries.paid, stack: "leads" },
-                { name: p("bar.series.referral"), data: showcaseChannelSeries.referral, stack: "leads" },
-                { name: p("bar.series.email"), data: showcaseChannelSeries.email, stack: "leads" },
+                {
+                  name: p("bar.series.organic"),
+                  data: showcaseChannelSeries.organic,
+                  stack: "leads",
+                },
+                {
+                  name: p("bar.series.paid"),
+                  data: showcaseChannelSeries.paid,
+                  stack: "leads",
+                },
+                {
+                  name: p("bar.series.referral"),
+                  data: showcaseChannelSeries.referral,
+                  stack: "leads",
+                },
+                {
+                  name: p("bar.series.email"),
+                  data: showcaseChannelSeries.email,
+                  stack: "leads",
+                },
               ]}
             />
           </ChartFrame>
@@ -344,7 +448,12 @@ export function ChartsPage() {
             <BarChart
               title={p("bar.chartTitles.plans")}
               xAxis={[...showcaseLongCategoryLabels]}
-              series={[{ name: p("bar.series.unitsSold"), data: [...showcaseLongCategoryValues] }]}
+              series={[
+                {
+                  name: p("bar.series.unitsSold"),
+                  data: [...showcaseLongCategoryValues],
+                },
+              ]}
               rotateLabels
               rotateLabelsAngle={35}
               labelFontSize={9}
@@ -369,13 +478,23 @@ export function ChartsPage() {
           <ChartFrame label={p("bar.frames.customTooltip")} heightClass="h-80">
             <BarChart
               xAxis={halfYearMonths.slice(0, 4)}
-              series={[{ name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 4) }]}
+              series={[
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 4),
+                },
+              ]}
               showLegend={false}
-              tooltipTitle={(_, ctx) => ctx.points?.[0]?.seriesName ?? p("bar.series.revenue")}
+              tooltipTitle={(_, ctx) =>
+                ctx.points?.[0]?.seriesName ?? p("bar.series.revenue")
+              }
               tooltipItems={(_, ctx) =>
                 (ctx.points ?? []).map((point) => ({
                   name: point.seriesName,
-                  value: typeof point.value === "number" ? point.value : String(point.value ?? ""),
+                  value:
+                    typeof point.value === "number"
+                      ? point.value
+                      : String(point.value ?? ""),
                   withColorDot: true,
                   icon: "chart",
                 }))
@@ -397,9 +516,18 @@ export function ChartsPage() {
               title={p("line.chartTitles.activeUsers")}
               xAxis={showcaseDayLabels}
               series={[
-                { name: p("line.series.mobile"), data: showcaseActiveUsers.mobile },
-                { name: p("line.series.desktop"), data: showcaseActiveUsers.desktop },
-                { name: p("line.series.tablet"), data: showcaseActiveUsers.tablet },
+                {
+                  name: p("line.series.mobile"),
+                  data: showcaseActiveUsers.mobile,
+                },
+                {
+                  name: p("line.series.desktop"),
+                  data: showcaseActiveUsers.desktop,
+                },
+                {
+                  name: p("line.series.tablet"),
+                  data: showcaseActiveUsers.tablet,
+                },
               ]}
               type="smooth"
             />
@@ -409,9 +537,18 @@ export function ChartsPage() {
               title={p("line.chartTitles.funnel")}
               xAxis={showcaseDayLabels.slice(0, 8)}
               series={[
-                { name: p("line.series.visits"), data: showcaseFunnelSteps.visits },
-                { name: p("line.series.signups"), data: showcaseFunnelSteps.signups },
-                { name: p("line.series.trials"), data: showcaseFunnelSteps.trials },
+                {
+                  name: p("line.series.visits"),
+                  data: showcaseFunnelSteps.visits,
+                },
+                {
+                  name: p("line.series.signups"),
+                  data: showcaseFunnelSteps.signups,
+                },
+                {
+                  name: p("line.series.trials"),
+                  data: showcaseFunnelSteps.trials,
+                },
               ]}
               type="step"
               showArea={false}
@@ -420,7 +557,12 @@ export function ChartsPage() {
           <ChartFrame label={p("line.frames.noArea")} heightClass="h-64">
             <LineChart
               xAxis={months.slice(0, 8)}
-              series={[{ name: p("line.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 8) }]}
+              series={[
+                {
+                  name: p("line.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 8),
+                },
+              ]}
               showArea={false}
               showLegend={false}
             />
@@ -429,9 +571,18 @@ export function ChartsPage() {
             <LineChart
               xAxis={quarters}
               series={[
-                { name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 4) },
-                { name: p("bar.series.expenses"), data: showcaseRevenueSeries.expenses.slice(0, 4) },
-                { name: p("bar.series.profit"), data: showcaseRevenueSeries.profit.slice(0, 4) },
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 4),
+                },
+                {
+                  name: p("bar.series.expenses"),
+                  data: showcaseRevenueSeries.expenses.slice(0, 4),
+                },
+                {
+                  name: p("bar.series.profit"),
+                  data: showcaseRevenueSeries.profit.slice(0, 4),
+                },
               ]}
               colors={["#6366f1", "#f97316", "#10b981"]}
               showArea={false}
@@ -452,11 +603,31 @@ export function ChartsPage() {
               title={p("area.chartTitles.traffic")}
               xAxis={[...showcaseWeekLabels]}
               series={[
-                { name: p("area.series.direct"), data: showcaseTrafficSources.direct, stack: "total" },
-                { name: p("area.series.search"), data: showcaseTrafficSources.search, stack: "total" },
-                { name: p("area.series.social"), data: showcaseTrafficSources.social, stack: "total" },
-                { name: p("area.series.email"), data: showcaseTrafficSources.email, stack: "total" },
-                { name: p("area.series.paid"), data: showcaseTrafficSources.paid, stack: "total" },
+                {
+                  name: p("area.series.direct"),
+                  data: showcaseTrafficSources.direct,
+                  stack: "total",
+                },
+                {
+                  name: p("area.series.search"),
+                  data: showcaseTrafficSources.search,
+                  stack: "total",
+                },
+                {
+                  name: p("area.series.social"),
+                  data: showcaseTrafficSources.social,
+                  stack: "total",
+                },
+                {
+                  name: p("area.series.email"),
+                  data: showcaseTrafficSources.email,
+                  stack: "total",
+                },
+                {
+                  name: p("area.series.paid"),
+                  data: showcaseTrafficSources.paid,
+                  stack: "total",
+                },
               ]}
             />
           </ChartFrame>
@@ -544,7 +715,11 @@ export function ChartsPage() {
         className="w-full"
       >
         <ChartGrid columns={3}>
-          <ChartFrame label={p("doughnut.frames.completion")} heightClass="h-72" widthClass="max-w-sm">
+          <ChartFrame
+            label={p("doughnut.frames.completion")}
+            heightClass="h-72"
+            widthClass="max-w-sm"
+          >
             <DoughnutChart
               title={p("doughnut.chartTitles.tasks")}
               data={[...showcaseTaskCompletion]}
@@ -552,7 +727,10 @@ export function ChartsPage() {
               radius={["52%", "88%"]}
             />
           </ChartFrame>
-          <ChartFrame label={p("doughnut.frames.withLegend")} heightClass="h-72">
+          <ChartFrame
+            label={p("doughnut.frames.withLegend")}
+            heightClass="h-72"
+          >
             <DoughnutChart
               title={p("doughnut.chartTitles.projects")}
               data={[...showcaseProjectStatus]}
@@ -571,7 +749,11 @@ export function ChartsPage() {
               borderWidth={4}
             />
           </ChartFrame>
-          <ChartFrame label={p("doughnut.frames.percentLabels")} heightClass="h-72" widthClass="max-w-sm">
+          <ChartFrame
+            label={p("doughnut.frames.percentLabels")}
+            heightClass="h-72"
+            widthClass="max-w-sm"
+          >
             <DoughnutChart
               data={[
                 { name: p("doughnut.done"), value: 847 },
@@ -590,7 +772,11 @@ export function ChartsPage() {
               radius={["20%", "78%"]}
             />
           </ChartFrame>
-          <ChartFrame label={p("doughnut.frames.thickRing")} heightClass="h-72" widthClass="max-w-xs">
+          <ChartFrame
+            label={p("doughnut.frames.thickRing")}
+            heightClass="h-72"
+            widthClass="max-w-xs"
+          >
             <DoughnutChart
               data={[
                 { name: p("doughnut.done"), value: 92 },
@@ -612,13 +798,19 @@ export function ChartsPage() {
         className="w-full"
       >
         <ChartGrid columns={1}>
-          <ChartFrame label={p("treeMap.frames.marketShare")} heightClass="h-[26rem]">
+          <ChartFrame
+            label={p("treeMap.frames.marketShare")}
+            heightClass="h-[26rem]"
+          >
             <TreeMapChart
               title={p("treeMap.chartTitles.marketShare")}
               data={showcaseMarketShare}
             />
           </ChartFrame>
-          <ChartFrame label={p("treeMap.frames.websiteTraffic")} heightClass="h-80">
+          <ChartFrame
+            label={p("treeMap.frames.websiteTraffic")}
+            heightClass="h-80"
+          >
             <TreeMapChart
               title={p("treeMap.chartTitles.websiteTraffic")}
               data={showcaseWebsiteSections}
@@ -657,9 +849,15 @@ export function ChartsPage() {
               data={showcaseProvinceSales}
               showLabel
               roam={false}
-              tooltipTitle={(data) => (data?.name ? String(data.name) : undefined)}
+              tooltipTitle={(data) =>
+                data?.name ? String(data.name) : undefined
+              }
               tooltipItems={(data) => [
-                { icon: "map-pin", name: p("map.tooltip.province"), value: String(data.name) },
+                {
+                  icon: "map-pin",
+                  name: p("map.tooltip.province"),
+                  value: String(data.name),
+                },
                 {
                   icon: "chart",
                   name: p("map.tooltip.sales"),
@@ -695,7 +893,11 @@ export function ChartsPage() {
               aspectScale={0.65}
               roam
               tooltipItems={(data) => [
-                { icon: "map-pin", name: p("map.tooltip.country"), value: data.name },
+                {
+                  icon: "map-pin",
+                  name: p("map.tooltip.country"),
+                  value: data.name,
+                },
                 {
                   icon: "chart",
                   name: p("map.tooltip.gdp"),
@@ -718,7 +920,11 @@ export function ChartsPage() {
               aspectScale={0.55}
             />
           </ChartFrame>
-          <ChartFrame label={p("map.frames.sidebarUs")} widthClass="w-full @lg:w-80" heightClass="h-56">
+          <ChartFrame
+            label={p("map.frames.sidebarUs")}
+            widthClass="w-full @lg:w-80"
+            heightClass="h-56"
+          >
             <ShowcaseGeoMap
               geoPath={showcaseGeoPaths.usa}
               mapId="showcase-usa-sidebar"
@@ -741,7 +947,12 @@ export function ChartsPage() {
           <ChartFrame label={p("states.frames.loading")} heightClass="h-56">
             <BarChart
               xAxis={halfYearMonths.slice(0, 4)}
-              series={[{ name: p("bar.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 4) }]}
+              series={[
+                {
+                  name: p("bar.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 4),
+                },
+              ]}
               loading
               showLegend={false}
             />
@@ -749,7 +960,12 @@ export function ChartsPage() {
           <ChartFrame label={p("states.frames.noLegend")} heightClass="h-56">
             <LineChart
               xAxis={halfYearMonths.slice(0, 4)}
-              series={[{ name: p("line.series.revenue"), data: showcaseRevenueSeries.revenue.slice(0, 4) }]}
+              series={[
+                {
+                  name: p("line.series.revenue"),
+                  data: showcaseRevenueSeries.revenue.slice(0, 4),
+                },
+              ]}
               showLegend={false}
               showArea={false}
             />

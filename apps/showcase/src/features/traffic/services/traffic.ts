@@ -36,7 +36,12 @@ function getOsrmBaseUrl() {
   return (OSRM_URL ?? DEFAULT_OSRM_URL).replace(/\/$/, "");
 }
 
-function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number) {
+function haversineMeters(
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number,
+) {
   const toRad = (deg: number) => (deg * Math.PI) / 180;
   const earthRadius = 6_371_000;
   const dLat = toRad(lat2 - lat1);
@@ -61,7 +66,9 @@ function matchDevicesAlongRoute(
       if (Number.isNaN(lat) || Number.isNaN(lng)) return false;
 
       return coordinates.some(([routeLng, routeLat]) => {
-        return haversineMeters(lat, lng, routeLat, routeLng) <= maxDistanceMeters;
+        return (
+          haversineMeters(lat, lng, routeLat, routeLng) <= maxDistanceMeters
+        );
       });
     })
     .map((device) => device.id);

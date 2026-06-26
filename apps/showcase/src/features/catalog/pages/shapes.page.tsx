@@ -43,7 +43,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       <div className="flex flex-wrap items-center gap-3">{children}</div>
@@ -61,7 +61,7 @@ function LabeledShape({
   return (
     <div className="flex flex-col items-center gap-1.5">
       {children}
-      <span className="text-muted-foreground text-xs">{label}</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
     </div>
   );
 }
@@ -88,7 +88,11 @@ export function ShapesPage() {
         ))}
       </ShowcaseSection>
 
-      <ShowcaseSection title={p("indicator.sizes.title")} delay={0.1} layout="stack">
+      <ShowcaseSection
+        title={p("indicator.sizes.title")}
+        delay={0.1}
+        layout="stack"
+      >
         <ShowcaseRow label={p("indicator.sizes.title")}>
           {INDICATOR_SIZES.map(({ key, className }) => (
             <LabeledShape key={key} label={p(`indicator.sizes.${key}`)}>
@@ -99,7 +103,7 @@ export function ShapesPage() {
         <ShowcaseRow label={p("indicator.radius.title")}>
           {INDICATOR_RADIUS.map(({ key, className }) => (
             <LabeledShape key={key} label={p(`indicator.radius.${key}`)}>
-              <IndicatorShape className={`bg-primary size-4 ${className}`} />
+              <IndicatorShape className={`size-4 bg-primary ${className}`} />
             </LabeledShape>
           ))}
         </ShowcaseRow>
@@ -131,7 +135,11 @@ export function ShapesPage() {
         ))}
       </ShowcaseSection>
 
-      <ShowcaseSection title={p("square.customization.title")} delay={0.3} layout="stack">
+      <ShowcaseSection
+        title={p("square.customization.title")}
+        delay={0.3}
+        layout="stack"
+      >
         <ShowcaseRow label={p("square.customization.colors")}>
           <Square className="bg-secondary" />
           <Square className="bg-info" />
@@ -144,9 +152,9 @@ export function ShapesPage() {
           <Square className="rounded-full" size="lg" />
         </ShowcaseRow>
         <ShowcaseRow label={p("square.customization.ring")}>
-          <Square className="ring-primary ring-2 ring-offset-2" size="lg" />
+          <Square className="ring-2 ring-primary ring-offset-2" size="lg" />
           <Square
-            className="ring-warning ring-2 ring-offset-2"
+            className="ring-2 ring-warning ring-offset-2"
             size="lg"
             status="warning"
           />
@@ -157,7 +165,11 @@ export function ShapesPage() {
         <Square status="warning" size="2xl" />
         <Square status="danger" size="lg" />
         <Square status="none" size="sm" />
-        <Square status="ok" size="xs" className="ring-primary ring-2 ring-offset-1" />
+        <Square
+          status="ok"
+          size="xs"
+          className="ring-2 ring-primary ring-offset-1"
+        />
       </ShowcaseSection>
     </CatalogPageShell>
   );

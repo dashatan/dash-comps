@@ -14,7 +14,7 @@ export default function LanguageToggle() {
       className="h-8 w-8 p-0"
       onClick={() => setLanguage(language === "en" ? "fa" : "en")}
     >
-      <Languages className="text-sidebar-foreground h-4 w-4 fill-current" />
+      <Languages className="h-4 w-4 fill-current text-sidebar-foreground" />
     </Button>
   );
 }

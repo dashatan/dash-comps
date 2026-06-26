@@ -39,10 +39,15 @@ function formatOverlayRow(item: TooltipItem): string {
   </div>`;
 }
 
-export function formatMapOverlayHtml(title?: string, items?: TooltipItem[]): string {
+export function formatMapOverlayHtml(
+  title?: string,
+  items?: TooltipItem[],
+): string {
   const resolvedItems = items ? resolveTooltipItemColors(items) : [];
   const rows = resolvedItems.map(formatOverlayRow).join("");
-  const titleRow = title ? `<div class="sirat-map-overlay-title">${title}</div>` : "";
+  const titleRow = title
+    ? `<div class="sirat-map-overlay-title">${title}</div>`
+    : "";
 
   return `<div class="sirat-map-overlay-content">${titleRow}${rows}</div>`;
 }

@@ -1,5 +1,8 @@
 import Button from "@/components/common/buttons";
-import { Collapsible, CollapsibleContent } from "@/components/common/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+} from "@/components/common/collapsible";
 import ObserveImageModal from "@/features/observe-details/components/tracker/image";
 import { Event } from "@/components/compound/tracker-legacy/types";
 import { cn, useLanguage } from "@/lib";
@@ -32,7 +35,11 @@ export default function EventCard({
     { title: t("common.road"), value: <span>{event.road}</span> },
     {
       title: t("common.speed"),
-      value: <span className="dir-ltr flex items-center gap-2">{event.speed} km/h</span>,
+      value: (
+        <span className="flex items-center gap-2 dir-ltr">
+          {event.speed} km/h
+        </span>
+      ),
     },
     { value: <ObserveImageModal index={index} /> },
   ];
@@ -59,14 +66,14 @@ export default function EventCard({
       open={isOpen}
       onOpenChange={onToggle}
       className={cn("rounded-md border select-none", {
-        "ring-primary ring-offset-card ring-2 ring-offset-2": isActive,
+        "ring-2 ring-primary ring-offset-2 ring-offset-card": isActive,
         "border-error": event.error,
         "border-warning": event.miss && !event.error,
       })}
     >
       <div
         className={cn(
-          "bg-card/75 flex max-h-10 cursor-pointer flex-row items-center gap-2 rounded-md p-3 text-sm backdrop-blur-sm",
+          "flex max-h-10 cursor-pointer flex-row items-center gap-2 rounded-md bg-card/75 p-3 text-sm backdrop-blur-sm",
           {
             "bg-error/25": event.error,
             "bg-warning/35": event.miss && !event.error,
@@ -77,27 +84,27 @@ export default function EventCard({
         <span>{event.name}</span>
         <div className="ms-auto flex items-center gap-2">
           {event.miss && (
-            <span className="text-warning text-sm whitespace-nowrap">
+            <span className="text-sm whitespace-nowrap text-warning">
               {t("common.noObserve")}
             </span>
           )}
           <div className="flex flex-col items-end">
             {event.error && (
-              <span className="text-error text-sm whitespace-nowrap">
+              <span className="text-sm whitespace-nowrap text-error">
                 {t("common.hasViolation")}
               </span>
             )}
             {!event.miss && (
-              <div className="dir-ltr flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 dir-ltr">
                 <span>
-                  {Intl.DateTimeFormat(dateLocale, { dateStyle: "short" }).format(
-                    event.time,
-                  )}{" "}
+                  {Intl.DateTimeFormat(dateLocale, {
+                    dateStyle: "short",
+                  }).format(event.time)}{" "}
                 </span>
                 <span>
-                  {Intl.DateTimeFormat(dateLocale, { timeStyle: "medium" }).format(
-                    event.time,
-                  )}
+                  {Intl.DateTimeFormat(dateLocale, {
+                    timeStyle: "medium",
+                  }).format(event.time)}
                 </span>
               </div>
             )}
@@ -108,12 +115,14 @@ export default function EventCard({
               variant="outlined"
               severity="secondary"
               rounded="md"
-              className="bg-muted/70 hover:bg-muted text-foreground ms-auto border-none"
+              className="ms-auto border-none bg-muted/70 text-foreground hover:bg-muted"
               onClick={handleChevronClick}
             >
               <ChevronDown
                 size={14}
-                className={cn("cursor-pointer transition-all", { "rotate-180": isOpen })}
+                className={cn("cursor-pointer transition-all", {
+                  "rotate-180": isOpen,
+                })}
               />
             </Button>
           )}
@@ -125,17 +134,19 @@ export default function EventCard({
             <div className='bg-accent size-2 rounded-[2px]' />
             <span className='text-sm'>{t('common.totalInfo')}</span>
           </div> */}
-          <div className="bg-accent/50 grid w-full grid-cols-2 gap-px overflow-hidden rounded-md border border-border/40 backdrop-blur-sm">
+          <div className="grid w-full grid-cols-2 gap-px overflow-hidden rounded-md border border-border/40 bg-accent/50 backdrop-blur-sm">
             {info.map(({ title, value, className }, infoIndex) => {
               return (
                 <div
                   key={infoIndex}
                   className={cn(
-                    "bg-card/60 flex items-center gap-4 p-2 text-sm backdrop-blur-sm",
+                    "flex items-center gap-4 bg-card/60 p-2 text-sm backdrop-blur-sm",
                     className,
                   )}
                 >
-                  {title && <span className="text-foreground/70">{title}:</span>}
+                  {title && (
+                    <span className="text-foreground/70">{title}:</span>
+                  )}
                   {value}
                 </div>
               );

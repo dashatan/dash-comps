@@ -6,7 +6,7 @@ export default function EmptyTemplate(props?: { size?: "sm" | "lg" }) {
   return (
     <div
       className={cn(
-        "flex-full absolute top-1/2 flex w-full flex-col items-center justify-center gap-4",
+        "absolute top-1/2 flex w-full flex-full flex-col items-center justify-center gap-4",
         {
           "flex-row gap-2": props?.size === "sm",
         },
@@ -18,13 +18,13 @@ export default function EmptyTemplate(props?: { size?: "sm" | "lg" }) {
         })}
       >
         <SearchX
-          className={cn("text-foreground size-18 opacity-40", {
+          className={cn("size-18 text-foreground opacity-40", {
             "size-8": props?.size === "sm",
           })}
         />
       </div>
       <span
-        className={cn("text-foreground text-xl font-semibold opacity-40", {
+        className={cn("text-xl font-semibold text-foreground opacity-40", {
           "text-lg": props?.size === "sm",
         })}
       >

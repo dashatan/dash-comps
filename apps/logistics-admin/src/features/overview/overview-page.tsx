@@ -1,10 +1,14 @@
 import type { ReactNode } from "react";
-import { Activity, Clock, Package, Percent, TrendingUp, Truck, Wallet } from "lucide-react";
 import {
-  GridCard,
-  GridContainer,
-  GridHeader,
-} from "@/components/common/grid";
+  Activity,
+  Clock,
+  Package,
+  Percent,
+  TrendingUp,
+  Truck,
+  Wallet,
+} from "lucide-react";
+import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import LineChart from "@/components/common/charts/line";
 import AreaChart from "@/components/common/charts/area";
 import { formatEur, MONTH_LABELS } from "@/data/european-context";
@@ -30,10 +34,10 @@ function KpiCard({
     <GridCard className="col-span-12 @lg:col-span-6 @2xl:col-span-3">
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
-          <span className="text-muted-foreground text-xs">{label}</span>
+          <span className="text-xs text-muted-foreground">{label}</span>
           <span className="text-2xl font-semibold tabular-nums">{value}</span>
         </div>
-        <div className="bg-muted text-muted-foreground flex size-10 items-center justify-center rounded-lg">
+        <div className="flex size-10 items-center justify-center rounded-lg bg-muted text-muted-foreground">
           {icon}
         </div>
       </div>

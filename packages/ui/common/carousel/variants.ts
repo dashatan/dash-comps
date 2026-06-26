@@ -66,35 +66,38 @@ export const carouselViewportVariants = cva(
   },
 );
 
-export const carouselTrackVariants = cva("flex touch-pan-y will-change-transform", {
-  variants: {
-    transition: {
-      slide: "h-auto items-start",
-      fade: "relative h-full w-full",
+export const carouselTrackVariants = cva(
+  "flex touch-pan-y will-change-transform",
+  {
+    variants: {
+      transition: {
+        slide: "h-auto items-start",
+        fade: "relative h-full w-full",
+      },
+      orientation: {
+        horizontal: "flex-row",
+        vertical: "flex-col",
+      },
+      gap: {
+        none: "gap-0",
+        sm: "gap-2",
+        md: "gap-4",
+        lg: "gap-6",
+      },
+      dragging: {
+        true: "transition-none",
+        false:
+          "transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
+      },
     },
-    orientation: {
-      horizontal: "flex-row",
-      vertical: "flex-col",
-    },
-    gap: {
-      none: "gap-0",
-      sm: "gap-2",
-      md: "gap-4",
-      lg: "gap-6",
-    },
-    dragging: {
-      true: "transition-none",
-      false:
-        "transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
+    defaultVariants: {
+      transition: "slide",
+      orientation: "horizontal",
+      gap: "none",
+      dragging: false,
     },
   },
-  defaultVariants: {
-    transition: "slide",
-    orientation: "horizontal",
-    gap: "none",
-    dragging: false,
-  },
-});
+);
 
 export const carouselItemVariants = cva("relative shrink-0 self-start", {
   variants: {
@@ -181,34 +184,37 @@ export const carouselControlsGroupVariants = cva(
   },
 );
 
-export const carouselIndicatorsVariants = cva("flex items-center justify-center", {
-  variants: {
-    variant: {
-      dots: "gap-1.5",
-      bars: "gap-1.5",
-      pills: "gap-1.5",
-      fraction: "",
-      progress: "w-full",
+export const carouselIndicatorsVariants = cva(
+  "flex items-center justify-center",
+  {
+    variants: {
+      variant: {
+        dots: "gap-1.5",
+        bars: "gap-1.5",
+        pills: "gap-1.5",
+        fraction: "",
+        progress: "w-full",
+      },
+      position: {
+        bottom:
+          "pointer-events-none absolute inset-x-0 bottom-0 z-10 px-4 pb-3 pt-8",
+        "bottom-outside": "mt-2 w-full",
+        overlay:
+          "pointer-events-none absolute inset-x-0 bottom-0 z-10 px-4 pb-3 pt-8",
+      },
+      size: {
+        sm: "",
+        md: "",
+        lg: "",
+      },
     },
-    position: {
-      bottom:
-        "pointer-events-none absolute inset-x-0 bottom-0 z-10 px-4 pb-3 pt-8",
-      "bottom-outside": "mt-2 w-full",
-      overlay:
-        "pointer-events-none absolute inset-x-0 bottom-0 z-10 px-4 pb-3 pt-8",
-    },
-    size: {
-      sm: "",
-      md: "",
-      lg: "",
+    defaultVariants: {
+      variant: "dots",
+      position: "bottom",
+      size: "md",
     },
   },
-  defaultVariants: {
-    variant: "dots",
-    position: "bottom",
-    size: "md",
-  },
-});
+);
 
 export const carouselIndicatorVariants = cva(
   "pointer-events-auto cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",

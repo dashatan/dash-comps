@@ -98,10 +98,13 @@ export function interpolateParams(
   template: string,
   params: TranslationParams,
 ): string {
-  return Object.entries(params).reduce<string>((acc, [paramKey, paramValue]) => {
-    const replacement = String(paramValue);
-    return acc.replaceAll(`{{${paramKey}}}`, replacement);
-  }, template);
+  return Object.entries(params).reduce<string>(
+    (acc, [paramKey, paramValue]) => {
+      const replacement = String(paramValue);
+      return acc.replaceAll(`{{${paramKey}}}`, replacement);
+    },
+    template,
+  );
 }
 
 /**

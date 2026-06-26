@@ -51,7 +51,7 @@ function ShowcaseRow({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
-      <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
         {label}
       </p>
       <div className="flex flex-wrap items-center gap-3">{children}</div>
@@ -99,9 +99,14 @@ function PopoverAlignDemo({
           {label}
         </Button>
       </PopoverTrigger>
-      <PopoverContent align={align} className="w-52 border bg-card p-3 shadow-md">
+      <PopoverContent
+        align={align}
+        className="w-52 border bg-card p-3 shadow-md"
+      >
         <p className="text-sm font-medium">{panelLabel}</p>
-        <p className="text-muted-foreground mt-1 text-xs">align=&quot;{align}&quot;</p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          align=&quot;{align}&quot;
+        </p>
       </PopoverContent>
     </Popover>
   );
@@ -165,14 +170,14 @@ export function OverlayPage() {
                 <DialogDescription className="text-sm leading-relaxed">
                   {p("compound.subheading")}
                 </DialogDescription>
-                <ul className="text-muted-foreground flex flex-col gap-2 text-sm">
+                <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
                   {showcaseOverlayStats.map((stat) => (
                     <li
                       key={stat.key}
-                      className="border-border flex items-center justify-between rounded-lg border px-3 py-2"
+                      className="flex items-center justify-between rounded-lg border border-border px-3 py-2"
                     >
                       <span>{p(`stats.${stat.key}`)}</span>
-                      <span className="text-foreground font-semibold">
+                      <span className="font-semibold text-foreground">
                         {stat.value}
                       </span>
                     </li>
@@ -181,7 +186,9 @@ export function OverlayPage() {
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outlined">{p("compound.secondaryAction")}</Button>
+              <Button variant="outlined">
+                {p("compound.secondaryAction")}
+              </Button>
               <Button>{p("compound.primaryAction")}</Button>
             </DialogFooter>
           </DialogContent>
@@ -196,8 +203,11 @@ export function OverlayPage() {
           <DialogTrigger asChild>
             <Button>{p("dialog.basic.open")}</Button>
           </DialogTrigger>
-          <DialogContent title={p("dialog.basic.heading")} className="w-full sm:w-[32rem]">
-            <div className="text-muted-foreground p-4 text-sm leading-relaxed">
+          <DialogContent
+            title={p("dialog.basic.heading")}
+            className="w-full sm:w-[32rem]"
+          >
+            <div className="p-4 text-sm leading-relaxed text-muted-foreground">
               {p("dialog.basic.body")}
             </div>
           </DialogContent>
@@ -223,8 +233,12 @@ export function OverlayPage() {
               {p("dialog.confirmation.body")}
             </DialogDescription>
             <DialogFooter>
-              <Button variant="outlined">{p("dialog.confirmation.cancel")}</Button>
-              <Button severity="danger">{p("dialog.confirmation.confirm")}</Button>
+              <Button variant="outlined">
+                {p("dialog.confirmation.cancel")}
+              </Button>
+              <Button severity="danger">
+                {p("dialog.confirmation.confirm")}
+              </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -236,22 +250,34 @@ export function OverlayPage() {
         layout="stack"
       >
         <ShowcaseRow
-          label={controlledOpen ? p("dialog.controlled.stateOpen") : p("dialog.controlled.stateClosed")}
+          label={
+            controlledOpen
+              ? p("dialog.controlled.stateOpen")
+              : p("dialog.controlled.stateClosed")
+          }
         >
           <Button onClick={() => setControlledOpen(true)}>
             {p("dialog.controlled.open")}
           </Button>
           <Badge severity={controlledOpen ? "success" : "secondary"}>
-            {controlledOpen ? p("dialog.controlled.stateOpen") : p("dialog.controlled.stateClosed")}
+            {controlledOpen
+              ? p("dialog.controlled.stateOpen")
+              : p("dialog.controlled.stateClosed")}
           </Badge>
         </ShowcaseRow>
         <Dialog open={controlledOpen} onOpenChange={setControlledOpen}>
-          <DialogContent title={p("dialog.controlled.heading")} className="w-full sm:w-[30rem]">
+          <DialogContent
+            title={p("dialog.controlled.heading")}
+            className="w-full sm:w-[30rem]"
+          >
             <DialogDescription className="px-4 pb-2 text-sm leading-relaxed">
               {p("dialog.controlled.body")}
             </DialogDescription>
             <DialogFooter>
-              <Button variant="outlined" onClick={() => setControlledOpen(false)}>
+              <Button
+                variant="outlined"
+                onClick={() => setControlledOpen(false)}
+              >
                 {p("dialog.controlled.close")}
               </Button>
               <Button onClick={() => setControlledOpen(false)}>
@@ -270,7 +296,10 @@ export function OverlayPage() {
           <DialogTrigger asChild>
             <Button variant="outlined">{p("dialog.hideHeader.open")}</Button>
           </DialogTrigger>
-          <DialogContent hideHeader className="w-full overflow-hidden sm:w-[36rem]">
+          <DialogContent
+            hideHeader
+            className="w-full overflow-hidden sm:w-[36rem]"
+          >
             <img
               src={showcaseOverlayImages.heroTravel}
               alt={p("dialog.hideHeader.alt")}
@@ -300,16 +329,16 @@ export function OverlayPage() {
                 className="h-64 w-full rounded-xl object-cover lg:h-full lg:min-h-80"
               />
               <div className="flex min-w-0 flex-col gap-4">
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   {p("dialog.large.descriptionText")}
                 </p>
                 <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                   {showcaseOverlayStats.map((stat) => (
                     <div
                       key={stat.key}
-                      className="border-border bg-muted/20 rounded-xl border p-4"
+                      className="rounded-xl border border-border bg-muted/20 p-4"
                     >
-                      <p className="text-muted-foreground text-xs uppercase tracking-wide">
+                      <p className="text-xs tracking-wide text-muted-foreground uppercase">
                         {p(`stats.${stat.key}`)}
                       </p>
                       <p className="mt-1 text-2xl font-bold">{stat.value}</p>
@@ -356,33 +385,35 @@ export function OverlayPage() {
                 />
                 <div className="min-w-0">
                   <SheetTitle>{p("sheet.memberDetail.heading")}</SheetTitle>
-                  <SheetDescription>{p("sheet.memberDetail.role")}</SheetDescription>
+                  <SheetDescription>
+                    {p("sheet.memberDetail.role")}
+                  </SheetDescription>
                 </div>
               </div>
             </SheetHeader>
             <div className="mt-6 flex flex-col gap-4">
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {p("sheet.memberDetail.bio")}
               </p>
               <dl className="grid grid-cols-3 gap-3 text-center">
-                <div className="border-border rounded-lg border p-3">
-                  <dt className="text-muted-foreground text-xs">
+                <div className="rounded-lg border border-border p-3">
+                  <dt className="text-xs text-muted-foreground">
                     {p("sheet.memberDetail.email")}
                   </dt>
                   <dd className="mt-1 truncate text-sm font-medium">
                     {showcaseOverlayMember.email}
                   </dd>
                 </div>
-                <div className="border-border rounded-lg border p-3">
-                  <dt className="text-muted-foreground text-xs">
+                <div className="rounded-lg border border-border p-3">
+                  <dt className="text-xs text-muted-foreground">
                     {p("sheet.memberDetail.projects")}
                   </dt>
                   <dd className="mt-1 text-sm font-semibold">
                     {showcaseOverlayMember.projects}
                   </dd>
                 </div>
-                <div className="border-border rounded-lg border p-3">
-                  <dt className="text-muted-foreground text-xs">
+                <div className="rounded-lg border border-border p-3">
+                  <dt className="text-xs text-muted-foreground">
                     {p("sheet.memberDetail.tasks")}
                   </dt>
                   <dd className="mt-1 text-sm font-semibold">
@@ -392,7 +423,9 @@ export function OverlayPage() {
               </dl>
             </div>
             <SheetFooter className="mt-auto gap-2 pt-6">
-              <Button variant="outlined">{p("sheet.memberDetail.message")}</Button>
+              <Button variant="outlined">
+                {p("sheet.memberDetail.message")}
+              </Button>
               <Button>{p("sheet.memberDetail.assign")}</Button>
             </SheetFooter>
           </SheetContent>
@@ -424,10 +457,10 @@ export function OverlayPage() {
                     type="button"
                     onClick={() => toggleFilter(option)}
                     className={cn(
-                      "border-border flex items-center justify-between rounded-lg border px-3 py-2.5 text-start text-sm transition-colors",
+                      "flex items-center justify-between rounded-lg border border-border px-3 py-2.5 text-start text-sm transition-colors",
                       active
                         ? "border-primary bg-primary/10 text-foreground"
-                        : "hover:bg-muted/40 text-muted-foreground",
+                        : "text-muted-foreground hover:bg-muted/40",
                     )}
                   >
                     {p(`sheet.filters.options.${option}`)}
@@ -441,10 +474,7 @@ export function OverlayPage() {
               })}
             </div>
             <SheetFooter className="mt-auto gap-2 pt-6">
-              <Button
-                variant="outlined"
-                onClick={() => setSelectedFilters([])}
-              >
+              <Button variant="outlined" onClick={() => setSelectedFilters([])}>
                 {p("sheet.filters.reset")}
               </Button>
               <Button>{p("sheet.filters.apply")}</Button>
@@ -473,7 +503,7 @@ export function OverlayPage() {
               {showcaseOverlayCartItems.map((item) => (
                 <li
                   key={item.key}
-                  className="border-border flex items-center gap-3 rounded-xl border p-3"
+                  className="flex items-center gap-3 rounded-xl border border-border p-3"
                 >
                   <img
                     src={item.image}
@@ -484,17 +514,21 @@ export function OverlayPage() {
                     <p className="truncate text-sm font-medium">
                       {p(`sheet.cart.items.${item.key}`)}
                     </p>
-                    <p className="text-muted-foreground text-xs">
+                    <p className="text-xs text-muted-foreground">
                       ×{item.quantity}
                     </p>
                   </div>
-                  <p className="text-sm font-semibold">${item.price * item.quantity}</p>
+                  <p className="text-sm font-semibold">
+                    ${item.price * item.quantity}
+                  </p>
                 </li>
               ))}
             </ul>
-            <SheetFooter className="border-border mt-4 flex-row items-center justify-between border-t pt-4">
+            <SheetFooter className="mt-4 flex-row items-center justify-between border-t border-border pt-4">
               <div>
-                <p className="text-muted-foreground text-xs">{p("sheet.cart.total")}</p>
+                <p className="text-xs text-muted-foreground">
+                  {p("sheet.cart.total")}
+                </p>
                 <p className="text-lg font-bold">${cartTotal}</p>
               </div>
               <Button>{p("sheet.cart.checkout")}</Button>
@@ -513,7 +547,9 @@ export function OverlayPage() {
           </PopoverTrigger>
           <PopoverContent className="w-64 border bg-card p-4 shadow-md">
             <p className="text-sm font-medium">{p("popover.basic.content")}</p>
-            <p className="text-muted-foreground mt-1 text-xs">{p("popover.basic.hint")}</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {p("popover.basic.hint")}
+            </p>
           </PopoverContent>
         </Popover>
       </ShowcaseSection>
@@ -523,17 +559,24 @@ export function OverlayPage() {
         description={p("popover.portal.description")}
         layout="stack"
       >
-        <div className="border-border bg-muted/20 h-40 w-full overflow-hidden rounded-xl border p-4">
-          <p className="text-muted-foreground mb-3 text-xs uppercase tracking-wide">
+        <div className="h-40 w-full overflow-hidden rounded-xl border border-border bg-muted/20 p-4">
+          <p className="mb-3 text-xs tracking-wide text-muted-foreground uppercase">
             {p("popover.portal.overflowLabel")}
           </p>
           <Popover>
             <PopoverTrigger asChild>
               <Button size="sm">{p("popover.portal.trigger")}</Button>
             </PopoverTrigger>
-            <PopoverContent withPortal className="w-64 border bg-card p-4 shadow-md">
-              <p className="text-sm font-medium">{p("popover.portal.content")}</p>
-              <p className="text-muted-foreground mt-1 text-xs">{p("popover.portal.hint")}</p>
+            <PopoverContent
+              withPortal
+              className="w-64 border bg-card p-4 shadow-md"
+            >
+              <p className="text-sm font-medium">
+                {p("popover.portal.content")}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {p("popover.portal.hint")}
+              </p>
             </PopoverContent>
           </Popover>
         </div>
@@ -547,7 +590,10 @@ export function OverlayPage() {
           <PopoverTrigger asChild>
             <Button severity="secondary">{p("popover.profile.trigger")}</Button>
           </PopoverTrigger>
-          <PopoverContent withPortal className="w-72 border bg-card p-0 shadow-md">
+          <PopoverContent
+            withPortal
+            className="w-72 border bg-card p-0 shadow-md"
+          >
             <div className="flex items-center gap-3 border-b p-4">
               <Avatar
                 user={showcaseOverlayMember.user}
@@ -556,8 +602,10 @@ export function OverlayPage() {
                 alt={p("popover.profile.name")}
               />
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold">{p("popover.profile.name")}</p>
-                <p className="text-muted-foreground truncate text-xs">
+                <p className="truncate text-sm font-semibold">
+                  {p("popover.profile.name")}
+                </p>
+                <p className="truncate text-xs text-muted-foreground">
                   {p("popover.profile.role")}
                 </p>
               </div>
@@ -586,14 +634,19 @@ export function OverlayPage() {
               {p("popover.notifications.trigger")}
             </Button>
           </PopoverTrigger>
-          <PopoverContent withPortal className="w-80 border bg-card p-0 shadow-md">
+          <PopoverContent
+            withPortal
+            className="w-80 border bg-card p-0 shadow-md"
+          >
             <div className="flex items-center justify-between border-b px-4 py-3">
-              <p className="text-sm font-semibold">{p("popover.notifications.trigger")}</p>
+              <p className="text-sm font-semibold">
+                {p("popover.notifications.trigger")}
+              </p>
               <Button variant="text" size="sm">
                 {p("popover.notifications.markAll")}
               </Button>
             </div>
-            <ul className="divide-border divide-y">
+            <ul className="divide-y divide-border">
               {showcaseOverlayNotifications.map((item) => (
                 <li key={item.key} className="flex gap-3 px-4 py-3">
                   <Avatar user={item.user} src={item.avatar} size="md" />
@@ -604,10 +657,12 @@ export function OverlayPage() {
                       </span>{" "}
                       {p(`popover.notifications.items.${item.key}`)}
                     </p>
-                    <p className="text-muted-foreground mt-1 text-xs">{item.time}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {item.time}
+                    </p>
                   </div>
                   {item.unread ? (
-                    <span className="bg-primary mt-1 size-2 shrink-0 rounded-full" />
+                    <span className="mt-1 size-2 shrink-0 rounded-full bg-primary" />
                   ) : null}
                 </li>
               ))}
@@ -629,7 +684,10 @@ export function OverlayPage() {
           <PopoverTrigger asChild>
             <Button>{p("popover.product.trigger")}</Button>
           </PopoverTrigger>
-          <PopoverContent withPortal className="w-72 border bg-card p-0 shadow-md">
+          <PopoverContent
+            withPortal
+            className="w-72 border bg-card p-0 shadow-md"
+          >
             <img
               src={showcaseOverlayImages.productCamera}
               alt={p("popover.product.name")}
@@ -638,8 +696,10 @@ export function OverlayPage() {
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold">{p("popover.product.name")}</p>
-                  <p className="text-muted-foreground text-xs">
+                  <p className="text-sm font-semibold">
+                    {p("popover.product.name")}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
                     {p("popover.product.descriptionText")}
                   </p>
                 </div>

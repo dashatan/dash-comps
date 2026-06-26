@@ -5,7 +5,7 @@ export const DISTANCE = {
   DEFAULT_MAX: 1000,
   DEFAULT_MIN: 0,
   INPUT_MAX: 10000,
-} as const
+} as const;
 export const SPEED = {
   MAX: 300,
-} as const
+} as const;

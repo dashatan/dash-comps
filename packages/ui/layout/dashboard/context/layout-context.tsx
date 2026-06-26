@@ -8,9 +8,8 @@ type DashboardLayoutContextValue = {
   footer: ReactNode;
 };
 
-const DashboardLayoutContext = createContext<DashboardLayoutContextValue | null>(
-  null,
-);
+const DashboardLayoutContext =
+  createContext<DashboardLayoutContextValue | null>(null);
 
 export function DashboardLayoutProvider({
   menuItems,

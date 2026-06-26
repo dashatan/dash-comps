@@ -3,11 +3,7 @@ import en from "@/lib/language/locales/en.json";
 import ar from "@/lib/language/locales/ar.json";
 import { defineTranslations } from "./define-translations";
 
-export type {
-  LocaleSchema,
-  TranslationKeys,
-  TranslationType,
-} from "./schema";
+export type { LocaleSchema, TranslationKeys, TranslationType } from "./schema";
 
 export {
   FALLBACK_LOCALE,

@@ -95,7 +95,12 @@ export function AssignmentsPage() {
   const handleTableChange = useCallback(
     (data: TableData | Record<string, string>, tag: ChangeTag) => {
       setTableState(data as TableData);
-      if (tag === "filter" || tag === "pagination" || tag === "rows" || tag === "sort") {
+      if (
+        tag === "filter" ||
+        tag === "pagination" ||
+        tag === "rows" ||
+        tag === "sort"
+      ) {
         setLoading(true);
         window.setTimeout(() => setLoading(false), 280);
       }
@@ -121,7 +126,7 @@ export function AssignmentsPage() {
         body: (row) => (
           <TableCellTextField
             value={(row as LocalizedAssignment).vehiclePlate}
-            className="dir-ltr font-mono text-xs"
+            className="font-mono text-xs dir-ltr"
           />
         ),
       },
@@ -142,7 +147,9 @@ export function AssignmentsPage() {
         filterElementType: "text",
         filterKey: "corridorLabel",
         body: (row) => (
-          <TableCellTextField value={(row as LocalizedAssignment).corridorLabel} />
+          <TableCellTextField
+            value={(row as LocalizedAssignment).corridorLabel}
+          />
         ),
       },
       {
@@ -173,7 +180,9 @@ export function AssignmentsPage() {
           value: region,
         })),
         body: (row) => (
-          <Badge severity="info">{(row as LocalizedAssignment).regionLabel}</Badge>
+          <Badge severity="info">
+            {(row as LocalizedAssignment).regionLabel}
+          </Badge>
         ),
       },
       {
@@ -181,7 +190,9 @@ export function AssignmentsPage() {
         header: headerCell(t("fleet.columns.shipment")),
         width: 100,
         body: (row) => (
-          <TableCellTextField value={(row as LocalizedAssignment).shipmentLabel} />
+          <TableCellTextField
+            value={(row as LocalizedAssignment).shipmentLabel}
+          />
         ),
       },
       {

@@ -18,10 +18,10 @@ export function GridContainer({
   "aria-label": ariaLabel,
 }: GridContainerProps) {
   return (
-    <div className="flex-full @container flex flex-col overflow-auto">
+    <div className="@container flex flex-full flex-col overflow-auto">
       <div
         className={cn(
-          "flex-full grid items-stretch gap-4 p-4",
+          "grid flex-full items-stretch gap-4 p-4",
           `grid-cols-12 grid-rows-2`,
           className,
         )}
@@ -95,14 +95,16 @@ export function GridHeader({
       )}
     >
       <div className="flex items-center gap-4">
-        <div className="border-border bg-card flex h-10 w-10 items-center justify-center rounded-lg border">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card">
           {Icon}
         </div>
         <div className="flex flex-col">
           <div className="flex items-center gap-1">
-            <span className="text-foreground font-semibold">{title}</span>
+            <span className="font-semibold text-foreground">{title}</span>
           </div>
-          {subtitle && <div className="text-muted-foreground text-xs">{subtitle}</div>}
+          {subtitle && (
+            <div className="text-xs text-muted-foreground">{subtitle}</div>
+          )}
         </div>
       </div>
       {sideElements}
@@ -115,6 +117,8 @@ export function GridGroup({
   className,
 }: GridCardProps & { children: ReactNode }) {
   return (
-    <div className={cn("col-span-12 grid grid-rows-2 gap-4", className)}>{children}</div>
+    <div className={cn("col-span-12 grid grid-rows-2 gap-4", className)}>
+      {children}
+    </div>
   );
 }

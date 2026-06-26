@@ -18,8 +18,11 @@ export default function PlateCard({
   const { letters } = usePlateSignals();
   const { p1, p2, p3, p4, p5, p6, p7, p8 } = value || {};
   const letter = letters?.find((x) => x.name === p3 || x.id === Number(p3));
-  const colorCode = lettersColorCodes.find((x) => x.letter === letter?.name)?.colorCode;
-  const bg = colorCode && colors[colorCode] ? colors[colorCode] : "bg-white text-black";
+  const colorCode = lettersColorCodes.find(
+    (x) => x.letter === letter?.name,
+  )?.colorCode;
+  const bg =
+    colorCode && colors[colorCode] ? colors[colorCode] : "bg-white text-black";
   const foregroundVariable = getPlateForegroundColorVariable(colorCode);
 
   const { handleCopy } = usePlateClipboardActions(
@@ -29,7 +32,7 @@ export default function PlateCard({
   return (
     <div
       className={cn(
-        "dir-ltr flex h-12 max-w-fit min-w-fit cursor-copy overflow-hidden rounded-md border text-base font-extrabold select-none",
+        "flex h-12 max-w-fit min-w-fit cursor-copy overflow-hidden rounded-md border text-base font-extrabold select-none dir-ltr",
         bg,
         className,
       )}
@@ -39,7 +42,7 @@ export default function PlateCard({
     >
       <div
         className={cn(
-          "bg-plate-flag flex h-full w-8 flex-col items-start justify-center gap-1 px-1 pt-1 pb-1.5 text-left text-white",
+          "flex h-full w-8 flex-col items-start justify-center gap-1 bg-plate-flag px-1 pt-1 pb-1.5 text-left text-white",
         )}
       >
         <img src="/iran-flag.png" alt="Iran flag" className="w-10/12" />
@@ -70,10 +73,19 @@ export default function PlateCard({
   );
 }
 
-function PlateCardPart({ value, className }: { value: string; className?: string }) {
+function PlateCardPart({
+  value,
+  className,
+}: {
+  value: string;
+  className?: string;
+}) {
   return (
     <div
-      className={cn("flex h-full w-10 items-center justify-center border-r", className)}
+      className={cn(
+        "flex h-full w-10 items-center justify-center border-r",
+        className,
+      )}
     >
       {value}
     </div>

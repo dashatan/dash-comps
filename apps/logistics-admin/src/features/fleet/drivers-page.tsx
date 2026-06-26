@@ -70,7 +70,12 @@ export function DriversPage() {
   const handleTableChange = useCallback(
     (data: TableData | Record<string, string>, tag: ChangeTag) => {
       setTableState(data as TableData);
-      if (tag === "filter" || tag === "pagination" || tag === "rows" || tag === "sort") {
+      if (
+        tag === "filter" ||
+        tag === "pagination" ||
+        tag === "rows" ||
+        tag === "sort"
+      ) {
         setLoading(true);
         window.setTimeout(() => setLoading(false), 280);
       }
@@ -98,7 +103,10 @@ export function DriversPage() {
         filterElementType: "text",
         filterKey: "name",
         body: (row) => (
-          <TableCellTextField value={(row as LocalizedDriver).name} justify="start" />
+          <TableCellTextField
+            value={(row as LocalizedDriver).name}
+            justify="start"
+          />
         ),
       },
       {

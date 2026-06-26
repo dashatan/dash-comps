@@ -18,14 +18,19 @@ function readStoredOpenGroups(): OpenGroups {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultOpenGroups;
-    return { ...defaultOpenGroups, ...(JSON.parse(raw) as Partial<OpenGroups>) };
+    return {
+      ...defaultOpenGroups,
+      ...(JSON.parse(raw) as Partial<OpenGroups>),
+    };
   } catch {
     return defaultOpenGroups;
   }
 }
 
 export function useCatalogNavGroups() {
-  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
   const activeSlug = pathname.startsWith("/components/")
     ? pathname.replace("/components/", "").split("/")[0]
     : undefined;
@@ -38,7 +43,8 @@ export function useCatalogNavGroups() {
     [activeSlug],
   );
 
-  const [openGroups, setOpenGroups] = useState<OpenGroups>(readStoredOpenGroups);
+  const [openGroups, setOpenGroups] =
+    useState<OpenGroups>(readStoredOpenGroups);
 
   useEffect(() => {
     if (!activeGroup) return;

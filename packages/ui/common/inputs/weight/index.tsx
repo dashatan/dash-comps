@@ -16,7 +16,11 @@ import {
 import TextInput from "@/components/common/inputs/text";
 import { useLanguage } from "@dash/core";
 
-export type { WeightInputProps, WeightPreset, WeightRange } from "@/components/common/inputs/weight/types";
+export type {
+  WeightInputProps,
+  WeightPreset,
+  WeightRange,
+} from "@/components/common/inputs/weight/types";
 
 function formatFieldValue(n: number | undefined) {
   return n === undefined ? "" : String(n);

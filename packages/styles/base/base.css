@@ -15,7 +15,7 @@
 
   /* Body styles */
   body {
-    @apply bg-background text-foreground size-full overflow-hidden font-sans;
+    @apply size-full overflow-hidden bg-background font-sans text-foreground;
   }
 
   input:-webkit-autofill,

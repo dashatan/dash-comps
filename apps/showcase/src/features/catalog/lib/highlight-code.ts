@@ -16,7 +16,10 @@ function resolveLanguage(language: string): BundledLanguage {
     : "tsx";
 }
 
-export async function highlightCode(code: string, language: string): Promise<string> {
+export async function highlightCode(
+  code: string,
+  language: string,
+): Promise<string> {
   const { codeToHtml } = await import("shiki");
 
   return codeToHtml(code, {

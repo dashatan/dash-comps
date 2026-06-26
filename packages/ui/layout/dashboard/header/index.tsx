@@ -35,13 +35,13 @@ export default function DashboardHeader() {
   return (
     <div
       className={cn(
-        "border-sidebar-border mobile:px-2 flex w-full items-center justify-between border-b px-6",
+        "flex w-full items-center justify-between border-b border-sidebar-border px-6 mobile:px-2",
         "bg-sidebar text-sidebar-foreground",
       )}
       style={{ height: HEADER_HEIGHT, minHeight: HEADER_HEIGHT }}
     >
       <BreadCrumbs />
-      <div className="mobile:hidden flex items-center gap-4">
+      <div className="flex items-center gap-4 mobile:hidden">
         <ThemeToggle />
         {preferences.showClock && <Clock />}
       </div>

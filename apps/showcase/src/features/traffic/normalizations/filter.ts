@@ -1,4 +1,9 @@
-import type { Device, Province, Road, Source } from "@/features/resources/types";
+import type {
+  Device,
+  Province,
+  Road,
+  Source,
+} from "@/features/resources/types";
 
 export type FilterTrafficDataParams = {
   sources?: Source[];

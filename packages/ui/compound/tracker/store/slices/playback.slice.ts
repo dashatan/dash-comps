@@ -48,13 +48,13 @@ export const createPlaybackSlice: StateCreator<
   initToFirstEvent: true,
   setPlay: (play) => set({ play }),
   togglePlay: () => set({ play: !get().play }),
-  setMode: (mode) =>
-    set((state) => (state.mode === mode ? state : { mode })),
-  setLoop: (loop) =>
-    set((state) => (state.loop === loop ? state : { loop })),
+  setMode: (mode) => set((state) => (state.mode === mode ? state : { mode })),
+  setLoop: (loop) => set((state) => (state.loop === loop ? state : { loop })),
   setActiveEventIndex: (activeEventIndex) =>
     set((state) =>
-      state.activeEventIndex === activeEventIndex ? state : { activeEventIndex },
+      state.activeEventIndex === activeEventIndex
+        ? state
+        : { activeEventIndex },
     ),
   incrementActiveEventIndex: () => {
     const { activeEventIndex, events } = get();

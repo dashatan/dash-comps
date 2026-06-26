@@ -63,15 +63,39 @@ export type Assignment = {
 };
 
 const DRIVER_FIRST_NAMES = [
-  "Thomas", "Marie", "Jan", "Sofia", "Lars", "Elena", "Pieter", "Anna",
-  "Marco", "Claire", "Henrik", "Isabella", "Klaus", "Nina", "Pavel",
+  "Thomas",
+  "Marie",
+  "Jan",
+  "Sofia",
+  "Lars",
+  "Elena",
+  "Pieter",
+  "Anna",
+  "Marco",
+  "Claire",
+  "Henrik",
+  "Isabella",
+  "Klaus",
+  "Nina",
+  "Pavel",
 ] as const;
 
 const DRIVER_LAST_NAMES = [
-  "Müller", "Dubois", "Jansen", "Rossi", "Andersen", "Kowalski", "Schmidt",
-  "Laurent", "Vermeulen", "García", "Novák", "Bergström", "Weber", "Moreau",
+  "Müller",
+  "Dubois",
+  "Jansen",
+  "Rossi",
+  "Andersen",
+  "Kowalski",
+  "Schmidt",
+  "Laurent",
+  "Vermeulen",
+  "García",
+  "Novák",
+  "Bergström",
+  "Weber",
+  "Moreau",
 ] as const;
-
 
 export {
   ASSIGNMENT_COUNT,
@@ -95,8 +119,15 @@ function buildVehicle(id: number): Vehicle {
   const types: Vehicle["type"][] = ["van", "rigid", "articulated"];
   const type = types[id % types.length];
   const capacityKg = type === "van" ? 3500 : type === "rigid" ? 18000 : 24000;
-  const fuelConsumptionL100 = type === "van" ? 12.5 : type === "rigid" ? 28 : 32;
-  const statuses: Vehicle["status"][] = ["active", "active", "active", "idle", "maintenance"];
+  const fuelConsumptionL100 =
+    type === "van" ? 12.5 : type === "rigid" ? 28 : 32;
+  const statuses: Vehicle["status"][] = [
+    "active",
+    "active",
+    "active",
+    "idle",
+    "maintenance",
+  ];
 
   return {
     id,
@@ -137,8 +168,13 @@ function buildAssignment(id: number): Assignment {
   };
 }
 
-export const DRIVERS: Driver[] = Array.from({ length: DRIVER_COUNT }, (_, i) => buildDriver(i + 1));
-export const VEHICLES: Vehicle[] = Array.from({ length: VEHICLE_COUNT }, (_, i) => buildVehicle(i + 1));
+export const DRIVERS: Driver[] = Array.from({ length: DRIVER_COUNT }, (_, i) =>
+  buildDriver(i + 1),
+);
+export const VEHICLES: Vehicle[] = Array.from(
+  { length: VEHICLE_COUNT },
+  (_, i) => buildVehicle(i + 1),
+);
 export const ASSIGNMENTS: Assignment[] = Array.from(
   { length: ASSIGNMENT_COUNT },
   (_, i) => buildAssignment(i + 1),
@@ -166,7 +202,9 @@ export function getFleetUtilizationPercent(): number {
 }
 
 export function getActiveAssignmentsCount(): number {
-  return ASSIGNMENTS.filter((a) => a.status === "active" || a.status === "scheduled").length;
+  return ASSIGNMENTS.filter(
+    (a) => a.status === "active" || a.status === "scheduled",
+  ).length;
 }
 
 export function getDriversOnDutyCount(): number {
@@ -189,7 +227,10 @@ function paginateRows<T>(rows: T[], state: TableData): T[] {
   return rows.slice(start, start + rowsPerPage);
 }
 
-export function filterAndSortVehicles(rows: Vehicle[], state: TableData): Vehicle[] {
+export function filterAndSortVehicles(
+  rows: Vehicle[],
+  state: TableData,
+): Vehicle[] {
   let result = [...rows];
 
   const plate = state.filters?.plate as string | undefined;
@@ -213,7 +254,10 @@ export function filterAndSortVehicles(rows: Vehicle[], state: TableData): Vehicl
   return sortRows(result, state);
 }
 
-export function filterAndSortDrivers(rows: Driver[], state: TableData): Driver[] {
+export function filterAndSortDrivers(
+  rows: Driver[],
+  state: TableData,
+): Driver[] {
   let result = [...rows];
 
   const name = state.filters?.name as string | undefined;
@@ -279,7 +323,11 @@ function sortRows<T extends { id: number }>(
     const aVal = aRec[sortField];
     const bVal = bRec[sortField];
 
-    if (sortField === options?.nameField && typeof aVal === "string" && typeof bVal === "string") {
+    if (
+      sortField === options?.nameField &&
+      typeof aVal === "string" &&
+      typeof bVal === "string"
+    ) {
       return aVal.localeCompare(bVal) * dir;
     }
     if (typeof aVal === "number" && typeof bVal === "number") {

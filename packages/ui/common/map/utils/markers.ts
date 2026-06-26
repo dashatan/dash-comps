@@ -108,29 +108,51 @@ export function deviceTooltipContent(
   `;
 }
 
-export function devicePopupContent(device: MapDeviceInfo | undefined, t: Translation) {
+export function devicePopupContent(
+  device: MapDeviceInfo | undefined,
+  t: Translation,
+) {
   if (!device) return "";
   return formatMapOverlayHtml(device.name, [
-    { name: t("common.province"), value: device.provinceName || t("common.unknown") },
+    {
+      name: t("common.province"),
+      value: device.provinceName || t("common.unknown"),
+    },
     { name: t("common.road"), value: device.roadName || t("common.unknown") },
-    { name: t("common.source"), value: device.sourceName || t("common.unknown") },
-    { name: t("common.company"), value: device.companyName || t("common.unknown") },
+    {
+      name: t("common.source"),
+      value: device.sourceName || t("common.unknown"),
+    },
+    {
+      name: t("common.company"),
+      value: device.companyName || t("common.unknown"),
+    },
     {
       name: t("common.policeCode"),
-      value: device.police_code != null ? String(device.police_code) : t("common.unknown"),
+      value:
+        device.police_code != null
+          ? String(device.police_code)
+          : t("common.unknown"),
     },
   ]);
 }
 
 export function createDeviceMarkers(
-  devices: Array<{ id: number; lat: string; long: string; name?: string } & Record<string, unknown>>,
+  devices: Array<
+    { id: number; lat: string; long: string; name?: string } & Record<
+      string,
+      unknown
+    >
+  >,
   icon: L.Icon | L.DivIcon,
   t: Translation,
 ) {
   const markers = createMarkerClusterGroup();
 
   devices.forEach((device) => {
-    const marker = L.marker([parseFloat(device.lat), parseFloat(device.long)], { icon });
+    const marker = L.marker([parseFloat(device.lat), parseFloat(device.long)], {
+      icon,
+    });
     marker.bindTooltip(deviceTooltipContent(device, t), tooltipConfig);
     markers.addLayer(marker);
   });

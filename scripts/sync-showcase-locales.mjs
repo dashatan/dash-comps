@@ -19,14 +19,20 @@ function collectPaths(base, prefix = "") {
 }
 
 function getByPath(obj, dotPath) {
-  return dotPath.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
+  return dotPath
+    .split(".")
+    .reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
 }
 
 function setByPath(obj, dotPath, value) {
   const keys = dotPath.split(".");
   let cur = obj;
   for (let i = 0; i < keys.length - 1; i++) {
-    if (!(keys[i] in cur) || typeof cur[keys[i]] !== "object" || cur[keys[i]] === null) {
+    if (
+      !(keys[i] in cur) ||
+      typeof cur[keys[i]] !== "object" ||
+      cur[keys[i]] === null
+    ) {
       cur[keys[i]] = {};
     }
     cur = cur[keys[i]];
@@ -49,7 +55,9 @@ function buildSynced(base, source, fallback) {
   return out;
 }
 
-const en = JSON.parse(fs.readFileSync(path.join(localesDir, "en.json"), "utf8"));
+const en = JSON.parse(
+  fs.readFileSync(path.join(localesDir, "en.json"), "utf8"),
+);
 const existingFa = fs.existsSync(path.join(localesDir, "fa.json"))
   ? JSON.parse(fs.readFileSync(path.join(localesDir, "fa.json"), "utf8"))
   : {};
@@ -67,13 +75,23 @@ for (const lang of ["fa", "ar"]) {
   const missing = [...enPaths].filter((p) => !localePaths.includes(p));
   const extra = localePaths.filter((p) => !enPaths.has(p));
   if (missing.length || extra.length) {
-    console.error(`[${lang}] schema mismatch — missing: ${missing.length}, extra: ${extra.length}`);
+    console.error(
+      `[${lang}] schema mismatch — missing: ${missing.length}, extra: ${extra.length}`,
+    );
     if (missing.length) console.error("  missing sample:", missing.slice(0, 5));
     process.exit(1);
   }
 }
 
-fs.writeFileSync(path.join(localesDir, "fa.json"), `${JSON.stringify(faSynced, null, 2)}\n`, "utf8");
-fs.writeFileSync(path.join(localesDir, "ar.json"), `${JSON.stringify(arSynced, null, 2)}\n`, "utf8");
+fs.writeFileSync(
+  path.join(localesDir, "fa.json"),
+  `${JSON.stringify(faSynced, null, 2)}\n`,
+  "utf8",
+);
+fs.writeFileSync(
+  path.join(localesDir, "ar.json"),
+  `${JSON.stringify(arSynced, null, 2)}\n`,
+  "utf8",
+);
 
 console.log(`Synced fa/ar with en (${enPaths.size} keys)`);

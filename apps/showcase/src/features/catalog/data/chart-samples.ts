@@ -9,8 +9,18 @@ export const showcaseGeoPaths = {
 } as const;
 
 export const showcaseMonthKeys = [
-  "jan", "feb", "mar", "apr", "may", "jun",
-  "jul", "aug", "sep", "oct", "nov", "dec",
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
 ] as const;
 
 export type ShowcaseMonthKey = (typeof showcaseMonthKeys)[number];
@@ -40,7 +50,16 @@ export const showcaseEcommerceOrders = {
 
 /** Product units sold — horizontal bar. */
 export const showcaseProductSales = {
-  labels: ["Laptops", "Monitors", "Keyboards", "Headsets", "Webcams", "Docks", "Tablets", "Printers"],
+  labels: [
+    "Laptops",
+    "Monitors",
+    "Keyboards",
+    "Headsets",
+    "Webcams",
+    "Docks",
+    "Tablets",
+    "Printers",
+  ],
   units: [1240, 980, 1560, 870, 640, 420, 730, 390],
 } as const;
 
@@ -60,19 +79,40 @@ export const showcaseProfitLoss = {
 
 /** Hourly server response time (ms) — 24h ops dashboard. */
 export const showcaseServerLatency = {
-  labels: Array.from({ length: 24 }, (_, i) => `${i.toString().padStart(2, "0")}:00`),
-  api: [42, 38, 35, 33, 31, 30, 32, 45, 58, 62, 55, 48, 44, 46, 50, 53, 57, 61, 54, 47, 43, 40, 38, 36],
-  db: [18, 16, 15, 14, 13, 14, 16, 22, 28, 30, 26, 22, 20, 21, 23, 25, 27, 29, 25, 21, 19, 17, 16, 15],
+  labels: Array.from(
+    { length: 24 },
+    (_, i) => `${i.toString().padStart(2, "0")}:00`,
+  ),
+  api: [
+    42, 38, 35, 33, 31, 30, 32, 45, 58, 62, 55, 48, 44, 46, 50, 53, 57, 61, 54,
+    47, 43, 40, 38, 36,
+  ],
+  db: [
+    18, 16, 15, 14, 13, 14, 16, 22, 28, 30, 26, 22, 20, 21, 23, 25, 27, 29, 25,
+    21, 19, 17, 16, 15,
+  ],
 } as const;
 
 /** Daily active users — 14-day trend. */
 export const showcaseActiveUsers = {
-  mobile: [8200, 8450, 8700, 9100, 9350, 9600, 9900, 10200, 10450, 10700, 10950, 11200, 11400, 11650],
-  desktop: [5400, 5320, 5480, 5510, 5600, 5550, 5620, 5700, 5680, 5750, 5810, 5880, 5920, 5980],
-  tablet: [2100, 2050, 2180, 2240, 2310, 2280, 2350, 2420, 2380, 2450, 2510, 2480, 2550, 2610],
+  mobile: [
+    8200, 8450, 8700, 9100, 9350, 9600, 9900, 10200, 10450, 10700, 10950, 11200,
+    11400, 11650,
+  ],
+  desktop: [
+    5400, 5320, 5480, 5510, 5600, 5550, 5620, 5700, 5680, 5750, 5810, 5880,
+    5920, 5980,
+  ],
+  tablet: [
+    2100, 2050, 2180, 2240, 2310, 2280, 2350, 2420, 2380, 2450, 2510, 2480,
+    2550, 2610,
+  ],
 } as const;
 
-export const showcaseDayLabels = Array.from({ length: 14 }, (_, i) => `D${i + 1}`);
+export const showcaseDayLabels = Array.from(
+  { length: 14 },
+  (_, i) => `D${i + 1}`,
+);
 
 /** Conversion funnel. */
 export const showcaseFunnelSteps = {
@@ -90,7 +130,15 @@ export const showcaseTrafficSources = {
   paid: [410, 380, 420, 460, 510, 490, 530],
 } as const;
 
-export const showcaseWeekLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+export const showcaseWeekLabels = [
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun",
+];
 
 /** Energy mix over months (GWh). */
 export const showcaseEnergyMix = {
@@ -369,4 +417,6 @@ export const showcaseLongCategoryLabels = [
   "Legacy Migration",
 ] as const;
 
-export const showcaseLongCategoryValues = [420, 680, 890, 210, 185, 95, 145, 62] as const;
+export const showcaseLongCategoryValues = [
+  420, 680, 890, 210, 185, 95, 145, 62,
+] as const;

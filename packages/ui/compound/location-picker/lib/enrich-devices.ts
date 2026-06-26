@@ -31,7 +31,9 @@ export function enrichDevices(
         ? lookup.provinces.get(device.province)
         : device.provinceName,
     roadName:
-      device.road !== undefined ? lookup.roads.get(device.road) : device.roadName,
+      device.road !== undefined
+        ? lookup.roads.get(device.road)
+        : device.roadName,
     sourceName:
       device.source !== undefined
         ? lookup.sources.get(device.source)

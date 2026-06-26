@@ -7,10 +7,13 @@ import EmphasizesPanel from "@/components/macro/tracker/comps/widgets/emphasizes
 import TracksPanel from "@/components/macro/tracker/comps/widgets/events";
 import { useSignals } from "@preact/signals-react/runtime";
 import { showSettings } from "@/components/macro/tracker";
-const TrackerMap = dynamic(() => import("@/components/macro/tracker/comps/map"), {
-  loading: () => <></>,
-  ssr: false,
-});
+const TrackerMap = dynamic(
+  () => import("@/components/macro/tracker/comps/map"),
+  {
+    loading: () => <></>,
+    ssr: false,
+  },
+);
 
 export default function TrackerContainer({
   emphasizesPanel,
@@ -20,7 +23,7 @@ export default function TrackerContainer({
   useSignals();
 
   return (
-    <div className="dir-ltr relative h-full w-full">
+    <div className="relative h-full w-full dir-ltr">
       <TrackerMap />
       <div className="absolute top-5 left-5 z-50 flex w-80 flex-col gap-4">
         <TracksPanel />

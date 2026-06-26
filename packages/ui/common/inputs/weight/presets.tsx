@@ -1,7 +1,10 @@
 "use client";
 
 import { cn } from "@/lib";
-import type { WeightPreset, WeightRange } from "@/components/common/inputs/weight/types";
+import type {
+  WeightPreset,
+  WeightRange,
+} from "@/components/common/inputs/weight/types";
 import { isSameRange } from "@/components/common/inputs/weight/utils";
 
 export type WeightPresetsProps = {
@@ -34,7 +37,7 @@ export function WeightPresets({
             aria-pressed={active}
             onClick={() => onSelect(preset)}
             className={cn(
-              "bg-input flex h-8 cursor-pointer items-center justify-center rounded-full border px-4 text-xs font-medium transition-colors select-none",
+              "flex h-8 cursor-pointer items-center justify-center rounded-full border bg-input px-4 text-xs font-medium transition-colors select-none",
               "hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background",
               active
                 ? "border-primary bg-primary/25"

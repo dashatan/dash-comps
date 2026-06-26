@@ -19,12 +19,15 @@ function GridBodyInner<T extends object>({
   loading = false,
   onCellClick,
 }: GridBodyProps<T>) {
-  const gridTemplateColumns = useMemo(() => getGridTemplateColumns(columns), [columns]);
+  const gridTemplateColumns = useMemo(
+    () => getGridTemplateColumns(columns),
+    [columns],
+  );
   const noResult = !loading && !data?.length;
 
   if (noResult) {
     return (
-      <div className="flex-full flex h-full min-h-20 flex-col items-center justify-center">
+      <div className="flex h-full min-h-20 flex-full flex-col items-center justify-center">
         <EmptyTemplate size="sm" />
       </div>
     );

@@ -26,7 +26,11 @@ export function SonnerPage() {
         title={p("toastVariants.title")}
         description={p("toastVariants.description")}
       >
-        <Button onClick={() => toast.success(p("toastVariants.toasts.savedSuccessfully"))}>
+        <Button
+          onClick={() =>
+            toast.success(p("toastVariants.toasts.savedSuccessfully"))
+          }
+        >
           {p("toastVariants.buttons.success")}
         </Button>
         <Button
@@ -121,7 +125,10 @@ export function SonnerPage() {
         title={p("defaultMessage.title")}
         description={p("defaultMessage.description")}
       >
-        <Button variant="outlined" onClick={() => toast.message(p("defaultMessage.toast"))}>
+        <Button
+          variant="outlined"
+          onClick={() => toast.message(p("defaultMessage.toast"))}
+        >
           {p("defaultMessage.button")}
         </Button>
       </ShowcaseSection>
@@ -296,7 +303,11 @@ export function SonnerPage() {
         >
           {p("dismissAll.showButton")}
         </Button>
-        <Button severity="danger" variant="outlined" onClick={() => toast.dismiss()}>
+        <Button
+          severity="danger"
+          variant="outlined"
+          onClick={() => toast.dismiss()}
+        >
           {p("dismissAll.dismissButton")}
         </Button>
       </ShowcaseSection>
@@ -309,10 +320,14 @@ export function SonnerPage() {
           variant="outlined"
           onClick={() =>
             toast.custom((id) => (
-              <div className="border-border bg-card text-foreground flex w-full items-center gap-4 rounded-xl border p-4 shadow-lg">
+              <div className="flex w-full items-center gap-4 rounded-xl border border-border bg-card p-4 text-foreground shadow-lg">
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold">{p("custom.toastTitle")}</p>
-                  <p className="text-muted-foreground mt-1 text-sm">{p("custom.toastBody")}</p>
+                  <p className="text-sm font-semibold">
+                    {p("custom.toastTitle")}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {p("custom.toastBody")}
+                  </p>
                 </div>
                 <Button size="sm" onClick={() => toast.dismiss(id)}>
                   {p("custom.dismissLabel")}

@@ -7,8 +7,11 @@ export function DashboardPage() {
 
   return (
     <CatalogPageShell slug="dashboard">
-      <ShowcaseSection title={p("dashboardLayout.title")} className="flex-col items-start">
-        <p className="text-muted-foreground max-w-2xl text-sm">
+      <ShowcaseSection
+        title={p("dashboardLayout.title")}
+        className="flex-col items-start"
+      >
+        <p className="max-w-2xl text-sm text-muted-foreground">
           {p("dashboardLayout.descriptionPrefix")}
           <code className="text-foreground">@/components/layout/dashboard</code>
           {p("dashboardLayout.descriptionMiddle")}

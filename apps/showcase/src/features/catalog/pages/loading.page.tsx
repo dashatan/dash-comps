@@ -65,7 +65,7 @@ function OverlayFrame({
       <div className="relative h-44 w-full overflow-hidden rounded-xl border border-border bg-muted/20">
         <div className="absolute inset-0 p-4">
           <p className="text-sm font-medium">{label}</p>
-          <p className="text-muted-foreground mt-2 text-sm">{hint}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{hint}</p>
         </div>
         {children}
       </div>
@@ -123,14 +123,12 @@ export function LoadingPage() {
           {LOADING_SEVERITIES.map((severity) => (
             <ShowcaseRow
               key={severity}
-              label={p(`severities.items.${severity satisfies LoadingSeverity}`)}
+              label={p(
+                `severities.items.${severity satisfies LoadingSeverity}`,
+              )}
               className="items-center rounded-xl border border-border bg-muted/20 px-4 py-6"
             >
-              <Loading
-                variant="ring"
-                severity={severity}
-                size="lg"
-              />
+              <Loading variant="ring" severity={severity} size="lg" />
             </ShowcaseRow>
           ))}
         </div>
@@ -186,10 +184,7 @@ export function LoadingPage() {
             {overlayVisible ? p("overlay.hide") : p("overlay.show")}
           </Button>
         </div>
-        <OverlayFrame
-          label={p("overlay.sampleTitle")}
-          hint={p("overlay.hint")}
-        >
+        <OverlayFrame label={p("overlay.sampleTitle")} hint={p("overlay.hint")}>
           {overlayVisible ? (
             <Loading
               mode="overlay"
@@ -211,7 +206,9 @@ export function LoadingPage() {
             (backdrop) => (
               <OverlayFrame
                 key={backdrop}
-                label={p(`backdrops.items.${backdrop satisfies LoadingBackdrop}`)}
+                label={p(
+                  `backdrops.items.${backdrop satisfies LoadingBackdrop}`,
+                )}
                 hint={p("overlay.hint")}
               >
                 <Loading
@@ -234,8 +231,10 @@ export function LoadingPage() {
         <div className="grid gap-4 lg:grid-cols-2">
           <div className="relative min-h-52 rounded-2xl border border-border bg-card p-6 shadow-sm">
             <div className="space-y-2">
-              <p className="text-base font-semibold">{p("inContext.cardTitle")}</p>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-base font-semibold">
+                {p("inContext.cardTitle")}
+              </p>
+              <p className="text-sm text-muted-foreground">
                 {p("inContext.cardDescription")}
               </p>
               <div className="grid grid-cols-3 gap-2 pt-2">
@@ -254,7 +253,7 @@ export function LoadingPage() {
 
           <div className="relative min-h-52 rounded-2xl border border-dashed border-border bg-muted/15 p-6">
             <p className="text-sm font-medium">{p("inContext.panelTitle")}</p>
-            <p className="text-muted-foreground mt-2 text-sm">
+            <p className="mt-2 text-sm text-muted-foreground">
               {p("inContext.panelDescription")}
             </p>
             <Loading
@@ -273,10 +272,7 @@ export function LoadingPage() {
         description={p("fullscreen.description")}
         layout="stack"
       >
-        <Button
-          severity="primary"
-          onClick={() => setFullscreenVisible(true)}
-        >
+        <Button severity="primary" onClick={() => setFullscreenVisible(true)}>
           {p("fullscreen.trigger")}
         </Button>
         {fullscreenVisible ? (

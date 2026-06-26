@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
 import type { DateObject } from "react-multi-date-picker";
-import { cn, formatPersianDate, formatPersianTime, type Translation } from "@/lib";
+import {
+  cn,
+  formatPersianDate,
+  formatPersianTime,
+  type Translation,
+} from "@/lib";
 import { Calendar as LucideCalendar, X } from "lucide-react";
 import Chip from "@/components/common/chips/chip";
 import type { DateInputProps, DatePreset, ItemProps } from "../types";
@@ -67,7 +72,9 @@ function OneLineLabel({
   const labelId = inputProps.id || "date-input";
   const hasValue = dateObjects[0] || dateObjects[1];
   const dates = dateObjects.map((x) => formatPersianDate(x.toDate().getTime()));
-  const times = dateObjects.map((x) => formatPersianTime(x.toDate().getTime(), true));
+  const times = dateObjects.map((x) =>
+    formatPersianTime(x.toDate().getTime(), true),
+  );
   const preset =
     !!withPreset && presets.find((p) => p.key === activePreset)?.label;
 
@@ -82,7 +89,7 @@ function OneLineLabel({
         )}
       >
         <span
-          className={cn("text-hint absolute text-xs transition-all", {
+          className={cn("absolute text-xs text-hint transition-all", {
             "-translate-y-3.5": hasValue,
           })}
         >
@@ -94,7 +101,7 @@ function OneLineLabel({
         {hasValue && !inputProps.withoutClear ? (
           <div
             id={`${labelId}-clear-button`}
-            className="hover:bg-input-accent absolute left-1 rounded-full p-1 transition-all"
+            className="absolute left-1 rounded-full p-1 transition-all hover:bg-input-accent"
             onClick={(e) => {
               e.stopPropagation();
               handleClear(true);
@@ -120,19 +127,19 @@ function OneLineLabel({
     >
       <span
         className={cn("absolute flex items-center gap-3 transition-all", {
-          "text-input-foreground/50 -translate-y-3.5 text-sm": hasValue,
+          "-translate-y-3.5 text-sm text-input-foreground/50": hasValue,
         })}
       >
         {label}
         {withTime && preset && (
-          <Chip className="bg-primary/20 text-primary h-5 min-h-5 rounded-full px-3">
+          <Chip className="h-5 min-h-5 rounded-full bg-primary/20 px-3 text-primary">
             {preset}
           </Chip>
         )}
       </span>
       <span className="mt-4 flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">
         {!withTime && preset && (
-          <Chip className="bg-primary/20 text-primary me-2 h-5 min-h-5 rounded-full px-3">
+          <Chip className="me-2 h-5 min-h-5 rounded-full bg-primary/20 px-3 text-primary">
             {preset}
           </Chip>
         )}
@@ -156,7 +163,7 @@ function OneLineLabel({
       {hasValue && !inputProps.withoutClear ? (
         <div
           id={`${labelId}-clear-button`}
-          className="hover:bg-input-accent absolute left-1 rounded-full p-1 transition-all"
+          className="absolute left-1 rounded-full p-1 transition-all hover:bg-input-accent"
           onClick={(e) => {
             e.stopPropagation();
             handleClear(true);
@@ -218,7 +225,12 @@ function LabelContent({
 }) {
   if (!inputProps.range && dates[0]) {
     return (
-      <SingleDateContent dates={dates} times={times} inputProps={inputProps} t={t} />
+      <SingleDateContent
+        dates={dates}
+        times={times}
+        inputProps={inputProps}
+        t={t}
+      />
     );
   }
 
@@ -251,7 +263,9 @@ function SingleDateContent({
       })}
     >
       <Item label={t("common.date")} value={dates[0]} />
-      {inputProps.withTime && <Item label={t("common.time")} value={times[0]} />}
+      {inputProps.withTime && (
+        <Item label={t("common.time")} value={times[0]} />
+      )}
     </div>
   );
 }
@@ -291,7 +305,7 @@ function RangeDateTimeContent({
 function DateValue({ date, time }: { date: string; time: string }) {
   if (!date || !time) return null;
   return (
-    <div className="dir-ltr flex w-fit gap-1">
+    <div className="flex w-fit gap-1 dir-ltr">
       <span>{date}</span>
       <span>{time}</span>
     </div>

@@ -1,10 +1,18 @@
 "use client";
 
-import { Children, cloneElement, isValidElement, type ReactElement } from "react";
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ReactElement,
+} from "react";
 import { cn } from "@/lib";
 import { Avatar } from "@/components/common/avatar/avatar";
 import { avatarGroupVariants } from "@/components/common/avatar/variants";
-import type { AvatarGroupProps, AvatarProps } from "@/components/common/avatar/types";
+import type {
+  AvatarGroupProps,
+  AvatarProps,
+} from "@/components/common/avatar/types";
 
 function getChildKey(child: ReactElement, index: number) {
   return child.key ?? `avatar-group-item-${index}`;
@@ -20,7 +28,9 @@ export function AvatarGroup({
   className,
   overflowClassName,
 }: AvatarGroupProps) {
-  const items = Children.toArray(children).filter(isValidElement) as ReactElement<AvatarProps>[];
+  const items = Children.toArray(children).filter(
+    isValidElement,
+  ) as ReactElement<AvatarProps>[];
   const visibleItems = max > 0 ? items.slice(0, max) : items;
   const overflowCount = Math.max(items.length - visibleItems.length, 0);
   const overlapClass = spacing === "overlap" ? "-ms-3 first:ms-0" : "";

@@ -86,7 +86,9 @@ const Filter: React.FC<FilterProps> = memo(({ col, loading = false }) => {
           col.frozen?.edge && stickySide === "left",
       })}
     >
-      <div className={cn("flex w-full items-center", FILTER_ROW_CONTROL_HEIGHT)}>
+      <div
+        className={cn("flex w-full items-center", FILTER_ROW_CONTROL_HEIGHT)}
+      >
         {col.filterElement ? (
           col.filterElement
         ) : FilterEl ? (

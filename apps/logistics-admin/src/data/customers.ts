@@ -57,7 +57,8 @@ function buildCustomer(id: number): Customer {
     region: hub.region,
     vatNumber: buildVatNumber(countryCode, id * 17 + 3),
     phone: `${prefix} ${100 + (id % 900)} ${1000000 + (id % 8999999)}`,
-    accountTier: id % 7 === 0 ? "enterprise" : id % 3 === 0 ? "premium" : "standard",
+    accountTier:
+      id % 7 === 0 ? "enterprise" : id % 3 === 0 ? "premium" : "standard",
   };
 }
 

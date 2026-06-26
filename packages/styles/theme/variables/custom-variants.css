@@ -19,7 +19,9 @@
 @source inline("grid-cols-{1..12}");
 @source inline("grid-rows-{1..12}");
 @source inline("grid-rows-[repeat({1..12},minmax(auto,1fr))]");
-@source inline("{@laptop:,@desktop:,}grid-rows-[repeat({1..12},minmax(auto,1fr))]");
+@source inline(
+  "{@laptop:,@desktop:,}grid-rows-[repeat({1..12},minmax(auto,1fr))]"
+);
 @source inline("auto-rows-[minmax(auto,1fr)]");
 @source inline("row-span-{1..12}");
 @source inline("col-span-{1..12}");

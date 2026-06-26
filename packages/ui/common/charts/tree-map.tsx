@@ -14,8 +14,9 @@ export interface TreeMapDataItem {
   };
 }
 
-export type TreeMapChartProps<D extends readonly TreeMapDataItem[] = readonly TreeMapDataItem[]> =
-  Omit<ChartProps<InferChartPayloadFromData<D>>, "options"> & {
+export type TreeMapChartProps<
+  D extends readonly TreeMapDataItem[] = readonly TreeMapDataItem[],
+> = Omit<ChartProps<InferChartPayloadFromData<D>>, "options"> & {
   data: D;
   title?: string;
   showTooltip?: boolean;
@@ -56,7 +57,7 @@ export type TreeMapChartProps<D extends readonly TreeMapDataItem[] = readonly Tr
       show?: boolean;
     };
   }>;
-  };
+};
 
 // Helper function to calculate total value
 const calculateTotal = (items: TreeMapDataItem[]): number => {
@@ -74,7 +75,8 @@ const filterByPercentage = (
 ): TreeMapDataItem[] => {
   return items
     .map((item) => {
-      const itemTotal = item.value + (item.children ? calculateTotal(item.children) : 0);
+      const itemTotal =
+        item.value + (item.children ? calculateTotal(item.children) : 0);
       const percentage = (itemTotal / total) * 100;
 
       if (percentage < threshold) {
@@ -87,7 +89,11 @@ const filterByPercentage = (
 
       if (item.children) {
         // Filter children using the same total for consistent percentage calculation
-        filteredItem.children = filterByPercentage(item.children, total, threshold);
+        filteredItem.children = filterByPercentage(
+          item.children,
+          total,
+          threshold,
+        );
         // If all children were filtered out, keep the parent but remove children
         if (filteredItem.children.length === 0) {
           delete filteredItem.children;

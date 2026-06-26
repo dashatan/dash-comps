@@ -1,4 +1,4 @@
-import { TableCellDateElement } from '@/components/compound/table/components/shared'
+import { TableCellDateElement } from "@/components/compound/table/components/shared";
 import {
   eventIndex,
   filterIran,
@@ -8,7 +8,10 @@ import {
 } from "@/components/macro/tracker";
 import { actionButtonClassNames } from "@/components/macro/tracker/utils/classes";
 import { makeTimes } from "@/components/macro/tracker/utils/remap";
-import { TrackerEvent, TrackerState } from "@/components/macro/tracker/utils/types";
+import {
+  TrackerEvent,
+  TrackerState,
+} from "@/components/macro/tracker/utils/types";
 import Badge from "@/components/micro/badge/badge";
 import ColorField, { colors, getColor } from "@/components/micro/badge/color";
 import { Divider } from "@/components/micro/divider";
@@ -84,7 +87,8 @@ export default function TracksPanel() {
       // Set minutes first so total-timeline/player effects see correct times and don't overwrite timeIndex/eventIndex
       minutes.value = newTimes;
       totalTimeIndex.value = currentTotalTimeIndex;
-      timeIndex.value = newTimeIdx >= 0 ? Math.min(newTimeIdx, newTimes.length - 1) : 0;
+      timeIndex.value =
+        newTimeIdx >= 0 ? Math.min(newTimeIdx, newTimes.length - 1) : 0;
       eventIndex.value = EventIndex;
     }
   }
@@ -108,12 +112,17 @@ export default function TracksPanel() {
   }
 
   return (
-    <div className="animate-fade animate-duration-300 dir-rtl flex w-80 flex-col rounded-md bg-gray-50 p-2">
-      <div id="header" className="flex h-10 w-full items-center justify-between">
+    <div className="flex w-80 animate-fade flex-col rounded-md bg-gray-50 p-2 animate-duration-300 dir-rtl">
+      <div
+        id="header"
+        className="flex h-10 w-full items-center justify-between"
+      >
         <div className="text-primary-500 flex gap-2">
           <RouteSquare />
           <div className="flex flex-col">
-            <span className="text-sm font-semibold">رهگیری موقعیت‌‌ها بر روی نقشه</span>
+            <span className="text-sm font-semibold">
+              رهگیری موقعیت‌‌ها بر روی نقشه
+            </span>
             <span className="text-xs font-semibold text-gray-500">
               بر اساس شماره پلاک
             </span>
@@ -142,7 +151,9 @@ export default function TracksPanel() {
             style={{ height: 300 }}
             initialTopMostItemIndex={{
               index:
-                eventIndex !== undefined && eventIndex.value >= 0 ? eventIndex.value : 0,
+                eventIndex !== undefined && eventIndex.value >= 0
+                  ? eventIndex.value
+                  : 0,
               align: "center",
             }}
             itemContent={(index, event) => {
@@ -184,10 +195,15 @@ export default function TracksPanel() {
                     )}
                     <div className="flex gap-1 text-xs font-semibold text-gray-500">
                       <span>تاریخ: </span>
-                      <DateElement val={event.time} className="[&_span]:w-auto" />
+                      <DateElement
+                        val={event.time}
+                        className="[&_span]:w-auto"
+                      />
                     </div>
                     {event.province && (
-                      <div className="text-xs font-semibold">استان: {event.province}</div>
+                      <div className="text-xs font-semibold">
+                        استان: {event.province}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -198,24 +214,52 @@ export default function TracksPanel() {
         <Divider className="my-2" />
         <div className="flex h-10 w-full items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className={actionButtonClassNames} onClick={() => toEvent("last")}>
-              <ArrowDown2 variant="Bold" size={20} className="-rotate-90 text-gray-500" />
+            <div
+              className={actionButtonClassNames}
+              onClick={() => toEvent("last")}
+            >
+              <ArrowDown2
+                variant="Bold"
+                size={20}
+                className="-rotate-90 text-gray-500"
+              />
               <ArrowDown2
                 variant="Bold"
                 size={20}
                 className="-ms-3.5 -rotate-90 text-gray-500"
               />
             </div>
-            <div className={actionButtonClassNames} onClick={() => toEvent("next")}>
-              <ArrowDown2 variant="Bold" size={20} className="-rotate-90 text-gray-500" />
+            <div
+              className={actionButtonClassNames}
+              onClick={() => toEvent("next")}
+            >
+              <ArrowDown2
+                variant="Bold"
+                size={20}
+                className="-rotate-90 text-gray-500"
+              />
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <div className={actionButtonClassNames} onClick={() => toEvent("prev")}>
-              <ArrowDown2 variant="Bold" size={20} className="rotate-90 text-gray-500" />
+            <div
+              className={actionButtonClassNames}
+              onClick={() => toEvent("prev")}
+            >
+              <ArrowDown2
+                variant="Bold"
+                size={20}
+                className="rotate-90 text-gray-500"
+              />
             </div>
-            <div className={actionButtonClassNames} onClick={() => toEvent("first")}>
-              <ArrowDown2 variant="Bold" size={20} className="rotate-90 text-gray-500" />
+            <div
+              className={actionButtonClassNames}
+              onClick={() => toEvent("first")}
+            >
+              <ArrowDown2
+                variant="Bold"
+                size={20}
+                className="rotate-90 text-gray-500"
+              />
               <ArrowDown2
                 variant="Bold"
                 size={20}

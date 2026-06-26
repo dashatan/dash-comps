@@ -28,7 +28,7 @@ const AccordionTrigger = React.forwardRef<
       ref={ref}
       className={classNames(
         "flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=closed]>#minus]:hidden [&[data-state=open]>#plus]:hidden",
-        "bg-table-header border p-4 data-[state=closed]:rounded-md data-[state=open]:rounded-t-md",
+        "border bg-table-header p-4 data-[state=closed]:rounded-md data-[state=open]:rounded-t-md",
         "text-sm",
         className,
       )}
@@ -37,11 +37,11 @@ const AccordionTrigger = React.forwardRef<
       {children}
       <Plus
         id="plus"
-        className="text-icon h-3 w-3 shrink-0 transition-transform duration-200"
+        className="h-3 w-3 shrink-0 text-icon transition-transform duration-200"
       />
       <Minus
         id="minus"
-        className="text-icon h-3 w-3 shrink-0 transition-transform duration-200"
+        className="h-3 w-3 shrink-0 text-icon transition-transform duration-200"
       />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
@@ -54,7 +54,7 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all"
+    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
     <div className={classNames("border border-t-0", className)}>{children}</div>

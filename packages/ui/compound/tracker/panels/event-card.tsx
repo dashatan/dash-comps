@@ -25,8 +25,8 @@ export default function EventCard({
 }: EventCardProps) {
   return (
     <div
-      className={cn("bg-card cursor-pointer rounded-md border p-3 text-sm", {
-        "ring-primary ring-2": isActive,
+      className={cn("cursor-pointer rounded-md border bg-card p-3 text-sm", {
+        "ring-2 ring-primary": isActive,
         "border-destructive": event.error,
         "border-warning": event.miss && !event.error,
       })}
@@ -34,7 +34,7 @@ export default function EventCard({
     >
       <div className="flex items-center gap-2">
         <span className="font-medium">{event.name ?? `#${index + 1}`}</span>
-        <span className="text-muted-foreground ms-auto dir-ltr text-xs">
+        <span className="ms-auto text-xs text-muted-foreground dir-ltr">
           {Intl.DateTimeFormat(PERSIAN_LOCALE, {
             dateStyle: "short",
             timeStyle: "short",
@@ -42,13 +42,15 @@ export default function EventCard({
         </span>
         <button
           type="button"
-          className="border-border rounded border p-1"
+          className="rounded border border-border p-1"
           onClick={(e) => {
             e.stopPropagation();
             onToggle?.();
           }}
         >
-          <ChevronDown className={cn("size-3 transition", { "rotate-180": isOpen })} />
+          <ChevronDown
+            className={cn("size-3 transition", { "rotate-180": isOpen })}
+          />
         </button>
       </div>
       {isOpen && (

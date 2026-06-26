@@ -1,6 +1,10 @@
 // Shell
 export { LeafletMap } from "@/components/common/map/leaflet-map";
-export { LeafletMapProvider, useLeafletMap, useLeafletMapReady } from "@/components/common/map/context";
+export {
+  LeafletMapProvider,
+  useLeafletMap,
+  useLeafletMapReady,
+} from "@/components/common/map/context";
 
 // Hooks
 export { useMapPlugin } from "@/components/common/map/hooks/use-map-plugin";

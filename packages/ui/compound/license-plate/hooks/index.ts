@@ -1,1 +1,4 @@
-export { useClipboardActions, usePlateClipboardActions } from './use-clipboard-actions'
+export {
+  useClipboardActions,
+  usePlateClipboardActions,
+} from "./use-clipboard-actions";

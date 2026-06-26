@@ -1,5 +1,8 @@
 import { create } from "zustand";
-import type { Breadcrumbs, MenuItem } from "@/components/layout/dashboard/types";
+import type {
+  Breadcrumbs,
+  MenuItem,
+} from "@/components/layout/dashboard/types";
 import storage from "./storage";
 
 const PINNED_KEY = "pinned-menus";
@@ -30,7 +33,8 @@ export const useDashboardStore = create<DashboardStoreState>((set) => ({
     storage.local.set(PINNED_KEY, pinned);
     set({ pinned });
   },
-  setBreadcrumbs: (breadcrumbs) => set({ breadcrumbs: breadcrumbs ?? { items: [] } }),
+  setBreadcrumbs: (breadcrumbs) =>
+    set({ breadcrumbs: breadcrumbs ?? { items: [] } }),
   setOpenMenuId: (openMenuId) => set({ openMenuId }),
   setLoadingMenus: (loadingMenus) => set({ loadingMenus }),
 }));

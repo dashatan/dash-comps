@@ -142,7 +142,11 @@ function MarkersDemo({
             ]}
             popupTitle={(item) => item.name}
             popupItems={(item) => [
-              { icon: "map-pin", name: "Coordinates", value: `${item.lat}, ${item.long}` },
+              {
+                icon: "map-pin",
+                name: "Coordinates",
+                value: `${item.lat}, ${item.long}`,
+              },
             ]}
             onMarkerClick={(item) => onSelect(item.id)}
           />
@@ -152,11 +156,7 @@ function MarkersDemo({
   );
 }
 
-function GeomanDemo({
-  lastShapeLabel,
-}: {
-  lastShapeLabel: string;
-}) {
+function GeomanDemo({ lastShapeLabel }: { lastShapeLabel: string }) {
   const [lastShape, setLastShape] = useState<GeomanCreateEvent | null>(null);
 
   const handleCreate = useCallback((event: GeomanCreateEvent) => {
@@ -183,7 +183,7 @@ function GeomanDemo({
         </LeafletMap>
       </MapFrame>
       <ShowcaseRow label={lastShapeLabel}>
-        <pre className="bg-muted/50 w-full overflow-x-auto rounded-lg border border-border p-3 text-xs">
+        <pre className="w-full overflow-x-auto rounded-lg border border-border bg-muted/50 p-3 text-xs">
           {lastShape
             ? JSON.stringify(
                 {
@@ -229,7 +229,7 @@ function ClickPlacementDemo({
         >
           {activateLabel}
         </Button>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {placed
             ? placedLabel(`${placed[0].toFixed(4)}, ${placed[1].toFixed(4)}`)
             : idleLabel}
@@ -244,19 +244,27 @@ function ClickPlacementDemo({
           className="size-full p-4"
         >
           <MapZoomControls />
-          <MapClickPlacement active={active} icon={originIcon} onPlace={handlePlace} />
+          <MapClickPlacement
+            active={active}
+            icon={originIcon}
+            onPlace={handlePlace}
+          />
         </LeafletMap>
       </MapFrame>
     </div>
   );
 }
 
-function CenterTrackingDemo({ coordsLabel }: { coordsLabel: (coords: string) => string }) {
+function CenterTrackingDemo({
+  coordsLabel,
+}: {
+  coordsLabel: (coords: string) => string;
+}) {
   const [center, setCenter] = useState<Point>([35.6892, 51.389]);
 
   return (
     <div className="flex min-w-0 flex-col gap-3">
-      <p className="text-muted-foreground text-sm">
+      <p className="text-sm text-muted-foreground">
         {coordsLabel(`${center[0].toFixed(4)}, ${center[1].toFixed(4)}`)}
       </p>
       <MapFrame className="h-80">
@@ -274,7 +282,9 @@ function CenterTrackingDemo({ coordsLabel }: { coordsLabel: (coords: string) => 
 
 export function MapPage() {
   const p = useShowcasePage("map");
-  const [selectedMarkerId, setSelectedMarkerId] = useState<string | null>("tehran");
+  const [selectedMarkerId, setSelectedMarkerId] = useState<string | null>(
+    "tehran",
+  );
   const deviceIcon = useMemo(() => createDeviceIcon(), []);
   const originIcon = useMemo(() => createOriginIcon(), []);
   const destinationIcon = useMemo(() => createDestinationIcon(), []);
@@ -442,7 +452,7 @@ export function MapPage() {
             selectHint={p("markers.selectHint")}
           />
         </div>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {p("markers.selected")}: {selectedMarkerId ?? "—"}
         </p>
       </ShowcaseSection>
@@ -504,21 +514,24 @@ export function MapPage() {
             <MapPolyline points={ROUTE_POLYLINE} className="stroke-primary" />
             <Markers
               data={[
-                { id: "origin", lat: String(ROUTE_ORIGIN[0]), long: String(ROUTE_ORIGIN[1]) },
+                {
+                  id: "origin",
+                  lat: String(ROUTE_ORIGIN[0]),
+                  long: String(ROUTE_ORIGIN[1]),
+                },
                 {
                   id: "destination",
                   lat: String(ROUTE_DESTINATION[0]),
                   long: String(ROUTE_DESTINATION[1]),
                 },
               ]}
-              icon={(item) => (item.id === "origin" ? originIcon : destinationIcon)}
+              icon={(item) =>
+                item.id === "origin" ? originIcon : destinationIcon
+              }
               cluster={false}
               getItemKey={(item) => item.id}
             />
-            <MapFitBounds
-              bounds={[ROUTE_ORIGIN, ROUTE_DESTINATION]}
-              enabled
-            />
+            <MapFitBounds bounds={[ROUTE_ORIGIN, ROUTE_DESTINATION]} enabled />
           </LeafletMap>
         </MapFrame>
       </ShowcaseSection>

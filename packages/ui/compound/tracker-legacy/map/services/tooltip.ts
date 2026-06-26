@@ -1,20 +1,20 @@
-import { Event } from '../../types'
-import { Translation } from '@/lib'
-import React from 'react'
-import { renderToString } from 'react-dom/server'
-import { TooltipContent } from '../components/tooltip-content'
+import { Event } from "../../types";
+import { Translation } from "@/lib";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { TooltipContent } from "../components/tooltip-content";
 
 /**
  * Tooltip content generation service
  */
 export class TooltipService {
-  private static instance: TooltipService
+  private static instance: TooltipService;
 
   public static getInstance(): TooltipService {
     if (!TooltipService.instance) {
-      TooltipService.instance = new TooltipService()
+      TooltipService.instance = new TooltipService();
     }
-    return TooltipService.instance
+    return TooltipService.instance;
   }
 
   /**
@@ -32,10 +32,10 @@ export class TooltipService {
         events: events,
         t: t,
         locale: locale,
-      })
-    )
+      }),
+    );
 
-    return htmlString
+    return htmlString;
   }
 
   /**
@@ -47,6 +47,6 @@ export class TooltipService {
     t: Translation,
     locale: string,
   ): () => string {
-    return () => this.generateTooltipContent(event, events, t, locale)
+    return () => this.generateTooltipContent(event, events, t, locale);
   }
 }

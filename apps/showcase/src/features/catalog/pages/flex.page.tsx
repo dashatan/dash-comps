@@ -14,14 +14,28 @@ import { ShowcaseSection } from "@/features/catalog/ui/showcase-section";
 import { cn } from "@/lib";
 
 const DIRECTIONS = ["row", "column", "row-reverse", "column-reverse"] as const;
-const JUSTIFY = ["start", "end", "center", "between", "around", "evenly"] as const;
+const JUSTIFY = [
+  "start",
+  "end",
+  "center",
+  "between",
+  "around",
+  "evenly",
+] as const;
 const ALIGNS = ["start", "end", "center", "baseline", "stretch"] as const;
 const WRAPS = ["nowrap", "wrap", "wrap-reverse"] as const;
 const GAPS = ["none", "sm", "md", "lg", "xl"] as const;
 const CARD_VARIANTS = ["default", "elevated", "outlined"] as const;
 const CARD_BASIS = ["auto", "full", "1/2", "1/3", "1/4"] as const;
 const HEADER_ALIGNS = ["left", "center", "right"] as const;
-const PRODUCT_KEYS = ["watch", "headphones", "camera", "sneaker", "chair", "plant"] as const;
+const PRODUCT_KEYS = [
+  "watch",
+  "headphones",
+  "camera",
+  "sneaker",
+  "chair",
+  "plant",
+] as const;
 
 type CardVariant = (typeof CARD_VARIANTS)[number];
 type CardBasis = (typeof CARD_BASIS)[number];
@@ -89,13 +103,7 @@ function FlexImage({
   );
 }
 
-function DemoBox({
-  label,
-  className,
-}: {
-  label: string;
-  className?: string;
-}) {
+function DemoBox({ label, className }: { label: string; className?: string }) {
   return (
     <div
       className={cn(
@@ -125,7 +133,6 @@ function ProductCard({
   shrink?: boolean;
   imageClassName?: string;
 }) {
-
   return (
     <FlexCard variant={variant} basis={basis} grow={grow} shrink={shrink}>
       <FlexHeader
@@ -278,7 +285,11 @@ export function FlexPage() {
         {GAPS.map((gap) => (
           <ShowcaseRow key={gap} label={p(`gap.${gap}`)}>
             <DemoFrame minHeight="min-h-0">
-              <FlexContainer gap={gap} wrap="nowrap" className={{ flex: "p-3" }}>
+              <FlexContainer
+                gap={gap}
+                wrap="nowrap"
+                className={{ flex: "p-3" }}
+              >
                 {(["city", "interior", "coast"] as const).map((key) => (
                   <FlexItem key={key} basis="1/3" shrink={false}>
                     <FlexImage
@@ -365,7 +376,12 @@ export function FlexPage() {
         </ShowcaseRow>
         <ShowcaseRow label={p("cardFlex.shrinkLabel")}>
           <FlexContainer gap="md" wrap="nowrap" className={{ flex: "p-0" }}>
-            <ProductCard p={p} productKey="sneaker" basis="1/3" shrink={false} />
+            <ProductCard
+              p={p}
+              productKey="sneaker"
+              basis="1/3"
+              shrink={false}
+            />
             <ProductCard p={p} productKey="chair" basis="1/3" shrink={false} />
             <ProductCard p={p} productKey="plant" basis="1/3" shrink={false} />
           </FlexContainer>
@@ -514,7 +530,8 @@ export function FlexPage() {
           gap="md"
           aria-label={p("customization.ariaLabel")}
           className={{
-            container: "rounded-2xl border-2 border-dashed border-primary/40 bg-primary/5",
+            container:
+              "rounded-2xl border-2 border-dashed border-primary/40 bg-primary/5",
             flex: "bg-card/80 p-6",
           }}
         >
@@ -526,7 +543,9 @@ export function FlexPage() {
             />
           </FlexItem>
           <FlexItem basis="1/2" className="flex flex-col justify-center gap-3">
-            <h4 className="text-lg font-semibold">{p("customization.titleText")}</h4>
+            <h4 className="text-lg font-semibold">
+              {p("customization.titleText")}
+            </h4>
             <p className="text-sm text-muted-foreground">
               {p("customization.body")}
             </p>

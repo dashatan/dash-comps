@@ -15,7 +15,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Export utility functions
-export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 
 export const formatDate = (
   date: Date,
@@ -104,7 +105,9 @@ export function filterMenusByText<T extends { children?: T[] }>(
 
 export function getHexColor(varName: string) {
   if (typeof window === "undefined") return "";
-  let value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  let value = getComputedStyle(document.documentElement)
+    .getPropertyValue(varName)
+    .trim();
   // Try to convert oklch or other modern CSS color to hex if needed
   if (
     value.startsWith("oklch") ||
@@ -127,7 +130,9 @@ export const getStoreEnv = (): Env => {
 
 export function getMapTileUrl(theme?: string) {
   const { MAP_TILE_LIGHT, MAP_TILE_DARK } = getStoreEnv();
-  return theme === "dark" && !!MAP_TILE_DARK ? MAP_TILE_DARK : (MAP_TILE_LIGHT ?? "");
+  return theme === "dark" && !!MAP_TILE_DARK
+    ? MAP_TILE_DARK
+    : (MAP_TILE_LIGHT ?? "");
 }
 
 export const deviceType = (): "desktop" | "laptop" | "mobile" => {
@@ -175,7 +180,9 @@ export type LocationValue = {
 
 export function isFilledLocation(location?: LocationValue) {
   if (!location) return false;
-  const isFilled = Object.values(location).some((value) => value && value.length > 0);
+  const isFilled = Object.values(location).some(
+    (value) => value && value.length > 0,
+  );
   return isFilled;
 }
 

@@ -1,31 +1,38 @@
-import mapLibreGl from 'maplibre-gl'
-import { MAP_STYLES, LAYER_IDS, SOURCE_IDS, MAP_CONFIG, ANIMATION_CONFIG, MOBILE_MAP_PADDING } from '../config/constants'
-import { getMapFitPadding } from '../../map-fit-padding'
-import { useTrackerStore } from '../../store'
-import { Coordinate, DrawingContext } from '../types'
-import { getValidEvents, coordinateToLngLat } from '../../utils'
-import { MarkerManager } from './marker'
-import { TooltipService } from './tooltip'
-import { deviceType, getHexColor, type Translation } from '@/lib'
+import mapLibreGl from "maplibre-gl";
+import {
+  MAP_STYLES,
+  LAYER_IDS,
+  SOURCE_IDS,
+  MAP_CONFIG,
+  ANIMATION_CONFIG,
+  MOBILE_MAP_PADDING,
+} from "../config/constants";
+import { getMapFitPadding } from "../../map-fit-padding";
+import { useTrackerStore } from "../../store";
+import { Coordinate, DrawingContext } from "../types";
+import { getValidEvents, coordinateToLngLat } from "../../utils";
+import { MarkerManager } from "./marker";
+import { TooltipService } from "./tooltip";
+import { deviceType, getHexColor, type Translation } from "@/lib";
 
 /**
  * Route drawing and map visualization service
  */
 export class RouteDrawer {
-  private static instance: RouteDrawer
-  private markerManager: MarkerManager
-  private tooltipService: TooltipService
+  private static instance: RouteDrawer;
+  private markerManager: MarkerManager;
+  private tooltipService: TooltipService;
 
   public static getInstance(): RouteDrawer {
     if (!RouteDrawer.instance) {
-      RouteDrawer.instance = new RouteDrawer()
+      RouteDrawer.instance = new RouteDrawer();
     }
-    return RouteDrawer.instance
+    return RouteDrawer.instance;
   }
 
   constructor() {
-    this.markerManager = MarkerManager.getInstance()
-    this.tooltipService = TooltipService.getInstance()
+    this.markerManager = MarkerManager.getInstance();
+    this.tooltipService = TooltipService.getInstance();
   }
 
   /**
@@ -38,35 +45,40 @@ export class RouteDrawer {
     getTranslation: () => Translation,
     locale: string,
     autoPaneMap: boolean,
-    force?: boolean
+    force?: boolean,
   ): void {
-    const { map, events, routeCoords, activeEventIndex } = context
+    const { map, events, routeCoords, activeEventIndex } = context;
 
-    if (!map || !events?.length) return
-    if (!force && !map.isStyleLoaded()) return
+    if (!map || !events?.length) return;
+    if (!force && !map.isStyleLoaded()) return;
 
     // Clean up existing layers and markers
-    this.cleanupExistingLayers(map)
-    this.markerManager.removeMarkers(markerRefs.current)
+    this.cleanupExistingLayers(map);
+    this.markerManager.removeMarkers(markerRefs.current);
 
-    if (!routeCoords || routeCoords.length <= 1) return
+    if (!routeCoords || routeCoords.length <= 1) return;
 
     // Draw route
-    this.drawRoute(map, routeCoords)
+    this.drawRoute(map, routeCoords);
 
     // Create and add markers
-    const validEvents = getValidEvents(events)
-    const t = getTranslation()
+    const validEvents = getValidEvents(events);
+    const t = getTranslation();
 
-    const markers = this.markerManager.createMarkersForEvents(map, validEvents, activeEventIndex, onEventClick, (event) =>
-      this.tooltipService.generateTooltipContent(event, events, t, locale)
-    )
+    const markers = this.markerManager.createMarkersForEvents(
+      map,
+      validEvents,
+      activeEventIndex,
+      onEventClick,
+      (event) =>
+        this.tooltipService.generateTooltipContent(event, events, t, locale),
+    );
 
-    ;(markerRefs as { current: mapLibreGl.Marker[] }).current = markers
+    (markerRefs as { current: mapLibreGl.Marker[] }).current = markers;
 
     // Adjust map view
     if (autoPaneMap) {
-      this.adjustMapView(map, routeCoords)
+      this.adjustMapView(map, routeCoords);
     }
   }
 
@@ -80,61 +92,62 @@ export class RouteDrawer {
     getTranslation: () => Translation,
     locale: string,
   ): void {
-    const { map, events, activeEventIndex } = context
+    const { map, events, activeEventIndex } = context;
 
-    if (!map || !events?.length || !map.isStyleLoaded()) return
+    if (!map || !events?.length || !map.isStyleLoaded()) return;
 
-    this.markerManager.removeMarkers(markerRefs.current)
+    this.markerManager.removeMarkers(markerRefs.current);
 
-    const validEvents = getValidEvents(events)
-    const t = getTranslation()
+    const validEvents = getValidEvents(events);
+    const t = getTranslation();
     const markers = this.markerManager.createMarkersForEvents(
       map,
       validEvents,
       activeEventIndex,
       onEventClick,
-      (event) => this.tooltipService.generateTooltipContent(event, events, t, locale),
-    )
+      (event) =>
+        this.tooltipService.generateTooltipContent(event, events, t, locale),
+    );
 
-    ;(markerRefs as { current: mapLibreGl.Marker[] }).current = markers
+    (markerRefs as { current: mapLibreGl.Marker[] }).current = markers;
   }
 
   /**
    * Draw route line on the map
    */
   private drawRoute(map: mapLibreGl.Map, routeCoords: Coordinate[]): void {
-    const routeColor = getHexColor(MAP_STYLES.ROUTE_BASE_COLOR_VAR)
-    const coordinates = routeCoords.map(coordinateToLngLat)
+    const routeColor = getHexColor(MAP_STYLES.ROUTE_BASE_COLOR_VAR);
+    const coordinates = routeCoords.map(coordinateToLngLat);
 
     // Add route source
     map.addSource(SOURCE_IDS.ROUTE, {
-      type: 'geojson',
+      type: "geojson",
       data: {
-        type: 'Feature',
+        type: "Feature",
         geometry: {
-          type: 'LineString',
+          type: "LineString",
           coordinates,
         },
         properties: {},
       },
-    })
+    });
 
     // Find the first symbol layer to insert route below it
-    const firstSymbolLayerId = this.getFirstSymbolLayerId(map)
+    const firstSymbolLayerId = this.getFirstSymbolLayerId(map);
 
     // Add route layer
     map.addLayer(
       {
         id: LAYER_IDS.ROUTE,
-        type: 'line',
+        type: "line",
         source: SOURCE_IDS.ROUTE,
         paint: {
-          'line-color': routeColor,
-          'line-width': MAP_STYLES.LINE_WIDTH,
+          "line-color": routeColor,
+          "line-width": MAP_STYLES.LINE_WIDTH,
         },
       },
-      firstSymbolLayerId
-    )
+      firstSymbolLayerId,
+    );
 
     // Add passed-route source/layer (updated during playback animation)
     map.addSource(SOURCE_IDS.PASSED_ROUTE, {
@@ -144,29 +157,35 @@ export class RouteDrawer {
         geometry: { type: "LineString", coordinates: [] },
         properties: {},
       },
-    })
-    this.addPassedRouteLayer(map, firstSymbolLayerId)
+    });
+    this.addPassedRouteLayer(map, firstSymbolLayerId);
   }
 
   /**
    * Add passed route layer if source exists
    */
-  private addPassedRouteLayer(map: mapLibreGl.Map, firstSymbolLayerId?: string): void {
-    if (map.getSource(SOURCE_IDS.PASSED_ROUTE) && !map.getLayer(LAYER_IDS.PASSED_ROUTE)) {
-      const passedRouteColor = getHexColor(MAP_STYLES.ROUTE_PASSED_COLOR_VAR)
+  private addPassedRouteLayer(
+    map: mapLibreGl.Map,
+    firstSymbolLayerId?: string,
+  ): void {
+    if (
+      map.getSource(SOURCE_IDS.PASSED_ROUTE) &&
+      !map.getLayer(LAYER_IDS.PASSED_ROUTE)
+    ) {
+      const passedRouteColor = getHexColor(MAP_STYLES.ROUTE_PASSED_COLOR_VAR);
 
       map.addLayer(
         {
           id: LAYER_IDS.PASSED_ROUTE,
-          type: 'line',
+          type: "line",
           source: SOURCE_IDS.PASSED_ROUTE,
           paint: {
-            'line-color': passedRouteColor,
-            'line-width': MAP_STYLES.PASSED_LINE_WIDTH,
+            "line-color": passedRouteColor,
+            "line-width": MAP_STYLES.PASSED_LINE_WIDTH,
           },
         },
-        firstSymbolLayerId
-      )
+        firstSymbolLayerId,
+      );
     }
   }
 
@@ -176,18 +195,18 @@ export class RouteDrawer {
   private cleanupExistingLayers(map: mapLibreGl.Map): void {
     // Remove route layer and source
     if (map.getLayer(LAYER_IDS.ROUTE)) {
-      map.removeLayer(LAYER_IDS.ROUTE)
+      map.removeLayer(LAYER_IDS.ROUTE);
     }
     if (map.getSource(SOURCE_IDS.ROUTE)) {
-      map.removeSource(SOURCE_IDS.ROUTE)
+      map.removeSource(SOURCE_IDS.ROUTE);
     }
 
     // Remove passed-route layer and source
     if (map.getLayer(LAYER_IDS.PASSED_ROUTE)) {
-      map.removeLayer(LAYER_IDS.PASSED_ROUTE)
+      map.removeLayer(LAYER_IDS.PASSED_ROUTE);
     }
     if (map.getSource(SOURCE_IDS.PASSED_ROUTE)) {
-      map.removeSource(SOURCE_IDS.PASSED_ROUTE)
+      map.removeSource(SOURCE_IDS.PASSED_ROUTE);
     }
   }
 
@@ -195,94 +214,102 @@ export class RouteDrawer {
    * Get the ID of the first symbol layer
    */
   private getFirstSymbolLayerId(map: mapLibreGl.Map): string | undefined {
-    const layers = map.getStyle().layers
+    const layers = map.getStyle().layers;
     if (layers && layers.length > 0) {
-      const symbolLayer = layers.find((layer) => layer.type === 'symbol')
-      return symbolLayer?.id
+      const symbolLayer = layers.find((layer) => layer.type === "symbol");
+      return symbolLayer?.id;
     }
-    return undefined
+    return undefined;
   }
 
   /**
    * Adjust map view to fit the route
    */
   public fitRouteToView(map: mapLibreGl.Map, routeCoords: Coordinate[]): void {
-    this.adjustMapView(map, routeCoords)
+    this.adjustMapView(map, routeCoords);
   }
 
   /**
    * Adjust map view to fit the route
    */
   private adjustMapView(map: mapLibreGl.Map, routeCoords: Coordinate[]): void {
-    const isMobile = deviceType() === 'mobile'
-    const overlayInsets = useTrackerStore.getState().mapOverlayInsets
+    const isMobile = deviceType() === "mobile";
+    const overlayInsets = useTrackerStore.getState().mapOverlayInsets;
     const padding = isMobile
       ? MOBILE_MAP_PADDING
-      : getMapFitPadding(overlayInsets)
+      : getMapFitPadding(overlayInsets);
 
     setTimeout(() => {
       if (routeCoords.length === 1) {
-        const [lat, lng] = routeCoords[0]
-        map.setCenter([lng, lat])
-        map.setZoom(MAP_CONFIG.DETAIL_ZOOM)
+        const [lat, lng] = routeCoords[0];
+        map.setCenter([lng, lat]);
+        map.setZoom(MAP_CONFIG.DETAIL_ZOOM);
       } else if (routeCoords.length > 1) {
-        const bounds = this.calculateRouteBounds(routeCoords)
+        const bounds = this.calculateRouteBounds(routeCoords);
         map.fitBounds(bounds, {
           padding,
           maxZoom: MAP_CONFIG.MAX_ZOOM,
           animate: true,
-        })
+        });
       }
-    }, ANIMATION_CONFIG.AUTO_PANE_TIMEOUT)
+    }, ANIMATION_CONFIG.AUTO_PANE_TIMEOUT);
   }
 
   /**
    * Calculate bounds for the route
    */
-  private calculateRouteBounds(routeCoords: Coordinate[]): mapLibreGl.LngLatBounds {
-    const firstPoint = routeCoords[0]
+  private calculateRouteBounds(
+    routeCoords: Coordinate[],
+  ): mapLibreGl.LngLatBounds {
+    const firstPoint = routeCoords[0];
     const bounds = new mapLibreGl.LngLatBounds(
       [firstPoint[1], firstPoint[0]], // [lng, lat]
-      [firstPoint[1], firstPoint[0]] // [lng, lat]
-    )
+      [firstPoint[1], firstPoint[0]], // [lng, lat]
+    );
 
     routeCoords.forEach(([lat, lng]) => {
-      bounds.extend([lng, lat])
-    })
+      bounds.extend([lng, lat]);
+    });
 
-    return bounds
+    return bounds;
   }
 
   /**
    * Update passed route visualization
    */
-  public updatePassedRoute(map: mapLibreGl.Map, routeCoords: Coordinate[], passedCoords: Coordinate[]): void {
-    if (!map.isStyleLoaded()) return
+  public updatePassedRoute(
+    map: mapLibreGl.Map,
+    routeCoords: Coordinate[],
+    passedCoords: Coordinate[],
+  ): void {
+    if (!map.isStyleLoaded()) return;
 
-    const passedRouteColor = getHexColor(MAP_STYLES.ROUTE_PASSED_COLOR_VAR)
-    const coordinates = passedCoords.map(coordinateToLngLat)
+    const passedRouteColor = getHexColor(MAP_STYLES.ROUTE_PASSED_COLOR_VAR);
+    const coordinates = passedCoords.map(coordinateToLngLat);
 
     const geojson = {
-      type: 'Feature' as const,
+      type: "Feature" as const,
       geometry: {
-        type: 'LineString' as const,
+        type: "LineString" as const,
         coordinates,
       },
       properties: {},
-    }
+    };
 
     if (map.getSource(SOURCE_IDS.PASSED_ROUTE)) {
       // Update existing source
-      ;(map.getSource(SOURCE_IDS.PASSED_ROUTE) as mapLibreGl.GeoJSONSource).setData(geojson)
+      (
+        map.getSource(SOURCE_IDS.PASSED_ROUTE) as mapLibreGl.GeoJSONSource
+      ).setData(geojson);
     } else {
       // Add new source and layer
       map.addSource(SOURCE_IDS.PASSED_ROUTE, {
-        type: 'geojson',
+        type: "geojson",
         data: geojson,
-      })
+      });
 
-      const firstSymbolLayerId = this.getFirstSymbolLayerId(map)
-      this.addPassedRouteLayer(map, firstSymbolLayerId)
+      const firstSymbolLayerId = this.getFirstSymbolLayerId(map);
+      this.addPassedRouteLayer(map, firstSymbolLayerId);
     }
   }
 }

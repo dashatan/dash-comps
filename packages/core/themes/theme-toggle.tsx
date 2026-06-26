@@ -41,9 +41,11 @@ export function ThemeToggle() {
           });
 
           // Apply new theme colors
-          themeColors.forEach(({ name, value }: { name: string; value: string }) => {
-            document.documentElement.style.setProperty(name, value);
-          });
+          themeColors.forEach(
+            ({ name, value }: { name: string; value: string }) => {
+              document.documentElement.style.setProperty(name, value);
+            },
+          );
         }
       } catch (error) {
         console.warn("Failed to parse theme-colors:", error);
@@ -55,7 +57,7 @@ export function ThemeToggle() {
     <Button
       variant="text"
       size={32}
-      className="hover:text-primary rounded-full transition-colors"
+      className="rounded-full transition-colors hover:text-primary"
       onClick={handleThemeChange}
       aria-label={t("common.toggleTheme")}
     >

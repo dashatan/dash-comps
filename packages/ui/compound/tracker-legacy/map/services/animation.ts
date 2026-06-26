@@ -1,5 +1,9 @@
 import mapLibreGl from "maplibre-gl";
-import type { Coordinate, ArrowAnimationParams, AnimationParams } from "../types";
+import type {
+  Coordinate,
+  ArrowAnimationParams,
+  AnimationParams,
+} from "../types";
 import { RouteDrawer } from "./route";
 import { MarkerManager } from "./marker";
 import { calculateBearing, interpolate } from "../../utils";
@@ -42,7 +46,10 @@ export class AnimationService {
       const t = Math.min((time - start) / duration, 1);
       const interpolatedIndex = interpolate(fromRouteIndex, toRouteIndex, t);
 
-      const passedCoords = this.calculatePassedCoords(routeCoords, interpolatedIndex);
+      const passedCoords = this.calculatePassedCoords(
+        routeCoords,
+        interpolatedIndex,
+      );
       this.routeDrawer.updatePassedRoute(map, routeCoords, passedCoords);
 
       if (t < 1) {
@@ -148,11 +155,17 @@ export class AnimationService {
     if (upperIndex !== lowerIndex) {
       lat += (routeCoords[upperIndex][0] - routeCoords[lowerIndex][0]) * frac;
       lng += (routeCoords[upperIndex][1] - routeCoords[lowerIndex][1]) * frac;
-      angle = calculateBearing(routeCoords[lowerIndex], routeCoords[upperIndex]);
+      angle = calculateBearing(
+        routeCoords[lowerIndex],
+        routeCoords[upperIndex],
+      );
     } else {
       const nextPointIndex = Math.min(lowerIndex + 1, routeCoords.length - 1);
       if (nextPointIndex > lowerIndex) {
-        angle = calculateBearing(routeCoords[lowerIndex], routeCoords[nextPointIndex]);
+        angle = calculateBearing(
+          routeCoords[lowerIndex],
+          routeCoords[nextPointIndex],
+        );
       }
     }
 

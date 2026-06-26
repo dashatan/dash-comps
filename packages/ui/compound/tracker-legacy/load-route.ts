@@ -1,6 +1,9 @@
 import { getStoreEnv } from "@/lib";
 import type { Event } from "@/components/compound/tracker-legacy/types";
-import { chunkArray, makeOsrmCoordString } from "@/components/compound/tracker-legacy/utils";
+import {
+  chunkArray,
+  makeOsrmCoordString,
+} from "@/components/compound/tracker-legacy/utils";
 
 const DEFAULT_OSRM_URL = "https://router.project-osrm.org";
 

@@ -13,10 +13,11 @@ const corePkg = path.join(root, "packages/core").replace(/\\/g, "/");
 const stubsPkg = path.join(root, "packages/stubs").replace(/\\/g, "/");
 
 /** Rollup alias `find` without trailing slash also matches `@/lib/...` subpaths. */
-const coreAlias = (prefix: string) => [
-  { find: `${prefix}/`, replacement: `${corePkg}/` },
-  { find: prefix, replacement: `${corePkg}/index.ts` },
-] as const;
+const coreAlias = (prefix: string) =>
+  [
+    { find: `${prefix}/`, replacement: `${corePkg}/` },
+    { find: prefix, replacement: `${corePkg}/index.ts` },
+  ] as const;
 
 export default defineConfig({
   plugins: [tanstackRouter({ target: "react" }), react(), tailwindcss()],
@@ -24,9 +25,18 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
     alias: [
       { find: "next/link", replacement: path.join(stubsPkg, "next/link.tsx") },
-      { find: "next/navigation", replacement: path.join(stubsPkg, "next/navigation.ts") },
-      { find: "next/image", replacement: path.join(stubsPkg, "next/image.tsx") },
-      { find: "next/dynamic", replacement: path.join(stubsPkg, "next/dynamic.tsx") },
+      {
+        find: "next/navigation",
+        replacement: path.join(stubsPkg, "next/navigation.ts"),
+      },
+      {
+        find: "next/image",
+        replacement: path.join(stubsPkg, "next/image.tsx"),
+      },
+      {
+        find: "next/dynamic",
+        replacement: path.join(stubsPkg, "next/dynamic.tsx"),
+      },
       {
         find: "@/features/dashboard/utils/menu-items",
         replacement: path.join(stubsPkg, "features/dashboard/menu-items.ts"),
@@ -43,7 +53,10 @@ export default defineConfig({
       { find: "@dash/ui", replacement: path.join(root, "packages/ui") },
       { find: "@dash/styles", replacement: path.join(root, "packages/styles") },
       { find: "@dash/stubs", replacement: stubsPkg },
-      { find: "@dash/features", replacement: path.join(root, "packages/core/features") },
+      {
+        find: "@dash/features",
+        replacement: path.join(root, "packages/core/features"),
+      },
       { find: "@", replacement: appSrc },
     ],
   },

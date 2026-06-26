@@ -7,10 +7,16 @@ interface ScrollTabItemProps {
   label: string;
 }
 
-export default function ScrollTabItem({ isActive, label, onClick }: ScrollTabItemProps) {
+export default function ScrollTabItem({
+  isActive,
+  label,
+  onClick,
+}: ScrollTabItemProps) {
   return (
     <Button
-      className={cn("text-md w-full bg-[#1a1a1a] text-white focus-visible:ring-0")}
+      className={cn(
+        "w-full bg-[#1a1a1a] text-md text-white focus-visible:ring-0",
+      )}
       variant={isActive ? "outlined" : "contained"}
       size={"xl"}
       severity="info"

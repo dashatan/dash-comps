@@ -108,8 +108,8 @@ function ProductPreviewContent({
           {category}
         </p>
         <p className="text-sm font-semibold">{title}</p>
-        <p className="text-primary text-sm font-medium">{price}</p>
-        <p className="text-muted-foreground text-xs leading-relaxed">
+        <p className="text-sm font-medium text-primary">{price}</p>
+        <p className="text-xs leading-relaxed text-muted-foreground">
           {description}
         </p>
       </div>
@@ -147,12 +147,12 @@ function ProfilePreviewContent({
         />
         <div className="min-w-0 flex-1 space-y-0.5">
           <p className="text-sm font-semibold">{name}</p>
-          <p className="text-muted-foreground text-xs">@{handle}</p>
-          <p className="text-muted-foreground text-xs">{role}</p>
+          <p className="text-xs text-muted-foreground">@{handle}</p>
+          <p className="text-xs text-muted-foreground">{role}</p>
         </div>
       </div>
-      <p className="text-muted-foreground text-xs leading-relaxed">{bio}</p>
-      <div className="text-muted-foreground flex flex-col gap-1.5 text-xs">
+      <p className="text-xs leading-relaxed text-muted-foreground">{bio}</p>
+      <div className="flex flex-col gap-1.5 text-xs text-muted-foreground">
         <span className="flex items-center gap-1.5">
           <MapPin className="size-3.5 shrink-0" aria-hidden />
           {location}
@@ -181,7 +181,7 @@ export function HoverCardPage() {
           </HoverCardTrigger>
           <HoverCardContent className={CONTENT_WIDTH_CLASS}>
             <p className="text-sm font-semibold">{p("basic.cardTitle")}</p>
-            <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
               {p("basic.cardDescription")}
             </p>
           </HoverCardContent>
@@ -209,7 +209,7 @@ export function HoverCardPage() {
             <p className="mt-3 text-sm font-semibold">
               {p("imageTrigger.titleText")}
             </p>
-            <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
               {p("imageTrigger.caption")}
             </p>
           </HoverCardContent>
@@ -248,7 +248,7 @@ export function HoverCardPage() {
             <button
               type="button"
               className={cn(
-                "text-primary inline-flex items-center gap-1 text-sm font-medium underline-offset-4",
+                "inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4",
                 "hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
               )}
             >
@@ -401,8 +401,10 @@ export function HoverCardPage() {
               className="aspect-2/1 w-full object-cover"
             />
             <div className="space-y-2 p-4">
-              <p className="text-sm font-semibold">{p("richContent.titleText")}</p>
-              <p className="text-muted-foreground text-xs leading-relaxed">
+              <p className="text-sm font-semibold">
+                {p("richContent.titleText")}
+              </p>
+              <p className="text-xs leading-relaxed text-muted-foreground">
                 {p("richContent.body")}
               </p>
               <div className="flex gap-2 pt-1">

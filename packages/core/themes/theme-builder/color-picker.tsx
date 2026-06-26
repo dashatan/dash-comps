@@ -1,11 +1,8 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { ColorVar } from './types';
-import {
-  hslToColorValue,
-  colorValueToHsl,
-} from './color-utils';
+import * as React from "react";
+import { ColorVar } from "./types";
+import { hslToColorValue, colorValueToHsl } from "./color-utils";
 
 interface ColorPickerProps {
   color: ColorVar;
@@ -35,7 +32,7 @@ export function ColorPicker({ color, onChange }: ColorPickerProps) {
           {color.label}
         </label>
         <div
-          className="w-6 h-6 rounded-full border border-border"
+          className="h-6 w-6 rounded-full border border-border"
           style={{ backgroundColor: hslToColorValue(color.value) }}
         />
       </div>
@@ -45,7 +42,7 @@ export function ColorPicker({ color, onChange }: ColorPickerProps) {
         <input
           type="color"
           id={color.name}
-          className="w-full h-8 cursor-pointer"
+          className="h-8 w-full cursor-pointer"
           value={hslToColorValue(color.value)}
           onChange={handleColorInputChange}
         />
@@ -53,7 +50,7 @@ export function ColorPicker({ color, onChange }: ColorPickerProps) {
         {/* HSL value input */}
         <input
           type="text"
-          className="w-full h-8 px-2 text-xs bg-background border border-border rounded"
+          className="h-8 w-full rounded border border-border bg-background px-2 text-xs"
           value={color.value}
           onChange={handleHslInputChange}
         />

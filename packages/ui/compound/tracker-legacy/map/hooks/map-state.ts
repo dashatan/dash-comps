@@ -37,7 +37,8 @@ export const useMapState = (): MapRefs & MapState => {
       const map = mapRef.current;
 
       const handleStyleData = () => setIsStyleLoaded(true);
-      const handleStyleLoad = () => setIsStyleLoaded(map.isStyleLoaded() || false);
+      const handleStyleLoad = () =>
+        setIsStyleLoaded(map.isStyleLoaded() || false);
 
       map.on("styledata", handleStyleData);
       map.on("load", handleStyleLoad);

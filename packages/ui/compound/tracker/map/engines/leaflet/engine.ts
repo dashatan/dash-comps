@@ -1,8 +1,15 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import type { MapEngine, MapEngineHandle } from "@/components/compound/tracker/map/types";
+import type {
+  MapEngine,
+  MapEngineHandle,
+} from "@/components/compound/tracker/map/types";
 import { calcAngle } from "@/components/compound/tracker/utils/bearing";
-import { colors, getColor, type ColorType } from "@/components/common/badge/color";
+import {
+  colors,
+  getColor,
+  type ColorType,
+} from "@/components/common/badge/color";
 
 const TRACK_COLORS = colors;
 
@@ -82,7 +89,11 @@ export function createLeafletEngine(): MapEngine {
       clearLayers();
       if (ctx.routeMode === "none") return;
 
-      const drawTrack = (coords: [number, number][], trackIndex: number, events: typeof ctx.events) => {
+      const drawTrack = (
+        coords: [number, number][],
+        trackIndex: number,
+        events: typeof ctx.events,
+      ) => {
         const color = getColor(TRACK_COLORS[trackIndex % TRACK_COLORS.length]);
         if (coords.length > 1) {
           L.polyline(coords, {
@@ -106,7 +117,12 @@ export function createLeafletEngine(): MapEngine {
         }
         const last = events[events.length - 1];
         if (last) {
-          const angle = last.angle ?? calcAngle(coords[coords.length - 2] ?? coords[0], coords[coords.length - 1]);
+          const angle =
+            last.angle ??
+            calcAngle(
+              coords[coords.length - 2] ?? coords[0],
+              coords[coords.length - 1],
+            );
           const icon = L.divIcon({
             className: "",
             iconSize: [16, 16],
@@ -119,7 +135,9 @@ export function createLeafletEngine(): MapEngine {
       if (ctx.perTrack && ctx.tracksWithEvents.length) {
         ctx.tracksWithEvents.forEach((track, i) => {
           const currentTime = ctx.events[ctx.activeEventIndex]?.time;
-          const visible = track.events.filter((e) => !currentTime || e.time <= currentTime).slice(-ctx.traceLength);
+          const visible = track.events
+            .filter((e) => !currentTime || e.time <= currentTime)
+            .slice(-ctx.traceLength);
           if (!visible.length) return;
           drawTrack(
             visible.map((e) => e.latlng),
@@ -128,7 +146,11 @@ export function createLeafletEngine(): MapEngine {
           );
         });
       } else if (ctx.routeCoords.length) {
-        drawTrack(ctx.routeCoords, 0, ctx.events.slice(0, ctx.activeEventIndex + 1));
+        drawTrack(
+          ctx.routeCoords,
+          0,
+          ctx.events.slice(0, ctx.activeEventIndex + 1),
+        );
       }
     },
     drawMarkers(ctx) {
@@ -138,7 +160,9 @@ export function createLeafletEngine(): MapEngine {
         L.circleMarker(event.latlng, {
           radius: isActive ? 8 : 5,
           weight: 2,
-          className: isActive ? "fill-primary stroke-primary" : "fill-blue-400 stroke-blue-600",
+          className: isActive
+            ? "fill-primary stroke-primary"
+            : "fill-blue-400 stroke-blue-600",
         })
           .on("click", () => ctx.onEventClick?.(index))
           .addTo(layerGroup!);
@@ -164,8 +188,14 @@ export function createLeafletEngine(): MapEngine {
       if (!map || !points.length) return;
       const bounds = L.latLngBounds(points.map(([lat, lng]) => [lat, lng]));
       map.fitBounds(bounds, {
-        paddingTopLeft: [options?.padding?.left ?? 300, options?.padding?.top ?? 40],
-        paddingBottomRight: [options?.padding?.right ?? 40, options?.padding?.bottom ?? 40],
+        paddingTopLeft: [
+          options?.padding?.left ?? 300,
+          options?.padding?.top ?? 40,
+        ],
+        paddingBottomRight: [
+          options?.padding?.right ?? 40,
+          options?.padding?.bottom ?? 40,
+        ],
         maxZoom: options?.maxZoom ?? 18,
         animate: options?.animate ?? true,
       });

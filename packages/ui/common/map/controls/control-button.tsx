@@ -23,7 +23,7 @@ export default function MapControlButton({
         <div
           {...props}
           className={cn(
-            "bg-card hover:bg-card-hover text-card-foreground flex aspect-square w-full cursor-pointer items-center justify-center transition-all",
+            "flex aspect-square w-full cursor-pointer items-center justify-center bg-card text-card-foreground transition-all hover:bg-card-hover",
             { "cursor-not-allowed opacity-60": disabled },
             props.className,
           )}
@@ -31,7 +31,7 @@ export default function MapControlButton({
       </HoverCardTrigger>
       <HoverCardContent
         side="right"
-        className="bg-popover text-popover-foreground flex w-auto min-w-10 justify-center gap-2 p-2 text-sm font-bold"
+        className="flex w-auto min-w-10 justify-center gap-2 bg-popover p-2 text-sm font-bold text-popover-foreground"
       >
         <span>{tooltip ?? ""}</span>
       </HoverCardContent>

@@ -7,7 +7,11 @@ import { makeTimes } from "@/components/compound/tracker/data/remap";
 import type { EmphasizesPanelConfig } from "@/components/compound/tracker/types/input";
 import type { Emphasize } from "@/components/compound/tracker/types/input";
 
-export default function EmphasizesPanel({ config }: { config?: EmphasizesPanelConfig | true }) {
+export default function EmphasizesPanel({
+  config,
+}: {
+  config?: EmphasizesPanelConfig | true;
+}) {
   const emphasizes = useTrackerStore((s) => s.emphasizes);
   const events = useTrackerStore((s) => s.events);
   const totalTimes = useTrackerStore((s) => s.totalTimes);
@@ -22,7 +26,9 @@ export default function EmphasizesPanel({ config }: { config?: EmphasizesPanelCo
   if (!emphasizes.length) return null;
 
   function handleClick(item: Emphasize) {
-    const eventIndex = events.findIndex((x) => x.time >= item.startTime && x.time < item.endTime);
+    const eventIndex = events.findIndex(
+      (x) => x.time >= item.startTime && x.time < item.endTime,
+    );
     const event = events[eventIndex];
     if (!event) return;
     const dayIndex = findTotalTimeIndex(totalTimes, event.time);
@@ -31,42 +37,63 @@ export default function EmphasizesPanel({ config }: { config?: EmphasizesPanelCo
     const newMinutes = makeTimes([totalTimes[dayIndex], dayEnd]);
     setMinutes(newMinutes);
     setTotalTimeIndex(dayIndex);
-    setTimeIndex(Math.max(0, newMinutes.findIndex((t) => t === event.time)));
+    setTimeIndex(
+      Math.max(
+        0,
+        newMinutes.findIndex((t) => t === event.time),
+      ),
+    );
     setActiveEventIndex(eventIndex);
   }
 
   return (
-    <div className="bg-background dir-rtl flex w-80 flex-col rounded-md border p-2 text-sm">
+    <div className="flex w-80 flex-col rounded-md border bg-background p-2 text-sm dir-rtl">
       <div className="flex items-center justify-between">
         <div>
-          <div className="font-semibold">{panelConfig?.title ?? "Emphasizes"}</div>
+          <div className="font-semibold">
+            {panelConfig?.title ?? "Emphasizes"}
+          </div>
           {panelConfig?.subtitle && (
-            <div className="text-muted-foreground text-xs">{panelConfig.subtitle}</div>
+            <div className="text-xs text-muted-foreground">
+              {panelConfig.subtitle}
+            </div>
           )}
         </div>
-        <button type="button" className="text-xs" onClick={() => setOpen(!open)}>
+        <button
+          type="button"
+          className="text-xs"
+          onClick={() => setOpen(!open)}
+        >
           {open ? "Hide" : "Show"}
         </button>
       </div>
       {open && (
         <div className="mt-2 max-h-60 overflow-y-auto">
-          {panelConfig?.listTitle && <div className="mb-2 font-semibold">{panelConfig.listTitle}</div>}
+          {panelConfig?.listTitle && (
+            <div className="mb-2 font-semibold">{panelConfig.listTitle}</div>
+          )}
           {emphasizes.map((item, index) => (
             <button
               key={index}
               type="button"
-              className="hover:bg-muted mb-1 flex w-full gap-2 rounded-md p-2 text-start"
+              className="mb-1 flex w-full gap-2 rounded-md p-2 text-start hover:bg-muted"
               onClick={() => handleClick(item)}
             >
-              <span className="bg-muted flex size-8 items-center justify-center rounded-md border text-xs">
+              <span className="flex size-8 items-center justify-center rounded-md border bg-muted text-xs">
                 {index + 1}
               </span>
               <span className="flex flex-col text-xs">
                 <span>{item.title ?? item.latLng.join(", ")}</span>
                 <span className="text-muted-foreground dir-ltr">
-                  {Intl.DateTimeFormat(PERSIAN_LOCALE, { dateStyle: "short", timeStyle: "short" }).format(item.startTime)}
+                  {Intl.DateTimeFormat(PERSIAN_LOCALE, {
+                    dateStyle: "short",
+                    timeStyle: "short",
+                  }).format(item.startTime)}
                   {" – "}
-                  {Intl.DateTimeFormat(PERSIAN_LOCALE, { dateStyle: "short", timeStyle: "short" }).format(item.endTime)}
+                  {Intl.DateTimeFormat(PERSIAN_LOCALE, {
+                    dateStyle: "short",
+                    timeStyle: "short",
+                  }).format(item.endTime)}
                 </span>
               </span>
             </button>

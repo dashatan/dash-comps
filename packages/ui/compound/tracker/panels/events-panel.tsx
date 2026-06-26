@@ -15,7 +15,12 @@ import { isWithinIran } from "@/components/compound/tracker/utils/geo";
 import EventCard from "@/components/compound/tracker/panels/event-card";
 import type { TrackerSlots } from "@/components/compound/tracker/types";
 import type { NormalizedEvent } from "@/components/compound/tracker/types/normalized";
-import { SkipBack, SkipForward, ChevronsLeft, ChevronsRight } from "lucide-react";
+import {
+  SkipBack,
+  SkipForward,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Virtuoso, type VirtuosoHandle } from "react-virtuoso";
 import type { PlateInputValue } from "@/components/compound/tracker/types/input";
@@ -32,8 +37,12 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
   const allEvents = useTrackerStore((s) => s.events);
   const activeEventIndex = useActiveEventIndex();
   const setActiveEventIndex = useTrackerStore((s) => s.setActiveEventIndex);
-  const incrementActiveEventIndex = useTrackerStore((s) => s.incrementActiveEventIndex);
-  const decrementActiveEventIndex = useTrackerStore((s) => s.decrementActiveEventIndex);
+  const incrementActiveEventIndex = useTrackerStore(
+    (s) => s.incrementActiveEventIndex,
+  );
+  const decrementActiveEventIndex = useTrackerStore(
+    (s) => s.decrementActiveEventIndex,
+  );
   const totalTimes = useTrackerStore((s) => s.totalTimes);
   const setTotalTimeIndex = useTrackerStore((s) => s.setTotalTimeIndex);
   const setTimeIndex = useTrackerStore((s) => s.setTimeIndex);
@@ -60,7 +69,8 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
       if (!event) return;
       const dayIndex = findTotalTimeIndex(totalTimes, event.time);
       if (dayIndex != null) {
-        const dayEnd = totalTimes[dayIndex + 1] ?? totalTimes[dayIndex] + 86400000;
+        const dayEnd =
+          totalTimes[dayIndex + 1] ?? totalTimes[dayIndex] + 86400000;
         const newMinutes = makeTimes([totalTimes[dayIndex], dayEnd]);
         setMinutes(newMinutes);
         setTotalTimeIndex(dayIndex);
@@ -69,7 +79,14 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
       }
       setActiveEventIndex(index);
     },
-    [allEvents, setActiveEventIndex, setMinutes, setTimeIndex, setTotalTimeIndex, totalTimes],
+    [
+      allEvents,
+      setActiveEventIndex,
+      setMinutes,
+      setTimeIndex,
+      setTotalTimeIndex,
+      totalTimes,
+    ],
   );
 
   useEffect(() => {
@@ -77,7 +94,8 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
   }, [events, filterIran]);
 
   useEffect(() => {
-    if (!options.panels.eventNavigation.scrollSync || !open || !events.length) return;
+    if (!options.panels.eventNavigation.scrollSync || !open || !events.length)
+      return;
     if (lastScrolledIndex.current === panelActiveIndex) return;
     lastScrolledIndex.current = panelActiveIndex;
     virtuoso.current?.scrollToIndex({
@@ -85,28 +103,39 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
       align: "center",
       behavior: "smooth",
     });
-  }, [panelActiveIndex, open, events.length, options.panels.eventNavigation.scrollSync]);
+  }, [
+    panelActiveIndex,
+    open,
+    events.length,
+    options.panels.eventNavigation.scrollSync,
+  ]);
 
   const renderFleetRow = useCallback(
     (index: number, event: NormalizedEvent) => {
       const originalIndex = allEvents.indexOf(event);
       const outside =
-        !filterIran && showOutsideIranBadge && !isWithinIran(event.latlng[0], event.latlng[1]);
+        !filterIran &&
+        showOutsideIranBadge &&
+        !isWithinIran(event.latlng[0], event.latlng[1]);
       return (
         <div
           className={cn(
-            "hover:bg-muted mb-2 flex cursor-pointer gap-3 rounded-lg p-2",
+            "mb-2 flex cursor-pointer gap-3 rounded-lg p-2 hover:bg-muted",
             originalIndex === activeEventIndex && "bg-muted",
           )}
-          onClick={() => navigateToEvent(originalIndex >= 0 ? originalIndex : index)}
+          onClick={() =>
+            navigateToEvent(originalIndex >= 0 ? originalIndex : index)
+          }
         >
-          <div className="bg-background flex size-8 items-center justify-center rounded-md border text-xs font-semibold">
+          <div className="flex size-8 items-center justify-center rounded-md border bg-background text-xs font-semibold">
             {index + 1}
           </div>
           <div className="flex flex-col gap-1 text-xs">
             <div className="flex items-center gap-2">
               <span>{formatPlate(event.plate)}</span>
-              {event.trackIndex != null && <ColorField color={getColor(colors[event.trackIndex])} />}
+              {event.trackIndex != null && (
+                <ColorField color={getColor(colors[event.trackIndex])} />
+              )}
               {outside && (
                 <Badge severity="danger" size="xs">
                   Outside Iran
@@ -115,15 +144,22 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
             </div>
             {event.road && <span className="font-semibold">{event.road}</span>}
             <span className="text-muted-foreground dir-ltr">
-              {Intl.DateTimeFormat(PERSIAN_LOCALE, { dateStyle: "short", timeStyle: "short" }).format(
-                new Date(event.time),
-              )}
+              {Intl.DateTimeFormat(PERSIAN_LOCALE, {
+                dateStyle: "short",
+                timeStyle: "short",
+              }).format(new Date(event.time))}
             </span>
           </div>
         </div>
       );
     },
-    [activeEventIndex, allEvents, filterIran, navigateToEvent, showOutsideIranBadge],
+    [
+      activeEventIndex,
+      allEvents,
+      filterIran,
+      navigateToEvent,
+      showOutsideIranBadge,
+    ],
   );
 
   const renderObserveRow = useCallback(
@@ -132,12 +168,15 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
       const idx = originalIndex >= 0 ? originalIndex : index;
       const isNewDay =
         index === 0 ||
-        new Date(event.time).toDateString() !== new Date(events[index - 1].time).toDateString();
+        new Date(event.time).toDateString() !==
+          new Date(events[index - 1].time).toDateString();
       return (
         <div className="p-1">
           {isNewDay && (
-            <div className="text-muted-foreground mb-2 border-b border-dashed pb-1 text-xs">
-              {Intl.DateTimeFormat(PERSIAN_LOCALE, { weekday: "long" }).format(new Date(event.time))}
+            <div className="mb-2 border-b border-dashed pb-1 text-xs text-muted-foreground">
+              {Intl.DateTimeFormat(PERSIAN_LOCALE, { weekday: "long" }).format(
+                new Date(event.time),
+              )}
               {" · "}
               {Intl.DateTimeFormat(PERSIAN_LOCALE, {
                 year: "numeric",
@@ -152,13 +191,23 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
             isActive={idx === activeEventIndex}
             isOpen={openCardIndex === idx}
             onClick={() => navigateToEvent(idx)}
-            onToggle={() => setOpenCardIndex(openCardIndex === idx ? null : idx)}
+            onToggle={() =>
+              setOpenCardIndex(openCardIndex === idx ? null : idx)
+            }
             eventImage={slots?.eventImage?.({ index: idx, event })}
           />
         </div>
       );
     },
-    [activeEventIndex, allEvents, events, navigateToEvent, openCardIndex, setOpenCardIndex, slots],
+    [
+      activeEventIndex,
+      allEvents,
+      events,
+      navigateToEvent,
+      openCardIndex,
+      setOpenCardIndex,
+      slots,
+    ],
   );
 
   const itemContent = useCallback(
@@ -172,10 +221,14 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
   if (!variant) return null;
 
   return (
-    <div className="bg-background dir-rtl flex w-80 flex-col rounded-md border p-2">
+    <div className="flex w-80 flex-col rounded-md border bg-background p-2 dir-rtl">
       <div className="flex items-center justify-between pb-2">
         <span className="text-sm font-semibold">Events</span>
-        <button type="button" className="text-xs" onClick={() => setOpen(!open)}>
+        <button
+          type="button"
+          className="text-xs"
+          onClick={() => setOpen(!open)}
+        >
           {open ? "Hide" : "Show"}
         </button>
       </div>
@@ -185,11 +238,14 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
             ref={virtuoso}
             style={{ height: 280 }}
             data={events}
-            initialTopMostItemIndex={{ index: panelActiveIndex, align: "center" }}
+            initialTopMostItemIndex={{
+              index: panelActiveIndex,
+              align: "center",
+            }}
             itemContent={itemContent}
           />
           {options.panels.eventNavigation.prevNext && (
-            <div className="dir-ltr mt-2 flex justify-between gap-2 border-t pt-2">
+            <div className="mt-2 flex justify-between gap-2 border-t pt-2 dir-ltr">
               {options.panels.eventNavigation.firstLast && (
                 <NavBtn onClick={() => navigateToEvent(0)}>
                   <ChevronsLeft className="size-4" />
@@ -214,11 +270,17 @@ export default function EventsPanel({ slots }: { slots?: TrackerSlots }) {
   );
 }
 
-function NavBtn({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
+function NavBtn({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
   return (
     <button
       type="button"
-      className="border-border bg-card hover:bg-muted flex size-9 items-center justify-center rounded-md border"
+      className="flex size-9 items-center justify-center rounded-md border border-border bg-card hover:bg-muted"
       onClick={onClick}
     >
       {children}

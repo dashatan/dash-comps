@@ -6,11 +6,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
 function get(obj, dotPath) {
-  return dotPath.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
+  return dotPath
+    .split(".")
+    .reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
 }
 
 const en = JSON.parse(
-  fs.readFileSync(path.join(root, "apps/showcase/src/i18n/locales/en.json"), "utf8"),
+  fs.readFileSync(
+    path.join(root, "apps/showcase/src/i18n/locales/en.json"),
+    "utf8",
+  ),
 );
 const dir = path.join(root, "apps/showcase/src/features/catalog/pages");
 const missing = [];

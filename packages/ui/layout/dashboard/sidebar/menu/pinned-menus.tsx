@@ -18,7 +18,7 @@ export default function PinnedMenus() {
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="mt-4 text-sm">
       <CollapsibleTrigger asChild>
-        <div className="text-sidebar-icon flex h-12 w-full cursor-pointer items-center justify-between text-sm transition-all">
+        <div className="flex h-12 w-full cursor-pointer items-center justify-between text-sm text-sidebar-icon transition-all">
           {t("common.pinnedMenus")}
           <PlusMinusIcon toggled={open} />
         </div>

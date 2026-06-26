@@ -38,7 +38,9 @@ const DELIVERED_HOURS = [18, 20, 22, 19, 21, 23, 20, 18, 17, 19, 21, 20];
 export function getOverviewKpis(): OverviewKpis {
   const mtd = getMonthToDateRange();
   const mtdShipments = getShipmentsInDateRange(mtd.start, mtd.end);
-  const delivered = mtdShipments.filter((s) => s.status === "delivered" || s.status === "delayed");
+  const delivered = mtdShipments.filter(
+    (s) => s.status === "delivered" || s.status === "delayed",
+  );
   const onTimeCount = delivered.filter((s) => s.onTime).length;
   const onTimePercent = delivered.length
     ? Math.round((onTimeCount / delivered.length) * 1000) / 10
@@ -75,7 +77,9 @@ export function getShipmentVolumeByStatus(): { name: string; value: number }[] {
 }
 
 export function getOnTimeTrendSeries(): readonly number[] {
-  return [91.2, 92.1, 91.8, 93.4, 92.9, 94.1, 93.6, 94.8, 95.2, 94.5, 95.1, 95.8];
+  return [
+    91.2, 92.1, 91.8, 93.4, 92.9, 94.1, 93.6, 94.8, 95.2, 94.5, 95.1, 95.8,
+  ];
 }
 
 export function getRevenueCostSeries(): DualSeries {
@@ -112,7 +116,9 @@ export function getRegionalShipmentShare(): { name: string; value: number }[] {
   }));
 }
 
-export function getTopRoutesByVolume(limit = 6): { name: string; value: number }[] {
+export function getTopRoutesByVolume(
+  limit = 6,
+): { name: string; value: number }[] {
   const counts = new Map<string, number>();
   for (const s of SHIPMENTS) {
     const label = `${s.originCity} → ${s.destinationCity}`;
@@ -133,7 +139,9 @@ export function getDeliveryPerformanceByHub(): DualSeries {
   };
 }
 
-export function getRevenueByRouteTopN(n = 8): { name: string; revenue: number; cost: number }[] {
+export function getRevenueByRouteTopN(
+  n = 8,
+): { name: string; revenue: number; cost: number }[] {
   const totals = new Map<string, { revenue: number; cost: number }>();
   for (const s of SHIPMENTS) {
     const label = `${s.originCity} → ${s.destinationCity}`;
@@ -149,7 +157,10 @@ export function getRevenueByRouteTopN(n = 8): { name: string; revenue: number; c
     .slice(0, n);
 }
 
-export function getFleetUtilizationByRegion(): { name: string; value: number }[] {
+export function getFleetUtilizationByRegion(): {
+  name: string;
+  value: number;
+}[] {
   return [
     { name: "benelux", value: 78 },
     { name: "dach", value: 84 },
