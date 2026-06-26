@@ -18,14 +18,19 @@ function buildUrl(
 ): string {
   const base = API_BASE_URL.replace(/\/$/, "");
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const url = new URL(`${base}${normalizedPath}`, window.location.origin);
+  const isAbsoluteBase = /^https?:\/\//i.test(base);
+  const url = isAbsoluteBase
+    ? new URL(`${base}${normalizedPath}`)
+    : new URL(`${base}${normalizedPath}`, window.location.origin);
+
   if (params) {
     for (const [key, value] of Object.entries(params)) {
       if (value === undefined) continue;
       url.searchParams.set(key, String(value));
     }
   }
-  return url.pathname + url.search;
+
+  return isAbsoluteBase ? url.toString() : `${url.pathname}${url.search}`;
 }
 
 async function parseJson<T>(response: Response): Promise<T> {
