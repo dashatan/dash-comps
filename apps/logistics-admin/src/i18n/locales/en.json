@@ -137,7 +137,7 @@
   },
   "reports": {
     "title": "Reports",
-    "subtitle": "Chart-based operational and financial reports",
+    "subtitle": "Focused operational and financial report views",
     "deliveryPerformance": {
       "title": "Delivery Performance",
       "description": "On-time rates and delivery duration by EU hub"
@@ -152,17 +152,60 @@
     },
     "summary": {
       "avgOnTime": "Average on-time",
+      "avgOnTimeDescription": "Mean on-time delivery rate across monitored hubs",
       "avgDelivery": "Avg delivery",
+      "avgDeliveryDescription": "Mean door-to-door delivery duration in hours",
       "delayed": "Delayed shipments",
+      "delayedDescription": "Shipments currently past the estimated delivery window",
       "hubs": "Hubs monitored",
+      "hubsDescription": "EU hubs included in this performance report",
       "totalRevenue": "Total revenue",
+      "totalRevenueDescription": "Combined billable revenue across analysed corridors",
       "totalCost": "Total cost",
+      "totalCostDescription": "Combined operating cost across analysed corridors",
       "topRoute": "Top corridor",
+      "topRouteDescription": "Highest-revenue origin–destination pair in the dataset",
       "routes": "Corridors analysed",
+      "routesDescription": "Number of corridors included in the revenue breakdown",
       "fleetSize": "Fleet size",
+      "fleetSizeDescription": "Total registered vehicles in the European fleet",
       "activeVehicles": "Active vehicles",
+      "activeVehiclesDescription": "Vehicles currently assigned or in transit",
       "avgUtilization": "Avg utilisation",
-      "maintenance": "In maintenance"
+      "avgUtilizationDescription": "Mean fleet utilisation rate across all regions",
+      "maintenance": "In maintenance",
+      "maintenanceDescription": "Vehicles temporarily unavailable for assignment"
+    },
+    "charts": {
+      "onTimeTrend": "On-time delivery trend",
+      "onTimeTrendDescription": "Rolling on-time delivery rate over the past twelve months",
+      "hubPerformance": "Hub performance comparison",
+      "hubPerformanceDescription": "On-time rate and average delivery hours per EU hub",
+      "revenueCostTrend": "Revenue vs cost trend",
+      "revenueCostTrendDescription": "Monthly revenue compared to operating cost in EUR thousands",
+      "revenueByCorridor": "Revenue by corridor",
+      "revenueByCorridorDescription": "Revenue and cost breakdown for top origin–destination pairs",
+      "regionalUtilization": "Regional utilisation mix",
+      "regionalUtilizationDescription": "Share of fleet utilisation by European operating region",
+      "utilizationTrend": "Utilisation trend",
+      "utilizationTrendDescription": "Monthly fleet utilisation percentage over the past year",
+      "utilizationByRegion": "Utilisation by region",
+      "utilizationByRegionDescription": "Fleet utilisation percentage per operating region",
+      "total": "Total"
+    },
+    "lists": {
+      "hubRankings": {
+        "title": "Hub rankings",
+        "description": "EU hubs ranked by on-time performance and delivery speed"
+      },
+      "corridorRankings": {
+        "title": "Corridor rankings",
+        "description": "Corridors ranked by revenue with margin indicators"
+      },
+      "regionalBreakdown": {
+        "title": "Regional breakdown",
+        "description": "Fleet utilisation percentage by operating region"
+      }
     }
   },
   "shipments": {

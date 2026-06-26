@@ -1,22 +1,26 @@
-import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
-import LineChart from "@/components/common/charts/line";
+import {
+  LineChart as LineChartIcon,
+  ListOrdered,
+  PieChart,
+  Truck,
+  Wrench,
+} from "lucide-react";
 import BarChart from "@/components/common/charts/bar";
-import DoughnutChart from "@/components/common/charts/doughnut";
+import LineChart from "@/components/common/charts/line";
+import { Chart } from "@/components/common/charts";
+import { GridContainer } from "@/components/common/grid";
 import { queryKeys } from "@/core/query-keys";
+import {
+  ChartCard,
+  KpiCard,
+  ListRow,
+  PanelCard,
+} from "@/features/overview/overview-components";
 import { reportsRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { QueryBoundary } from "@/shared/components/query-boundary";
 import { PageHeader } from "@/shared/page-header";
 import { MONTH_LABELS } from "@/shared/formatters";
-
-function SummaryStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
-      <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="text-lg font-semibold tabular-nums">{value}</p>
-    </div>
-  );
-}
 
 export function FleetUtilizationReportPage() {
   const t = useLogisticsT();
@@ -44,63 +48,99 @@ export function FleetUtilizationReportPage() {
           }));
 
           return (
-            <GridContainer aria-label={t("reports.fleetUtilization.title")}>
-              <GridCard className="col-span-12 grid grid-cols-2 gap-3 @lg:grid-cols-4">
-                <SummaryStat
-                  label={t("reports.summary.fleetSize")}
-                  value={String(report.summary.fleetSize)}
-                />
-                <SummaryStat
-                  label={t("reports.summary.activeVehicles")}
-                  value={String(report.summary.activeVehicles)}
-                />
-                <SummaryStat
-                  label={t("reports.summary.avgUtilization")}
-                  value={`${report.summary.avgUtilizationPercent}%`}
-                />
-                <SummaryStat
-                  label={t("reports.summary.maintenance")}
-                  value={String(report.summary.maintenanceCount)}
-                />
-              </GridCard>
+            <GridContainer
+              className="auto-rows-auto grid-rows-none items-stretch"
+              aria-label={t("reports.fleetUtilization.title")}
+            >
+              <KpiCard
+                label={t("reports.summary.fleetSize")}
+                description={t("reports.summary.fleetSizeDescription")}
+                value={String(report.summary.fleetSize)}
+                icon={<Truck className="size-5" />}
+              />
+              <KpiCard
+                label={t("reports.summary.activeVehicles")}
+                description={t("reports.summary.activeVehiclesDescription")}
+                value={String(report.summary.activeVehicles)}
+                icon={<Truck className="size-5" />}
+              />
+              <KpiCard
+                label={t("reports.summary.avgUtilization")}
+                description={t("reports.summary.avgUtilizationDescription")}
+                value={`${report.summary.avgUtilizationPercent}%`}
+                icon={<PieChart className="size-5" />}
+              />
+              <KpiCard
+                label={t("reports.summary.maintenance")}
+                description={t("reports.summary.maintenanceDescription")}
+                value={String(report.summary.maintenanceCount)}
+                icon={<Wrench className="size-5" />}
+              />
 
-              <GridCard className="col-span-12 @lg:col-span-5">
-                <GridHeader title={t("overview.kpis.fleetUtilization")} />
-                <div className="min-h-72">
-                  <DoughnutChart data={regionalData} showLegend />
-                </div>
-              </GridCard>
+              <ChartCard
+                className="col-span-12 @lg:col-span-5"
+                icon={<PieChart className="size-5" />}
+                title={t("reports.charts.regionalUtilization")}
+                description={t("reports.charts.regionalUtilizationDescription")}
+              >
+                <Chart.Pie
+                  data={regionalData}
+                  donut
+                  showLegend
+                  showLabel={false}
+                  centerSummaryLabel={t("reports.charts.total")}
+                />
+              </ChartCard>
 
-              <GridCard className="col-span-12 @lg:col-span-7">
-                <GridHeader title={t("reports.fleetUtilization.title")} />
-                <div className="min-h-72">
-                  <LineChart
-                    xAxis={[...MONTH_LABELS]}
-                    series={[
-                      {
-                        name: "Utilisation %",
-                        data: [...report.weeklyUtilization],
-                      },
-                    ]}
-                    type="smooth"
+              <ChartCard
+                className="col-span-12 @lg:col-span-7"
+                icon={<LineChartIcon className="size-5" />}
+                title={t("reports.charts.utilizationTrend")}
+                description={t("reports.charts.utilizationTrendDescription")}
+              >
+                <LineChart
+                  xAxis={[...MONTH_LABELS]}
+                  series={[
+                    {
+                      name: "Utilisation %",
+                      data: [...report.weeklyUtilization],
+                    },
+                  ]}
+                  type="smooth"
+                />
+              </ChartCard>
+
+              <ChartCard
+                className="col-span-12 @xl:col-span-8"
+                icon={<Truck className="size-5" />}
+                title={t("reports.charts.utilizationByRegion")}
+                description={t("reports.charts.utilizationByRegionDescription")}
+              >
+                <BarChart
+                  xAxis={regionalData.map((region) => region.name)}
+                  series={[
+                    {
+                      name: "Utilisation %",
+                      data: regionalData.map((region) => region.value),
+                    },
+                  ]}
+                />
+              </ChartCard>
+
+              <PanelCard
+                className="col-span-12 @xl:col-span-4"
+                icon={<ListOrdered className="size-5" />}
+                title={t("reports.lists.regionalBreakdown.title")}
+                description={t("reports.lists.regionalBreakdown.description")}
+              >
+                {regionalData.map((region) => (
+                  <ListRow
+                    key={region.name}
+                    primary={region.name}
+                    meta={`${region.value}%`}
                   />
-                </div>
-              </GridCard>
-
-              <GridCard className="col-span-12">
-                <GridHeader title={t("analytics.charts.regionalShare")} />
-                <div className="min-h-80">
-                  <BarChart
-                    xAxis={regionalData.map((r) => r.name)}
-                    series={[
-                      {
-                        name: "Utilisation %",
-                        data: regionalData.map((r) => r.value),
-                      },
-                    ]}
-                  />
-                </div>
-              </GridCard>
+                ))}
+              </PanelCard>
             </GridContainer>
           );
         }}

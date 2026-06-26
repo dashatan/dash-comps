@@ -1,20 +1,33 @@
-import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
+import {
+  BarChart3,
+  ChartArea,
+  ListOrdered,
+  Route,
+  TrendingUp,
+  Wallet,
+} from "lucide-react";
 import AreaChart from "@/components/common/charts/area";
 import BarChart from "@/components/common/charts/bar";
+import { GridContainer } from "@/components/common/grid";
 import { queryKeys } from "@/core/query-keys";
+import {
+  ChartCard,
+  KpiCard,
+  ListRow,
+  PanelCard,
+} from "@/features/overview/overview-components";
 import { reportsRepository } from "@/infrastructure/http/repositories";
 import { useLogisticsT } from "@/i18n/provider";
 import { QueryBoundary } from "@/shared/components/query-boundary";
 import { PageHeader } from "@/shared/page-header";
 import { formatEur } from "@/shared/formatters";
 
-function SummaryStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
-      <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="text-lg font-semibold tabular-nums">{value}</p>
-    </div>
-  );
+function formatMarginPercent(revenue: number, cost: number): string {
+  if (revenue <= 0) {
+    return "0%";
+  }
+  const margin = ((revenue - cost) / revenue) * 100;
+  return `${margin.toFixed(1)}%`;
 }
 
 export function RevenueByRouteReportPage() {
@@ -35,64 +48,94 @@ export function RevenueByRouteReportPage() {
         }}
       >
         {(report) => (
-          <GridContainer aria-label={t("reports.revenueByRoute.title")}>
-            <GridCard className="col-span-12 grid grid-cols-2 gap-3 @lg:grid-cols-4">
-              <SummaryStat
-                label={t("reports.summary.totalRevenue")}
-                value={formatEur(report.summary.totalRevenueEur)}
-              />
-              <SummaryStat
-                label={t("reports.summary.totalCost")}
-                value={formatEur(report.summary.totalCostEur)}
-              />
-              <SummaryStat
-                label={t("reports.summary.topRoute")}
-                value={report.summary.topRoute}
-              />
-              <SummaryStat
-                label={t("reports.summary.routes")}
-                value={String(report.summary.routeCount)}
-              />
-            </GridCard>
+          <GridContainer
+            className="auto-rows-auto grid-rows-none items-stretch"
+            aria-label={t("reports.revenueByRoute.title")}
+          >
+            <KpiCard
+              label={t("reports.summary.totalRevenue")}
+              description={t("reports.summary.totalRevenueDescription")}
+              value={formatEur(report.summary.totalRevenueEur)}
+              icon={<TrendingUp className="size-5" />}
+            />
+            <KpiCard
+              label={t("reports.summary.totalCost")}
+              description={t("reports.summary.totalCostDescription")}
+              value={formatEur(report.summary.totalCostEur)}
+              icon={<Wallet className="size-5" />}
+            />
+            <KpiCard
+              label={t("reports.summary.topRoute")}
+              description={t("reports.summary.topRouteDescription")}
+              value={report.summary.topRoute}
+              icon={<Route className="size-5" />}
+            />
+            <KpiCard
+              label={t("reports.summary.routes")}
+              description={t("reports.summary.routesDescription")}
+              value={String(report.summary.routeCount)}
+              icon={<BarChart3 className="size-5" />}
+            />
 
-            <GridCard className="col-span-12">
-              <GridHeader title={t("overview.charts.revenueCost")} />
-              <div className="min-h-80">
-                <AreaChart
-                  xAxis={[...report.monthlyTrend.labels]}
-                  series={[
-                    {
-                      name: "Revenue (k€)",
-                      data: [...report.monthlyTrend.primary],
-                    },
-                    {
-                      name: "Cost (k€)",
-                      data: [...report.monthlyTrend.secondary],
-                    },
-                  ]}
-                />
-              </div>
-            </GridCard>
+            <ChartCard
+              className="col-span-12 @xl:col-span-8"
+              icon={<ChartArea className="size-5" />}
+              title={t("reports.charts.revenueCostTrend")}
+              description={t("reports.charts.revenueCostTrendDescription")}
+            >
+              <AreaChart
+                showLegend
+                xAxis={[...report.monthlyTrend.labels]}
+                series={[
+                  {
+                    name: "Revenue (k€)",
+                    data: [...report.monthlyTrend.primary],
+                  },
+                  {
+                    name: "Cost (k€)",
+                    data: [...report.monthlyTrend.secondary],
+                  },
+                ]}
+              />
+            </ChartCard>
 
-            <GridCard className="col-span-12">
-              <GridHeader title={t("analytics.charts.topRoutes")} />
-              <div className="min-h-96">
-                <BarChart
-                  xAxis={report.topRoutes.map((r) => r.name)}
-                  series={[
-                    {
-                      name: "Revenue (€)",
-                      data: report.topRoutes.map((r) => r.revenue),
-                    },
-                    {
-                      name: "Cost (€)",
-                      data: report.topRoutes.map((r) => r.cost),
-                    },
-                  ]}
-                  horizontal
+            <PanelCard
+              className="col-span-12 @xl:col-span-4"
+              icon={<ListOrdered className="size-5" />}
+              title={t("reports.lists.corridorRankings.title")}
+              description={t("reports.lists.corridorRankings.description")}
+            >
+              {report.topRoutes.map((route) => (
+                <ListRow
+                  key={route.name}
+                  primary={route.name}
+                  secondary={formatMarginPercent(route.revenue, route.cost)}
+                  meta={formatEur(route.revenue)}
                 />
-              </div>
-            </GridCard>
+              ))}
+            </PanelCard>
+
+            <ChartCard
+              className="col-span-12"
+              icon={<BarChart3 className="size-5" />}
+              title={t("reports.charts.revenueByCorridor")}
+              description={t("reports.charts.revenueByCorridorDescription")}
+            >
+              <BarChart
+                xAxis={report.topRoutes.map((route) => route.name)}
+                series={[
+                  {
+                    name: "Revenue (€)",
+                    data: report.topRoutes.map((route) => route.revenue),
+                  },
+                  {
+                    name: "Cost (€)",
+                    data: report.topRoutes.map((route) => route.cost),
+                  },
+                ]}
+                horizontal
+              />
+            </ChartCard>
           </GridContainer>
         )}
       </QueryBoundary>

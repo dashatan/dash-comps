@@ -49,9 +49,9 @@ const SubMenus = forwardRef<HTMLDivElement, SubMenusProps>(
               ></div>
               <div
                 className={cn(
-                  "absolute start-4.5 top-1/2 flex size-3 -translate-y-1/2 items-center justify-center rounded-full bg-sidebar-border transition-all",
+                  "absolute inset-s-5 top-1/2 flex size-3 -translate-y-1/2 items-center justify-center rounded-full bg-sidebar-border transition-all",
                   {
-                    "start-3 size-6 bg-sidebar-primary/50 opacity-100":
+                    "inset-s-3.5 size-6 bg-sidebar-primary/50 opacity-100":
                       isActive,
                   },
                 )}
