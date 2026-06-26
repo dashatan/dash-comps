@@ -35,6 +35,11 @@ export type GeoMapProps<
   roam?: boolean;
   showLabel?: boolean;
   aspectScale?: number;
+  center?: [number, number];
+  zoom?: number;
+  layoutCenter?: [string | number, string | number];
+  layoutSize?: string | number;
+  defaultAreaColor?: string;
   nameFormatter?: (name: string) => string;
   options?: EChartsOption;
 };
@@ -42,6 +47,10 @@ export type GeoMapProps<
 function defaultRangeColors() {
   return [
     getHexColor("--color-chart-range-2"),
+    getHexColor("--color-chart-range-3"),
+    getHexColor("--color-chart-range-4"),
+    getHexColor("--color-chart-range-5"),
+    getHexColor("--color-chart-range-6"),
     getHexColor("--color-chart-range-7"),
   ];
 }
@@ -59,6 +68,11 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
     roam = true,
     showLabel = false,
     aspectScale = 0.85,
+    center,
+    zoom,
+    layoutCenter,
+    layoutSize,
+    defaultAreaColor,
     nameFormatter = (name) => name,
     options,
     tooltipItems,
@@ -68,6 +82,10 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
   ref: Ref<EChartsReact>,
 ) {
   const rngColors = rangeColors ?? defaultRangeColors();
+  const mutedAreaColor =
+    defaultAreaColor ?? getHexColor("--color-chart-range-1");
+  const resolvedBorderColor =
+    borderColor ?? getHexColor("--color-chart-range-4");
 
   useEffect(() => {
     echarts.registerMap(mapId, geoJson);
@@ -118,8 +136,11 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
         calculable: false,
         orient: "horizontal",
         left: "center",
-        bottom: 0,
+        bottom: 8,
+        itemWidth: 12,
+        itemHeight: 72,
         inRange: { color: rngColors },
+        outOfRange: { color: mutedAreaColor },
         ...options?.visualMap,
       },
       series: [
@@ -128,11 +149,15 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
           map: mapId,
           roam,
           aspectScale,
+          ...(center ? { center } : {}),
+          ...(zoom != null ? { zoom } : {}),
+          ...(layoutCenter ? { layoutCenter } : {}),
+          ...(layoutSize ? { layoutSize } : {}),
           data: [...data],
           emphasis: {
             itemStyle: {
               areaColor: "inherit",
-              borderColor: borderColor ?? getHexColor("--color-chart-range-1"),
+              borderColor: resolvedBorderColor,
               borderWidth: 2,
             },
             label: {
@@ -150,7 +175,8 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
             },
           },
           itemStyle: {
-            borderColor: borderColor ?? getHexColor("--color-chart-range-1"),
+            areaColor: mutedAreaColor,
+            borderColor: resolvedBorderColor,
             borderWidth: 0.6,
           },
           label: {
@@ -182,11 +208,18 @@ function GeoMapInner<const D extends readonly GeoMapDataItem[]>(
     roam,
     showLabel,
     aspectScale,
+    center,
+    zoom,
+    layoutCenter,
+    layoutSize,
+    defaultAreaColor,
     nameFormatter,
     options,
     tooltipItems,
     tooltipTitle,
     rngColors,
+    mutedAreaColor,
+    resolvedBorderColor,
   ]);
 
   return <BaseChart ref={ref} options={option} {...props} />;

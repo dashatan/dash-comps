@@ -1,4 +1,30 @@
 import { graphic, SeriesOption } from "echarts";
+import type { LegendComponentOption } from "echarts";
+
+export const CHART_GRID_BOTTOM_WITH_LEGEND = "14%";
+export const CHART_GRID_BOTTOM_DEFAULT = "3%";
+
+export function isLegendVisible(
+  legend: LegendComponentOption | LegendComponentOption[] | undefined,
+): boolean {
+  if (!legend || Array.isArray(legend)) return false;
+  return legend.show !== false;
+}
+
+export function createBottomCenterLegend(
+  show: boolean,
+  data?: string[],
+  overrides?: LegendComponentOption,
+): LegendComponentOption {
+  return {
+    show,
+    ...(data ? { data } : {}),
+    bottom: 8,
+    left: "center",
+    orient: "horizontal",
+    ...overrides,
+  };
+}
 
 export const getTheme = () => {
   const root = document.documentElement;

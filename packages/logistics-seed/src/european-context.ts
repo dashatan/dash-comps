@@ -16,6 +16,21 @@ export const EU_COUNTRY_CODES = [
 
 export type EuCountryCode = (typeof EU_COUNTRY_CODES)[number];
 
+/** ECharts world map feature names for EU operating countries. */
+export const EU_COUNTRY_GEO_NAMES: Record<EuCountryCode, string> = {
+  DE: "Germany",
+  NL: "Netherlands",
+  FR: "France",
+  BE: "Belgium",
+  PL: "Poland",
+  IT: "Italy",
+  ES: "Spain",
+  AT: "Austria",
+  CZ: "Czech Rep.",
+  SE: "Sweden",
+  DK: "Denmark",
+};
+
 export const EU_REGIONS = [
   "benelux",
   "dach",

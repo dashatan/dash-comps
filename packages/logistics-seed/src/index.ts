@@ -80,6 +80,7 @@ export {
   getDailyShipmentVolume,
   getDelaysByHub,
   getRegionalShipmentShare,
+  getCountryShipmentVolume,
   getTopRoutesByVolume,
   getDeliveryPerformanceByHub,
   getRevenueByRouteTopN,

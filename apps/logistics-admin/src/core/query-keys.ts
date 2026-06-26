@@ -11,6 +11,7 @@ export const queryKeys = {
     dailyVolume: ["analytics", "daily-volume"] as const,
     delaysByHub: ["analytics", "delays-by-hub"] as const,
     regionalShare: ["analytics", "regional-share"] as const,
+    countryVolume: ["analytics", "country-volume"] as const,
     topRoutes: (limit: number) => ["analytics", "top-routes", limit] as const,
     recentTrend: ["analytics", "recent-trend"] as const,
   },

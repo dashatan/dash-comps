@@ -19,12 +19,73 @@
       "fleetUtilization": "Fleet utilisation",
       "revenueMtd": "Revenue (MTD)",
       "costMtd": "Cost (MTD)",
-      "marginPercent": "Gross margin"
+      "marginPercent": "Gross margin",
+      "descriptions": {
+        "activeShipments": "In transit or awaiting pickup across EU hubs",
+        "onTimePercent": "Share of deliveries completed within SLA",
+        "avgDeliveryHours": "Mean door-to-door time for completed runs",
+        "delayedCount": "Shipments past the estimated delivery window",
+        "fleetUtilization": "Active vehicles relative to total fleet capacity",
+        "revenueMtd": "Billable revenue recognised month-to-date",
+        "costMtd": "Operating expenses recorded month-to-date",
+        "marginPercent": "Gross margin as a percentage of revenue"
+      }
     },
     "charts": {
       "revenueCost": "Revenue vs cost (EUR thousands)",
       "dailyVolume": "Daily shipment volume",
-      "onTimeTrend": "On-time delivery trend"
+      "onTimeTrend": "On-time delivery trend",
+      "recentTrend": "30-day shipment trend",
+      "total": "Total",
+      "descriptions": {
+        "revenueCost": "Monthly revenue compared to operating cost in EUR thousands",
+        "dailyVolume": "Shipment count per day for the current period",
+        "onTimeTrend": "Rolling on-time delivery rate over the past twelve months",
+        "recentTrend": "Daily shipment volume over the last thirty days",
+        "regionalShare": "Share of network volume by European operating region",
+        "statusVolume": "Current shipment count grouped by lifecycle status",
+        "delaysByHub": "Delay incidents recorded at each EU hub this month"
+      }
+    },
+    "geoMap": {
+      "title": "EU shipment density",
+      "description": "Destination-country volume across the European network",
+      "rangeLow": "Low",
+      "rangeHigh": "High"
+    },
+    "lists": {
+      "topRoutes": {
+        "title": "Top corridors",
+        "description": "Highest-volume origin–destination pairs this month"
+      },
+      "recentShipments": {
+        "title": "Recent shipments",
+        "description": "Latest scheduled consignments across EU hubs"
+      },
+      "hubDelays": {
+        "title": "Hub delay watchlist",
+        "description": "Hubs ranked by delay incidents this month",
+        "delayCount": "Delay incidents"
+      }
+    },
+    "widgets": {
+      "fleet": {
+        "title": "Fleet snapshot",
+        "description": "Live fleet capacity and maintenance status",
+        "utilization": "Fleet utilisation",
+        "vehicles": "Vehicles",
+        "drivers": "Drivers",
+        "assignments": "Assignments",
+        "active": "Active",
+        "idle": "Idle",
+        "onDuty": "On duty",
+        "registered": "Registered",
+        "scheduled": "Scheduled total"
+      },
+      "liveTracker": {
+        "title": "Live tracker feed",
+        "description": "Most recent vehicle events on EU corridors"
+      }
     }
   },
   "analytics": {

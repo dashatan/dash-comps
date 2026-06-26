@@ -25,6 +25,7 @@ export interface AnalyticsRepository {
   getDailyVolume(): Promise<number[]>;
   getDelaysByHub(): Promise<NamedValueDto[]>;
   getRegionalShare(): Promise<NamedValueDto[]>;
+  getCountryVolume(): Promise<NamedValueDto[]>;
   getTopRoutes(limit?: number): Promise<NamedValueDto[]>;
   getRecentTrend(): Promise<number[]>;
 }

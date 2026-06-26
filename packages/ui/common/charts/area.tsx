@@ -1,6 +1,11 @@
 import { EChartsOption } from "echarts";
 import { BaseChart, ChartProps } from "./base";
 import { InferChartPayloadFromSeries } from "@/components/common/charts/infer";
+import {
+  CHART_GRID_BOTTOM_DEFAULT,
+  CHART_GRID_BOTTOM_WITH_LEGEND,
+  createBottomCenterLegend,
+} from "@/components/common/charts/helpers";
 
 export type AreaSeriesInput = {
   name: string;
@@ -28,9 +33,9 @@ function AreaChartInner<const S extends readonly AreaSeriesInput[]>({
   xAxis,
   series,
   title,
-  showLegend = true,
+  showLegend = false,
   showTooltip = true,
-  showGrid = true,
+  showGrid = false,
   ...props
 }: AreaChartProps<S>) {
   const options: EChartsOption = {
@@ -39,15 +44,17 @@ function AreaChartInner<const S extends readonly AreaSeriesInput[]>({
       trigger: "axis",
       show: showTooltip,
     },
-    legend: {
-      show: showLegend,
-      data: series.map((s) => s.name),
-    },
+    legend: createBottomCenterLegend(
+      showLegend,
+      series.map((s) => s.name),
+    ),
     grid: {
       show: showGrid,
       left: "3%",
       right: "4%",
-      bottom: "3%",
+      bottom: showLegend
+        ? CHART_GRID_BOTTOM_WITH_LEGEND
+        : CHART_GRID_BOTTOM_DEFAULT,
       containLabel: true,
     },
     xAxis: {

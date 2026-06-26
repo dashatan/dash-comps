@@ -6,6 +6,7 @@ import type {
 } from "@dash/logistics-contracts";
 import {
   EU_HUBS,
+  EU_COUNTRY_GEO_NAMES,
   MONTH_LABELS,
   daysAgo,
   type EuRegion,
@@ -101,6 +102,19 @@ export function getRegionalShipmentShare(): NamedValueDto[] {
     name: region,
     value: 85 + i * 22 + (i % 3) * 11,
   }));
+}
+
+export function getCountryShipmentVolume(
+  shipments: ShipmentDto[],
+): NamedValueDto[] {
+  const counts = new Map<string, number>();
+  for (const shipment of shipments) {
+    const name = EU_COUNTRY_GEO_NAMES[shipment.countryCode];
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+  }
+  return Array.from(counts.entries())
+    .map(([name, value]) => ({ name, value }))
+    .sort((a, b) => b.value - a.value);
 }
 
 export function getTopRoutesByVolume(

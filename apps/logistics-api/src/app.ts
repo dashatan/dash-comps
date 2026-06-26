@@ -44,6 +44,10 @@ app.get("/api/v1/analytics/regional-share", (c) => {
   return c.json(getStore().getRegionalShipmentShare());
 });
 
+app.get("/api/v1/analytics/country-volume", (c) => {
+  return c.json(getStore().getCountryShipmentVolume());
+});
+
 app.get("/api/v1/analytics/top-routes", (c) => {
   const limit = Number(c.req.query("limit") ?? 6);
   return c.json(getStore().getTopRoutesByVolume(limit));

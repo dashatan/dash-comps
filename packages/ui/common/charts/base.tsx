@@ -7,6 +7,9 @@ import {
   createSeriesConfig,
   createTooltipFormatter,
   getTheme,
+  isLegendVisible,
+  CHART_GRID_BOTTOM_DEFAULT,
+  CHART_GRID_BOTTOM_WITH_LEGEND,
 } from "./helpers";
 import EChartsReact from "echarts-for-react";
 import { cn } from "@/lib";
@@ -99,7 +102,9 @@ function BaseChartInner<T = unknown>(
     grid: {
       left: "4%",
       right: "4%",
-      bottom: options?.legend ? "15%" : "3%",
+      bottom: isLegendVisible(opts.legend)
+        ? CHART_GRID_BOTTOM_WITH_LEGEND
+        : CHART_GRID_BOTTOM_DEFAULT,
       top: "6%",
       containLabel: true,
       ...(options?.grid && !Array.isArray(options.grid) ? options.grid : {}),

@@ -20,6 +20,7 @@ export const analyticsRepository: AnalyticsRepository = {
   getDailyVolume: () => apiClient.get("/v1/analytics/daily-volume"),
   getDelaysByHub: () => apiClient.get("/v1/analytics/delays-by-hub"),
   getRegionalShare: () => apiClient.get("/v1/analytics/regional-share"),
+  getCountryVolume: () => apiClient.get("/v1/analytics/country-volume"),
   getTopRoutes: (limit = 6) =>
     apiClient.get("/v1/analytics/top-routes", { limit }),
   getRecentTrend: () => apiClient.get("/v1/analytics/recent-trend"),

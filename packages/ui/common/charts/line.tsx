@@ -2,7 +2,10 @@ import { EChartsOption, LineSeriesOption, YAXisComponentOption } from "echarts";
 import { BaseChart, ChartProps } from "./base";
 import { InferChartPayloadFromSeries } from "@/components/common/charts/infer";
 import { getHexColor } from "@/lib/utils";
-import { negativeFormatter } from "@/components/common/charts/helpers";
+import {
+  createBottomCenterLegend,
+  negativeFormatter,
+} from "@/components/common/charts/helpers";
 
 export type LineSeriesInput = Omit<LineSeriesOption, "data"> & {
   data?: readonly unknown[];
@@ -59,7 +62,7 @@ function LineChartInner<const S extends readonly LineSeriesInput[]>({
       },
       ...tooltip,
     },
-    legend: { show: showLegend, bottom: 0, ...options?.legend },
+    legend: createBottomCenterLegend(showLegend, undefined, options?.legend),
     grid: { show: false, ...options?.grid },
     xAxis: {
       type: "category",

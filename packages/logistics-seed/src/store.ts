@@ -26,6 +26,7 @@ import {
   getOverviewKpis,
   getRecentShipmentTrend,
   getRegionalShipmentShare,
+  getCountryShipmentVolume,
   getRevenueByRouteTopN,
   getRevenueCostSeries,
   getShipmentVolumeByStatus,
@@ -118,6 +119,10 @@ export class LogisticsDataStore {
 
   getRegionalShipmentShare(): NamedValueDto[] {
     return getRegionalShipmentShare();
+  }
+
+  getCountryShipmentVolume(): NamedValueDto[] {
+    return getCountryShipmentVolume(this.shipments);
   }
 
   getTopRoutesByVolume(limit = 6): NamedValueDto[] {

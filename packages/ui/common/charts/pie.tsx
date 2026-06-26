@@ -2,7 +2,7 @@ import { EChartsOption } from "echarts";
 import type { DefaultLabelFormatterCallbackParams, ECharts } from "echarts";
 import { BaseChart, ChartProps } from "./base";
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { getTheme } from "./helpers";
+import { getTheme, createBottomCenterLegend } from "./helpers";
 import { cn } from "@/lib";
 import { InferChartPayloadFromData } from "@/components/common/charts/infer";
 
@@ -22,6 +22,7 @@ export type PieChartProps<
   showLabel?: boolean;
   showRadius?: boolean;
   centerText?: boolean;
+  centerSummaryLabel?: string;
   donut?: boolean;
   minAngle?: number;
   radius?: [string, string];
@@ -61,6 +62,7 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
   labelFontSize = 8,
   labelPosition = "outside",
   centerText = true,
+  centerSummaryLabel = "Total",
   options,
   onChartReady,
   ...props
@@ -78,6 +80,17 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
     name: string;
     value: number;
   } | null>(null);
+
+  const totalValue = useMemo(
+    () => activeData.reduce((sum, item) => sum + item.value, 0),
+    [activeData],
+  );
+
+  const resolvedCenterLabel = useMemo(() => {
+    if (centerLabel) return centerLabel;
+    if (!centerText || !donut) return null;
+    return { name: centerSummaryLabel, value: totalValue };
+  }, [centerLabel, centerText, donut, centerSummaryLabel, totalValue]);
 
   const handleDrillDown = useCallback(
     (params: { dataIndex: number }) => {
@@ -167,20 +180,12 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
         ...options?.title,
       },
       tooltip: { show: showTooltip, trigger: "item", ...options?.tooltip },
-      legend: {
-        show: showLegend,
-        orient: "horizontal",
-        scrollDataIndex: 1,
-        left: "left",
-        bottom: "0",
-        type: "scroll",
-        align: "left",
-        ...options?.legend,
-      },
+      legend: createBottomCenterLegend(showLegend, undefined, options?.legend),
       series: [
         {
           name: title,
           type: "pie",
+          center: showLegend ? ["50%", "44%"] : ["50%", "50%"],
           radius: donut ? radius : "70%",
           roseType,
           data: activeData,
@@ -259,7 +264,12 @@ function PieChartInner<const D extends readonly PieDataItem[]>({
         className={cn("z-5", props.className)}
         {...props}
       />
-      {centerText ? <CenterText centerText={centerLabel} /> : null}
+      {centerText ? (
+        <CenterText
+          centerText={resolvedCenterLabel}
+          className={showLegend && donut ? "top-[44%]" : undefined}
+        />
+      ) : null}
     </div>
   );
 }
@@ -270,13 +280,20 @@ export default PieChart;
 
 function CenterText({
   centerText,
+  className,
 }: {
   centerText: { name: string; value: number } | null;
+  className?: string;
 }) {
   if (!centerText) return null;
 
   return (
-    <div className="absolute top-1/2 left-1/2 z-4 flex -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+    <div
+      className={cn(
+        "absolute top-1/2 left-1/2 z-4 flex -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center",
+        className,
+      )}
+    >
       <span className="text-xs font-bold text-foreground/70">
         {centerText.name}
       </span>
