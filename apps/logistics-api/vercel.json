@@ -1,0 +1,5 @@
+{
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm --filter @dash/logistics-api typecheck",
+  "ignoreCommand": "bash ../../scripts/vercel/ignore-logistics-api.sh"
+}

@@ -43,3 +43,9 @@ shared/          → cross-feature UI and hooks
 ## Tracker
 
 Uses `tracker-legacy` with `Event[]` from `/api/v1/tracker/live` and `/api/v1/tracker/playback`.
+
+## Deployment
+
+Production deploys are on Vercel. Admin project name: **dash-logistics** (`https://dash-logistics.vercel.app`), API: **dash-logistics-api**.
+
+See [docs/VERCEL.md](../../docs/VERCEL.md) for monorepo setup, env vars, and verification steps.

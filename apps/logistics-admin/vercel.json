@@ -1,0 +1,11 @@
+{
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm --filter @dash/logistics-admin build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "VITE_API_URL": "https://dash-logistics-api.vercel.app/api"
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "ignoreCommand": "bash ../../scripts/vercel/ignore-logistics-admin.sh"
+}

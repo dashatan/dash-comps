@@ -18,7 +18,7 @@ const languageOptions = [
 ];
 
 export default function LanguageSelect() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,6 +35,7 @@ export default function LanguageSelect() {
       <PopoverTrigger asChild>
         <HeaderIconButton
           type="button"
+          tooltip={t("common.toggleLanguage")}
           aria-label={currentLanguage?.label ?? "Language"}
         >
           <Globe className="text-sidebar-foreground" size={20} />
