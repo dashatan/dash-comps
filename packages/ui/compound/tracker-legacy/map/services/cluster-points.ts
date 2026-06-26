@@ -1,4 +1,5 @@
 import mapLibreGl from 'maplibre-gl'
+import cctvIconUrl from '../components/cctv.svg'
 
 const provinces = {
   97000000: { name: 'گلستان', lat: 37.289, long: 55.16 },
@@ -320,7 +321,7 @@ export class ClusterPointsService {
 
     // Add unclustered points with custom camera marker (circle + icon + triangle)
     const CAMERA_ICON_ID = 'camera-marker'
-    const CAMERA_ICON_URL = '/cctv.svg'
+    const CAMERA_ICON_URL = cctvIconUrl
 
     // Helper function to create custom marker with circle, icon, and triangle
     const createCustomMarker = (cameraIcon: HTMLImageElement): HTMLImageElement => {

@@ -1,5 +1,7 @@
 import mapLibreGl from 'maplibre-gl'
-import { MAP_STYLES, LAYER_IDS, SOURCE_IDS, MAP_PADDING, MAP_CONFIG, ANIMATION_CONFIG, MOBILE_MAP_PADDING } from '../config/constants'
+import { MAP_STYLES, LAYER_IDS, SOURCE_IDS, MAP_CONFIG, ANIMATION_CONFIG, MOBILE_MAP_PADDING } from '../config/constants'
+import { getMapFitPadding } from '../../map-fit-padding'
+import { useTrackerStore } from '../../store'
 import { Coordinate, DrawingContext } from '../types'
 import { getValidEvents, coordinateToLngLat } from '../../utils'
 import { MarkerManager } from './marker'
@@ -204,8 +206,20 @@ export class RouteDrawer {
   /**
    * Adjust map view to fit the route
    */
+  public fitRouteToView(map: mapLibreGl.Map, routeCoords: Coordinate[]): void {
+    this.adjustMapView(map, routeCoords)
+  }
+
+  /**
+   * Adjust map view to fit the route
+   */
   private adjustMapView(map: mapLibreGl.Map, routeCoords: Coordinate[]): void {
     const isMobile = deviceType() === 'mobile'
+    const overlayInsets = useTrackerStore.getState().mapOverlayInsets
+    const padding = isMobile
+      ? MOBILE_MAP_PADDING
+      : getMapFitPadding(overlayInsets)
+
     setTimeout(() => {
       if (routeCoords.length === 1) {
         const [lat, lng] = routeCoords[0]
@@ -214,7 +228,7 @@ export class RouteDrawer {
       } else if (routeCoords.length > 1) {
         const bounds = this.calculateRouteBounds(routeCoords)
         map.fitBounds(bounds, {
-          padding: isMobile ? MOBILE_MAP_PADDING : MAP_PADDING,
+          padding,
           maxZoom: MAP_CONFIG.MAX_ZOOM,
           animate: true,
         })

@@ -4,11 +4,11 @@ import ObserveImageModal from "@/features/observe-details/components/tracker/ima
 import { Event } from "@/components/compound/tracker-legacy/types";
 import { cn, useLanguage } from "@/lib";
 import { getIntlLocale } from "@/components/compound/tracker-legacy/utils";
-import { ArrowUpLeft, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { ReactNode } from "react";
 
 type EventCardProps = {
-  event?: Event;
+  event: Event;
   index?: number;
   isActive?: boolean;
   isOpen?: boolean;
@@ -45,7 +45,7 @@ export default function EventCard({
     });
   }
 
-  const handleCardClick = (e: React.MouseEvent) => {
+  const handleCardClick = () => {
     onClick?.();
   };
 
@@ -66,10 +66,10 @@ export default function EventCard({
     >
       <div
         className={cn(
-          "bg-card/50 flex max-h-10 cursor-pointer flex-row items-center gap-2 rounded-md p-3 text-sm",
+          "bg-card/75 flex max-h-10 cursor-pointer flex-row items-center gap-2 rounded-md p-3 text-sm backdrop-blur-sm",
           {
-            "bg-error/20": event.error,
-            "bg-warning/30": event.miss && !event.error,
+            "bg-error/25": event.error,
+            "bg-warning/35": event.miss && !event.error,
           },
         )}
         onClick={handleCardClick}
@@ -125,13 +125,13 @@ export default function EventCard({
             <div className='bg-accent size-2 rounded-[2px]' />
             <span className='text-sm'>{t('common.totalInfo')}</span>
           </div> */}
-          <div className="bg-accent/70 grid w-full grid-cols-2 gap-px overflow-hidden rounded-md border">
-            {info.map(({ title, value, className }, index) => {
+          <div className="bg-accent/50 grid w-full grid-cols-2 gap-px overflow-hidden rounded-md border border-border/40 backdrop-blur-sm">
+            {info.map(({ title, value, className }, infoIndex) => {
               return (
                 <div
-                  key={index}
+                  key={infoIndex}
                   className={cn(
-                    "bg-card/30 flex items-center gap-4 p-2 text-sm",
+                    "bg-card/60 flex items-center gap-4 p-2 text-sm backdrop-blur-sm",
                     className,
                   )}
                 >

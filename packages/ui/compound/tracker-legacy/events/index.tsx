@@ -6,7 +6,10 @@ import {
 } from "@/components/common/collapsible";
 import { Select } from "@/components/common/inputs/select";
 import EventCard from "@/components/compound/tracker-legacy/events/card";
-import { type Event, playSpeedOptions } from "@/components/compound/tracker-legacy/types";
+import {
+  type Event,
+  playSpeedOptions,
+} from "@/components/compound/tracker-legacy/types";
 import { useTrackerStore } from "@/components/compound/tracker-legacy/store";
 import { cn, useLanguage } from "@/lib";
 import { getIntlLocale } from "@/components/compound/tracker-legacy/utils";
@@ -32,6 +35,7 @@ export type EventsPanelProps = {
 
 const HEADER_HEIGHT = 60;
 const CONTENT_HEADER_HEIGHT = 86;
+const PLAYBACK_BAR_HEIGHT = 80;
 
 export default function EventsPanel({
   isLoading,
@@ -49,10 +53,22 @@ export default function EventsPanel({
   const playSpeed = useTrackerStore((state) => state.playSpeed);
   const setPlay = useTrackerStore((state) => state.setPlay);
   const setPlaySpeed = useTrackerStore((state) => state.setPlaySpeed);
-  const setActiveEventIndex = useTrackerStore((state) => state.setActiveEventIndex);
-  const incrementActiveEventIndex = useTrackerStore((state) => state.incrementActiveEventIndex);
-  const decrementActiveEventIndex = useTrackerStore((state) => state.decrementActiveEventIndex);
+  const setActiveEventIndex = useTrackerStore(
+    (state) => state.setActiveEventIndex,
+  );
+  const incrementActiveEventIndex = useTrackerStore(
+    (state) => state.incrementActiveEventIndex,
+  );
+  const decrementActiveEventIndex = useTrackerStore(
+    (state) => state.decrementActiveEventIndex,
+  );
   const dateLocale = getIntlLocale(language);
+  const height = containerHeight ?? 0;
+  const contentHeight = open ? Math.max(0, height - HEADER_HEIGHT) : 0;
+  const showPlayback = !isLoading && !noData;
+  const listHeight = showPlayback
+    ? Math.max(0, contentHeight - CONTENT_HEADER_HEIGHT - PLAYBACK_BAR_HEIGHT)
+    : contentHeight;
 
   useEffect(() => {
     if (!play) return;
@@ -70,7 +86,11 @@ export default function EventsPanel({
   }, [play, playSpeed, events.length]);
 
   useEffect(() => {
-    if (virtuoso.current && activeEventIndex >= 0 && activeEventIndex < events.length) {
+    if (
+      virtuoso.current &&
+      activeEventIndex >= 0 &&
+      activeEventIndex < events.length
+    ) {
       virtuoso.current.scrollToIndex({
         index: activeEventIndex,
         align: "center",
@@ -109,10 +129,10 @@ export default function EventsPanel({
       open={open}
       onOpenChange={(o) => setOpen(o)}
       defaultOpen
-      className="bg-background mobile:h-fit mobile:rounded-b-none w-full overflow-hidden rounded-md border"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden border-r border-border/40 bg-background/55 backdrop-blur-md mobile:rounded-b-none"
     >
       <div
-        className="flex items-center justify-between border-b p-4"
+        className="flex shrink-0 items-center justify-between border-b border-border/40 bg-background/40 p-4 backdrop-blur-sm"
         style={{ height: HEADER_HEIGHT }}
       >
         <span className="w-full">{t("observe.chosenPlateInfo")}</span>
@@ -129,17 +149,17 @@ export default function EventsPanel({
       </div>
       <CollapsibleContent asChild>
         <div
-          className="mobile:max-h-[360px] relative flex flex-col"
-          style={{ height: containerHeight - HEADER_HEIGHT - 36 }}
+          className="relative flex min-h-0 flex-1 flex-col"
+          style={{ height: contentHeight }}
         >
           {isLoading && (
-            <div className="bg-primary/10 border-primary/70 m-2 flex cursor-default items-center gap-2 rounded-md border p-2 text-sm">
+            <div className="m-2 flex cursor-default items-center gap-2 rounded-md border border-primary/70 bg-background/70 p-2 text-sm backdrop-blur-sm">
               <Loader2 className="animate-spin" />
               <span>{t("observe.isLoading")}</span>
             </div>
           )}
           {!isLoading && noData && (
-            <div className="border-error/70 bg-error/10 text-destructive m-2 flex cursor-default items-center gap-2 rounded-md border p-2 text-base">
+            <div className="m-2 flex cursor-default items-center gap-2 rounded-md border border-error/70 bg-background/70 p-2 text-base text-destructive backdrop-blur-sm">
               <AlertTriangle />
               <span>{t("observe.noData")}</span>
             </div>
@@ -147,14 +167,14 @@ export default function EventsPanel({
           {!isLoading && !noData && (
             <>
               <div
-                className="sticky top-0 flex flex-col border-b p-4 text-sm"
+                className="sticky top-0 flex shrink-0 flex-col border-b border-border/40 bg-background/45 p-4 text-sm backdrop-blur-sm"
                 style={{ height: CONTENT_HEADER_HEIGHT }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-accent size-2 rounded-[2px]" />
+                  <div className="size-2 rounded-[2px] bg-accent" />
                   <span>{t("common.totalInfo")}</span>
                 </div>
-                <div className="bg-card flex gap-4 rounded-md p-3">
+                <div className="flex gap-4 rounded-md bg-card/70 p-3 backdrop-blur-sm">
                   <span>{t("observe.observesInDateRange")}:</span>
                   <span>
                     {events.length} {t("common.view")}
@@ -165,7 +185,7 @@ export default function EventsPanel({
               <Virtuoso
                 ref={virtuoso}
                 data={events}
-                style={{ height: containerHeight, marginBottom: 10, paddingBottom: 10 }}
+                style={{ height: listHeight }}
                 initialTopMostItemIndex={{
                   index: activeEventIndex >= 0 ? activeEventIndex : 0,
                   align: "center",
@@ -187,7 +207,8 @@ export default function EventsPanel({
                     }).format(e.time);
 
                   const isNewDay =
-                    index === 0 || getDateString(event) !== getDateString(events[index - 1]);
+                    index === 0 ||
+                    getDateString(event) !== getDateString(events[index - 1]);
 
                   return (
                     <div key={index} className="flex flex-col gap-4 p-2 pt-0">
@@ -216,7 +237,7 @@ export default function EventsPanel({
           )}
 
           {!isLoading && !noData && (
-            <div className="bg-muted/30 dir-ltr sticky bottom-0 m-4 mt-auto flex justify-between gap-2 rounded-md p-2 text-sm">
+            <div className="sticky bottom-0 m-4 mt-auto flex shrink-0 justify-between gap-2 rounded-md border border-border/40 bg-background/70 p-2 text-sm backdrop-blur-md dir-ltr">
               <ControlButton onClick={handlePrevEvent}>
                 <SkipBack size={18} />
               </ControlButton>
@@ -226,7 +247,7 @@ export default function EventsPanel({
               <ControlButton onClick={handleNextEvent}>
                 <SkipForward size={18} />
               </ControlButton>
-              <div className="bg-foreground h-10 w-1" />
+              <div className="h-10 w-1 bg-foreground" />
               <Select.Single
                 value={playSpeed}
                 onChange={(value) => setPlaySpeed(value as number)}
@@ -252,7 +273,7 @@ function ControlButton(props: DivProps) {
       {...props}
       className={cn(
         buttonVariants({ variant: "contained", severity: "info" }),
-        "bg-background/70 hover:bg-background/90 w-full transition-all",
+        "w-full bg-background/70 transition-all hover:bg-background/90",
         props.className,
       )}
     />

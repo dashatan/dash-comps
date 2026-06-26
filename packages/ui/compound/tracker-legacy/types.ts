@@ -1,5 +1,21 @@
 export const SIDEBAR_WIDTH = 384;
 
+export const MAP_FIT_GUTTER = 48;
+
+export type MapOverlayInsets = {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+};
+
+export const EMPTY_MAP_OVERLAY_INSETS: MapOverlayInsets = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+};
+
 export type Event = {
   id: number;
   time: number;

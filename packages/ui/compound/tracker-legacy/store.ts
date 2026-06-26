@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import type mapLibreGl from "maplibre-gl";
-import { playSpeedOptions, type Event } from "./types";
+import { playSpeedOptions, type Event, type MapOverlayInsets, EMPTY_MAP_OVERLAY_INSETS } from "./types";
 
 type TrackerStoreState = {
   map: mapLibreGl.Map | null;
@@ -17,6 +17,7 @@ type TrackerStoreState = {
   routeIsLoading: boolean;
   rtlSet: boolean;
   mapTiles: { light: string; dark: string };
+  mapOverlayInsets: MapOverlayInsets;
   setMap: (map: mapLibreGl.Map | null) => void;
   setEvents: (events: Event[]) => void;
   setActiveEventIndex: (index: number) => void;
@@ -32,6 +33,7 @@ type TrackerStoreState = {
   setRouteIsLoading: (loading: boolean) => void;
   setRtlSet: (set: boolean) => void;
   setMapTiles: (tiles: { light: string; dark: string }) => void;
+  setMapOverlayInsets: (insets: MapOverlayInsets) => void;
   incrementActiveEventIndex: () => void;
   decrementActiveEventIndex: () => void;
 };
@@ -51,6 +53,7 @@ export const useTrackerStore = create<TrackerStoreState>((set, get) => ({
   routeIsLoading: false,
   rtlSet: false,
   mapTiles: { light: "", dark: "" },
+  mapOverlayInsets: EMPTY_MAP_OVERLAY_INSETS,
   setMap: (map) => set({ map }),
   setEvents: (events) => set({ events }),
   setActiveEventIndex: (activeEventIndex) => set({ activeEventIndex }),
@@ -66,6 +69,7 @@ export const useTrackerStore = create<TrackerStoreState>((set, get) => ({
   setRouteIsLoading: (routeIsLoading) => set({ routeIsLoading }),
   setRtlSet: (rtlSet) => set({ rtlSet }),
   setMapTiles: (mapTiles) => set({ mapTiles }),
+  setMapOverlayInsets: (mapOverlayInsets) => set({ mapOverlayInsets }),
   incrementActiveEventIndex: () =>
     set((state) => ({
       activeEventIndex: Math.min(state.activeEventIndex + 1, state.events.length - 1),

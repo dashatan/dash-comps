@@ -3,8 +3,6 @@
  * Centralized configuration for map styling and behavior
  */
 
-import { SIDEBAR_WIDTH } from "../../types";
-
 // === Map Styling Constants ===
 export const MAP_STYLES = {
   ROUTE_BASE_COLOR_VAR: "--color-primary",
@@ -36,13 +34,7 @@ export const ANIMATION_CONFIG = {
 } as const;
 
 // === Padding Configuration ===
-export const MAP_PADDING = {
-  left: SIDEBAR_WIDTH + 48,
-  top: 40,
-  right: 48,
-  bottom: 40,
-} as const;
-
+/** Fallback padding when overlay insets are not measured yet (mobile layout). */
 export const MOBILE_MAP_PADDING = {
   left: 40,
   top: 40,

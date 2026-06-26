@@ -27,6 +27,7 @@ export default function ObservesTrackerMap() {
   const autoPaneMap = useTrackerStore((state) => state.autoPaneMap);
   const routeIsLoading = useTrackerStore((state) => state.routeIsLoading);
   const mapTiles = useTrackerStore((state) => state.mapTiles);
+  const mapOverlayInsets = useTrackerStore((state) => state.mapOverlayInsets);
   const setActiveEventIndex = useTrackerStore((state) => state.setActiveEventIndex);
 
   const mapInitializer = MapInitializer.getInstance();
@@ -74,6 +75,13 @@ export default function ObservesTrackerMap() {
   useEffect(() => {
     handleMapReady();
   }, [events, routeCoords, eventOsrmIndices]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !autoPaneMap || routeCoords.length < 2) return;
+
+    routeDrawer.fitRouteToView(map, routeCoords);
+  }, [mapOverlayInsets, routeCoords, autoPaneMap]);
 
   useEffect(() => {
     const map = mapRef.current;
