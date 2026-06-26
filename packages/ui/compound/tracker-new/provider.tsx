@@ -25,7 +25,7 @@ import { makeTimes } from "@dash/ui/compound/tracker-new/data/remap";
 import { usePlaybackEngine } from "@dash/ui/compound/tracker-new/playback/use-playback-engine";
 import Alert from "@dash/ui/common/alert";
 import type {
-  TrackerNewProviderProps,
+  TrackerProviderProps,
   ResolvedTrackerOptions,
 } from "@dash/ui/compound/tracker-new/types";
 
@@ -111,9 +111,9 @@ function TrackerBootstrap({
   onError,
 }: {
   store: TrackerStoreApi;
-  input: TrackerNewProviderProps["input"];
+  input: TrackerProviderProps["input"];
   resolvedOptions: ResolvedTrackerOptions;
-  onError?: TrackerNewProviderProps["onError"];
+  onError?: TrackerProviderProps["onError"];
 }) {
   const workerRef = useRef<Worker | null>(null);
 
@@ -256,14 +256,14 @@ function TrackerStatusGate({ children }: { children: ReactNode }) {
   return children;
 }
 
-export function TrackerNewProvider({
+export function TrackerProvider({
   input,
   options,
   onEventSelect,
   onTimeChange,
   onError,
   children,
-}: TrackerNewProviderProps) {
+}: TrackerProviderProps) {
   const optionsKey = useMemo(() => JSON.stringify(options ?? {}), [options]);
   const resolvedOptions = useMemo(
     () => resolveTrackerOptions(options),

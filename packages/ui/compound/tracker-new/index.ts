@@ -1,5 +1,5 @@
-export { TrackerNewProvider } from "@dash/ui/compound/tracker-new/provider";
-export { default as TrackerNew } from "@dash/ui/compound/tracker-new/tracker";
+export { TrackerProvider } from "@dash/ui/compound/tracker-new/provider";
+export { default as Tracker } from "@dash/ui/compound/tracker-new/tracker";
 export { default as MapHost } from "@dash/ui/compound/tracker-new/map/map-host";
 export { default as EventsPanel } from "@dash/ui/compound/tracker-new/panels/events-panel";
 export { default as SettingsPanel } from "@dash/ui/compound/tracker-new/panels/settings-panel";

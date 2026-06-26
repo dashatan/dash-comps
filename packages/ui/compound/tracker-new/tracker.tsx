@@ -10,9 +10,9 @@ import TotalTimeline from "@dash/ui/compound/tracker-new/timeline/total-timeline
 import DayTimeline from "@dash/ui/compound/tracker-new/timeline/day-timeline";
 import PlateLegend from "@dash/ui/compound/tracker-new/timeline/plate-legend";
 import { useResolvedOptions } from "@dash/ui/compound/tracker-new/store/hooks";
-import type { TrackerNewProps } from "@dash/ui/compound/tracker-new/types";
+import type { TrackerProps } from "@dash/ui/compound/tracker-new/types";
 
-export default function TrackerNew({ className, slots }: TrackerNewProps) {
+export default function Tracker({ className, slots }: TrackerProps) {
   const options = useResolvedOptions();
   const sidebarWidth = options.panels.sidebarWidth;
   const showTotal =

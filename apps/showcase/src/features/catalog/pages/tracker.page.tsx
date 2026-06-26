@@ -5,6 +5,7 @@ import {
   TrackerNewPlayground,
   TrackerNewPresets,
 } from "@/features/catalog/ui/tracker-new-showcase";
+import Tracker from "@dash/ui/compound/tracker-new/tracker";
 
 export function TrackerPage() {
   const p = useShowcasePage("tracker");
@@ -59,21 +60,7 @@ export function TrackerPage() {
         </p>
       </ShowcaseSection>
 
-      <ShowcaseSection
-        title={p("trackerNew.title")}
-        description={p("trackerNew.description")}
-        layout="stack"
-      >
-        <TrackerNewPresets labels={presetLabels} />
-      </ShowcaseSection>
-
-      <ShowcaseSection
-        title={p("trackerNew.playground.title")}
-        description={p("trackerNew.playground.description")}
-        layout="stack"
-      >
-        <TrackerNewPlayground labels={playgroundLabels} />
-      </ShowcaseSection>
+      <Tracker />
     </CatalogPageShell>
   );
 }

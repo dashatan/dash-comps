@@ -199,7 +199,7 @@ export type TrackerSlots = {
   eventImage?: (props: { index: number; event: NormalizedEvent }) => ReactNode;
 };
 
-export type TrackerNewProviderProps = {
+export type TrackerProviderProps = {
   input: TrackerInput;
   options?: TrackerOptions;
   initialState?: Partial<NormalizedTrackerData>;
@@ -211,7 +211,7 @@ export type TrackerNewProviderProps = {
   children: ReactNode;
 };
 
-export type TrackerNewProps = {
+export type TrackerProps = {
   className?: string;
   slots?: TrackerSlots;
 };
