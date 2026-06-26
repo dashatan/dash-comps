@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, FileBarChart, Route, Truck } from "lucide-react";
 import { GridContainer } from "@/components/common/grid";
 import { PanelCard } from "@/features/overview/overview-components";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 
 const REPORT_LINKS = [
@@ -30,7 +30,7 @@ const REPORT_LINKS = [
 ] as const;
 
 export function ReportsIndexPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">

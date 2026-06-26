@@ -5,11 +5,17 @@ import {
   WidgetProgress,
   WidgetStat,
 } from "@/features/overview/overview-components";
-import type { useLogisticsT } from "@/i18n/provider";
+import type { AppTranslationKeys } from "@/i18n/use-app-language";
+import type { TranslationParams } from "@dash/core";
+
+type AppTranslator = (
+  key: AppTranslationKeys,
+  params?: TranslationParams,
+) => string;
 
 type FleetSnapshotWidgetProps = {
   summary: FleetSummaryDto;
-  t: ReturnType<typeof useLogisticsT>;
+  t: AppTranslator;
 };
 
 export function FleetSnapshotWidget({ summary, t }: FleetSnapshotWidgetProps) {

@@ -11,6 +11,7 @@ export * from "./language/client";
 export * from "./language/types";
 export * from "./language/utils";
 export * from "./language/locales/index";
+export { mergeLocales } from "./language/merge-locales";
 export * from "./constants";
 export {
   addDays,

@@ -10,7 +10,7 @@ import {
   PanelCard,
 } from "@/features/overview/overview-components";
 import { warehousesRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import Loading from "@/components/common/loading";
 import { PageHeader } from "@/shared/page-header";
 
@@ -20,7 +20,7 @@ function utilizationPercent(used: number, total: number): number {
 }
 
 export function CapacityPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   const summaryQuery = useQuery({
     queryKey: queryKeys.warehouses.capacitySummary,

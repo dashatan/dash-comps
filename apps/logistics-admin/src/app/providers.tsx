@@ -3,8 +3,10 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/lib/language/client";
-import { FALLBACK_LOCALE, localeLoaders } from "@/lib/language/locales";
-import { LogisticsLocaleProvider } from "@/i18n/provider";
+import {
+  LOGISTICS_FALLBACK_LOCALE,
+  logisticsLocaleLoaders,
+} from "@/i18n/locales/registry";
 import { LocaleGate } from "@/app/locale-gate";
 import { ErrorHandler } from "@/components/common/errors";
 import { queryClient } from "@/core/query-client";
@@ -31,16 +33,14 @@ export function AppProviders({ children }: AppProvidersProps) {
         disableTransitionOnChange={false}
       >
         <LanguageProvider
-          fallbackLocale={FALLBACK_LOCALE}
-          localeLoaders={localeLoaders}
+          fallbackLocale={LOGISTICS_FALLBACK_LOCALE}
+          localeLoaders={logisticsLocaleLoaders}
         >
-          <LogisticsLocaleProvider>
-            <LocaleGate>
-              <PreferencesBootstrap />
-              <ErrorHandler>{children}</ErrorHandler>
-              <Toaster />
-            </LocaleGate>
-          </LogisticsLocaleProvider>
+          <LocaleGate>
+            <PreferencesBootstrap />
+            <ErrorHandler>{children}</ErrorHandler>
+            <Toaster />
+          </LocaleGate>
         </LanguageProvider>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" />

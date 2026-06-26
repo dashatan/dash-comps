@@ -12,7 +12,7 @@ import {
   TrackerMapShell,
   toLegacyEvents,
 } from "@/features/tracker/components/tracker-map-shell";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 import Loading from "@/components/common/loading";
 
@@ -31,7 +31,7 @@ const VEHICLE_LIST_STATE: TableData = {
 };
 
 export function PlaybackTrackerPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const [vehicleId, setVehicleId] = useState(1);
   const listParams = tableStateToListParams(VEHICLE_LIST_STATE);
 

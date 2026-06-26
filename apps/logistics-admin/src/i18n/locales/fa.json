@@ -1,699 +1,737 @@
 {
+  "app": {
+    "name": "مدیریت لجستیک",
+    "description": "داشبورد عملیات ناوگان اروپایی"
+  },
+  "nav": {
+    "accounts": "حساب‌ها",
+    "analytics": "تحلیل‌ها",
+    "appearance": "ظاهر",
+    "assignments": "تخصیص‌ها",
+    "branding": "برندسازی",
+    "capacity": "ظرفیت",
+    "contracts": "قراردادها",
+    "corridors": "کریدورها",
+    "customers": "مشتریان",
+    "deliveryPerformance": "عملکرد تحویل",
+    "drivers": "رانندگان",
+    "finance": "مالی",
+    "fleet": "ناوگان",
+    "fleetUtilization": "بهره‌وری ناوگان",
+    "hubs": "مراکز توزیع",
+    "integrations": "یکپارچه‌سازی‌ها",
+    "invoices": "فاکتورها",
+    "liveMap": "نقشه زنده",
+    "organisation": "سازمان",
+    "overview": "نمای کلی",
+    "payments": "پرداخت‌ها",
+    "planning": "برنامه‌ریزی",
+    "playback": "بازپخش",
+    "reports": "گزارش‌ها",
+    "revenueByRoute": "درآمد بر اساس مسیر",
+    "routes": "مسیرها",
+    "settings": "تنظیمات",
+    "shipments": "محموله‌ها",
+    "soon": "به‌زودی",
+    "tracker": "ردیاب زنده",
+    "vehicles": "خودروها",
+    "warehouses": "انبارها"
+  },
   "common": {
-    "comingSoon": "Coming soon",
-    "comingSoonDescription": "This module is planned for a future release. Explore Overview, Analytics, Reports, Shipments, and Fleet in the meantime.",
-    "backToOverview": "Back to Overview",
-    "europeanOperations": "European operations",
-    "lastUpdated": "Last updated",
-    "viewReport": "View report",
-    "loading": "Loading…"
+    "comingSoon": "به‌زودی",
+    "comingSoonDescription": "این صفحه هنوز در دسترس نیست. در فهرست کناری، نمای کلی، تحلیل‌ها، گزارش‌ها، محموله‌ها، ناوگان و سایر ماژول‌ها را کاوش کنید.",
+    "backToOverview": "بازگشت به نمای کلی",
+    "europeanOperations": "عملیات اروپایی",
+    "lastUpdated": "آخرین به‌روزرسانی",
+    "viewReport": "مشاهده گزارش",
+    "loading": "در حال بارگذاری…"
   },
   "overview": {
-    "title": "Overview",
-    "subtitle": "Live KPIs, fleet status, and operational snapshots",
+    "title": "نمای کلی",
+    "subtitle": "شاخص‌های کلیدی زنده، وضعیت ناوگان و تصاویر لحظه‌ای عملیات",
     "kpis": {
-      "activeShipments": "Active shipments",
-      "onTimePercent": "On-time delivery",
-      "avgDeliveryHours": "Avg delivery time",
-      "delayedCount": "Delayed shipments",
-      "fleetUtilization": "Fleet utilisation",
-      "revenueMtd": "Revenue (MTD)",
-      "costMtd": "Cost (MTD)",
-      "marginPercent": "Gross margin",
+      "activeShipments": "محموله‌های فعال",
+      "onTimePercent": "تحویل به‌موقع",
+      "avgDeliveryHours": "میانگین زمان تحویل",
+      "delayedCount": "محموله‌های تأخیردار",
+      "fleetUtilization": "بهره‌وری ناوگان",
+      "revenueMtd": "درآمد (از ابتدای ماه)",
+      "costMtd": "هزینه (از ابتدای ماه)",
+      "marginPercent": "حاشیه سود ناخالص",
       "descriptions": {
-        "activeShipments": "In transit or awaiting pickup across EU hubs",
-        "onTimePercent": "Share of deliveries completed within SLA",
-        "avgDeliveryHours": "Mean door-to-door time for completed runs",
-        "delayedCount": "Shipments past the estimated delivery window",
-        "fleetUtilization": "Active vehicles relative to total fleet capacity",
-        "revenueMtd": "Billable revenue recognised month-to-date",
-        "costMtd": "Operating expenses recorded month-to-date",
-        "marginPercent": "Gross margin as a percentage of revenue"
+        "activeShipments": "در حال حمل یا در انتظار جمع‌آوری در مراکز توزیع اتحادیه اروپا",
+        "onTimePercent": "سهم تحویل‌های انجام‌شده در چارچوب SLA",
+        "avgDeliveryHours": "میانگین زمان درب‌به‌درب برای محموله‌های تکمیل‌شده",
+        "delayedCount": "محموله‌هایی که از پنجره تحویل تخمینی گذشته‌اند",
+        "fleetUtilization": "خودروهای فعال نسبت به ظرفیت کل ناوگان",
+        "revenueMtd": "درآمد قابل‌صورتحساب شناسایی‌شده از ابتدای ماه",
+        "costMtd": "هزینه‌های عملیاتی ثبت‌شده از ابتدای ماه",
+        "marginPercent": "حاشیه سود ناخالص به‌صورت درصدی از درآمد"
       }
     },
     "charts": {
-      "revenueCost": "Revenue vs cost (EUR thousands)",
-      "dailyVolume": "Daily shipment volume",
-      "onTimeTrend": "On-time delivery trend",
-      "recentTrend": "30-day shipment trend",
-      "total": "Total",
+      "revenueCost": "درآمد در برابر هزینه (هزار یورو)",
+      "dailyVolume": "حجم روزانه محموله",
+      "onTimeTrend": "روند تحویل به‌موقع",
+      "recentTrend": "روند ۳۰ روزه محموله",
+      "total": "مجموع",
       "descriptions": {
-        "revenueCost": "Monthly revenue compared to operating cost in EUR thousands",
-        "dailyVolume": "Shipment count per day for the current period",
-        "onTimeTrend": "Rolling on-time delivery rate over the past twelve months",
-        "recentTrend": "Daily shipment volume over the last thirty days",
-        "regionalShare": "Share of network volume by European operating region",
-        "statusVolume": "Current shipment count grouped by lifecycle status",
-        "delaysByHub": "Delay incidents recorded at each EU hub this month"
+        "revenueCost": "درآمد ماهانه در مقایسه با هزینه عملیاتی به هزار یورو",
+        "dailyVolume": "تعداد محموله در روز برای دوره جاری",
+        "onTimeTrend": "نرخ تحویل به‌موقع غلتان در دوازده ماه گذشته",
+        "recentTrend": "حجم روزانه محموله در سی روز اخیر",
+        "regionalShare": "سهم حجم شبکه بر اساس منطقه عملیاتی اروپایی",
+        "statusVolume": "تعداد فعلی محموله‌ها بر اساس وضعیت چرخه عمر",
+        "delaysByHub": "وقایع تأخیر ثبت‌شده در هر مرکز توزیع اتحادیه اروپا در این ماه"
       }
     },
     "geoMap": {
-      "title": "EU shipment density",
-      "description": "Destination-country volume across the European network",
-      "rangeLow": "Low",
-      "rangeHigh": "High"
+      "title": "تراکم محموله اتحادیه اروپا",
+      "description": "حجم مقصد-کشور در شبکه اروپایی",
+      "rangeLow": "کم",
+      "rangeHigh": "زیاد"
     },
     "summary": {
-      "regionalShare": "Regional mix",
-      "regionalShareDescription": "Quick view of volume share by operating region"
+      "regionalShare": "ترکیب منطقه‌ای",
+      "regionalShareDescription": "نمای سریع سهم حجم بر اساس منطقه عملیاتی"
     },
     "lists": {
       "topRoutes": {
-        "title": "Top corridors",
-        "description": "Highest-volume origin–destination pairs this month"
+        "title": "برترین کریدورها",
+        "description": "جفت مبدأ–مقصد با بیشترین حجم در این ماه"
       },
       "recentShipments": {
-        "title": "Recent shipments",
-        "description": "Latest scheduled consignments across EU hubs"
+        "title": "محموله‌های اخیر",
+        "description": "آخرین محموله‌های برنامه‌ریزی‌شده در مراکز توزیع اتحادیه اروپا"
       },
       "hubDelays": {
-        "title": "Hub delay watchlist",
-        "description": "Hubs ranked by delay incidents this month",
-        "delayCount": "Delay incidents"
+        "title": "فهرست نظارت تأخیر مراکز",
+        "description": "مراکز توزیع رتبه‌بندی‌شده بر اساس وقایع تأخیر در این ماه",
+        "delayCount": "وقایع تأخیر"
       }
     },
     "widgets": {
       "fleet": {
-        "title": "Fleet snapshot",
-        "description": "Live fleet capacity and maintenance status",
-        "utilization": "Fleet utilisation",
-        "vehicles": "Vehicles",
-        "drivers": "Drivers",
-        "assignments": "Assignments",
-        "active": "Active",
-        "idle": "Idle",
-        "onDuty": "On duty",
-        "registered": "Registered",
-        "scheduled": "Scheduled total"
+        "title": "تصویر لحظه‌ای ناوگان",
+        "description": "ظرفیت زنده ناوگان و وضعیت نگهداری",
+        "utilization": "بهره‌وری ناوگان",
+        "vehicles": "خودروها",
+        "drivers": "رانندگان",
+        "assignments": "تخصیص‌ها",
+        "active": "فعال",
+        "idle": "بیکار",
+        "onDuty": "در شیفت",
+        "registered": "ثبت‌شده",
+        "scheduled": "مجموع برنامه‌ریزی‌شده"
       },
       "liveTracker": {
-        "title": "Live tracker feed",
-        "description": "Most recent vehicle events on EU corridors"
+        "title": "فید ردیاب زنده",
+        "description": "آخرین رویدادهای خودرو در کریدورهای اتحادیه اروپا"
       }
     }
   },
   "analytics": {
-    "title": "Analytics",
-    "subtitle": "Deep-dive trends, charts, and corridor analysis",
+    "title": "تحلیل‌ها",
+    "subtitle": "روندهای عمیق، نمودارها و تحلیل کریدور",
     "charts": {
-      "statusVolume": "Shipments by status",
-      "onTimeTrend": "On-time delivery (%)",
-      "revenueCost": "Revenue vs operating cost",
-      "dailyVolume": "Daily shipment volume",
-      "countryVolume": "EU shipment density",
-      "recentTrend": "30-day shipment trend",
-      "delaysByHub": "Delays by hub",
-      "regionalShare": "Regional shipment share",
-      "topRoutes": "Top corridors by volume",
-      "total": "Total",
+      "statusVolume": "محموله‌ها بر اساس وضعیت",
+      "onTimeTrend": "تحویل به‌موقع (%)",
+      "revenueCost": "درآمد در برابر هزینه عملیاتی",
+      "dailyVolume": "حجم روزانه محموله",
+      "countryVolume": "تراکم محموله اتحادیه اروپا",
+      "recentTrend": "روند ۳۰ روزه محموله",
+      "delaysByHub": "تأخیرها بر اساس مرکز",
+      "regionalShare": "سهم منطقه‌ای محموله",
+      "topRoutes": "برترین کریدورها بر اساس حجم",
+      "total": "مجموع",
       "descriptions": {
-        "statusVolume": "Current shipment count grouped by lifecycle status",
-        "onTimeTrend": "Rolling on-time delivery rate over the past twelve months",
-        "revenueCost": "Monthly revenue compared to operating cost in EUR thousands",
-        "dailyVolume": "Shipment count per day for the current period",
-        "countryVolume": "Destination-country volume across the European network",
-        "recentTrend": "Daily shipment volume over the last thirty days",
-        "delaysByHub": "Delay incidents recorded at each EU hub this month",
-        "regionalShare": "Share of network volume by European operating region",
-        "topRoutes": "Highest-volume origin–destination corridors this month"
+        "statusVolume": "تعداد فعلی محموله‌ها بر اساس وضعیت چرخه عمر",
+        "onTimeTrend": "نرخ تحویل به‌موقع غلتان در دوازده ماه گذشته",
+        "revenueCost": "درآمد ماهانه در مقایسه با هزینه عملیاتی به هزار یورو",
+        "dailyVolume": "تعداد محموله در روز برای دوره جاری",
+        "countryVolume": "حجم مقصد-کشور در شبکه اروپایی",
+        "recentTrend": "حجم روزانه محموله در سی روز اخیر",
+        "delaysByHub": "وقایع تأخیر ثبت‌شده در هر مرکز توزیع اتحادیه اروپا در این ماه",
+        "regionalShare": "سهم حجم شبکه بر اساس منطقه عملیاتی اروپایی",
+        "topRoutes": "کریدورهای مبدأ–مقصد با بیشترین حجم در این ماه"
       }
     },
     "lists": {
       "topRoutes": {
-        "title": "Corridor rankings",
-        "description": "Top corridors by shipment volume for the current period"
+        "title": "رتبه‌بندی کریدورها",
+        "description": "برترین کریدورها بر اساس حجم محموله در دوره جاری"
       }
     },
     "summary": {
-      "totalShipments": "Total shipments",
-      "totalShipmentsDescription": "All shipments across lifecycle statuses in the dataset",
-      "latestOnTime": "Latest on-time rate",
-      "latestOnTimeDescription": "On-time delivery percentage for the most recent month",
-      "hubDelayTotal": "Hub delay incidents",
-      "hubDelayTotalDescription": "Combined delay count across monitored EU hubs",
-      "topCorridor": "Top corridor",
-      "topCorridorDescription": "Highest-volume origin–destination pair this month"
+      "totalShipments": "مجموع محموله‌ها",
+      "totalShipmentsDescription": "همه محموله‌ها در وضعیت‌های چرخه عمر مجموعه داده",
+      "latestOnTime": "آخرین نرخ به‌موقع",
+      "latestOnTimeDescription": "درصد تحویل به‌موقع برای جدیدترین ماه",
+      "hubDelayTotal": "وقایع تأخیر مراکز",
+      "hubDelayTotalDescription": "مجموع تعداد تأخیر در مراکز توزیع تحت نظارت اتحادیه اروپا",
+      "topCorridor": "برترین کریدور",
+      "topCorridorDescription": "جفت مبدأ–مقصد با بیشترین حجم در این ماه"
     }
   },
   "reports": {
-    "title": "Reports",
-    "subtitle": "Focused operational and financial report views",
+    "title": "گزارش‌ها",
+    "subtitle": "نماهای متمرکز گزارش عملیاتی و مالی",
     "deliveryPerformance": {
-      "title": "Delivery Performance",
-      "description": "On-time rates and delivery duration by EU hub"
+      "title": "عملکرد تحویل",
+      "description": "نرخ به‌موقع و مدت تحویل بر اساس مرکز توزیع اتحادیه اروپا"
     },
     "revenueByRoute": {
-      "title": "Revenue by Route",
-      "description": "Top corridors ranked by revenue and margin"
+      "title": "درآمد بر اساس مسیر",
+      "description": "برترین کریدورها رتبه‌بندی‌شده بر اساس درآمد و حاشیه سود"
     },
     "fleetUtilization": {
-      "title": "Fleet Utilisation",
-      "description": "Vehicle usage across European regions"
+      "title": "بهره‌وری ناوگان",
+      "description": "استفاده از خودرو در مناطق اروپایی"
     },
     "summary": {
-      "avgOnTime": "Average on-time",
-      "avgOnTimeDescription": "Mean on-time delivery rate across monitored hubs",
-      "avgDelivery": "Avg delivery",
-      "avgDeliveryDescription": "Mean door-to-door delivery duration in hours",
-      "delayed": "Delayed shipments",
-      "delayedDescription": "Shipments currently past the estimated delivery window",
-      "hubs": "Hubs monitored",
-      "hubsDescription": "EU hubs included in this performance report",
-      "totalRevenue": "Total revenue",
-      "totalRevenueDescription": "Combined billable revenue across analysed corridors",
-      "totalCost": "Total cost",
-      "totalCostDescription": "Combined operating cost across analysed corridors",
-      "topRoute": "Top corridor",
-      "topRouteDescription": "Highest-revenue origin–destination pair in the dataset",
-      "routes": "Corridors analysed",
-      "routesDescription": "Number of corridors included in the revenue breakdown",
-      "fleetSize": "Fleet size",
-      "fleetSizeDescription": "Total registered vehicles in the European fleet",
-      "activeVehicles": "Active vehicles",
-      "activeVehiclesDescription": "Vehicles currently assigned or in transit",
-      "avgUtilization": "Avg utilisation",
-      "avgUtilizationDescription": "Mean fleet utilisation rate across all regions",
-      "maintenance": "In maintenance",
-      "maintenanceDescription": "Vehicles temporarily unavailable for assignment"
+      "avgOnTime": "میانگین به‌موقع",
+      "avgOnTimeDescription": "میانگین نرخ تحویل به‌موقع در مراکز تحت نظارت",
+      "avgDelivery": "میانگین تحویل",
+      "avgDeliveryDescription": "میانگین مدت تحویل درب‌به‌درب به ساعت",
+      "delayed": "محموله‌های تأخیردار",
+      "delayedDescription": "محموله‌هایی که از پنجره تحویل تخمینی گذشته‌اند",
+      "hubs": "مراکز تحت نظارت",
+      "hubsDescription": "مراکز توزیع اتحادیه اروپا در این گزارش عملکرد",
+      "totalRevenue": "مجموع درآمد",
+      "totalRevenueDescription": "درآمد قابل‌صورتحساب ترکیبی در کریدورهای تحلیل‌شده",
+      "totalCost": "مجموع هزینه",
+      "totalCostDescription": "هزینه عملیاتی ترکیبی در کریدورهای تحلیل‌شده",
+      "topRoute": "برترین کریدور",
+      "topRouteDescription": "جفت مبدأ–مقصد با بیشترین درآمد در مجموعه داده",
+      "routes": "کریدورهای تحلیل‌شده",
+      "routesDescription": "تعداد کریدورهای شامل‌شده در تفکیک درآمد",
+      "fleetSize": "اندازه ناوگان",
+      "fleetSizeDescription": "مجموع خودروهای ثبت‌شده در ناوگان اروپایی",
+      "activeVehicles": "خودروهای فعال",
+      "activeVehiclesDescription": "خودروهای در حال تخصیص یا در حال حمل",
+      "avgUtilization": "میانگین بهره‌وری",
+      "avgUtilizationDescription": "میانگین نرخ بهره‌وری ناوگان در همه مناطق",
+      "maintenance": "در نگهداری",
+      "maintenanceDescription": "خودروهای موقتاً غیرقابل تخصیص"
     },
     "charts": {
-      "onTimeTrend": "On-time delivery trend",
-      "onTimeTrendDescription": "Rolling on-time delivery rate over the past twelve months",
-      "hubPerformance": "Hub performance comparison",
-      "hubPerformanceDescription": "On-time rate and average delivery hours per EU hub",
-      "revenueCostTrend": "Revenue vs cost trend",
-      "revenueCostTrendDescription": "Monthly revenue compared to operating cost in EUR thousands",
-      "revenueByCorridor": "Revenue by corridor",
-      "revenueByCorridorDescription": "Revenue and cost breakdown for top origin–destination pairs",
-      "regionalUtilization": "Regional utilisation mix",
-      "regionalUtilizationDescription": "Share of fleet utilisation by European operating region",
-      "utilizationTrend": "Utilisation trend",
-      "utilizationTrendDescription": "Monthly fleet utilisation percentage over the past year",
-      "utilizationByRegion": "Utilisation by region",
-      "utilizationByRegionDescription": "Fleet utilisation percentage per operating region",
-      "total": "Total"
+      "onTimeTrend": "روند تحویل به‌موقع",
+      "onTimeTrendDescription": "نرخ تحویل به‌موقع غلتان در دوازده ماه گذشته",
+      "hubPerformance": "مقایسه عملکرد مراکز",
+      "hubPerformanceDescription": "نرخ به‌موقع و میانگین ساعات تحویل برای هر مرکز اتحادیه اروپا",
+      "revenueCostTrend": "روند درآمد در برابر هزینه",
+      "revenueCostTrendDescription": "درآمد ماهانه در مقایسه با هزینه عملیاتی به هزار یورو",
+      "revenueByCorridor": "درآمد بر اساس کریدور",
+      "revenueByCorridorDescription": "تفکیک درآمد و هزینه برای برترین جفت‌های مبدأ–مقصد",
+      "regionalUtilization": "ترکیب بهره‌وری منطقه‌ای",
+      "regionalUtilizationDescription": "سهم بهره‌وری ناوگان بر اساس منطقه عملیاتی اروپایی",
+      "utilizationTrend": "روند بهره‌وری",
+      "utilizationTrendDescription": "درصد بهره‌وری ماهانه ناوگان در سال گذشته",
+      "utilizationByRegion": "بهره‌وری بر اساس منطقه",
+      "utilizationByRegionDescription": "درصد بهره‌وری ناوگان برای هر منطقه عملیاتی",
+      "total": "مجموع"
     },
     "lists": {
       "hubRankings": {
-        "title": "Hub rankings",
-        "description": "EU hubs ranked by on-time performance and delivery speed"
+        "title": "رتبه‌بندی مراکز",
+        "description": "مراکز اتحادیه اروپا رتبه‌بندی‌شده بر اساس عملکرد به‌موقع و سرعت تحویل"
       },
       "corridorRankings": {
-        "title": "Corridor rankings",
-        "description": "Corridors ranked by revenue with margin indicators"
+        "title": "رتبه‌بندی کریدورها",
+        "description": "کریدورها رتبه‌بندی‌شده بر اساس درآمد با شاخص‌های حاشیه سود"
       },
       "regionalBreakdown": {
-        "title": "Regional breakdown",
-        "description": "Fleet utilisation percentage by operating region"
+        "title": "تفکیک منطقه‌ای",
+        "description": "درصد بهره‌وری ناوگان بر اساس منطقه عملیاتی"
       }
     }
   },
   "shipments": {
-    "title": "Shipments",
-    "subtitle": "Read-only view of EU shipment records",
+    "title": "محموله‌ها",
+    "subtitle": "نمای فقط‌خواندنی سوابق محموله اتحادیه اروپا",
     "columns": {
-      "id": "ID",
-      "trackingNumber": "Tracking no.",
-      "status": "Status",
-      "origin": "Origin",
-      "destination": "Destination",
-      "region": "Region",
-      "country": "Country",
-      "weight": "Weight",
-      "revenue": "Revenue",
-      "cost": "Cost",
-      "scheduled": "Scheduled",
-      "onTime": "On time"
+      "id": "شناسه",
+      "trackingNumber": "شماره رهگیری",
+      "status": "وضعیت",
+      "origin": "مبدأ",
+      "destination": "مقصد",
+      "region": "منطقه",
+      "country": "کشور",
+      "weight": "وزن",
+      "revenue": "درآمد",
+      "cost": "هزینه",
+      "scheduled": "برنامه‌ریزی‌شده",
+      "onTime": "به‌موقع"
     },
     "statuses": {
-      "pending": "Pending",
-      "in_transit": "In transit",
-      "delivered": "Delivered",
-      "delayed": "Delayed",
-      "cancelled": "Cancelled"
+      "pending": "در انتظار",
+      "in_transit": "در حال حمل",
+      "delivered": "تحویل‌شده",
+      "delayed": "تأخیردار",
+      "cancelled": "لغوشده"
     },
     "regions": {
-      "benelux": "Benelux",
+      "benelux": "بنلوکس",
       "dach": "DACH",
-      "iberia": "Iberia",
-      "nordics": "Nordics",
-      "central_europe": "Central Europe",
-      "western_europe": "Western Europe"
+      "iberia": "ایبری",
+      "nordics": "کشورهای شمال اروپا",
+      "central_europe": "اروپای مرکزی",
+      "western_europe": "اروپای غربی"
     },
     "onTime": {
-      "yes": "Yes",
-      "no": "No",
+      "yes": "بله",
+      "no": "خیر",
       "na": "—"
     }
   },
   "placeholder": {
-    "title": "Module coming soon",
+    "title": "ماژول به‌زودی",
     "modules": {
-      "tracker": "Live Tracker",
-      "customers": "Customers",
-      "routes": "Routes",
-      "warehouses": "Warehouses",
-      "finance": "Finance",
-      "settings": "Settings"
+      "tracker": "ردیاب زنده",
+      "customers": "مشتریان",
+      "routes": "مسیرها",
+      "warehouses": "انبارها",
+      "finance": "مالی",
+      "settings": "تنظیمات"
     },
     "subpageLabels": {
-      "live": "Live Map",
-      "playback": "Playback",
-      "accounts": "Accounts",
-      "contracts": "Contracts",
-      "corridors": "Corridors",
-      "planning": "Planning",
-      "hubs": "Hubs",
-      "capacity": "Capacity",
-      "invoices": "Invoices",
-      "payments": "Payments",
-      "organisation": "Organisation",
-      "integrations": "Integrations",
-      "appearance": "Appearance",
-      "branding": "Branding"
+      "live": "نقشه زنده",
+      "playback": "بازپخش",
+      "accounts": "حساب‌ها",
+      "contracts": "قراردادها",
+      "corridors": "کریدورها",
+      "planning": "برنامه‌ریزی",
+      "hubs": "مراکز توزیع",
+      "capacity": "ظرفیت",
+      "invoices": "فاکتورها",
+      "payments": "پرداخت‌ها",
+      "organisation": "سازمان",
+      "integrations": "یکپارچه‌سازی‌ها",
+      "appearance": "ظاهر",
+      "branding": "برندسازی"
     },
     "subpages": {
       "tracker": {
-        "live": "Real-time vehicle positions along EU corridors with event markers.",
-        "playback": "Historical route playback with timeline scrubbing."
+        "live": "موقعیت لحظه‌ای خودروها در کریدورهای اتحادیه اروپا با نشانگرهای رویداد.",
+        "playback": "بازپخش مسیر تاریخی با جابه‌جایی خط زمانی."
       },
       "customers": {
-        "accounts": "B2B customer accounts across EU member states.",
-        "contracts": "Service contracts, SLAs, and billing terms."
+        "accounts": "حساب‌های مشتری B2B در کشورهای عضو اتحادیه اروپا.",
+        "contracts": "قراردادهای خدمات، SLA و شرایط صورتحساب."
       },
       "routes": {
-        "corridors": "Cross-border corridor catalogue and performance metrics.",
-        "planning": "Route optimisation and hub-to-hub scheduling."
+        "corridors": "فهرست کریدورهای بین‌مرزی و شاخص‌های عملکرد.",
+        "planning": "بهینه‌سازی مسیر و زمان‌بندی مرکز به مرکز."
       },
       "warehouses": {
-        "hubs": "EU distribution hub registry and throughput.",
-        "capacity": "Storage capacity and utilisation by region."
+        "hubs": "فهرست مراکز توزیع اتحادیه اروپا و توان عبوری.",
+        "capacity": "ظرفیت انبار و بهره‌وری بر اساس منطقه."
       },
       "finance": {
-        "invoices": "Outbound invoices and payment status in EUR.",
-        "payments": "Settlement tracking and margin reconciliation."
+        "invoices": "فاکتورهای صادره و وضعیت پرداخت به یورو.",
+        "payments": "ردیابی تسویه و تطبیق حاشیه سود."
       },
       "settings": {
-        "appearance": "Theme, language, typography, and navigation layout.",
-        "branding": "Sidebar app name and logo customization.",
-        "organisation": "Company profile, depots, and regional defaults.",
-        "integrations": "ERP, telematics, and carrier API connections."
+        "appearance": "تم، زبان، تایپوگرافی و چیدمان ناوبری.",
+        "branding": "نام و لوگوی برنامه در نوار کناری.",
+        "organisation": "پروفایل شرکت، پایگاه‌ها و پیش‌فرض‌های منطقه‌ای.",
+        "integrations": "اتصالات ERP، تله‌متری و API حامل."
       }
     }
   },
   "tracker": {
     "live": {
-      "title": "Live Map",
-      "subtitle": "Real-time vehicle positions along EU corridors with event markers."
+      "title": "نقشه زنده",
+      "subtitle": "موقعیت لحظه‌ای خودروها در کریدورهای اتحادیه اروپا با نشانگرهای رویداد."
     },
     "playback": {
-      "title": "Playback",
-      "subtitle": "Historical route playback with checkpoint events and OSRM routing."
+      "title": "بازپخش",
+      "subtitle": "بازپخش مسیر تاریخی با رویدادهای ایست بازرسی و مسیریابی OSRM."
     }
   },
   "fleet": {
-    "title": "Fleet",
-    "subtitle": "European vehicles, drivers, and assignments",
+    "title": "ناوگان",
+    "subtitle": "خودروها، رانندگان و تخصیص‌ها در اروپا",
     "overview": {
-      "fleetSize": "Fleet size",
-      "activeVehicles": "Active vehicles",
-      "driversOnDuty": "Drivers on duty",
-      "openAssignments": "Open assignments",
-      "viewVehicles": "View vehicles",
-      "viewDrivers": "View drivers",
-      "viewAssignments": "View assignments"
+      "fleetSize": "اندازه ناوگان",
+      "activeVehicles": "خودروهای فعال",
+      "driversOnDuty": "رانندگان در شیفت",
+      "openAssignments": "تخصیص‌های باز",
+      "viewVehicles": "مشاهده خودروها",
+      "viewDrivers": "مشاهده رانندگان",
+      "viewAssignments": "مشاهده تخصیص‌ها"
     },
     "vehicles": {
-      "title": "Vehicles",
-      "subtitle": "EU-registered fleet assets by depot"
+      "title": "خودروها",
+      "subtitle": "دارایی‌های ناوگان ثبت‌شده در اتحادیه اروپا بر اساس پایگاه"
     },
     "drivers": {
-      "title": "Drivers",
-      "subtitle": "Licensed drivers assigned to EU hubs"
+      "title": "رانندگان",
+      "subtitle": "رانندگان دارای مجوز تخصیص‌یافته به مراکز اتحادیه اروپا"
     },
     "assignments": {
-      "title": "Assignments",
-      "subtitle": "Vehicle–driver–shipment assignments across corridors"
+      "title": "تخصیص‌ها",
+      "subtitle": "تخصیص خودرو–راننده–محموله در کریدورها"
     },
     "columns": {
-      "id": "ID",
-      "plate": "Plate",
-      "type": "Type",
-      "depot": "Depot",
-      "region": "Region",
-      "country": "Country",
-      "capacity": "Capacity",
-      "fuel": "Fuel (L/100km)",
-      "status": "Status",
-      "name": "Name",
-      "licenseCountry": "License country",
-      "vehicle": "Vehicle",
-      "driver": "Driver",
-      "corridor": "Corridor",
-      "shipment": "Shipment",
-      "start": "Start",
-      "end": "End"
+      "id": "شناسه",
+      "plate": "پلاک",
+      "type": "نوع",
+      "depot": "پایگاه",
+      "region": "منطقه",
+      "country": "کشور",
+      "capacity": "ظرفیت",
+      "fuel": "سوخت (L/100km)",
+      "status": "وضعیت",
+      "name": "نام",
+      "licenseCountry": "کشور مجوز",
+      "vehicle": "خودرو",
+      "driver": "راننده",
+      "corridor": "کریدور",
+      "shipment": "محموله",
+      "start": "شروع",
+      "end": "پایان"
     },
     "vehicleTypes": {
-      "van": "Van",
-      "rigid": "Rigid truck",
-      "articulated": "Articulated"
+      "van": "ون",
+      "rigid": "کامیون تک",
+      "articulated": "تریلی"
     },
     "vehicleStatuses": {
-      "active": "Active",
-      "maintenance": "Maintenance",
-      "idle": "Idle"
+      "active": "فعال",
+      "maintenance": "نگهداری",
+      "idle": "بیکار"
     },
     "assignmentStatuses": {
-      "scheduled": "Scheduled",
-      "active": "Active",
-      "completed": "Completed",
-      "cancelled": "Cancelled"
+      "scheduled": "برنامه‌ریزی‌شده",
+      "active": "فعال",
+      "completed": "تکمیل‌شده",
+      "cancelled": "لغوشده"
     }
   },
   "customers": {
-    "title": "Customers",
+    "title": "مشتریان",
     "accounts": {
-      "title": "Accounts",
-      "subtitle": "B2B customer accounts across EU member states"
+      "title": "حساب‌ها",
+      "subtitle": "حساب‌های مشتری B2B در کشورهای عضو اتحادیه اروپا"
     },
     "contracts": {
-      "title": "Contracts",
-      "subtitle": "Service contracts, SLAs, and billing terms"
+      "title": "قراردادها",
+      "subtitle": "قراردادهای خدمات، SLA و شرایط صورتحساب"
     },
     "columns": {
-      "id": "ID",
-      "name": "Account",
-      "city": "City",
-      "country": "Country",
-      "region": "Region",
-      "tier": "Tier",
-      "vat": "VAT number",
-      "shipments": "Shipments",
+      "id": "شناسه",
+      "name": "حساب",
+      "city": "شهر",
+      "country": "کشور",
+      "region": "منطقه",
+      "tier": "سطح",
+      "vat": "شماره VAT",
+      "shipments": "محموله‌ها",
       "sla": "SLA",
-      "billing": "Billing",
-      "corridors": "Corridors",
-      "startDate": "Start",
-      "endDate": "End"
+      "billing": "صورتحساب",
+      "corridors": "کریدورها",
+      "startDate": "شروع",
+      "endDate": "پایان"
     },
     "tiers": {
-      "standard": "Standard",
-      "premium": "Premium",
-      "enterprise": "Enterprise"
+      "standard": "استاندارد",
+      "premium": "پریمیوم",
+      "enterprise": "سازمانی"
     },
     "billingCycles": {
-      "monthly": "Monthly",
-      "quarterly": "Quarterly",
-      "annual": "Annual"
+      "monthly": "ماهانه",
+      "quarterly": "فصلی",
+      "annual": "سالانه"
     },
     "forms": {
-      "addAccount": "Add account",
-      "addAccountTitle": "New customer account",
-      "addAccountDescription": "Create a B2B account profile. Demo only — validated locally, not saved to the API.",
-      "addContract": "Add contract",
-      "addContractTitle": "New service contract",
-      "addContractDescription": "Define SLA, billing, and corridor coverage. Demo only — validated locally, not saved to the API.",
-      "submit": "Submit",
-      "cancel": "Cancel",
-      "validationFailed": "Please fix the highlighted fields",
-      "accountSubmitted": "Account submitted (demo)",
-      "contractSubmitted": "Contract submitted (demo)",
+      "addAccount": "افزودن حساب",
+      "addAccountTitle": "حساب مشتری جدید",
+      "addAccountDescription": "ایجاد پروفایل حساب B2B. فقط نمایشی — اعتبارسنجی محلی، ذخیره در API نمی‌شود.",
+      "addContract": "افزودن قرارداد",
+      "addContractTitle": "قرارداد خدمات جدید",
+      "addContractDescription": "تعریف SLA، صورتحساب و پوشش کریدور. فقط نمایشی — اعتبارسنجی محلی، ذخیره در API نمی‌شود.",
+      "submit": "ارسال",
+      "cancel": "انصراف",
+      "validationFailed": "لطفاً فیلدهای مشخص‌شده را اصلاح کنید",
+      "accountSubmitted": "حساب ارسال شد (نمایشی)",
+      "contractSubmitted": "قرارداد ارسال شد (نمایشی)",
       "fields": {
-        "companyName": "Company name",
-        "legalSuffix": "Legal suffix",
-        "city": "City",
-        "phone": "Phone",
-        "customerName": "Customer name",
-        "corridorCount": "Corridor count",
-        "notes": "Notes"
+        "companyName": "نام شرکت",
+        "legalSuffix": "پسوند حقوقی",
+        "city": "شهر",
+        "phone": "تلفن",
+        "customerName": "نام مشتری",
+        "corridorCount": "تعداد کریدور",
+        "notes": "یادداشت‌ها"
       }
     }
   },
   "routes": {
-    "title": "Routes",
+    "title": "مسیرها",
     "corridors": {
-      "title": "Corridors",
-      "subtitle": "Cross-border corridor catalogue and performance metrics"
+      "title": "کریدورها",
+      "subtitle": "فهرست کریدورهای بین‌مرزی و شاخص‌های عملکرد"
     },
     "planning": {
-      "title": "Planning",
-      "subtitle": "Route optimisation and hub-to-hub scheduling"
+      "title": "برنامه‌ریزی",
+      "subtitle": "بهینه‌سازی مسیر و زمان‌بندی مرکز به مرکز"
     },
     "columns": {
-      "id": "ID",
-      "label": "Corridor",
-      "origin": "Origin",
-      "destination": "Destination",
-      "distance": "Distance",
-      "vehicle": "Vehicle",
-      "driver": "Driver",
-      "departure": "Departure",
-      "status": "Status"
+      "id": "شناسه",
+      "label": "کریدور",
+      "origin": "مبدأ",
+      "destination": "مقصد",
+      "distance": "مسافت",
+      "vehicle": "خودرو",
+      "driver": "راننده",
+      "departure": "حرکت",
+      "status": "وضعیت"
     },
     "planStatuses": {
-      "scheduled": "Scheduled",
-      "in_progress": "In progress",
-      "completed": "Completed",
-      "cancelled": "Cancelled"
+      "scheduled": "برنامه‌ریزی‌شده",
+      "in_progress": "در حال انجام",
+      "completed": "تکمیل‌شده",
+      "cancelled": "لغوشده"
     }
   },
   "warehouses": {
-    "title": "Warehouses",
+    "title": "انبارها",
     "hubs": {
-      "title": "Hubs",
-      "subtitle": "EU distribution hub registry and throughput"
+      "title": "مراکز توزیع",
+      "subtitle": "فهرست مراکز توزیع اتحادیه اروپا و توان عبوری"
     },
     "capacity": {
-      "title": "Capacity",
-      "subtitle": "Storage capacity and utilisation by region"
+      "title": "ظرفیت",
+      "subtitle": "ظرفیت انبار و بهره‌وری بر اساس منطقه"
     },
     "columns": {
-      "id": "Hub ID",
-      "city": "City",
-      "country": "Country",
-      "region": "Region",
-      "latitude": "Latitude",
-      "longitude": "Longitude"
+      "id": "شناسه مرکز",
+      "city": "شهر",
+      "country": "کشور",
+      "region": "منطقه",
+      "latitude": "عرض جغرافیایی",
+      "longitude": "طول جغرافیایی"
     },
     "summary": {
-      "totalSlots": "Total slots",
-      "totalSlotsDescription": "Combined storage capacity across all EU hubs",
-      "usedSlots": "Used slots",
-      "usedSlotsDescription": "Storage slots currently occupied",
-      "avgUtilization": "Avg utilisation",
-      "avgUtilizationDescription": "Mean storage utilisation across the network",
-      "hubCount": "Hubs monitored",
-      "hubCountDescription": "Distribution hubs included in capacity tracking"
+      "totalSlots": "مجموع جایگاه‌ها",
+      "totalSlotsDescription": "ظرفیت انبار ترکیبی در همه مراکز اتحادیه اروپا",
+      "usedSlots": "جایگاه‌های استفاده‌شده",
+      "usedSlotsDescription": "جایگاه‌های انبار در حال اشغال",
+      "avgUtilization": "میانگین بهره‌وری",
+      "avgUtilizationDescription": "میانگین بهره‌وری انبار در شبکه",
+      "hubCount": "مراکز تحت نظارت",
+      "hubCountDescription": "مراکز توزیع شامل‌شده در ردیابی ظرفیت"
     },
     "charts": {
-      "utilizationByHub": "Utilisation by hub",
-      "utilizationByHubDescription": "Storage utilisation percentage per EU hub"
+      "utilizationByHub": "بهره‌وری بر اساس مرکز",
+      "utilizationByHubDescription": "درصد بهره‌وری انبار برای هر مرکز اتحادیه اروپا"
     },
     "lists": {
       "capacityRankings": {
-        "title": "Hub utilisation rankings",
-        "description": "Hubs ranked by storage utilisation percentage"
+        "title": "رتبه‌بندی بهره‌وری مراکز",
+        "description": "مراکز رتبه‌بندی‌شده بر اساس درصد بهره‌وری انبار"
       }
     }
   },
   "finance": {
-    "title": "Finance",
+    "title": "مالی",
     "invoices": {
-      "title": "Invoices",
-      "subtitle": "Outbound invoices and payment status in EUR"
+      "title": "فاکتورها",
+      "subtitle": "فاکتورهای صادره و وضعیت پرداخت به یورو"
     },
     "payments": {
-      "title": "Payments",
-      "subtitle": "Settlement tracking and margin reconciliation"
+      "title": "پرداخت‌ها",
+      "subtitle": "ردیابی تسویه و تطبیق حاشیه سود"
     },
     "columns": {
-      "id": "ID",
-      "customer": "Customer",
-      "shipment": "Shipment",
-      "invoice": "Invoice",
-      "amount": "Amount",
-      "issued": "Issued",
-      "status": "Status",
-      "reference": "Reference",
-      "method": "Method",
-      "paidAt": "Paid at"
+      "id": "شناسه",
+      "customer": "مشتری",
+      "shipment": "محموله",
+      "invoice": "فاکتور",
+      "amount": "مبلغ",
+      "issued": "صادرشده",
+      "status": "وضعیت",
+      "reference": "مرجع",
+      "method": "روش",
+      "paidAt": "پرداخت در"
     },
     "invoiceStatuses": {
-      "draft": "Draft",
-      "sent": "Sent",
-      "paid": "Paid",
-      "overdue": "Overdue"
+      "draft": "پیش‌نویس",
+      "sent": "ارسال‌شده",
+      "paid": "پرداخت‌شده",
+      "overdue": "سررسید گذشته"
     },
     "paymentMethods": {
-      "bank_transfer": "Bank transfer",
+      "bank_transfer": "انتقال بانکی",
       "sepa": "SEPA",
-      "card": "Card"
+      "card": "کارت"
     },
     "summary": {
-      "outstanding": "Outstanding",
-      "outstandingDescription": "Total value of unpaid sent and overdue invoices",
-      "paidMtd": "Paid (MTD)",
-      "paidMtdDescription": "Invoice value settled month-to-date",
-      "overdue": "Overdue invoices",
-      "overdueDescription": "Invoices past the payment due window",
-      "settled": "Settled",
-      "settledDescription": "Invoices marked as paid",
-      "pending": "Pending",
-      "pendingDescription": "Invoices awaiting payment"
+      "outstanding": "معوق",
+      "outstandingDescription": "ارزش کل فاکتورهای ارسال‌شده و سررسید گذشته پرداخت‌نشده",
+      "paidMtd": "پرداخت‌شده (از ابتدای ماه)",
+      "paidMtdDescription": "ارزش فاکتور تسویه‌شده از ابتدای ماه",
+      "overdue": "فاکتورهای سررسید گذشته",
+      "overdueDescription": "فاکتورهایی که از مهلت پرداخت گذشته‌اند",
+      "settled": "تسویه‌شده",
+      "settledDescription": "فاکتورهای علامت‌گذاری‌شده به‌عنوان پرداخت‌شده",
+      "pending": "در انتظار",
+      "pendingDescription": "فاکتورهای در انتظار پرداخت"
     }
   },
   "settings": {
-    "title": "Settings",
+    "title": "تنظیمات",
     "index": {
-      "subtitle": "Configure appearance, branding, organisation, and integrations",
-      "open": "Open settings"
+      "subtitle": "پیکربندی ظاهر، برندسازی، سازمان و یکپارچه‌سازی‌ها",
+      "open": "باز کردن تنظیمات"
     },
     "demo": {
-      "saved": "Changes saved (demo — not persisted to server)",
-      "reset": "Form reset to initial values",
-      "saveAction": "Save changes",
-      "resetAction": "Reset"
+      "saved": "تغییرات ذخیره شد (نمایشی — در سرور ذخیره نمی‌شود)",
+      "reset": "فرم به مقادیر اولیه بازنشانی شد",
+      "saveAction": "ذخیره تغییرات",
+      "resetAction": "بازنشانی"
     },
     "appearance": {
-      "title": "Appearance",
-      "subtitle": "Theme, language, typography, and navigation layout",
+      "title": "ظاهر",
+      "subtitle": "تم، زبان، تایپوگرافی و چیدمان ناوبری",
       "theme": {
-        "title": "Theme",
-        "description": "Light, dark, or follow system preference",
-        "label": "Color mode"
+        "title": "تم",
+        "description": "روشن، تیره یا مطابق تنظیمات سیستم",
+        "label": "حالت رنگ"
       },
       "themes": {
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
+        "light": "روشن",
+        "dark": "تیره",
+        "system": "سیستم"
       },
       "language": {
-        "title": "Language",
-        "description": "Interface language and RTL layout",
-        "label": "Display language"
+        "title": "زبان",
+        "description": "زبان رابط و چیدمان RTL",
+        "label": "زبان نمایش"
       },
       "typography": {
-        "title": "Typography & spacing",
-        "description": "Font family, size, and layout density"
+        "title": "تایپوگرافی و فاصله‌گذاری",
+        "description": "خانواده فونت، اندازه و تراکم چیدمان"
       },
       "fontSize": {
-        "label": "Font size"
+        "label": "اندازه فونت"
       },
       "fontSizes": {
-        "xs": "Extra small",
-        "sm": "Small",
-        "base": "Default",
-        "lg": "Large",
-        "xl": "Extra large"
+        "xs": "بسیار کوچک",
+        "sm": "کوچک",
+        "base": "پیش‌فرض",
+        "lg": "بزرگ",
+        "xl": "بسیار بزرگ"
       },
       "fontFamily": {
-        "label": "Font family"
+        "label": "خانواده فونت"
       },
       "fontFamilies": {
-        "default": "Inter (default)",
-        "peyda": "Peyda",
-        "vazir": "Vazir",
-        "yekan": "Yekan",
-        "mono": "Monospace"
+        "default": "Inter (پیش‌فرض)",
+        "peyda": "پیدا",
+        "vazir": "وزیر",
+        "yekan": "یکان",
+        "mono": "تک‌فاصله"
       },
       "spacing": {
-        "label": "Spacing density"
+        "label": "تراکم فاصله‌گذاری"
       },
       "spacingOptions": {
-        "compact": "Compact",
-        "normal": "Normal",
-        "comfortable": "Comfortable"
+        "compact": "فشرده",
+        "normal": "عادی",
+        "comfortable": "راحت"
       },
       "menu": {
-        "title": "Navigation",
-        "description": "Sidebar behaviour and visible modules",
-        "defaultExpanded": "Expand submenus by default",
-        "showClock": "Show clock in header",
-        "visibleModules": "Visible top-level modules"
+        "title": "ناوبری",
+        "description": "رفتار نوار کناری و ماژول‌های قابل مشاهده",
+        "defaultExpanded": "باز کردن زیرمنوها به‌صورت پیش‌فرض",
+        "showClock": "نمایش ساعت در سربرگ",
+        "visibleModules": "ماژول‌های سطح بالای قابل مشاهده"
       },
       "preview": {
-        "title": "Live preview",
-        "description": "Changes apply immediately across the dashboard",
-        "hint": "Adjust controls above — the sidebar, header, and typography update in real time."
+        "title": "پیش‌نمایش زنده",
+        "description": "تغییرات بلافاصله در داشبورد اعمال می‌شوند",
+        "hint": "کنترل‌های بالا را تنظیم کنید — نوار کناری، سربرگ و تایپوگرافی به‌صورت لحظه‌ای به‌روز می‌شوند."
       }
     },
     "branding": {
-      "title": "Branding",
-      "subtitle": "Sidebar app name and logo customization",
+      "title": "برندسازی",
+      "subtitle": "نام و لوگوی برنامه در نوار کناری",
       "form": {
-        "title": "App identity",
-        "description": "Name and logo shown in the sidebar and mobile header"
+        "title": "هویت برنامه",
+        "description": "نام و لوگوی نمایش‌داده‌شده در نوار کناری و سربرگ موبایل"
       },
       "fields": {
-        "appName": "App name",
-        "logoUrl": "Logo URL",
-        "logoUrlDescription": "Path or URL to an SVG/PNG logo"
+        "appName": "نام برنامه",
+        "logoUrl": "آدرس لوگو",
+        "logoUrlDescription": "مسیر یا URL لوگوی SVG/PNG"
       },
       "presets": {
-        "title": "Logo presets",
-        "description": "Quick-select bundled logos",
-        "logo": "Logistics logo",
-        "favicon": "Favicon mark"
+        "title": "پیش‌تنظیم‌های لوگو",
+        "description": "انتخاب سریع لوگوهای همراه",
+        "logo": "لوگوی لجستیک",
+        "favicon": "نشان favicon"
       },
       "preview": {
-        "title": "Live preview",
-        "description": "How branding appears in expanded and collapsed sidebar",
-        "expanded": "Expanded sidebar",
-        "collapsed": "Collapsed rail"
+        "title": "پیش‌نمایش زنده",
+        "description": "نحوه نمایش برندسازی در نوار کناری باز و جمع‌شده",
+        "expanded": "نوار کناری باز",
+        "collapsed": "نوار جمع‌شده"
       }
     },
     "organisation": {
-      "title": "Organisation",
-      "subtitle": "Company profile, depots, and regional defaults",
+      "title": "سازمان",
+      "subtitle": "پروفایل شرکت، پایگاه‌ها و پیش‌فرض‌های منطقه‌ای",
       "profile": {
-        "title": "Company profile",
-        "description": "Legal entity and locale defaults"
+        "title": "پروفایل شرکت",
+        "description": "نهاد حقوقی و پیش‌فرض‌های محلی"
       },
       "regional": {
-        "title": "Regional defaults",
-        "description": "Currency and operating region configuration"
+        "title": "پیش‌فرض‌های منطقه‌ای",
+        "description": "پیکربندی ارز و منطقه عملیاتی"
       },
       "depots": {
-        "title": "Depot hubs",
-        "description": "Primary distribution hubs for fleet operations"
+        "title": "مراکز پایگاه",
+        "description": "مراکز توزیع اصلی برای عملیات ناوگان"
       },
       "fields": {
-        "companyName": "Company name",
-        "locale": "Locale",
-        "defaultCurrency": "Default currency",
-        "defaultRegion": "Default region",
-        "depotHubs": "Depot hubs",
-        "depotHubsPlaceholder": "Select distribution hubs"
+        "companyName": "نام شرکت",
+        "locale": "محلی‌سازی",
+        "defaultCurrency": "ارز پیش‌فرض",
+        "defaultRegion": "منطقه پیش‌فرض",
+        "depotHubs": "مراکز پایگاه",
+        "depotHubsPlaceholder": "انتخاب مراکز توزیع"
       }
     },
     "integrations": {
-      "title": "Integrations",
-      "subtitle": "ERP, telematics, and carrier API connections",
-      "neverSynced": "Never synced",
+      "title": "یکپارچه‌سازی‌ها",
+      "subtitle": "اتصالات ERP، تله‌متری و API حامل",
+      "neverSynced": "هرگز همگام‌سازی نشده",
       "list": {
-        "title": "Connected systems",
-        "description": "External integrations and last sync status"
+        "title": "سیستم‌های متصل",
+        "description": "یکپارچه‌سازی‌های خارجی و آخرین وضعیت همگام‌سازی"
       },
       "connect": {
-        "title": "Connect integration",
-        "description": "Add a new ERP, telematics, or carrier connection",
-        "provider": "Provider name",
-        "type": "Integration type",
-        "apiEndpoint": "API endpoint",
-        "apiKey": "API key",
-        "action": "Connect",
-        "validation": "Provider name and API endpoint are required"
+        "title": "اتصال یکپارچه‌سازی",
+        "description": "افزودن اتصال ERP، تله‌متری یا حامل جدید",
+        "provider": "نام ارائه‌دهنده",
+        "type": "نوع یکپارچه‌سازی",
+        "apiEndpoint": "نقطه پایانی API",
+        "apiKey": "کلید API",
+        "action": "اتصال",
+        "validation": "نام ارائه‌دهنده و نقطه پایانی API الزامی است"
       }
     },
     "integrationTypes": {
       "erp": "ERP",
-      "telematics": "Telematics",
-      "carrier": "Carrier API"
+      "telematics": "تله‌متری",
+      "carrier": "API حامل"
     },
     "integrationStatuses": {
-      "connected": "Connected",
-      "error": "Error",
-      "pending": "Pending"
+      "connected": "متصل",
+      "error": "خطا",
+      "pending": "در انتظار"
     }
   }
 }

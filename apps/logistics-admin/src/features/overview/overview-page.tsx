@@ -33,7 +33,7 @@ import {
   shipmentsRepository,
   trackerRepository,
 } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { LogisticsGeoMap } from "@/shared/components/logistics-geo-map";
 import { PageHeader } from "@/shared/page-header";
 import { formatEur, formatEuropeanDateTime } from "@/shared/formatters";
@@ -54,7 +54,7 @@ const STATUS_COLORS = {
 } as const;
 
 export function OverviewPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   const [
     kpisQuery,

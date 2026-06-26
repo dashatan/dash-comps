@@ -14,7 +14,7 @@ import {
   SheetTitle,
 } from "@/components/common/overlay/sheet";
 import { toast } from "@/components/common/sonner";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { createZodResolver } from "@/shared/zod-resolver";
 import {
   demoContractFormDefaults,
@@ -27,7 +27,7 @@ const ACCOUNT_TIERS = ["standard", "premium", "enterprise"] as const;
 const BILLING_CYCLES = ["monthly", "quarterly", "annual"] as const;
 
 export function AddContractSheet() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const [open, setOpen] = useState(false);
   const resolver = useMemo(() => createZodResolver(demoContractFormSchema), []);
 

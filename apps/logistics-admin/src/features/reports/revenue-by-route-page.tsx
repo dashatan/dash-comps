@@ -17,7 +17,7 @@ import {
   PanelCard,
 } from "@/features/overview/overview-components";
 import { reportsRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { QueryBoundary } from "@/shared/components/query-boundary";
 import { PageHeader } from "@/shared/page-header";
 import { formatEur } from "@/shared/formatters";
@@ -31,7 +31,7 @@ function formatMarginPercent(revenue: number, cost: number): string {
 }
 
 export function RevenueByRouteReportPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">

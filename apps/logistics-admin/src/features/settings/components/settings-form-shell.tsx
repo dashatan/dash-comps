@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Button from "@/components/common/buttons";
 import { toast } from "@/components/common/sonner";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 
 export function DemoFormFooter({
   onSave,
@@ -14,7 +14,7 @@ export function DemoFormFooter({
   saveLabel?: string;
   resetLabel?: string;
 }) {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   const handleSave = () => {
     toast.success(t("settings.demo.saved"));

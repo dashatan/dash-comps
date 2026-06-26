@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import useBreadcrumbs from "@/components/layout/dashboard/header/useBreadcrumbs";
 import type { DependencyList } from "react";
 
 export function DashboardFooter() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   return (
     <div className="flex flex-col gap-0.5 px-2 py-3 text-xs text-muted-foreground">
@@ -25,7 +25,7 @@ export function ComingSoonPage({
   subpageKey,
   parentNavKey,
 }: ComingSoonPageProps) {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
 
   const moduleLabelKey = parentNavKey
     ? (`placeholder.modules.${parentNavKey}` as Parameters<typeof t>[0])

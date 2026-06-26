@@ -17,7 +17,7 @@ import {
   referenceRepository,
   settingsRepository,
 } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import Loading from "@/components/common/loading";
 import { PageHeader } from "@/shared/page-header";
 import { EU_REGIONS } from "@/shared/formatters";
@@ -37,7 +37,7 @@ const LOCALE_OPTIONS = [
 ];
 
 export function OrganisationPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const [form, setForm] = useState<OrganisationSettingsDto | null>(null);
   const [initialForm, setInitialForm] =
     useState<OrganisationSettingsDto | null>(null);

@@ -6,7 +6,7 @@ import Loading from "@/components/common/loading";
 import { GridCard, GridContainer, GridHeader } from "@/components/common/grid";
 import { queryKeys } from "@/core/query-keys";
 import { fleetRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 
 function KpiCard({
@@ -34,7 +34,7 @@ function KpiCard({
 }
 
 export function FleetOverviewPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const {
     data: summary,
     isLoading,

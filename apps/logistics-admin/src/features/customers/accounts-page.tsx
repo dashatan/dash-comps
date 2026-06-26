@@ -10,7 +10,7 @@ import Table, {
 } from "@/components/compound/table";
 import { queryKeys } from "@/core/query-keys";
 import { customersRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 import { useServerTable } from "@/shared/hooks/use-server-table";
 import { AddAccountSheet } from "@/features/customers/components/add-account-sheet";
@@ -29,7 +29,7 @@ function headerCell(label: string) {
 }
 
 export function AccountsPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const { tableState, pageData, total, loading, handleTableChange } =
     useServerTable<CustomerDto>({
       queryKey: queryKeys.customers.list,

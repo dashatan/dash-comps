@@ -10,8 +10,7 @@ import {
   Palette,
   Type,
 } from "lucide-react";
-import { useLanguage, usePreferences } from "@dash/core";
-import type { TranslationKeys } from "@dash/core/language/locales";
+import { usePreferences } from "@dash/core";
 import type { FontFamily, FontSize, Spacing } from "@/store";
 import { GridContainer } from "@/components/common/grid";
 import { Select } from "@/components/common/inputs/select";
@@ -22,7 +21,7 @@ import {
   SettingsField,
 } from "@/features/settings/components/settings-form-shell";
 import { PanelCard } from "@/features/overview/overview-components";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 
 const FONT_SIZES: FontSize[] = ["xs", "sm", "base", "lg", "xl"];
@@ -60,9 +59,8 @@ function isMenuVisible(path: string, visibleMenus: string[]): boolean {
 }
 
 export function AppearancePage() {
-  const t = useLogisticsT();
+  const { t, language, setLanguage } = useAppLanguage();
   const { theme, setTheme } = useTheme();
-  const { language, setLanguage, t: tNav } = useLanguage();
   const { preferences, updatePreference, resetPreferences } = usePreferences();
 
   const topLevelMenus = useMemo(
@@ -247,7 +245,7 @@ export function AppearancePage() {
                 <Checkbox.Labeled
                   key={item.path}
                   id={`menu-visible-${item.path}`}
-                  label={tNav(item.titleKey as TranslationKeys)}
+                  label={t(item.titleKey as Parameters<typeof t>[0])}
                   checked={isMenuVisible(
                     item.path,
                     preferences.menuSettings.visibleMenus,

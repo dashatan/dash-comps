@@ -16,7 +16,7 @@ import { ListRow, PanelCard } from "@/features/overview/overview-components";
 import { SettingsField } from "@/features/settings/components/settings-form-shell";
 import { queryKeys } from "@/core/query-keys";
 import { settingsRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import Loading from "@/components/common/loading";
 import { PageHeader } from "@/shared/page-header";
 import { formatEuropeanDateTime } from "@/shared/formatters";
@@ -44,7 +44,7 @@ const EMPTY_CONNECT_FORM: ConnectFormState = {
 };
 
 export function IntegrationsPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const [demoIntegrations, setDemoIntegrations] = useState<IntegrationDto[]>(
     [],
   );

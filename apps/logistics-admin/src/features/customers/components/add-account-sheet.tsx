@@ -14,7 +14,7 @@ import {
   SheetTitle,
 } from "@/components/common/overlay/sheet";
 import { toast } from "@/components/common/sonner";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { EU_COUNTRY_CODES, EU_REGIONS } from "@/shared/formatters";
 import { createZodResolver } from "@/shared/zod-resolver";
 import {
@@ -27,7 +27,7 @@ import { ActionButton } from "@dash/ui/compound/table/components/header/action-h
 const ACCOUNT_TIERS = ["standard", "premium", "enterprise"] as const;
 
 export function AddAccountSheet() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const [open, setOpen] = useState(false);
   const resolver = useMemo(() => createZodResolver(demoAccountFormSchema), []);
 

@@ -15,7 +15,7 @@ import { GridContainer } from "@/components/common/grid";
 import { queryKeys } from "@/core/query-keys";
 import { KpiCard } from "@/features/overview/overview-components";
 import { financeRepository } from "@/infrastructure/http/repositories";
-import { useLogisticsT } from "@/i18n/provider";
+import { useAppLanguage } from "@/i18n/use-app-language";
 import { PageHeader } from "@/shared/page-header";
 import { useServerTable } from "@/shared/hooks/use-server-table";
 import { formatEur } from "@/shared/formatters";
@@ -36,7 +36,7 @@ function headerCell(label: string) {
 }
 
 export function InvoicesPage() {
-  const t = useLogisticsT();
+  const { t } = useAppLanguage();
   const summaryQuery = useQuery({
     queryKey: queryKeys.finance.summary,
     queryFn: () => financeRepository.getSummary(),

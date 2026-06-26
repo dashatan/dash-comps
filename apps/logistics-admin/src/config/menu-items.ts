@@ -15,152 +15,152 @@ import {
 
 export const menuItems: MenuItem[] = [
   {
-    title: "logisticsAdmin.nav.overview",
+    title: "nav.overview",
     path: "/",
     Icon: LayoutDashboard,
   },
   {
-    title: "logisticsAdmin.nav.analytics",
+    title: "nav.analytics",
     path: "/analytics",
     Icon: BarChart3,
   },
   {
-    title: "logisticsAdmin.nav.reports",
+    title: "nav.reports",
     path: "/reports",
     Icon: FileBarChart,
     children: [
       {
-        title: "logisticsAdmin.nav.deliveryPerformance",
+        title: "nav.deliveryPerformance",
         path: "/reports/delivery-performance",
       },
       {
-        title: "logisticsAdmin.nav.revenueByRoute",
+        title: "nav.revenueByRoute",
         path: "/reports/revenue-by-route",
       },
       {
-        title: "logisticsAdmin.nav.fleetUtilization",
+        title: "nav.fleetUtilization",
         path: "/reports/fleet-utilization",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.shipments",
+    title: "nav.shipments",
     path: "/shipments",
     Icon: Package,
   },
   {
-    title: "logisticsAdmin.nav.fleet",
+    title: "nav.fleet",
     path: "/fleet",
     Icon: Truck,
     children: [
       {
-        title: "logisticsAdmin.nav.vehicles",
+        title: "nav.vehicles",
         path: "/fleet/vehicles",
       },
       {
-        title: "logisticsAdmin.nav.drivers",
+        title: "nav.drivers",
         path: "/fleet/drivers",
       },
       {
-        title: "logisticsAdmin.nav.assignments",
+        title: "nav.assignments",
         path: "/fleet/assignments",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.tracker",
+    title: "nav.tracker",
     path: "/tracker",
     Icon: Radio,
     children: [
       {
-        title: "logisticsAdmin.nav.liveMap",
+        title: "nav.liveMap",
         path: "/tracker/live",
       },
       {
-        title: "logisticsAdmin.nav.playback",
+        title: "nav.playback",
         path: "/tracker/playback",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.customers",
+    title: "nav.customers",
     path: "/customers",
     Icon: Users,
     children: [
       {
-        title: "logisticsAdmin.nav.accounts",
+        title: "nav.accounts",
         path: "/customers/accounts",
       },
       {
-        title: "logisticsAdmin.nav.contracts",
+        title: "nav.contracts",
         path: "/customers/contracts",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.routes",
+    title: "nav.routes",
     path: "/routes",
     Icon: Route,
     children: [
       {
-        title: "logisticsAdmin.nav.corridors",
+        title: "nav.corridors",
         path: "/routes/corridors",
       },
       {
-        title: "logisticsAdmin.nav.planning",
+        title: "nav.planning",
         path: "/routes/planning",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.warehouses",
+    title: "nav.warehouses",
     path: "/warehouses",
     Icon: Building2,
     children: [
       {
-        title: "logisticsAdmin.nav.hubs",
+        title: "nav.hubs",
         path: "/warehouses/hubs",
       },
       {
-        title: "logisticsAdmin.nav.capacity",
+        title: "nav.capacity",
         path: "/warehouses/capacity",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.finance",
+    title: "nav.finance",
     path: "/finance",
     Icon: Wallet,
     children: [
       {
-        title: "logisticsAdmin.nav.invoices",
+        title: "nav.invoices",
         path: "/finance/invoices",
       },
       {
-        title: "logisticsAdmin.nav.payments",
+        title: "nav.payments",
         path: "/finance/payments",
       },
     ],
   },
   {
-    title: "logisticsAdmin.nav.settings",
+    title: "nav.settings",
     path: "/settings",
     Icon: Settings,
     children: [
       {
-        title: "logisticsAdmin.nav.appearance",
+        title: "nav.appearance",
         path: "/settings/appearance",
       },
       {
-        title: "logisticsAdmin.nav.branding",
+        title: "nav.branding",
         path: "/settings/branding",
       },
       {
-        title: "logisticsAdmin.nav.organisation",
+        title: "nav.organisation",
         path: "/settings/organisation",
       },
       {
-        title: "logisticsAdmin.nav.integrations",
+        title: "nav.integrations",
         path: "/settings/integrations",
       },
     ],
