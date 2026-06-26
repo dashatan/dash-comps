@@ -4,3 +4,8 @@ export * from "./shipment";
 export * from "./fleet";
 export * from "./analytics";
 export * from "./tracker";
+export * from "./customer";
+export * from "./finance";
+export * from "./warehouse";
+export * from "./routes-planning";
+export * from "./settings";

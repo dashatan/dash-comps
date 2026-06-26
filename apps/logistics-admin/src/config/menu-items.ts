@@ -13,18 +13,6 @@ import {
   Radio,
 } from "lucide-react";
 
-export const COMING_SOON_MODULES = [
-  "customers",
-  "routes",
-  "warehouses",
-  "finance",
-  "settings",
-] as const;
-
-export type ComingSoonModule = (typeof COMING_SOON_MODULES)[number];
-
-const soonBadge = "Soon";
-
 export const menuItems: MenuItem[] = [
   {
     title: "logisticsAdmin.nav.overview",
@@ -102,12 +90,10 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.accounts",
         path: "/customers/accounts",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.contracts",
         path: "/customers/contracts",
-        badge: soonBadge,
       },
     ],
   },
@@ -119,12 +105,10 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.corridors",
         path: "/routes/corridors",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.planning",
         path: "/routes/planning",
-        badge: soonBadge,
       },
     ],
   },
@@ -136,12 +120,10 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.hubs",
         path: "/warehouses/hubs",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.capacity",
         path: "/warehouses/capacity",
-        badge: soonBadge,
       },
     ],
   },
@@ -153,12 +135,10 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.invoices",
         path: "/finance/invoices",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.payments",
         path: "/finance/payments",
-        badge: soonBadge,
       },
     ],
   },
@@ -170,34 +150,11 @@ export const menuItems: MenuItem[] = [
       {
         title: "logisticsAdmin.nav.organisation",
         path: "/settings/organisation",
-        badge: soonBadge,
       },
       {
         title: "logisticsAdmin.nav.integrations",
         path: "/settings/integrations",
-        badge: soonBadge,
       },
     ],
   },
 ];
-
-export function isComingSoonModule(module: string): module is ComingSoonModule {
-  return (COMING_SOON_MODULES as readonly string[]).includes(module);
-}
-
-export const COMING_SOON_PATHS = new Set([
-  "/customers/accounts",
-  "/customers/contracts",
-  "/routes/corridors",
-  "/routes/planning",
-  "/warehouses/hubs",
-  "/warehouses/capacity",
-  "/finance/invoices",
-  "/finance/payments",
-  "/settings/organisation",
-  "/settings/integrations",
-]);
-
-export function isComingSoonPath(path: string): boolean {
-  return COMING_SOON_PATHS.has(path);
-}

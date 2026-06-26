@@ -1,18 +1,28 @@
 import type {
   AssignmentDto,
+  CustomerDto,
   DeliveryPerformanceReportDto,
   DriverDto,
   DualSeriesDto,
   EuCorridorDto,
   EuHubDto,
+  FinanceSummaryDto,
   FleetSummaryDto,
   FleetUtilizationReportDto,
+  HubCapacityDto,
+  HubCapacitySummaryDto,
+  IntegrationDto,
+  InvoiceDto,
   ListParams,
   NamedValueDto,
+  OrganisationSettingsDto,
   OverviewKpisDto,
   Paginated,
+  PaymentDto,
   RevenueByRouteReportDto,
   RevenueRouteDto,
+  RoutePlanDto,
+  ServiceContractDto,
   ShipmentDto,
   TrackerEventDto,
   VehicleDto,
@@ -33,6 +43,19 @@ import {
   getTopRoutesByVolume,
 } from "./analytics";
 import { buildCustomers, type Customer } from "./customers";
+import { buildServiceContracts } from "./contracts";
+import {
+  buildHubCapacities,
+  getHubCapacitySummary,
+} from "./warehouse-capacity";
+import {
+  buildInvoices,
+  buildPayments,
+  getFinanceSummary,
+  toCustomerDto,
+} from "./finance";
+import { buildRoutePlans } from "./routes-planning";
+import { buildIntegrations, buildOrganisationSettings } from "./settings";
 import {
   EU_CORRIDORS,
   EU_HUBS,
@@ -50,7 +73,15 @@ import {
 } from "./fleet";
 import {
   listAssignments,
+  listCorridors,
+  listCustomers,
   listDrivers,
+  listHubCapacities,
+  listHubs,
+  listInvoices,
+  listPayments,
+  listRoutePlans,
+  listServiceContracts,
   listShipments,
   listVehicles,
 } from "./list-utils";
@@ -64,10 +95,18 @@ import { getLiveTrackerEvents, getPlaybackTrackerEvents } from "./tracker";
 
 export class LogisticsDataStore {
   readonly customers: Customer[];
+  readonly customerDtos: CustomerDto[];
   readonly shipments: ShipmentDto[];
   readonly vehicles: VehicleDto[];
   readonly drivers: DriverDto[];
   readonly assignments: AssignmentDto[];
+  readonly invoices: InvoiceDto[];
+  readonly payments: PaymentDto[];
+  readonly serviceContracts: ServiceContractDto[];
+  readonly hubCapacities: HubCapacityDto[];
+  readonly routePlans: RoutePlanDto[];
+  readonly organisationSettings: OrganisationSettingsDto;
+  readonly integrations: IntegrationDto[];
 
   constructor() {
     this.customers = buildCustomers();
@@ -75,6 +114,20 @@ export class LogisticsDataStore {
     this.vehicles = buildVehicles();
     this.drivers = buildDrivers();
     this.assignments = buildAssignments();
+    this.customerDtos = this.customers.map((customer) =>
+      toCustomerDto(
+        customer,
+        this.shipments.filter((shipment) => shipment.customerId === customer.id)
+          .length,
+      ),
+    );
+    this.invoices = buildInvoices(this.shipments, this.customers);
+    this.payments = buildPayments(this.invoices);
+    this.serviceContracts = buildServiceContracts(this.customers);
+    this.hubCapacities = buildHubCapacities();
+    this.routePlans = buildRoutePlans(this.assignments);
+    this.organisationSettings = buildOrganisationSettings();
+    this.integrations = buildIntegrations();
   }
 
   listShipments(params: ListParams): Paginated<ShipmentDto> {
@@ -91,6 +144,60 @@ export class LogisticsDataStore {
 
   listAssignments(params: ListParams): Paginated<AssignmentDto> {
     return listAssignments(this.assignments, params);
+  }
+
+  listHubs(params: ListParams): Paginated<EuHubDto> {
+    return listHubs(
+      EU_HUBS.map((hub) => ({ ...hub })),
+      params,
+    );
+  }
+
+  listCorridors(params: ListParams): Paginated<EuCorridorDto> {
+    return listCorridors(
+      EU_CORRIDORS.map((corridor) => ({ ...corridor })),
+      params,
+    );
+  }
+
+  listCustomers(params: ListParams): Paginated<CustomerDto> {
+    return listCustomers(this.customerDtos, params);
+  }
+
+  listInvoices(params: ListParams): Paginated<InvoiceDto> {
+    return listInvoices(this.invoices, params);
+  }
+
+  listPayments(params: ListParams): Paginated<PaymentDto> {
+    return listPayments(this.payments, params);
+  }
+
+  listServiceContracts(params: ListParams): Paginated<ServiceContractDto> {
+    return listServiceContracts(this.serviceContracts, params);
+  }
+
+  listHubCapacities(params: ListParams): Paginated<HubCapacityDto> {
+    return listHubCapacities(this.hubCapacities, params);
+  }
+
+  listRoutePlans(params: ListParams): Paginated<RoutePlanDto> {
+    return listRoutePlans(this.routePlans, params);
+  }
+
+  getFinanceSummary(): FinanceSummaryDto {
+    return getFinanceSummary(this.invoices);
+  }
+
+  getHubCapacitySummary(): HubCapacitySummaryDto {
+    return getHubCapacitySummary(this.hubCapacities);
+  }
+
+  getOrganisationSettings(): OrganisationSettingsDto {
+    return { ...this.organisationSettings };
+  }
+
+  getIntegrations(): IntegrationDto[] {
+    return this.integrations.map((integration) => ({ ...integration }));
   }
 
   getOverviewKpis(): OverviewKpisDto {

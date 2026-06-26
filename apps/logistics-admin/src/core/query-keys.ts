@@ -29,8 +29,31 @@ export const queryKeys = {
     summary: ["fleet", "summary"] as const,
   },
   reference: {
-    hubs: ["reference", "hubs"] as const,
-    corridors: ["reference", "corridors"] as const,
+    hubs: (params: ListParams) => ["reference", "hubs", params] as const,
+    corridors: (params: ListParams) =>
+      ["reference", "corridors", params] as const,
+  },
+  customers: {
+    list: (params: ListParams) => ["customers", "list", params] as const,
+    contracts: (params: ListParams) =>
+      ["customers", "contracts", params] as const,
+  },
+  finance: {
+    invoices: (params: ListParams) => ["finance", "invoices", params] as const,
+    payments: (params: ListParams) => ["finance", "payments", params] as const,
+    summary: ["finance", "summary"] as const,
+  },
+  warehouses: {
+    capacity: (params: ListParams) =>
+      ["warehouses", "capacity", params] as const,
+    capacitySummary: ["warehouses", "capacity-summary"] as const,
+  },
+  routes: {
+    plans: (params: ListParams) => ["routes", "plans", params] as const,
+  },
+  settings: {
+    organisation: ["settings", "organisation"] as const,
+    integrations: ["settings", "integrations"] as const,
   },
   tracker: {
     live: ["tracker", "live"] as const,

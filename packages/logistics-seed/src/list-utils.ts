@@ -1,8 +1,16 @@
 import type {
   AssignmentDto,
+  CustomerDto,
   DriverDto,
+  EuCorridorDto,
+  EuHubDto,
+  HubCapacityDto,
+  InvoiceDto,
   ListParams,
   Paginated,
+  PaymentDto,
+  RoutePlanDto,
+  ServiceContractDto,
   ShipmentDto,
   VehicleDto,
 } from "@dash/logistics-contracts";
@@ -32,6 +40,21 @@ function getFilterString(
 ): string | undefined {
   const value = filters?.[key];
   return typeof value === "string" ? value : undefined;
+}
+
+function sortRowsByField<T>(
+  rows: T[],
+  params: ListParams,
+  comparators: Record<string, (a: T, b: T) => number>,
+): T[] {
+  const { sortField, sortOrder } = params;
+  if (!sortField || !sortOrder) return rows;
+
+  const compare = comparators[sortField];
+  if (!compare) return rows;
+
+  const dir = sortOrder === 1 ? 1 : -1;
+  return [...rows].sort((a, b) => compare(a, b) * dir);
 }
 
 function sortRows<T extends { id: number }>(
@@ -245,4 +268,230 @@ export function listAssignments(
   params: ListParams,
 ): Paginated<AssignmentDto> {
   return paginate(filterAssignments(rows, params), params);
+}
+
+export function filterHubs(rows: EuHubDto[], params: ListParams): EuHubDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const city = getFilterString(filters, "city");
+  if (city?.trim()) {
+    const q = city.trim().toLowerCase();
+    result = result.filter((row) => row.city.toLowerCase().includes(q));
+  }
+
+  const country = getFilterString(filters, "countryCode");
+  if (country) result = result.filter((row) => row.countryCode === country);
+
+  const regions = asStringArray(filters?.region);
+  if (regions.length)
+    result = result.filter((row) => regions.includes(row.region));
+
+  return sortRowsByField(result, params, {
+    city: (a, b) => a.city.localeCompare(b.city),
+    countryCode: (a, b) => a.countryCode.localeCompare(b.countryCode),
+    region: (a, b) => a.region.localeCompare(b.region),
+    id: (a, b) => a.id.localeCompare(b.id),
+  });
+}
+
+export function filterCorridors(
+  rows: EuCorridorDto[],
+  params: ListParams,
+): EuCorridorDto[] {
+  let result = [...rows];
+  const label = getFilterString(params.filters, "label");
+  if (label?.trim()) {
+    const q = label.trim().toLowerCase();
+    result = result.filter((row) => row.label.toLowerCase().includes(q));
+  }
+
+  return sortRowsByField(result, params, {
+    label: (a, b) => a.label.localeCompare(b.label),
+    distanceKm: (a, b) => a.distanceKm - b.distanceKm,
+    id: (a, b) => a.id.localeCompare(b.id),
+  });
+}
+
+export function filterCustomers(
+  rows: CustomerDto[],
+  params: ListParams,
+): CustomerDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const name = getFilterString(filters, "name");
+  if (name?.trim()) {
+    const q = name.trim().toLowerCase();
+    result = result.filter(
+      (row) =>
+        row.name.toLowerCase().includes(q) ||
+        `${row.name} ${row.suffix}`.toLowerCase().includes(q),
+    );
+  }
+
+  const tier = getFilterString(filters, "accountTier");
+  if (tier) result = result.filter((row) => row.accountTier === tier);
+
+  const country = getFilterString(filters, "countryCode");
+  if (country) result = result.filter((row) => row.countryCode === country);
+
+  const regions = asStringArray(filters?.region);
+  if (regions.length)
+    result = result.filter((row) => regions.includes(row.region));
+
+  return sortRows(result, params, { nameField: "name" });
+}
+
+export function filterInvoices(
+  rows: InvoiceDto[],
+  params: ListParams,
+): InvoiceDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const status = getFilterString(filters, "status");
+  if (status) result = result.filter((row) => row.status === status);
+
+  const customer = getFilterString(filters, "customerName");
+  if (customer?.trim()) {
+    const q = customer.trim().toLowerCase();
+    result = result.filter((row) => row.customerName.toLowerCase().includes(q));
+  }
+
+  return sortRows(result, params);
+}
+
+export function filterPayments(
+  rows: PaymentDto[],
+  params: ListParams,
+): PaymentDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const method = getFilterString(filters, "method");
+  if (method) result = result.filter((row) => row.method === method);
+
+  const customer = getFilterString(filters, "customerName");
+  if (customer?.trim()) {
+    const q = customer.trim().toLowerCase();
+    result = result.filter((row) => row.customerName.toLowerCase().includes(q));
+  }
+
+  return sortRows(result, params);
+}
+
+export function filterServiceContracts(
+  rows: ServiceContractDto[],
+  params: ListParams,
+): ServiceContractDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const tier = getFilterString(filters, "tier");
+  if (tier) result = result.filter((row) => row.tier === tier);
+
+  const customer = getFilterString(filters, "customerName");
+  if (customer?.trim()) {
+    const q = customer.trim().toLowerCase();
+    result = result.filter((row) => row.customerName.toLowerCase().includes(q));
+  }
+
+  return sortRows(result, params);
+}
+
+export function filterHubCapacities(
+  rows: HubCapacityDto[],
+  params: ListParams,
+): HubCapacityDto[] {
+  let result = [...rows];
+  const city = getFilterString(params.filters, "city");
+  if (city?.trim()) {
+    const q = city.trim().toLowerCase();
+    result = result.filter((row) => row.city.toLowerCase().includes(q));
+  }
+
+  return sortRowsByField(result, params, {
+    city: (a, b) => a.city.localeCompare(b.city),
+    storageSlots: (a, b) => a.storageSlots - b.storageSlots,
+    usedSlots: (a, b) => a.usedSlots - b.usedSlots,
+    throughputPerDay: (a, b) => a.throughputPerDay - b.throughputPerDay,
+  });
+}
+
+export function filterRoutePlans(
+  rows: RoutePlanDto[],
+  params: ListParams,
+): RoutePlanDto[] {
+  let result = [...rows];
+  const filters = params.filters;
+
+  const status = getFilterString(filters, "status");
+  if (status) result = result.filter((row) => row.status === status);
+
+  const corridor = getFilterString(filters, "corridorLabel");
+  if (corridor?.trim()) {
+    const q = corridor.trim().toLowerCase();
+    result = result.filter((row) =>
+      row.corridorLabel.toLowerCase().includes(q),
+    );
+  }
+
+  return sortRows(result, params);
+}
+
+export function listHubs(
+  rows: EuHubDto[],
+  params: ListParams,
+): Paginated<EuHubDto> {
+  return paginate(filterHubs(rows, params), params);
+}
+
+export function listCorridors(
+  rows: EuCorridorDto[],
+  params: ListParams,
+): Paginated<EuCorridorDto> {
+  return paginate(filterCorridors(rows, params), params);
+}
+
+export function listCustomers(
+  rows: CustomerDto[],
+  params: ListParams,
+): Paginated<CustomerDto> {
+  return paginate(filterCustomers(rows, params), params);
+}
+
+export function listInvoices(
+  rows: InvoiceDto[],
+  params: ListParams,
+): Paginated<InvoiceDto> {
+  return paginate(filterInvoices(rows, params), params);
+}
+
+export function listPayments(
+  rows: PaymentDto[],
+  params: ListParams,
+): Paginated<PaymentDto> {
+  return paginate(filterPayments(rows, params), params);
+}
+
+export function listServiceContracts(
+  rows: ServiceContractDto[],
+  params: ListParams,
+): Paginated<ServiceContractDto> {
+  return paginate(filterServiceContracts(rows, params), params);
+}
+
+export function listHubCapacities(
+  rows: HubCapacityDto[],
+  params: ListParams,
+): Paginated<HubCapacityDto> {
+  return paginate(filterHubCapacities(rows, params), params);
+}
+
+export function listRoutePlans(
+  rows: RoutePlanDto[],
+  params: ListParams,
+): Paginated<RoutePlanDto> {
+  return paginate(filterRoutePlans(rows, params), params);
 }

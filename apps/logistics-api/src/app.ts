@@ -97,11 +97,59 @@ app.get("/api/v1/fleet/summary", (c) => {
 });
 
 app.get("/api/v1/reference/hubs", (c) => {
-  return c.json(getStore().getHubs());
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listHubs(params));
 });
 
 app.get("/api/v1/reference/corridors", (c) => {
-  return c.json(getStore().getCorridors());
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listCorridors(params));
+});
+
+app.get("/api/v1/customers", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listCustomers(params));
+});
+
+app.get("/api/v1/customers/contracts", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listServiceContracts(params));
+});
+
+app.get("/api/v1/finance/invoices", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listInvoices(params));
+});
+
+app.get("/api/v1/finance/invoices/summary", (c) => {
+  return c.json(getStore().getFinanceSummary());
+});
+
+app.get("/api/v1/finance/payments", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listPayments(params));
+});
+
+app.get("/api/v1/warehouses/capacity", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listHubCapacities(params));
+});
+
+app.get("/api/v1/warehouses/capacity/summary", (c) => {
+  return c.json(getStore().getHubCapacitySummary());
+});
+
+app.get("/api/v1/routes/plans", (c) => {
+  const params = parseListParams(c.req.query());
+  return c.json(getStore().listRoutePlans(params));
+});
+
+app.get("/api/v1/settings/organisation", (c) => {
+  return c.json(getStore().getOrganisationSettings());
+});
+
+app.get("/api/v1/settings/integrations", (c) => {
+  return c.json(getStore().getIntegrations());
 });
 
 app.get("/api/v1/tracker/live", (c) => {

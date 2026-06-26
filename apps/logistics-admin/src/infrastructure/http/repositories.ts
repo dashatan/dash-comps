@@ -1,11 +1,17 @@
 import { apiClient, listParamsToQuery } from "@/core/api-client";
 import type {
   AnalyticsRepository,
+  CustomersRepository,
+  FinanceRepository,
   FleetRepository,
   OverviewRepository,
+  ReferenceRepository,
   ReportsRepository,
+  RoutesRepository,
+  SettingsRepository,
   ShipmentsRepository,
   TrackerRepository,
+  WarehousesRepository,
 } from "@/domain/ports";
 import type { ListParams } from "@dash/logistics-contracts";
 
@@ -45,6 +51,43 @@ export const fleetRepository: FleetRepository = {
   listAssignments: (params) =>
     apiClient.get("/v1/fleet/assignments", listParamsToQuery(params)),
   getSummary: () => apiClient.get("/v1/fleet/summary"),
+};
+
+export const referenceRepository: ReferenceRepository = {
+  listHubs: (params) =>
+    apiClient.get("/v1/reference/hubs", listParamsToQuery(params)),
+  listCorridors: (params) =>
+    apiClient.get("/v1/reference/corridors", listParamsToQuery(params)),
+};
+
+export const customersRepository: CustomersRepository = {
+  list: (params) => apiClient.get("/v1/customers", listParamsToQuery(params)),
+  listContracts: (params) =>
+    apiClient.get("/v1/customers/contracts", listParamsToQuery(params)),
+};
+
+export const financeRepository: FinanceRepository = {
+  listInvoices: (params) =>
+    apiClient.get("/v1/finance/invoices", listParamsToQuery(params)),
+  listPayments: (params) =>
+    apiClient.get("/v1/finance/payments", listParamsToQuery(params)),
+  getSummary: () => apiClient.get("/v1/finance/invoices/summary"),
+};
+
+export const warehousesRepository: WarehousesRepository = {
+  listCapacity: (params) =>
+    apiClient.get("/v1/warehouses/capacity", listParamsToQuery(params)),
+  getCapacitySummary: () => apiClient.get("/v1/warehouses/capacity/summary"),
+};
+
+export const routesRepository: RoutesRepository = {
+  listPlans: (params) =>
+    apiClient.get("/v1/routes/plans", listParamsToQuery(params)),
+};
+
+export const settingsRepository: SettingsRepository = {
+  getOrganisation: () => apiClient.get("/v1/settings/organisation"),
+  getIntegrations: () => apiClient.get("/v1/settings/integrations"),
 };
 
 export const trackerRepository: TrackerRepository = {

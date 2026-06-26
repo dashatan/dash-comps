@@ -8,311 +8,511 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ShipmentsRouteImport } from './routes/shipments'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReportsIndexRouteImport } from './routes/reports/index'
-import { Route as FleetIndexRouteImport } from './routes/fleet/index'
-import { Route as TrackerPlaybackRouteImport } from './routes/tracker/playback'
-import { Route as TrackerLiveRouteImport } from './routes/tracker/live'
-import { Route as ReportsRevenueByRouteRouteImport } from './routes/reports/revenue-by-route'
-import { Route as ReportsFleetUtilizationRouteImport } from './routes/reports/fleet-utilization'
-import { Route as ReportsDeliveryPerformanceRouteImport } from './routes/reports/delivery-performance'
-import { Route as FleetVehiclesRouteImport } from './routes/fleet/vehicles'
-import { Route as FleetDriversRouteImport } from './routes/fleet/drivers'
-import { Route as FleetAssignmentsRouteImport } from './routes/fleet/assignments'
-import { Route as ModuleSubpageRouteImport } from './routes/$module.$subpage'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as ShipmentsRouteImport } from "./routes/shipments";
+import { Route as AnalyticsRouteImport } from "./routes/analytics";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ReportsIndexRouteImport } from "./routes/reports/index";
+import { Route as FleetIndexRouteImport } from "./routes/fleet/index";
+import { Route as WarehousesHubsRouteImport } from "./routes/warehouses/hubs";
+import { Route as WarehousesCapacityRouteImport } from "./routes/warehouses/capacity";
+import { Route as TrackerPlaybackRouteImport } from "./routes/tracker/playback";
+import { Route as TrackerLiveRouteImport } from "./routes/tracker/live";
+import { Route as SettingsOrganisationRouteImport } from "./routes/settings/organisation";
+import { Route as SettingsIntegrationsRouteImport } from "./routes/settings/integrations";
+import { Route as RoutesPlanningRouteImport } from "./routes/routes/planning";
+import { Route as RoutesCorridorsRouteImport } from "./routes/routes/corridors";
+import { Route as ReportsRevenueByRouteRouteImport } from "./routes/reports/revenue-by-route";
+import { Route as ReportsFleetUtilizationRouteImport } from "./routes/reports/fleet-utilization";
+import { Route as ReportsDeliveryPerformanceRouteImport } from "./routes/reports/delivery-performance";
+import { Route as FleetVehiclesRouteImport } from "./routes/fleet/vehicles";
+import { Route as FleetDriversRouteImport } from "./routes/fleet/drivers";
+import { Route as FleetAssignmentsRouteImport } from "./routes/fleet/assignments";
+import { Route as FinancePaymentsRouteImport } from "./routes/finance/payments";
+import { Route as FinanceInvoicesRouteImport } from "./routes/finance/invoices";
+import { Route as CustomersContractsRouteImport } from "./routes/customers/contracts";
+import { Route as CustomersAccountsRouteImport } from "./routes/customers/accounts";
+import { Route as ModuleSubpageRouteImport } from "./routes/$module.$subpage";
 
 const ShipmentsRoute = ShipmentsRouteImport.update({
-  id: '/shipments',
-  path: '/shipments',
+  id: "/shipments",
+  path: "/shipments",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
+  id: "/analytics",
+  path: "/analytics",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ReportsIndexRoute = ReportsIndexRouteImport.update({
-  id: '/reports/',
-  path: '/reports/',
+  id: "/reports/",
+  path: "/reports/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const FleetIndexRoute = FleetIndexRouteImport.update({
-  id: '/fleet/',
-  path: '/fleet/',
+  id: "/fleet/",
+  path: "/fleet/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
+const WarehousesHubsRoute = WarehousesHubsRouteImport.update({
+  id: "/warehouses/hubs",
+  path: "/warehouses/hubs",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const WarehousesCapacityRoute = WarehousesCapacityRouteImport.update({
+  id: "/warehouses/capacity",
+  path: "/warehouses/capacity",
+  getParentRoute: () => rootRouteImport,
+} as any);
 const TrackerPlaybackRoute = TrackerPlaybackRouteImport.update({
-  id: '/tracker/playback',
-  path: '/tracker/playback',
+  id: "/tracker/playback",
+  path: "/tracker/playback",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const TrackerLiveRoute = TrackerLiveRouteImport.update({
-  id: '/tracker/live',
-  path: '/tracker/live',
+  id: "/tracker/live",
+  path: "/tracker/live",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
+const SettingsOrganisationRoute = SettingsOrganisationRouteImport.update({
+  id: "/settings/organisation",
+  path: "/settings/organisation",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const SettingsIntegrationsRoute = SettingsIntegrationsRouteImport.update({
+  id: "/settings/integrations",
+  path: "/settings/integrations",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const RoutesPlanningRoute = RoutesPlanningRouteImport.update({
+  id: "/routes/planning",
+  path: "/routes/planning",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const RoutesCorridorsRoute = RoutesCorridorsRouteImport.update({
+  id: "/routes/corridors",
+  path: "/routes/corridors",
+  getParentRoute: () => rootRouteImport,
+} as any);
 const ReportsRevenueByRouteRoute = ReportsRevenueByRouteRouteImport.update({
-  id: '/reports/revenue-by-route',
-  path: '/reports/revenue-by-route',
+  id: "/reports/revenue-by-route",
+  path: "/reports/revenue-by-route",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ReportsFleetUtilizationRoute = ReportsFleetUtilizationRouteImport.update({
-  id: '/reports/fleet-utilization',
-  path: '/reports/fleet-utilization',
+  id: "/reports/fleet-utilization",
+  path: "/reports/fleet-utilization",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ReportsDeliveryPerformanceRoute =
   ReportsDeliveryPerformanceRouteImport.update({
-    id: '/reports/delivery-performance',
-    path: '/reports/delivery-performance',
+    id: "/reports/delivery-performance",
+    path: "/reports/delivery-performance",
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any);
 const FleetVehiclesRoute = FleetVehiclesRouteImport.update({
-  id: '/fleet/vehicles',
-  path: '/fleet/vehicles',
+  id: "/fleet/vehicles",
+  path: "/fleet/vehicles",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const FleetDriversRoute = FleetDriversRouteImport.update({
-  id: '/fleet/drivers',
-  path: '/fleet/drivers',
+  id: "/fleet/drivers",
+  path: "/fleet/drivers",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const FleetAssignmentsRoute = FleetAssignmentsRouteImport.update({
-  id: '/fleet/assignments',
-  path: '/fleet/assignments',
+  id: "/fleet/assignments",
+  path: "/fleet/assignments",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
+const FinancePaymentsRoute = FinancePaymentsRouteImport.update({
+  id: "/finance/payments",
+  path: "/finance/payments",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const FinanceInvoicesRoute = FinanceInvoicesRouteImport.update({
+  id: "/finance/invoices",
+  path: "/finance/invoices",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const CustomersContractsRoute = CustomersContractsRouteImport.update({
+  id: "/customers/contracts",
+  path: "/customers/contracts",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const CustomersAccountsRoute = CustomersAccountsRouteImport.update({
+  id: "/customers/accounts",
+  path: "/customers/accounts",
+  getParentRoute: () => rootRouteImport,
+} as any);
 const ModuleSubpageRoute = ModuleSubpageRouteImport.update({
-  id: '/$module/$subpage',
-  path: '/$module/$subpage',
+  id: "/$module/$subpage",
+  path: "/$module/$subpage",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/shipments': typeof ShipmentsRoute
-  '/$module/$subpage': typeof ModuleSubpageRoute
-  '/fleet/assignments': typeof FleetAssignmentsRoute
-  '/fleet/drivers': typeof FleetDriversRoute
-  '/fleet/vehicles': typeof FleetVehiclesRoute
-  '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
-  '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
-  '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
-  '/tracker/live': typeof TrackerLiveRoute
-  '/tracker/playback': typeof TrackerPlaybackRoute
-  '/fleet/': typeof FleetIndexRoute
-  '/reports/': typeof ReportsIndexRoute
+  "/": typeof IndexRoute;
+  "/analytics": typeof AnalyticsRoute;
+  "/shipments": typeof ShipmentsRoute;
+  "/$module/$subpage": typeof ModuleSubpageRoute;
+  "/customers/accounts": typeof CustomersAccountsRoute;
+  "/customers/contracts": typeof CustomersContractsRoute;
+  "/finance/invoices": typeof FinanceInvoicesRoute;
+  "/finance/payments": typeof FinancePaymentsRoute;
+  "/fleet/assignments": typeof FleetAssignmentsRoute;
+  "/fleet/drivers": typeof FleetDriversRoute;
+  "/fleet/vehicles": typeof FleetVehiclesRoute;
+  "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
+  "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
+  "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/routes/corridors": typeof RoutesCorridorsRoute;
+  "/routes/planning": typeof RoutesPlanningRoute;
+  "/settings/integrations": typeof SettingsIntegrationsRoute;
+  "/settings/organisation": typeof SettingsOrganisationRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
+  "/warehouses/capacity": typeof WarehousesCapacityRoute;
+  "/warehouses/hubs": typeof WarehousesHubsRoute;
+  "/fleet/": typeof FleetIndexRoute;
+  "/reports/": typeof ReportsIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/shipments': typeof ShipmentsRoute
-  '/$module/$subpage': typeof ModuleSubpageRoute
-  '/fleet/assignments': typeof FleetAssignmentsRoute
-  '/fleet/drivers': typeof FleetDriversRoute
-  '/fleet/vehicles': typeof FleetVehiclesRoute
-  '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
-  '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
-  '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
-  '/tracker/live': typeof TrackerLiveRoute
-  '/tracker/playback': typeof TrackerPlaybackRoute
-  '/fleet': typeof FleetIndexRoute
-  '/reports': typeof ReportsIndexRoute
+  "/": typeof IndexRoute;
+  "/analytics": typeof AnalyticsRoute;
+  "/shipments": typeof ShipmentsRoute;
+  "/$module/$subpage": typeof ModuleSubpageRoute;
+  "/customers/accounts": typeof CustomersAccountsRoute;
+  "/customers/contracts": typeof CustomersContractsRoute;
+  "/finance/invoices": typeof FinanceInvoicesRoute;
+  "/finance/payments": typeof FinancePaymentsRoute;
+  "/fleet/assignments": typeof FleetAssignmentsRoute;
+  "/fleet/drivers": typeof FleetDriversRoute;
+  "/fleet/vehicles": typeof FleetVehiclesRoute;
+  "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
+  "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
+  "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/routes/corridors": typeof RoutesCorridorsRoute;
+  "/routes/planning": typeof RoutesPlanningRoute;
+  "/settings/integrations": typeof SettingsIntegrationsRoute;
+  "/settings/organisation": typeof SettingsOrganisationRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
+  "/warehouses/capacity": typeof WarehousesCapacityRoute;
+  "/warehouses/hubs": typeof WarehousesHubsRoute;
+  "/fleet": typeof FleetIndexRoute;
+  "/reports": typeof ReportsIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/shipments': typeof ShipmentsRoute
-  '/$module/$subpage': typeof ModuleSubpageRoute
-  '/fleet/assignments': typeof FleetAssignmentsRoute
-  '/fleet/drivers': typeof FleetDriversRoute
-  '/fleet/vehicles': typeof FleetVehiclesRoute
-  '/reports/delivery-performance': typeof ReportsDeliveryPerformanceRoute
-  '/reports/fleet-utilization': typeof ReportsFleetUtilizationRoute
-  '/reports/revenue-by-route': typeof ReportsRevenueByRouteRoute
-  '/tracker/live': typeof TrackerLiveRoute
-  '/tracker/playback': typeof TrackerPlaybackRoute
-  '/fleet/': typeof FleetIndexRoute
-  '/reports/': typeof ReportsIndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/analytics": typeof AnalyticsRoute;
+  "/shipments": typeof ShipmentsRoute;
+  "/$module/$subpage": typeof ModuleSubpageRoute;
+  "/customers/accounts": typeof CustomersAccountsRoute;
+  "/customers/contracts": typeof CustomersContractsRoute;
+  "/finance/invoices": typeof FinanceInvoicesRoute;
+  "/finance/payments": typeof FinancePaymentsRoute;
+  "/fleet/assignments": typeof FleetAssignmentsRoute;
+  "/fleet/drivers": typeof FleetDriversRoute;
+  "/fleet/vehicles": typeof FleetVehiclesRoute;
+  "/reports/delivery-performance": typeof ReportsDeliveryPerformanceRoute;
+  "/reports/fleet-utilization": typeof ReportsFleetUtilizationRoute;
+  "/reports/revenue-by-route": typeof ReportsRevenueByRouteRoute;
+  "/routes/corridors": typeof RoutesCorridorsRoute;
+  "/routes/planning": typeof RoutesPlanningRoute;
+  "/settings/integrations": typeof SettingsIntegrationsRoute;
+  "/settings/organisation": typeof SettingsOrganisationRoute;
+  "/tracker/live": typeof TrackerLiveRoute;
+  "/tracker/playback": typeof TrackerPlaybackRoute;
+  "/warehouses/capacity": typeof WarehousesCapacityRoute;
+  "/warehouses/hubs": typeof WarehousesHubsRoute;
+  "/fleet/": typeof FleetIndexRoute;
+  "/reports/": typeof ReportsIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/analytics'
-    | '/shipments'
-    | '/$module/$subpage'
-    | '/fleet/assignments'
-    | '/fleet/drivers'
-    | '/fleet/vehicles'
-    | '/reports/delivery-performance'
-    | '/reports/fleet-utilization'
-    | '/reports/revenue-by-route'
-    | '/tracker/live'
-    | '/tracker/playback'
-    | '/fleet/'
-    | '/reports/'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/analytics"
+    | "/shipments"
+    | "/$module/$subpage"
+    | "/customers/accounts"
+    | "/customers/contracts"
+    | "/finance/invoices"
+    | "/finance/payments"
+    | "/fleet/assignments"
+    | "/fleet/drivers"
+    | "/fleet/vehicles"
+    | "/reports/delivery-performance"
+    | "/reports/fleet-utilization"
+    | "/reports/revenue-by-route"
+    | "/routes/corridors"
+    | "/routes/planning"
+    | "/settings/integrations"
+    | "/settings/organisation"
+    | "/tracker/live"
+    | "/tracker/playback"
+    | "/warehouses/capacity"
+    | "/warehouses/hubs"
+    | "/fleet/"
+    | "/reports/";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/analytics'
-    | '/shipments'
-    | '/$module/$subpage'
-    | '/fleet/assignments'
-    | '/fleet/drivers'
-    | '/fleet/vehicles'
-    | '/reports/delivery-performance'
-    | '/reports/fleet-utilization'
-    | '/reports/revenue-by-route'
-    | '/tracker/live'
-    | '/tracker/playback'
-    | '/fleet'
-    | '/reports'
+    | "/"
+    | "/analytics"
+    | "/shipments"
+    | "/$module/$subpage"
+    | "/customers/accounts"
+    | "/customers/contracts"
+    | "/finance/invoices"
+    | "/finance/payments"
+    | "/fleet/assignments"
+    | "/fleet/drivers"
+    | "/fleet/vehicles"
+    | "/reports/delivery-performance"
+    | "/reports/fleet-utilization"
+    | "/reports/revenue-by-route"
+    | "/routes/corridors"
+    | "/routes/planning"
+    | "/settings/integrations"
+    | "/settings/organisation"
+    | "/tracker/live"
+    | "/tracker/playback"
+    | "/warehouses/capacity"
+    | "/warehouses/hubs"
+    | "/fleet"
+    | "/reports";
   id:
-    | '__root__'
-    | '/'
-    | '/analytics'
-    | '/shipments'
-    | '/$module/$subpage'
-    | '/fleet/assignments'
-    | '/fleet/drivers'
-    | '/fleet/vehicles'
-    | '/reports/delivery-performance'
-    | '/reports/fleet-utilization'
-    | '/reports/revenue-by-route'
-    | '/tracker/live'
-    | '/tracker/playback'
-    | '/fleet/'
-    | '/reports/'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/analytics"
+    | "/shipments"
+    | "/$module/$subpage"
+    | "/customers/accounts"
+    | "/customers/contracts"
+    | "/finance/invoices"
+    | "/finance/payments"
+    | "/fleet/assignments"
+    | "/fleet/drivers"
+    | "/fleet/vehicles"
+    | "/reports/delivery-performance"
+    | "/reports/fleet-utilization"
+    | "/reports/revenue-by-route"
+    | "/routes/corridors"
+    | "/routes/planning"
+    | "/settings/integrations"
+    | "/settings/organisation"
+    | "/tracker/live"
+    | "/tracker/playback"
+    | "/warehouses/capacity"
+    | "/warehouses/hubs"
+    | "/fleet/"
+    | "/reports/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  ShipmentsRoute: typeof ShipmentsRoute
-  ModuleSubpageRoute: typeof ModuleSubpageRoute
-  FleetAssignmentsRoute: typeof FleetAssignmentsRoute
-  FleetDriversRoute: typeof FleetDriversRoute
-  FleetVehiclesRoute: typeof FleetVehiclesRoute
-  ReportsDeliveryPerformanceRoute: typeof ReportsDeliveryPerformanceRoute
-  ReportsFleetUtilizationRoute: typeof ReportsFleetUtilizationRoute
-  ReportsRevenueByRouteRoute: typeof ReportsRevenueByRouteRoute
-  TrackerLiveRoute: typeof TrackerLiveRoute
-  TrackerPlaybackRoute: typeof TrackerPlaybackRoute
-  FleetIndexRoute: typeof FleetIndexRoute
-  ReportsIndexRoute: typeof ReportsIndexRoute
+  IndexRoute: typeof IndexRoute;
+  AnalyticsRoute: typeof AnalyticsRoute;
+  ShipmentsRoute: typeof ShipmentsRoute;
+  ModuleSubpageRoute: typeof ModuleSubpageRoute;
+  CustomersAccountsRoute: typeof CustomersAccountsRoute;
+  CustomersContractsRoute: typeof CustomersContractsRoute;
+  FinanceInvoicesRoute: typeof FinanceInvoicesRoute;
+  FinancePaymentsRoute: typeof FinancePaymentsRoute;
+  FleetAssignmentsRoute: typeof FleetAssignmentsRoute;
+  FleetDriversRoute: typeof FleetDriversRoute;
+  FleetVehiclesRoute: typeof FleetVehiclesRoute;
+  ReportsDeliveryPerformanceRoute: typeof ReportsDeliveryPerformanceRoute;
+  ReportsFleetUtilizationRoute: typeof ReportsFleetUtilizationRoute;
+  ReportsRevenueByRouteRoute: typeof ReportsRevenueByRouteRoute;
+  RoutesCorridorsRoute: typeof RoutesCorridorsRoute;
+  RoutesPlanningRoute: typeof RoutesPlanningRoute;
+  SettingsIntegrationsRoute: typeof SettingsIntegrationsRoute;
+  SettingsOrganisationRoute: typeof SettingsOrganisationRoute;
+  TrackerLiveRoute: typeof TrackerLiveRoute;
+  TrackerPlaybackRoute: typeof TrackerPlaybackRoute;
+  WarehousesCapacityRoute: typeof WarehousesCapacityRoute;
+  WarehousesHubsRoute: typeof WarehousesHubsRoute;
+  FleetIndexRoute: typeof FleetIndexRoute;
+  ReportsIndexRoute: typeof ReportsIndexRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/shipments': {
-      id: '/shipments'
-      path: '/shipments'
-      fullPath: '/shipments'
-      preLoaderRoute: typeof ShipmentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports/': {
-      id: '/reports/'
-      path: '/reports'
-      fullPath: '/reports/'
-      preLoaderRoute: typeof ReportsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fleet/': {
-      id: '/fleet/'
-      path: '/fleet'
-      fullPath: '/fleet/'
-      preLoaderRoute: typeof FleetIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tracker/playback': {
-      id: '/tracker/playback'
-      path: '/tracker/playback'
-      fullPath: '/tracker/playback'
-      preLoaderRoute: typeof TrackerPlaybackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tracker/live': {
-      id: '/tracker/live'
-      path: '/tracker/live'
-      fullPath: '/tracker/live'
-      preLoaderRoute: typeof TrackerLiveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports/revenue-by-route': {
-      id: '/reports/revenue-by-route'
-      path: '/reports/revenue-by-route'
-      fullPath: '/reports/revenue-by-route'
-      preLoaderRoute: typeof ReportsRevenueByRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports/fleet-utilization': {
-      id: '/reports/fleet-utilization'
-      path: '/reports/fleet-utilization'
-      fullPath: '/reports/fleet-utilization'
-      preLoaderRoute: typeof ReportsFleetUtilizationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports/delivery-performance': {
-      id: '/reports/delivery-performance'
-      path: '/reports/delivery-performance'
-      fullPath: '/reports/delivery-performance'
-      preLoaderRoute: typeof ReportsDeliveryPerformanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fleet/vehicles': {
-      id: '/fleet/vehicles'
-      path: '/fleet/vehicles'
-      fullPath: '/fleet/vehicles'
-      preLoaderRoute: typeof FleetVehiclesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fleet/drivers': {
-      id: '/fleet/drivers'
-      path: '/fleet/drivers'
-      fullPath: '/fleet/drivers'
-      preLoaderRoute: typeof FleetDriversRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fleet/assignments': {
-      id: '/fleet/assignments'
-      path: '/fleet/assignments'
-      fullPath: '/fleet/assignments'
-      preLoaderRoute: typeof FleetAssignmentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$module/$subpage': {
-      id: '/$module/$subpage'
-      path: '/$module/$subpage'
-      fullPath: '/$module/$subpage'
-      preLoaderRoute: typeof ModuleSubpageRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+    "/shipments": {
+      id: "/shipments";
+      path: "/shipments";
+      fullPath: "/shipments";
+      preLoaderRoute: typeof ShipmentsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/analytics": {
+      id: "/analytics";
+      path: "/analytics";
+      fullPath: "/analytics";
+      preLoaderRoute: typeof AnalyticsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reports/": {
+      id: "/reports/";
+      path: "/reports";
+      fullPath: "/reports/";
+      preLoaderRoute: typeof ReportsIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/fleet/": {
+      id: "/fleet/";
+      path: "/fleet";
+      fullPath: "/fleet/";
+      preLoaderRoute: typeof FleetIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/warehouses/hubs": {
+      id: "/warehouses/hubs";
+      path: "/warehouses/hubs";
+      fullPath: "/warehouses/hubs";
+      preLoaderRoute: typeof WarehousesHubsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/warehouses/capacity": {
+      id: "/warehouses/capacity";
+      path: "/warehouses/capacity";
+      fullPath: "/warehouses/capacity";
+      preLoaderRoute: typeof WarehousesCapacityRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/tracker/playback": {
+      id: "/tracker/playback";
+      path: "/tracker/playback";
+      fullPath: "/tracker/playback";
+      preLoaderRoute: typeof TrackerPlaybackRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/tracker/live": {
+      id: "/tracker/live";
+      path: "/tracker/live";
+      fullPath: "/tracker/live";
+      preLoaderRoute: typeof TrackerLiveRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/settings/organisation": {
+      id: "/settings/organisation";
+      path: "/settings/organisation";
+      fullPath: "/settings/organisation";
+      preLoaderRoute: typeof SettingsOrganisationRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/settings/integrations": {
+      id: "/settings/integrations";
+      path: "/settings/integrations";
+      fullPath: "/settings/integrations";
+      preLoaderRoute: typeof SettingsIntegrationsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/routes/planning": {
+      id: "/routes/planning";
+      path: "/routes/planning";
+      fullPath: "/routes/planning";
+      preLoaderRoute: typeof RoutesPlanningRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/routes/corridors": {
+      id: "/routes/corridors";
+      path: "/routes/corridors";
+      fullPath: "/routes/corridors";
+      preLoaderRoute: typeof RoutesCorridorsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reports/revenue-by-route": {
+      id: "/reports/revenue-by-route";
+      path: "/reports/revenue-by-route";
+      fullPath: "/reports/revenue-by-route";
+      preLoaderRoute: typeof ReportsRevenueByRouteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reports/fleet-utilization": {
+      id: "/reports/fleet-utilization";
+      path: "/reports/fleet-utilization";
+      fullPath: "/reports/fleet-utilization";
+      preLoaderRoute: typeof ReportsFleetUtilizationRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reports/delivery-performance": {
+      id: "/reports/delivery-performance";
+      path: "/reports/delivery-performance";
+      fullPath: "/reports/delivery-performance";
+      preLoaderRoute: typeof ReportsDeliveryPerformanceRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/fleet/vehicles": {
+      id: "/fleet/vehicles";
+      path: "/fleet/vehicles";
+      fullPath: "/fleet/vehicles";
+      preLoaderRoute: typeof FleetVehiclesRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/fleet/drivers": {
+      id: "/fleet/drivers";
+      path: "/fleet/drivers";
+      fullPath: "/fleet/drivers";
+      preLoaderRoute: typeof FleetDriversRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/fleet/assignments": {
+      id: "/fleet/assignments";
+      path: "/fleet/assignments";
+      fullPath: "/fleet/assignments";
+      preLoaderRoute: typeof FleetAssignmentsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/finance/payments": {
+      id: "/finance/payments";
+      path: "/finance/payments";
+      fullPath: "/finance/payments";
+      preLoaderRoute: typeof FinancePaymentsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/finance/invoices": {
+      id: "/finance/invoices";
+      path: "/finance/invoices";
+      fullPath: "/finance/invoices";
+      preLoaderRoute: typeof FinanceInvoicesRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/customers/contracts": {
+      id: "/customers/contracts";
+      path: "/customers/contracts";
+      fullPath: "/customers/contracts";
+      preLoaderRoute: typeof CustomersContractsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/customers/accounts": {
+      id: "/customers/accounts";
+      path: "/customers/accounts";
+      fullPath: "/customers/accounts";
+      preLoaderRoute: typeof CustomersAccountsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/$module/$subpage": {
+      id: "/$module/$subpage";
+      path: "/$module/$subpage";
+      fullPath: "/$module/$subpage";
+      preLoaderRoute: typeof ModuleSubpageRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
@@ -321,17 +521,27 @@ const rootRouteChildren: RootRouteChildren = {
   AnalyticsRoute: AnalyticsRoute,
   ShipmentsRoute: ShipmentsRoute,
   ModuleSubpageRoute: ModuleSubpageRoute,
+  CustomersAccountsRoute: CustomersAccountsRoute,
+  CustomersContractsRoute: CustomersContractsRoute,
+  FinanceInvoicesRoute: FinanceInvoicesRoute,
+  FinancePaymentsRoute: FinancePaymentsRoute,
   FleetAssignmentsRoute: FleetAssignmentsRoute,
   FleetDriversRoute: FleetDriversRoute,
   FleetVehiclesRoute: FleetVehiclesRoute,
   ReportsDeliveryPerformanceRoute: ReportsDeliveryPerformanceRoute,
   ReportsFleetUtilizationRoute: ReportsFleetUtilizationRoute,
   ReportsRevenueByRouteRoute: ReportsRevenueByRouteRoute,
+  RoutesCorridorsRoute: RoutesCorridorsRoute,
+  RoutesPlanningRoute: RoutesPlanningRoute,
+  SettingsIntegrationsRoute: SettingsIntegrationsRoute,
+  SettingsOrganisationRoute: SettingsOrganisationRoute,
   TrackerLiveRoute: TrackerLiveRoute,
   TrackerPlaybackRoute: TrackerPlaybackRoute,
+  WarehousesCapacityRoute: WarehousesCapacityRoute,
+  WarehousesHubsRoute: WarehousesHubsRoute,
   FleetIndexRoute: FleetIndexRoute,
   ReportsIndexRoute: ReportsIndexRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();

@@ -1,7 +1,7 @@
 {
   "common": {
     "comingSoon": "Coming soon",
-    "comingSoonDescription": "This module is planned for a future release. Explore Overview, Analytics, Reports, Shipments, and Fleet in the meantime.",
+    "comingSoonDescription": "This page is not available yet. Explore Overview, Analytics, Reports, Shipments, Fleet, and the other modules in the sidebar.",
     "backToOverview": "Back to Overview",
     "europeanOperations": "European operations",
     "lastUpdated": "Last updated",
@@ -365,6 +365,200 @@
       "active": "Active",
       "completed": "Completed",
       "cancelled": "Cancelled"
+    }
+  },
+  "customers": {
+    "title": "Customers",
+    "accounts": {
+      "title": "Accounts",
+      "subtitle": "B2B customer accounts across EU member states"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "subtitle": "Service contracts, SLAs, and billing terms"
+    },
+    "columns": {
+      "id": "ID",
+      "name": "Account",
+      "city": "City",
+      "country": "Country",
+      "region": "Region",
+      "tier": "Tier",
+      "vat": "VAT number",
+      "shipments": "Shipments",
+      "sla": "SLA",
+      "billing": "Billing",
+      "corridors": "Corridors",
+      "startDate": "Start",
+      "endDate": "End"
+    },
+    "tiers": {
+      "standard": "Standard",
+      "premium": "Premium",
+      "enterprise": "Enterprise"
+    },
+    "billingCycles": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annual": "Annual"
+    }
+  },
+  "routes": {
+    "title": "Routes",
+    "corridors": {
+      "title": "Corridors",
+      "subtitle": "Cross-border corridor catalogue and performance metrics"
+    },
+    "planning": {
+      "title": "Planning",
+      "subtitle": "Route optimisation and hub-to-hub scheduling"
+    },
+    "columns": {
+      "id": "ID",
+      "label": "Corridor",
+      "origin": "Origin",
+      "destination": "Destination",
+      "distance": "Distance",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "departure": "Departure",
+      "status": "Status"
+    },
+    "planStatuses": {
+      "scheduled": "Scheduled",
+      "in_progress": "In progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "warehouses": {
+    "title": "Warehouses",
+    "hubs": {
+      "title": "Hubs",
+      "subtitle": "EU distribution hub registry and throughput"
+    },
+    "capacity": {
+      "title": "Capacity",
+      "subtitle": "Storage capacity and utilisation by region"
+    },
+    "columns": {
+      "id": "Hub ID",
+      "city": "City",
+      "country": "Country",
+      "region": "Region",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
+    "summary": {
+      "totalSlots": "Total slots",
+      "totalSlotsDescription": "Combined storage capacity across all EU hubs",
+      "usedSlots": "Used slots",
+      "usedSlotsDescription": "Storage slots currently occupied",
+      "avgUtilization": "Avg utilisation",
+      "avgUtilizationDescription": "Mean storage utilisation across the network",
+      "hubCount": "Hubs monitored",
+      "hubCountDescription": "Distribution hubs included in capacity tracking"
+    },
+    "charts": {
+      "utilizationByHub": "Utilisation by hub",
+      "utilizationByHubDescription": "Storage utilisation percentage per EU hub"
+    },
+    "lists": {
+      "capacityRankings": {
+        "title": "Hub utilisation rankings",
+        "description": "Hubs ranked by storage utilisation percentage"
+      }
+    }
+  },
+  "finance": {
+    "title": "Finance",
+    "invoices": {
+      "title": "Invoices",
+      "subtitle": "Outbound invoices and payment status in EUR"
+    },
+    "payments": {
+      "title": "Payments",
+      "subtitle": "Settlement tracking and margin reconciliation"
+    },
+    "columns": {
+      "id": "ID",
+      "customer": "Customer",
+      "shipment": "Shipment",
+      "invoice": "Invoice",
+      "amount": "Amount",
+      "issued": "Issued",
+      "status": "Status",
+      "reference": "Reference",
+      "method": "Method",
+      "paidAt": "Paid at"
+    },
+    "invoiceStatuses": {
+      "draft": "Draft",
+      "sent": "Sent",
+      "paid": "Paid",
+      "overdue": "Overdue"
+    },
+    "paymentMethods": {
+      "bank_transfer": "Bank transfer",
+      "sepa": "SEPA",
+      "card": "Card"
+    },
+    "summary": {
+      "outstanding": "Outstanding",
+      "outstandingDescription": "Total value of unpaid sent and overdue invoices",
+      "paidMtd": "Paid (MTD)",
+      "paidMtdDescription": "Invoice value settled month-to-date",
+      "overdue": "Overdue invoices",
+      "overdueDescription": "Invoices past the payment due window",
+      "settled": "Settled",
+      "settledDescription": "Invoices marked as paid",
+      "pending": "Pending",
+      "pendingDescription": "Invoices awaiting payment"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "organisation": {
+      "title": "Organisation",
+      "subtitle": "Company profile, depots, and regional defaults",
+      "profile": {
+        "title": "Company profile",
+        "description": "Legal entity and locale defaults"
+      },
+      "regional": {
+        "title": "Regional defaults",
+        "description": "Currency and operating region configuration"
+      },
+      "depots": {
+        "title": "Depot hubs",
+        "description": "Primary distribution hubs for fleet operations"
+      },
+      "fields": {
+        "companyName": "Company name",
+        "locale": "Locale",
+        "defaultCurrency": "Default currency",
+        "defaultRegion": "Default region",
+        "depotHubs": "Depot hubs"
+      }
+    },
+    "integrations": {
+      "title": "Integrations",
+      "subtitle": "ERP, telematics, and carrier API connections",
+      "neverSynced": "Never synced",
+      "list": {
+        "title": "Connected systems",
+        "description": "External integrations and last sync status"
+      }
+    },
+    "integrationTypes": {
+      "erp": "ERP",
+      "telematics": "Telematics",
+      "carrier": "Carrier API"
+    },
+    "integrationStatuses": {
+      "connected": "Connected",
+      "error": "Error",
+      "pending": "Pending"
     }
   }
 }

@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ComingSoonPage } from "@/shared/coming-soon";
-import { isComingSoonModule } from "@/config/menu-items";
 
 function ComingSoonSubpageRoute() {
   const { module, subpage } = Route.useParams();
-  const moduleKey = isComingSoonModule(module) ? module : "tracker";
 
   return (
     <ComingSoonPage
-      moduleKey={moduleKey}
+      moduleKey={module}
       subpageKey={subpage}
-      parentNavKey={moduleKey}
+      parentNavKey={module}
     />
   );
 }
