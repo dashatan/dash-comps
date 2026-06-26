@@ -16,9 +16,7 @@ import { DirectionalChevron } from "@dash/ui/layout/dashboard/direction/directio
 import { useDashboardDirection } from "@dash/ui/layout/dashboard/direction/use-dashboard-direction";
 import { getSidebarPopoverSide } from "@dash/ui/layout/dashboard/direction/rotation";
 
-interface CollapsedMenuItemProps extends MenuItem {
-  onClick?: (item: MenuItem) => void;
-}
+type CollapsedMenuItemProps = MenuItem;
 
 const useHoverState = (hasChildren: boolean) => {
   const [hover, setHover] = useState(false);
@@ -92,7 +90,7 @@ export default function CollapsedMenuItem(props: CollapsedMenuItemProps) {
               variant="flyout"
               open={open}
               size={18}
-              className="absolute -end-4 top-1/2 -translate-y-1/2 fill-current text-sidebar-icon"
+              className="absolute -inset-e-4 top-1/2 -translate-y-1/2 fill-current text-sidebar-icon"
             />
           )}
           <DashboardLink
