@@ -1,5 +1,16 @@
 import { Event } from '@/components/compound/tracker-legacy/types'
 import { Coordinate, LngLat, BearingCalculator, EventFilter, CoordinateTransformer } from '@/components/compound/tracker-legacy/map/types'
+import { PERSIAN_LOCALE, type Language } from '@/lib'
+
+const INTL_LOCALES: Record<Language, string> = {
+  en: 'en-GB',
+  fa: PERSIAN_LOCALE,
+  ar: 'ar',
+}
+
+export function getIntlLocale(language: Language): string {
+  return INTL_LOCALES[language] ?? INTL_LOCALES.en
+}
 
 export function makeOsrmCoordString(events?: Event[]) {
   if (!events?.length) return
@@ -28,11 +39,11 @@ export function makeOsrmCoordString(events?: Event[]) {
 export function mapEventsToOsrmIndices(events: Event[], osrmRoute: [number, number][]) {
   if (!osrmRoute.length || !events.length) return []
   const osrmIndices: number[] = []
-  let lastMinIndex = 0 // Keep track of the last found index to ensure forward progression
+  let lastMinIndex = 0
 
   events.forEach((event) => {
     let minDist = Infinity
-    let minIndex = lastMinIndex // Start search from the last found index
+    let minIndex = lastMinIndex
 
     for (let i = lastMinIndex; i < osrmRoute.length; i++) {
       const d = Math.hypot(event.latlng[0] - osrmRoute[i][0], event.latlng[1] - osrmRoute[i][1])
@@ -42,7 +53,7 @@ export function mapEventsToOsrmIndices(events: Event[], osrmRoute: [number, numb
       }
     }
     osrmIndices.push(minIndex)
-    lastMinIndex = minIndex // Update lastMinIndex for the next event
+    lastMinIndex = minIndex
   })
   return osrmIndices
 }

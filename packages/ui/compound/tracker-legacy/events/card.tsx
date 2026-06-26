@@ -2,7 +2,8 @@ import Button from "@/components/common/buttons";
 import { Collapsible, CollapsibleContent } from "@/components/common/collapsible";
 import ObserveImageModal from "@/features/observe-details/components/tracker/image";
 import { Event } from "@/components/compound/tracker-legacy/types";
-import { cn, PERSIAN_LOCALE, useLanguage } from "@/lib";
+import { cn, useLanguage } from "@/lib";
+import { getIntlLocale } from "@/components/compound/tracker-legacy/utils";
 import { ArrowUpLeft, ChevronDown } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -23,7 +24,8 @@ export default function EventCard({
   onClick,
   onToggle,
 }: EventCardProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const dateLocale = getIntlLocale(language);
 
   const info: { title?: string; className?: string; value: ReactNode }[] = [
     { title: t("common.province"), value: <span>{event.province}</span> },
@@ -88,12 +90,12 @@ export default function EventCard({
             {!event.miss && (
               <div className="dir-ltr flex items-center justify-center gap-2">
                 <span>
-                  {Intl.DateTimeFormat(PERSIAN_LOCALE, { dateStyle: "short" }).format(
+                  {Intl.DateTimeFormat(dateLocale, { dateStyle: "short" }).format(
                     event.time,
                   )}{" "}
                 </span>
                 <span>
-                  {Intl.DateTimeFormat(PERSIAN_LOCALE, { timeStyle: "medium" }).format(
+                  {Intl.DateTimeFormat(dateLocale, { timeStyle: "medium" }).format(
                     event.time,
                   )}
                 </span>

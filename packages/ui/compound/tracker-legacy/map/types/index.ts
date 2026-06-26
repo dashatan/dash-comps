@@ -7,13 +7,13 @@ import { Event } from '../../types'
 
 // === Map Reference Types ===
 export interface MapRefs {
-  mapContainerRef: React.RefObject<HTMLDivElement>
+  mapContainerRef: React.RefObject<HTMLDivElement | null>
   mapRef: React.RefObject<mapLibreGl.Map | null>
-  markerRefs: React.MutableRefObject<mapLibreGl.Marker[]>
-  movingMarkerRef: React.MutableRefObject<mapLibreGl.Marker | null>
-  arrowAnimFrameRef: React.MutableRefObject<number | null>
-  prevActiveEventIndex: React.MutableRefObject<number>
-  lastArrowAngleRef: React.MutableRefObject<number>
+  markerRefs: React.RefObject<mapLibreGl.Marker[]>
+  movingMarkerRef: React.RefObject<mapLibreGl.Marker | null>
+  arrowAnimFrameRef: React.RefObject<number | null>
+  prevActiveEventIndex: React.RefObject<number>
+  lastArrowAngleRef: React.RefObject<number>
 }
 
 // === Coordinate Types ===
@@ -30,8 +30,8 @@ export interface AnimationParams {
 export interface ArrowAnimationParams extends AnimationParams {
   marker: mapLibreGl.Marker
   element: HTMLDivElement
-  arrowAnimFrameRef: React.MutableRefObject<number | null>
-  lastArrowAngleRef: React.MutableRefObject<number>
+  arrowAnimFrameRef: React.RefObject<number | null>
+  lastArrowAngleRef: React.RefObject<number>
 }
 
 // === Tooltip Types ===

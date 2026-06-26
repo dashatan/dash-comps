@@ -3,20 +3,23 @@
  * Centralized configuration for map styling and behavior
  */
 
+import { SIDEBAR_WIDTH } from "../../types";
+
 // === Map Styling Constants ===
 export const MAP_STYLES = {
   ROUTE_BASE_COLOR_VAR: "--color-primary",
-  ROUTE_PASSED_COLOR_VAR: "--color-foreground",
+  ROUTE_PASSED_COLOR_VAR: "--color-success",
   LINE_WIDTH: 4,
+  PASSED_LINE_WIDTH: 5,
   CIRCLE_POINT_SIZE: 17,
   CIRCLE_POINT_BORDER: 2,
 } as const;
 
 // === Map Configuration ===
 export const MAP_CONFIG = {
-  CENTER_COORD: [48.8566, 2.3522] as [number, number],
+  CENTER_COORD: [50.5, 7.5] as [number, number],
   MAX_PITCH: 80,
-  DEFAULT_ZOOM: 7,
+  DEFAULT_ZOOM: 5,
   DETAIL_ZOOM: 15,
   MAX_ZOOM: 18,
   RENDER_WORLD_COPIES: false,
@@ -34,9 +37,9 @@ export const ANIMATION_CONFIG = {
 
 // === Padding Configuration ===
 export const MAP_PADDING = {
-  left: 300,
+  left: SIDEBAR_WIDTH + 48,
   top: 40,
-  right: 40,
+  right: 48,
   bottom: 40,
 } as const;
 

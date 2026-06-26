@@ -20,13 +20,18 @@ export class TooltipService {
   /**
    * Generate tooltip content using ReactDOMServer and return as HTML string
    */
-  public generateTooltipContent(event: Event, events: Event[], t: Translation): string {
-    // Render the React component to HTML string synchronously
+  public generateTooltipContent(
+    event: Event,
+    events: Event[],
+    t: Translation,
+    locale: string,
+  ): string {
     const htmlString = renderToString(
       React.createElement(TooltipContent, {
         event: event,
         events: events,
         t: t,
+        locale: locale,
       })
     )
 
@@ -36,7 +41,12 @@ export class TooltipService {
   /**
    * Create a tooltip content generator function for a specific event
    */
-  public createTooltipGenerator(event: Event, events: Event[], t: Translation): () => string {
-    return () => this.generateTooltipContent(event, events, t)
+  public createTooltipGenerator(
+    event: Event,
+    events: Event[],
+    t: Translation,
+    locale: string,
+  ): () => string {
+    return () => this.generateTooltipContent(event, events, t, locale)
   }
 }

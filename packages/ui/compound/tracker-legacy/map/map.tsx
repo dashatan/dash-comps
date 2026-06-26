@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { Loader2 } from "lucide-react";
 import { useTrackerStore } from "../store";
 import { useLanguage } from "@/lib";
+import { calculateBearing, getIntlLocale } from "../utils";
 import {
   MapInitializer,
   RouteDrawer,
@@ -13,11 +14,11 @@ import {
   ANIMATION_CONFIG,
   useMapState,
 } from "./index";
-import { calculateBearing } from "../utils";
 
 export default function ObservesTrackerMap() {
   const { resolvedTheme } = useTheme();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const dateLocale = getIntlLocale(language);
 
   const events = useTrackerStore((state) => state.events);
   const routeCoords = useTrackerStore((state) => state.routeCoords);
@@ -51,9 +52,7 @@ export default function ObservesTrackerMap() {
   useEffect(() => {
     mapInitializer.initializeRTLSupport();
 
-    if (!tilesConfigured) {
-      return;
-    }
+    if (!tilesConfigured) return;
 
     const theme = resolvedTheme === "dark" ? "dark" : "light";
     let map = mapRef.current;
@@ -62,31 +61,44 @@ export default function ObservesTrackerMap() {
       mapInitializer.updateMapStyle(map, theme, () => handleMapReady(true));
     } else if (mapContainerRef.current) {
       try {
-        map = mapInitializer.createMap(mapContainerRef.current, theme, () => handleMapReady());
+        map = mapInitializer.createMap(mapContainerRef.current, theme, () =>
+          handleMapReady(),
+        );
         mapRef.current = map;
       } catch (error) {
         console.warn("Failed to create map:", error);
       }
     }
-  }, [resolvedTheme, mapTiles.light, mapTiles.dark]);
+  }, [resolvedTheme, mapTiles.light, mapTiles.dark, tilesConfigured]);
 
   useEffect(() => {
     handleMapReady();
-  }, [events, routeCoords, eventOsrmIndices, activeEventIndex]);
+  }, [events, routeCoords, eventOsrmIndices]);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !routeCoords.length || !eventOsrmIndices.length) return;
-    if (prevActiveEventIndex.current === activeEventIndex) return;
+    if (!map || !events.length || routeCoords.length <= 1) return;
 
+    routeDrawer.updateEventMarkers(
+      {
+        map,
+        events,
+        routeCoords,
+        eventOsrmIndices,
+        activeEventIndex,
+      },
+      markerRefs,
+      (index) => setActiveEventIndex(index),
+      () => t,
+      dateLocale,
+    );
+  }, [activeEventIndex, events, routeCoords, eventOsrmIndices, t, dateLocale]);
+
+  useEffect(() => {
     handleRouteAnimation();
   }, [routeCoords, eventOsrmIndices, activeEventIndex, playSpeed]);
 
   useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !events.length || !eventOsrmIndices.length || !routeCoords.length) return;
-    if (prevActiveEventIndex.current === activeEventIndex) return;
-
     handleArrowAnimation();
     prevActiveEventIndex.current = activeEventIndex;
 
@@ -96,40 +108,28 @@ export default function ObservesTrackerMap() {
     };
   }, [activeEventIndex, playSpeed, eventOsrmIndices, routeCoords, events]);
 
-  const handleMapReady = (force?: boolean) => {
+  function handleMapReady(force?: boolean) {
     const map = mapRef.current;
     if (!map || !events.length) return;
 
-    const context = {
-      map,
-      events,
-      routeCoords,
-      eventOsrmIndices,
-      activeEventIndex,
-    };
-
     routeDrawer.drawRouteAndMarkers(
-      context,
-      markerRefs,
-      (index) => {
-        setActiveEventIndex(index);
+      {
+        map,
+        events,
+        routeCoords,
+        eventOsrmIndices,
+        activeEventIndex,
       },
+      markerRefs,
+      (index) => setActiveEventIndex(index),
       () => t,
+      dateLocale,
       autoPaneMap,
       force,
     );
+  }
 
-    const toRouteIndex = eventOsrmIndices[activeEventIndex] ?? 0;
-    if (toRouteIndex >= 0) {
-      routeDrawer.updatePassedRoute(
-        map,
-        routeCoords,
-        routeCoords.slice(0, toRouteIndex + 1),
-      );
-    }
-  };
-
-  const handleRouteAnimation = () => {
+  function handleRouteAnimation() {
     const map = mapRef.current;
     if (!map || !routeCoords.length || !eventOsrmIndices.length) return;
 
@@ -138,9 +138,9 @@ export default function ObservesTrackerMap() {
       toIndex: activeEventIndex,
       duration: playSpeed,
     });
-  };
+  }
 
-  const handleArrowAnimation = () => {
+  function handleArrowAnimation() {
     const map = mapRef.current;
     if (!map || !events.length || !eventOsrmIndices.length || !routeCoords.length) return;
 
@@ -157,7 +157,9 @@ export default function ObservesTrackerMap() {
     if (!fromCoord || !toCoord) return;
 
     const initialAngle =
-      fromRouteIndex !== toRouteIndex ? calculateBearing(fromCoord, toCoord) : lastArrowAngleRef.current;
+      fromRouteIndex !== toRouteIndex
+        ? calculateBearing(fromCoord, toCoord)
+        : lastArrowAngleRef.current;
 
     if (fromRouteIndex !== toRouteIndex) {
       lastArrowAngleRef.current = initialAngle;
@@ -173,13 +175,18 @@ export default function ObservesTrackerMap() {
       ANIMATION_CONFIG.ARROW_OFFSET_RATIO,
     );
 
-    const tooltipGenerator = tooltipService.createTooltipGenerator(events[nextIndex], events, t);
-    markerManager.attachTooltip(element, tooltipGenerator, map);
+    const tooltipGenerator = tooltipService.createTooltipGenerator(
+      events[nextIndex],
+      events,
+      t,
+      dateLocale,
+    );
+    markerManager.attachTooltip(element, tooltipGenerator, mapRef.current ?? undefined);
 
     movingMarkerRef.current = marker;
 
     if (fromRouteIndex !== toRouteIndex) {
-      animationService.animateArrowMarker(routeCoords, eventOsrmIndices, {
+      animationService.animateArrowMarker(routeCoords, {
         marker,
         element,
         fromIndex: fromRouteIndex,
@@ -189,7 +196,7 @@ export default function ObservesTrackerMap() {
         lastArrowAngleRef,
       });
     }
-  };
+  }
 
   return (
     <div

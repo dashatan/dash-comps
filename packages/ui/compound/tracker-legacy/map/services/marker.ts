@@ -141,6 +141,8 @@ export class MarkerManager {
 
     const el = document.createElement('div')
     el.innerHTML = htmlString
+    el.style.cursor = 'pointer'
+    el.style.pointerEvents = 'auto'
     return el
   }
 
@@ -157,7 +159,7 @@ export class MarkerManager {
 
     const el = document.createElement('div')
     el.innerHTML = htmlString
-    el.style.pointerEvents = 'auto'
+    el.style.pointerEvents = 'none'
     el.style.zIndex = config.zIndex.toString()
 
     return el
@@ -182,8 +184,11 @@ export class MarkerManager {
       // Attach tooltip
       this.attachTooltip(markerEl, () => getTooltipContent(event))
 
-      // Add click handler
-      markerEl.addEventListener('click', () => onEventClick(index))
+      // Add click handler (select event + move arrow)
+      markerEl.addEventListener('click', (e) => {
+        e.stopPropagation()
+        onEventClick(index)
+      })
 
       // Create and add marker
       const marker = new mapLibreGl.Marker({

@@ -1,22 +1,24 @@
 import React from 'react'
 import { Event } from '../../types'
-import { Translation, PERSIAN_LOCALE } from '@/lib'
+import { Translation } from '@/lib'
 
 interface TooltipContentProps {
   event: Event
   events: Event[]
   t: Translation
+  locale: string
 }
 
 interface DeviceEventItemProps {
   event: Event
   index: number
   showIndex: boolean
+  locale: string
 }
 
-const DeviceEventItem: React.FC<DeviceEventItemProps> = ({ event, index, showIndex }) => {
+const DeviceEventItem: React.FC<DeviceEventItemProps> = ({ event, index, showIndex, locale }) => {
   const formatEventDate = (timestamp: number): string => {
-    return Intl.DateTimeFormat(PERSIAN_LOCALE, {
+    return Intl.DateTimeFormat(locale, {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -36,7 +38,7 @@ const DeviceEventItem: React.FC<DeviceEventItemProps> = ({ event, index, showInd
   )
 }
 
-export const TooltipContent: React.FC<TooltipContentProps> = ({ event, events, t }) => {
+export const TooltipContent: React.FC<TooltipContentProps> = ({ event, events, locale }) => {
   const deviceEvents = events.filter((e) => e.deviceId === event.deviceId)
 
   const showIndex = deviceEvents.length > 1
@@ -56,7 +58,13 @@ export const TooltipContent: React.FC<TooltipContentProps> = ({ event, events, t
       </div>
       <div className='flex max-h-72 flex-col gap-2 overflow-y-auto' style={{ whiteSpace: 'nowrap' }}>
         {deviceEvents.map((e, index) => (
-          <DeviceEventItem key={`${e.deviceId}-${e.time}-${index}`} event={e} index={index} showIndex={showIndex} />
+          <DeviceEventItem
+            key={`${e.deviceId}-${e.time}-${index}`}
+            event={e}
+            index={index}
+            showIndex={showIndex}
+            locale={locale}
+          />
         ))}
       </div>
     </div>

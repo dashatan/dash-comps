@@ -123,15 +123,15 @@ export default function Tracker({
 
   return (
     <div ref={containerRef} className={cn("flex h-full min-h-0 w-full", className)}>
-      <div className="relative min-h-0 min-w-0 flex-1">
-        {tilesReady ? <ObservesTrackerMap /> : null}
-      </div>
       <div className="h-full shrink-0 overflow-hidden" style={{ width: SIDEBAR_WIDTH }}>
         <EventsPanel
           isLoading={isLoading}
           noData={noData}
           containerHeight={containerHeight}
         />
+      </div>
+      <div className="relative min-h-0 min-w-0 flex-1">
+        {tilesReady ? <ObservesTrackerMap /> : null}
       </div>
     </div>
   );

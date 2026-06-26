@@ -8,7 +8,8 @@ import { Select } from "@/components/common/inputs/select";
 import EventCard from "@/components/compound/tracker-legacy/events/card";
 import { type Event, playSpeedOptions } from "@/components/compound/tracker-legacy/types";
 import { useTrackerStore } from "@/components/compound/tracker-legacy/store";
-import { cn, PERSIAN_LOCALE, useLanguage } from "@/lib";
+import { cn, useLanguage } from "@/lib";
+import { getIntlLocale } from "@/components/compound/tracker-legacy/utils";
 import { DivProps } from "@/lib/types";
 import {
   AlertTriangle,
@@ -37,7 +38,7 @@ export default function EventsPanel({
   noData,
   containerHeight = 0,
 }: EventsPanelProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const virtuoso = useRef<VirtuosoHandle>(null);
   const [openCardIndex, setOpenCardIndex] = useState<number | null>(null);
   const [open, setOpen] = useState(true);
@@ -51,20 +52,22 @@ export default function EventsPanel({
   const setActiveEventIndex = useTrackerStore((state) => state.setActiveEventIndex);
   const incrementActiveEventIndex = useTrackerStore((state) => state.incrementActiveEventIndex);
   const decrementActiveEventIndex = useTrackerStore((state) => state.decrementActiveEventIndex);
+  const dateLocale = getIntlLocale(language);
 
   useEffect(() => {
     if (!play) return;
 
-    const playInterval = setInterval(() => {
-      if (activeEventIndex >= events.length - 1) {
-        setPlay(false);
+    const playInterval = window.setInterval(() => {
+      const state = useTrackerStore.getState();
+      if (state.activeEventIndex >= state.events.length - 1) {
+        state.setPlay(false);
         return;
       }
-      incrementActiveEventIndex();
+      state.incrementActiveEventIndex();
     }, playSpeed);
 
-    return () => clearInterval(playInterval);
-  }, [play, playSpeed, activeEventIndex, events.length, setPlay, incrementActiveEventIndex]);
+    return () => window.clearInterval(playInterval);
+  }, [play, playSpeed, events.length]);
 
   useEffect(() => {
     if (virtuoso.current && activeEventIndex >= 0 && activeEventIndex < events.length) {
@@ -172,14 +175,14 @@ export default function EventsPanel({
                   const isOpen = openCardIndex === index;
 
                   const getDateString = (e: Event) =>
-                    Intl.DateTimeFormat(PERSIAN_LOCALE, {
+                    Intl.DateTimeFormat(dateLocale, {
                       year: "numeric",
                       month: "2-digit",
                       day: "2-digit",
                     }).format(e.time);
 
                   const getWeekDay = (e: Event) =>
-                    Intl.DateTimeFormat(PERSIAN_LOCALE, {
+                    Intl.DateTimeFormat(dateLocale, {
                       weekday: "long",
                     }).format(e.time);
 

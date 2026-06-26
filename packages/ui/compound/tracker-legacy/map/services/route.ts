@@ -4,7 +4,7 @@ import { Coordinate, DrawingContext } from '../types'
 import { getValidEvents, coordinateToLngLat } from '../../utils'
 import { MarkerManager } from './marker'
 import { TooltipService } from './tooltip'
-import { deviceType, getHexColor } from '@/lib'
+import { deviceType, getHexColor, type Translation } from '@/lib'
 
 /**
  * Route drawing and map visualization service
@@ -33,7 +33,8 @@ export class RouteDrawer {
     context: DrawingContext,
     markerRefs: React.RefObject<mapLibreGl.Marker[]>,
     onEventClick: (index: number) => void,
-    getTranslation: () => any,
+    getTranslation: () => Translation,
+    locale: string,
     autoPaneMap: boolean,
     force?: boolean
   ): void {
@@ -56,7 +57,7 @@ export class RouteDrawer {
     const t = getTranslation()
 
     const markers = this.markerManager.createMarkersForEvents(map, validEvents, activeEventIndex, onEventClick, (event) =>
-      this.tooltipService.generateTooltipContent(event, events, t)
+      this.tooltipService.generateTooltipContent(event, events, t, locale)
     )
 
     ;(markerRefs as { current: mapLibreGl.Marker[] }).current = markers
@@ -65,6 +66,35 @@ export class RouteDrawer {
     if (autoPaneMap) {
       this.adjustMapView(map, routeCoords)
     }
+  }
+
+  /**
+   * Refresh event markers when the active index changes (without redrawing the route).
+   */
+  public updateEventMarkers(
+    context: DrawingContext,
+    markerRefs: React.RefObject<mapLibreGl.Marker[]>,
+    onEventClick: (index: number) => void,
+    getTranslation: () => Translation,
+    locale: string,
+  ): void {
+    const { map, events, activeEventIndex } = context
+
+    if (!map || !events?.length || !map.isStyleLoaded()) return
+
+    this.markerManager.removeMarkers(markerRefs.current)
+
+    const validEvents = getValidEvents(events)
+    const t = getTranslation()
+    const markers = this.markerManager.createMarkersForEvents(
+      map,
+      validEvents,
+      activeEventIndex,
+      onEventClick,
+      (event) => this.tooltipService.generateTooltipContent(event, events, t, locale),
+    )
+
+    ;(markerRefs as { current: mapLibreGl.Marker[] }).current = markers
   }
 
   /**
@@ -130,7 +160,7 @@ export class RouteDrawer {
           source: SOURCE_IDS.PASSED_ROUTE,
           paint: {
             'line-color': passedRouteColor,
-            'line-width': MAP_STYLES.LINE_WIDTH,
+            'line-width': MAP_STYLES.PASSED_LINE_WIDTH,
           },
         },
         firstSymbolLayerId
